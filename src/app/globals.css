@@ -1,0 +1,781 @@
+@import "tailwindcss";
+
+/* Dark theme (default) */
+:root {
+  --bg-dark: #0d1117;
+  --bg-card: #161b22;
+  --bg-card-hover: #21262d;
+  --border: #30363d;
+
+  --primary: #0066ff;
+  --primary-dark: #0052cc;
+  --cyan: #39d2c0;
+
+  --green: #3fb950;
+  --orange: #f0883e;
+  --purple: #a371f7;
+
+  --text-primary: #ffffff;
+  --text-secondary: #8b949e;
+  --text-tertiary: #6e7681;
+
+  --glow-blue: rgba(0, 102, 255, 0.06);
+  --glow-purple: rgba(163, 113, 247, 0.05);
+  --glow-green: rgba(63, 185, 80, 0.04);
+  --glow-orange: rgba(240, 136, 62, 0.04);
+
+  --noise-opacity: 0.025;
+  --grid-line: rgba(255, 255, 255, 0.02);
+  --selection-bg: rgba(0, 102, 255, 0.3);
+  --selection-fg: white;
+  --card-shadow: 0 0 20px rgba(0, 102, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.3);
+  --scrollbar-track: #0d1117;
+  --scrollbar-thumb: #30363d;
+
+  /* Subtle overlays for backgrounds */
+  --bg-subtle: rgba(255, 255, 255, 0.02);
+  --bg-subtle-hover: rgba(255, 255, 255, 0.04);
+  --bg-subtle-strong: rgba(255, 255, 255, 0.06);
+}
+
+/* Light theme */
+[data-theme="light"] {
+  --bg-dark: #ffffff;
+  --bg-card: #f6f8fa;
+  --bg-card-hover: #eaeef2;
+  --border: #d0d7de;
+
+  --primary: #0550ae;
+  --primary-dark: #033d8b;
+  --cyan: #1a7f72;
+
+  --green: #1a7f37;
+  --orange: #bc4c00;
+  --purple: #8250df;
+
+  --text-primary: #1f2328;
+  --text-secondary: #656d76;
+  --text-tertiary: #8b949e;
+
+  --glow-blue: rgba(0, 102, 255, 0.04);
+  --glow-purple: rgba(130, 80, 223, 0.03);
+  --glow-green: rgba(26, 127, 55, 0.03);
+  --glow-orange: rgba(188, 76, 0, 0.03);
+
+  --noise-opacity: 0.015;
+  --grid-line: rgba(0, 0, 0, 0.03);
+  --selection-bg: rgba(5, 80, 174, 0.2);
+  --selection-fg: #1f2328;
+  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(0, 0, 0, 0.06);
+  --scrollbar-track: #f6f8fa;
+  --scrollbar-thumb: #d0d7de;
+
+  --bg-subtle: rgba(0, 0, 0, 0.03);
+  --bg-subtle-hover: rgba(0, 0, 0, 0.05);
+  --bg-subtle-strong: rgba(0, 0, 0, 0.07);
+}
+
+@layer base {
+  html {
+    height: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    height: 100%;
+    background-color: var(--bg-dark);
+    color: var(--text-primary);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  /* Font utilities - optimized for Chinese + Latin */
+  .font-primary {
+    font-family:
+      var(--font-inter),
+      -apple-system,
+      BlinkMacSystemFont,
+      "Segoe UI",
+      Roboto,
+      "PingFang SC",
+      "Hiragino Sans GB",
+      "Microsoft YaHei",
+      "Source Han Sans SC",
+      "Noto Sans SC",
+      sans-serif;
+  }
+
+  .font-mono {
+    font-family: "JetBrains Mono", "Fira Code", "SF Mono", monospace;
+  }
+
+  /* Selection color */
+  ::selection {
+    background-color: var(--selection-bg);
+    color: var(--selection-fg);
+  }
+
+  :where(a, button, input, select, textarea, [role="button"], [tabindex]):focus-visible {
+    outline: 2px solid var(--primary);
+    outline-offset: 2px;
+  }
+}
+
+.page-shell {
+  padding-top: 2rem;
+  padding-bottom: 3rem;
+}
+
+.page-container {
+  position: relative;
+  z-index: 10;
+  max-width: 64rem;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+
+.page-hero {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.page-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+
+.page-badge-primary {
+  background-color: var(--bg-subtle-hover);
+  color: var(--primary);
+}
+
+.page-badge-green {
+  background-color: var(--bg-subtle-hover);
+  color: var(--green);
+}
+
+.page-title {
+  font-size: 1.875rem;
+  line-height: 1.2;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.75rem;
+}
+
+.page-subtitle {
+  font-size: 1.125rem;
+  line-height: 1.7;
+  color: var(--text-secondary);
+}
+
+@media (min-width: 640px) {
+  .page-shell {
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+  }
+
+  .page-container {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .page-hero {
+    margin-bottom: 3.5rem;
+  }
+
+  .page-title {
+    font-size: 2.25rem;
+  }
+}
+
+@media (min-width: 1024px) {
+  .page-container {
+    padding-left: 2rem;
+    padding-right: 2rem;
+  }
+}
+
+/* ============================================
+   全局背景系统 - 统一视觉语言
+   ============================================ */
+
+/* 全局噪声纹理 - 应用于整个页面 */
+.page-wrapper {
+  position: relative;
+  min-height: 100%;
+}
+
+.page-wrapper::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 1;
+  opacity: var(--noise-opacity);
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.8' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px 256px;
+}
+
+/* 全局微妙渐变底色 */
+.page-wrapper::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: 0;
+  background:
+    radial-gradient(ellipse 100% 80% at 50% 0%, var(--glow-blue) 0%, transparent 50%),
+    radial-gradient(ellipse 80% 60% at 0% 50%, var(--glow-purple) 0%, transparent 40%),
+    radial-gradient(ellipse 80% 60% at 100% 80%, var(--glow-green) 0%, transparent 40%);
+}
+
+/* Custom scrollbar for dark theme */
+@layer utilities {
+  .scrollbar-dark::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+
+  .scrollbar-dark::-webkit-scrollbar-track {
+    background: var(--scrollbar-track);
+  }
+
+  .scrollbar-dark::-webkit-scrollbar-thumb {
+    background: var(--scrollbar-thumb);
+    border-radius: 4px;
+  }
+
+  .scrollbar-dark::-webkit-scrollbar-thumb:hover {
+    background: var(--text-tertiary);
+  }
+}
+
+/* ============================================
+   Hero 动态背景 - 未来科技感
+   ============================================ */
+
+/* 渐变漂移动画 */
+@keyframes gradient-drift {
+  0%,
+  100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+/* 光晕脉动动画 */
+@keyframes glow-pulse {
+  0%,
+  100% {
+    opacity: 0.3;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.5;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+}
+
+/* 第二光晕 - 不同节奏 */
+@keyframes glow-pulse-alt {
+  0%,
+  100% {
+    opacity: 0.2;
+    transform: translate(-50%, -50%) scale(1.05);
+  }
+  50% {
+    opacity: 0.35;
+    transform: translate(-50%, -50%) scale(0.95);
+  }
+}
+
+/* Hero 背景容器 */
+.hero-bg {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+/* 渐变层 - 缓慢漂移 */
+.hero-gradient {
+  position: absolute;
+  inset: -50%;
+  background: radial-gradient(
+    ellipse 80% 60% at 50% 50%,
+    rgba(0, 102, 255, 0.08) 0%,
+    rgba(163, 113, 247, 0.04) 40%,
+    transparent 70%
+  );
+  background-size: 200% 200%;
+  animation: gradient-drift 20s ease-in-out infinite;
+  will-change: background-position;
+}
+
+/* 主光晕 - 蓝色 */
+.hero-glow {
+  position: absolute;
+  width: 600px;
+  height: 600px;
+  left: 50%;
+  top: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 102, 255, 0.15) 0%,
+    rgba(0, 102, 255, 0.05) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(60px);
+  animation: glow-pulse 8s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* 次光晕 - 紫色 */
+.hero-glow-secondary {
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  left: 30%;
+  top: 60%;
+  background: radial-gradient(
+    circle,
+    rgba(163, 113, 247, 0.12) 0%,
+    rgba(163, 113, 247, 0.04) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(80px);
+  animation: glow-pulse-alt 12s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* 第三光晕 - 绿色点缀 */
+.hero-glow-tertiary {
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  left: 70%;
+  top: 30%;
+  background: radial-gradient(
+    circle,
+    rgba(63, 185, 80, 0.08) 0%,
+    rgba(63, 185, 80, 0.02) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(70px);
+  animation: glow-pulse 15s ease-in-out infinite;
+  animation-delay: -5s;
+  will-change: transform, opacity;
+}
+
+/* 噪声纹理覆盖层 */
+.hero-noise {
+  position: absolute;
+  inset: 0;
+  opacity: 0.4;
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+/* 底部渐变遮罩 - 平滑过渡到内容区 */
+.hero-fade {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 120px;
+  background: linear-gradient(to bottom, transparent 0%, var(--bg-dark) 100%);
+  pointer-events: none;
+}
+
+/* 网格线条（微弱） */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(var(--grid-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+  background-size: 60px 60px;
+  mask-image: radial-gradient(ellipse 60% 50% at 50% 40%, black 0%, transparent 70%);
+  -webkit-mask-image: radial-gradient(ellipse 60% 50% at 50% 40%, black 0%, transparent 70%);
+}
+
+[data-performance="lite"] .page-wrapper::before {
+  opacity: 0.012;
+}
+
+[data-performance="lite"] .hero-gradient,
+[data-performance="lite"] .hero-glow,
+[data-performance="lite"] .hero-glow-secondary,
+[data-performance="lite"] .hero-glow-tertiary {
+  animation: none !important;
+}
+
+[data-performance="lite"] .hero-glow-secondary,
+[data-performance="lite"] .hero-glow-tertiary {
+  display: none;
+}
+
+[data-performance="lite"] .hero-glow {
+  width: 380px;
+  height: 380px;
+  filter: blur(36px);
+  opacity: 0.26;
+}
+
+[data-performance="lite"] .hero-grid {
+  opacity: 0.45;
+  background-size: 72px 72px;
+}
+
+[data-performance="lite"] .card-glow:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+/* ============================================
+   无障碍：尊重用户动效偏好
+   ============================================ */
+@media (prefers-reduced-motion: reduce) {
+  .hero-gradient,
+  .hero-glow,
+  .hero-glow-secondary,
+  .hero-glow-tertiary {
+    animation: none !important;
+  }
+
+  .hero-gradient {
+    background-position: 50% 50%;
+  }
+
+  .hero-glow,
+  .hero-glow-secondary,
+  .hero-glow-tertiary {
+    transform: translate(-50%, -50%) scale(1);
+    opacity: 0.3;
+  }
+}
+
+/* ============================================
+   移动端优化：减少复杂度
+   ============================================ */
+@media (max-width: 768px) {
+  .hero-glow,
+  .hero-glow-secondary,
+  .hero-glow-tertiary {
+    filter: blur(40px);
+  }
+
+  .hero-glow {
+    width: 350px;
+    height: 350px;
+  }
+
+  .hero-glow-secondary {
+    width: 300px;
+    height: 300px;
+  }
+
+  .hero-glow-tertiary {
+    display: none; /* 移动端隐藏第三光晕 */
+  }
+
+  .hero-grid {
+    background-size: 40px 40px;
+  }
+}
+
+/* ============================================
+   Projects 区域背景
+   ============================================ */
+
+.section-projects {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Projects 区域左侧光晕 */
+.section-projects::before {
+  content: "";
+  position: absolute;
+  width: 500px;
+  height: 500px;
+  left: -200px;
+  top: 20%;
+  background: radial-gradient(
+    circle,
+    rgba(0, 102, 255, 0.06) 0%,
+    rgba(0, 102, 255, 0.02) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(80px);
+  pointer-events: none;
+}
+
+/* Projects 区域右侧光晕 */
+.section-projects::after {
+  content: "";
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  right: -150px;
+  bottom: 10%;
+  background: radial-gradient(
+    circle,
+    rgba(163, 113, 247, 0.05) 0%,
+    rgba(163, 113, 247, 0.02) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(70px);
+  pointer-events: none;
+}
+
+/* ============================================
+   Resources 区域背景
+   ============================================ */
+
+.section-resources {
+  position: relative;
+  overflow: hidden;
+  /* 微妙的顶部边界光 */
+  border-top: 1px solid transparent;
+  background-image:
+    linear-gradient(var(--bg-dark), var(--bg-dark)),
+    linear-gradient(90deg, transparent 0%, rgba(0, 102, 255, 0.2) 50%, transparent 100%);
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* Resources 区域中央光晕 */
+.section-resources::before {
+  content: "";
+  position: absolute;
+  width: 600px;
+  height: 300px;
+  left: 50%;
+  top: 0;
+  transform: translateX(-50%);
+  background: radial-gradient(
+    ellipse 100% 100% at 50% 0%,
+    rgba(0, 102, 255, 0.04) 0%,
+    transparent 70%
+  );
+  pointer-events: none;
+}
+
+/* Resources 区域右下角绿色点缀 */
+.section-resources::after {
+  content: "";
+  position: absolute;
+  width: 350px;
+  height: 350px;
+  right: -100px;
+  bottom: -100px;
+  background: radial-gradient(
+    circle,
+    rgba(63, 185, 80, 0.05) 0%,
+    rgba(63, 185, 80, 0.02) 40%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+}
+
+/* ============================================
+   Footer 区域背景
+   ============================================ */
+
+.section-footer {
+  position: relative;
+  overflow: hidden;
+  /* 顶部渐变边界 */
+  border-top: 1px solid transparent;
+  background-image:
+    linear-gradient(var(--bg-dark), var(--bg-dark)),
+    linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(48, 54, 61, 0.5) 20%,
+      rgba(48, 54, 61, 0.8) 50%,
+      rgba(48, 54, 61, 0.5) 80%,
+      transparent 100%
+    );
+  background-origin: padding-box, border-box;
+  background-clip: padding-box, border-box;
+}
+
+/* Footer 微妙顶部光晕 */
+.section-footer::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100px;
+  left: 0;
+  top: 0;
+  background: linear-gradient(to bottom, rgba(0, 102, 255, 0.02) 0%, transparent 100%);
+  pointer-events: none;
+}
+
+/* ============================================
+   区域过渡效果
+   ============================================ */
+
+/* 区域分隔渐变 - 顶部淡入 */
+.section-divider-top {
+  position: relative;
+}
+
+.section-divider-top::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to bottom, var(--bg-dark) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* 区域分隔渐变 - 底部淡出 */
+.section-divider-bottom {
+  position: relative;
+}
+
+.section-divider-bottom::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 80px;
+  background: linear-gradient(to top, var(--bg-dark) 0%, transparent 100%);
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* ============================================
+   卡片悬停光效
+   ============================================ */
+
+.card-glow {
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.card-glow::before {
+  content: "";
+  position: absolute;
+  inset: -1px;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 40%,
+    rgba(0, 102, 255, 0) 40%,
+    rgba(0, 102, 255, 0) 100%
+  );
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.card-glow:hover::before {
+  background: linear-gradient(
+    135deg,
+    rgba(0, 102, 255, 0.3) 0%,
+    rgba(163, 113, 247, 0.2) 50%,
+    rgba(63, 185, 80, 0.1) 100%
+  );
+  opacity: 1;
+}
+
+/* 卡片悬停阴影 */
+.card-glow:hover {
+  box-shadow: var(--card-shadow);
+  transform: translateY(-2px);
+}
+
+/* ============================================
+   移动端优化
+   ============================================ */
+
+@media (max-width: 768px) {
+  .section-projects::before,
+  .section-projects::after,
+  .section-resources::after {
+    opacity: 0.5;
+    filter: blur(60px);
+  }
+
+  .section-projects::before {
+    width: 300px;
+    height: 300px;
+  }
+
+  .section-projects::after {
+    width: 250px;
+    height: 250px;
+  }
+
+  .page-wrapper::after {
+    opacity: 0.7;
+  }
+}
+
+@media (max-width: 1024px) {
+  .hero-glow {
+    width: 450px;
+    height: 450px;
+    filter: blur(48px);
+  }
+
+  .hero-glow-secondary {
+    width: 360px;
+    height: 360px;
+    filter: blur(56px);
+  }
+
+  .hero-glow-tertiary {
+    opacity: 0.65;
+  }
+}
+
+/* ============================================
+   无障碍：尊重用户动效偏好（全局补充）
+   ============================================ */
+
+@media (prefers-reduced-motion: reduce) {
+  .card-glow:hover {
+    transform: none;
+  }
+
+  .card-glow::before {
+    transition: none;
+  }
+}

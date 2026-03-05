@@ -1,0 +1,419 @@
+{
+  "common": {
+    "communityProject": "社区项目 · 非官方",
+    "viewOnGitHub": "在 GitHub 查看",
+    "backToHome": "返回首页",
+    "language": {
+      "en": "EN",
+      "zh": "CN"
+    }
+  },
+  "header": {
+    "title": "OpenHW Explorer",
+    "explore": "项目探索",
+    "guide": "学习中心",
+    "about": "关于",
+    "news": "资讯",
+    "contribute": "参与贡献",
+    "github": "GitHub",
+    "aria": {
+      "mainNavigation": "主导航",
+      "languageSwitcher": "语言切换",
+      "switchToChinese": "切换到中文",
+      "switchToEnglish": "切换到英文",
+      "switchToLight": "切换到浅色模式",
+      "switchToDark": "切换到深色模式",
+      "openGithub": "打开 OpenHW Group GitHub",
+      "openMenu": "打开菜单",
+      "closeMenu": "关闭菜单",
+      "mobileNavigation": "移动端导航"
+    }
+  },
+  "hero": {
+    "badge": "社区项目 · 非官方",
+    "title": "OpenHW Explorer",
+    "subtitle": "一站式探索 OpenHW 开源项目、文档和工具。",
+    "subtitleLine2": "社区友好的导航器，帮你找到合适的起点。",
+    "exploreProjects": "探索项目",
+    "browseDocs": "浏览文档"
+  },
+  "projects": {
+    "title": "全部项目",
+    "curatedTitle": "上线精选",
+    "hotTitle": "热门项目",
+    "titleByCategory": "{category} 类项目",
+    "found": "找到 {count} 个项目",
+    "curatedSummary": "精选 {shown} / 总计 {total}",
+    "hotSummary": "热门 {shown} / 总计 {total}",
+    "noResults": "未找到项目",
+    "noResultsHint": "试试调整筛选条件或清除部分选项来查看更多项目。",
+    "featured": "推荐",
+    "search": "搜索项目...",
+    "smartNavigator": "智能导航",
+    "quickFilters": "快速筛选",
+    "iAmA": "我是...",
+    "lookingFor": "我在找...",
+    "coreType": "核心类型",
+    "verificationType": "验证类型",
+    "clearAll": "清除全部",
+    "showResults": "查看结果",
+    "clearSearch": "清空搜索",
+    "expandNavigator": "展开智能导航",
+    "collapseNavigator": "收起智能导航",
+    "filtersApplyInstantly": "筛选会即时生效",
+    "viewModeLabel": "展示",
+    "viewModeCurated": "上线精选",
+    "viewModeHot": "热门项目",
+    "viewModeAll": "全部项目",
+    "curatedModeHint": "默认展示人工精选的上线项目（质量保障更高）。你可以继续筛选，或切换到“全部项目”查看完整仓库列表。",
+    "hotModeHint": "默认展示当前更热门的项目。你可以继续筛选，或切换到“全部项目”查看完整列表。",
+    "baseline": "基础档案",
+    "baselineCardHint": "该仓库当前为基础档案展示，更多细节将在人工核验后逐步补齐。",
+    "activeFiltersLabel": "当前筛选",
+    "searchChip": "搜索：\"{query}\"",
+    "resultsAnnouncement": "当前筛选匹配 {count} 个项目",
+    "curatedResultsAnnouncement": "当前展示精选 {shown} 个项目（总计 {total} 个）",
+    "hotResultsAnnouncement": "当前展示热门前 {shown} 个项目（总计 {total} 个）",
+    "noResultsAnnouncement": "当前筛选没有匹配项目"
+  },
+  "filters": {
+    "all": "全部项目",
+    "core": "处理器核心",
+    "verification": "验证",
+    "soc": "SoC",
+    "ip": "IP 组件",
+    "tools": "工具",
+    "learning": "学习",
+    "sdk": "SDK/软件",
+    "roles": {
+      "browsing": "随便看看",
+      "browsingDesc": "刚接触 OpenHW，想了解有什么",
+      "student": "学生",
+      "studentDesc": "学习 RISC-V 和处理器设计",
+      "engineer": "工程师",
+      "engineerDesc": "用于生产项目开发",
+      "researcher": "研究人员",
+      "researcherDesc": "学术或产业研究",
+      "contributor": "贡献者",
+      "contributorDesc": "想要参与 OpenHW 项目贡献"
+    },
+    "categories": {
+      "core": "处理器核心",
+      "verification": "验证工具",
+      "soc": "SoC 与子系统",
+      "ip": "IP 组件",
+      "tools": "工具和 SDK",
+      "learning": "学习资源",
+      "sdk": "SDK/软件"
+    },
+    "coreTypes": {
+      "embedded-mcu": "嵌入式 MCU",
+      "linux-application": "Linux 应用",
+      "high-performance": "高性能",
+      "low-power": "低功耗",
+      "safety-critical": "安全关键"
+    },
+    "verificationTypes": {
+      "uvm-testbench": "UVM 测试平台",
+      "formal-verification": "形式验证",
+      "force-riscv": "FORCE-RISCV",
+      "industrial-grade": "工业级"
+    }
+  },
+  "resources": {
+    "kicker": "下一步",
+    "title": "接下来做什么",
+    "subtitle": "选择你的下一步：学习、贡献，或查看社区动态。",
+    "cards": {
+      "classroom": {
+        "title": "OpenHW 小课堂",
+        "description": "围绕贡献入门、核心使用、验证流程、软件使能四条主线快速上手。",
+        "cta": "进入课堂"
+      },
+      "pathway": {
+        "title": "贡献路径",
+        "description": "按步骤完成从选仓库到提交首个 PR 的完整流程。",
+        "cta": "查看路径"
+      },
+      "community": {
+        "title": "社区洞察",
+        "description": "查看活跃仓库、贡献信号与新手友好议题，找到你的最佳切入点。",
+        "cta": "查看洞察"
+      }
+    }
+  },
+  "footer": {
+    "openHWGitHub": "OpenHW GitHub",
+    "officialWebsite": "官方网站",
+    "documentation": "文档中心",
+    "linkedin": "LinkedIn",
+    "madeWithPrefix": "为 RISC-V 社区用",
+    "madeWithSuffix": "打造",
+    "madeWith": "为 RISC-V 社区用 {heart} 打造",
+    "by": "开源老陈",
+    "personalTagline": "和 OpenHW 社区一起，把 RISC-V 做得更好",
+    "connectLinkedIn": "来 LinkedIn 打个招呼"
+  },
+  "projectDetail": {
+    "home": "首页",
+    "projects": "项目",
+    "backToList": "返回项目列表",
+    "viewOnGitHub": "在 GitHub 查看",
+    "documentation": "文档",
+    "website": "官网",
+    "featured": "推荐",
+    "categories": "分类",
+    "tags": "标签",
+    "suitableFor": "适合人群",
+    "coreType": "核心类型",
+    "verificationType": "验证类型",
+    "relatedProjects": "相关项目",
+    "knowledge": {
+      "title": "知识库",
+      "papers": "学术论文",
+      "papersCount": "{count} 篇论文",
+      "industry": "产业采用",
+      "industryCount": "{count} 个采用案例",
+      "education": "教学使用",
+      "educationCount": "{count} 所大学",
+      "presentations": "会议演讲",
+      "presentationsCount": "{count} 场演讲",
+      "articles": "技术文章与教程",
+      "articlesCount": "{count} 篇文章",
+      "ecosystem": "生态关联",
+      "noData": "暂无数据",
+      "noDataHint": "了解此项目？欢迎贡献信息！",
+      "source": "来源",
+      "viewPaper": "查看论文",
+      "viewMore": "查看更多"
+    },
+    "activity": {
+      "title": "贡献活跃度",
+      "contributors": "贡献者",
+      "openIssues": "待处理 Issues",
+      "recentCommits": "近期提交（4 周）",
+      "goodFirstIssues": "新手友好 Issues",
+      "lastPush": "最近推送",
+      "highActivity": "高度活跃",
+      "moderate": "中等活跃",
+      "low": "低活跃度"
+    },
+    "status": {
+      "active": "活跃开发中",
+      "stable": "稳定版本",
+      "experimental": "实验阶段",
+      "archived": "已归档"
+    },
+    "metrics": {
+      "stars": "星标",
+      "forks": "分叉"
+    },
+    "quickStart": {
+      "title": "建议起步",
+      "categoryChip": "分类：{value}",
+      "statusChip": "状态：{value}",
+      "roleChip": "适合：{value}",
+      "startWithDocs": "先看文档",
+      "startWithGithub": "先看 GitHub",
+      "startWithWebsite": "打开项目主页"
+    },
+    "profile": {
+      "reviewed": "已核验资料",
+      "auto": "自动资料",
+      "needsReview": "待人工复核",
+      "tierOfficial": "官方来源",
+      "tierTrusted": "可信来源",
+      "tierCommunity": "社区来源",
+      "verifiedAt": "核对日期 {date}",
+      "confidence": "置信度 {value}%",
+      "sources": "{count} 个来源",
+      "primarySource": "主要来源",
+      "moreSources": "还有 {count} 个来源",
+      "sourceItem": "来源 {index}"
+    },
+    "launchStage": {
+      "baselineBadge": "基础档案",
+      "baselineMeta": "V1 阶段仅展示有限信息",
+      "scopeTitle": "当前信息范围",
+      "scopeDescription": "该仓库在 V1 可见，但尚未进入人工精选列表。当前页面仅保留高层信息，深度内容会在人工核验后逐步补齐。",
+      "noticeTitle": "详细信息待人工完善",
+      "noticeBody": "为保证首发整体质量，该仓库当前只展示基础摘要。后续会按人工核验进度逐步补充可担保的深度内容。",
+      "knowledgeLimitedTitle": "知识与活跃度面板分阶段开放",
+      "knowledgeLimitedHint": "该仓库完成人工验证后，我们会补充完整的研究与活跃度细节。"
+    }
+  },
+  "about": {
+    "badge": "关于本项目",
+    "title": "关于 OpenHW Explorer",
+    "subtitle": "一个社区构建的 OpenHW Group 开源硬件生态导航工具。",
+    "whatIsThis": {
+      "title": "OpenHW Explorer 是什么？",
+      "p1": "OpenHW Explorer 是一个社区项目，帮助开发者、学生和研究人员发现和浏览 OpenHW Group 的开源 RISC-V 硬件 IP 项目。它提供了一个友好、可搜索的界面，涵盖处理器核心、验证工具、SoC 平台等类别。",
+      "p2": "无论你是学习 RISC-V 的学生、评估核心用于生产的工程师，还是探索生态的研究人员——这个工具都能帮你找到合适的起点。"
+    },
+    "disclaimer": {
+      "title": "免责声明",
+      "content": "OpenHW Explorer 是一个独立的社区项目，与 OpenHW Group 及其成员组织没有官方关联、背书或赞助关系。项目最初实现与首轮内容整理由 AlexChen 完成。所有项目数据、描述和统计信息均来自公开来源（主要是 GitHub），可能不反映最新状态。如需官方信息，请访问 openhwgroup.org。"
+    },
+    "features": {
+      "title": "功能特点",
+      "browse": {
+        "title": "浏览项目",
+        "desc": "按分类筛选和智能搜索，探索 OpenHW 项目。"
+      },
+      "filter": {
+        "title": "智能筛选",
+        "desc": "按角色、分类、核心类型和验证类型进行多维筛选。"
+      },
+      "detail": {
+        "title": "项目详情",
+        "desc": "详细页面包含统计数据、链接、标签和相关项目推荐。"
+      },
+      "i18n": {
+        "title": "双语支持",
+        "desc": "完整的中英文界面，服务全球 RISC-V 社区。"
+      }
+    },
+    "author": {
+      "title": "关于作者",
+      "bio": "你好，我是开源老陈（AlexChen）。我做 OpenHW Explorer 的初衷很简单：把分散的信息整理清楚，让工程师、学生和研究者都能更快找到适合自己的 OpenHW 起点。平时主要关注开源硬件、RISC-V 和社区协作，欢迎来 LinkedIn 找我聊聊。",
+      "connectLinkedIn": "来 LinkedIn 打个招呼"
+    },
+    "contribute": {
+      "title": "参与贡献",
+      "content": "OpenHW Explorer 是开源项目。如果你想报告问题、建议功能或贡献代码，欢迎访问项目仓库。",
+      "cta": "在 GitHub 查看"
+    }
+  },
+  "contributePage": {
+    "badge": "OpenHW 小课堂与贡献中心",
+    "title": "学习并参与 OpenHW",
+    "subtitle": "先通过实用学习路径入门，再进入真实的 OpenHW 开源贡献流程。",
+    "heroCta": {
+      "classroom": "先看小课堂",
+      "contribute": "直达贡献中心"
+    },
+    "quickNav": {
+      "label": "快速跳转：",
+      "classroom": "小课堂",
+      "contributeCenter": "贡献中心",
+      "community": "社区洞察"
+    },
+    "classroom": {
+      "title": "OpenHW 小课堂",
+      "subtitle": "V1 先用公开资料和真实项目入口搭建主题学习路径。",
+      "tracks": {
+        "contribution": {
+          "title": "贡献入门",
+          "desc": "在提交第一个 PR 前，先理解 ECA、流程要求与贡献规范。"
+        },
+        "cores": {
+          "title": "核心架构专题",
+          "desc": "从应用级与嵌入式核心入手，理解架构取舍与落地使用路径。"
+        },
+        "verification": {
+          "title": "验证实践专题",
+          "desc": "学习 CORE-V 生态中的 UVM 验证流程与指令生成方法。"
+        },
+        "software": {
+          "title": "软件使能专题",
+          "desc": "通过 SDK 与 RTOS 路径打通硬件与软件协同开发。"
+        }
+      },
+      "links": {
+        "eca": "ECA 协议",
+        "guidelines": "贡献文档"
+      },
+      "futureNote": "路线图：V2 将把这里升级为按主题组织的开放 PPT 小课堂（贡献流程、核心使用、验证实战等）。"
+    },
+    "whyContribute": {
+      "title": "为什么参与贡献？",
+      "reason1": "影响被工业界和学术界实际使用的芯片设计",
+      "reason2": "积累 RISC-V 架构和验证方法学的实践经验",
+      "reason3": "加入由硬件工程师和研究人员组成的活跃社区",
+      "reason4": "在国际知名开源硬件组织中获得认可"
+    },
+    "howTo": {
+      "title": "如何贡献",
+      "step1Title": "选择项目",
+      "step1Desc": "浏览下方仓库列表，找到与你技能和兴趣匹配的项目。",
+      "step2Title": "阅读贡献指南",
+      "step2Desc": "查看项目的 CONTRIBUTING.md 和编码规范。",
+      "step3Title": "签署 CLA",
+      "step3Desc": "OpenHW 项目要求签署 Eclipse 贡献者协议（ECA）。",
+      "step4Title": "提交 Pull Request",
+      "step4Desc": "Fork 仓库，创建分支，完成修改，然后提交 PR。"
+    },
+    "activeRepos": "最活跃的仓库",
+    "goodFirstIssues": "新手友好 Issues",
+    "goodFirstIssuesDesc": "OpenHW 各仓库中标记为新手友好的 Issues",
+    "noGoodFirstIssues": "目前没有新手友好的 Issues。请稍后再来查看，或直接在 GitHub 上浏览 open issues。",
+    "rankings": {
+      "title": "项目排行榜",
+      "byStars": "按 Stars",
+      "byActivity": "按近期活跃度",
+      "byContributors": "按贡献者数",
+      "stars": "stars",
+      "commits": "提交 (4 周)",
+      "contributors": "贡献者"
+    },
+    "metrics": {
+      "goodFirstIssues": "{count} 个开放 issue",
+      "commits4w": "{count} 次提交/4周",
+      "openIssues": "{count} 个 issue"
+    },
+    "activityLevel": {
+      "high": "活跃",
+      "moderate": "中等",
+      "low": "较低"
+    },
+    "resources": {
+      "title": "贡献资源",
+      "ecaTitle": "Eclipse 贡献者协议",
+      "ecaDesc": "参与 OpenHW 项目贡献的必要协议",
+      "guidelinesTitle": "OpenHW 贡献指南",
+      "guidelinesDesc": "官方贡献流程的幻灯片和文档",
+      "workGroupsTitle": "工作组",
+      "workGroupsDesc": "加入技术工作组，与其他贡献者协作"
+    }
+  },
+  "news": {
+    "badge": "每周速递",
+    "title": "开源硬件资讯",
+    "subtitle": "每周精选 RISC-V 与开源硬件领域的全球动态。",
+    "weekOf": "{date} 当周",
+    "totalItems": "{count} 条相关资讯",
+    "fromSources": "来自 {count} 个源",
+    "highlightsTitle": "本周要闻",
+    "highlightsSubtitle": "开源硬件生态的重要动态",
+    "itemsInCategory": "{count} 条",
+    "allNewsTitle": "全部资讯",
+    "allNewsSubtitle": "浏览完整信息流",
+    "highRelevance": "高度相关",
+    "mediumRelevance": "相关",
+    "lowRelevance": "泛相关",
+    "allFilter": "全部",
+    "sources": "数据来源",
+    "noNews": "暂无资讯",
+    "noNewsHint": "新闻摘要每周从 RSS 订阅和科技平台自动生成，请稍后再来！",
+    "readMore": "阅读",
+    "showAllNews": "浏览全部 {count} 条资讯",
+    "hideAllNews": "收起",
+    "trendingTags": "热门话题",
+    "poweredBy": "通过 TrendRadar 从 {count} 个专业源聚合",
+    "filterByRelevance": "相关度",
+    "filterBySource": "来源",
+    "tierOfficial": "官方源",
+    "tierTrusted": "可信源",
+    "tierCommunity": "社区源",
+    "langEn": "EN",
+    "langZh": "CN",
+    "langAll": "全部"
+  },
+  "notFound": {
+    "title": "页面未找到",
+    "description": "你要找的页面不存在或已被移动。",
+    "goHome": "返回首页",
+    "browseProjects": "浏览项目"
+  }
+}

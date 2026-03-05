@@ -1,0 +1,419 @@
+{
+  "common": {
+    "communityProject": "Community Project · Not Official",
+    "viewOnGitHub": "View on GitHub",
+    "backToHome": "Back to Home",
+    "language": {
+      "en": "EN",
+      "zh": "CN"
+    }
+  },
+  "header": {
+    "title": "OpenHW Explorer",
+    "explore": "Explore",
+    "guide": "Learning Hub",
+    "about": "About",
+    "news": "News",
+    "contribute": "Contribute",
+    "github": "GitHub",
+    "aria": {
+      "mainNavigation": "Main navigation",
+      "languageSwitcher": "Language switcher",
+      "switchToChinese": "Switch to Chinese",
+      "switchToEnglish": "Switch to English",
+      "switchToLight": "Switch to light mode",
+      "switchToDark": "Switch to dark mode",
+      "openGithub": "Open OpenHW Group GitHub",
+      "openMenu": "Open menu",
+      "closeMenu": "Close menu",
+      "mobileNavigation": "Mobile navigation"
+    }
+  },
+  "hero": {
+    "badge": "Community Project · Not Official",
+    "title": "OpenHW Explorer",
+    "subtitle": "Explore OpenHW projects, documentation, and tools in one place.",
+    "subtitleLine2": "A community-friendly navigator to help you find where to start.",
+    "exploreProjects": "Explore Projects",
+    "browseDocs": "Browse Docs"
+  },
+  "projects": {
+    "title": "All Projects",
+    "curatedTitle": "Launch Picks",
+    "hotTitle": "Hot Projects",
+    "titleByCategory": "{category} Projects",
+    "found": "{count} project(s) found",
+    "curatedSummary": "Picked {shown} / {total}",
+    "hotSummary": "Top {shown} / {total}",
+    "noResults": "No projects found",
+    "noResultsHint": "Try adjusting your filters or clearing some selections to see more projects.",
+    "featured": "Featured",
+    "search": "Search projects...",
+    "smartNavigator": "Smart Navigator",
+    "quickFilters": "Quick Filters",
+    "iAmA": "I am a...",
+    "lookingFor": "Looking for...",
+    "coreType": "Core Type",
+    "verificationType": "Verification Type",
+    "clearAll": "Clear All",
+    "showResults": "Show Results",
+    "clearSearch": "Clear search",
+    "expandNavigator": "Expand smart navigator",
+    "collapseNavigator": "Collapse smart navigator",
+    "filtersApplyInstantly": "Filters apply instantly",
+    "viewModeLabel": "View",
+    "viewModeCurated": "Launch picks",
+    "viewModeHot": "Hot projects",
+    "viewModeAll": "All projects",
+    "curatedModeHint": "Showing the manually curated launch set with stronger quality guarantees. Use filters or switch to all projects to explore every repo.",
+    "hotModeHint": "Showing the hottest projects by popularity and activity. Use filters or switch to all projects to explore everything.",
+    "baseline": "Baseline",
+    "baselineCardHint": "This repo profile is currently baseline-level. Details will be expanded after manual review.",
+    "activeFiltersLabel": "Active filters",
+    "searchChip": "Search: \"{query}\"",
+    "resultsAnnouncement": "{count} project(s) match current filters",
+    "curatedResultsAnnouncement": "Showing {shown} curated launch projects out of {total} total projects",
+    "hotResultsAnnouncement": "Showing top {shown} hottest projects out of {total} total projects",
+    "noResultsAnnouncement": "No projects match current filters"
+  },
+  "filters": {
+    "all": "All Projects",
+    "core": "Cores",
+    "verification": "Verification",
+    "soc": "SoC",
+    "ip": "IP",
+    "tools": "Tools",
+    "learning": "Learning",
+    "sdk": "SDK/Software",
+    "roles": {
+      "browsing": "Just Browsing",
+      "browsingDesc": "New to OpenHW, exploring what's available",
+      "student": "Student",
+      "studentDesc": "Learning RISC-V and processor design",
+      "engineer": "Engineer",
+      "engineerDesc": "Working on production projects",
+      "researcher": "Researcher",
+      "researcherDesc": "Academic or industry research",
+      "contributor": "Contributor",
+      "contributorDesc": "Looking to contribute to OpenHW projects"
+    },
+    "categories": {
+      "core": "Processor Cores",
+      "verification": "Verification",
+      "soc": "SoC & Subsystem",
+      "ip": "IP Components",
+      "tools": "Tools & SDKs",
+      "learning": "Learning",
+      "sdk": "SDK/Software"
+    },
+    "coreTypes": {
+      "embedded-mcu": "Embedded MCU",
+      "linux-application": "Linux Application",
+      "high-performance": "High Performance",
+      "low-power": "Low Power",
+      "safety-critical": "Safety Critical"
+    },
+    "verificationTypes": {
+      "uvm-testbench": "UVM Testbench",
+      "formal-verification": "Formal Verification",
+      "force-riscv": "FORCE-RISCV",
+      "industrial-grade": "Industrial Grade"
+    }
+  },
+  "resources": {
+    "kicker": "Next Steps",
+    "title": "Where to Go Next",
+    "subtitle": "Choose your next move: learn, contribute, or track community momentum.",
+    "cards": {
+      "classroom": {
+        "title": "OpenHW Mini Classroom",
+        "description": "Start with practical themes: contribution onboarding, core usage, verification workflows, and software enablement.",
+        "cta": "Open classroom"
+      },
+      "pathway": {
+        "title": "Contribution Pathway",
+        "description": "Follow a clear step-by-step route from choosing a repo to shipping your first pull request.",
+        "cta": "View pathway"
+      },
+      "community": {
+        "title": "Community Insights",
+        "description": "See active repos, contributor signals, and beginner-friendly issues to find your best entry point.",
+        "cta": "See insights"
+      }
+    }
+  },
+  "footer": {
+    "openHWGitHub": "OpenHW GitHub",
+    "officialWebsite": "Official Website",
+    "documentation": "Documentation",
+    "linkedin": "LinkedIn",
+    "madeWithPrefix": "Made with",
+    "madeWithSuffix": "for the RISC-V community",
+    "madeWith": "Made with {heart} for the RISC-V community",
+    "by": "AlexChen",
+    "personalTagline": "OpenHW community builder · Growing the RISC-V ecosystem together",
+    "connectLinkedIn": "Say hi on LinkedIn"
+  },
+  "projectDetail": {
+    "home": "Home",
+    "projects": "Projects",
+    "backToList": "Back to Projects",
+    "viewOnGitHub": "View on GitHub",
+    "documentation": "Documentation",
+    "website": "Website",
+    "featured": "Featured",
+    "categories": "Categories",
+    "tags": "Tags",
+    "suitableFor": "Suitable For",
+    "coreType": "Core Type",
+    "verificationType": "Verification Type",
+    "relatedProjects": "Related Projects",
+    "knowledge": {
+      "title": "Knowledge Base",
+      "papers": "Academic Papers",
+      "papersCount": "{count} paper(s)",
+      "industry": "Industry Adoption",
+      "industryCount": "{count} adoption(s)",
+      "education": "Educational Use",
+      "educationCount": "{count} university(ies)",
+      "presentations": "Presentations",
+      "presentationsCount": "{count} talk(s)",
+      "articles": "Articles & Tutorials",
+      "articlesCount": "{count} article(s)",
+      "ecosystem": "Ecosystem",
+      "noData": "No data yet",
+      "noDataHint": "Know about this project? Contributions welcome!",
+      "source": "Source",
+      "viewPaper": "View Paper",
+      "viewMore": "View More"
+    },
+    "activity": {
+      "title": "Contribution Activity",
+      "contributors": "Contributors",
+      "openIssues": "Open Issues",
+      "recentCommits": "Recent Commits (4 weeks)",
+      "goodFirstIssues": "Good First Issues",
+      "lastPush": "Last Push",
+      "highActivity": "Highly Active",
+      "moderate": "Moderately Active",
+      "low": "Low Activity"
+    },
+    "status": {
+      "active": "Active",
+      "stable": "Stable",
+      "experimental": "Experimental",
+      "archived": "Archived"
+    },
+    "metrics": {
+      "stars": "stars",
+      "forks": "forks"
+    },
+    "quickStart": {
+      "title": "Start here",
+      "categoryChip": "Category: {value}",
+      "statusChip": "Status: {value}",
+      "roleChip": "Best for: {value}",
+      "startWithDocs": "Start with docs",
+      "startWithGithub": "Start with GitHub",
+      "startWithWebsite": "Open project website"
+    },
+    "profile": {
+      "reviewed": "Reviewed profile",
+      "auto": "Auto profile",
+      "needsReview": "Needs review",
+      "tierOfficial": "Official sources",
+      "tierTrusted": "Trusted sources",
+      "tierCommunity": "Community sources",
+      "verifiedAt": "Verified {date}",
+      "confidence": "Confidence {value}%",
+      "sources": "{count} source(s)",
+      "primarySource": "Primary source",
+      "moreSources": "{count} more source(s)",
+      "sourceItem": "Source {index}"
+    },
+    "launchStage": {
+      "baselineBadge": "Baseline profile",
+      "baselineMeta": "Limited details in V1 launch",
+      "scopeTitle": "Current profile scope",
+      "scopeDescription": "This repo is visible in V1 but not yet in the manually curated set. The current page keeps only high-level facts while we verify deeper details.",
+      "noticeTitle": "Details pending manual refinement",
+      "noticeBody": "To protect overall launch quality, this repo currently shows a baseline summary only. We will gradually add verified deep-dive content after manual review.",
+      "knowledgeLimitedTitle": "Knowledge and activity panels are staged",
+      "knowledgeLimitedHint": "We will publish full research/activity details after manual validation for this repo."
+    }
+  },
+  "about": {
+    "badge": "About This Project",
+    "title": "About OpenHW Explorer",
+    "subtitle": "A community-built navigator for the OpenHW Group open-source hardware ecosystem.",
+    "whatIsThis": {
+      "title": "What is OpenHW Explorer?",
+      "p1": "OpenHW Explorer is a community project that helps developers, students, and researchers discover and navigate OpenHW Group open-source RISC-V hardware IP projects. It provides a friendly, searchable interface across processor cores, verification tools, SoC platforms, and more.",
+      "p2": "Whether you're a student learning about RISC-V, an engineer evaluating cores for production, or a researcher exploring the ecosystem — this tool helps you find the right starting point."
+    },
+    "disclaimer": {
+      "title": "Disclaimer",
+      "content": "OpenHW Explorer is an independent community project and is NOT officially affiliated with, endorsed by, or sponsored by the OpenHW Group or any of its member organizations. The original implementation and initial curation were created by AlexChen. All project data, descriptions, and statistics are collected from publicly available sources (primarily GitHub) and may not reflect the most current state. For official information, please visit openhwgroup.org."
+    },
+    "features": {
+      "title": "Features",
+      "browse": {
+        "title": "Browse Projects",
+        "desc": "Explore OpenHW projects with category filtering and smart search."
+      },
+      "filter": {
+        "title": "Smart Filtering",
+        "desc": "Filter by role, category, core type, and verification type."
+      },
+      "detail": {
+        "title": "Project Details",
+        "desc": "Detailed pages with stats, links, tags, and related project recommendations."
+      },
+      "i18n": {
+        "title": "Bilingual Support",
+        "desc": "Full English and Chinese interface for the global RISC-V community."
+      }
+    },
+    "author": {
+      "title": "About the Author",
+      "bio": "Hi, I'm AlexChen (开源老陈). I built OpenHW Explorer for the community, hoping engineers, students, and researchers can find the right OpenHW starting point faster. I care about open hardware, RISC-V, and practical collaboration - feel free to say hi on LinkedIn.",
+      "connectLinkedIn": "Say hi on LinkedIn"
+    },
+    "contribute": {
+      "title": "Contribute",
+      "content": "OpenHW Explorer is open source. If you'd like to report an issue, suggest a feature, or contribute code, you're welcome to visit the project repository.",
+      "cta": "View on GitHub"
+    }
+  },
+  "contributePage": {
+    "badge": "OpenHW Classroom & Contribution Hub",
+    "title": "Learn and Contribute to OpenHW",
+    "subtitle": "Start with practical learning tracks, then join real OpenHW contribution workflows.",
+    "heroCta": {
+      "classroom": "Start with classroom",
+      "contribute": "Go to contribution center"
+    },
+    "quickNav": {
+      "label": "Quick jump:",
+      "classroom": "Classroom",
+      "contributeCenter": "Contribution center",
+      "community": "Community insights"
+    },
+    "classroom": {
+      "title": "OpenHW Mini Classroom",
+      "subtitle": "V1 focuses on guided learning tracks using open resources and real project entry points.",
+      "tracks": {
+        "contribution": {
+          "title": "Contribution Onboarding",
+          "desc": "Understand ECA, process expectations, and contribution flow before your first PR."
+        },
+        "cores": {
+          "title": "Core Deep Dives",
+          "desc": "Start from flagship and embedded cores to understand architecture trade-offs and usage paths."
+        },
+        "verification": {
+          "title": "Verification Workshop",
+          "desc": "Learn UVM-centric verification flow and instruction generation in the CORE-V ecosystem."
+        },
+        "software": {
+          "title": "Software Enablement",
+          "desc": "Bridge hardware and software with SDK and RTOS-oriented project paths."
+        }
+      },
+      "links": {
+        "eca": "ECA",
+        "guidelines": "Contribution Docs"
+      },
+      "futureNote": "Roadmap: this section will evolve into themed PPT-based open classes (contribute flow, core usage, verification playbooks) in V2."
+    },
+    "whyContribute": {
+      "title": "Why Contribute?",
+      "reason1": "Impact real-world chip designs used in industry and academia",
+      "reason2": "Build expertise in RISC-V architecture and verification methodologies",
+      "reason3": "Join a welcoming community of hardware engineers and researchers",
+      "reason4": "Get your work recognized in a major open-source hardware organization"
+    },
+    "howTo": {
+      "title": "How to Contribute",
+      "step1Title": "Choose a Project",
+      "step1Desc": "Browse the repos below and find one that matches your skills and interests.",
+      "step2Title": "Read the Guidelines",
+      "step2Desc": "Check the project's CONTRIBUTING.md and coding conventions.",
+      "step3Title": "Sign the CLA",
+      "step3Desc": "OpenHW projects require an Eclipse Contributor Agreement (ECA).",
+      "step4Title": "Submit a Pull Request",
+      "step4Desc": "Fork, create a branch, make your changes, and submit a PR."
+    },
+    "activeRepos": "Most Active Repos",
+    "goodFirstIssues": "Good First Issues",
+    "goodFirstIssuesDesc": "Issues tagged as beginner-friendly across OpenHW repos",
+    "noGoodFirstIssues": "No good first issues found at the moment. Check back later or browse open issues directly on GitHub.",
+    "rankings": {
+      "title": "Project Rankings",
+      "byStars": "By Stars",
+      "byActivity": "By Recent Activity",
+      "byContributors": "By Contributors",
+      "stars": "stars",
+      "commits": "commits (4w)",
+      "contributors": "contributors"
+    },
+    "metrics": {
+      "goodFirstIssues": "{count} open issue(s)",
+      "commits4w": "{count} commits/4w",
+      "openIssues": "{count} issues"
+    },
+    "activityLevel": {
+      "high": "Active",
+      "moderate": "Moderate",
+      "low": "Low"
+    },
+    "resources": {
+      "title": "Contribution Resources",
+      "ecaTitle": "Eclipse Contributor Agreement",
+      "ecaDesc": "Required for all contributions to OpenHW projects",
+      "guidelinesTitle": "OpenHW Contribution Guidelines",
+      "guidelinesDesc": "Official slides and documentation on the contribution process",
+      "workGroupsTitle": "Working Groups",
+      "workGroupsDesc": "Join a task group to collaborate with other contributors"
+    }
+  },
+  "news": {
+    "badge": "Weekly Digest",
+    "title": "Open Hardware News",
+    "subtitle": "Weekly curated news from the RISC-V and open-source hardware world.",
+    "weekOf": "Week of {date}",
+    "totalItems": "{count} relevant articles",
+    "fromSources": "from {count} sources",
+    "highlightsTitle": "This Week's Highlights",
+    "highlightsSubtitle": "Key updates across the open hardware ecosystem",
+    "itemsInCategory": "{count} articles",
+    "allNewsTitle": "All News",
+    "allNewsSubtitle": "Browse the full feed with filters",
+    "highRelevance": "Highly Relevant",
+    "mediumRelevance": "Related",
+    "lowRelevance": "General",
+    "allFilter": "All",
+    "sources": "Sources",
+    "noNews": "No news available yet",
+    "noNewsHint": "News digest is generated weekly from RSS feeds and tech platforms. Check back soon!",
+    "readMore": "Read",
+    "showAllNews": "Browse All {count} Articles",
+    "hideAllNews": "Collapse",
+    "trendingTags": "Trending Topics",
+    "poweredBy": "Aggregated from {count} professional sources via TrendRadar",
+    "filterByRelevance": "Relevance",
+    "filterBySource": "Source",
+    "tierOfficial": "Official",
+    "tierTrusted": "Trusted",
+    "tierCommunity": "Community",
+    "langEn": "EN",
+    "langZh": "CN",
+    "langAll": "All"
+  },
+  "notFound": {
+    "title": "Page Not Found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "goHome": "Go to Homepage",
+    "browseProjects": "Browse Projects"
+  }
+}

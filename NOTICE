@@ -1,0 +1,23 @@
+OpenHW Explorer
+Copyright 2026 Alex Chen
+
+This product is licensed under the Apache License, Version 2.0.
+You may obtain a copy of the License at:
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+---
+
+This project makes use of the following open-source packages,
+each governed by their own license terms:
+
+- Next.js (MIT) — https://github.com/vercel/next.js
+- React (MIT) — https://github.com/facebook/react
+- Tailwind CSS (MIT) — https://github.com/tailwindlabs/tailwindcss
+- next-intl (MIT) — https://github.com/amannn/next-intl
+- Fuse.js (Apache 2.0) — https://github.com/krisk/Fuse
+- Lucide React (ISC) — https://github.com/lucide-icons/lucide
+
+Repository data sourced from GitHub API under GitHub's Terms of Service.
+Project descriptions and metadata are attributed to their respective
+upstream repositories and organizations.
