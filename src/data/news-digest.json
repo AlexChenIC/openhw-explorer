@@ -1,0 +1,298 @@
+{
+  "weekOf": "2026-02-12",
+  "generatedAt": "2026-02-18T06:57:34.495Z",
+  "stats": {
+    "totalRelevant": 6,
+    "totalSources": 4,
+    "topTags": [
+      {
+        "tag": "Semiconductor",
+        "count": 4
+      },
+      {
+        "tag": "Silicon",
+        "count": 4
+      },
+      {
+        "tag": "KLayout",
+        "count": 1
+      },
+      {
+        "tag": "Verilator",
+        "count": 1
+      }
+    ]
+  },
+  "highlights": [
+    {
+      "id": "releases",
+      "name": {
+        "en": "Project Releases",
+        "zh": "项目发布"
+      },
+      "icon": "rocket",
+      "count": 2,
+      "items": [
+        {
+          "title": "0.30.6",
+          "url": "https://github.com/KLayout/klayout/releases/tag/v0.30.6",
+          "source": "KLayout (GitHub)",
+          "tags": ["KLayout"],
+          "publishedAt": "2026-02-11T21:42:20.000Z"
+        },
+        {
+          "title": "v1.14.0",
+          "url": "https://github.com/SpinalHDL/SpinalHDL/releases/tag/v1.14.0",
+          "source": "SpinalHDL (GitHub)",
+          "tags": ["Verilator"],
+          "publishedAt": "2026-02-11T17:17:14.000Z"
+        }
+      ]
+    },
+    {
+      "id": "industry",
+      "name": {
+        "en": "Industry & Market",
+        "zh": "产业动态"
+      },
+      "icon": "trending",
+      "count": 4,
+      "items": [
+        {
+          "title": "Empower Unveils High-Density Silicon Capacitors",
+          "url": "https://www.embedded.com/empower-unveils-high-density-silicon-capacitors/",
+          "source": "Embedded.com",
+          "tags": ["Semiconductor", "Silicon"],
+          "publishedAt": "2026-02-11T18:07:11.000Z"
+        },
+        {
+          "title": "Infineon’s Silicon Carbide Power Semiconductors Selected for TOYOTA’s New “bZ4X”",
+          "url": "https://www.eejournal.com/industry_news/infineons-silicon-carbide-power-semiconductors-selected-for-toyotas-new-bz4x/",
+          "source": "EE Journal",
+          "tags": ["Semiconductor", "Silicon"],
+          "publishedAt": "2026-02-11T16:13:43.000Z"
+        },
+        {
+          "title": "Ainekko Merges with Veevx, Expands Open Silicon Platform with Breakthrough Memory and Embedded AI Capabilities",
+          "url": "https://www.eejournal.com/industry_news/ainekko-merges-with-veevx-expands-open-silicon-platform-with-breakthrough-memory-and-embedded-ai-capabilities/",
+          "source": "EE Journal",
+          "tags": ["Semiconductor", "Silicon"],
+          "publishedAt": "2026-02-11T16:12:41.000Z"
+        },
+        {
+          "title": "Empower Introduces High-Density Embedded Silicon Capacitors to Advance Next-Generation AI and HPC Performance",
+          "url": "https://www.eejournal.com/industry_news/empower-introduces-high-density-embedded-silicon-capacitors-to-advance-next-generation-ai-and-hpc-performance/",
+          "source": "EE Journal",
+          "tags": ["Semiconductor", "Silicon"],
+          "publishedAt": "2026-02-11T13:00:25.000Z"
+        }
+      ]
+    }
+  ],
+  "items": [
+    {
+      "title": "0.30.6",
+      "url": "https://github.com/KLayout/klayout/releases/tag/v0.30.6",
+      "source": "KLayout (GitHub)",
+      "publishedAt": "2026-02-11T21:42:20.000Z",
+      "summary": "For release notes see [0.30.6 release notes](http://www.klayout.de/development.html#0.30.6] For downloads of Windows, Linux and MacOS packages see KLayout downl...",
+      "author": "klayoutmatthias",
+      "relevanceScore": 2,
+      "tags": ["KLayout"],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "auto"
+    },
+    {
+      "title": "Empower Unveils High-Density Silicon Capacitors",
+      "url": "https://www.embedded.com/empower-unveils-high-density-silicon-capacitors/",
+      "source": "Embedded.com",
+      "publishedAt": "2026-02-11T18:07:11.000Z",
+      "summary": "Empower Semiconductor has released three new embedded silicon capacitors (ECAPs) for AI and high-performance computing (HPC) processing. Addressing power integr...",
+      "author": "Ginaroos",
+      "relevanceScore": 2,
+      "tags": ["Semiconductor", "Silicon"],
+      "language": "en",
+      "sourceTier": "community",
+      "reviewStatus": "auto"
+    },
+    {
+      "title": "v1.14.0",
+      "url": "https://github.com/SpinalHDL/SpinalHDL/releases/tag/v1.14.0",
+      "source": "SpinalHDL (GitHub)",
+      "publishedAt": "2026-02-11T17:17:14.000Z",
+      "summary": "What's Changed Fix for Issue 1736 VHDL assertions without a report clause. by @jtredux in #1808 Wrap extrema by @thajohns in #1807 Add APLIC and IMSIC device su...",
+      "author": "Dolu1990",
+      "relevanceScore": 2,
+      "tags": ["Verilator"],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "auto"
+    },
+    {
+      "title": "Infineon’s Silicon Carbide Power Semiconductors Selected for TOYOTA’s New “bZ4X”",
+      "url": "https://www.eejournal.com/industry_news/infineons-silicon-carbide-power-semiconductors-selected-for-toyotas-new-bz4x/",
+      "source": "EE Journal",
+      "publishedAt": "2026-02-11T16:13:43.000Z",
+      "summary": "Munich, Germany and Tokyo, Japan – 9 February 2026 – Infineon Technologies (FSE: IFX / OTCQX: IFNNY) today announced that CoolSiC™ MOSFETs (silicon carbide (SiC...",
+      "author": "Amelia Dalton",
+      "relevanceScore": 2,
+      "tags": ["Semiconductor", "Silicon"],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "auto"
+    },
+    {
+      "title": "Ainekko Merges with Veevx, Expands Open Silicon Platform with Breakthrough Memory and Embedded AI Capabilities",
+      "url": "https://www.eejournal.com/industry_news/ainekko-merges-with-veevx-expands-open-silicon-platform-with-breakthrough-memory-and-embedded-ai-capabilities/",
+      "source": "EE Journal",
+      "publishedAt": "2026-02-11T16:12:41.000Z",
+      "summary": "SAN FRANCISCO, Feb. 10, 2026 — Ainekko, a startup pioneering open, software-defined AI infrastructure, today announced it is merging with Veevx, a fabless semic...",
+      "author": "Amelia Dalton",
+      "relevanceScore": 2,
+      "tags": ["Semiconductor", "Silicon"],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "auto"
+    },
+    {
+      "title": "Empower Introduces High-Density Embedded Silicon Capacitors to Advance Next-Generation AI and HPC Performance",
+      "url": "https://www.eejournal.com/industry_news/empower-introduces-high-density-embedded-silicon-capacitors-to-advance-next-generation-ai-and-hpc-performance/",
+      "source": "EE Journal",
+      "publishedAt": "2026-02-11T13:00:25.000Z",
+      "summary": "MILPITAS, Calif. – February 10, 2026 – Empower Semiconductor, the world leader in powering artificial intelligence (AI)-class processors, today announced the la...",
+      "author": "Amelia Dalton",
+      "relevanceScore": 2,
+      "tags": ["Semiconductor", "Silicon"],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "auto"
+    },
+    {
+      "title": "Cisco Unveils Silicon One G300 AI Networking Chip",
+      "url": "https://www.embedded.com/cisco-unveils-silicon-one-g300-ai-networking-chip/",
+      "source": "Embedded.com",
+      "publishedAt": "2026-02-11T21:43:19.000Z",
+      "summary": "Cisco Systems Inc. has announced the Silicon One G300, an innovative 102.4 Tbits/s switching chip designed to address the growing demands of AI data centers in ...",
+      "author": "Embedded Staff",
+      "relevanceScore": 1,
+      "tags": ["Silicon"],
+      "language": "en",
+      "sourceTier": "community",
+      "reviewStatus": "auto"
+    },
+    {
+      "title": "The 80386 barrel shifter",
+      "url": "https://blog.adafruit.com/2026/02/11/the-80386-barrel-shifter/",
+      "source": "Adafruit",
+      "publishedAt": "2026-02-11T16:33:18.000Z",
+      "summary": "nand2mario on the Small Things Retro blog is currently building an 80386-compatible core in SystemVerilog, driven by the original Intel microcode extracted from...",
+      "author": "Anne Barela",
+      "relevanceScore": 1,
+      "tags": ["Silicon"],
+      "language": "en",
+      "sourceTier": "community",
+      "reviewStatus": "auto"
+    },
+    {
+      "title": "EnSilica to highlight turnkey ASIC expertise and European supply resilience at embedded world 2026",
+      "url": "https://www.eejournal.com/industry_news/ensilica-to-highlight-turnkey-asic-expertise-and-european-supply-resilience-at-embedded-world-2026/",
+      "source": "EE Journal",
+      "publishedAt": "2026-02-11T16:16:03.000Z",
+      "summary": "Oxfordshire, United Kingdom – February 11, 2026: EnSilica, a fabless supplier of mixed-signal and digital ASICs and a European design and manufacturing services...",
+      "author": "Amelia Dalton",
+      "relevanceScore": 1,
+      "tags": ["Silicon"],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "auto"
+    },
+    {
+      "title": "Semidynamics Unveils 3nm AI Inference Silicon and Full-Stack Systems",
+      "url": "https://semiwiki.com/ip/semidynamics/366382-semidynamics-unveils-3nm-ai-inference-silicon-and-full-stack-systems/",
+      "source": "SemiWiki",
+      "publishedAt": "2026-02-11T15:00:13.000Z",
+      "summary": "Semidynamics has taken a significant step forward in the race to build next-generation AI infrastructure with the unveiling of its 3nm AI inference silicon and ...",
+      "author": "Daniel Nenni",
+      "relevanceScore": 1,
+      "tags": ["Silicon"],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "auto"
+    },
+    {
+      "title": "Ceva Wi-Fi 6 and Bluetooth IPs Power Renesas’ First Combo MCUs for IoT and Connected Home",
+      "url": "https://www.eejournal.com/industry_news/ceva-wi-fi-6-and-bluetooth-ips-power-renesas-first-combo-mcus-for-iot-and-connected-home/",
+      "source": "EE Journal",
+      "publishedAt": "2026-02-11T13:31:53.000Z",
+      "summary": "ROCKVILLE, MD., – February 10, 2026 – The explosive growth of IoT and smart home markets is driving demand for highly integrated, power-efficient connectivity s...",
+      "author": "Amelia Dalton",
+      "relevanceScore": 1,
+      "tags": ["Silicon"],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "auto"
+    },
+    {
+      "title": "From the mail bag…",
+      "url": "https://blog.adafruit.com/2026/02/12/from-the-mail-bag-776/",
+      "source": "Adafruit",
+      "publishedAt": "2026-02-12T05:30:01.000Z",
+      "summary": "From the mail bag! Fresh out of High School, I first started studying electronics studying Radio and Tv at College. I lost interest in the amount of effort invo...",
+      "author": "Ben",
+      "relevanceScore": 0,
+      "tags": [],
+      "language": "en",
+      "sourceTier": "community",
+      "reviewStatus": "auto"
+    },
+    {
+      "title": "v0.30.6-3",
+      "url": "https://github.com/KLayout/klayout/releases/tag/v0.30.6-3",
+      "source": "KLayout (GitHub)",
+      "publishedAt": "2026-02-12T05:19:36.000Z",
+      "summary": "Also adding win32 images for Python 3.14 packages",
+      "author": "klayoutmatthias",
+      "relevanceScore": 0,
+      "tags": [],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "auto"
+    },
+    {
+      "title": "Print in Place – PickPocket – Guitar Pick Holder #3DThursday #3DPrinting",
+      "url": "https://blog.adafruit.com/2026/02/12/print-in-place-pickpocket-guitar-pick-holder-3dthursday-3dprinting/",
+      "source": "Adafruit",
+      "publishedAt": "2026-02-12T05:00:48.000Z",
+      "summary": "Prometheus3DP shares: Here is a design I’m working on to hold guitar picks with me wherever I go. This is a fully 3D printed version of something I eventually i...",
+      "author": "Pedro",
+      "relevanceScore": 0,
+      "tags": [],
+      "language": "en",
+      "sourceTier": "community",
+      "reviewStatus": "auto"
+    },
+    {
+      "title": "Making a Functional Control Panel of the Chernobyl RBMK Reactor",
+      "url": "https://hackaday.com/2026/02/11/making-a-functional-control-panel-of-the-chernobyl-rbmk-reactor/",
+      "source": "Hackaday",
+      "publishedAt": "2026-02-12T05:00:18.000Z",
+      "summary": "Control panels of a pre-digitalization nuclear plant look quite daunting, with countless dials, buttons and switches that all make perfect sense to a trained op...",
+      "author": "Maya Posch",
+      "relevanceScore": 0,
+      "tags": [],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "auto"
+    }
+  ],
+  "sources": [
+    "Adafruit",
+    "EE Journal",
+    "Embedded.com",
+    "Hackaday",
+    "KLayout (GitHub)",
+    "SemiWiki",
+    "SpinalHDL (GitHub)"
+  ]
+}

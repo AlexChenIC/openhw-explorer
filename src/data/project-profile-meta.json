@@ -1,0 +1,386 @@
+{
+  "_meta": {
+    "generatedAt": "2026-02-16T21:05:48.373Z",
+    "source": "docs/repos/*/profile.md",
+    "totalProjects": 30,
+    "reviewedCount": 30,
+    "needsReviewCount": 0,
+    "missingProfileCount": 0
+  },
+  "profiles": {
+    "cva6": {
+      "tagline": "CVA6（前身 Ariane，源自 ETH Zurich / PULP）的应用级 RISC-V 核心仓库：6-stage / single-issue / in-order，应用级配置可启动 Linux。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-13",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cva6",
+        "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+        "https://github.com/openhwgroup/cva6.git",
+        "https://raw.githubusercontent.com/openhwgroup/cva6/master/README.md",
+        "https://raw.githubusercontent.com/openhwgroup/cva6/master/RESOURCES.md",
+        "https://raw.githubusercontent.com/openhwgroup/cva6/master/tutorials/running_sim.md",
+        "https://raw.githubusercontent.com/openhwgroup/cva6/master/tutorials/fpga.md",
+        "https://raw.githubusercontent.com/openhwgroup/cva6/master/tutorials/asic.md"
+      ],
+      "sourceCount": 20,
+      "confidence": 0.95
+    },
+    "cv32e40p": {
+      "tagline": "OpenHW CORE-V 家族最成熟、资料最完整的 32 位嵌入式核心之一。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-10",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cv32e40p",
+        "https://doi.org/10.1109/TVLSI.2017.2654506",
+        "https://doi.org/10.1109/PATMOS.2017.8106976",
+        "https://docs.openhwgroup.org/projects/cv32e40p-user-manual/",
+        "https://docs.openhwgroup.org/projects/core-v-verif/en/latest/"
+      ],
+      "sourceCount": 5,
+      "confidence": 0.95
+    },
+    "cvw": {
+      "tagline": "面向教学与工程实践并重的可配置 RISC-V 处理器平台。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-10",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cvw",
+        "https://github.com/openhwgroup/cvw/blob/main/docs/testplans/testplan.md"
+      ],
+      "sourceCount": 2,
+      "confidence": 0.9
+    },
+    "cv32e40x": {
+      "tagline": "面向计算密集型场景的 32 位 CORE-V 核心，支持通用扩展接口（XIF）。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-10",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cv32e40x",
+        "https://docs.openhwgroup.org/projects/cv32e40x-user-manual/en/latest/"
+      ],
+      "sourceCount": 2,
+      "confidence": 0.9
+    },
+    "cv32e40s": {
+      "tagline": "面向安全场景的 32 位 CORE-V 核心（基于 CV32E40P 演进）。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-10",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cv32e40s",
+        "https://docs.openhwgroup.org/projects/cv32e40s-user-manual/en/latest/"
+      ],
+      "sourceCount": 2,
+      "confidence": 0.9
+    },
+    "cva5": {
+      "tagline": "面向 FPGA 的 5 级流水线应用级 RISC-V 核心。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-10",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cva5",
+        "https://doi.org/10.1145/3650036",
+        "https://doi.org/10.1109/FCCM.2019.00046",
+        "https://gitlab.com/sfu-rcl/taiga-project"
+      ],
+      "sourceCount": 4,
+      "confidence": 0.95
+    },
+    "cve2": {
+      "tagline": "面向面积与功耗敏感场景的 32 位两级流水 RISC-V 核心。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-12",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cve2"
+      ],
+      "sourceCount": 1,
+      "confidence": 0.9
+    },
+    "cv32e41p": {
+      "tagline": "CV32E40P 路线的阶段性安全增强原型核心（已归档）。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-12",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cv32e41p"
+      ],
+      "sourceCount": 1,
+      "confidence": 0.9
+    },
+    "core-v-verif": {
+      "tagline": "OpenHW CORE-V 家族的统一功能验证平台（UVM / testbench / strategy）。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-10",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/core-v-verif",
+        "https://docs.openhwgroup.org/projects/core-v-verif/en/latest/",
+        "https://docs.openhwgroup.org/projects/core-v-verif/en/latest/quick_start.html"
+      ],
+      "sourceCount": 3,
+      "confidence": 0.95
+    },
+    "force-riscv": {
+      "tagline": "面向 RISC-V 处理器验证的指令序列生成器（Instruction Set Generator, ISG）。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-10",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/force-riscv"
+      ],
+      "sourceCount": 1,
+      "confidence": 0.9
+    },
+    "core-v-mcu-uvm": {
+      "tagline": "面向 CORE-V MCU 的高级 UVM 验证平台（目标 TRL-5+）。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-10",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/core-v-mcu-uvm",
+        "https://mio-cli.readthedocs.io/en/latest/"
+      ],
+      "sourceCount": 2,
+      "confidence": 0.9
+    },
+    "cv-hpdcache-verif": {
+      "tagline": "HPDcache 子系统的 UVM 验证环境仓库。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-10",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cv-hpdcache-verif"
+      ],
+      "sourceCount": 1,
+      "confidence": 0.9
+    },
+    "cvw-arch-verif": {
+      "tagline": "CVW 架构验证仓库（官方已声明迁移到 `riscv-arch-test`）。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-10",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cvw-arch-verif"
+      ],
+      "sourceCount": 1,
+      "confidence": 0.9
+    },
+    "cvfpu-uvm": {
+      "tagline": "面向 CVFPU 的 UVM 验证环境仓库，用于浮点功能正确性回归。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-12",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cvfpu-uvm",
+        "https://github.com/openhwgroup/cvfpu"
+      ],
+      "sourceCount": 2,
+      "confidence": 0.9
+    },
+    "cv32e20-dv": {
+      "tagline": "面向 CVE2（CV32E20）核心的专用设计验证仓库。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-12",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cv32e20-dv",
+        "https://docs.openhwgroup.org/projects/core-v-verif/en/latest/quick_start.html"
+      ],
+      "sourceCount": 2,
+      "confidence": 0.9
+    },
+    "cv32e40s-dv": {
+      "tagline": "面向 CV32E40S 安全核心的设计验证仓库，聚焦安全相关测试场景。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-12",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cv32e40s-dv",
+        "https://docs.openhwgroup.org/projects/cv32e40s-user-manual/en/latest/"
+      ],
+      "sourceCount": 2,
+      "confidence": 0.9
+    },
+    "core-v-mcu": {
+      "tagline": "OpenHW 的 MCU 级 SoC 平台项目，源自 PULPissimo 并独立演进。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-10",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/core-v-mcu",
+        "https://doi.org/10.1109/S3S.2018.8640145",
+        "https://doi.org/10.1109/TVLSI.2021.3058162",
+        "https://github.com/openhwgroup/core-v-mcu-devkit",
+        "https://core-v-mcu.readthedocs.io/en/latest/",
+        "https://github.com/openhwgroup/core-v-mcu/tree/master/emulation/quickstart/README.md"
+      ],
+      "sourceCount": 6,
+      "confidence": 0.95
+    },
+    "core-v-mcu-devkit": {
+      "tagline": "CORE-V MCU 的官方评估板与硬件开放资料仓库。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-10",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/core-v-mcu-devkit"
+      ],
+      "sourceCount": 1,
+      "confidence": 0.9
+    },
+    "cva6-safe": {
+      "tagline": "面向安全关键场景的 CVA6 双核锁步（DCLS）子系统。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-10",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cva6-safe"
+      ],
+      "sourceCount": 1,
+      "confidence": 0.9
+    },
+    "core-v-polara-apu": {
+      "tagline": "基于 Ara + OpenPiton 的多核向量处理平台，面向系统级研究与验证。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-10",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/core-v-polara-apu",
+        "https://ieeexplore.ieee.org/document/8918510",
+        "https://dl.acm.org/doi/10.1145/2954679.2872414"
+      ],
+      "sourceCount": 3,
+      "confidence": 0.95
+    },
+    "cvfpu": {
+      "tagline": "OpenHW 生态中的可参数化浮点单元（多精度/跨精度）核心 IP。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-10",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cvfpu",
+        "https://doi.org/10.1109/TVLSI.2020.3044752",
+        "https://arxiv.org/abs/2007.01530",
+        "https://github.com/openhwgroup/cvfpu/blob/develop/CITATION.cff"
+      ],
+      "sourceCount": 4,
+      "confidence": 0.95
+    },
+    "cv-hpdcache": {
+      "tagline": "OpenHW 高性能 L1 数据缓存控制器 IP（多请求者、乱序处理）。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-10",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cv-hpdcache",
+        "https://doi.org/10.1145/3587135.3591413",
+        "https://doi.org/10.23919/DATE58400.2024.10546547",
+        "https://www.youtube.com/watch?v=3r5STMiUq9s",
+        "https://www.youtube.com/watch?v=ODHA-wPOmW0"
+      ],
+      "sourceCount": 5,
+      "confidence": 0.95
+    },
+    "core-v-xif": {
+      "tagline": "OpenHW 定义的 RISC-V 扩展接口规范（用于自定义协处理器与 ISA 扩展）。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-10",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/core-v-xif",
+        "https://docs.openhwgroup.org/projects/openhw-group-core-v-xif/"
+      ],
+      "sourceCount": 2,
+      "confidence": 0.9
+    },
+    "cv-mesh": {
+      "tagline": "面向多核系统的网格互连（Mesh/NoC）IP 仓库。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-12",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cv-mesh",
+        "https://parallel.princeton.edu/openpiton/"
+      ],
+      "sourceCount": 2,
+      "confidence": 0.9
+    },
+    "corev-gcc": {
+      "tagline": "CORE-V 扩展支持的 GCC 工具链开发仓库（上游合并前阶段）。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-10",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/corev-gcc",
+        "https://gcc.gnu.org/"
+      ],
+      "sourceCount": 2,
+      "confidence": 0.9
+    },
+    "corev-binutils-gdb": {
+      "tagline": "CORE-V 扩展支持的 GNU 汇编/链接/调试工具链仓库。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-12",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/corev-binutils-gdb",
+        "https://sourceware.org/binutils/"
+      ],
+      "sourceCount": 2,
+      "confidence": 0.9
+    },
+    "corev-llvm": {
+      "tagline": "CORE-V 扩展支持的 LLVM/Clang 开发仓库（上游合并前阶段）。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-10",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/corev-llvm-project",
+        "https://llvm.org/docs/"
+      ],
+      "sourceCount": 2,
+      "confidence": 0.9
+    },
+    "core-v-sdk": {
+      "tagline": "面向 CORE-V 生态的软件开发工具包与集成入口仓库。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-12",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/core-v-sdk"
+      ],
+      "sourceCount": 1,
+      "confidence": 0.9
+    },
+    "core-v-freertos": {
+      "tagline": "CORE-V 平台的 FreeRTOS 适配与示例工程仓库。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-12",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/core-v-freertos",
+        "https://www.freertos.org/"
+      ],
+      "sourceCount": 2,
+      "confidence": 0.9
+    },
+    "core-v-freertos-kernel": {
+      "tagline": "面向 CORE-V 平台适配的 FreeRTOS 内核仓库。",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-02-12",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/core-v-freertos-kernel",
+        "https://www.freertos.org/"
+      ],
+      "sourceCount": 2,
+      "confidence": 0.9
+    }
+  }
+}
