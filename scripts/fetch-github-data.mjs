@@ -1,17 +1,7 @@
 #!/usr/bin/env node
 
-/**
- * GitHub Data Fetcher for OpenHW Explorer
- *
- * Fetches repository statistics from the GitHub API for all OpenHW repos.
- * Outputs to src/data/github-stats.json
- *
- * Usage:
- *   node scripts/fetch-github-data.mjs
- *
- * Environment variables:
- *   GITHUB_TOKEN - Optional. Personal access token for higher rate limits (5000/hr vs 60/hr)
- */
+// Fetches OpenHW repo stats from the GitHub API and writes to src/data/github-stats.json
+// Set GITHUB_TOKEN to raise the rate limit to 5000/hr
 
 import { writeFileSync, readFileSync } from "fs";
 import { join, dirname } from "path";

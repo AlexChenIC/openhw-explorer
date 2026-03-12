@@ -93,7 +93,7 @@ const verifiedClassification: Record<string, VerifiedClassification> = {
   "cv32e20-dv": { category: ["verification"], verificationType: ["uvm-testbench"] },
   "cv32e40s-dv": { category: ["verification"], verificationType: ["uvm-testbench"] },
 
-  "core-v-mcu": { category: ["soc"] },
+  "core-v-mcu": { category: ["soc", "learning"] },
   "core-v-mcu-devkit": { category: ["soc", "tools"] },
   "cva6-safe": { category: ["soc"] },
   "core-v-polara-apu": { category: ["soc"] },

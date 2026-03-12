@@ -1,23 +1,6 @@
 import { ProjectKnowledge } from "@/types";
 
-/**
- * Knowledge Base for OpenHW Projects
- *
- * Each entry maps a project ID to its knowledge base data.
- * Data sourced from publicly available information:
- * - Google Scholar, IEEE Xplore, arXiv
- * - Conference proceedings (RISC-V Summit, DAC, DATE, etc.)
- * - University course pages and textbook references
- * - Company press releases and technical blogs
- * - Community blog posts and tutorials
- *
- * HOW TO ADD KNOWLEDGE:
- * 1. Find the project ID in the map below
- * 2. Add entries to the appropriate array (academicPapers, industryAdoption, etc.)
- * 3. Always include a source URL when available
- *
- * Last updated: 2026-02-08
- */
+// OpenHW project knowledge base: academic papers, industry adoption, education, talks, and ecosystem links
 
 export const knowledgeBase: Record<string, ProjectKnowledge> = {
   // CVA6 (Ariane) - Most cited OpenHW core

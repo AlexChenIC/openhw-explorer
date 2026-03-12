@@ -1,11 +1,6 @@
 import { FilterConfig, ProjectCategory } from "@/types";
 
-/**
- * Filter Configuration for Smart Navigator
- *
- * This file defines all the filter options shown in the UI.
- * Edit this to add/remove filter options.
- */
+// Smart Navigator filter configuration: roles, categories, core types, and verification types
 
 export const filterConfig: FilterConfig = {
   // User roles - "I am a..."
