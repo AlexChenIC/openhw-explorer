@@ -183,6 +183,7 @@
       "ecosystem": "生态关联",
       "noData": "暂无数据",
       "noDataHint": "了解此项目？欢迎贡献信息！",
+      "otherSectionsComingSoon": "产业采用、教学使用、演讲资料、技术文章及生态关联等内容将逐步补充——欢迎社区与官方来源共同贡献。",
       "source": "来源",
       "viewPaper": "查看论文",
       "viewMore": "查看更多"
@@ -193,10 +194,12 @@
       "openIssues": "待处理 Issues",
       "recentCommits": "近期提交（4 周）",
       "goodFirstIssues": "新手友好 Issues",
+      "openPRs": "开放中 PR",
       "lastPush": "最近推送",
       "highActivity": "高度活跃",
       "moderate": "中等活跃",
-      "low": "低活跃度"
+      "low": "低活跃度",
+      "dataAsOf": "数据更新于 {date}"
     },
     "status": {
       "active": "活跃开发中",
@@ -350,6 +353,7 @@
     "noGoodFirstIssues": "目前没有新手友好的 Issues。请稍后再来查看，或直接在 GitHub 上浏览 open issues。",
     "rankings": {
       "title": "项目排行榜",
+      "disclaimer": "仅供参考。以下排名基于自动采集的 GitHub 数据（Stars、近期提交数、贡献者数），尚未经过逐项人工核验，数值可能存在偏差。请将其视为一个方向性参考，而非权威排名。",
       "byStars": "按 Stars",
       "byActivity": "按近期活跃度",
       "byContributors": "按贡献者数",

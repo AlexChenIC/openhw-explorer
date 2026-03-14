@@ -3,7 +3,6 @@
 import {
   Users,
   GitPullRequest,
-  ExternalLink,
   FileText,
   ArrowRight,
   CheckCircle,
@@ -27,21 +26,6 @@ interface RankedProject {
   stats: GitHubRepoStats;
 }
 
-function repoNameFromGithubUrl(url: string): string | null {
-  const match = url.match(/github\.com\/[^/]+\/([^/]+)/);
-  return match ? match[1] : null;
-}
-
-function getGoodFirstIssueSearchUrl(githubUrl: string): string {
-  const repoName = repoNameFromGithubUrl(githubUrl);
-
-  if (!repoName) {
-    return `${githubUrl.replace(/\/$/, "")}/issues`;
-  }
-
-  const query = `repo:openhwgroup/${repoName} label:"good first issue" is:issue is:open`;
-  return `https://github.com/issues?q=${encodeURIComponent(query)}`;
-}
 
 function getRankedProjects(): RankedProject[] {
   const result: RankedProject[] = [];
@@ -67,11 +51,6 @@ export function ContributeContent() {
   const formatNumber = (value: number) => numberFormatter.format(value);
 
   const rankedProjects = getRankedProjects();
-
-  // Good first issues
-  const goodFirstIssueRepos = rankedProjects
-    .filter((p) => p.stats.goodFirstIssueCount > 0)
-    .sort((a, b) => b.stats.goodFirstIssueCount - a.stats.goodFirstIssueCount);
 
   const getActivityLabel = (level: "high" | "moderate" | "low") => {
     switch (level) {
@@ -315,53 +294,11 @@ export function ContributeContent() {
           </div>
         </section>
 
-        {/* Good First Issues */}
+        {/* Most Active Repos */}
         <section
           id="community-insights"
           className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 sm:p-8 mb-5 scroll-mt-24"
         >
-          <div className="flex items-center gap-2 mb-1">
-            <h2 className="text-lg font-semibold text-[var(--text-primary)]">
-              {t("goodFirstIssues")}
-            </h2>
-          </div>
-          <p className="text-xs text-[var(--text-tertiary)] mb-4">{t("goodFirstIssuesDesc")}</p>
-
-          {goodFirstIssueRepos.length > 0 ? (
-            <div className="space-y-2">
-              {goodFirstIssueRepos.map((project) => {
-                const style = getCategoryStyle(project.category);
-                return (
-                  <a
-                    key={project.id}
-                    href={getGoodFirstIssueSearchUrl(project.github)}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 px-4 py-3 rounded-lg bg-[var(--bg-subtle)] hover:bg-[var(--bg-subtle-hover)] border border-transparent hover:border-[var(--border)] transition-all group"
-                  >
-                    <span className="text-sm" style={{ color: style.color }}>
-                      {style.emoji}
-                    </span>
-                    <span className="flex-1 text-sm font-medium text-[var(--text-primary)]">
-                      {project.name}
-                    </span>
-                    <span className="px-2 py-0.5 rounded-md bg-[var(--green)]/10 text-[var(--green)] text-xs font-medium">
-                      {t("metrics.goodFirstIssues", {
-                        count: formatNumber(project.stats.goodFirstIssueCount),
-                      })}
-                    </span>
-                    <ExternalLink className="w-3.5 h-3.5 text-[var(--text-tertiary)] group-hover:text-[var(--primary)] transition-colors" />
-                  </a>
-                );
-              })}
-            </div>
-          ) : (
-            <p className="text-sm text-[var(--text-tertiary)] italic">{t("noGoodFirstIssues")}</p>
-          )}
-        </section>
-
-        {/* Most Active Repos */}
-        <section className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 sm:p-8 mb-5">
           <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-4">
             {t("activeRepos")}
           </h2>

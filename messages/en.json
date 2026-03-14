@@ -183,6 +183,7 @@
       "ecosystem": "Ecosystem",
       "noData": "No data yet",
       "noDataHint": "Know about this project? Contributions welcome!",
+      "otherSectionsComingSoon": "Industry adoption, educational use, presentations, articles, and ecosystem data will be added incrementally — contributions from the community and official sources welcome.",
       "source": "Source",
       "viewPaper": "View Paper",
       "viewMore": "View More"
@@ -193,10 +194,12 @@
       "openIssues": "Open Issues",
       "recentCommits": "Recent Commits (4 weeks)",
       "goodFirstIssues": "Good First Issues",
+      "openPRs": "Open PRs",
       "lastPush": "Last Push",
       "highActivity": "Highly Active",
       "moderate": "Moderately Active",
-      "low": "Low Activity"
+      "low": "Low Activity",
+      "dataAsOf": "Data as of {date}"
     },
     "status": {
       "active": "Active",
@@ -350,6 +353,7 @@
     "noGoodFirstIssues": "No good first issues found at the moment. Check back later or browse open issues directly on GitHub.",
     "rankings": {
       "title": "Project Rankings",
+      "disclaimer": "For reference only. Rankings are derived from automated GitHub data (stars, recent commits, contributors) and have not been individually verified. Numbers may not fully reflect each project's actual standing — treat this as a directional snapshot, not a definitive ranking.",
       "byStars": "By Stars",
       "byActivity": "By Recent Activity",
       "byContributors": "By Contributors",

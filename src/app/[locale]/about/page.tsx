@@ -67,12 +67,6 @@ async function AboutContent() {
           <p className="text-[var(--text-secondary)] leading-relaxed">{t("whatIsThis.p2")}</p>
         </section>
 
-        {/* Disclaimer */}
-        <section className="bg-amber-400/5 border border-amber-400/20 rounded-xl p-6 sm:p-8 mb-5">
-          <h2 className="text-lg font-semibold text-amber-400 mb-3">{t("disclaimer.title")}</h2>
-          <p className="text-[var(--text-secondary)] leading-relaxed">{t("disclaimer.content")}</p>
-        </section>
-
         {/* Features */}
         <section className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 sm:p-8 mb-5">
           <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-4">

@@ -16,6 +16,7 @@ export interface GitHubRepoStats {
   stars: number;
   forks: number;
   openIssues: number;
+  openPRsCount?: number;
   contributorsCount: number;
   goodFirstIssueCount: number;
   recentCommits: number;
@@ -243,46 +244,13 @@ function buildBaselineSummary(project: Project): string {
   return `${project.name} is listed as an OpenHW repository in the ${categories} domain. This baseline profile keeps only high-level, source-linked facts while deeper technical details continue manual verification.`;
 }
 
-/**
- * OpenHW Projects Database
- *
- * Data sourced from:
- * - OpenHW Group GitHub organization (github.com/openhwgroup)
- * - "OpenHW Group 主要开源仓库清单" (Dec 2025)
- * - GitHub API auto-fetch (see scripts/fetch-github-data.mjs)
- *
- * Last updated: 2026-02-08
- * Total projects: 30
- *
- * HOW TO ADD A NEW PROJECT:
- * 1. Copy the template below
- * 2. Fill in the required fields
- * 3. Add appropriate categories and tags
- *
- * TEMPLATE:
- * {
- *   id: "unique-id",
- *   name: "Project Name",
- *   description: "Brief description of the project",
- *   category: ["core"], // Options: core, verification, tools, docs, learning, sdk, soc, ip
- *   tags: ["RISC-V", "SystemVerilog"],
- *   status: "active", // Options: active, stable, experimental, archived
- *   github: "https://github.com/openhwgroup/...",
- *   stars: 0,
- *   forks: 0,
- *   language: "SystemVerilog",
- *   suitableFor: ["engineer", "student"],
- *   relatedProjects: ["related-project-id"],
- * }
- */
-
 export const projects: Project[] = [
   // PROCESSOR CORES (8)
   {
     id: "cva6",
-    name: "CVA6 (Ariane)",
+    name: "CVA6",
     description:
-      "CVA6 (formerly Ariane from ETH Zurich/PULP) is an application-class open-source RISC-V core in OpenHW: 6-stage, single-issue, in-order, with configurations for Linux-capable systems. The repository and user manual document RV32/RV64 configuration options, FPGA/ASIC-oriented flows, and integration references across the CORE-V ecosystem.",
+      "CVA6 is a 6-stage RISC-V processor core implementing I, M, A, and C extensions with support for machine, supervisor, and user privilege levels. It provides configurable TLBs, a hardware page table walker, and branch prediction (BTB and BHT), enabling full Unix-like OS support including Linux boot. The repository supports both RV32 and RV64 configurations and covers FPGA emulation, ASIC implementation, and simulation flows.",
     category: ["core"],
     coreType: ["linux-application", "high-performance"],
     tags: ["RISC-V", "SystemVerilog", "RV64", "Linux", "Application-Class"],
@@ -308,7 +276,7 @@ export const projects: Project[] = [
     id: "cv32e40p",
     name: "CV32E40P",
     description:
-      "CV32E40P is an embedded-class RV32 core in OpenHW, derived from RI5CY/PULP, with a 4-stage in-order pipeline. Its user manual, verification collateral in core-v-verif, and reuse in CORE-V MCU-related projects make it a common baseline for MCU and low-power edge designs.",
+      "CV32E40P is a 32-bit, 4-stage in-order RISC-V core implementing RV32IM[F|Zfinx]C with PULP custom extensions for higher code density, performance, and energy efficiency. Originally derived from the RI5CY core in the PULP platform and contributed to OpenHW Group in 2020, it targets IoT and embedded MCU designs where power and area are constrained.",
     category: ["core"],
     coreType: ["embedded-mcu", "low-power"],
     tags: ["RISC-V", "SystemVerilog", "RV32IMFCXpulp", "Embedded", "PULP"],
@@ -326,7 +294,7 @@ export const projects: Project[] = [
     id: "cvw",
     name: "CVW (Wally)",
     description:
-      "CVW (Wally) is a configurable RISC-V platform used for both teaching and engineering workflows, spanning RV32 profiles through Linux-capable RV64 configurations in one codebase. The project documents toolchain setup, regression, lock-step validation, and test planning for reproducible classroom and prototyping use.",
+      "CVW (Wally) is a 5-stage pipelined RISC-V processor configurable to support all standard RISC-V options — from a minimal RV32E core to a fully featured RV64GC application processor — including A, B, C, D, F, M, Q, and Zk* extensions, virtual memory, PMP, and privileged modes. Developed as the reference implementation for a computer architecture textbook at Harvey Mudd College, it passes RISC-V Arch Tests and boots Linux on FPGA.",
     category: ["core", "learning"],
     coreType: ["linux-application", "embedded-mcu"],
     tags: ["RISC-V", "SystemVerilog", "Education", "Textbook", "Configurable"],
@@ -343,7 +311,7 @@ export const projects: Project[] = [
     id: "cv32e40x",
     name: "CV32E40X",
     description:
-      "CV32E40X extends the CV32E40P lineage with compute-extension-oriented capabilities while keeping a 4-stage embedded baseline. It is positioned for custom instruction and coprocessor-style integration through CORE-V XIF without moving to an application-class core.",
+      "CV32E40X is a 32-bit, 4-stage in-order RISC-V core forked from CV32E40P, designed for compute-intensive applications with support for the CORE-V eXtension Interface (XIF) for custom instruction and coprocessor integration. It implements RV32[I|E] with optional M/Zmmul, A, compressed, and bit manipulation extensions.",
     category: ["core"],
     coreType: ["embedded-mcu", "high-performance"],
     tags: ["RISC-V", "SystemVerilog", "Custom Extensions", "DSP", "SIMD"],
@@ -359,7 +327,7 @@ export const projects: Project[] = [
     id: "cv32e40s",
     name: "CV32E40S",
     description:
-      "CV32E40S extends CV32E40P with security-oriented capabilities while keeping a compact 4-stage embedded profile. It targets MCU-class systems that require protection-focused behavior, with aligned architecture documentation and dedicated verification flows.",
+      "CV32E40S is a 32-bit, 4-stage in-order RISC-V core forked from CV32E40P, focused on security-oriented embedded deployments with enhanced Physical Memory Protection (PMP), anti-tampering features, and compressed and bitwise extensions (Zca_Zcb_Zcmp_Zcmt, Zba_Zbb_Zbs). It supports machine and user privilege modes and targets MCU-class systems requiring protection-focused behavior.",
     category: ["core"],
     coreType: ["embedded-mcu", "safety-critical"],
     tags: ["RISC-V", "SystemVerilog", "Security", "IoT", "PMP"],
@@ -375,7 +343,7 @@ export const projects: Project[] = [
     id: "cva5",
     name: "CVA5",
     description:
-      "CVA5 is an FPGA-first application-class RISC-V core path in OpenHW, derived from the Taiga lineage and aimed at architecture experimentation under FPGA constraints. It emphasizes configurable execution behavior and soft-core flexibility for feature exploration.",
+      "CVA5 is a 32-bit RISC-V processor (RV32IMAFD) designed specifically for FPGA deployment, featuring a pipeline built around parallel, variable-latency execution units and a highly configurable, extensible architecture. It can be packaged as an IP block and supports Vivado-based prototyping flows.",
     category: ["core"],
     coreType: ["high-performance"],
     tags: ["RISC-V", "SystemVerilog", "FPGA", "Application-Class", "Pipeline"],
@@ -391,7 +359,7 @@ export const projects: Project[] = [
     id: "cve2",
     name: "CVE2 (CV32E20)",
     description:
-      "CVE2 (CV32E20) is a lightweight embedded RISC-V core path in OpenHW, emphasizing low area and implementation simplicity through a two-stage microarchitecture rooted in the zero-riscy/Ibex lineage. It targets power/footprint-sensitive designs and education scenarios that need a compact RTL core.",
+      "CV32E20 is a production-quality, heavily parametrizable 32-bit RISC-V core written in SystemVerilog, implementing a 2-stage in-order pipeline with integer (I/E), multiplication (M), and compressed (C) extension support. Originating from the Zero-riscy core (PULP platform, now maintained by lowRISC as Ibex), it targets embedded control applications requiring low area and energy consumption.",
     category: ["core"],
     coreType: ["embedded-mcu", "low-power"],
     tags: ["RISC-V", "SystemVerilog", "RV32", "Microcontroller", "Low-Area"],
@@ -407,7 +375,7 @@ export const projects: Project[] = [
     id: "cv32e41p",
     name: "CV32E41P",
     description:
-      "CV32E41P is an archived exploration branch in the CV32E40P family that captured a transitional stage of security and extension experimentation (including Zfinx/Zce-oriented directions). Its current value is historical and architectural: it helps teams understand why capability lines later converged into maintained successors such as CV32E40S and CV32E40X.",
+      "CV32E41P is an archived 32-bit, 4-stage in-order RISC-V core forked from CV32E40P to evaluate official RISC-V extension implementations including Zfinx, Zce, and Xpulp custom extensions for higher code density, performance, and energy efficiency. Its architectural directions were later consolidated into the maintained successors CV32E40S and CV32E40X.",
     category: ["core"],
     coreType: ["embedded-mcu", "safety-critical"],
     tags: ["RISC-V", "SystemVerilog", "Zfinx", "Zce", "Prototype"],
@@ -425,7 +393,7 @@ export const projects: Project[] = [
     id: "core-v-verif",
     name: "CORE-V Verification",
     description:
-      "CORE-V Verification is the family-level verification framework for OpenHW cores, providing UVM methodology, reusable infrastructure, and cross-core regression flows instead of one-off per-core testbenches. It keeps CV32E40P/X/S and CVA6 verification practices aligned while allowing incremental quality updates outside each RTL repository.",
+      "CORE-V Verification is the shared functional verification project for the CORE-V family of RISC-V cores, providing a unified UVM-based environment covering CV32E40P, CV32E40X, CV32E40S, and CVA6. It provides reusable verification infrastructure, DV plans, coverage reports, and regression flows using Bender for hardware IP dependency management.",
     category: ["verification"],
     verificationType: ["uvm-testbench", "industrial-grade"],
     tags: ["UVM", "SystemVerilog", "Verification", "Testbench", "Coverage"],
@@ -442,7 +410,7 @@ export const projects: Project[] = [
     id: "force-riscv",
     name: "FORCE-RISCV",
     description:
-      "FORCE-RISCV is OpenHW's instruction sequence generation engine for constrained-random processor verification, combining a C++ generation core with Python template control for reproducible stress scenarios. Instead of fixed test vectors, it scales verification coverage by producing executable ELF/assembly workloads tailored to core features, privilege modes, and memory behaviors.",
+      "FORCE-RISCV is an instruction sequence generator (ISG) for RISC-V processor design verification, supporting RV64G, RV32G, and Vector Extension 1.0 across U, S, and M privilege modes with comprehensive virtual memory coverage (Sv48/39/32). It generates constrained-random and directed test programs as ELF binaries via a C++ core with Python API control, with multiprocess/multithread capabilities and a built-in RISC-V instruction simulator (Handcar, based on Spike).",
     category: ["verification", "tools"],
     verificationType: ["force-riscv"],
     tags: ["RISC-V", "Python", "C++", "Test Generation", "Constrained Random"],
@@ -459,7 +427,7 @@ export const projects: Project[] = [
     id: "core-v-mcu-uvm",
     name: "CORE-V MCU UVM",
     description:
-      "CORE-V MCU UVM is a system-level verification platform for CORE-V MCU, using layered UVM environments, reusable VIP, and regression-oriented flows. It validates integration behavior across SoC subsystems beyond block-level checks.",
+      "CORE-V MCU UVM is an advanced UVM verification environment targeting Technology Readiness Level 5 (TRL-5) for the CORE-V MCU, providing hierarchical test environments at both chip and subsystem levels with automated regression suites. It supports Metrics DSim Cloud (v20230116.4.0) and Xilinx Vivado (v2022.2), built on Moore.io library infrastructure with contributions from Datum and Low Power Futures.",
     category: ["verification"],
     verificationType: ["uvm-testbench"],
     tags: ["UVM", "SystemVerilog", "SoC Verification", "MCU"],
@@ -475,7 +443,7 @@ export const projects: Project[] = [
     id: "cv-hpdcache-verif",
     name: "CV-HPDCache Verification",
     description:
-      "CV-HPDCache Verification is the dedicated UVM validation environment for HPDCache and related prefetch components, designed to keep high-performance cache behavior trustworthy as features evolve. It provides an independent regression path so cache RTL can iterate without weakening system integration confidence.",
+      "CV-HPDCache Verification is a UVM-based validation environment for the HPDCache high-performance data cache and its associated hardware prefetcher, covering four parameter configurations spanning HPC and embedded use cases (CONFIG1_HPC, CONFIG2_HPC, CONFIG3_EMBEDDED, CONFIG4_EMBEDDED). It uses pseudo-random sequence generation, directed testing, and memory shadow models for scoreboarding and LRU algorithm validation.",
     category: ["verification"],
     verificationType: ["uvm-testbench"],
     tags: ["Verification", "SystemVerilog", "Cache", "HPDCache"],
@@ -491,7 +459,7 @@ export const projects: Project[] = [
     id: "cvw-arch-verif",
     name: "CVW Architectural Verification",
     description:
-      "CVW Architectural Verification is the historical architecture-validation track for CORE-V Wally, now explicitly deprecated with migration toward riscv-arch-test maintenance flows. Its current value is as a transition and reference artifact for understanding earlier coverage plans and migration decisions.",
+      "CVW Architectural Verification is a deprecated repository that provided CORE-V Wally architectural verification, covering unprivileged extensions (I, M, F, D, Zfh, Zba, Zbb, Zbs, Zca, Zcb, Zknd, Zkne, Zknh) and privileged features including SV32/39/48 memory models and exception/interrupt handling via RVVI functional coverage. Development has migrated to the RISC-V Architecture Test framework.",
     category: ["verification"],
     verificationType: ["formal-verification"],
     tags: ["Verification", "SystemVerilog", "ISA Compliance", "Wally"],
@@ -507,7 +475,7 @@ export const projects: Project[] = [
     id: "cvfpu-uvm",
     name: "CVFPU UVM Verification",
     description:
-      "CVFPU UVM Verification provides IP-level verification infrastructure for CVFPU floating-point behavior, enabling repeatable regression and corner-case validation before integration into larger cores. It is a key quality layer for IEEE-754-sensitive compute paths used by projects such as CVA6 and related OpenHW designs.",
+      "CVFPU UVM Verification provides a UVM framework for verifying the CVFPU floating-point unit as integrated in CVA6, with a C++ reference model exposed via SystemVerilog DPI. It validates FP32 and FP64 formats, integer-to-float and float-to-integer conversions (INT32/INT64), and supports QuestaSim, Xcelium, and VCS simulators with Python-based compilation and regression infrastructure.",
     category: ["verification"],
     verificationType: ["uvm-testbench"],
     tags: ["UVM", "Verification", "FPU", "IEEE 754", "Floating Point"],
@@ -523,7 +491,7 @@ export const projects: Project[] = [
     id: "cv32e20-dv",
     name: "CV32E20 Design Verification",
     description:
-      "CV32E20-DV is the dedicated verification track for CVE2, focused on keeping lightweight two-stage core behavior regression-safe as features and tool flows evolve. It provides an isolated quality gate for small-core correctness so implementation and verification can iterate at different speeds without losing confidence.",
+      "CV32E20-DV is the dedicated verification environment for the CV32E20 (CVE2) processor core, providing UVM-based testbenches, a board support package (BSP), OBI agent, and C and assembly test programs. Non-core-specific components such as the OBI Agent are maintained separately in vendor libraries, and the environment integrates with OpenHW Group's shared verification infrastructure.",
     category: ["verification"],
     verificationType: ["uvm-testbench"],
     tags: ["Verification", "Assembly", "CVE2", "DV"],
@@ -539,7 +507,7 @@ export const projects: Project[] = [
     id: "cv32e40s-dv",
     name: "CV32E40S Design Verification",
     description:
-      "CV32E40S-DV is the security-focused verification environment for CV32E40S, aimed at validating protection-centric behavior through targeted regression assets rather than generic core-only tests.",
+      "CV32E40S-DV is the design verification environment for the CV32E40S security-oriented core, providing both simulation-based UVM testbenches and formal verification capabilities. It includes a board support package (BSP) for test program compilation and a modular architecture with UVM environment classes, testbench modules, and comprehensive per-component documentation.",
     category: ["verification"],
     verificationType: ["uvm-testbench"],
     tags: ["Verification", "Assembly", "Security", "DV"],
@@ -557,7 +525,7 @@ export const projects: Project[] = [
     id: "core-v-mcu",
     name: "CORE-V MCU",
     description:
-      "CORE-V MCU is an embedded SoC platform in OpenHW, evolved from PULPissimo and focused on end-to-end bring-up rather than isolated RTL demos. It combines CV32E40P-based compute, peripheral subsystems, verification hooks, documentation, and FPGA-oriented workflows for software/hardware co-development.",
+      "CORE-V MCU is a standalone RISC-V SoC platform originated from PULPissimo, integrating a CV32E40P-based compute subsystem with an IEEE 1149.1 compliant JTAG interface and RISC-V Debug Transport Module (v0.13.2). It targets Digilent Nexys A7-100T and Genesys2 FPGA boards with a Make/fuseSoC build system and supports Modelsim/Questasim simulation and Verilator linting.",
     category: ["soc", "learning"],
     coreType: ["embedded-mcu"],
     tags: ["SoC", "FPGA", "Embedded", "CV32E40P", "Reference Design"],
@@ -574,7 +542,7 @@ export const projects: Project[] = [
     id: "core-v-mcu-devkit",
     name: "CORE-V MCU DevKit",
     description:
-      "CORE-V MCU DevKit is the board-level realization of the CORE-V MCU platform, with schematics, hardware files, and interface documentation for reproducible bring-up workflows. It is used to validate full-stack embedded behavior on real hardware.",
+      "The CORE-V MCU DevKit is an evaluation platform for the CV32E40P RISC-V core (v1.0.0), combining the processor with a Quicklogic ArcticPro2 Embedded FPGA, 4MB flash, and an onboard Ashling Opella LD JTAG debugger with serial console. It provides mikroBUS connectivity, AWS IoT ExpressLink for cloud integration, and level shifters for 3.3V I/O compatibility, supporting hardware bring-up and embedded software development.",
     category: ["soc", "learning"],
     tags: ["DevKit", "Hardware", "Board", "SDK", "Getting Started"],
     status: "active",
@@ -589,7 +557,7 @@ export const projects: Project[] = [
     id: "cva6-safe",
     name: "CVA6-Safe",
     description:
-      "CVA6-SAFE is a safety-oriented subsystem built on CVA6 that introduces dual-core lockstep capability with optional AMP-style operation for different deployment constraints. It is positioned as an integration path to evaluate fault-detection and safety-oriented architecture trade-offs on top of CVA6.",
+      "CVA6-Safe is a dual-core lockstep (DCLS) subsystem built on CVA6, providing fault-tolerant operation through synchronized dual-core execution for safety-critical deployments. It also supports an asymmetric multi-processing (AMP) mode when lockstep is not required, offering flexibility for configurations that trade fault detection for independent core operation.",
     category: ["soc"],
     coreType: ["safety-critical"],
     tags: ["Safety", "Lockstep", "DCLS", "CVA6", "ISO 26262", "Automotive"],
@@ -605,7 +573,7 @@ export const projects: Project[] = [
     id: "core-v-polara-apu",
     name: "CORE-V Polara APU",
     description:
-      "CORE-V Polara APU is a system-level research platform that composes CVA6-centered processing with OpenPiton and Ara lineage, targeting vector and manycore experimentation rather than single-IP reuse. It is used to study full-stack integration behavior, complex simulation flows, and multi-core software workloads on open hardware infrastructure.",
+      "CORE-V Polara APU is a manycore RISC-V research platform originating from the Ara vector processor and OpenPiton projects, integrating four RISC-V vector cores connected through an OpenPiton P-Mesh network with configurable vector length up to VLEN=4096. It supports full-precision and low-precision deep neural network inference workloads and is configurable in multi-tile arrangements (2×2, 4×4), requiring RISC-V LLVM with vector extension support.",
     category: ["soc"],
     coreType: ["high-performance"],
     tags: ["APU", "Multi-Core", "OpenPiton", "HPC", "Research"],
@@ -623,7 +591,7 @@ export const projects: Project[] = [
     id: "cvfpu",
     name: "CVFPU",
     description:
-      "CVFPU (FPnew lineage) is a reusable, parameterized floating-point IP in OpenHW for transprecision-oriented RISC-V systems, with configurable formats and operations. It is documented in peer-reviewed publications and appears in CORE-V integration and dedicated UVM verification flows.",
+      "CVFPU (FPnew) is a parametric floating-point unit written in SystemVerilog, supporting standard RISC-V formats and transprecision formats in compliance with IEEE 754-2008. It provides configurable exponent and mantissa bit widths, simultaneous support for multiple formats (half, single, double, and quad precision), fused multiply-add, division, and square root operations, with optional packed-SIMD variants for parallel processing.",
     category: ["ip"],
     tags: ["FPU", "Floating Point", "IEEE 754", "SystemVerilog", "Parametric"],
     status: "active",
@@ -639,7 +607,7 @@ export const projects: Project[] = [
     id: "cv-hpdcache",
     name: "CV-HPDCache",
     description:
-      "CV-HPDCache is a high-performance L1 data-cache controller IP in OpenHW for throughput-oriented RISC-V subsystems, designed for multi-requester and non-blocking memory behavior. The project includes research references, CVA6 integration paths, and a dedicated verification repository.",
+      "CV-HPDCache is an open-source, high-performance L1 data cache designed for RISC-V processors and accelerators, providing a multi-requester, out-of-order architecture that supports multiple concurrent requests. The repository includes Yosys-based synthesis flows, linting, formal verification specifications, and dedicated testbenches, licensed under Solderpad Hardware License v2.1.",
     category: ["ip"],
     tags: ["Cache", "L1", "High Performance", "SystemVerilog", "Non-Blocking"],
     status: "active",
@@ -654,7 +622,7 @@ export const projects: Project[] = [
     id: "core-v-xif",
     name: "CV-X-IF (eXtension Interface)",
     description:
-      "CORE-V XIF is a contract-first extension interface specification that decouples core evolution from custom accelerator integration by standardizing offload and writeback interaction semantics. Instead of tying extensions to one microarchitecture, it gives CORE-V programs a reusable path for coprocessor experimentation and long-term interface governance.",
+      "CV-X-IF (CORE-V eXtension Interface) is a RISC-V extension interface specification providing a generalized framework for implementing custom coprocessors and ISA extensions in existing RISC-V processors. It decouples instruction offloading from result writeback through independent communication channels, enabling processor-independent coprocessor integration without modifying the host core.",
     category: ["ip"],
     tags: ["Extension", "Coprocessor", "Interface", "SystemVerilog", "Accelerator"],
     status: "active",
@@ -669,7 +637,7 @@ export const projects: Project[] = [
     id: "cv-mesh",
     name: "CV-MESH",
     description:
-      "CV-MESH is a NoC-oriented interconnect path in OpenHW for multi-core system composition, focused on communication scalability rather than single-core compute features. It is used to study how mesh topology and interconnect behavior evolve as core count and subsystem complexity increase.",
+      "CV-MESH is an open-source Network-on-Chip (NoC) interconnect for multi-core RISC-V system composition in OpenHW, implemented in Verilog. It provides mesh topology routing infrastructure for connecting multiple processor cores, with components covering bridges, L1/L2 cache interfaces, and dynamic NoC nodes.",
     category: ["ip"],
     tags: ["NoC", "Mesh", "Interconnect", "Multi-Core", "Verilog"],
     status: "experimental",
@@ -686,7 +654,7 @@ export const projects: Project[] = [
     id: "corev-gcc",
     name: "CORE-V GCC",
     description:
-      "CORE-V GCC is OpenHW's pre-upstream GCC engineering branch for validating compiler support for CORE-V architectural features before or during upstream convergence. It helps make hardware extensions usable in practical build pipelines.",
+      "CORE-V GCC is OpenHW Group's fork of the GNU Compiler Collection (GCC), maintained as a staging ground for CORE-V-specific compiler features and extensions before or during upstream contribution. It supports the full CORE-V toolchain development cycle and is tracked against upstream GCC with CORE-V modifications applied.",
     category: ["tools"],
     tags: ["GCC", "Compiler", "Toolchain", "CORE-V Extensions"],
     status: "active",
@@ -701,7 +669,7 @@ export const projects: Project[] = [
     id: "corev-binutils-gdb",
     name: "CORE-V Binutils & GDB",
     description:
-      "CORE-V Binutils & GDB is the low-level software toolchain foundation that makes CORE-V extensions buildable and debuggable in real workflows, from assembly and linking to on-target debugging. Without this layer, compiler and SDK capabilities cannot close the end-to-end developer loop.",
+      "CORE-V Binutils & GDB is OpenHW Group's staging fork of GNU Binutils and GDB for CORE-V-specific modifications, maintained with a single active development branch that tracks upstream Binutils while incorporating CORE-V changes. It is not the official Binutils repository but serves as the pre-upstream integration point for assembler, linker, and debugger support for CORE-V architectures.",
     category: ["tools"],
     tags: ["Binutils", "GDB", "Debugger", "Assembler", "Linker"],
     status: "active",
@@ -716,7 +684,7 @@ export const projects: Project[] = [
     id: "corev-llvm",
     name: "CORE-V LLVM",
     description:
-      "CORE-V LLVM is OpenHW's pre-upstream LLVM/Clang development route for enabling CORE-V architectural features in modern compiler flows while maintaining compatibility with ongoing upstream evolution. It complements CORE-V GCC by giving teams a second toolchain path for optimization, analysis, and software-hardware co-design validation.",
+      "CORE-V LLVM is a specialized fork of the LLVM/Clang toolchain for CORE-V architecture development, serving as a staging ground for CORE-V-specific compiler enhancements before upstream contribution. It is not the standard LLVM Foundation distribution; it maintains a development branch tracking upstream LLVM with CORE-V modifications and an occasional stable branch representing thoroughly tested snapshots.",
     category: ["tools"],
     tags: ["LLVM", "Clang", "Compiler", "Toolchain"],
     status: "active",
@@ -731,7 +699,7 @@ export const projects: Project[] = [
     id: "core-v-sdk",
     name: "CORE-V SDK",
     description:
-      "CORE-V SDK is the integration layer that turns scattered compiler, debugger, and platform assets into a coherent developer environment for CORE-V software bring-up. Its main value is operational consistency: one baseline for setup, build, debug, and demo execution across supported targets.",
+      "CORE-V SDK is a development toolkit for getting started with CORE-V architecture projects, providing an integrated environment for compilation, debugging, and code analysis on Windows 10/11 and Linux (Red Hat 7.9/8.4, Ubuntu 18.04/20.04) for x86 systems. It includes CSR register inspection, peripheral register views, and FreeRTOS task monitoring capabilities.",
     category: ["tools", "sdk"],
     tags: ["SDK", "Toolchain", "IDE", "Software", "Development"],
     status: "active",
@@ -746,7 +714,7 @@ export const projects: Project[] = [
     id: "core-v-freertos",
     name: "CORE-V FreeRTOS",
     description:
-      "CORE-V FreeRTOS provides an RTOS software stack path for CORE-V platforms, combining porting work, BSP integration, and runnable demos so hardware features are exercised in embedded workloads. It connects toolchain readiness with application-level real-time behavior.",
+      "CORE-V FreeRTOS provides the FreeRTOS runtime environment and associated drivers for real-time application development on the CORE-V MCU. It supports both RTL simulation for hardware-accurate testing and gvsoc, a software-based virtual platform, enabling development and validation before hardware availability.",
     category: ["tools", "sdk"],
     tags: ["FreeRTOS", "RTOS", "Embedded", "BSP", "Real-Time"],
     status: "active",
@@ -761,7 +729,7 @@ export const projects: Project[] = [
     id: "core-v-freertos-kernel",
     name: "CORE-V FreeRTOS Kernel",
     description:
-      "CORE-V FreeRTOS Kernel is the kernel adaptation layer that anchors task scheduling and interrupt-driven runtime behavior on CORE-V targets. It is the low-level prerequisite for higher-level FreeRTOS ports, demos, and application stacks in the ecosystem.",
+      "CORE-V FreeRTOS Kernel contains the FreeRTOS kernel source files and ports for CORE-V targets, with core functionality shared across all ports in list.c, queue.c, and tasks.c, and a portable directory for microcontroller and compiler-specific implementations. It serves as the foundational kernel layer for the CORE-V FreeRTOS ecosystem, following standard FreeRTOS kernel structure and conventions.",
     category: ["tools", "sdk"],
     tags: ["FreeRTOS", "Kernel", "RTOS", "Scheduler"],
     status: "active",
