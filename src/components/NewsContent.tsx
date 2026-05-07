@@ -1,45 +1,21 @@
 "use client";
 
-import { useId, useMemo, useState } from "react";
-import { useTranslations, useLocale } from "next-intl";
+import { useMemo, useState } from "react";
+import { useLocale, useTranslations } from "next-intl";
 import {
   type LucideIcon,
-  ExternalLink,
-  Newspaper,
-  Rocket,
+  CalendarDays,
+  CheckCircle2,
   Cpu,
-  TrendingUp,
-  CircuitBoard,
-  Users,
-  ChevronDown,
-  ChevronUp,
-  GitBranch,
-  Globe2,
+  ExternalLink,
   Layers3,
+  ListFilter,
+  Newspaper,
   ShieldCheck,
+  Star,
   Wrench,
 } from "lucide-react";
 import newsDigest from "@/data/news-digest.json";
-import newsSourceGroupsData from "@/data/news-source-groups.json";
-
-// ─── Types ───────────────────────────────────────────────────
-
-interface HighlightItem {
-  title: string;
-  titleZh?: string;
-  url: string;
-  source: string;
-  tags: string[];
-  publishedAt: string;
-}
-
-interface HighlightCategory {
-  id: string;
-  name: { en: string; zh: string };
-  icon: string;
-  count: number;
-  items: HighlightItem[];
-}
 
 interface NewsItem {
   title: string;
@@ -65,228 +41,14 @@ interface NewsDigest {
     totalSources: number;
     topTags: { tag: string; count: number }[];
   };
-  highlights: HighlightCategory[];
   items: NewsItem[];
   sources: string[];
 }
 
-type RelevanceFilter = "all" | "high" | "medium" | "low";
-type AudienceFilter = "all" | "openhw" | "verification" | "eda" | "security" | "soc";
+type TopicFilter = "all" | "openhw" | "verification" | "eda" | "security" | "soc";
 
-interface LocalizedText {
-  en: string;
-  zh: string;
-}
-
-interface NewsSourceGroup {
-  id: string;
-  title: LocalizedText;
-  description: LocalizedText;
-  cadence: LocalizedText;
-  sources: string[];
-  tags: string[];
-}
-
-function asString(value: unknown, fallback = ""): string {
-  return typeof value === "string" ? value : fallback;
-}
-
-function asNumber(value: unknown, fallback = 0): number {
-  return typeof value === "number" && Number.isFinite(value) ? value : fallback;
-}
-
-function asStringArray(value: unknown): string[] {
-  if (!Array.isArray(value)) return [];
-  return value.filter((item): item is string => typeof item === "string");
-}
-
-function asLocalizedText(value: unknown): LocalizedText {
-  if (!value || typeof value !== "object") return { en: "", zh: "" };
-  const text = value as Record<string, unknown>;
-  return {
-    en: asString(text.en),
-    zh: asString(text.zh),
-  };
-}
-
-function asSourceTier(value: unknown): NewsItem["sourceTier"] {
-  if (value === "official" || value === "trusted" || value === "community") return value;
-  return undefined;
-}
-
-function asReviewStatus(value: unknown): NewsItem["reviewStatus"] {
-  if (value === "auto" || value === "reviewed" || value === "curated") return value;
-  return undefined;
-}
-
-function normalizeNewsItem(value: unknown): NewsItem {
-  if (!value || typeof value !== "object") {
-    return {
-      title: "",
-      url: "",
-      source: "",
-      publishedAt: "",
-      summary: "",
-      author: "",
-      relevanceScore: 0,
-      tags: [],
-      language: "other",
-    };
-  }
-
-  const item = value as Record<string, unknown>;
-  return {
-    title: asString(item.title),
-    titleZh: asString(item.titleZh) || undefined,
-    url: asString(item.url),
-    source: asString(item.source),
-    publishedAt: asString(item.publishedAt),
-    summary: asString(item.summary),
-    summaryZh: asString(item.summaryZh) || undefined,
-    author: asString(item.author),
-    relevanceScore: asNumber(item.relevanceScore),
-    tags: asStringArray(item.tags),
-    language: asString(item.language, "other"),
-    sourceTier: asSourceTier(item.sourceTier),
-    reviewStatus: asReviewStatus(item.reviewStatus),
-  };
-}
-
-function normalizeHighlightItem(value: unknown): HighlightItem {
-  if (!value || typeof value !== "object") {
-    return { title: "", url: "", source: "", tags: [], publishedAt: "" };
-  }
-
-  const item = value as Record<string, unknown>;
-  return {
-    title: asString(item.title),
-    titleZh: asString(item.titleZh) || undefined,
-    url: asString(item.url),
-    source: asString(item.source),
-    tags: asStringArray(item.tags),
-    publishedAt: asString(item.publishedAt),
-  };
-}
-
-function normalizeHighlightCategory(value: unknown): HighlightCategory {
-  if (!value || typeof value !== "object") {
-    return {
-      id: "",
-      name: { en: "", zh: "" },
-      icon: "",
-      count: 0,
-      items: [],
-    };
-  }
-
-  const category = value as Record<string, unknown>;
-  const name =
-    category.name && typeof category.name === "object"
-      ? (category.name as Record<string, unknown>)
-      : {};
-
-  return {
-    id: asString(category.id),
-    name: {
-      en: asString(name.en),
-      zh: asString(name.zh),
-    },
-    icon: asString(category.icon),
-    count: asNumber(category.count),
-    items: Array.isArray(category.items) ? category.items.map(normalizeHighlightItem) : [],
-  };
-}
-
-function normalizeSourceGroup(value: unknown): NewsSourceGroup {
-  if (!value || typeof value !== "object") {
-    return {
-      id: "",
-      title: { en: "", zh: "" },
-      description: { en: "", zh: "" },
-      cadence: { en: "", zh: "" },
-      sources: [],
-      tags: [],
-    };
-  }
-
-  const group = value as Record<string, unknown>;
-  return {
-    id: asString(group.id),
-    title: asLocalizedText(group.title),
-    description: asLocalizedText(group.description),
-    cadence: asLocalizedText(group.cadence),
-    sources: asStringArray(group.sources),
-    tags: asStringArray(group.tags),
-  };
-}
-
-const digest: NewsDigest = {
-  weekOf: asString(newsDigest.weekOf),
-  generatedAt: asString(newsDigest.generatedAt),
-  stats: {
-    totalRelevant: asNumber(newsDigest.stats?.totalRelevant),
-    totalSources: asNumber(newsDigest.stats?.totalSources),
-    topTags: Array.isArray(newsDigest.stats?.topTags)
-      ? newsDigest.stats.topTags
-          .filter((tag): tag is { tag: string; count: number } => {
-            return (
-              Boolean(tag) &&
-              typeof tag === "object" &&
-              typeof (tag as { tag?: unknown }).tag === "string" &&
-              typeof (tag as { count?: unknown }).count === "number"
-            );
-          })
-          .map((tag) => ({ tag: tag.tag, count: tag.count }))
-      : [],
-  },
-  highlights: Array.isArray(newsDigest.highlights)
-    ? newsDigest.highlights.map(normalizeHighlightCategory)
-    : [],
-  items: Array.isArray(newsDigest.items) ? newsDigest.items.map(normalizeNewsItem) : [],
-  sources: asStringArray(newsDigest.sources),
-};
-
-const rawSourceGroups = newsSourceGroupsData as unknown as { groups?: unknown[] };
-const sourceGroups = Array.isArray(rawSourceGroups.groups)
-  ? rawSourceGroups.groups.map(normalizeSourceGroup).filter((group) => group.id)
-  : [];
-
-// ─── Icon mapper ─────────────────────────────────────────────
-
-const CATEGORY_ICONS: Record<string, React.ReactNode> = {
-  rocket: <Rocket className="w-4 h-4" />,
-  cpu: <Cpu className="w-4 h-4" />,
-  trending: <TrendingUp className="w-4 h-4" />,
-  circuit: <CircuitBoard className="w-4 h-4" />,
-  users: <Users className="w-4 h-4" />,
-};
-
-const CATEGORY_ACCENTS: Record<string, string> = {
-  releases: "text-emerald-400",
-  riscv: "text-blue-400",
-  industry: "text-amber-400",
-  hardware: "text-purple-400",
-  community: "text-cyan-400",
-};
-
-const SOURCE_GROUP_ICONS: Record<string, LucideIcon> = {
-  openhw: GitBranch,
-  foundations: Globe2,
-  chips: CircuitBoard,
-  eda: Wrench,
-  security: ShieldCheck,
-};
-
-const SOURCE_GROUP_ACCENTS: Record<string, string> = {
-  openhw: "text-blue-400 bg-blue-500/10 border-blue-500/20",
-  foundations: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
-  chips: "text-amber-400 bg-amber-500/10 border-amber-500/20",
-  eda: "text-purple-400 bg-purple-500/10 border-purple-500/20",
-  security: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
-};
-
-const AUDIENCE_FILTERS: Array<{
-  id: AudienceFilter;
+const TOPIC_FILTERS: Array<{
+  id: TopicFilter;
   labelKey: string;
   descriptionKey: string;
   icon: LucideIcon;
@@ -338,51 +100,106 @@ const AUDIENCE_FILTERS: Array<{
   },
 ];
 
-// ─── Helpers ─────────────────────────────────────────────────
+function asString(value: unknown, fallback = ""): string {
+  return typeof value === "string" ? value : fallback;
+}
+
+function asNumber(value: unknown, fallback = 0): number {
+  return typeof value === "number" && Number.isFinite(value) ? value : fallback;
+}
+
+function asStringArray(value: unknown): string[] {
+  if (!Array.isArray(value)) return [];
+  return value.filter((item): item is string => typeof item === "string");
+}
+
+function asSourceTier(value: unknown): NewsItem["sourceTier"] {
+  if (value === "official" || value === "trusted" || value === "community") return value;
+  return undefined;
+}
+
+function asReviewStatus(value: unknown): NewsItem["reviewStatus"] {
+  if (value === "auto" || value === "reviewed" || value === "curated") return value;
+  return undefined;
+}
+
+function normalizeNewsItem(value: unknown): NewsItem {
+  if (!value || typeof value !== "object") {
+    return {
+      title: "",
+      url: "",
+      source: "",
+      publishedAt: "",
+      summary: "",
+      author: "",
+      relevanceScore: 0,
+      tags: [],
+      language: "other",
+    };
+  }
+
+  const item = value as Record<string, unknown>;
+  return {
+    title: asString(item.title),
+    titleZh: asString(item.titleZh) || undefined,
+    url: asString(item.url),
+    source: asString(item.source),
+    publishedAt: asString(item.publishedAt),
+    summary: asString(item.summary),
+    summaryZh: asString(item.summaryZh) || undefined,
+    author: asString(item.author),
+    relevanceScore: asNumber(item.relevanceScore),
+    tags: asStringArray(item.tags),
+    language: asString(item.language, "other"),
+    sourceTier: asSourceTier(item.sourceTier),
+    reviewStatus: asReviewStatus(item.reviewStatus),
+  };
+}
+
+const digest: NewsDigest = {
+  weekOf: asString(newsDigest.weekOf),
+  generatedAt: asString(newsDigest.generatedAt),
+  stats: {
+    totalRelevant: asNumber(newsDigest.stats?.totalRelevant),
+    totalSources: asNumber(newsDigest.stats?.totalSources),
+    topTags: Array.isArray(newsDigest.stats?.topTags)
+      ? newsDigest.stats.topTags
+          .filter((tag): tag is { tag: string; count: number } => {
+            return (
+              Boolean(tag) &&
+              typeof tag === "object" &&
+              typeof (tag as { tag?: unknown }).tag === "string" &&
+              typeof (tag as { count?: unknown }).count === "number"
+            );
+          })
+          .map((tag) => ({ tag: tag.tag, count: tag.count }))
+      : [],
+  },
+  items: Array.isArray(newsDigest.items) ? newsDigest.items.map(normalizeNewsItem) : [],
+  sources: asStringArray(newsDigest.sources),
+};
 
 function formatDate(dateStr: string, locale: string): string {
   if (!dateStr) return "";
-  const d = new Date(dateStr);
-  if (Number.isNaN(d.getTime())) return dateStr;
+  const date = new Date(dateStr);
+  if (Number.isNaN(date.getTime())) return dateStr;
 
-  return new Intl.DateTimeFormat(locale, { month: "short", day: "numeric" }).format(d);
+  return new Intl.DateTimeFormat(locale, {
+    month: "short",
+    day: "numeric",
+  }).format(date);
 }
 
-function formatWeekDate(dateStr: string, locale: string): string {
+function formatFullDate(dateStr: string, locale: string): string {
   if (!dateStr) return "";
-  const d = new Date(dateStr);
-  if (Number.isNaN(d.getTime())) return dateStr;
+  const date = new Date(dateStr);
+  if (Number.isNaN(date.getTime())) return dateStr;
 
   return new Intl.DateTimeFormat(locale, {
     year: "numeric",
     month: "short",
     day: "numeric",
-  }).format(d);
-}
-
-function getRelevanceLevel(score: number): "high" | "medium" | "low" {
-  if (score >= 3) return "high";
-  if (score >= 2) return "medium";
-  return "low";
-}
-
-function getTierBadgeMeta(tier: NewsItem["sourceTier"]) {
-  if (tier === "official") {
-    return {
-      labelKey: "tierOfficial",
-      className: "bg-emerald-500/10 text-emerald-300 border-emerald-500/20",
-    };
-  }
-  if (tier === "trusted") {
-    return {
-      labelKey: "tierTrusted",
-      className: "bg-blue-500/10 text-blue-300 border-blue-500/20",
-    };
-  }
-  return {
-    labelKey: "tierCommunity",
-    className: "bg-[var(--bg-subtle)] text-[var(--text-tertiary)] border-[var(--border)]",
-  };
+  }).format(date);
 }
 
 function getLocalizedTitle(item: Pick<NewsItem, "title" | "titleZh">, locale: string) {
@@ -393,226 +210,198 @@ function getLocalizedSummary(item: Pick<NewsItem, "summary" | "summaryZh">, loca
   return locale.startsWith("zh") && item.summaryZh ? item.summaryZh : item.summary;
 }
 
-function getLocalizedText(text: LocalizedText, locale: string) {
-  return locale.startsWith("zh") && text.zh ? text.zh : text.en;
-}
-
-function getAudienceSearchText(item: NewsItem) {
+function getTopicSearchText(item: NewsItem) {
   return `${item.title} ${item.titleZh || ""} ${item.summary} ${item.summaryZh || ""} ${item.source} ${item.tags.join(" ")}`;
 }
 
-function matchesAudience(item: NewsItem, audience: AudienceFilter) {
-  if (audience === "all") return true;
-  const filter = AUDIENCE_FILTERS.find((candidate) => candidate.id === audience);
+function matchesTopic(item: NewsItem, topic: TopicFilter) {
+  if (topic === "all") return true;
+  const filter = TOPIC_FILTERS.find((candidate) => candidate.id === topic);
   if (!filter) return true;
-  const text = getAudienceSearchText(item);
+  const text = getTopicSearchText(item);
   return filter.patterns.some((pattern) => pattern.test(text));
 }
 
-// ─── Empty State ─────────────────────────────────────────────
+function sortByDateDesc(items: NewsItem[]) {
+  return [...items].sort((a, b) => (b.publishedAt || "").localeCompare(a.publishedAt || ""));
+}
+
+function getTierBadgeMeta(tier: NewsItem["sourceTier"]) {
+  if (tier === "official") {
+    return {
+      labelKey: "tierOfficial",
+      className: "border-emerald-500/20 bg-emerald-500/10 text-emerald-300",
+    };
+  }
+  if (tier === "trusted") {
+    return {
+      labelKey: "tierTrusted",
+      className: "border-blue-500/20 bg-blue-500/10 text-blue-300",
+    };
+  }
+  return {
+    labelKey: "tierCommunity",
+    className: "border-[var(--border)] bg-[var(--bg-subtle)] text-[var(--text-tertiary)]",
+  };
+}
 
 function EmptyState() {
   const t = useTranslations("news");
+
   return (
     <div className="page-shell">
-      <div className="page-container">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <PageHeader />
-        <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-8 sm:p-12 text-center">
-          <Newspaper className="w-12 h-12 text-[var(--text-tertiary)] mx-auto mb-4" />
-          <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-2">{t("noNews")}</h2>
-          <p className="text-[var(--text-secondary)] text-sm max-w-md mx-auto">{t("noNewsHint")}</p>
+        <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-8 text-center sm:p-12">
+          <Newspaper className="mx-auto mb-4 h-12 w-12 text-[var(--text-tertiary)]" />
+          <h2 className="mb-2 text-lg font-semibold text-[var(--text-primary)]">{t("noNews")}</h2>
+          <p className="mx-auto max-w-md text-sm text-[var(--text-secondary)]">{t("noNewsHint")}</p>
         </div>
       </div>
     </div>
   );
 }
 
-// ─── Page Header ─────────────────────────────────────────────
-
 function PageHeader() {
-  const t = useTranslations("news");
-  return (
-    <div className="page-hero mb-8 sm:mb-10">
-      <div className="page-badge page-badge-primary">{t("badge")}</div>
-      <h1 className="page-title">{t("title")}</h1>
-      <p className="page-subtitle max-w-2xl mx-auto">{t("subtitle")}</p>
-    </div>
-  );
-}
-
-// ─── Stats Bar ───────────────────────────────────────────────
-
-function StatsBar() {
   const t = useTranslations("news");
   const locale = useLocale();
 
   return (
-    <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
-      <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-4">
-        <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
-          {t("issueDate")}
-        </p>
-        <p className="mt-1 text-sm font-semibold text-[var(--text-primary)]">
-          {formatWeekDate(digest.weekOf, locale)}
-        </p>
+    <header className="mb-8 border-b border-[var(--border)] pb-6">
+      <div className="mb-4 flex flex-wrap items-center gap-2">
+        <span className="inline-flex items-center rounded-full bg-[var(--primary)]/10 px-3 py-1 text-xs font-semibold text-[var(--primary)]">
+          {t("badge")}
+        </span>
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] px-3 py-1 text-xs text-[var(--text-tertiary)]">
+          <CalendarDays className="h-3.5 w-3.5" />
+          {formatFullDate(digest.weekOf, locale)}
+        </span>
       </div>
-      <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-4">
-        <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
-          {t("highlightsTitle")}
-        </p>
-        <p className="mt-1 text-sm font-semibold text-[var(--text-primary)]">
-          {t("totalItems", { count: digest.stats.totalRelevant })}
-        </p>
-      </div>
-      <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-4">
-        <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
-          {t("sources")}
-        </p>
-        <p className="mt-1 text-sm font-semibold text-[var(--text-primary)]">
-          {t("fromSources", { count: digest.stats.totalSources })}
-        </p>
-      </div>
-      <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-4">
-        <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
-          {t("monitoredLanes")}
-        </p>
-        <p className="mt-1 text-sm font-semibold text-[var(--text-primary)]">
-          {t("monitoredGroups", { count: sourceGroups.length })}
-        </p>
-      </div>
+      <h1 className="max-w-3xl text-3xl font-bold leading-tight text-[var(--text-primary)] sm:text-4xl">
+        {t("title")}
+      </h1>
+      <p className="mt-3 max-w-3xl text-base leading-relaxed text-[var(--text-secondary)]">
+        {t("subtitle")}
+      </p>
+    </header>
+  );
+}
+
+function MetaLine({ item }: { item: NewsItem }) {
+  const t = useTranslations("news");
+  const locale = useLocale();
+  const tierMeta = getTierBadgeMeta(item.sourceTier);
+
+  return (
+    <div className="flex flex-wrap items-center gap-2 text-[11px] text-[var(--text-tertiary)]">
+      {item.publishedAt && <span>{formatDate(item.publishedAt, locale)}</span>}
+      <span className="font-medium text-[var(--text-secondary)]">{item.source}</span>
+      <span className={`rounded border px-1.5 py-0.5 ${tierMeta.className}`}>
+        {t(tierMeta.labelKey)}
+      </span>
     </div>
   );
 }
 
-// ─── Trending Tags ───────────────────────────────────────────
+function TagList({ tags, limit = 4 }: { tags: string[]; limit?: number }) {
+  if (!tags.length) return null;
 
-function TrendingTags() {
-  const t = useTranslations("news");
-  if (!digest.stats.topTags.length) return null;
   return (
-    <div className="mb-8 flex flex-wrap items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-3">
-      <span className="text-xs text-[var(--text-tertiary)] mr-1">{t("trendingTags")}:</span>
-      {digest.stats.topTags.map(({ tag, count }) => (
+    <div className="flex flex-wrap gap-1.5">
+      {tags.slice(0, limit).map((tag) => (
         <span
           key={tag}
-          className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-[var(--primary)]/8 text-[var(--primary)] text-xs font-medium border border-[var(--primary)]/15"
+          className="rounded border border-[var(--primary)]/10 bg-[var(--primary)]/5 px-1.5 py-0.5 text-[10px] font-medium text-[var(--primary)]"
         >
           {tag}
-          <span className="text-[10px] opacity-60">{count}</span>
         </span>
       ))}
     </div>
   );
 }
 
-// ─── Source Coverage ────────────────────────────────────────
-
-function SourceCoverageSection() {
+function WeeklyPicks({ items }: { items: NewsItem[] }) {
   const t = useTranslations("news");
   const locale = useLocale();
+  const picks = items.slice(0, 4);
+  const lead = picks[0];
+  const secondary = picks.slice(1);
 
-  if (!sourceGroups.length) return null;
+  if (!lead) return null;
 
   return (
-    <section className="mb-8">
-      <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+    <section className="mb-9">
+      <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
         <div>
-          <h2 className="text-xl font-bold text-[var(--text-primary)]">
-            {t("sourceCoverageTitle")}
-          </h2>
-          <p className="mt-1 text-sm text-[var(--text-tertiary)]">{t("sourceCoverageSubtitle")}</p>
+          <div className="mb-1 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[var(--primary)]">
+            <Star className="h-3.5 w-3.5" />
+            {t("picksEyebrow")}
+          </div>
+          <h2 className="text-2xl font-bold text-[var(--text-primary)]">{t("picksTitle")}</h2>
         </div>
-        <span className="inline-flex w-fit items-center rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-300">
-          {t("candidatePrMode")}
-        </span>
+        <p className="text-sm text-[var(--text-tertiary)]">{t("picksSubtitle")}</p>
       </div>
 
-      <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
-        {sourceGroups.map((group) => {
-          const Icon = SOURCE_GROUP_ICONS[group.id] || Newspaper;
-          const accent =
-            SOURCE_GROUP_ACCENTS[group.id] ||
-            "text-[var(--text-secondary)] bg-[var(--bg-subtle)] border-[var(--border)]";
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.35fr_1fr]">
+        <article className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-5 sm:p-6">
+          <div className="mb-4 flex items-center gap-2">
+            <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--primary)]/10 px-2.5 py-1 text-xs font-semibold text-[var(--primary)]">
+              <CheckCircle2 className="h-3.5 w-3.5" />
+              {t("leadPick")}
+            </span>
+          </div>
 
-          return (
-            <article
-              key={group.id}
-              className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-4"
+          <MetaLine item={lead} />
+
+          <h3 className="mt-3 text-xl font-bold leading-tight text-[var(--text-primary)] sm:text-2xl">
+            <a
+              href={lead.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hover:text-[var(--primary)]"
             >
-              <div className="flex items-start gap-3">
-                <div className={`rounded-lg border p-2 ${accent}`}>
-                  <Icon className="h-4 w-4" />
-                </div>
-                <div className="min-w-0 flex-1">
-                  <div className="flex flex-wrap items-center gap-2">
-                    <h3 className="text-sm font-semibold text-[var(--text-primary)]">
-                      {getLocalizedText(group.title, locale)}
-                    </h3>
-                    <span className="rounded-full bg-[var(--bg-subtle)] px-2 py-0.5 text-[10px] text-[var(--text-tertiary)]">
-                      {getLocalizedText(group.cadence, locale)}
-                    </span>
-                  </div>
-                  <p className="mt-1 text-xs leading-relaxed text-[var(--text-tertiary)]">
-                    {getLocalizedText(group.description, locale)}
-                  </p>
-                  <div className="mt-3 flex flex-wrap gap-1.5">
-                    {group.sources.map((source) => (
-                      <span
-                        key={source}
-                        className="rounded border border-[var(--border)] bg-[var(--bg-subtle)] px-1.5 py-0.5 text-[10px] text-[var(--text-secondary)]"
-                      >
-                        {source}
-                      </span>
-                    ))}
-                  </div>
-                </div>
-              </div>
-            </article>
-          );
-        })}
-      </div>
+              {getLocalizedTitle(lead, locale)}
+            </a>
+          </h3>
 
-      <p className="mt-3 text-xs leading-relaxed text-[var(--text-tertiary)]">
-        {t("sourceCoverageNote")}
-      </p>
-    </section>
-  );
-}
+          {getLocalizedSummary(lead, locale) && (
+            <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
+              {getLocalizedSummary(lead, locale)}
+            </p>
+          )}
 
-// ─── Editor Briefing ─────────────────────────────────────────
+          <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+            <TagList tags={lead.tags} />
+            {lead.url && (
+              <a
+                href={lead.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex w-fit items-center gap-1.5 rounded-md border border-[var(--border)] bg-[var(--bg-subtle)] px-3 py-1.5 text-xs font-semibold text-[var(--text-primary)] hover:border-[var(--primary)] hover:text-[var(--primary)]"
+              >
+                {t("openOriginal")}
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            )}
+          </div>
+        </article>
 
-function EditorBriefing() {
-  const t = useTranslations("news");
-  const locale = useLocale();
-  const leadItems = digest.items.slice(0, 3);
-
-  if (!leadItems.length) return null;
-
-  return (
-    <section className="mb-8">
-      <div className="mb-4 flex items-end justify-between gap-4">
-        <div>
-          <h2 className="text-xl font-bold text-[var(--text-primary)]">{t("briefingTitle")}</h2>
-          <p className="mt-1 text-sm text-[var(--text-tertiary)]">{t("briefingSubtitle")}</p>
-        </div>
-      </div>
-
-      <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
-        {leadItems.map((item, index) => {
-          const tierMeta = getTierBadgeMeta(item.sourceTier);
-          return (
+        <div className="grid grid-cols-1 gap-3">
+          {secondary.map((item, index) => (
             <article
               key={`${item.url}-${index}`}
-              className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-5 transition-all hover:border-[var(--text-tertiary)]"
+              className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-4 transition-colors hover:border-[var(--text-tertiary)]"
             >
-              <div className="mb-3 flex flex-wrap items-center gap-2 text-[10px] text-[var(--text-tertiary)]">
-                <span>{formatDate(item.publishedAt, locale)}</span>
-                <span className={`px-1.5 py-0.5 rounded border ${tierMeta.className}`}>
-                  {t(tierMeta.labelKey)}
+              <div className="mb-2 flex items-center justify-between gap-3">
+                <span className="text-[10px] font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
+                  {t("secondaryPick", { index: index + 2 })}
                 </span>
-                <span className="font-medium text-[var(--text-secondary)]">{item.source}</span>
+                {item.publishedAt && (
+                  <span className="text-[10px] text-[var(--text-tertiary)]">
+                    {formatDate(item.publishedAt, locale)}
+                  </span>
+                )}
               </div>
-
               <h3 className="text-sm font-semibold leading-snug text-[var(--text-primary)]">
                 <a
                   href={item.url}
@@ -623,22 +412,72 @@ function EditorBriefing() {
                   {getLocalizedTitle(item, locale)}
                 </a>
               </h3>
-
-              <p className="mt-2 text-xs leading-relaxed text-[var(--text-tertiary)] line-clamp-3">
+              <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-[var(--text-tertiary)]">
                 {getLocalizedSummary(item, locale)}
               </p>
-
-              <div className="mt-4 flex flex-wrap gap-1.5">
-                {item.tags.slice(0, 3).map((tag) => (
-                  <span
-                    key={tag}
-                    className="rounded border border-[var(--primary)]/10 bg-[var(--primary)]/5 px-1.5 py-0.5 text-[10px] text-[var(--primary)]"
-                  >
-                    {tag}
-                  </span>
-                ))}
-              </div>
             </article>
+          ))}
+        </div>
+      </div>
+    </section>
+  );
+}
+
+function TopicBrowser({
+  activeTopic,
+  onChange,
+  items,
+}: {
+  activeTopic: TopicFilter;
+  onChange: (topic: TopicFilter) => void;
+  items: NewsItem[];
+}) {
+  const t = useTranslations("news");
+  const active = TOPIC_FILTERS.find((filter) => filter.id === activeTopic) || TOPIC_FILTERS[0];
+
+  return (
+    <section className="mb-6">
+      <div className="mb-3 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <div className="mb-1 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
+            <ListFilter className="h-3.5 w-3.5" />
+            {t("topicEyebrow")}
+          </div>
+          <h2 className="text-xl font-bold text-[var(--text-primary)]">{t("topicTitle")}</h2>
+        </div>
+        <p className="max-w-xl text-sm text-[var(--text-tertiary)]">{t(active.descriptionKey)}</p>
+      </div>
+
+      <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-6">
+        {TOPIC_FILTERS.map((filter) => {
+          const Icon = filter.icon;
+          const selected = activeTopic === filter.id;
+          const count = items.filter((item) => matchesTopic(item, filter.id)).length;
+
+          return (
+            <button
+              key={filter.id}
+              type="button"
+              aria-pressed={selected}
+              onClick={() => onChange(filter.id)}
+              className={`min-h-20 rounded-lg border p-3 text-left transition-colors ${
+                selected
+                  ? "border-[var(--primary)] bg-[var(--primary)]/10"
+                  : "border-[var(--border)] bg-[var(--bg-card)] hover:border-[var(--text-tertiary)]"
+              }`}
+            >
+              <div className="mb-3 flex items-center justify-between gap-2">
+                <Icon
+                  className={`h-4 w-4 ${selected ? "text-[var(--primary)]" : "text-[var(--text-tertiary)]"}`}
+                />
+                <span className="rounded-full bg-[var(--bg-subtle)] px-2 py-0.5 text-[10px] text-[var(--text-tertiary)]">
+                  {count}
+                </span>
+              </div>
+              <span className="block text-sm font-semibold leading-snug text-[var(--text-primary)]">
+                {t(filter.labelKey)}
+              </span>
+            </button>
           );
         })}
       </div>
@@ -646,368 +485,106 @@ function EditorBriefing() {
   );
 }
 
-// ─── Highlights Section ──────────────────────────────────────
-
-function HighlightsSection() {
+function NewsTimeline({ items, activeTopic }: { items: NewsItem[]; activeTopic: TopicFilter }) {
   const t = useTranslations("news");
   const locale = useLocale();
-
-  if (!digest.highlights.length) return null;
-
-  return (
-    <section className="mb-8">
-      <div className="mb-5">
-        <h2 className="text-xl font-bold text-[var(--text-primary)]">{t("highlightsTitle")}</h2>
-        <p className="text-sm text-[var(--text-tertiary)] mt-1">{t("highlightsSubtitle")}</p>
-      </div>
-
-      <div className="space-y-3">
-        {digest.highlights.map((cat) => (
-          <div
-            key={cat.id}
-            className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-5"
-          >
-            {/* Category header */}
-            <div className="flex items-center justify-between mb-4">
-              <div className="flex items-center gap-2.5">
-                <div className={`${CATEGORY_ACCENTS[cat.id] || "text-[var(--text-secondary)]"}`}>
-                  {CATEGORY_ICONS[cat.icon] || <Newspaper className="w-4 h-4" />}
-                </div>
-                <h3 className="font-semibold text-[var(--text-primary)] text-sm">
-                  {locale.startsWith("zh") ? cat.name.zh : cat.name.en}
-                </h3>
-              </div>
-              <span className="text-[10px] text-[var(--text-tertiary)] bg-[var(--bg-subtle)] px-2 py-0.5 rounded-full">
-                {t("itemsInCategory", { count: cat.count })}
-              </span>
-            </div>
-
-            {/* Items */}
-            <div className="space-y-2.5">
-              {cat.items.map((item, idx) => (
-                <div key={idx} className="group">
-                  <a
-                    href={item.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-start gap-2 text-sm text-[var(--text-primary)] hover:text-[var(--primary)] transition-colors leading-snug"
-                  >
-                    <span className="shrink-0 w-1.5 h-1.5 mt-1.5 rounded-full bg-current opacity-40" />
-                    <span className="flex-1 line-clamp-2">{getLocalizedTitle(item, locale)}</span>
-                    <ExternalLink className="shrink-0 w-3 h-3 mt-1 opacity-0 group-hover:opacity-50 transition-opacity" />
-                  </a>
-                  <div className="flex items-center gap-2 ml-3.5 mt-1">
-                    <span className="text-[10px] text-[var(--text-tertiary)]">{item.source}</span>
-                    {item.publishedAt && (
-                      <>
-                        <span className="text-[10px] text-[var(--text-tertiary)]">·</span>
-                        <span className="text-[10px] text-[var(--text-tertiary)]">
-                          {formatDate(item.publishedAt, locale)}
-                        </span>
-                      </>
-                    )}
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-        ))}
-      </div>
-    </section>
-  );
-}
-
-// ─── Full News Feed ──────────────────────────────────────────
-
-function NewsFeed() {
-  const t = useTranslations("news");
-  const feedPanelId = useId();
-  const [isExpanded, setIsExpanded] = useState(true);
-  const [audienceFilter, setAudienceFilter] = useState<AudienceFilter>("all");
-  const [relevanceFilter, setRelevanceFilter] = useState<RelevanceFilter>("all");
-  const [sourceFilter, setSourceFilter] = useState<string>("all");
-
-  const audienceCounts = useMemo(() => {
-    return AUDIENCE_FILTERS.reduce(
-      (counts, filter) => {
-        counts[filter.id] = digest.items.filter((item) => matchesAudience(item, filter.id)).length;
-        return counts;
-      },
-      {} as Record<AudienceFilter, number>,
-    );
-  }, []);
-
-  const filteredItems = useMemo(() => {
-    return digest.items.filter((item) => {
-      if (!matchesAudience(item, audienceFilter)) return false;
-      if (relevanceFilter !== "all") {
-        const level = getRelevanceLevel(item.relevanceScore);
-        if (level !== relevanceFilter) return false;
-      }
-      if (sourceFilter !== "all" && item.source !== sourceFilter) return false;
-      return true;
-    });
-  }, [audienceFilter, relevanceFilter, sourceFilter]);
+  const active = TOPIC_FILTERS.find((filter) => filter.id === activeTopic) || TOPIC_FILTERS[0];
 
   return (
     <section>
-      {/* Toggle header */}
-      <button
-        type="button"
-        aria-expanded={isExpanded}
-        aria-controls={feedPanelId}
-        onClick={() => setIsExpanded(!isExpanded)}
-        className="w-full flex items-center justify-between py-4 px-5 bg-[var(--bg-card)] border border-[var(--border)] rounded-xl hover:border-[var(--text-tertiary)] transition-all group"
-      >
-        <div className="text-left">
-          <h2 className="text-lg font-bold text-[var(--text-primary)]">{t("allNewsTitle")}</h2>
-          <p className="text-xs text-[var(--text-tertiary)] mt-0.5">{t("allNewsSubtitle")}</p>
+      <div className="mb-3 flex flex-col gap-1 border-b border-[var(--border)] pb-3 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <h2 className="text-xl font-bold text-[var(--text-primary)]">
+            {activeTopic === "all" ? t("timelineTitleAll") : t(active.labelKey)}
+          </h2>
+          <p className="mt-1 text-sm text-[var(--text-tertiary)]">
+            {t("timelineSubtitle", { count: items.length })}
+          </p>
         </div>
-        <div className="flex items-center gap-3">
-          <span className="text-xs text-[var(--text-tertiary)] bg-[var(--bg-subtle)] px-3 py-1 rounded-full">
-            {digest.items.length}
-          </span>
-          {isExpanded ? (
-            <ChevronUp className="w-5 h-5 text-[var(--text-tertiary)] group-hover:text-[var(--text-secondary)] transition-colors" />
-          ) : (
-            <ChevronDown className="w-5 h-5 text-[var(--text-tertiary)] group-hover:text-[var(--text-secondary)] transition-colors" />
-          )}
-        </div>
-      </button>
+        <span className="text-xs text-[var(--text-tertiary)]">{t("latestFirst")}</span>
+      </div>
 
-      {/* Expanded content */}
-      {isExpanded && (
-        <div id={feedPanelId} role="region" className="mt-3 space-y-3">
-          <div>
-            <div className="mb-2 flex items-center justify-between gap-3 px-1">
-              <span className="text-[10px] font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
-                {t("quickPaths")}
-              </span>
-              <span className="text-[10px] text-[var(--text-tertiary)]">{t("quickPathsHint")}</span>
-            </div>
-            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
-              {AUDIENCE_FILTERS.map((filter) => {
-                const Icon = filter.icon;
-                const selected = audienceFilter === filter.id;
-                return (
-                  <button
-                    key={filter.id}
-                    type="button"
-                    aria-pressed={selected}
-                    onClick={() => setAudienceFilter(filter.id)}
-                    className={`min-h-24 rounded-xl border p-3 text-left transition-all ${
-                      selected
-                        ? "border-[var(--primary)] bg-[var(--primary)]/10"
-                        : "border-[var(--border)] bg-[var(--bg-card)] hover:border-[var(--text-tertiary)]"
-                    }`}
-                  >
-                    <div className="flex items-start gap-3">
-                      <div
-                        className={`rounded-lg border p-2 ${
-                          selected
-                            ? "border-[var(--primary)]/30 bg-[var(--primary)]/10 text-[var(--primary)]"
-                            : "border-[var(--border)] bg-[var(--bg-subtle)] text-[var(--text-secondary)]"
-                        }`}
-                      >
-                        <Icon className="h-4 w-4" />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <div className="flex items-center justify-between gap-2">
-                          <span className="text-sm font-semibold leading-snug text-[var(--text-primary)]">
-                            {t(filter.labelKey)}
-                          </span>
-                          <span className="rounded-full bg-[var(--bg-subtle)] px-2 py-0.5 text-[10px] text-[var(--text-tertiary)]">
-                            {audienceCounts[filter.id]}
-                          </span>
-                        </div>
-                        <p className="mt-1 text-xs leading-relaxed text-[var(--text-tertiary)] line-clamp-2">
-                          {t(filter.descriptionKey)}
-                        </p>
-                      </div>
-                    </div>
-                  </button>
-                );
-              })}
-            </div>
-          </div>
-
-          {/* Compact filters */}
-          <div className="flex flex-wrap items-center gap-3 px-1 pt-1">
-            {/* Relevance */}
-            <div className="flex items-center gap-1.5">
-              <span className="text-[10px] text-[var(--text-tertiary)] font-medium uppercase tracking-wide">
-                {t("filterByRelevance")}
-              </span>
-              <div className="flex gap-1">
-                {(["all", "high", "medium", "low"] as const).map((level) => (
-                  <button
-                    key={level}
-                    onClick={() => setRelevanceFilter(level)}
-                    className={`px-2.5 py-1 text-[10px] font-medium rounded-md border transition-all ${
-                      relevanceFilter === level
-                        ? "bg-[var(--primary)] text-white border-[var(--primary)]"
-                        : "bg-[var(--bg-subtle)] text-[var(--text-tertiary)] border-[var(--border)] hover:text-[var(--text-secondary)]"
-                    }`}
-                  >
-                    {level === "all"
-                      ? t("allFilter")
-                      : level === "high"
-                        ? t("highRelevance")
-                        : level === "medium"
-                          ? t("mediumRelevance")
-                          : t("lowRelevance")}
-                  </button>
-                ))}
-              </div>
-            </div>
-
-            {/* Source */}
-            {digest.sources.length > 1 && (
-              <div className="flex items-center gap-1.5">
-                <span className="text-[10px] text-[var(--text-tertiary)] font-medium uppercase tracking-wide">
-                  {t("filterBySource")}
-                </span>
-                <select
-                  value={sourceFilter}
-                  onChange={(e) => setSourceFilter(e.target.value)}
-                  className="px-2.5 py-1 text-[10px] font-medium rounded-md border border-[var(--border)] bg-[var(--bg-subtle)] text-[var(--text-secondary)] cursor-pointer"
+      {items.length ? (
+        <div className="divide-y divide-[var(--border)]">
+          {items.map((item, index) => (
+            <article key={`${item.url}-${index}`} className="py-5">
+              <div className="grid grid-cols-1 gap-3 sm:grid-cols-[7rem_1fr]">
+                <time
+                  dateTime={item.publishedAt}
+                  className="text-xs font-medium text-[var(--text-tertiary)]"
                 >
-                  <option value="all">{t("allFilter")}</option>
-                  {digest.sources.map((src) => (
-                    <option key={src} value={src}>
-                      {src}
-                    </option>
-                  ))}
-                </select>
+                  {formatFullDate(item.publishedAt, locale)}
+                </time>
+
+                <div className="min-w-0">
+                  <MetaLine item={item} />
+                  <h3 className="mt-2 text-base font-semibold leading-snug text-[var(--text-primary)]">
+                    <a
+                      href={item.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-start gap-1.5 hover:text-[var(--primary)]"
+                    >
+                      <span>{getLocalizedTitle(item, locale)}</span>
+                      <ExternalLink className="mt-1 h-3.5 w-3.5 shrink-0 opacity-60" />
+                    </a>
+                  </h3>
+                  {getLocalizedSummary(item, locale) && (
+                    <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-[var(--text-secondary)]">
+                      {getLocalizedSummary(item, locale)}
+                    </p>
+                  )}
+                  <div className="mt-3">
+                    <TagList tags={item.tags} limit={5} />
+                  </div>
+                </div>
               </div>
-            )}
-
-            <span className="text-[10px] text-[var(--text-tertiary)] ml-auto">
-              {filteredItems.length} / {digest.items.length}
-            </span>
-          </div>
-
-          {/* News items */}
-          {filteredItems.length ? (
-            <div className="space-y-1.5">
-              {filteredItems.map((item, index) => (
-                <NewsRow key={`${item.url}-${index}`} item={item} />
-              ))}
-            </div>
-          ) : (
-            <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-6 text-center text-sm text-[var(--text-tertiary)]">
-              {t("noFilteredNews")}
-            </div>
-          )}
+            </article>
+          ))}
+        </div>
+      ) : (
+        <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-8 text-center text-sm text-[var(--text-tertiary)]">
+          {t("noFilteredNews")}
         </div>
       )}
     </section>
   );
 }
 
-// ─── News Row (compact) ──────────────────────────────────────
-
-function NewsRow({ item }: { item: NewsItem }) {
-  const t = useTranslations("news");
-  const locale = useLocale();
-  const level = getRelevanceLevel(item.relevanceScore);
-  const tierMeta = getTierBadgeMeta(item.sourceTier);
-  const dotColor =
-    level === "high"
-      ? "bg-emerald-400"
-      : level === "medium"
-        ? "bg-blue-400"
-        : "bg-[var(--text-tertiary)]";
-
-  return (
-    <article className="flex items-start gap-3 px-4 py-3 bg-[var(--bg-card)] border border-[var(--border)] rounded-lg hover:border-[var(--text-tertiary)] transition-all group">
-      <span className={`shrink-0 w-2 h-2 mt-1.5 rounded-full ${dotColor}`} />
-      <div className="flex-1 min-w-0">
-        <div className="flex items-start gap-2">
-          <h3 className="text-sm font-medium text-[var(--text-primary)] leading-snug flex-1 min-w-0">
-            {item.url ? (
-              <a
-                href={item.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="hover:text-[var(--primary)] transition-colors"
-              >
-                {getLocalizedTitle(item, locale)}
-              </a>
-            ) : (
-              getLocalizedTitle(item, locale)
-            )}
-          </h3>
-          {item.url && (
-            <a
-              href={item.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="shrink-0 opacity-0 group-hover:opacity-50 transition-opacity mt-0.5"
-            >
-              <ExternalLink className="w-3.5 h-3.5" />
-            </a>
-          )}
-        </div>
-        {item.summary && (
-          <p className="text-xs text-[var(--text-tertiary)] leading-relaxed mt-1 line-clamp-1">
-            {getLocalizedSummary(item, locale)}
-          </p>
-        )}
-        <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1.5 text-[10px] text-[var(--text-tertiary)]">
-          <span className="font-medium text-[var(--text-secondary)]">{item.source}</span>
-          <span className={`px-1.5 py-0.5 rounded border ${tierMeta.className}`}>
-            {t(tierMeta.labelKey)}
-          </span>
-          {item.tags.slice(0, 2).map((tag) => (
-            <span
-              key={tag}
-              className="px-1.5 py-0.5 rounded bg-[var(--primary)]/5 text-[var(--primary)] border border-[var(--primary)]/10"
-            >
-              {tag}
-            </span>
-          ))}
-          {item.publishedAt && <span>{formatDate(item.publishedAt, locale)}</span>}
-          {item.author && <span>{item.author}</span>}
-        </div>
-      </div>
-    </article>
-  );
-}
-
-// ─── Footer ──────────────────────────────────────────────────
-
 function NewsFooter() {
   const t = useTranslations("news");
+
+  if (!digest.sources.length) return null;
+
   return (
-    <div className="mt-8 pt-6 border-t border-[var(--border)] text-center space-y-2">
-      <p className="text-xs text-[var(--text-tertiary)]">
-        {t("poweredBy", { count: digest.sources.length })}
+    <footer className="mt-10 border-t border-[var(--border)] pt-5">
+      <p className="text-xs leading-relaxed text-[var(--text-tertiary)]">
+        {t("sourcesLine", { sources: digest.sources.join(" · ") })}
       </p>
-      <p className="text-[10px] text-[var(--text-tertiary)] opacity-60">
-        {digest.sources.join(" · ") || t("sourcePending")}
-      </p>
-    </div>
+    </footer>
   );
 }
 
-// ─── Main Export ─────────────────────────────────────────────
-
 export function NewsContent() {
-  if (!digest.highlights.length && !digest.items.length) {
+  const [activeTopic, setActiveTopic] = useState<TopicFilter>("all");
+
+  const allItems = useMemo(() => sortByDateDesc(digest.items), []);
+  const filteredItems = useMemo(
+    () => allItems.filter((item) => matchesTopic(item, activeTopic)),
+    [activeTopic, allItems],
+  );
+
+  if (!digest.items.length) {
     return <EmptyState />;
   }
 
   return (
     <div className="page-shell">
-      <div className="page-container">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <PageHeader />
-        <StatsBar />
-        <TrendingTags />
-        <SourceCoverageSection />
-        <EditorBriefing />
-        <HighlightsSection />
-        <NewsFeed />
+        <WeeklyPicks items={digest.items} />
+        <TopicBrowser activeTopic={activeTopic} onChange={setActiveTopic} items={allItems} />
+        <NewsTimeline items={filteredItems} activeTopic={activeTopic} />
         <NewsFooter />
       </div>
     </div>
