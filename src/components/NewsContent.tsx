@@ -3,6 +3,7 @@
 import { useId, useMemo, useState } from "react";
 import { useTranslations, useLocale } from "next-intl";
 import {
+  type LucideIcon,
   ExternalLink,
   Newspaper,
   Rocket,
@@ -12,8 +13,14 @@ import {
   Users,
   ChevronDown,
   ChevronUp,
+  GitBranch,
+  Globe2,
+  Layers3,
+  ShieldCheck,
+  Wrench,
 } from "lucide-react";
 import newsDigest from "@/data/news-digest.json";
+import newsSourceGroupsData from "@/data/news-source-groups.json";
 
 // ─── Types ───────────────────────────────────────────────────
 
@@ -64,6 +71,21 @@ interface NewsDigest {
 }
 
 type RelevanceFilter = "all" | "high" | "medium" | "low";
+type AudienceFilter = "all" | "openhw" | "verification" | "eda" | "security" | "soc";
+
+interface LocalizedText {
+  en: string;
+  zh: string;
+}
+
+interface NewsSourceGroup {
+  id: string;
+  title: LocalizedText;
+  description: LocalizedText;
+  cadence: LocalizedText;
+  sources: string[];
+  tags: string[];
+}
 
 function asString(value: unknown, fallback = ""): string {
   return typeof value === "string" ? value : fallback;
@@ -76,6 +98,15 @@ function asNumber(value: unknown, fallback = 0): number {
 function asStringArray(value: unknown): string[] {
   if (!Array.isArray(value)) return [];
   return value.filter((item): item is string => typeof item === "string");
+}
+
+function asLocalizedText(value: unknown): LocalizedText {
+  if (!value || typeof value !== "object") return { en: "", zh: "" };
+  const text = value as Record<string, unknown>;
+  return {
+    en: asString(text.en),
+    zh: asString(text.zh),
+  };
 }
 
 function asSourceTier(value: unknown): NewsItem["sourceTier"] {
@@ -166,6 +197,29 @@ function normalizeHighlightCategory(value: unknown): HighlightCategory {
   };
 }
 
+function normalizeSourceGroup(value: unknown): NewsSourceGroup {
+  if (!value || typeof value !== "object") {
+    return {
+      id: "",
+      title: { en: "", zh: "" },
+      description: { en: "", zh: "" },
+      cadence: { en: "", zh: "" },
+      sources: [],
+      tags: [],
+    };
+  }
+
+  const group = value as Record<string, unknown>;
+  return {
+    id: asString(group.id),
+    title: asLocalizedText(group.title),
+    description: asLocalizedText(group.description),
+    cadence: asLocalizedText(group.cadence),
+    sources: asStringArray(group.sources),
+    tags: asStringArray(group.tags),
+  };
+}
+
 const digest: NewsDigest = {
   weekOf: asString(newsDigest.weekOf),
   generatedAt: asString(newsDigest.generatedAt),
@@ -192,6 +246,11 @@ const digest: NewsDigest = {
   sources: asStringArray(newsDigest.sources),
 };
 
+const rawSourceGroups = newsSourceGroupsData as unknown as { groups?: unknown[] };
+const sourceGroups = Array.isArray(rawSourceGroups.groups)
+  ? rawSourceGroups.groups.map(normalizeSourceGroup).filter((group) => group.id)
+  : [];
+
 // ─── Icon mapper ─────────────────────────────────────────────
 
 const CATEGORY_ICONS: Record<string, React.ReactNode> = {
@@ -209,6 +268,75 @@ const CATEGORY_ACCENTS: Record<string, string> = {
   hardware: "text-purple-400",
   community: "text-cyan-400",
 };
+
+const SOURCE_GROUP_ICONS: Record<string, LucideIcon> = {
+  openhw: GitBranch,
+  foundations: Globe2,
+  chips: CircuitBoard,
+  eda: Wrench,
+  security: ShieldCheck,
+};
+
+const SOURCE_GROUP_ACCENTS: Record<string, string> = {
+  openhw: "text-blue-400 bg-blue-500/10 border-blue-500/20",
+  foundations: "text-cyan-400 bg-cyan-500/10 border-cyan-500/20",
+  chips: "text-amber-400 bg-amber-500/10 border-amber-500/20",
+  eda: "text-purple-400 bg-purple-500/10 border-purple-500/20",
+  security: "text-emerald-400 bg-emerald-500/10 border-emerald-500/20",
+};
+
+const AUDIENCE_FILTERS: Array<{
+  id: AudienceFilter;
+  labelKey: string;
+  descriptionKey: string;
+  icon: LucideIcon;
+  patterns: RegExp[];
+}> = [
+  {
+    id: "all",
+    labelKey: "audienceAll",
+    descriptionKey: "audienceAllDesc",
+    icon: Newspaper,
+    patterns: [],
+  },
+  {
+    id: "openhw",
+    labelKey: "audienceOpenhw",
+    descriptionKey: "audienceOpenhwDesc",
+    icon: Cpu,
+    patterns: [/OpenHW|CORE-V|CVA6|CV32|CVW|CVFPU|RISC-V/i],
+  },
+  {
+    id: "verification",
+    labelKey: "audienceVerification",
+    descriptionKey: "audienceVerificationDesc",
+    icon: ShieldCheck,
+    patterns: [
+      /Verification|UVM|SystemVerilog|Architecture Tests|Certification|RISCV-DV|cocotb|formal/i,
+    ],
+  },
+  {
+    id: "eda",
+    labelKey: "audienceEda",
+    descriptionKey: "audienceEdaDesc",
+    icon: Wrench,
+    patterns: [/Yosys|Verilator|OpenROAD|OpenLane|EDA|Synthesis|Simulation|Physical Design|FPGA/i],
+  },
+  {
+    id: "security",
+    labelKey: "audienceSecurity",
+    descriptionKey: "audienceSecurityDesc",
+    icon: ShieldCheck,
+    patterns: [/Caliptra|OpenTitan|Root of Trust|Security|Keystone|CHERI|Cryptography|enclave/i],
+  },
+  {
+    id: "soc",
+    labelKey: "audienceSoc",
+    descriptionKey: "audienceSocDesc",
+    icon: Layers3,
+    patterns: [/SoC|IP|RTL|Topwrap|Guineveer|VeeR|Ibex|Chipyard|subsystem|Core/i],
+  },
+];
 
 // ─── Helpers ─────────────────────────────────────────────────
 
@@ -265,6 +393,22 @@ function getLocalizedSummary(item: Pick<NewsItem, "summary" | "summaryZh">, loca
   return locale.startsWith("zh") && item.summaryZh ? item.summaryZh : item.summary;
 }
 
+function getLocalizedText(text: LocalizedText, locale: string) {
+  return locale.startsWith("zh") && text.zh ? text.zh : text.en;
+}
+
+function getAudienceSearchText(item: NewsItem) {
+  return `${item.title} ${item.titleZh || ""} ${item.summary} ${item.summaryZh || ""} ${item.source} ${item.tags.join(" ")}`;
+}
+
+function matchesAudience(item: NewsItem, audience: AudienceFilter) {
+  if (audience === "all") return true;
+  const filter = AUDIENCE_FILTERS.find((candidate) => candidate.id === audience);
+  if (!filter) return true;
+  const text = getAudienceSearchText(item);
+  return filter.patterns.some((pattern) => pattern.test(text));
+}
+
 // ─── Empty State ─────────────────────────────────────────────
 
 function EmptyState() {
@@ -303,7 +447,7 @@ function StatsBar() {
   const locale = useLocale();
 
   return (
-    <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+    <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-4">
       <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-4">
         <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
           {t("issueDate")}
@@ -328,6 +472,14 @@ function StatsBar() {
           {t("fromSources", { count: digest.stats.totalSources })}
         </p>
       </div>
+      <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-4">
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
+          {t("monitoredLanes")}
+        </p>
+        <p className="mt-1 text-sm font-semibold text-[var(--text-primary)]">
+          {t("monitoredGroups", { count: sourceGroups.length })}
+        </p>
+      </div>
     </div>
   );
 }
@@ -350,6 +502,80 @@ function TrendingTags() {
         </span>
       ))}
     </div>
+  );
+}
+
+// ─── Source Coverage ────────────────────────────────────────
+
+function SourceCoverageSection() {
+  const t = useTranslations("news");
+  const locale = useLocale();
+
+  if (!sourceGroups.length) return null;
+
+  return (
+    <section className="mb-8">
+      <div className="mb-4 flex flex-col gap-2 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <h2 className="text-xl font-bold text-[var(--text-primary)]">
+            {t("sourceCoverageTitle")}
+          </h2>
+          <p className="mt-1 text-sm text-[var(--text-tertiary)]">{t("sourceCoverageSubtitle")}</p>
+        </div>
+        <span className="inline-flex w-fit items-center rounded-full border border-emerald-500/20 bg-emerald-500/10 px-3 py-1 text-[10px] font-semibold uppercase tracking-wide text-emerald-300">
+          {t("candidatePrMode")}
+        </span>
+      </div>
+
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-2">
+        {sourceGroups.map((group) => {
+          const Icon = SOURCE_GROUP_ICONS[group.id] || Newspaper;
+          const accent =
+            SOURCE_GROUP_ACCENTS[group.id] ||
+            "text-[var(--text-secondary)] bg-[var(--bg-subtle)] border-[var(--border)]";
+
+          return (
+            <article
+              key={group.id}
+              className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-4"
+            >
+              <div className="flex items-start gap-3">
+                <div className={`rounded-lg border p-2 ${accent}`}>
+                  <Icon className="h-4 w-4" />
+                </div>
+                <div className="min-w-0 flex-1">
+                  <div className="flex flex-wrap items-center gap-2">
+                    <h3 className="text-sm font-semibold text-[var(--text-primary)]">
+                      {getLocalizedText(group.title, locale)}
+                    </h3>
+                    <span className="rounded-full bg-[var(--bg-subtle)] px-2 py-0.5 text-[10px] text-[var(--text-tertiary)]">
+                      {getLocalizedText(group.cadence, locale)}
+                    </span>
+                  </div>
+                  <p className="mt-1 text-xs leading-relaxed text-[var(--text-tertiary)]">
+                    {getLocalizedText(group.description, locale)}
+                  </p>
+                  <div className="mt-3 flex flex-wrap gap-1.5">
+                    {group.sources.map((source) => (
+                      <span
+                        key={source}
+                        className="rounded border border-[var(--border)] bg-[var(--bg-subtle)] px-1.5 py-0.5 text-[10px] text-[var(--text-secondary)]"
+                      >
+                        {source}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            </article>
+          );
+        })}
+      </div>
+
+      <p className="mt-3 text-xs leading-relaxed text-[var(--text-tertiary)]">
+        {t("sourceCoverageNote")}
+      </p>
+    </section>
   );
 }
 
@@ -497,11 +723,23 @@ function NewsFeed() {
   const t = useTranslations("news");
   const feedPanelId = useId();
   const [isExpanded, setIsExpanded] = useState(true);
+  const [audienceFilter, setAudienceFilter] = useState<AudienceFilter>("all");
   const [relevanceFilter, setRelevanceFilter] = useState<RelevanceFilter>("all");
   const [sourceFilter, setSourceFilter] = useState<string>("all");
 
+  const audienceCounts = useMemo(() => {
+    return AUDIENCE_FILTERS.reduce(
+      (counts, filter) => {
+        counts[filter.id] = digest.items.filter((item) => matchesAudience(item, filter.id)).length;
+        return counts;
+      },
+      {} as Record<AudienceFilter, number>,
+    );
+  }, []);
+
   const filteredItems = useMemo(() => {
     return digest.items.filter((item) => {
+      if (!matchesAudience(item, audienceFilter)) return false;
       if (relevanceFilter !== "all") {
         const level = getRelevanceLevel(item.relevanceScore);
         if (level !== relevanceFilter) return false;
@@ -509,7 +747,7 @@ function NewsFeed() {
       if (sourceFilter !== "all" && item.source !== sourceFilter) return false;
       return true;
     });
-  }, [relevanceFilter, sourceFilter]);
+  }, [audienceFilter, relevanceFilter, sourceFilter]);
 
   return (
     <section>
@@ -540,8 +778,61 @@ function NewsFeed() {
       {/* Expanded content */}
       {isExpanded && (
         <div id={feedPanelId} role="region" className="mt-3 space-y-3">
+          <div>
+            <div className="mb-2 flex items-center justify-between gap-3 px-1">
+              <span className="text-[10px] font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
+                {t("quickPaths")}
+              </span>
+              <span className="text-[10px] text-[var(--text-tertiary)]">{t("quickPathsHint")}</span>
+            </div>
+            <div className="grid grid-cols-1 gap-2 sm:grid-cols-2 lg:grid-cols-3">
+              {AUDIENCE_FILTERS.map((filter) => {
+                const Icon = filter.icon;
+                const selected = audienceFilter === filter.id;
+                return (
+                  <button
+                    key={filter.id}
+                    type="button"
+                    aria-pressed={selected}
+                    onClick={() => setAudienceFilter(filter.id)}
+                    className={`min-h-24 rounded-xl border p-3 text-left transition-all ${
+                      selected
+                        ? "border-[var(--primary)] bg-[var(--primary)]/10"
+                        : "border-[var(--border)] bg-[var(--bg-card)] hover:border-[var(--text-tertiary)]"
+                    }`}
+                  >
+                    <div className="flex items-start gap-3">
+                      <div
+                        className={`rounded-lg border p-2 ${
+                          selected
+                            ? "border-[var(--primary)]/30 bg-[var(--primary)]/10 text-[var(--primary)]"
+                            : "border-[var(--border)] bg-[var(--bg-subtle)] text-[var(--text-secondary)]"
+                        }`}
+                      >
+                        <Icon className="h-4 w-4" />
+                      </div>
+                      <div className="min-w-0 flex-1">
+                        <div className="flex items-center justify-between gap-2">
+                          <span className="text-sm font-semibold leading-snug text-[var(--text-primary)]">
+                            {t(filter.labelKey)}
+                          </span>
+                          <span className="rounded-full bg-[var(--bg-subtle)] px-2 py-0.5 text-[10px] text-[var(--text-tertiary)]">
+                            {audienceCounts[filter.id]}
+                          </span>
+                        </div>
+                        <p className="mt-1 text-xs leading-relaxed text-[var(--text-tertiary)] line-clamp-2">
+                          {t(filter.descriptionKey)}
+                        </p>
+                      </div>
+                    </div>
+                  </button>
+                );
+              })}
+            </div>
+          </div>
+
           {/* Compact filters */}
-          <div className="flex flex-wrap items-center gap-3 px-1">
+          <div className="flex flex-wrap items-center gap-3 px-1 pt-1">
             {/* Relevance */}
             <div className="flex items-center gap-1.5">
               <span className="text-[10px] text-[var(--text-tertiary)] font-medium uppercase tracking-wide">
@@ -597,11 +888,17 @@ function NewsFeed() {
           </div>
 
           {/* News items */}
-          <div className="space-y-1.5">
-            {filteredItems.map((item, index) => (
-              <NewsRow key={`${item.url}-${index}`} item={item} />
-            ))}
-          </div>
+          {filteredItems.length ? (
+            <div className="space-y-1.5">
+              {filteredItems.map((item, index) => (
+                <NewsRow key={`${item.url}-${index}`} item={item} />
+              ))}
+            </div>
+          ) : (
+            <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-6 text-center text-sm text-[var(--text-tertiary)]">
+              {t("noFilteredNews")}
+            </div>
+          )}
         </div>
       )}
     </section>
@@ -688,7 +985,7 @@ function NewsFooter() {
         {t("poweredBy", { count: digest.sources.length })}
       </p>
       <p className="text-[10px] text-[var(--text-tertiary)] opacity-60">
-        {digest.sources.join(" · ")}
+        {digest.sources.join(" · ") || t("sourcePending")}
       </p>
     </div>
   );
@@ -707,6 +1004,7 @@ export function NewsContent() {
         <PageHeader />
         <StatsBar />
         <TrendingTags />
+        <SourceCoverageSection />
         <EditorBriefing />
         <HighlightsSection />
         <NewsFeed />

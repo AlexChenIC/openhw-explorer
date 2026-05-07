@@ -1,0 +1,94 @@
+{
+  "_doc": "Monitored source groups displayed on the news page. Candidate collection is implemented in scripts/fetch-news-candidates.mjs; published items still require manual review in src/data/curated-news.json.",
+  "groups": [
+    {
+      "id": "openhw",
+      "title": {
+        "en": "OpenHW first-party signal",
+        "zh": "OpenHW 一手信号"
+      },
+      "description": {
+        "en": "OpenHW GitHub releases and commit activity, plus OpenHW / Eclipse announcements.",
+        "zh": "跟踪 OpenHW GitHub 发布与提交活动，以及 OpenHW / Eclipse 官方公告。"
+      },
+      "cadence": {
+        "en": "Weekly candidate PR",
+        "zh": "每周候选 PR"
+      },
+      "sources": [
+        "OpenHW GitHub org releases",
+        "OpenHW GitHub org commits",
+        "OpenHW / Eclipse announcements"
+      ],
+      "tags": ["OpenHW", "CORE-V", "CVA6", "CV32E40"]
+    },
+    {
+      "id": "foundations",
+      "title": {
+        "en": "RISC-V and open silicon foundations",
+        "zh": "RISC-V 与开源硅基金会"
+      },
+      "description": {
+        "en": "Official updates from RISC-V International and FOSSi Foundation.",
+        "zh": "跟踪 RISC-V International 与 FOSSi Foundation 的官方动态。"
+      },
+      "cadence": {
+        "en": "RSS monitored",
+        "zh": "RSS 监控"
+      },
+      "sources": ["RISC-V International news", "FOSSi Foundation"],
+      "tags": ["RISC-V", "FOSSi", "Open Silicon"]
+    },
+    {
+      "id": "chips",
+      "title": {
+        "en": "CHIPS Alliance ecosystem",
+        "zh": "CHIPS Alliance 生态"
+      },
+      "description": {
+        "en": "CHIPS Alliance posts and project releases, including Caliptra, VeeR, Topwrap, and SV tooling.",
+        "zh": "跟踪 CHIPS Alliance 文章和项目发布，包括 Caliptra、VeeR、Topwrap 与 SystemVerilog 工具。"
+      },
+      "cadence": {
+        "en": "Blog and GitHub",
+        "zh": "Blog 与 GitHub"
+      },
+      "sources": ["CHIPS Alliance Blog", "Caliptra RTL", "VeeR EL2"],
+      "tags": ["CHIPS Alliance", "Caliptra", "VeeR", "SystemVerilog"]
+    },
+    {
+      "id": "eda",
+      "title": {
+        "en": "Open EDA and verification tools",
+        "zh": "开放 EDA 与验证工具"
+      },
+      "description": {
+        "en": "Release candidates from Yosys, Verilator, OpenROAD, OpenLane, and cocotb.",
+        "zh": "跟踪 Yosys、Verilator、OpenROAD、OpenLane 与 cocotb 的发布候选。"
+      },
+      "cadence": {
+        "en": "Release monitored",
+        "zh": "发布监控"
+      },
+      "sources": ["Yosys", "Verilator", "OpenROAD", "OpenLane", "cocotb"],
+      "tags": ["EDA", "Verification", "Simulation", "Synthesis"]
+    },
+    {
+      "id": "security",
+      "title": {
+        "en": "Security and SoC projects",
+        "zh": "安全与 SoC 项目"
+      },
+      "description": {
+        "en": "OpenTitan, Caliptra, Keystone, CHERI-related lowRISC updates, and SoC/IP construction news.",
+        "zh": "跟踪 OpenTitan、Caliptra、Keystone、lowRISC CHERI 相关动态，以及 SoC/IP 构建新闻。"
+      },
+      "cadence": {
+        "en": "Official and GitHub",
+        "zh": "官方与 GitHub"
+      },
+      "sources": ["lowRISC Newsroom", "OpenTitan", "Caliptra", "Keystone"],
+      "tags": ["OpenTitan", "Caliptra", "Keystone", "Security", "SoC/IP"]
+    }
+  ]
+}

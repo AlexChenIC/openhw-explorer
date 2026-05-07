@@ -1,0 +1,50 @@
+name: Weekly news candidates
+
+on:
+  schedule:
+    - cron: "20 1 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  collect:
+    name: Collect candidate news
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Collect candidates
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          NEWS_LOOKBACK_DAYS: 45
+          NEWS_OPENHW_ACTIVITY_DAYS: 14
+        run: npm run fetch-news-candidates
+
+      - name: Open pull request
+        uses: peter-evans/create-pull-request@v7
+        with:
+          branch: news-candidates/weekly
+          delete-branch: true
+          commit-message: Update open hardware news candidates
+          title: Update open hardware news candidates
+          body: |
+            Weekly candidate collection for the OpenHW / RISC-V brief.
+
+            Review `src/data/news-candidates.json`, verify source facts, copy selected items into `src/data/curated-news.json`, then run:
+
+            ```sh
+            npm run build-news
+            ```

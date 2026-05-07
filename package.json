@@ -12,6 +12,7 @@
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
     "format:check": "prettier --check \"src/**/*.{ts,tsx,css}\"",
     "fetch-data": "node scripts/fetch-github-data.mjs",
+    "fetch-news-candidates": "node scripts/fetch-news-candidates.mjs",
     "build-news": "node scripts/build-news-digest.mjs",
     "prebuild": "node scripts/prebuild-fetch-github-data.mjs"
   },

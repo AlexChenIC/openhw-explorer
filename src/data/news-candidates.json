@@ -1,0 +1,147 @@
+{
+  "_meta": {
+    "generatedAt": "2026-05-07T11:37:00.987Z",
+    "lookbackDays": 45,
+    "openHwActivityDays": 14,
+    "totalCandidates": 7,
+    "sourceCount": 5,
+    "reviewWorkflow": "Review candidates, verify source facts, copy selected items into src/data/curated-news.json, then run npm run build-news."
+  },
+  "sources": [
+    {
+      "source": "CHIPS Alliance Blog",
+      "count": 2
+    },
+    {
+      "source": "FOSSi Foundation",
+      "count": 1
+    },
+    {
+      "source": "lowRISC Newsroom",
+      "count": 1
+    },
+    {
+      "source": "RISC-V International news",
+      "count": 2
+    },
+    {
+      "source": "YosysHQ / Yosys (GitHub)",
+      "count": 1
+    }
+  ],
+  "items": [
+    {
+      "title": "Using a Performance Model to Implement a Superscalar CVA6",
+      "url": "https://riscv.org/blog/using-a-performance-model-to-implement-a-superscalar-cva6/",
+      "source": "RISC-V International news",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-03-24T11:01:06.000Z",
+      "summary": "The post Using a Performance Model to Implement a Superscalar CVA6 appeared first on RISC-V International .",
+      "author": "RISC-V International Staff",
+      "relevanceScore": 11,
+      "tags": ["RISC-V", "CVA6"],
+      "suggestedAudience": ["openhw-riscv"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "CHIPS Alliance launches the SV Tools Project for open source development of SystemVerilog/UVM codebases",
+      "url": "https://www.chipsalliance.org/news/sv-tools-project-launch/",
+      "source": "CHIPS Alliance Blog",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-03-29T16:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 7,
+      "tags": ["CHIPS Alliance", "Open Silicon", "systemverilog", "verible", "Verification"],
+      "suggestedAudience": ["verification", "soc-ip"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "CHERI-Mocha memory-safe compute subsystem is now open",
+      "url": "https://lowrisc.org/news/cheri-mocha-memory-safe-compute-subsystem-is-now-open/",
+      "source": "lowRISC Newsroom",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-03-26T16:13:41.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 7,
+      "tags": ["lowRISC", "OpenTitan", "CHERI", "SoC/IP"],
+      "suggestedAudience": ["security", "soc-ip"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "Docker on RISC-V: From Release to Production in 6 Days",
+      "url": "https://riscv.org/blog/docker-on-risc-v-from-release-to-production-in-6-days/",
+      "source": "RISC-V International news",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-04-28T10:08:37.000Z",
+      "summary": "The post Docker on RISC-V: From Release to Production in 6 Days appeared first on RISC-V International .",
+      "author": "RISC-V International Staff",
+      "relevanceScore": 6,
+      "tags": ["RISC-V"],
+      "suggestedAudience": ["openhw-riscv"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "YosysHQ/yosys release: Yosys 0.64",
+      "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.64",
+      "source": "YosysHQ / Yosys (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-04-09T05:35:52.000Z",
+      "summary": "Yosys 0.63 .. Yosys 0.64 -------------------------- * New commands and options - Added \"synth_analogdevices\" pass to support synthesis for Analog Devices FPGAs. * Various - Removed rarely-used options from ABC/ABC9. - Re...",
+      "author": "mmicko",
+      "relevanceScore": 6,
+      "tags": ["Yosys", "EDA", "Synthesis"],
+      "suggestedAudience": ["eda-tools"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "CHIPS Alliance at 2026 OCP EMEA Summit",
+      "url": "https://www.chipsalliance.org/news/chips-alliance-ocp-emea-2026/",
+      "source": "CHIPS Alliance Blog",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-03-27T16:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CHIPS Alliance",
+        "Open Silicon",
+        "announcement",
+        "ocp",
+        "caliptra",
+        "guineveer",
+        "risc-v"
+      ],
+      "suggestedAudience": ["openhw-riscv", "security", "soc-ip"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "El Correo Libre Issue 96",
+      "url": "https://main--fossi-foundation.netlify.app/blog/2026-04-14-ecl96",
+      "source": "FOSSi Foundation",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-04-14T00:00:00.000Z",
+      "summary": "El Correo Libre Newsletter, Issue 96",
+      "author": "",
+      "relevanceScore": 2,
+      "tags": ["FOSSi", "Open Silicon"],
+      "suggestedAudience": ["general"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    }
+  ]
+}
