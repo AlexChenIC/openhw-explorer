@@ -1,17 +1,21 @@
 {
   "weekOf": "2026-05-07",
-  "generatedAt": "2026-05-07T14:10:10.955Z",
+  "generatedAt": "2026-05-07T14:49:43.934Z",
   "stats": {
-    "totalRelevant": 11,
-    "totalSources": 8,
+    "totalRelevant": 12,
+    "totalSources": 9,
     "topTags": [
       {
         "tag": "RISC-V",
-        "count": 4
+        "count": 5
       },
       {
         "tag": "CHIPS Alliance",
         "count": 3
+      },
+      {
+        "tag": "OpenHW",
+        "count": 2
       },
       {
         "tag": "OCP",
@@ -19,10 +23,6 @@
       },
       {
         "tag": "Open Hardware",
-        "count": 2
-      },
-      {
-        "tag": "AI",
         "count": 2
       }
     ]
@@ -70,8 +70,16 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 3,
+      "count": 4,
       "items": [
+        {
+          "title": "FOSSi publishes Mike Thompson's Latch-Up talk on RISC-V in space",
+          "titleZh": "FOSSi 发布 Mike Thompson 关于 RISC-V in Space 的 Latch-Up 演讲",
+          "url": "https://www.youtube.com/watch?v=xzqlF32zJe0",
+          "source": "FOSSi Foundation / Latch-Up 2026",
+          "tags": ["FOSSi", "OpenHW", "RISC-V"],
+          "publishedAt": "2026-05-03T00:00:00.000Z"
+        },
         {
           "title": "Antmicro implements dual-core lockstep support for CHIPS Alliance VeeR EL2",
           "titleZh": "Antmicro 为 CHIPS Alliance VeeR EL2 实现 dual-core lockstep 支持",
@@ -173,6 +181,22 @@
     }
   ],
   "items": [
+    {
+      "title": "FOSSi publishes Mike Thompson's Latch-Up talk on RISC-V in space",
+      "url": "https://www.youtube.com/watch?v=xzqlF32zJe0",
+      "source": "FOSSi Foundation / Latch-Up 2026",
+      "publishedAt": "2026-05-03T00:00:00.000Z",
+      "summary": "FOSSi published Mike Thompson's Latch-Up 2026 talk, \"RISC-V in Space (The Canadian version)\". The talk describes a Canadian effort with the University of Saskat...",
+      "author": "",
+      "relevanceScore": 13,
+      "tags": ["FOSSi", "OpenHW", "RISC-V", "CV32E40P", "Space", "Silicon"],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "FOSSi 发布 Mike Thompson 关于 RISC-V in Space 的 Latch-Up 演讲",
+      "summaryZh": "FOSSi 发布了 Mike Thompson 在 Latch-Up 2026 的演讲 “RISC-V in Space (The Canadian version)”。该演讲介绍加拿大团队与 University of Saskatchewan 等合作伙伴从开源 RISC-V core 出发完成 silicon、进行抗辐照加固，并推进 space-ready chip；其中 MCU 基于 OpenHW Foundation 的 CV32E40P。"
+    },
     {
       "title": "OCP outlines an open data center ecosystem for AI",
       "url": "https://www.opencompute.org/blog/delivering-an-open-data-center-ecosystem-for-ai",
@@ -354,6 +378,7 @@
     "Antmicro Blog",
     "CHIPS Alliance",
     "CHIPS Alliance / Caliptra (GitHub)",
+    "FOSSi Foundation / Latch-Up 2026",
     "MLCommons",
     "Open Compute Project",
     "OpenHW Foundation / Eclipse Foundation Canada",

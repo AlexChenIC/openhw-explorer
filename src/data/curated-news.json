@@ -3,6 +3,18 @@
   "_usage": "每次更新添加 3-7 条即可。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "FOSSi publishes Mike Thompson's Latch-Up talk on RISC-V in space",
+      "titleZh": "FOSSi 发布 Mike Thompson 关于 RISC-V in Space 的 Latch-Up 演讲",
+      "url": "https://www.youtube.com/watch?v=xzqlF32zJe0",
+      "source": "FOSSi Foundation / Latch-Up 2026",
+      "addedAt": "2026-05-03T00:00:00Z",
+      "summary": "FOSSi published Mike Thompson's Latch-Up 2026 talk, \"RISC-V in Space (The Canadian version)\". The talk describes a Canadian effort with the University of Saskatchewan and collaborators to fabricate an open-source RISC-V chip, radiation-harden the design, and build a space-ready chip; the MCU is based on OpenHW Foundation's CV32E40P.",
+      "summaryZh": "FOSSi 发布了 Mike Thompson 在 Latch-Up 2026 的演讲 “RISC-V in Space (The Canadian version)”。该演讲介绍加拿大团队与 University of Saskatchewan 等合作伙伴从开源 RISC-V core 出发完成 silicon、进行抗辐照加固，并推进 space-ready chip；其中 MCU 基于 OpenHW Foundation 的 CV32E40P。",
+      "tags": ["FOSSi", "OpenHW", "RISC-V", "CV32E40P", "Space", "Silicon"],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
       "title": "OCP outlines an open data center ecosystem for AI",
       "titleZh": "OCP 公布面向 AI 的开放数据中心生态进展",
       "url": "https://www.opencompute.org/blog/delivering-an-open-data-center-ecosystem-for-ai",
