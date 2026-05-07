@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Weekly news candidate collector for OpenHW Explorer.
+ * News candidate collector for OpenHW Explorer.
  *
  * The script writes src/data/news-candidates.json only. Published content still
  * comes from src/data/curated-news.json after manual review.

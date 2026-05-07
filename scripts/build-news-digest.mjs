@@ -5,7 +5,7 @@
  *
  * Reads TrendRadar's SQLite databases (RSS + news) and generates
  * a structured JSON digest with:
- *   - Weekly highlights organized by category (bilingual)
+ *   - Recent highlights organized by category (bilingual)
  *   - Full news feed with relevance scoring
  *
  * Usage:
@@ -461,9 +461,9 @@ function generateHighlights(items) {
   return highlights;
 }
 
-// ─── Weekly stats generator ──────────────────────────────────
+// ─── News stats generator ────────────────────────────────────
 
-function generateWeeklyStats(items) {
+function generateNewsStats(items) {
   const relevant = items.filter((i) => i.relevanceScore >= 2);
   const sources = new Set(relevant.map((i) => i.source));
   const tags = {};
@@ -535,11 +535,11 @@ function buildDigest() {
 
   // Generate highlights & stats from all items
   const highlights = generateHighlights(items);
-  const stats = generateWeeklyStats(items);
+  const stats = generateNewsStats(items);
 
-  // Weekly brief mode: publish only curated or meaningfully relevant items.
+  // Public page mode: publish only curated or meaningfully relevant items.
   // Broad semiconductor matches are useful for discovery, but should not appear
-  // in the public brief unless manually curated or scoring >= 2.
+  // on the public page unless manually curated or scoring >= 2.
   const highItems = items.filter((i) => i.relevanceScore >= 2);
   items = highItems;
 

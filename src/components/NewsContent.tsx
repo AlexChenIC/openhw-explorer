@@ -284,7 +284,7 @@ function PageHeader() {
         </span>
         <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] px-3 py-1 text-xs text-[var(--text-tertiary)]">
           <CalendarDays className="h-3.5 w-3.5" />
-          {formatFullDate(digest.weekOf, locale)}
+          {t("updatedAt", { date: formatFullDate(digest.generatedAt || digest.weekOf, locale) })}
         </span>
       </div>
       <h1 className="max-w-3xl text-3xl font-bold leading-tight text-[var(--text-primary)] sm:text-4xl">
@@ -330,7 +330,7 @@ function TagList({ tags, limit = 4 }: { tags: string[]; limit?: number }) {
   );
 }
 
-function WeeklyPicks({ items }: { items: NewsItem[] }) {
+function HighlightPicks({ items }: { items: NewsItem[] }) {
   const t = useTranslations("news");
   const locale = useLocale();
   const picks = items.slice(0, 4);
@@ -592,7 +592,7 @@ export function NewsContent() {
     <div className="page-shell">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <PageHeader />
-        <WeeklyPicks items={digest.items} />
+        <HighlightPicks items={digest.items} />
         <TopicBrowser activeTopic={activeTopic} onChange={setActiveTopic} items={allItems} />
         <NewsTimeline items={filteredItems} activeTopic={activeTopic} />
         <NewsFooter />

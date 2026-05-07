@@ -1,6 +1,6 @@
 {
-  "_doc": "每周摘要的人工策展入口。优先放 OpenHW 官方动态、RISC-V 官方/工作组动态、开源硬件项目发布和高质量技术文章。",
-  "_usage": "每周添加 3-7 条即可。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
+  "_doc": "近期重点新闻的人工策展入口。优先放 OpenHW 官方动态、RISC-V 官方/工作组动态、开源硬件项目发布和高质量技术文章。",
+  "_usage": "每次更新添加 3-7 条即可。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
       "title": "OCP outlines an open data center ecosystem for AI",

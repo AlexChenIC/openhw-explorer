@@ -12,8 +12,8 @@
         "zh": "跟踪 OpenHW GitHub 发布与提交活动，以及 OpenHW / Eclipse 官方公告。"
       },
       "cadence": {
-        "en": "Weekly candidate PR",
-        "zh": "每周候选 PR"
+        "en": "Scheduled candidate PR",
+        "zh": "定期候选 PR"
       },
       "sources": [
         "OpenHW GitHub org releases",

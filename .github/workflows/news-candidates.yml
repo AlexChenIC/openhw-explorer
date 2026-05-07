@@ -1,4 +1,4 @@
-name: Weekly news candidates
+name: News candidates
 
 on:
   schedule:
@@ -36,12 +36,12 @@ jobs:
       - name: Open pull request
         uses: peter-evans/create-pull-request@v7
         with:
-          branch: news-candidates/weekly
+          branch: news-candidates/scheduled
           delete-branch: true
           commit-message: Update open hardware news candidates
           title: Update open hardware news candidates
           body: |
-            Weekly candidate collection for the OpenHW / RISC-V brief.
+            Scheduled candidate collection for the Open Hardware Highlights page.
 
             Review `src/data/news-candidates.json`, verify source facts, copy selected items into `src/data/curated-news.json`, then run:
 
