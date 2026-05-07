@@ -44,22 +44,23 @@ export const filterConfig: FilterConfig = {
     { id: "soc", label: "SoC & Subsystem", icon: "CircuitBoard" },
     { id: "ip", label: "IP Components", icon: "Puzzle" },
     { id: "tools", label: "Tools & SDKs", icon: "Wrench" },
-    { id: "learning", label: "Learning", icon: "BookOpen" },
+    { id: "learning", label: "Learning-friendly", icon: "BookOpen" },
   ],
 
   // Core types - when "Processor Cores" is selected
   coreTypes: [
     { id: "embedded-mcu", label: "Embedded MCU" },
     { id: "linux-application", label: "Linux Application" },
-    { id: "high-performance", label: "High Performance" },
+    { id: "high-performance", label: "Application / Performance" },
     { id: "low-power", label: "Low Power" },
-    { id: "safety-critical", label: "Safety Critical" },
+    { id: "safety-critical", label: "Security / Safety" },
   ],
 
   // Verification types - when "Verification" is selected
   verificationTypes: [
     { id: "uvm-testbench", label: "UVM Testbench" },
     { id: "formal-verification", label: "Formal Verification" },
+    { id: "arch-compliance", label: "Architecture Tests" },
     { id: "force-riscv", label: "FORCE-RISCV" },
     { id: "industrial-grade", label: "Industrial Grade" },
   ],
@@ -73,7 +74,7 @@ export const quickFilterTags = [
   { id: "soc", label: "SoC", icon: "CircuitBoard" },
   { id: "ip", label: "IP", icon: "Puzzle" },
   { id: "tools", label: "Tools", icon: "Wrench" },
-  { id: "learning", label: "Learning", icon: "BookOpen" },
+  { id: "learning", label: "Learning-friendly", icon: "BookOpen" },
 ] as const satisfies ReadonlyArray<{
   id: ProjectCategory | "all";
   label: string;

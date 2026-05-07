@@ -166,7 +166,7 @@ export function QuickFilters({
       case "sdk":
         return tf("categories.sdk");
       case "docs":
-        return "docs";
+        return tf("categories.docs");
     }
   };
 
@@ -191,6 +191,8 @@ export function QuickFilters({
         return tf("verificationTypes.uvm-testbench");
       case "formal-verification":
         return tf("verificationTypes.formal-verification");
+      case "arch-compliance":
+        return tf("verificationTypes.arch-compliance");
       case "force-riscv":
         return tf("verificationTypes.force-riscv");
       case "industrial-grade":

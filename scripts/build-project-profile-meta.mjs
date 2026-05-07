@@ -49,6 +49,31 @@ function extractUrls(content) {
   return [...new Set(urls.filter((url) => !url.includes("api.github.com/")))];
 }
 
+function escapeRegExp(value) {
+  return value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+}
+
+function extractSection(content, heading) {
+  const pattern = new RegExp(`^##\\s+${escapeRegExp(heading)}\\s*$`, "m");
+  const match = content.match(pattern);
+  if (!match || match.index === undefined) return "";
+
+  const start = match.index + match[0].length;
+  const rest = content.slice(start);
+  const nextHeading = rest.search(/^##\s+/m);
+  return (nextHeading >= 0 ? rest.slice(0, nextHeading) : rest).trim();
+}
+
+function cleanMarkdownText(content) {
+  return content
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith("- ") && !line.startsWith("* "))
+    .join(" ")
+    .replace(/\s+/g, " ")
+    .trim();
+}
+
 function hostMatches(hostname, targetHost, includeSubdomains) {
   if (hostname === targetHost) return true;
   return includeSubdomains ? hostname.endsWith(`.${targetHost}`) : false;
@@ -112,11 +137,14 @@ function parseProfile(content) {
 
   const urls = extractUrls(content);
   const hasOverview = /##\s*项目概述/.test(content);
+  const summary = cleanMarkdownText(
+    extractSection(content, "Public summary") || extractSection(content, "站内摘要"),
+  );
 
   let reviewStatus = "auto";
   if (isTodo || !hasOverview) {
     reviewStatus = "needs-review";
-  } else if (verifiedAt && urls.length > 0) {
+  } else if (verifiedAt && urls.length > 0 && summary) {
     reviewStatus = "reviewed";
   }
 
@@ -125,6 +153,7 @@ function parseProfile(content) {
 
   return {
     tagline,
+    summary,
     reviewStatus,
     sourceTier,
     verifiedAt,
@@ -148,6 +177,7 @@ function main() {
       needsReviewCount++;
       profiles[id] = {
         tagline: "",
+        summary: "",
         reviewStatus: "needs-review",
         sourceTier: "community",
         verifiedAt: null,

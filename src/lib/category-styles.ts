@@ -15,6 +15,8 @@ export function getCategoryStyle(category: string): { color: string; emoji: stri
 export const statusConfig: Record<ProjectStatus, { color: string; bg: string }> = {
   active: { color: "text-emerald-400", bg: "bg-emerald-400/10" },
   stable: { color: "text-blue-400", bg: "bg-blue-400/10" },
+  completed: { color: "text-sky-400", bg: "bg-sky-400/10" },
+  inactive: { color: "text-slate-400", bg: "bg-slate-400/10" },
   experimental: { color: "text-amber-400", bg: "bg-amber-400/10" },
   archived: { color: "text-gray-400", bg: "bg-gray-400/10" },
 };

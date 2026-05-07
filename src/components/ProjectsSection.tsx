@@ -35,6 +35,7 @@ const coreTypes: CoreType[] = [
 const verificationTypes: VerificationType[] = [
   "uvm-testbench",
   "formal-verification",
+  "arch-compliance",
   "force-riscv",
   "industrial-grade",
 ];

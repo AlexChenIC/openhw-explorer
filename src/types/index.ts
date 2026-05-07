@@ -26,11 +26,12 @@ export type CoreType =
 export type VerificationType =
   | "uvm-testbench"
   | "formal-verification"
+  | "arch-compliance"
   | "force-riscv"
   | "industrial-grade";
 
 // Project status
-export type ProjectStatus = "active" | "stable" | "experimental" | "archived";
+export type ProjectStatus = "active" | "stable" | "completed" | "inactive" | "experimental" | "archived";
 
 export type ReviewStatus = "reviewed" | "auto" | "needs-review";
 export type SourceTier = "official" | "trusted" | "community";

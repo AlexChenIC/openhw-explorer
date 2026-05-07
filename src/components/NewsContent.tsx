@@ -196,14 +196,6 @@ const CATEGORY_ICONS: Record<string, React.ReactNode> = {
   users: <Users className="w-4 h-4" />,
 };
 
-const CATEGORY_COLORS: Record<string, string> = {
-  releases: "from-emerald-500/20 to-emerald-500/5 border-emerald-500/20 text-emerald-400",
-  riscv: "from-blue-500/20 to-blue-500/5 border-blue-500/20 text-blue-400",
-  industry: "from-amber-500/20 to-amber-500/5 border-amber-500/20 text-amber-400",
-  hardware: "from-purple-500/20 to-purple-500/5 border-purple-500/20 text-purple-400",
-  community: "from-cyan-500/20 to-cyan-500/5 border-cyan-500/20 text-cyan-400",
-};
-
 const CATEGORY_ACCENTS: Record<string, string> = {
   releases: "text-emerald-400",
   riscv: "text-blue-400",
@@ -297,14 +289,31 @@ function StatsBar() {
   const locale = useLocale();
 
   return (
-    <div className="flex flex-wrap items-center justify-center gap-x-5 gap-y-2 mb-8 text-sm text-[var(--text-tertiary)]">
-      <span>{t("weekOf", { date: formatWeekDate(digest.weekOf, locale) })}</span>
-      <span className="hidden sm:inline">·</span>
-      <span className="font-medium text-[var(--text-secondary)]">
-        {t("totalItems", { count: digest.stats.totalRelevant })}
-      </span>
-      <span className="hidden sm:inline">·</span>
-      <span>{t("fromSources", { count: digest.stats.totalSources })}</span>
+    <div className="mb-6 grid grid-cols-1 gap-3 sm:grid-cols-3">
+      <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-4">
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
+          {t("issueDate")}
+        </p>
+        <p className="mt-1 text-sm font-semibold text-[var(--text-primary)]">
+          {formatWeekDate(digest.weekOf, locale)}
+        </p>
+      </div>
+      <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-4">
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
+          {t("highlightsTitle")}
+        </p>
+        <p className="mt-1 text-sm font-semibold text-[var(--text-primary)]">
+          {t("totalItems", { count: digest.stats.totalRelevant })}
+        </p>
+      </div>
+      <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-4">
+        <p className="text-[10px] font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
+          {t("sources")}
+        </p>
+        <p className="mt-1 text-sm font-semibold text-[var(--text-primary)]">
+          {t("fromSources", { count: digest.stats.totalSources })}
+        </p>
+      </div>
     </div>
   );
 }
@@ -315,7 +324,7 @@ function TrendingTags() {
   const t = useTranslations("news");
   if (!digest.stats.topTags.length) return null;
   return (
-    <div className="flex flex-wrap items-center justify-center gap-2 mb-8">
+    <div className="mb-8 flex flex-wrap items-center gap-2 rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-3">
       <span className="text-xs text-[var(--text-tertiary)] mr-1">{t("trendingTags")}:</span>
       {digest.stats.topTags.map(({ tag, count }) => (
         <span
@@ -339,17 +348,17 @@ function HighlightsSection() {
   if (!digest.highlights.length) return null;
 
   return (
-    <section className="mb-10">
+    <section className="mb-8">
       <div className="mb-5">
         <h2 className="text-xl font-bold text-[var(--text-primary)]">{t("highlightsTitle")}</h2>
         <p className="text-sm text-[var(--text-tertiary)] mt-1">{t("highlightsSubtitle")}</p>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+      <div className="space-y-3">
         {digest.highlights.map((cat) => (
           <div
             key={cat.id}
-            className={`bg-gradient-to-br ${CATEGORY_COLORS[cat.id] || "from-gray-500/20 to-gray-500/5 border-gray-500/20"} border rounded-xl p-5 transition-all hover:shadow-lg`}
+            className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-5"
           >
             {/* Category header */}
             <div className="flex items-center justify-between mb-4">
@@ -406,7 +415,7 @@ function HighlightsSection() {
 function NewsFeed() {
   const t = useTranslations("news");
   const feedPanelId = useId();
-  const [isExpanded, setIsExpanded] = useState(false);
+  const [isExpanded, setIsExpanded] = useState(true);
   const [relevanceFilter, setRelevanceFilter] = useState<RelevanceFilter>("all");
   const [sourceFilter, setSourceFilter] = useState<string>("all");
 

@@ -1,5 +1,5 @@
 {
-  "_doc": "人工策展新闻 - 从 Slack/邮件/PDF 等渠道手动添加的内容，构建时自动合并进 news-digest.json",
-  "_usage": "直接编辑此文件添加条目，或使用任意提取工具从链接/PDF 整理后添加",
+  "_doc": "每周摘要的人工策展入口。优先放 OpenHW 官方动态、RISC-V 官方/工作组动态、开源硬件项目发布和高质量技术文章。",
+  "_usage": "每周添加 3-7 条即可。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": []
 }

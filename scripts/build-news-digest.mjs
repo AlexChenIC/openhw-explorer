@@ -358,7 +358,7 @@ function readCuratedData() {
         relevanceScore: Math.max(score, 5), // curated items always high relevance
         tags: item.tags && item.tags.length > 0 ? item.tags : autoTags,
         language: item.language || (/[\u4e00-\u9fff]/.test(item.title) ? "zh" : "en"),
-        sourceTier: "official",
+        sourceTier: item.sourceTier || "trusted",
         reviewStatus: "curated",
         curated: true,
         // bilingual fields (pass through to JSON output)
@@ -490,11 +490,11 @@ function buildDigest() {
   const highlights = generateHighlights(items);
   const stats = generateWeeklyStats(items);
 
-  // For the full feed, keep relevant + capped low relevance
+  // Weekly brief mode: publish only curated or meaningfully relevant items.
+  // Broad semiconductor matches are useful for discovery, but should not appear
+  // in the public brief unless manually curated or scoring >= 2.
   const highItems = items.filter((i) => i.relevanceScore >= 2);
-  const lowItems = items.filter((i) => i.relevanceScore === 1);
-  const noItems = items.filter((i) => i.relevanceScore === 0);
-  items = [...highItems, ...lowItems.slice(0, 15), ...noItems.slice(0, 5)];
+  items = highItems;
 
   // Clean internal fields
   items = items.map(({ _dataSource, ...rest }) => rest);

@@ -34,6 +34,7 @@ const githubStats: Record<string, GitHubRepoStats> = rawData.repos || {};
 
 interface ProjectProfileMeta {
   tagline: string;
+  summary?: string;
   reviewStatus: ReviewStatus;
   sourceTier: SourceTier;
   verifiedAt: string | null;
@@ -56,8 +57,6 @@ export const launchCuratedProjectIds = [
   "cvfpu",
   "cv32e20-dv",
 ] as const;
-
-const launchCuratedProjectIdSet = new Set<string>(launchCuratedProjectIds);
 
 /** Get the repo name from a GitHub URL */
 function repoNameFromUrl(url?: string): string | null {
@@ -89,12 +88,12 @@ const verifiedClassification: Record<string, VerifiedClassification> = {
   "force-riscv": { category: ["verification", "tools"], verificationType: ["force-riscv"] },
   "core-v-mcu-uvm": { category: ["verification"], verificationType: ["uvm-testbench"] },
   "cv-hpdcache-verif": { category: ["verification"], verificationType: ["uvm-testbench"] },
-  "cvw-arch-verif": { category: ["verification"], verificationType: ["formal-verification"] },
+  "cvw-arch-verif": { category: ["verification"], verificationType: ["arch-compliance"] },
   "cvfpu-uvm": { category: ["verification"], verificationType: ["uvm-testbench"] },
   "cv32e20-dv": { category: ["verification"], verificationType: ["uvm-testbench"] },
   "cv32e40s-dv": { category: ["verification"], verificationType: ["uvm-testbench"] },
 
-  "core-v-mcu": { category: ["soc", "learning"] },
+  "core-v-mcu": { category: ["soc"] },
   "core-v-mcu-devkit": { category: ["soc", "tools"] },
   "cva6-safe": { category: ["soc"] },
   "core-v-polara-apu": { category: ["soc"] },
@@ -150,7 +149,7 @@ const categoryTagLabel: Record<ProjectCategory, string> = {
   verification: "Verification",
   tools: "Tools",
   docs: "Documentation",
-  learning: "Learning",
+  learning: "Learning-friendly",
   sdk: "SDK",
   soc: "SoC",
   ip: "IP",
@@ -159,14 +158,15 @@ const categoryTagLabel: Record<ProjectCategory, string> = {
 const coreTypeTagLabel: Record<CoreType, string> = {
   "embedded-mcu": "Embedded MCU",
   "linux-application": "Linux Application",
-  "high-performance": "High Performance",
+  "high-performance": "Application / Performance",
   "low-power": "Low Power",
-  "safety-critical": "Safety Critical",
+  "safety-critical": "Security / Safety",
 };
 
 const verificationTypeTagLabel: Record<VerificationType, string> = {
   "uvm-testbench": "UVM Testbench",
   "formal-verification": "Formal Verification",
+  "arch-compliance": "Architecture Tests",
   "force-riscv": "FORCE-RISCV",
   "industrial-grade": "Industrial Grade",
 };
@@ -250,7 +250,7 @@ export const projects: Project[] = [
     id: "cva6",
     name: "CVA6",
     description:
-      "CVA6 is a 6-stage RISC-V processor core implementing I, M, A, and C extensions with support for machine, supervisor, and user privilege levels. It provides configurable TLBs, a hardware page table walker, and branch prediction (BTB and BHT), enabling full Unix-like OS support including Linux boot. The repository supports both RV32 and RV64 configurations and covers FPGA emulation, ASIC implementation, and simulation flows.",
+      "CVA6 is a configurable 6-stage CORE-V RISC-V core family for application-class and embedded-class use. The cva6 repository README describes the current baseline CPU as 6-stage, single-issue, and in-order, while the OpenHW CORE-V cores roadmap describes the broader CVA6 family as single- or dual-issue; application-class configurations are Linux-capable.",
     category: ["core"],
     coreType: ["linux-application", "high-performance"],
     tags: ["RISC-V", "SystemVerilog", "RV64", "Linux", "Application-Class"],
@@ -315,7 +315,7 @@ export const projects: Project[] = [
     category: ["core"],
     coreType: ["embedded-mcu", "high-performance"],
     tags: ["RISC-V", "SystemVerilog", "Custom Extensions", "DSP", "SIMD"],
-    status: "active",
+    status: "inactive",
     github: "https://github.com/openhwgroup/cv32e40x",
     stars: 258,
     forks: 55,
@@ -347,7 +347,7 @@ export const projects: Project[] = [
     category: ["core"],
     coreType: ["high-performance"],
     tags: ["RISC-V", "SystemVerilog", "FPGA", "Application-Class", "Pipeline"],
-    status: "active",
+    status: "completed",
     github: "https://github.com/openhwgroup/cva5",
     stars: 127,
     forks: 29,
@@ -363,7 +363,7 @@ export const projects: Project[] = [
     category: ["core"],
     coreType: ["embedded-mcu", "low-power"],
     tags: ["RISC-V", "SystemVerilog", "RV32", "Microcontroller", "Low-Area"],
-    status: "stable",
+    status: "active",
     github: "https://github.com/openhwgroup/cve2",
     stars: 56,
     forks: 33,
@@ -375,7 +375,7 @@ export const projects: Project[] = [
     id: "cv32e41p",
     name: "CV32E41P",
     description:
-      "CV32E41P is an archived 32-bit, 4-stage in-order RISC-V core forked from CV32E40P to evaluate official RISC-V extension implementations including Zfinx, Zce, and Xpulp custom extensions for higher code density, performance, and energy efficiency. Its architectural directions were later consolidated into the maintained successors CV32E40S and CV32E40X.",
+      "CV32E41P is an archived 32-bit, 4-stage in-order embedded-class CORE-V prototype derived from CV32E40P to evaluate RISC-V Zfinx and Zce extension work together with Xpulp custom extensions.",
     category: ["core"],
     coreType: ["embedded-mcu", "safety-critical"],
     tags: ["RISC-V", "SystemVerilog", "Zfinx", "Zce", "Prototype"],
@@ -461,7 +461,7 @@ export const projects: Project[] = [
     description:
       "CVW Architectural Verification is a deprecated repository that provided CORE-V Wally architectural verification, covering unprivileged extensions (I, M, F, D, Zfh, Zba, Zbb, Zbs, Zca, Zcb, Zknd, Zkne, Zknh) and privileged features including SV32/39/48 memory models and exception/interrupt handling via RVVI functional coverage. Development has migrated to the RISC-V Architecture Test framework.",
     category: ["verification"],
-    verificationType: ["formal-verification"],
+    verificationType: ["arch-compliance"],
     tags: ["Verification", "SystemVerilog", "ISA Compliance", "Wally"],
     status: "active",
     github: "https://github.com/openhwgroup/cvw-arch-verif",
@@ -526,7 +526,7 @@ export const projects: Project[] = [
     name: "CORE-V MCU",
     description:
       "CORE-V MCU is a standalone RISC-V SoC platform originated from PULPissimo, integrating a CV32E40P-based compute subsystem with an IEEE 1149.1 compliant JTAG interface and RISC-V Debug Transport Module (v0.13.2). It targets Digilent Nexys A7-100T and Genesys2 FPGA boards with a Make/fuseSoC build system and supports Modelsim/Questasim simulation and Verilator linting.",
-    category: ["soc", "learning"],
+    category: ["soc"],
     coreType: ["embedded-mcu"],
     tags: ["SoC", "FPGA", "Embedded", "CV32E40P", "Reference Design"],
     status: "active",
@@ -543,7 +543,7 @@ export const projects: Project[] = [
     name: "CORE-V MCU DevKit",
     description:
       "The CORE-V MCU DevKit is an evaluation platform for the CV32E40P RISC-V core (v1.0.0), combining the processor with a Quicklogic ArcticPro2 Embedded FPGA, 4MB flash, and an onboard Ashling Opella LD JTAG debugger with serial console. It provides mikroBUS connectivity, AWS IoT ExpressLink for cloud integration, and level shifters for 3.3V I/O compatibility, supporting hardware bring-up and embedded software development.",
-    category: ["soc", "learning"],
+    category: ["soc", "tools"],
     tags: ["DevKit", "Hardware", "Board", "SDK", "Getting Started"],
     status: "active",
     github: "https://github.com/openhwgroup/core-v-mcu-devkit",
@@ -573,7 +573,7 @@ export const projects: Project[] = [
     id: "core-v-polara-apu",
     name: "CORE-V Polara APU",
     description:
-      "CORE-V Polara APU is a manycore RISC-V research platform originating from the Ara vector processor and OpenPiton projects, integrating four RISC-V vector cores connected through an OpenPiton P-Mesh network with configurable vector length up to VLEN=4096. It supports full-precision and low-precision deep neural network inference workloads and is configurable in multi-tile arrangements (2×2, 4×4), requiring RISC-V LLVM with vector extension support.",
+      "CORE-V Polara APU is a multicore RISC-V vector research platform originating from the Ara vector processor and OpenPiton projects. The README describes four Ara vector cores connected through OpenPiton, low-precision computation support for DNN inference, and simulation flows that require RISC-V LLVM with vector extension support.",
     category: ["soc"],
     coreType: ["high-performance"],
     tags: ["APU", "Multi-Core", "OpenPiton", "HPC", "Research"],
@@ -591,7 +591,7 @@ export const projects: Project[] = [
     id: "cvfpu",
     name: "CVFPU",
     description:
-      "CVFPU (FPnew) is a parametric floating-point unit written in SystemVerilog, supporting standard RISC-V formats and transprecision formats in compliance with IEEE 754-2008. It provides configurable exponent and mantissa bit widths, simultaneous support for multiple formats (half, single, double, and quad precision), fused multiply-add, division, and square root operations, with optional packed-SIMD variants for parallel processing.",
+      "CVFPU (FPnew) is a parametric floating-point unit written in SystemVerilog, supporting standard RISC-V formats and transprecision formats. The project aims to be IEEE 754-2008 compliant and supports configurable exponent/mantissa widths, multiple concurrent formats (including half, single, double, and quad precision), fused multiply-add, division, square root, conversions, comparisons, status flags, and optional packed-SIMD variants.",
     category: ["ip"],
     tags: ["FPU", "Floating Point", "IEEE 754", "SystemVerilog", "Parametric"],
     status: "active",
@@ -637,7 +637,7 @@ export const projects: Project[] = [
     id: "cv-mesh",
     name: "CV-MESH",
     description:
-      "CV-MESH is an open-source Network-on-Chip (NoC) interconnect for multi-core RISC-V system composition in OpenHW, implemented in Verilog. It provides mesh topology routing infrastructure for connecting multiple processor cores, with components covering bridges, L1/L2 cache interfaces, and dynamic NoC nodes.",
+      "CV-MESH is an early-stage OpenHW interconnect repository associated with the CV-MESH coherency framework based on OpenPiton. The repository currently exposes Verilog components for bridges, L1/L2 cache interfaces, and NoC-related blocks, but has limited public top-level documentation.",
     category: ["ip"],
     tags: ["NoC", "Mesh", "Interconnect", "Multi-Core", "Verilog"],
     status: "experimental",
@@ -744,8 +744,6 @@ export const projects: Project[] = [
 
 // Enrich projects with live GitHub stats (auto-fetched data takes priority over hardcoded)
 for (const project of projects) {
-  project.launchStage = launchCuratedProjectIdSet.has(project.id) ? "curated" : "baseline";
-
   const verified = verifiedClassification[project.id];
 
   if (verified) {
@@ -775,12 +773,13 @@ for (const project of projects) {
       project.status = "archived";
     }
 
-    // Auto-tag repos suitable for contributors:
-    // active/stable status + has contributors + not archived
+    // Auto-tag repos suitable for contributors using observable GitHub signals.
+    // A historical contributor count alone is not enough; stale repos should not
+    // appear as good contribution entry points.
     if (
       !stats.archived &&
       (project.status === "active" || project.status === "stable") &&
-      stats.contributorsCount >= 2
+      (stats.goodFirstIssueCount > 0 || stats.recentCommits >= 3 || (stats.openPRsCount || 0) > 0)
     ) {
       if (!project.suitableFor) project.suitableFor = [];
       if (!project.suitableFor.includes("contributor")) {
@@ -795,6 +794,10 @@ for (const project of projects) {
 
   const profileMeta = projectProfileMeta[project.id];
   if (profileMeta) {
+    const summary = profileMeta.summary?.trim();
+    if (summary) {
+      project.description = summary;
+    }
     project.descriptionReviewStatus = profileMeta.reviewStatus;
     project.descriptionSourceTier = profileMeta.sourceTier;
     project.descriptionVerifiedAt = profileMeta.verifiedAt || undefined;
@@ -802,6 +805,8 @@ for (const project of projects) {
     project.descriptionSourceCount = profileMeta.sourceCount;
     project.descriptionConfidence = profileMeta.confidence;
   }
+
+  project.launchStage = profileMeta?.reviewStatus === "reviewed" ? "curated" : "baseline";
 
   if (project.launchStage === "baseline") {
     project.baselineSummary = buildBaselineSummary(project);

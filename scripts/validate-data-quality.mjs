@@ -14,6 +14,7 @@ const PROJECT_PROFILE_META_FILE = join(ROOT, "src/data/project-profile-meta.json
 const REPO_DOCS_DIR = join(ROOT, "docs/repos");
 const DAYS_TO_INCLUDE = 7;
 const NEWS_ENABLED = process.env.NEXT_PUBLIC_ENABLE_NEWS === "true";
+const HAS_REPO_DOCS_DIR = existsSync(REPO_DOCS_DIR);
 
 function readJson(filePath) {
   const raw = readFileSync(filePath, "utf-8");
@@ -209,16 +210,25 @@ function validateProjectProfileMeta() {
       errors.push(`project '${id}' has invalid confidence '${profile.confidence}'`);
     }
 
-    const docPath = join(REPO_DOCS_DIR, id, "profile.md");
-    if (!existsSync(docPath)) {
-      errors.push(`project '${id}' missing docs profile file`);
-      continue;
-    }
+    if (HAS_REPO_DOCS_DIR) {
+      const docPath = join(REPO_DOCS_DIR, id, "profile.md");
+      if (!existsSync(docPath)) {
+        errors.push(`project '${id}' missing docs profile file`);
+        continue;
+      }
 
-    const doc = readFileSync(docPath, "utf-8");
-    if (/TODO: 从模板/.test(doc)) {
-      errors.push(`project '${id}' profile.md still contains TODO placeholder`);
+      const doc = readFileSync(docPath, "utf-8");
+      if (/TODO: 从模板/.test(doc)) {
+        errors.push(`project '${id}' profile.md still contains TODO placeholder`);
+      }
+      if (!/^##\s+Public summary\s*$/m.test(doc) && !/^##\s+站内摘要\s*$/m.test(doc)) {
+        errors.push(`project '${id}' profile.md missing Public summary section`);
+      }
     }
+  }
+
+  if (!HAS_REPO_DOCS_DIR) {
+    warnings.push("docs/repos is not present; validating profile source URLs from project-profile-meta.json only");
   }
 
   return { errors, warnings };
