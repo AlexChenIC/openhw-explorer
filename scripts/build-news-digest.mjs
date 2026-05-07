@@ -170,12 +170,17 @@ function classifyItem(item) {
 function getDateRange() {
   const dates = [];
   const now = new Date();
-  for (let i = -1; i < DAYS_TO_INCLUDE; i++) {
+  for (let i = 0; i < DAYS_TO_INCLUDE; i++) {
     const d = new Date(now);
     d.setDate(d.getDate() - i);
-    dates.push(d.toISOString().slice(0, 10));
+    dates.push(toLocalDateString(d));
   }
   return dates;
+}
+
+function toLocalDateString(date = new Date()) {
+  const local = new Date(date.getTime() - date.getTimezoneOffset() * 60 * 1000);
+  return local.toISOString().slice(0, 10);
 }
 
 function truncate(text, len = 160) {
@@ -341,7 +346,7 @@ function readCuratedData() {
 
     console.log(`  Curated items: ${items.length}`);
 
-    return items.map((item) => {
+    return items.map((item, index) => {
       // Auto-compute tags from title+summary if not provided
       const { score, tags: autoTags } = computeRelevanceScore(
         item.title || "",
@@ -364,6 +369,7 @@ function readCuratedData() {
         // bilingual fields (pass through to JSON output)
         ...(item.titleZh && { titleZh: item.titleZh }),
         ...(item.summaryZh && { summaryZh: item.summaryZh }),
+        _curatedIndex: index,
         _dataSource: "curated",
       };
     });
@@ -395,6 +401,7 @@ function generateHighlights(items) {
     // Take top 4 items per category
     const top = catItems.slice(0, 4).map((item) => ({
       title: item.title,
+      ...(item.titleZh && { titleZh: item.titleZh }),
       url: item.url,
       source: item.source,
       tags: item.tags.slice(0, 3),
@@ -442,27 +449,20 @@ function generateWeeklyStats(items) {
 function buildDigest() {
   console.log("Building news digest for OpenHW Explorer...");
 
-  if (!existsSync(TRENDRADAR_DIR)) {
-    console.log("  TrendRadar output not found. Creating empty digest.");
-    const empty = {
-      weekOf: new Date().toISOString().slice(0, 10),
-      generatedAt: new Date().toISOString(),
-      stats: { totalRelevant: 0, totalSources: 0, topTags: [] },
-      highlights: [],
-      items: [],
-      sources: [],
-    };
-    writeFileSync(OUTPUT_FILE, JSON.stringify(empty, null, 2));
-    return;
-  }
-
   const dates = getDateRange();
   console.log(`  Date range: ${dates[dates.length - 1]} to ${dates[0]}`);
 
-  const rssItems = readRSSData(dates);
-  console.log(`  RSS items: ${rssItems.length}`);
-  const newsItems = readNewsData(dates);
-  console.log(`  Hotlist items: ${newsItems.length}`);
+  let rssItems = [];
+  let newsItems = [];
+  if (existsSync(TRENDRADAR_DIR)) {
+    rssItems = readRSSData(dates);
+    console.log(`  RSS items: ${rssItems.length}`);
+    newsItems = readNewsData(dates);
+    console.log(`  Hotlist items: ${newsItems.length}`);
+  } else {
+    console.log("  TrendRadar output not found. Using curated items only.");
+  }
+
   const curatedItems = readCuratedData();
 
   // Merge & deduplicate (prefer curated > RSS > hotlist)
@@ -482,6 +482,9 @@ function buildDigest() {
 
   // Sort by relevance then date
   items = items.sort((a, b) => {
+    if (a._dataSource === "curated" && b._dataSource === "curated") {
+      return (a._curatedIndex ?? 0) - (b._curatedIndex ?? 0);
+    }
     if (b.relevanceScore !== a.relevanceScore) return b.relevanceScore - a.relevanceScore;
     return (b.publishedAt || "").localeCompare(a.publishedAt || "");
   });
@@ -497,12 +500,12 @@ function buildDigest() {
   items = highItems;
 
   // Clean internal fields
-  items = items.map(({ _dataSource, ...rest }) => rest);
+  items = items.map(({ _dataSource, _curatedIndex, ...rest }) => rest);
 
   const sources = [...new Set(items.map((i) => i.source))].sort();
 
   const digest = {
-    weekOf: dates[dates.length - 1],
+    weekOf: toLocalDateString(),
     generatedAt: new Date().toISOString(),
     stats,
     highlights,

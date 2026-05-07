@@ -19,6 +19,7 @@ import newsDigest from "@/data/news-digest.json";
 
 interface HighlightItem {
   title: string;
+  titleZh?: string;
   url: string;
   source: string;
   tags: string[];
@@ -35,10 +36,12 @@ interface HighlightCategory {
 
 interface NewsItem {
   title: string;
+  titleZh?: string;
   url: string;
   source: string;
   publishedAt: string;
   summary: string;
+  summaryZh?: string;
   author: string;
   relevanceScore: number;
   tags: string[];
@@ -103,10 +106,12 @@ function normalizeNewsItem(value: unknown): NewsItem {
   const item = value as Record<string, unknown>;
   return {
     title: asString(item.title),
+    titleZh: asString(item.titleZh) || undefined,
     url: asString(item.url),
     source: asString(item.source),
     publishedAt: asString(item.publishedAt),
     summary: asString(item.summary),
+    summaryZh: asString(item.summaryZh) || undefined,
     author: asString(item.author),
     relevanceScore: asNumber(item.relevanceScore),
     tags: asStringArray(item.tags),
@@ -124,6 +129,7 @@ function normalizeHighlightItem(value: unknown): HighlightItem {
   const item = value as Record<string, unknown>;
   return {
     title: asString(item.title),
+    titleZh: asString(item.titleZh) || undefined,
     url: asString(item.url),
     source: asString(item.source),
     tags: asStringArray(item.tags),
@@ -251,6 +257,14 @@ function getTierBadgeMeta(tier: NewsItem["sourceTier"]) {
   };
 }
 
+function getLocalizedTitle(item: Pick<NewsItem, "title" | "titleZh">, locale: string) {
+  return locale.startsWith("zh") && item.titleZh ? item.titleZh : item.title;
+}
+
+function getLocalizedSummary(item: Pick<NewsItem, "summary" | "summaryZh">, locale: string) {
+  return locale.startsWith("zh") && item.summaryZh ? item.summaryZh : item.summary;
+}
+
 // ─── Empty State ─────────────────────────────────────────────
 
 function EmptyState() {
@@ -339,11 +353,78 @@ function TrendingTags() {
   );
 }
 
+// ─── Editor Briefing ─────────────────────────────────────────
+
+function EditorBriefing() {
+  const t = useTranslations("news");
+  const locale = useLocale();
+  const leadItems = digest.items.slice(0, 3);
+
+  if (!leadItems.length) return null;
+
+  return (
+    <section className="mb-8">
+      <div className="mb-4 flex items-end justify-between gap-4">
+        <div>
+          <h2 className="text-xl font-bold text-[var(--text-primary)]">{t("briefingTitle")}</h2>
+          <p className="mt-1 text-sm text-[var(--text-tertiary)]">{t("briefingSubtitle")}</p>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 gap-3 lg:grid-cols-3">
+        {leadItems.map((item, index) => {
+          const tierMeta = getTierBadgeMeta(item.sourceTier);
+          return (
+            <article
+              key={`${item.url}-${index}`}
+              className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-5 transition-all hover:border-[var(--text-tertiary)]"
+            >
+              <div className="mb-3 flex flex-wrap items-center gap-2 text-[10px] text-[var(--text-tertiary)]">
+                <span>{formatDate(item.publishedAt, locale)}</span>
+                <span className={`px-1.5 py-0.5 rounded border ${tierMeta.className}`}>
+                  {t(tierMeta.labelKey)}
+                </span>
+                <span className="font-medium text-[var(--text-secondary)]">{item.source}</span>
+              </div>
+
+              <h3 className="text-sm font-semibold leading-snug text-[var(--text-primary)]">
+                <a
+                  href={item.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="hover:text-[var(--primary)]"
+                >
+                  {getLocalizedTitle(item, locale)}
+                </a>
+              </h3>
+
+              <p className="mt-2 text-xs leading-relaxed text-[var(--text-tertiary)] line-clamp-3">
+                {getLocalizedSummary(item, locale)}
+              </p>
+
+              <div className="mt-4 flex flex-wrap gap-1.5">
+                {item.tags.slice(0, 3).map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded border border-[var(--primary)]/10 bg-[var(--primary)]/5 px-1.5 py-0.5 text-[10px] text-[var(--primary)]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </div>
+            </article>
+          );
+        })}
+      </div>
+    </section>
+  );
+}
+
 // ─── Highlights Section ──────────────────────────────────────
 
 function HighlightsSection() {
   const t = useTranslations("news");
-  const locale = useLocale() as "en" | "zh";
+  const locale = useLocale();
 
   if (!digest.highlights.length) return null;
 
@@ -367,7 +448,7 @@ function HighlightsSection() {
                   {CATEGORY_ICONS[cat.icon] || <Newspaper className="w-4 h-4" />}
                 </div>
                 <h3 className="font-semibold text-[var(--text-primary)] text-sm">
-                  {cat.name[locale]}
+                  {locale.startsWith("zh") ? cat.name.zh : cat.name.en}
                 </h3>
               </div>
               <span className="text-[10px] text-[var(--text-tertiary)] bg-[var(--bg-subtle)] px-2 py-0.5 rounded-full">
@@ -386,7 +467,7 @@ function HighlightsSection() {
                     className="flex items-start gap-2 text-sm text-[var(--text-primary)] hover:text-[var(--primary)] transition-colors leading-snug"
                   >
                     <span className="shrink-0 w-1.5 h-1.5 mt-1.5 rounded-full bg-current opacity-40" />
-                    <span className="flex-1 line-clamp-2">{item.title}</span>
+                    <span className="flex-1 line-clamp-2">{getLocalizedTitle(item, locale)}</span>
                     <ExternalLink className="shrink-0 w-3 h-3 mt-1 opacity-0 group-hover:opacity-50 transition-opacity" />
                   </a>
                   <div className="flex items-center gap-2 ml-3.5 mt-1">
@@ -554,10 +635,10 @@ function NewsRow({ item }: { item: NewsItem }) {
                 rel="noopener noreferrer"
                 className="hover:text-[var(--primary)] transition-colors"
               >
-                {item.title}
+                {getLocalizedTitle(item, locale)}
               </a>
             ) : (
-              item.title
+              getLocalizedTitle(item, locale)
             )}
           </h3>
           {item.url && (
@@ -573,7 +654,7 @@ function NewsRow({ item }: { item: NewsItem }) {
         </div>
         {item.summary && (
           <p className="text-xs text-[var(--text-tertiary)] leading-relaxed mt-1 line-clamp-1">
-            {item.summary}
+            {getLocalizedSummary(item, locale)}
           </p>
         )}
         <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1.5 text-[10px] text-[var(--text-tertiary)]">
@@ -626,6 +707,7 @@ export function NewsContent() {
         <PageHeader />
         <StatsBar />
         <TrendingTags />
+        <EditorBriefing />
         <HighlightsSection />
         <NewsFeed />
         <NewsFooter />

@@ -393,6 +393,8 @@
     "weekOf": "Week of {date}",
     "totalItems": "{count} curated item(s)",
     "fromSources": "from {count} sources",
+    "briefingTitle": "Start Here",
+    "briefingSubtitle": "Three source-checked updates with the strongest signal",
     "highlightsTitle": "Editor Picks",
     "highlightsSubtitle": "A small set of updates worth reading first",
     "itemsInCategory": "{count} articles",

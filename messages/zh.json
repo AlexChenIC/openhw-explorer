@@ -393,6 +393,8 @@
     "weekOf": "{date} 当周",
     "totalItems": "{count} 条精选",
     "fromSources": "来自 {count} 个源",
+    "briefingTitle": "先读这几条",
+    "briefingSubtitle": "经过来源核对、信号最强的三条动态",
     "highlightsTitle": "本周精选",
     "highlightsSubtitle": "先读这些，再看完整阅读列表",
     "itemsInCategory": "{count} 条",

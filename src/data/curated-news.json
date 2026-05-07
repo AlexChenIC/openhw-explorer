@@ -1,5 +1,78 @@
 {
   "_doc": "每周摘要的人工策展入口。优先放 OpenHW 官方动态、RISC-V 官方/工作组动态、开源硬件项目发布和高质量技术文章。",
   "_usage": "每周添加 3-7 条即可。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
-  "items": []
+  "items": [
+    {
+      "title": "RISC-V Architecture Tests 4.0.0 released",
+      "titleZh": "RISC-V Architecture Tests 发布 4.0.0",
+      "url": "https://github.com/riscv/riscv-arch-test/releases/tag/4.0.0",
+      "source": "RISC-V Architecture Tests (GitHub)",
+      "addedAt": "2026-04-16T17:21:16Z",
+      "summary": "ACT 4.0 is a major update to the RISC-V Architecture Certification Test suite, replacing the older riscof/riscv-ctg/riscv-isac/riscv-config flow with a new Python-based flow.",
+      "summaryZh": "ACT 4.0 是 RISC-V 架构认证测试套件的一次重要升级，用新的 Python-based flow 取代旧的 riscof/riscv-ctg/riscv-isac/riscv-config 流程。",
+      "tags": ["RISC-V", "Architecture Tests", "Verification", "Certification"],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
+      "title": "CHIPS Alliance launches the SV Tools Project for SystemVerilog/UVM codebases",
+      "titleZh": "CHIPS Alliance 推出 SV Tools Project，聚合 SystemVerilog/UVM 开源工具",
+      "url": "https://www.chipsalliance.org/news/sv-tools-project-launch/",
+      "source": "CHIPS Alliance",
+      "addedAt": "2026-03-30T00:00:00Z",
+      "summary": "CHIPS Alliance introduced the SV Tools Project to improve visibility and support for open-source SystemVerilog and UVM tooling, including sv-tests, Verible, Synlig, and RISCV-DV.",
+      "summaryZh": "CHIPS Alliance 推出 SV Tools Project，聚合 sv-tests、Verible、Synlig、RISCV-DV 等开源 SystemVerilog/UVM 工具，提升工具链可见度和维护支持。",
+      "tags": ["CHIPS Alliance", "SystemVerilog", "UVM", "Verible", "RISCV-DV"],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
+      "title": "Yosys 0.64 released",
+      "titleZh": "Yosys 0.64 发布",
+      "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.64",
+      "source": "YosysHQ (GitHub)",
+      "addedAt": "2026-04-09T05:35:52Z",
+      "summary": "Yosys 0.64 added a synth_analogdevices pass for Analog Devices FPGA synthesis support and includes maintenance changes for the open-source synthesis flow.",
+      "summaryZh": "Yosys 0.64 新增 synth_analogdevices pass，用于支持 Analog Devices FPGA 综合，并带来若干开源综合流程维护更新。",
+      "tags": ["Yosys", "EDA", "Synthesis", "FPGA"],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
+      "title": "Caliptra RTL v2.1.2 patch release published",
+      "titleZh": "Caliptra RTL 发布 v2.1.2 patch release",
+      "url": "https://github.com/chipsalliance/caliptra-rtl/releases/tag/v2.1.2",
+      "source": "CHIPS Alliance / Caliptra (GitHub)",
+      "addedAt": "2026-03-19T22:26:10Z",
+      "summary": "Caliptra RTL v2.1.2 is a patch release for Caliptra 2.1 RTL, including AES countermeasure and Key Vault hardening plus a future-use ML-KEM Key Vault endianness fix.",
+      "summaryZh": "Caliptra RTL v2.1.2 是 Caliptra 2.1 RTL 的 patch release，包含 AES countermeasure、Key Vault 加固，以及面向未来使用模型的 ML-KEM Key Vault 端序修复。",
+      "tags": ["Caliptra", "Root of Trust", "Security", "RTL"],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
+      "title": "OpenHW Foundation launches Unified RISC-V IP Access Platform under TRISTAN",
+      "titleZh": "OpenHW Foundation 在 TRISTAN 项目下推出 Unified RISC-V IP Access Platform",
+      "url": "https://www.globenewswire.com/news-release/2026/01/26/3225340/0/en/The-OpenHW-Foundation-unveils-the-first-industry-ready-RISC-V-ecosystem-to-advance-European-digital-sovereignty.html",
+      "source": "OpenHW Foundation / Eclipse Foundation Canada",
+      "addedAt": "2026-01-26T10:00:00Z",
+      "summary": "OpenHW announced the Unified RISC-V IP Access Platform as part of TRISTAN, positioning it as a unified source for verified, industry-ready RISC-V components and related open-source artifacts.",
+      "summaryZh": "OpenHW 在 TRISTAN 项目下宣布 Unified RISC-V IP Access Platform，目标是集中呈现已验证、面向产业使用的 RISC-V 组件和相关开源资产。",
+      "tags": ["OpenHW", "RISC-V", "IP Platform", "TRISTAN", "Digital Sovereignty"],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
+      "title": "CHIPS Alliance details modular RISC-V SoC design with Topwrap and Guineveer",
+      "titleZh": "CHIPS Alliance 介绍 Topwrap 与 Guineveer 的模块化 RISC-V SoC 设计流程",
+      "url": "https://www.chipsalliance.org/news/designing-modular-and-reusable-risc-v-socs-with-topwrap-and-guineveer/",
+      "source": "CHIPS Alliance",
+      "addedAt": "2026-03-18T00:00:00Z",
+      "summary": "CHIPS Alliance described an open digital design flow using Topwrap and Guineveer, a RISC-V reference SoC based on the VeeR EL2 core, for modular and reusable SoC construction.",
+      "summaryZh": "CHIPS Alliance 介绍了使用 Topwrap 与 Guineveer 的开放数字设计流程；Guineveer 是基于 VeeR EL2 的 RISC-V reference SoC，用于模块化、可复用的 SoC 构建。",
+      "tags": ["CHIPS Alliance", "RISC-V", "SoC", "Topwrap", "Guineveer", "VeeR"],
+      "sourceTier": "official",
+      "language": "en"
+    }
+  ]
 }
