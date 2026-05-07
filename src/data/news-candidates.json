@@ -1,13 +1,21 @@
 {
   "_meta": {
-    "generatedAt": "2026-05-07T11:37:00.987Z",
+    "generatedAt": "2026-05-07T14:10:04.814Z",
     "lookbackDays": 45,
     "openHwActivityDays": 14,
-    "totalCandidates": 7,
-    "sourceCount": 5,
+    "totalCandidates": 21,
+    "sourceCount": 9,
     "reviewWorkflow": "Review candidates, verify source facts, copy selected items into src/data/curated-news.json, then run npm run build-news."
   },
   "sources": [
+    {
+      "source": "Antmicro Blog",
+      "count": 5
+    },
+    {
+      "source": "CHIPS Alliance / Chisel (GitHub)",
+      "count": 2
+    },
     {
       "source": "CHIPS Alliance Blog",
       "count": 2
@@ -21,6 +29,14 @@
       "count": 1
     },
     {
+      "source": "MLCommons",
+      "count": 5
+    },
+    {
+      "source": "Open Compute Project Blog",
+      "count": 2
+    },
+    {
       "source": "RISC-V International news",
       "count": 2
     },
@@ -30,6 +46,21 @@
     }
   ],
   "items": [
+    {
+      "title": "Implementing Dual-core Lockstep in the CHIPS Alliance VeeR EL2 RISC-V core for safety-critical applications",
+      "url": "https://antmicro.com/blog/2026/04/dual-core-lockstep-in-veer-el2",
+      "source": "Antmicro Blog",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-04-13T00:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 11,
+      "tags": ["Antmicro", "Open Hardware", "RISC-V", "CHIPS Alliance", "VeeR"],
+      "suggestedAudience": ["openhw-riscv", "soc-ip"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
     {
       "title": "Using a Performance Model to Implement a Superscalar CVA6",
       "url": "https://riscv.org/blog/using-a-performance-model-to-implement-a-superscalar-cva6/",
@@ -42,6 +73,51 @@
       "relevanceScore": 11,
       "tags": ["RISC-V", "CVA6"],
       "suggestedAudience": ["openhw-riscv"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "Improved simulation-based testing of Google's ChromiumOS FPMCU with Renode support for the RISC-V Andes D25F core and the related Egis ET171 SoC",
+      "url": "https://antmicro.com/blog/2026/05/andes-d25f-based-egis-et171-in-renode",
+      "source": "Antmicro Blog",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-05-05T00:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 9,
+      "tags": ["Antmicro", "Open Hardware", "RISC-V", "EDA", "SoC/IP"],
+      "suggestedAudience": ["openhw-riscv", "eda-tools", "soc-ip"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "GPT-OSS 20B: A Sparse MoE Pretraining Benchmark for MLPerf Training v6.0",
+      "url": "https://mlcommons.org/2026/05/gpt-oss-moe-training6/",
+      "source": "MLCommons",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-05-07T13:23:00.000Z",
+      "summary": "How MLCommons engineered a stable, accessible Mixture-of-Experts (MoE) pretraining benchmark for MLPerf Training v6.0 that runs on a single 8-GPU node. The post GPT-OSS 20B: A Sparse MoE Pretraining Benchmark for MLPerf...",
+      "author": "lori@mlcommons.org",
+      "relevanceScore": 8,
+      "tags": ["MLCommons", "Benchmarking", "MLPerf", "LLM", "Accelerator"],
+      "suggestedAudience": ["ai-accelerators"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "MLCommons Releases New MLPerf Inference v6.0 Benchmark Results",
+      "url": "https://mlcommons.org/2026/04/mlperf-inference-v6-0-results/",
+      "source": "MLCommons",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-04-01T14:50:00.000Z",
+      "summary": "The most significant update to the benchmark suite to date, with new tests ensuring that it remains the most comprehensive measure of AI system performance The post MLCommons Releases New MLPerf Inference v6.0 Benchmark...",
+      "author": "MLCommons",
+      "relevanceScore": 7,
+      "tags": ["MLCommons", "Benchmarking", "AI", "MLPerf", "LLM"],
+      "suggestedAudience": ["ai-accelerators"],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -76,6 +152,36 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
+      "title": "DeepSeek-V3: A Large-Scale MoE Pretraining Benchmark for MLPerf Training v6.0",
+      "url": "https://mlcommons.org/2026/05/deepseek-v3-training-v6-0/",
+      "source": "MLCommons",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-05-05T13:37:00.000Z",
+      "summary": "How MLCommons is bringing large-scale Mixture-of-Experts (MoE) pretraining to the MLPerf Training v6.0 suite. The post DeepSeek-V3: A Large-Scale MoE Pretraining Benchmark for MLPerf Training v6.0 appeared first on MLCom...",
+      "author": "lori@mlcommons.org",
+      "relevanceScore": 6,
+      "tags": ["MLCommons", "Benchmarking", "MLPerf", "LLM"],
+      "suggestedAudience": ["ai-accelerators"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "Initial implementation of four-state logic in the open source Verilator RTL simulator",
+      "url": "https://antmicro.com/blog/2026/04/initial-support-for-four-state-logic-in-verilator",
+      "source": "Antmicro Blog",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-04-30T00:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 6,
+      "tags": ["Antmicro", "Open Hardware", "Verilator", "SoC/IP"],
+      "suggestedAudience": ["eda-tools", "soc-ip"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
       "title": "Docker on RISC-V: From Release to Production in 6 Days",
       "url": "https://riscv.org/blog/docker-on-risc-v-from-release-to-production-in-6-days/",
       "source": "RISC-V International news",
@@ -106,6 +212,21 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
+      "title": "A new GPT-OSS benchmark and DeepSeek R1 updates for latency-optimized reasoning",
+      "url": "https://mlcommons.org/2026/03/mlperf-inference-gpt-oss/",
+      "source": "MLCommons",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-03-24T14:47:34.000Z",
+      "summary": "MLPerf Inference v6.0 expands open-weight LLM coverage with a new GPT-OSS 120B benchmark and a latency-constrained interactive scenario for DeepSeek-R1 — the first MLPerf standard for speculative decoding. The post A new...",
+      "author": "MLCommons",
+      "relevanceScore": 6,
+      "tags": ["MLCommons", "Benchmarking", "MLPerf", "LLM"],
+      "suggestedAudience": ["ai-accelerators"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
       "title": "CHIPS Alliance at 2026 OCP EMEA Summit",
       "url": "https://www.chipsalliance.org/news/chips-alliance-ocp-emea-2026/",
       "source": "CHIPS Alliance Blog",
@@ -129,6 +250,66 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
+      "title": "Delivering an Open Data Center Ecosystem for AI",
+      "url": "https://www.opencompute.org/blog/delivering-an-open-data-center-ecosystem-for-ai",
+      "source": "Open Compute Project Blog",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-04-28T16:00:00.000Z",
+      "summary": "Driving Innovations from Chip to Grid Across Hyperscale and Local Data Centers April 29th, 2026 &ndash; The Open Compute Project Foundation (OCP), the nonprofit international organization bringing at-scale innovations an...",
+      "author": "",
+      "relevanceScore": 4,
+      "tags": ["OCP", "Open Compute Project", "AI", "OCP AI Infrastructure"],
+      "suggestedAudience": ["ai-accelerators"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "Building the Foundation for an Open Chiplet Future: Foundation Chiplet System Architecture (FCSA)",
+      "url": "https://www.opencompute.org/blog/building-the-foundation-for-an-open-chiplet-future-foundation-chiplet-system-architecture-fcsa",
+      "source": "Open Compute Project Blog",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-04-07T16:00:00.000Z",
+      "summary": "&ldquo;The future of Silicon is Modular, Scalable, and Standardized Chiplets&rdquo; The rapid acceleration of the AI economy is reshaping global compute infrastructure. From hyperscale data centers training trillion-para...",
+      "author": "",
+      "relevanceScore": 4,
+      "tags": ["OCP", "Open Compute Project", "AI", "OCP AI Infrastructure"],
+      "suggestedAudience": ["ai-accelerators", "soc-ip"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "MLCommons Releases MLPerf Client v1.6 with Performance Optimizations and Enhanced User Experience",
+      "url": "https://mlcommons.org/2026/04/mlperf-client-v1-6/",
+      "source": "MLCommons",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-04-06T14:57:00.000Z",
+      "summary": "Updated AI runtimes for Windows and Apple platforms, plus usability improvements that make iterative benchmarking faster and more reliable The post MLCommons Releases MLPerf Client v1.6 with Performance Optimizations and...",
+      "author": "MLCommons",
+      "relevanceScore": 4,
+      "tags": ["MLCommons", "Benchmarking", "AI", "MLPerf"],
+      "suggestedAudience": ["ai-accelerators"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "chipsalliance/chisel release: Chisel v7.11.0",
+      "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.11.0",
+      "source": "CHIPS Alliance / Chisel (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "official",
+      "publishedAt": "2026-04-17T19:12:25.000Z",
+      "summary": "## Features - [core] Add Wire association support (by @seldridge in https://github.com/chipsalliance/chisel/pull/5251) - Add DynamicGroup for runtime-defined option groups (by @uenoku in https://github.com/chipsalliance/...",
+      "author": "jackkoenig",
+      "relevanceScore": 2,
+      "tags": ["Chisel", "Hardware Construction", "SoC"],
+      "suggestedAudience": ["soc-ip"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
       "title": "El Correo Libre Issue 96",
       "url": "https://main--fossi-foundation.netlify.app/blog/2026-04-14-ecl96",
       "source": "FOSSi Foundation",
@@ -140,6 +321,51 @@
       "relevanceScore": 2,
       "tags": ["FOSSi", "Open Silicon"],
       "suggestedAudience": ["general"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "chipsalliance/chisel release: Chisel v7.10.0",
+      "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.10.0",
+      "source": "CHIPS Alliance / Chisel (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "official",
+      "publishedAt": "2026-03-25T19:07:22.000Z",
+      "summary": "## Features - Add asReset cast for bools (by @fabianschuiki in https://github.com/chipsalliance/chisel/pull/5207) - Add Instance Choice Support to ChiselSim (by @uenoku in https://github.com/chipsalliance/chisel/pull/522...",
+      "author": "jackkoenig",
+      "relevanceScore": 2,
+      "tags": ["Chisel", "Hardware Construction", "SoC"],
+      "suggestedAudience": ["soc-ip"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "Porting Zephyr RTOS to Synaptics SR100 AI MCUs",
+      "url": "https://antmicro.com/blog/2026/03/zephyr-support-for-synaptics-sr100",
+      "source": "Antmicro Blog",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-03-25T00:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 2,
+      "tags": ["Antmicro", "Open Hardware", "AI"],
+      "suggestedAudience": ["ai-accelerators"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "Antmicro supports Aethero next-gen space computers NxN and NxA with full-stack development around NVIDIA Jetson Orin and Jetson Thor edge AI platforms",
+      "url": "https://antmicro.com/blog/2026/03/antmicro-supports-aethero-with-nxn-and-nxa-space-computers",
+      "source": "Antmicro Blog",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-03-24T00:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 2,
+      "tags": ["Antmicro", "Open Hardware", "AI"],
+      "suggestedAudience": ["ai-accelerators"],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     }

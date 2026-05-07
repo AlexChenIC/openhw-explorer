@@ -26,6 +26,7 @@ const OPENHW_ACTIVITY_SINCE = new Date(Date.now() - OPENHW_ACTIVITY_DAYS * DAY_M
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || process.env.GH_TOKEN || "";
 const FETCH_OPENHW_REPO_RELEASES =
   Boolean(GITHUB_TOKEN) || process.env.NEWS_FETCH_OPENHW_REPO_RELEASES === "true";
+const FETCH_TIMEOUT_MS = Number(process.env.NEWS_FETCH_TIMEOUT_MS || 30000);
 
 const HTTP_HEADERS = {
   "User-Agent": "openhw-explorer-news-candidates",
@@ -61,9 +62,38 @@ const RSS_SOURCES = [
     defaultTags: ["FOSSi", "Open Silicon"],
     defaultScore: 2,
   },
+  {
+    name: "Antmicro Blog",
+    url: "https://antmicro.com/blog/feed.xml",
+    sourceTier: "trusted",
+    defaultTags: ["Antmicro", "Open Hardware"],
+    defaultScore: 1,
+  },
+  {
+    name: "MLCommons",
+    url: "https://mlcommons.org/feed/",
+    sourceTier: "trusted",
+    defaultTags: ["MLCommons", "Benchmarking"],
+    defaultScore: 0,
+  },
+  {
+    name: "Apache TVM Blog",
+    url: "https://tvm.apache.org/feed.xml",
+    sourceTier: "trusted",
+    defaultTags: ["Apache TVM", "AI Compiler"],
+    defaultScore: 1,
+  },
 ];
 
 const HTML_SOURCES = [
+  {
+    name: "Open Compute Project Blog",
+    url: "https://www.opencompute.org/blog",
+    parser: "ocp",
+    sourceTier: "official",
+    defaultTags: ["OCP", "Open Compute Project"],
+    defaultScore: 0,
+  },
   {
     name: "CHIPS Alliance Blog",
     url: "https://www.chipsalliance.org/categories/blog/",
@@ -120,6 +150,18 @@ const RELEASE_REPOS = [
     tier: "trusted",
   },
   {
+    repo: "llvm/circt",
+    source: "LLVM / CIRCT (GitHub)",
+    tags: ["CIRCT", "MLIR", "Hardware Compiler", "EDA"],
+    tier: "trusted",
+  },
+  {
+    repo: "chipsalliance/chisel",
+    source: "CHIPS Alliance / Chisel (GitHub)",
+    tags: ["Chisel", "Hardware Construction", "SoC"],
+    tier: "official",
+  },
+  {
     repo: "chipsalliance/caliptra-rtl",
     source: "CHIPS Alliance / Caliptra RTL (GitHub)",
     tags: ["Caliptra", "Root of Trust", "Security", "RTL"],
@@ -143,9 +185,116 @@ const RELEASE_REPOS = [
     tags: ["Keystone", "Security", "TEE", "RISC-V"],
     tier: "trusted",
   },
+  {
+    repo: "tenstorrent/tt-metal",
+    source: "Tenstorrent / TT-Metalium (GitHub)",
+    tags: ["Tenstorrent", "AI", "LLM", "Accelerator", "RISC-V"],
+    tier: "trusted",
+  },
+  {
+    repo: "tenstorrent/tt-mlir",
+    source: "Tenstorrent / TT-MLIR (GitHub)",
+    tags: ["Tenstorrent", "AI Compiler", "MLIR", "Accelerator"],
+    tier: "trusted",
+  },
+  {
+    repo: "openxla/iree",
+    source: "OpenXLA / IREE (GitHub)",
+    tags: ["IREE", "OpenXLA", "AI Compiler", "MLIR", "Accelerator"],
+    tier: "trusted",
+  },
+  {
+    repo: "apache/tvm",
+    source: "Apache TVM (GitHub)",
+    tags: ["Apache TVM", "AI Compiler", "ML", "Accelerator"],
+    tier: "trusted",
+  },
+  {
+    repo: "pulp-platform/snitch",
+    source: "PULP Platform / Snitch (GitHub)",
+    tags: ["PULP", "RISC-V", "AI", "Accelerator"],
+    tier: "trusted",
+  },
+  {
+    repo: "pulp-platform/ara",
+    source: "PULP Platform / Ara (GitHub)",
+    tags: ["PULP", "RISC-V", "Vector", "Accelerator"],
+    tier: "trusted",
+  },
+  {
+    repo: "pulp-platform/mempool",
+    source: "PULP Platform / MemPool (GitHub)",
+    tags: ["PULP", "RISC-V", "Manycore", "Accelerator"],
+    tier: "trusted",
+  },
+  {
+    repo: "pulp-platform/pulp-nn",
+    source: "PULP Platform / PULP-NN (GitHub)",
+    tags: ["PULP", "AI", "Neural Network", "RISC-V", "Accelerator"],
+    tier: "trusted",
+  },
+  {
+    repo: "pulp-platform/pulpissimo",
+    source: "PULP Platform / PULPissimo (GitHub)",
+    tags: ["PULP", "RISC-V", "SoC"],
+    tier: "trusted",
+  },
+  {
+    repo: "ucb-bar/gemmini",
+    source: "UC Berkeley / Gemmini (GitHub)",
+    tags: ["Gemmini", "RISC-V", "AI", "Accelerator", "Chisel"],
+    tier: "trusted",
+  },
+  {
+    repo: "ucb-bar/chipyard",
+    source: "Chipyard (GitHub)",
+    tags: ["Chipyard", "RISC-V", "SoC", "Chisel"],
+    tier: "trusted",
+  },
 ];
 
 const KEYWORDS = [
+  {
+    pattern: /\bAI\b|artificial intelligence|machine learning|\bML\b|deep learning|edge AI/i,
+    score: 1,
+    tag: "AI",
+  },
+  { pattern: /\bMLPerf\b/i, score: 3, tag: "MLPerf" },
+  {
+    pattern:
+      /\bLLM\b|large language|inference|transformer|vLLM|\bGPT[-\s]?OSS\b|\bGPT\b|\bDeepSeek\b|open-weight|Mixture-of-Experts|\bMoE\b|speculative decoding/i,
+    score: 3,
+    tag: "LLM",
+  },
+  {
+    pattern:
+      /Open Data Center Ecosystem for AI|Open Cluster Designs for AI|Open Rack Wide|Foundation Chiplet System Architecture|Open Chiplet|AI Computing Continuum|Ethernet for Scale-Up|AI on Chip/i,
+    score: 3,
+    tag: "OCP AI Infrastructure",
+  },
+  {
+    pattern: /accelerator|\bNPU\b|\bTPU\b|\bxPU\b|\bGPU\b|tensor|matrix|vector extension/i,
+    score: 2,
+    tag: "Accelerator",
+  },
+  {
+    pattern: /\bTenstorrent\b|\bTT-Metal\b|\bTT-Metalium\b|\bTT-NN\b/i,
+    score: 4,
+    tag: "Tenstorrent",
+  },
+  {
+    pattern: /\bOpenXLA\b|\bIREE\b|\bMLIR\b|\bApache TVM\b|\bTVM\b/i,
+    score: 2,
+    tag: "AI Compiler",
+  },
+  {
+    pattern: /\bPULP\b|\bSnitch\b|\bAra\b|\bMemPool\b|\bPULP-NN\b/i,
+    score: 3,
+    tag: "PULP",
+  },
+  { pattern: /\bGemmini\b/i, score: 3, tag: "Gemmini" },
+  { pattern: /\bKenning\b/i, score: 2, tag: "Kenning" },
+
   { pattern: /\bOpenHW\b/i, score: 5, tag: "OpenHW" },
   { pattern: /\bCORE-V\b/i, score: 5, tag: "CORE-V" },
   { pattern: /\bCVA6\b/i, score: 5, tag: "CVA6" },
@@ -170,7 +319,7 @@ const KEYWORDS = [
   { pattern: /\bcocotb\b/i, score: 3, tag: "cocotb" },
   { pattern: /\bSystemVerilog\b|\bUVM\b|\bRISCV-DV\b/i, score: 2, tag: "Verification" },
   { pattern: /\bEDA\b|synthesis|simulation|physical design|formal/i, score: 2, tag: "EDA" },
-  { pattern: /\bSoC\b|subsystem|IP\b|RTL\b/i, score: 2, tag: "SoC/IP" },
+  { pattern: /\bSoC\b|subsystem|\bIP\b|\bRTL\b/i, score: 2, tag: "SoC/IP" },
   {
     pattern: /root of trust|secure|security|cryptography|enclave|attestation/i,
     score: 2,
@@ -237,6 +386,7 @@ function isLowSignalRelease(release) {
   if (/^(test|debug|tmp|temp)([-_\s]|\d|$)/i.test(tag)) return true;
   if (/^cert-docs-\d{4}/i.test(tag)) return true;
   if (/automated release of the certification documents/i.test(combined)) return true;
+  if (/(nightly|dev20\d{6}|rc20\d{6}|candidate.*20\d{6})/i.test(combined)) return true;
 
   return false;
 }
@@ -267,6 +417,12 @@ function detectAudience(tags = [], title = "", source = "") {
   const text = `${tags.join(" ")} ${title} ${source}`;
   const audiences = [];
   if (/OpenHW|CORE-V|CVA6|CV32|CVW|CVFPU|RISC-V/i.test(text)) addUnique(audiences, "openhw-riscv");
+  if (
+    /AI\b|machine learning|\bML\b|LLM|inference|accelerator|NPU|TPU|tensor|Tenstorrent|TT-Metal|OpenXLA|IREE|TVM|MLIR|PULP|Snitch|Ara|MemPool|Kenning/i.test(
+      text,
+    )
+  )
+    addUnique(audiences, "ai-accelerators");
   if (/Verification|UVM|SystemVerilog|RISCV-DV|cocotb|Architecture Tests|formal/i.test(text))
     addUnique(audiences, "verification");
   if (/Yosys|Verilator|OpenROAD|OpenLane|EDA|Synthesis|Simulation|Physical Design/i.test(text))
@@ -312,7 +468,7 @@ function candidateFromRaw(raw, defaults = {}) {
 }
 
 async function fetchText(url, headers = HTTP_HEADERS) {
-  const response = await fetch(url, { headers });
+  const response = await fetch(url, { headers, signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
   if (!response.ok) {
     throw new Error(`${response.status} ${response.statusText}`);
   }
@@ -320,7 +476,10 @@ async function fetchText(url, headers = HTTP_HEADERS) {
 }
 
 async function fetchJson(url) {
-  const response = await fetch(url, { headers: GITHUB_HEADERS });
+  const response = await fetch(url, {
+    headers: GITHUB_HEADERS,
+    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+  });
   if (!response.ok) {
     throw new Error(`${response.status} ${response.statusText}`);
   }
@@ -425,6 +584,43 @@ function parseLowriscNews(html, source) {
     .filter(Boolean);
 }
 
+function parseOcpBlog(html, source) {
+  const blocks = html.match(/<article class="news-article panel[\s\S]*?<\/article>/gi) || [];
+  return blocks
+    .map((block) => {
+      const titleMatch = block.match(
+        /news-article__title">\s*<a href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i,
+      );
+      const dateMatch = block.match(/<time>([\s\S]*?)<\/time>/i);
+      const summaryMatch = block.match(
+        /<section class="news-article__body">([\s\S]*?)<\/section>/i,
+      );
+      const tagMatches = [...block.matchAll(/blog\/category\/[^"]+">([^<]+)<\/a>/gi)].map((match) =>
+        stripHtml(match[1]),
+      );
+
+      if (!titleMatch) return null;
+
+      return candidateFromRaw(
+        {
+          title: titleMatch[2],
+          url: titleMatch[1],
+          publishedAt: dateMatch ? dateMatch[1] : "",
+          summary: summaryMatch ? summaryMatch[1] : "",
+          tags: tagMatches,
+        },
+        {
+          source: source.name,
+          sourceType: "web-page",
+          sourceTier: source.sourceTier,
+          tags: source.defaultTags,
+          defaultScore: source.defaultScore,
+        },
+      );
+    })
+    .filter(Boolean);
+}
+
 function getOpenHwReposFromProjects() {
   const content = readFileSync(PROJECTS_FILE, "utf-8");
   const repos = [
@@ -471,6 +667,8 @@ async function collectHtmlCandidates() {
         all.push(...parseChipsBlog(html, source));
       } else if (source.parser === "lowrisc") {
         all.push(...parseLowriscNews(html, source));
+      } else if (source.parser === "ocp") {
+        all.push(...parseOcpBlog(html, source));
       }
       console.log(`  Web: ${source.name}`);
     } catch (error) {
@@ -628,13 +826,43 @@ function dedupeCandidates(items) {
   const byKey = new Map();
   for (const item of items) {
     if (!item.url && !item.title) continue;
-    const key = item.url || `${item.source}:${item.title}`.toLowerCase();
+    const normalizedTitle = item.title
+      .toLowerCase()
+      .replace(/[^\p{L}\p{N}]+/gu, " ")
+      .trim();
+    const key = item.url || `${item.source}:${normalizedTitle}`;
+    const titleKey = normalizedTitle ? `title:${normalizedTitle}` : "";
     const previous = byKey.get(key);
-    if (!previous || item.relevanceScore > previous.relevanceScore) {
+    const previousByTitle = titleKey ? byKey.get(titleKey) : null;
+    const bestPrevious = choosePreferredCandidate(previous, previousByTitle);
+
+    if (!bestPrevious || isPreferredCandidate(item, bestPrevious)) {
+      if (previousByTitle?.url && previousByTitle.url !== key) byKey.delete(previousByTitle.url);
+      if (previous?.url && previous.url !== key) byKey.delete(previous.url);
       byKey.set(key, item);
+      if (titleKey) byKey.set(titleKey, item);
     }
   }
-  return [...byKey.values()];
+  return [...new Map([...byKey.values()].map((item) => [item.url || item.title, item])).values()];
+}
+
+function sourceTierRank(tier) {
+  if (tier === "official") return 3;
+  if (tier === "trusted") return 2;
+  return 1;
+}
+
+function choosePreferredCandidate(...items) {
+  return items.filter(Boolean).sort((a, b) => (isPreferredCandidate(a, b) ? -1 : 1))[0] || null;
+}
+
+function isPreferredCandidate(candidate, previous) {
+  const tierDelta = sourceTierRank(candidate.sourceTier) - sourceTierRank(previous.sourceTier);
+  if (tierDelta !== 0) return tierDelta > 0;
+  if (candidate.relevanceScore !== previous.relevanceScore) {
+    return candidate.relevanceScore > previous.relevanceScore;
+  }
+  return (candidate.publishedAt || "").localeCompare(previous.publishedAt || "") > 0;
 }
 
 function sourceSummary(items) {

@@ -70,8 +70,45 @@
         "en": "Release monitored",
         "zh": "发布监控"
       },
-      "sources": ["Yosys", "Verilator", "OpenROAD", "OpenLane", "cocotb"],
-      "tags": ["EDA", "Verification", "Simulation", "Synthesis"]
+      "sources": ["Yosys", "Verilator", "OpenROAD", "OpenLane", "cocotb", "CIRCT", "Chisel"],
+      "tags": ["EDA", "Verification", "Simulation", "Synthesis", "CIRCT", "Chisel"]
+    },
+    {
+      "id": "ai",
+      "title": {
+        "en": "AI and accelerator stack",
+        "zh": "AI 与加速器栈"
+      },
+      "description": {
+        "en": "Open-source AI hardware, LLM inference, accelerator SDKs, and compiler/runtime stack updates.",
+        "zh": "跟踪开源 AI 硬件、LLM 推理、加速器 SDK，以及编译器和运行时栈动态。"
+      },
+      "cadence": {
+        "en": "RSS and GitHub",
+        "zh": "RSS 与 GitHub"
+      },
+      "sources": [
+        "Open Compute Project Blog",
+        "Antmicro Blog",
+        "MLCommons",
+        "Apache TVM",
+        "Tenstorrent TT-Metalium",
+        "OpenXLA / IREE",
+        "PULP Platform",
+        "Gemmini"
+      ],
+      "tags": [
+        "AI",
+        "LLM",
+        "Accelerator",
+        "OpenXLA",
+        "IREE",
+        "TVM",
+        "PULP",
+        "Gemmini",
+        "Tenstorrent",
+        "Open Compute"
+      ]
     },
     {
       "id": "security",

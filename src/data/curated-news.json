@@ -3,6 +3,18 @@
   "_usage": "每周添加 3-7 条即可。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "OCP outlines an open data center ecosystem for AI",
+      "titleZh": "OCP 公布面向 AI 的开放数据中心生态进展",
+      "url": "https://www.opencompute.org/blog/delivering-an-open-data-center-ecosystem-for-ai",
+      "source": "Open Compute Project",
+      "addedAt": "2026-04-29T00:00:00Z",
+      "summary": "OCP announced newly approved contributions, projects, and alliances for its Open Data Center Ecosystem for AI, covering open AI data center facilities, power distribution, telemetry, scale-up Ethernet, Open Rack Wide, AI cluster references, and chiplet ecosystem work.",
+      "summaryZh": "OCP 宣布面向 Open Data Center Ecosystem for AI 的新贡献、项目与合作，覆盖 AI 数据中心设施、电源分配、遥测、scale-up Ethernet、Open Rack Wide、AI cluster 参考架构，以及 chiplet 生态工作。",
+      "tags": ["OCP", "Open Hardware", "AI", "AI Infrastructure", "Open Rack", "Chiplet"],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
       "title": "RISC-V Architecture Tests 4.0.0 released",
       "titleZh": "RISC-V Architecture Tests 发布 4.0.0",
       "url": "https://github.com/riscv/riscv-arch-test/releases/tag/4.0.0",
@@ -11,6 +23,54 @@
       "summary": "ACT 4.0 is a major update to the RISC-V Architecture Certification Test suite, replacing the older riscof/riscv-ctg/riscv-isac/riscv-config flow with a new Python-based flow.",
       "summaryZh": "ACT 4.0 是 RISC-V 架构认证测试套件的一次重要升级，用新的 Python-based flow 取代旧的 riscof/riscv-ctg/riscv-isac/riscv-config 流程。",
       "tags": ["RISC-V", "Architecture Tests", "Verification", "Certification"],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
+      "title": "MLPerf Inference v6.0 expands GPT-OSS and DeepSeek-R1 LLM benchmarks",
+      "titleZh": "MLPerf Inference v6.0 扩展 GPT-OSS 与 DeepSeek-R1 LLM benchmark",
+      "url": "https://mlcommons.org/2026/03/mlperf-inference-gpt-oss/",
+      "source": "MLCommons",
+      "addedAt": "2026-03-24T00:00:00Z",
+      "summary": "MLCommons detailed new MLPerf Inference v6.0 workloads for GPT-OSS 120B and a latency-constrained DeepSeek-R1 interactive scenario, including speculative decoding requirements and reference implementation links.",
+      "summaryZh": "MLCommons 介绍 MLPerf Inference v6.0 中面向 GPT-OSS 120B 与 DeepSeek-R1 interactive 场景的新 workload，包含延迟约束、speculative decoding 要求，以及参考实现链接。",
+      "tags": ["MLCommons", "MLPerf", "AI", "LLM", "Inference", "Benchmarking"],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
+      "title": "Antmicro implements dual-core lockstep support for CHIPS Alliance VeeR EL2",
+      "titleZh": "Antmicro 为 CHIPS Alliance VeeR EL2 实现 dual-core lockstep 支持",
+      "url": "https://antmicro.com/blog/2026/04/dual-core-lockstep-in-veer-el2",
+      "source": "Antmicro Blog",
+      "addedAt": "2026-04-13T00:00:00Z",
+      "summary": "Antmicro described an optional dual-core lockstep feature for VeeR EL2, including shadow-core behavior, multibit control encoding, error reporting, and cocotb/PyUVM-based verification.",
+      "summaryZh": "Antmicro 介绍了 VeeR EL2 的可选 dual-core lockstep 功能，包括 shadow core 行为、多 bit 控制编码、错误报告，以及基于 cocotb/PyUVM 的验证方式。",
+      "tags": ["Antmicro", "CHIPS Alliance", "VeeR", "RISC-V", "Security", "Verification"],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
+      "title": "Antmicro reaches an initial four-state logic milestone for Verilator",
+      "titleZh": "Antmicro 推进 Verilator four-state logic 的初始实现里程碑",
+      "url": "https://antmicro.com/blog/2026/04/initial-support-for-four-state-logic-in-verilator",
+      "source": "Antmicro Blog",
+      "addedAt": "2026-04-30T00:00:00Z",
+      "summary": "Antmicro reported an initial Verilator four-state logic implementation behind an experimental --fourstate flag, aimed at more accurate SystemVerilog simulation and debugging of x/z states.",
+      "summaryZh": "Antmicro 报告了 Verilator four-state logic 的初始实现，通过实验性的 --fourstate flag 提供支持，目标是更准确地模拟和调试 SystemVerilog 中的 x/z 状态。",
+      "tags": ["Antmicro", "Verilator", "SystemVerilog", "Simulation", "EDA"],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
+      "title": "OCP introduces Foundation Chiplet System Architecture for open chiplet interoperability",
+      "titleZh": "OCP 介绍 Foundation Chiplet System Architecture，推动开放 chiplet 互操作",
+      "url": "https://www.opencompute.org/blog/building-the-foundation-for-an-open-chiplet-future-foundation-chiplet-system-architecture-fcsa",
+      "source": "Open Compute Project",
+      "addedAt": "2026-04-08T00:00:00Z",
+      "summary": "OCP described Foundation Chiplet System Architecture as a CPU-architecture-neutral framework for chiplet systems, defining common chiplet classes and hardware/fabric-level interface expectations under the Open Chiplet Economy initiative.",
+      "summaryZh": "OCP 将 Foundation Chiplet System Architecture 描述为面向 chiplet 系统、CPU 架构中立的框架，在 Open Chiplet Economy 计划下定义常见 chiplet 类型以及硬件/互连层面的接口预期。",
+      "tags": ["OCP", "Open Hardware", "Chiplet", "AI Infrastructure", "Interoperability"],
       "sourceTier": "official",
       "language": "en"
     },

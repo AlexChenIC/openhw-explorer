@@ -4,6 +4,7 @@ import { useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import {
   type LucideIcon,
+  BrainCircuit,
   CalendarDays,
   CheckCircle2,
   Cpu,
@@ -45,7 +46,7 @@ interface NewsDigest {
   sources: string[];
 }
 
-type TopicFilter = "all" | "openhw" | "verification" | "eda" | "security" | "soc";
+type TopicFilter = "all" | "openhw" | "ai" | "verification" | "eda" | "security" | "soc";
 
 const TOPIC_FILTERS: Array<{
   id: TopicFilter;
@@ -67,6 +68,15 @@ const TOPIC_FILTERS: Array<{
     descriptionKey: "audienceOpenhwDesc",
     icon: Cpu,
     patterns: [/OpenHW|CORE-V|CVA6|CV32|CVW|CVFPU|RISC-V/i],
+  },
+  {
+    id: "ai",
+    labelKey: "audienceAi",
+    descriptionKey: "audienceAiDesc",
+    icon: BrainCircuit,
+    patterns: [
+      /AI\b|artificial intelligence|machine learning|\bML\b|deep learning|edge AI|LLM|large language|inference|transformer|vLLM|GPT|DeepSeek|MoE|MLPerf|accelerator|NPU|TPU|xPU|tensor|matrix|Tenstorrent|TT-Metal|TT-Metalium|TT-NN|OpenXLA|IREE|Apache TVM|\bTVM\b|MLIR|PULP|PULP-NN|Snitch|Ara|MemPool|Gemmini|Kenning|Open Compute|Open Rack|chiplet/i,
+    ],
   },
   {
     id: "verification",
@@ -448,7 +458,7 @@ function TopicBrowser({
         <p className="max-w-xl text-sm text-[var(--text-tertiary)]">{t(active.descriptionKey)}</p>
       </div>
 
-      <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-6">
+      <div className="grid grid-cols-2 gap-2 md:grid-cols-3 lg:grid-cols-7">
         {TOPIC_FILTERS.map((filter) => {
           const Icon = filter.icon;
           const selected = activeTopic === filter.id;

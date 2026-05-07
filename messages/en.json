@@ -412,6 +412,8 @@
     "audienceAllDesc": "See every reviewed update.",
     "audienceOpenhw": "OpenHW / RISC-V",
     "audienceOpenhwDesc": "For OpenHW IP, CORE-V, and RISC-V ecosystem tracking.",
+    "audienceAi": "AI / LLM Acceleration",
+    "audienceAiDesc": "For open hardware, AI accelerators, LLM inference, and related compiler stacks.",
     "audienceVerification": "Verification & Quality",
     "audienceVerificationDesc": "For DV, architecture tests, UVM, and certification workflows.",
     "audienceEda": "EDA Toolchain",

@@ -33,8 +33,15 @@ const CURATED_FILE = join(ROOT, "src/data/curated-news.json");
 const DAYS_TO_INCLUDE = 7;
 
 const SOURCE_TIER_RULES = [
-  { pattern: /RISC-V International|FOSSi|CHIPS Alliance|OpenHW/i, tier: "official" },
-  { pattern: /GitHub|EE Times|EE Journal|Phoronix|Hackaday|SemiWiki|Tom's Hardware/i, tier: "trusted" },
+  {
+    pattern: /RISC-V International|FOSSi|CHIPS Alliance|OpenHW|Open Compute Project|OCP/i,
+    tier: "official",
+  },
+  {
+    pattern:
+      /GitHub|EE Times|EE Journal|Phoronix|Hackaday|SemiWiki|Tom's Hardware|Antmicro|MLCommons|Apache TVM|OpenXLA|PULP|Tenstorrent/i,
+    tier: "trusted",
+  },
   { pattern: /.*/, tier: "community" },
 ];
 
@@ -59,6 +66,18 @@ const RELEVANCE_KEYWORDS = [
   { pattern: /\bRocket.?Chip\b/i, score: 3, tag: "Rocket Chip" },
   { pattern: /\bBOOM\b/, score: 3, tag: "BOOM" },
   { pattern: /\bPULP\b/i, score: 3, tag: "PULP" },
+  { pattern: /\bMLPerf\b/i, score: 3, tag: "MLPerf" },
+  {
+    pattern: /\bLLM\b|large language|GPT|DeepSeek|MoE|open-weight|speculative decoding/i,
+    score: 3,
+    tag: "LLM",
+  },
+  {
+    pattern:
+      /AI accelerator|AI infrastructure|Open Data Center Ecosystem for AI|Open Rack Wide|Foundation Chiplet System Architecture|Open Chiplet|AI Computing Continuum/i,
+    score: 3,
+    tag: "AI Infrastructure",
+  },
 
   // Open hardware orgs & tools (score: 2)
   { pattern: /\bSiFive\b/i, score: 2, tag: "SiFive" },
@@ -70,6 +89,12 @@ const RELEVANCE_KEYWORDS = [
   { pattern: /\bFOSSi\b/i, score: 2, tag: "FOSSi" },
   { pattern: /\bCaliptra\b/i, score: 2, tag: "Caliptra" },
   { pattern: /\bTenstorrent\b/i, score: 2, tag: "Tenstorrent" },
+  {
+    pattern: /\bOpenXLA\b|\bIREE\b|\bApache TVM\b|\bTVM\b|\bMLIR\b/i,
+    score: 2,
+    tag: "AI Compiler",
+  },
+  { pattern: /\bGemmini\b/i, score: 2, tag: "Gemmini" },
   { pattern: /\bEspressif\b/i, score: 2, tag: "Espressif" },
   { pattern: /\bStarFive\b/i, score: 2, tag: "StarFive" },
   { pattern: /平头哥|T-Head/i, score: 2, tag: "T-Head" },
@@ -114,7 +139,17 @@ const CATEGORIES = [
     en: "RISC-V Ecosystem",
     zh: "RISC-V 生态",
     icon: "cpu",
-    matchTag: /RISC-V|OpenHW|CORE-V|CVA6|CV32|CVW|OpenTitan|Chipyard|lowRISC|XiangShan|Rocket Chip|BOOM|PULP|BOSC/,
+    matchTag:
+      /RISC-V|OpenHW|CORE-V|CVA6|CV32|CVW|OpenTitan|Chipyard|lowRISC|XiangShan|Rocket Chip|BOOM|PULP|BOSC/,
+  },
+  {
+    id: "ai",
+    en: "AI & Accelerators",
+    zh: "AI 与加速器",
+    icon: "brain",
+    matchSource: /MLCommons|Open Compute Project|Apache TVM|OpenXLA|Tenstorrent|PULP|Gemmini/i,
+    matchTag:
+      /AI|LLM|MLPerf|Accelerator|Tenstorrent|OpenXLA|IREE|TVM|MLIR|Gemmini|AI Infrastructure/,
   },
   {
     id: "industry",
@@ -122,7 +157,8 @@ const CATEGORIES = [
     zh: "产业动态",
     icon: "trending",
     matchSource: /SemiWiki|EE Times|Semiconductor|EE Journal|WikiChip|Phoronix|Tom's Hardware/i,
-    matchTag: /Semiconductor|Silicon|Tape-out|SiFive|Tenstorrent|StarFive|Espressif|T-Head|Nuclei|Codasip|Esperanto/,
+    matchTag:
+      /Semiconductor|Silicon|Tape-out|SiFive|Tenstorrent|StarFive|Espressif|T-Head|Nuclei|Codasip|Esperanto/,
   },
   {
     id: "hardware",
@@ -233,7 +269,9 @@ function readRSSData(dates) {
         for (const f of db.prepare("SELECT id, name FROM rss_feeds").all()) {
           feeds[f.id] = f.name;
         }
-      } catch { /* table may not exist */ }
+      } catch {
+        /* table may not exist */
+      }
 
       try {
         const rows = db
@@ -263,7 +301,9 @@ function readRSSData(dates) {
             _dataSource: "rss",
           });
         }
-      } catch { /* table may not exist */ }
+      } catch {
+        /* table may not exist */
+      }
       db.close();
     } catch (err) {
       console.log(`  Warning: Could not read ${dbPath}: ${err.message}`);
@@ -290,7 +330,9 @@ function readNewsData(dates) {
         for (const p of db.prepare("SELECT id, name FROM platforms").all()) {
           platforms[p.id] = p.name;
         }
-      } catch { /* table may not exist */ }
+      } catch {
+        /* table may not exist */
+      }
 
       try {
         const rows = db
@@ -325,7 +367,9 @@ function readNewsData(dates) {
             });
           }
         }
-      } catch { /* table may not exist */ }
+      } catch {
+        /* table may not exist */
+      }
       db.close();
     } catch (err) {
       console.log(`  Warning: Could not read ${dbPath}: ${err.message}`);
@@ -348,10 +392,7 @@ function readCuratedData() {
 
     return items.map((item, index) => {
       // Auto-compute tags from title+summary if not provided
-      const { score, tags: autoTags } = computeRelevanceScore(
-        item.title || "",
-        item.summary || "",
-      );
+      const { score, tags: autoTags } = computeRelevanceScore(item.title || "", item.summary || "");
 
       return {
         title: item.title || "",
@@ -469,15 +510,18 @@ function buildDigest() {
   const urlMap = new Map();
   for (const item of [...newsItems, ...rssItems, ...curatedItems]) {
     const key = item.url || item.title;
-    if (!urlMap.has(key) || item._dataSource === "curated" ||
-        (item._dataSource === "rss" && urlMap.get(key)?._dataSource === "hotlist")) {
+    if (
+      !urlMap.has(key) ||
+      item._dataSource === "curated" ||
+      (item._dataSource === "rss" && urlMap.get(key)?._dataSource === "hotlist")
+    ) {
       urlMap.set(key, item);
     }
   }
 
   // Filter by recency (curated items bypass this filter)
-  let items = Array.from(urlMap.values()).filter((item) =>
-    item._dataSource === "curated" || isWithinRecencyWindow(item.publishedAt),
+  let items = Array.from(urlMap.values()).filter(
+    (item) => item._dataSource === "curated" || isWithinRecencyWindow(item.publishedAt),
   );
 
   // Sort by relevance then date

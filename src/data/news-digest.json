@@ -1,29 +1,29 @@
 {
   "weekOf": "2026-05-07",
-  "generatedAt": "2026-05-07T09:45:55.414Z",
+  "generatedAt": "2026-05-07T14:10:10.955Z",
   "stats": {
-    "totalRelevant": 6,
-    "totalSources": 5,
+    "totalRelevant": 11,
+    "totalSources": 8,
     "topTags": [
       {
         "tag": "RISC-V",
-        "count": 3
+        "count": 4
       },
       {
         "tag": "CHIPS Alliance",
+        "count": 3
+      },
+      {
+        "tag": "OCP",
         "count": 2
       },
       {
-        "tag": "Architecture Tests",
-        "count": 1
+        "tag": "Open Hardware",
+        "count": 2
       },
       {
-        "tag": "Verification",
-        "count": 1
-      },
-      {
-        "tag": "Certification",
-        "count": 1
+        "tag": "AI",
+        "count": 2
       }
     ]
   },
@@ -42,11 +42,7 @@
           "titleZh": "RISC-V Architecture Tests 发布 4.0.0",
           "url": "https://github.com/riscv/riscv-arch-test/releases/tag/4.0.0",
           "source": "RISC-V Architecture Tests (GitHub)",
-          "tags": [
-            "RISC-V",
-            "Architecture Tests",
-            "Verification"
-          ],
+          "tags": ["RISC-V", "Architecture Tests", "Verification"],
           "publishedAt": "2026-04-16T17:21:16.000Z"
         },
         {
@@ -54,11 +50,7 @@
           "titleZh": "Yosys 0.64 发布",
           "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.64",
           "source": "YosysHQ (GitHub)",
-          "tags": [
-            "Yosys",
-            "EDA",
-            "Synthesis"
-          ],
+          "tags": ["Yosys", "EDA", "Synthesis"],
           "publishedAt": "2026-04-09T05:35:52.000Z"
         },
         {
@@ -66,11 +58,7 @@
           "titleZh": "Caliptra RTL 发布 v2.1.2 patch release",
           "url": "https://github.com/chipsalliance/caliptra-rtl/releases/tag/v2.1.2",
           "source": "CHIPS Alliance / Caliptra (GitHub)",
-          "tags": [
-            "Caliptra",
-            "Root of Trust",
-            "Security"
-          ],
+          "tags": ["Caliptra", "Root of Trust", "Security"],
           "publishedAt": "2026-03-19T22:26:10.000Z"
         }
       ]
@@ -82,18 +70,22 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 2,
+      "count": 3,
       "items": [
+        {
+          "title": "Antmicro implements dual-core lockstep support for CHIPS Alliance VeeR EL2",
+          "titleZh": "Antmicro 为 CHIPS Alliance VeeR EL2 实现 dual-core lockstep 支持",
+          "url": "https://antmicro.com/blog/2026/04/dual-core-lockstep-in-veer-el2",
+          "source": "Antmicro Blog",
+          "tags": ["Antmicro", "CHIPS Alliance", "VeeR"],
+          "publishedAt": "2026-04-13T00:00:00.000Z"
+        },
         {
           "title": "OpenHW Foundation launches Unified RISC-V IP Access Platform under TRISTAN",
           "titleZh": "OpenHW Foundation 在 TRISTAN 项目下推出 Unified RISC-V IP Access Platform",
           "url": "https://www.globenewswire.com/news-release/2026/01/26/3225340/0/en/The-OpenHW-Foundation-unveils-the-first-industry-ready-RISC-V-ecosystem-to-advance-European-digital-sovereignty.html",
           "source": "OpenHW Foundation / Eclipse Foundation Canada",
-          "tags": [
-            "OpenHW",
-            "RISC-V",
-            "IP Platform"
-          ],
+          "tags": ["OpenHW", "RISC-V", "IP Platform"],
           "publishedAt": "2026-01-26T10:00:00.000Z"
         },
         {
@@ -101,12 +93,62 @@
           "titleZh": "CHIPS Alliance 介绍 Topwrap 与 Guineveer 的模块化 RISC-V SoC 设计流程",
           "url": "https://www.chipsalliance.org/news/designing-modular-and-reusable-risc-v-socs-with-topwrap-and-guineveer/",
           "source": "CHIPS Alliance",
-          "tags": [
-            "CHIPS Alliance",
-            "RISC-V",
-            "SoC"
-          ],
+          "tags": ["CHIPS Alliance", "RISC-V", "SoC"],
           "publishedAt": "2026-03-18T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "ai",
+      "name": {
+        "en": "AI & Accelerators",
+        "zh": "AI 与加速器"
+      },
+      "icon": "brain",
+      "count": 3,
+      "items": [
+        {
+          "title": "OCP outlines an open data center ecosystem for AI",
+          "titleZh": "OCP 公布面向 AI 的开放数据中心生态进展",
+          "url": "https://www.opencompute.org/blog/delivering-an-open-data-center-ecosystem-for-ai",
+          "source": "Open Compute Project",
+          "tags": ["OCP", "Open Hardware", "AI"],
+          "publishedAt": "2026-04-29T00:00:00.000Z"
+        },
+        {
+          "title": "MLPerf Inference v6.0 expands GPT-OSS and DeepSeek-R1 LLM benchmarks",
+          "titleZh": "MLPerf Inference v6.0 扩展 GPT-OSS 与 DeepSeek-R1 LLM benchmark",
+          "url": "https://mlcommons.org/2026/03/mlperf-inference-gpt-oss/",
+          "source": "MLCommons",
+          "tags": ["MLCommons", "MLPerf", "AI"],
+          "publishedAt": "2026-03-24T00:00:00.000Z"
+        },
+        {
+          "title": "OCP introduces Foundation Chiplet System Architecture for open chiplet interoperability",
+          "titleZh": "OCP 介绍 Foundation Chiplet System Architecture，推动开放 chiplet 互操作",
+          "url": "https://www.opencompute.org/blog/building-the-foundation-for-an-open-chiplet-future-foundation-chiplet-system-architecture-fcsa",
+          "source": "Open Compute Project",
+          "tags": ["OCP", "Open Hardware", "Chiplet"],
+          "publishedAt": "2026-04-08T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "hardware",
+      "name": {
+        "en": "Hardware & Embedded",
+        "zh": "硬件与嵌入式"
+      },
+      "icon": "circuit",
+      "count": 1,
+      "items": [
+        {
+          "title": "Antmicro reaches an initial four-state logic milestone for Verilator",
+          "titleZh": "Antmicro 推进 Verilator four-state logic 的初始实现里程碑",
+          "url": "https://antmicro.com/blog/2026/04/initial-support-for-four-state-logic-in-verilator",
+          "source": "Antmicro Blog",
+          "tags": ["Antmicro", "Verilator", "SystemVerilog"],
+          "publishedAt": "2026-04-30T00:00:00.000Z"
         }
       ]
     },
@@ -124,17 +166,29 @@
           "titleZh": "CHIPS Alliance 推出 SV Tools Project，聚合 SystemVerilog/UVM 开源工具",
           "url": "https://www.chipsalliance.org/news/sv-tools-project-launch/",
           "source": "CHIPS Alliance",
-          "tags": [
-            "CHIPS Alliance",
-            "SystemVerilog",
-            "UVM"
-          ],
+          "tags": ["CHIPS Alliance", "SystemVerilog", "UVM"],
           "publishedAt": "2026-03-30T00:00:00.000Z"
         }
       ]
     }
   ],
   "items": [
+    {
+      "title": "OCP outlines an open data center ecosystem for AI",
+      "url": "https://www.opencompute.org/blog/delivering-an-open-data-center-ecosystem-for-ai",
+      "source": "Open Compute Project",
+      "publishedAt": "2026-04-29T00:00:00.000Z",
+      "summary": "OCP announced newly approved contributions, projects, and alliances for its Open Data Center Ecosystem for AI, covering open AI data center facilities, power di...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": ["OCP", "Open Hardware", "AI", "AI Infrastructure", "Open Rack", "Chiplet"],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "OCP 公布面向 AI 的开放数据中心生态进展",
+      "summaryZh": "OCP 宣布面向 Open Data Center Ecosystem for AI 的新贡献、项目与合作，覆盖 AI 数据中心设施、电源分配、遥测、scale-up Ethernet、Open Rack Wide、AI cluster 参考架构，以及 chiplet 生态工作。"
+    },
     {
       "title": "RISC-V Architecture Tests 4.0.0 released",
       "url": "https://github.com/riscv/riscv-arch-test/releases/tag/4.0.0",
@@ -143,18 +197,77 @@
       "summary": "ACT 4.0 is a major update to the RISC-V Architecture Certification Test suite, replacing the older riscof/riscv-ctg/riscv-isac/riscv-config flow with a new Pyth...",
       "author": "",
       "relevanceScore": 6,
-      "tags": [
-        "RISC-V",
-        "Architecture Tests",
-        "Verification",
-        "Certification"
-      ],
+      "tags": ["RISC-V", "Architecture Tests", "Verification", "Certification"],
       "language": "en",
       "sourceTier": "official",
       "reviewStatus": "curated",
       "curated": true,
       "titleZh": "RISC-V Architecture Tests 发布 4.0.0",
       "summaryZh": "ACT 4.0 是 RISC-V 架构认证测试套件的一次重要升级，用新的 Python-based flow 取代旧的 riscof/riscv-ctg/riscv-isac/riscv-config 流程。"
+    },
+    {
+      "title": "MLPerf Inference v6.0 expands GPT-OSS and DeepSeek-R1 LLM benchmarks",
+      "url": "https://mlcommons.org/2026/03/mlperf-inference-gpt-oss/",
+      "source": "MLCommons",
+      "publishedAt": "2026-03-24T00:00:00.000Z",
+      "summary": "MLCommons detailed new MLPerf Inference v6.0 workloads for GPT-OSS 120B and a latency-constrained DeepSeek-R1 interactive scenario, including speculative decodi...",
+      "author": "",
+      "relevanceScore": 6,
+      "tags": ["MLCommons", "MLPerf", "AI", "LLM", "Inference", "Benchmarking"],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "MLPerf Inference v6.0 扩展 GPT-OSS 与 DeepSeek-R1 LLM benchmark",
+      "summaryZh": "MLCommons 介绍 MLPerf Inference v6.0 中面向 GPT-OSS 120B 与 DeepSeek-R1 interactive 场景的新 workload，包含延迟约束、speculative decoding 要求，以及参考实现链接。"
+    },
+    {
+      "title": "Antmicro implements dual-core lockstep support for CHIPS Alliance VeeR EL2",
+      "url": "https://antmicro.com/blog/2026/04/dual-core-lockstep-in-veer-el2",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-04-13T00:00:00.000Z",
+      "summary": "Antmicro described an optional dual-core lockstep feature for VeeR EL2, including shadow-core behavior, multibit control encoding, error reporting, and cocotb/P...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": ["Antmicro", "CHIPS Alliance", "VeeR", "RISC-V", "Security", "Verification"],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Antmicro 为 CHIPS Alliance VeeR EL2 实现 dual-core lockstep 支持",
+      "summaryZh": "Antmicro 介绍了 VeeR EL2 的可选 dual-core lockstep 功能，包括 shadow core 行为、多 bit 控制编码、错误报告，以及基于 cocotb/PyUVM 的验证方式。"
+    },
+    {
+      "title": "Antmicro reaches an initial four-state logic milestone for Verilator",
+      "url": "https://antmicro.com/blog/2026/04/initial-support-for-four-state-logic-in-verilator",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-04-30T00:00:00.000Z",
+      "summary": "Antmicro reported an initial Verilator four-state logic implementation behind an experimental --fourstate flag, aimed at more accurate SystemVerilog simulation ...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": ["Antmicro", "Verilator", "SystemVerilog", "Simulation", "EDA"],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Antmicro 推进 Verilator four-state logic 的初始实现里程碑",
+      "summaryZh": "Antmicro 报告了 Verilator four-state logic 的初始实现，通过实验性的 --fourstate flag 提供支持，目标是更准确地模拟和调试 SystemVerilog 中的 x/z 状态。"
+    },
+    {
+      "title": "OCP introduces Foundation Chiplet System Architecture for open chiplet interoperability",
+      "url": "https://www.opencompute.org/blog/building-the-foundation-for-an-open-chiplet-future-foundation-chiplet-system-architecture-fcsa",
+      "source": "Open Compute Project",
+      "publishedAt": "2026-04-08T00:00:00.000Z",
+      "summary": "OCP described Foundation Chiplet System Architecture as a CPU-architecture-neutral framework for chiplet systems, defining common chiplet classes and hardware/f...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": ["OCP", "Open Hardware", "Chiplet", "AI Infrastructure", "Interoperability"],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "OCP 介绍 Foundation Chiplet System Architecture，推动开放 chiplet 互操作",
+      "summaryZh": "OCP 将 Foundation Chiplet System Architecture 描述为面向 chiplet 系统、CPU 架构中立的框架，在 Open Chiplet Economy 计划下定义常见 chiplet 类型以及硬件/互连层面的接口预期。"
     },
     {
       "title": "CHIPS Alliance launches the SV Tools Project for SystemVerilog/UVM codebases",
@@ -164,13 +277,7 @@
       "summary": "CHIPS Alliance introduced the SV Tools Project to improve visibility and support for open-source SystemVerilog and UVM tooling, including sv-tests, Verible, Syn...",
       "author": "",
       "relevanceScore": 6,
-      "tags": [
-        "CHIPS Alliance",
-        "SystemVerilog",
-        "UVM",
-        "Verible",
-        "RISCV-DV"
-      ],
+      "tags": ["CHIPS Alliance", "SystemVerilog", "UVM", "Verible", "RISCV-DV"],
       "language": "en",
       "sourceTier": "official",
       "reviewStatus": "curated",
@@ -186,12 +293,7 @@
       "summary": "Yosys 0.64 added a synth_analogdevices pass for Analog Devices FPGA synthesis support and includes maintenance changes for the open-source synthesis flow.",
       "author": "",
       "relevanceScore": 5,
-      "tags": [
-        "Yosys",
-        "EDA",
-        "Synthesis",
-        "FPGA"
-      ],
+      "tags": ["Yosys", "EDA", "Synthesis", "FPGA"],
       "language": "en",
       "sourceTier": "trusted",
       "reviewStatus": "curated",
@@ -207,12 +309,7 @@
       "summary": "Caliptra RTL v2.1.2 is a patch release for Caliptra 2.1 RTL, including AES countermeasure and Key Vault hardening plus a future-use ML-KEM Key Vault endianness ...",
       "author": "",
       "relevanceScore": 5,
-      "tags": [
-        "Caliptra",
-        "Root of Trust",
-        "Security",
-        "RTL"
-      ],
+      "tags": ["Caliptra", "Root of Trust", "Security", "RTL"],
       "language": "en",
       "sourceTier": "official",
       "reviewStatus": "curated",
@@ -228,13 +325,7 @@
       "summary": "OpenHW announced the Unified RISC-V IP Access Platform as part of TRISTAN, positioning it as a unified source for verified, industry-ready RISC-V components and...",
       "author": "",
       "relevanceScore": 7,
-      "tags": [
-        "OpenHW",
-        "RISC-V",
-        "IP Platform",
-        "TRISTAN",
-        "Digital Sovereignty"
-      ],
+      "tags": ["OpenHW", "RISC-V", "IP Platform", "TRISTAN", "Digital Sovereignty"],
       "language": "en",
       "sourceTier": "official",
       "reviewStatus": "curated",
@@ -250,14 +341,7 @@
       "summary": "CHIPS Alliance described an open digital design flow using Topwrap and Guineveer, a RISC-V reference SoC based on the VeeR EL2 core, for modular and reusable So...",
       "author": "",
       "relevanceScore": 6,
-      "tags": [
-        "CHIPS Alliance",
-        "RISC-V",
-        "SoC",
-        "Topwrap",
-        "Guineveer",
-        "VeeR"
-      ],
+      "tags": ["CHIPS Alliance", "RISC-V", "SoC", "Topwrap", "Guineveer", "VeeR"],
       "language": "en",
       "sourceTier": "official",
       "reviewStatus": "curated",
@@ -267,8 +351,11 @@
     }
   ],
   "sources": [
+    "Antmicro Blog",
     "CHIPS Alliance",
     "CHIPS Alliance / Caliptra (GitHub)",
+    "MLCommons",
+    "Open Compute Project",
     "OpenHW Foundation / Eclipse Foundation Canada",
     "RISC-V Architecture Tests (GitHub)",
     "YosysHQ (GitHub)"

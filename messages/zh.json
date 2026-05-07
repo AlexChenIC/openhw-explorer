@@ -412,6 +412,8 @@
     "audienceAllDesc": "查看所有已核验动态。",
     "audienceOpenhw": "OpenHW / RISC-V",
     "audienceOpenhwDesc": "适合关注 OpenHW IP、CORE-V 与 RISC-V 生态的人。",
+    "audienceAi": "AI / LLM 加速",
+    "audienceAiDesc": "适合关注开源硬件、AI 加速器、LLM 推理和相关编译栈的人。",
     "audienceVerification": "验证与质量",
     "audienceVerificationDesc": "适合 DV、架构测试、UVM 与认证流程相关读者。",
     "audienceEda": "EDA 工具链",
