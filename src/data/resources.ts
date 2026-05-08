@@ -54,6 +54,8 @@ export const resources: Resource[] = [
 
 // External links
 export const externalLinks = {
+  projectGithub: "https://github.com/AlexChenIC/openhw-explorer",
+  feedbackIssues: "https://github.com/AlexChenIC/openhw-explorer/issues/new",
   github: "https://github.com/openhwgroup",
   website: "https://www.openhwgroup.org/",
   docs: "https://docs.openhwgroup.org/",

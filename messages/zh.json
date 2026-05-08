@@ -8,6 +8,12 @@
       "zh": "CN"
     }
   },
+  "feedback": {
+    "button": "反馈",
+    "ariaLabel": "反馈 OpenHW Explorer 的问题或建议",
+    "issueTitle": "OpenHW Explorer 反馈",
+    "issueBody": "页面：{url}\n\n你发现了什么问题？\n\n怎样会让这个页面更有用？"
+  },
   "header": {
     "title": "OpenHW Explorer",
     "explore": "项目探索",

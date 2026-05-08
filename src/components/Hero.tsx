@@ -2,6 +2,7 @@
 
 import { Compass, Search, BookOpen } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { trackEvent } from "@/lib/observability";
 
 /**
  * SVG 噪声纹理 - 使用 feTurbulence 生成
@@ -77,16 +78,16 @@ export function Hero() {
         </h1>
 
         {/* Subtitle */}
-        <p className="text-sm sm:text-base md:text-lg text-[var(--text-secondary)] text-center leading-[1.7] max-w-[520px]">
-          {t("subtitle")}
-          <br className="hidden md:block" />
-          {t("subtitleLine2")}
+        <p className="max-w-[760px] text-center text-sm leading-[1.65] text-[var(--text-secondary)] sm:text-base md:text-lg">
+          <span className="block">{t("subtitle")}</span>
+          <span className="block">{t("subtitleLine2")}</span>
         </p>
 
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
           <a
             href="#projects"
+            onClick={() => trackEvent("hero_cta_clicked", { target: "projects" })}
             className="flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3.5 rounded-lg bg-[var(--primary)] hover:bg-[var(--primary-dark)] transition-all shadow-lg shadow-[var(--primary)]/20 hover:shadow-xl hover:shadow-[var(--primary)]/30"
           >
             <Search className="w-[18px] h-[18px] text-white" />
@@ -94,6 +95,7 @@ export function Hero() {
           </a>
           <a
             href="#resources"
+            onClick={() => trackEvent("hero_cta_clicked", { target: "resources" })}
             className="flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3.5 rounded-lg border border-[var(--border)] hover:bg-[var(--bg-card)] hover:border-[var(--text-tertiary)] transition-all backdrop-blur-sm"
           >
             <BookOpen className="w-[18px] h-[18px] text-[var(--text-primary)]" />

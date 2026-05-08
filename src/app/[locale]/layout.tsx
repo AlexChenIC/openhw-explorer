@@ -7,6 +7,7 @@ import { routing } from "@/lib/routing";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider, ThemeScript } from "@/lib/theme";
 import { ClientObservability } from "@/components/ClientObservability";
+import { FeedbackButton } from "@/components/FeedbackButton";
 import "../globals.css";
 
 const inter = Inter({
@@ -85,7 +86,10 @@ export default async function LocaleLayout({ children, params }: Props) {
       </head>
       <body className="h-full font-primary scrollbar-dark">
         <ThemeProvider>
-          <NextIntlClientProvider messages={messages}>{children}</NextIntlClientProvider>
+          <NextIntlClientProvider messages={messages}>
+            {children}
+            <FeedbackButton />
+          </NextIntlClientProvider>
           <ClientObservability />
           <Analytics />
         </ThemeProvider>

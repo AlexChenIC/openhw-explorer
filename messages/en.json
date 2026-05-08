@@ -8,6 +8,12 @@
       "zh": "CN"
     }
   },
+  "feedback": {
+    "button": "Feedback",
+    "ariaLabel": "Send feedback about OpenHW Explorer",
+    "issueTitle": "Feedback for OpenHW Explorer",
+    "issueBody": "Page: {url}\n\nWhat did you notice?\n\nWhat would make this page more useful?"
+  },
   "header": {
     "title": "OpenHW Explorer",
     "explore": "Explore",
@@ -32,8 +38,8 @@
   "hero": {
     "badge": "Community Project · Not Official",
     "title": "OpenHW Explorer",
-    "subtitle": "Explore OpenHW projects, documentation, and tools in one place.",
-    "subtitleLine2": "A community-friendly navigator to help you find where to start.",
+    "subtitle": "Explore OpenHW projects, docs, and tools in one place.",
+    "subtitleLine2": "Find the right starting point for open-source RISC-V hardware.",
     "exploreProjects": "Explore Projects",
     "browseDocs": "Browse Docs"
   },
