@@ -407,6 +407,9 @@ function readCuratedData() {
         sourceTier: item.sourceTier || "trusted",
         reviewStatus: "curated",
         curated: true,
+        ...(item.editorPick != null && { editorPick: item.editorPick }),
+        ...(item.placement && { placement: item.placement }),
+        ...(item.highlightRank != null && { highlightRank: item.highlightRank }),
         // bilingual fields (pass through to JSON output)
         ...(item.titleZh && { titleZh: item.titleZh }),
         ...(item.summaryZh && { summaryZh: item.summaryZh }),
@@ -527,6 +530,10 @@ function buildDigest() {
   // Sort by relevance then date
   items = items.sort((a, b) => {
     if (a._dataSource === "curated" && b._dataSource === "curated") {
+      const aRank = Number.isFinite(a.highlightRank) ? a.highlightRank : 999;
+      const bRank = Number.isFinite(b.highlightRank) ? b.highlightRank : 999;
+      if (aRank !== bRank) return aRank - bRank;
+      if (a.editorPick !== b.editorPick) return a.editorPick ? -1 : 1;
       return (a._curatedIndex ?? 0) - (b._curatedIndex ?? 0);
     }
     if (b.relevanceScore !== a.relevanceScore) return b.relevanceScore - a.relevanceScore;
