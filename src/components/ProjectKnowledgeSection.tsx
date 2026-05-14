@@ -187,9 +187,7 @@ function ActivityCard({
         </div>
         <div className="text-center p-2 rounded-lg bg-[var(--bg-subtle)]">
           <GitPullRequest className="w-4 h-4 text-[var(--primary)] mx-auto mb-1" />
-          <p className="text-lg font-bold text-[var(--text-primary)]">
-            {stats.openPRsCount ?? 0}
-          </p>
+          <p className="text-lg font-bold text-[var(--text-primary)]">{stats.openPRsCount ?? 0}</p>
           <p className="text-[10px] text-[var(--text-tertiary)]">{t("activity.openPRs")}</p>
         </div>
       </div>

@@ -47,7 +47,6 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
         doi: "10.1109/VLSITechnologyandCir46783.2024.10631529",
       },
     ],
-
   },
 
   // CV32E40P - Most widely adopted embedded core
@@ -69,7 +68,6 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
         doi: "10.1109/PATMOS.2017.8106976",
       },
     ],
-
   },
 
   // CVW (Wally) - Education-focused
@@ -82,7 +80,6 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
         year: 2024,
       },
     ],
-
   },
 
   // CORE-V Verification - Flagship verification
@@ -102,7 +99,6 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
         url: "https://docs.openhwgroup.org/projects/core-v-verif/en/latest/",
       },
     ],
-
   },
 
   // CVFPU - Widely used floating-point unit
@@ -125,7 +121,6 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
         url: "https://arxiv.org/abs/2007.01530",
       },
     ],
-
   },
 
   // CV-HPDCache - High-performance cache
@@ -1018,8 +1013,7 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
   },
 
   // CV32E20 DV - Small core verification
-  "cv32e20-dv": {
-  },
+  "cv32e20-dv": {},
 
   // CV32E40S DV - Security core verification
   "cv32e40s-dv": {

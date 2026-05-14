@@ -31,7 +31,13 @@ export type VerificationType =
   | "industrial-grade";
 
 // Project status
-export type ProjectStatus = "active" | "stable" | "completed" | "inactive" | "experimental" | "archived";
+export type ProjectStatus =
+  | "active"
+  | "stable"
+  | "completed"
+  | "inactive"
+  | "experimental"
+  | "archived";
 
 export type ReviewStatus = "reviewed" | "auto" | "needs-review";
 export type SourceTier = "official" | "trusted" | "community";

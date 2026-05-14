@@ -26,7 +26,6 @@ interface RankedProject {
   stats: GitHubRepoStats;
 }
 
-
 function getRankedProjects(): RankedProject[] {
   const result: RankedProject[] = [];
   for (const p of projects) {
