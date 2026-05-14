@@ -1,0 +1,527 @@
+{
+  "id": "openhw-cva6-slidekit-a1-zh",
+  "stage": {
+    "id": "openhw-cva6-slidekit-a1-zh",
+    "name": "CVA6 是什么：OpenHW SlideKit A1 微课程",
+    "description": "Task C2 pilot classroom using the first-party openhw-signal-technical HTML SlideKit adapter.",
+    "createdAt": 1778589000000,
+    "updatedAt": 1778554823627,
+    "language": "zh-CN",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-repo-reading-workshop",
+    "courseTemplateName": "源码阅读工作坊 · HTML SlideKit Pilot",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-a1-title",
+      "stageId": "openhw-cva6-slidekit-a1-zh",
+      "type": "html-slide",
+      "title": "CVA6 是什么：先把地图拿稳",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "dark",
+        "content": {
+          "kicker": "CVA6 · MICROCOURSE A1",
+          "title": "CVA6 是什么？先把地图拿稳",
+          "subtitle": "用 10 分钟建立 OpenHW / CORE-V / CVA6 的第一张阅读地图。",
+          "chips": [
+            "RISC-V core",
+            "OpenHW source-grounded",
+            "6-8 slide microcourse",
+            "老陈讲解"
+          ],
+          "thesis": "这节课不急着啃 RTL。我们先确认 CVA6 的官方定位、学习边界和资料入口，让后面的源码阅读有方向感。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-readme",
+            "title": "CVA6 README",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/README.md",
+            "claimSupported": "README positions CVA6 as a configurable, 6-stage, single-issue, in-order RISC-V CPU."
+          },
+          {
+            "id": "cva6-user-manual",
+            "title": "CVA6 User Manual",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "claimSupported": "The user manual is the stable documentation hub for architecture, configuration and interfaces."
+          }
+        ],
+        "speakerNotes": "欢迎来到新版 OpenHW SlideKit 的第一节 CVA6 微课程。今天我们不急着一头扎进 RTL，因为第一次读开源处理器项目，最怕的不是资料太少，而是资料太多还没有地图。CVA6 可以先被理解为 OpenHW 生态里非常适合做主线学习的 RISC-V core：它有官方 README，有 User Manual，也有足够丰富的架构图和配置材料。我们这一页先做一件事：把入口选对。"
+      },
+      "sourceAnchors": [
+        "cva6-readme",
+        "cva6-user-manual"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-a1-title-speech",
+          "type": "speech",
+          "text": "欢迎来到新版 OpenHW SlideKit 的第一节 CVA6 微课程。今天我们不急着一头扎进 RTL，因为第一次读开源处理器项目，最怕的不是资料太少，而是资料太多还没有地图。CVA6 可以先被理解为 OpenHW 生态里非常适合做主线学习的 RISC-V core：它有官方 README，有 User Manual，也有足够丰富的架构图和配置材料。我们这一页先做一件事：把入口选对。",
+          "voice": "alexchen-zh",
+          "speed": 0.88,
+          "audioId": "tts_scene-cva6-a1-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-slidekit-a1-zh/audio/tts_scene-cva6-a1-title-speech.mp3"
+        }
+      ],
+      "createdAt": 1778589000000,
+      "updatedAt": 1778589000000
+    },
+    {
+      "id": "scene-cva6-a1-source-map",
+      "stageId": "openhw-cva6-slidekit-a1-zh",
+      "type": "html-slide",
+      "title": "三类资料，三种读法",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "SOURCE MAP",
+          "title": "三类资料，三种读法",
+          "subtitle": "同一份 CVA6 知识库，不同资料承担不同教学角色。",
+          "cards": [
+            {
+              "label": "定位入口",
+              "title": "README",
+              "body": "回答 CVA6 是什么、项目从哪里开始读、哪些关键词值得继续追踪。",
+              "tone": "teal"
+            },
+            {
+              "label": "官方主线",
+              "title": "User Manual",
+              "body": "把 overview、configuration、interfaces、programmer view 组织成可学习路径。",
+              "tone": "blue"
+            },
+            {
+              "label": "课程资产",
+              "title": "Raw archive",
+              "body": "保存 HTML、Markdown、RST 与图片，方便每节课选择 source pages 和 asset refs。",
+              "tone": "gold"
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-readme",
+            "title": "CVA6 README",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/README.md",
+            "claimSupported": "README positions CVA6 as a configurable, 6-stage, single-issue, in-order RISC-V CPU."
+          },
+          {
+            "id": "cva6-user-manual",
+            "title": "CVA6 User Manual",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "claimSupported": "The user manual is the stable documentation hub for architecture, configuration and interfaces."
+          },
+          {
+            "id": "cva6-local-raw-library",
+            "title": "CVA6 local raw archive",
+            "locator": "content/sources/libraries/cva6-raw-library.md",
+            "claimSupported": "The local archive contains mirrored HTML, Markdown, RST and image assets for later source-grounded courses."
+          }
+        ],
+        "speakerNotes": "这里先给你一张资料地图。README 像项目门牌，告诉我们 CVA6 的官方定位和关键词；User Manual 像正式教材，适合把架构、配置、接口这些主题串起来；本地 raw archive 则是我们的课程素材库，里面保留了页面、Markdown、RST 和图片资产。未来每节课都应该从这里选一小部分资料，而不是把整座资料山直接塞给生成器。这样课程才会稳，老陈也不会讲着讲着变成资料朗读机。"
+      },
+      "sourceAnchors": [
+        "cva6-readme",
+        "cva6-user-manual",
+        "cva6-local-raw-library"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-a1-source-map-speech",
+          "type": "speech",
+          "text": "这里先给你一张资料地图。README 像项目门牌，告诉我们 CVA6 的官方定位和关键词；User Manual 像正式教材，适合把架构、配置、接口这些主题串起来；本地 raw archive 则是我们的课程素材库，里面保留了页面、Markdown、RST 和图片资产。未来每节课都应该从这里选一小部分资料，而不是把整座资料山直接塞给生成器。这样课程才会稳，老陈也不会讲着讲着变成资料朗读机。",
+          "voice": "alexchen-zh",
+          "speed": 0.88,
+          "audioId": "tts_scene-cva6-a1-source-map-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-slidekit-a1-zh/audio/tts_scene-cva6-a1-source-map-speech.mp3"
+        }
+      ],
+      "createdAt": 1778589000000,
+      "updatedAt": 1778589000000
+    },
+    {
+      "id": "scene-cva6-a1-scope",
+      "stageId": "openhw-cva6-slidekit-a1-zh",
+      "type": "html-slide",
+      "title": "先看 scope：这节课讲的是 core",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "DIAGRAM FOCUS",
+          "title": "先看 scope：CVA6 是 core，不是整个 SoC",
+          "body": "入门者常把 core、testharness、SoC 外设和验证环境混在一起。先看 scope，后面才不会读偏。",
+          "assetId": "cva6-scope",
+          "caption": "用于第一节课的 scope 图，帮助区分 core 学习边界。",
+          "callouts": [
+            {
+              "title": "边界感",
+              "body": "先知道哪些问题属于 core，哪些属于系统集成。"
+            },
+            {
+              "title": "学习顺序",
+              "body": "scope 之后再读 overview，避免从细节反推整体。"
+            }
+          ]
+        },
+        "assets": [
+          {
+            "id": "cva6-scope",
+            "type": "diagram",
+            "src": "/openhw-assets/cva6/cva6_scope.png",
+            "alt": "CVA6 scope diagram",
+            "caption": "CVA6 scope diagram from the official CVA6 user manual asset archive.",
+            "sourceUrl": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/assets/_images/cva6_scope.png",
+            "licenseStatus": "project-docs-public-ready"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cva6-user-manual",
+            "title": "CVA6 User Manual",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "claimSupported": "The user manual is the stable documentation hub for architecture, configuration and interfaces."
+          },
+          {
+            "id": "cva6-local-raw-library",
+            "title": "CVA6 local raw archive",
+            "locator": "content/sources/libraries/cva6-raw-library.md",
+            "claimSupported": "The local archive contains mirrored HTML, Markdown, RST and image assets for later source-grounded courses."
+          }
+        ],
+        "speakerNotes": "第一张真正值得停下来的图，是 scope。很多人读处理器项目时，会把 core、SoC、testharness、外设和验证环境揉成一团，然后越读越像在解毛线团。我们要先把边界拆开：这节课主要建立 CVA6 core 的学习入口，不把所有系统集成问题一次性讲完。后续讲 APU、AXI、MMU、验证交接时，再把边界慢慢往外扩。工程学习里，边界感就是安全绳；没有它，越努力越容易跑偏。"
+      },
+      "sourceAnchors": [
+        "cva6-user-manual",
+        "cva6-local-raw-library"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-a1-scope-speech",
+          "type": "speech",
+          "text": "第一张真正值得停下来的图，是 scope。很多人读处理器项目时，会把 core、SoC、testharness、外设和验证环境揉成一团，然后越读越像在解毛线团。我们要先把边界拆开：这节课主要建立 CVA6 core 的学习入口，不把所有系统集成问题一次性讲完。后续讲 APU、AXI、MMU、验证交接时，再把边界慢慢往外扩。工程学习里，边界感就是安全绳；没有它，越努力越容易跑偏。",
+          "voice": "alexchen-zh",
+          "speed": 0.88,
+          "audioId": "tts_scene-cva6-a1-scope-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-slidekit-a1-zh/audio/tts_scene-cva6-a1-scope-speech.mp3"
+        }
+      ],
+      "createdAt": 1778589000000,
+      "updatedAt": 1778589000000
+    },
+    {
+      "id": "scene-cva6-a1-overview",
+      "stageId": "openhw-cva6-slidekit-a1-zh",
+      "type": "html-slide",
+      "title": "再看 overview：从结构图建立阅读主线",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "ARCHITECTURE MAP",
+          "title": "再看 overview：从取指到提交建立阅读主线",
+          "body": "overview 图不是用来背模块名，而是用来规划后续源码阅读的路线。",
+          "assetId": "cva6-ariane-overview",
+          "caption": "CVA6/Ariane overview 图适合做架构导论和后续模块课的地图。",
+          "callouts": [
+            {
+              "title": "读图目标",
+              "body": "先看数据和控制如何穿过主要模块。"
+            },
+            {
+              "title": "避免误读",
+              "body": "不要把 overview 当作全部实现细节。"
+            }
+          ]
+        },
+        "assets": [
+          {
+            "id": "cva6-ariane-overview",
+            "type": "diagram",
+            "src": "/openhw-assets/cva6/ariane_overview.drawio.png",
+            "alt": "CVA6 Ariane overview architecture diagram",
+            "caption": "Ariane/CVA6 high-level overview diagram from the official documentation assets.",
+            "sourceUrl": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/assets/_images/ariane_overview.drawio.png",
+            "licenseStatus": "project-docs-public-ready"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cva6-readme",
+            "title": "CVA6 README",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/README.md",
+            "claimSupported": "README positions CVA6 as a configurable, 6-stage, single-issue, in-order RISC-V CPU."
+          },
+          {
+            "id": "cva6-user-manual",
+            "title": "CVA6 User Manual",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "claimSupported": "The user manual is the stable documentation hub for architecture, configuration and interfaces."
+          },
+          {
+            "id": "cva6-local-raw-library",
+            "title": "CVA6 local raw archive",
+            "locator": "content/sources/libraries/cva6-raw-library.md",
+            "claimSupported": "The local archive contains mirrored HTML, Markdown, RST and image assets for later source-grounded courses."
+          }
+        ],
+        "speakerNotes": "overview 图的价值，不是让你马上背出每个模块名，而是帮你建立一条阅读主线。可以先问三个问题：指令从哪里进来，状态在哪里被保存，结果在哪里变成可提交的行为。等这条线有了，再去看 frontend、issue、load-store、commit 这些模块，脑子里就不会只剩一堆陌生缩写。CVA6 的学习应该像铺铁路，先铺主线，再修支线；否则每个模块都像孤岛。"
+      },
+      "sourceAnchors": [
+        "cva6-readme",
+        "cva6-user-manual",
+        "cva6-local-raw-library"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-a1-overview-speech",
+          "type": "speech",
+          "text": "overview 图的价值，不是让你马上背出每个模块名，而是帮你建立一条阅读主线。可以先问三个问题：指令从哪里进来，状态在哪里被保存，结果在哪里变成可提交的行为。等这条线有了，再去看 frontend、issue、load-store、commit 这些模块，脑子里就不会只剩一堆陌生缩写。CVA6 的学习应该像铺铁路，先铺主线，再修支线；否则每个模块都像孤岛。",
+          "voice": "alexchen-zh",
+          "speed": 0.88,
+          "audioId": "tts_scene-cva6-a1-overview-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-slidekit-a1-zh/audio/tts_scene-cva6-a1-overview-speech.mp3"
+        }
+      ],
+      "createdAt": 1778589000000,
+      "updatedAt": 1778589000000
+    },
+    {
+      "id": "scene-cva6-a1-production-flow",
+      "stageId": "openhw-cva6-slidekit-a1-zh",
+      "type": "html-slide",
+      "title": "从资料库到课程：固定生成流程",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "dark",
+        "content": {
+          "kicker": "CONTROLLED GENERATION",
+          "title": "从资料库到课程：固定生成流程",
+          "subtitle": "这一版 SlideKit 的重点，是让生成器遵守结构，而不是每次自由发挥。",
+          "steps": [
+            {
+              "badge": "01",
+              "title": "选资料",
+              "body": "从 manifest/pages/assets 中选 1-4 个 source anchors。"
+            },
+            {
+              "badge": "02",
+              "title": "定课题",
+              "body": "一节 10 分钟课只回答一个明确问题。"
+            },
+            {
+              "badge": "03",
+              "title": "填 slots",
+              "body": "生成器只填 titleHero、diagramFocus 等受控布局。"
+            },
+            {
+              "badge": "04",
+              "title": "审质量",
+              "body": "检查来源、溢出、讲稿、quiz 和页面节奏。"
+            }
+          ],
+          "takeaway": "真正的目标不是生成很多课，而是稳定生成可发布、可复核、有个人品牌质感的精品技术课。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-local-raw-library",
+            "title": "CVA6 local raw archive",
+            "locator": "content/sources/libraries/cva6-raw-library.md",
+            "claimSupported": "The local archive contains mirrored HTML, Markdown, RST and image assets for later source-grounded courses."
+          }
+        ],
+        "speakerNotes": "这一页其实是我们整个项目的关键。未来生成课程时，不应该让模型随便写一堆 HTML，也不应该每次重新发明 PPT 风格。更好的方式是：先从资料库选 source anchors，再把课题限制成一个 10 分钟问题，然后让生成器只填写受控 slots，比如标题页、资料地图、关键图、流程页和总结页。最后再走 QA。慢一点没关系，我们追求的是一周几节精品课，而不是一天一堆半成品。"
+      },
+      "sourceAnchors": [
+        "cva6-local-raw-library"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-a1-production-flow-speech",
+          "type": "speech",
+          "text": "这一页其实是我们整个项目的关键。未来生成课程时，不应该让模型随便写一堆 HTML，也不应该每次重新发明 PPT 风格。更好的方式是：先从资料库选 source anchors，再把课题限制成一个 10 分钟问题，然后让生成器只填写受控 slots，比如标题页、资料地图、关键图、流程页和总结页。最后再走 QA。慢一点没关系，我们追求的是一周几节精品课，而不是一天一堆半成品。",
+          "voice": "alexchen-zh",
+          "speed": 0.88,
+          "audioId": "tts_scene-cva6-a1-production-flow-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-slidekit-a1-zh/audio/tts_scene-cva6-a1-production-flow-speech.mp3"
+        }
+      ],
+      "createdAt": 1778589000000,
+      "updatedAt": 1778589000000
+    },
+    {
+      "id": "scene-cva6-a1-checkpoint",
+      "stageId": "openhw-cva6-slidekit-a1-zh",
+      "type": "quiz",
+      "title": "Checkpoint: 你会从哪里开始读 CVA6？",
+      "order": 5,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "cva6-a1-q1",
+            "type": "single",
+            "question": "如果你第一次接触 CVA6，最适合先建立的理解是什么？",
+            "options": [
+              {
+                "label": "CVA6 是一个需要从官方定位、范围和文档地图开始理解的开源 RISC-V core",
+                "value": "A"
+              },
+              {
+                "label": "CVA6 的第一步应该是直接逐行阅读所有 RTL 文件",
+                "value": "B"
+              },
+              {
+                "label": "CVA6 只是一份 RISC-V ISA reference，因此不用看项目文档",
+                "value": "C"
+              },
+              {
+                "label": "CVA6 的学习应该从随机 issue 评论开始，不需要 source anchor",
+                "value": "D"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "analysis": "第一节课要先建立定位和阅读地图：README、User Manual、scope/overview 图能帮助学习者知道自己正在读什么。",
+            "hasAnswer": true,
+            "points": 1
+          },
+          {
+            "id": "cva6-a1-q2",
+            "type": "multiple",
+            "question": "这节课中，哪些资料适合作为 CVA6 入门 source anchors？",
+            "options": [
+              {
+                "label": "CVA6 README",
+                "value": "A"
+              },
+              {
+                "label": "CVA6 User Manual",
+                "value": "B"
+              },
+              {
+                "label": "本地 CVA6 raw archive 的 manifest 和 asset 清单",
+                "value": "C"
+              },
+              {
+                "label": "没有来源的泛泛芯片科普文章",
+                "value": "D"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C"
+            ],
+            "analysis": "README 负责定位，User Manual 负责官方文档入口，本地 raw archive 负责课程生成时的可追踪资料和图片资产。",
+            "hasAnswer": true,
+            "points": 2
+          }
+        ]
+      },
+      "actions": [
+        {
+          "id": "scene-cva6-a1-checkpoint-speech",
+          "type": "speech",
+          "text": "这一页是一个小检查，不是为了难住你，而是确认我们有没有把学习入口选对。CVA6 的第一节课最重要的不是背参数，而是知道哪些资料回答定位问题，哪些资料回答结构问题，哪些资料只是后面查表用。选择题都能本地判分，所以未来发布后，学习者离线打开课程，也能马上得到反馈。这里也顺手验证一件事：我们的课程以后应该适合自学者独立完成，而不是必须依赖在线问答才能判断自己有没有理解。",
+          "voice": "alexchen-zh",
+          "speed": 0.88,
+          "audioId": "tts_scene-cva6-a1-checkpoint-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-slidekit-a1-zh/audio/tts_scene-cva6-a1-checkpoint-speech.mp3"
+        }
+      ],
+      "createdAt": 1778589000000,
+      "updatedAt": 1778589000000
+    },
+    {
+      "id": "scene-cva6-a1-summary",
+      "stageId": "openhw-cva6-slidekit-a1-zh",
+      "type": "html-slide",
+      "title": "总结：先建立地图，再读细节",
+      "order": 6,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "dark",
+        "content": {
+          "kicker": "WRAP-UP",
+          "title": "先建立地图，再读细节",
+          "takeaways": [
+            "CVA6 入门第一步是定位、边界和资料入口，不是直接啃完整 RTL。",
+            "README、User Manual 和 raw archive 分别承担不同教学角色。",
+            "Scope 图和 overview 图适合用来拆后续 10 分钟微课程。"
+          ],
+          "nextStep": "下一节建议进入 A2：CVA6 官方资料怎么读，哪些页面应该先看。",
+          "closing": "这节课的 SlideKit 还是第一版，重点是看整体质感、图文节奏和老陈讲稿是否已经接近 OpenHW 精品课方向。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-readme",
+            "title": "CVA6 README",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/README.md",
+            "claimSupported": "README positions CVA6 as a configurable, 6-stage, single-issue, in-order RISC-V CPU."
+          },
+          {
+            "id": "cva6-user-manual",
+            "title": "CVA6 User Manual",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "claimSupported": "The user manual is the stable documentation hub for architecture, configuration and interfaces."
+          },
+          {
+            "id": "cva6-local-raw-library",
+            "title": "CVA6 local raw archive",
+            "locator": "content/sources/libraries/cva6-raw-library.md",
+            "claimSupported": "The local archive contains mirrored HTML, Markdown, RST and image assets for later source-grounded courses."
+          }
+        ],
+        "speakerNotes": "最后收一下。今天这节课并没有试图把 CVA6 全讲完，恰恰相反，它示范的是未来系列课的第一条规则：先建立地图，再读细节。README 帮我们确认定位，User Manual 帮我们组织主线，本地 raw archive 帮我们保存可追踪资料和图片。下一节我建议继续做 A2，专门讲官方资料怎么读。等这个模板稳定后，CVA6 系列就可以一节一节往前铺，质量也更容易守住。"
+      },
+      "sourceAnchors": [
+        "cva6-readme",
+        "cva6-user-manual",
+        "cva6-local-raw-library"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-a1-summary-speech",
+          "type": "speech",
+          "text": "最后收一下。今天这节课并没有试图把 CVA6 全讲完，恰恰相反，它示范的是未来系列课的第一条规则：先建立地图，再读细节。README 帮我们确认定位，User Manual 帮我们组织主线，本地 raw archive 帮我们保存可追踪资料和图片。下一节我建议继续做 A2，专门讲官方资料怎么读。等这个模板稳定后，CVA6 系列就可以一节一节往前铺，质量也更容易守住。",
+          "voice": "alexchen-zh",
+          "speed": 0.88,
+          "audioId": "tts_scene-cva6-a1-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-slidekit-a1-zh/audio/tts_scene-cva6-a1-summary-speech.mp3"
+        }
+      ],
+      "createdAt": 1778589000000,
+      "updatedAt": 1778589000000
+    }
+  ],
+  "createdAt": "2026-05-12T12:30:00.000Z"
+}

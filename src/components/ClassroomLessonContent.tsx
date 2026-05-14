@@ -9,17 +9,14 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { Link } from "@/lib/routing";
-import {
-  getClassroomUrl,
-  getLocalizedText,
-  type ClassroomLesson,
-  type ClassroomSeries,
-} from "@/data/classrooms";
+import { getLocalizedText, type ClassroomLesson, type ClassroomSeries } from "@/data/classrooms";
+import { getPublishedClassroom } from "@/data/published-classrooms";
+import { PublishedClassroomPlayer } from "@/components/PublishedClassroomPlayer";
 
 const copy = {
   en: {
     back: "Back to series",
-    preview: "Temporary lesson preview",
+    preview: "Published classroom",
     openStandalone: "Open standalone classroom",
     outcome: "Learning outcome",
     sources: "Source anchors",
@@ -32,7 +29,7 @@ const copy = {
   },
   zh: {
     back: "返回课程系列",
-    preview: "临时单课预览",
+    preview: "已发布课堂",
     openStandalone: "打开独立课堂",
     outcome: "学习目标",
     sources: "资料锚点",
@@ -60,7 +57,10 @@ export function ClassroomLessonContent({
 }: ClassroomLessonContentProps) {
   const resolvedLocale = locale === "zh" ? "zh" : "en";
   const t = copy[resolvedLocale];
-  const lessonUrl = lesson.classroomId ? getClassroomUrl(lesson.classroomId, classroomBaseUrl) : "";
+  const publishedClassroom = lesson.classroomId ? getPublishedClassroom(lesson.classroomId) : null;
+  const lessonUrl = lesson.classroomId
+    ? `/${resolvedLocale}/classroom-player/${lesson.classroomId}`
+    : classroomBaseUrl;
 
   return (
     <div className="page-shell">
@@ -136,7 +136,7 @@ export function ClassroomLessonContent({
               </div>
             </div>
 
-            {lessonUrl && (
+            {publishedClassroom && (
               <a
                 href={lessonUrl}
                 target="_blank"
@@ -150,15 +150,15 @@ export function ClassroomLessonContent({
           </aside>
         </section>
 
-        <section className="overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] shadow-[var(--card-shadow)]">
-          <iframe
-            title={getLocalizedText(lesson.title, resolvedLocale)}
-            src={lessonUrl}
-            className="h-[720px] w-full bg-white md:h-[780px]"
-            loading="lazy"
-            allow="autoplay; fullscreen"
-          />
-        </section>
+        {publishedClassroom ? (
+          <PublishedClassroomPlayer classroom={publishedClassroom} locale={resolvedLocale} />
+        ) : (
+          <section className="rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-6 text-[var(--text-secondary)] shadow-[var(--card-shadow)]">
+            {resolvedLocale === "zh"
+              ? "这节课的公开发布包尚未同步到 OpenHW Explorer。"
+              : "The public release package for this lesson has not been synced into OpenHW Explorer yet."}
+          </section>
+        )}
 
         <section className="mb-4 rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-5">
           <h2 className="text-lg font-semibold text-[var(--text-primary)]">{t.notesTitle}</h2>

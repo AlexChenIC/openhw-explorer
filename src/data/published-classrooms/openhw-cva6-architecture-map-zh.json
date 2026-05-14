@@ -1,0 +1,861 @@
+{
+  "id": "openhw-cva6-architecture-map-zh",
+  "createdAt": 1778574000000,
+  "stage": {
+    "id": "openhw-cva6-architecture-map-zh",
+    "name": "CVA6 架构地图：从 IP 边界到流水线主线",
+    "description": "A source-grounded OpenHW SlideKit microcourse that teaches CVA6 scope, module map, pipeline reading path, issue/scoreboard behavior, and frontend branch-prediction nuance.",
+    "createdAt": 1778574000000,
+    "updatedAt": 1778574000000,
+    "language": "zh-CN",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "专业技术深潜 · Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-arch-title",
+      "stageId": "openhw-cva6-architecture-map-zh",
+      "type": "html-slide",
+      "title": "CVA6 架构地图：从边界开始",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "dark",
+        "content": {
+          "kicker": "CVA6 · ARCHITECTURE MAP",
+          "title": "CVA6 架构地图：从 IP 边界到流水线主线",
+          "subtitle": "用官方 scope 图和 CV32A60X design document，建立第一张可执行的源码阅读地图。",
+          "chips": [
+            "source-grounded",
+            "pipeline map",
+            "issue / scoreboard",
+            "branch prediction"
+          ],
+          "thesis": "这节课不讲泛泛的处理器科普，而是回答一个具体问题：第一次读 CVA6 时，应该怎样从官方图和设计文档切入。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-readme-architecture-claim",
+            "title": "CVA6 README architecture claim",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/README.md",
+            "locator": "github-openhwgroup-cva6/README.md lines 3-5",
+            "claimSupported": "CVA6 is positioned as a configurable 6-stage, single-issue, in-order RISC-V CPU with separate TLBs, hardware PTW, and branch prediction."
+          },
+          {
+            "id": "cva6-introduction-scope-ip",
+            "title": "Scope of the CVA6 IP",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#scope-of-the-ip",
+            "locator": "Introduction.md Scope of the IP",
+            "claimSupported": "The documented IP comprises the CVA6 core, L1 write-through cache, optional FPU/MMU/PMP, CSR, performance counters, AXI interface, P-Mesh interface, and CV-X-IF; CLINT/PLIC, debug module, and L1 write-back cache support are outside the IP."
+          },
+          {
+            "id": "cv32a60x-design-global-functionality",
+            "title": "CV32A60X subsystem and pipeline",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html",
+            "locator": "cv32a60x/design/design.md section 2.1 Global functionality",
+            "claimSupported": "CV32A60X is described as a Harvard-based processor where instructions are issued in-order through decode, executed out-of-order, committed in-order, and single issue means at most one instruction per cycle can be issued to execute."
+          }
+        ],
+        "speakerNotes": "这一节我们换成更工程化的读法。目标不是说一句“CVA6 很厉害”，而是把它拆成可检查的阅读地图：先看 IP 边界，确认哪些东西属于这份 IP；再看 architecture overview，把 PC Generation、Fetch、Decode、Issue、Execute、Commit 串成主线；最后用 Scoreboard 和 branch prediction 两个点，体会 CVA6 不是玩具核，而是有真实微架构取舍的开源处理器。"
+      },
+      "sourceAnchors": [
+        "cva6-readme-architecture-claim",
+        "cva6-introduction-scope-ip",
+        "cv32a60x-design-global-functionality"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-arch-title-speech",
+          "type": "speech",
+          "text": "这一节我们换成更工程化的读法。目标不是说一句“CVA6 很厉害”，而是把它拆成可检查的阅读地图：先看 IP 边界，确认哪些东西属于这份 IP；再看 architecture overview，把 PC Generation、Fetch、Decode、Issue、Execute、Commit 串成主线；最后用 Scoreboard 和 branch prediction 两个点，体会 CVA6 不是玩具核，而是有真实微架构取舍的开源处理器。",
+          "voice": "alexchen-zh",
+          "speed": 0.84,
+          "audioId": "tts_scene-cva6-arch-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-architecture-map-zh/audio/tts_scene-cva6-arch-title-speech.mp3"
+        }
+      ],
+      "createdAt": 1778574000000,
+      "updatedAt": 1778574000000
+    },
+    {
+      "id": "scene-cva6-arch-evidence-map",
+      "stageId": "openhw-cva6-architecture-map-zh",
+      "type": "html-slide",
+      "title": "本节课的证据地图",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "EVIDENCE MAP",
+          "title": "先把资料分工说清楚",
+          "subtitle": "同样是官方资料，不同页面回答的问题不一样。",
+          "cards": [
+            {
+              "label": "官方定位",
+              "title": "README",
+              "body": "确认 CVA6 的高层定位：六级流水、single-issue、in-order，以及 TLB、PTW、branch prediction 等关键词。",
+              "tone": "teal"
+            },
+            {
+              "label": "使用边界",
+              "title": "User Manual",
+              "body": "说明用户手册面向哪些人、哪些内容属于 IP scope，哪些系统模块不在这份 IP 内。",
+              "tone": "blue"
+            },
+            {
+              "label": "内部结构",
+              "title": "Design Document",
+              "body": "进入 CV32A60X 的 pipeline、module、scoreboard、hazard 和 branch prediction 细节。",
+              "tone": "gold"
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-readme-architecture-claim",
+            "title": "CVA6 README architecture claim",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/README.md",
+            "locator": "github-openhwgroup-cva6/README.md lines 3-5",
+            "claimSupported": "CVA6 is positioned as a configurable 6-stage, single-issue, in-order RISC-V CPU with separate TLBs, hardware PTW, and branch prediction."
+          },
+          {
+            "id": "cva6-introduction-target-audience",
+            "title": "User Manual target audience",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html",
+            "locator": "Introduction.md Target Audience",
+            "claimSupported": "The user manual targets SW programmers, HW integrators, coprocessor architects, implementation engineers, and verification engineers, while the design document covers internal microarchitecture."
+          },
+          {
+            "id": "cva6-docs-design-role",
+            "title": "Configuration-specific design documentation",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/README.html",
+            "locator": "overview/README.md Design documentation",
+            "claimSupported": "Configuration-specific design documentation describes the internal architecture of the CVA6 processor and is generated from documentation inputs, some of which are directly generated from RTL."
+          }
+        ],
+        "speakerNotes": "这页是质量控制的关键：我们不让模型凭空讲硬件。README 只负责官方定位，告诉我们 CVA6 是怎样的 RISC-V core；User Manual 负责边界，告诉我们这份 IP 包含什么、不包含什么；真正要讲内部微架构，就要进入 configuration-specific design document。你可以把这三类资料理解成三把钥匙，门、地图、机房钥匙不要混用，不然很快就会讲偏。"
+      },
+      "sourceAnchors": [
+        "cva6-readme-architecture-claim",
+        "cva6-introduction-target-audience",
+        "cva6-docs-design-role"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-arch-evidence-map-speech",
+          "type": "speech",
+          "text": "这页是质量控制的关键：我们不让模型凭空讲硬件。README 只负责官方定位，告诉我们 CVA6 是怎样的 RISC-V core；User Manual 负责边界，告诉我们这份 IP 包含什么、不包含什么；真正要讲内部微架构，就要进入 configuration-specific design document。你可以把这三类资料理解成三把钥匙，门、地图、机房钥匙不要混用，不然很快就会讲偏。",
+          "voice": "alexchen-zh",
+          "speed": 0.84,
+          "audioId": "tts_scene-cva6-arch-evidence-map-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-architecture-map-zh/audio/tts_scene-cva6-arch-evidence-map-speech.mp3"
+        }
+      ],
+      "createdAt": 1778574000000,
+      "updatedAt": 1778574000000
+    },
+    {
+      "id": "scene-cva6-arch-scope",
+      "stageId": "openhw-cva6-architecture-map-zh",
+      "type": "html-slide",
+      "title": "Scope 图：先分清 IP 边界",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "IP SCOPE",
+          "title": "Scope 图：CVA6 不是完整 SoC",
+          "body": "先回答“我正在学哪一层”：core/IP、接口、外设、验证环境不能混读。",
+          "assetId": "cva6-scope",
+          "caption": "CVA6 IP scope: core, cache, optional units, CSR/counters and interfaces.",
+          "callouts": [
+            {
+              "title": "IP 内",
+              "body": "core、L1 write-through cache、可选 FPU/MMU/PMP、CSR、counters、AXI、CV-X-IF。"
+            },
+            {
+              "title": "IP 外",
+              "body": "CLINT、PLIC、debug module、L1 write-back cache support 不在此 IP 内。"
+            },
+            {
+              "title": "学习意义",
+              "body": "边界先定清楚，避免把 SoC 集成问题误读成 core 微架构问题。"
+            }
+          ]
+        },
+        "assets": [
+          {
+            "id": "cva6-scope",
+            "type": "diagram",
+            "src": "/openhw-assets/cva6/cva6_scope.png",
+            "alt": "CVA6 scope diagram",
+            "caption": "Official CVA6 scope diagram from the user manual archive.",
+            "sourceUrl": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#scope-of-the-ip",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/assets/_images/cva6_scope.png",
+            "licenseStatus": "project-docs-public-ready"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cva6-introduction-scope-ip",
+            "title": "Scope of the CVA6 IP",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#scope-of-the-ip",
+            "locator": "Introduction.md Scope of the IP",
+            "claimSupported": "The documented IP comprises the CVA6 core, L1 write-through cache, optional FPU/MMU/PMP, CSR, performance counters, AXI interface, P-Mesh interface, and CV-X-IF; CLINT/PLIC, debug module, and L1 write-back cache support are outside the IP."
+          },
+          {
+            "id": "cva6-introduction-overview-family",
+            "title": "CVA6 overview and configurable family",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html",
+            "locator": "Introduction.md CVA6 Overview and Configurations",
+            "claimSupported": "CVA6 is a RISC-V compatible application processor core configurable as CV32A6 or CV64A6, with optional MMU, PMP, FPU, cache organization and size, and more than 50 parameters."
+          }
+        ],
+        "speakerNotes": "第一张图一定要认真看。官方文档把 scope 说得很清楚：CVA6 IP 里有 core、L1 write-through cache、可选的 FPU、MMU、PMP、CSR、performance counters、AXI interface、P-Mesh interface 和 CV-X-IF；但 CLINT、PLIC、debug module，以及 L1 write-back cache support 不在这个 IP scope 里。这不是抠字眼，这是工程阅读的防撞栏。边界没分清，后面看到 interrupt、debug、cache，就会把系统集成和 core 设计揉成一团。"
+      },
+      "sourceAnchors": [
+        "cva6-introduction-scope-ip",
+        "cva6-introduction-overview-family"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-arch-scope-speech",
+          "type": "speech",
+          "text": "第一张图一定要认真看。官方文档把 scope 说得很清楚：CVA6 IP 里有 core、L1 write-through cache、可选的 FPU、MMU、PMP、CSR、performance counters、AXI interface、P-Mesh interface 和 CV-X-IF；但 CLINT、PLIC、debug module，以及 L1 write-back cache support 不在这个 IP scope 里。这不是抠字眼，这是工程阅读的防撞栏。边界没分清，后面看到 interrupt、debug、cache，就会把系统集成和 core 设计揉成一团。",
+          "voice": "alexchen-zh",
+          "speed": 0.84,
+          "audioId": "tts_scene-cva6-arch-scope-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-architecture-map-zh/audio/tts_scene-cva6-arch-scope-speech.mp3"
+        }
+      ],
+      "createdAt": 1778574000000,
+      "updatedAt": 1778574000000
+    },
+    {
+      "id": "scene-cva6-arch-overview",
+      "stageId": "openhw-cva6-architecture-map-zh",
+      "type": "html-slide",
+      "title": "Overview 图：建立流水线主线",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "MODULE MAP",
+          "title": "Overview 图：先读主线，不背模块名",
+          "body": "Design document 把 pipeline 主线拆成 FRONTEND、DECODE、ISSUE、EXECUTE、COMMIT、CONTROLLER。",
+          "assetId": "cva6-ariane-overview",
+          "caption": "CVA6/Ariane overview diagram as a reading map, not a decorative architecture picture.",
+          "callouts": [
+            {
+              "title": "取指到解码",
+              "body": "FRONTEND 做 PC gen / Fetch；DECODE 把指令转成控制结构。"
+            },
+            {
+              "title": "发射到执行",
+              "body": "ISSUE 查依赖和资源；EX_STAGE 承接 ALU、branch、CSR、mult、LSU、CVXIF。"
+            },
+            {
+              "title": "提交状态",
+              "body": "COMMIT 是架构状态真正改变的出口，也是 precise exception 的落点。"
+            }
+          ]
+        },
+        "assets": [
+          {
+            "id": "cva6-ariane-overview",
+            "type": "diagram",
+            "src": "/openhw-assets/cva6/ariane_overview.drawio.png",
+            "alt": "CVA6 Ariane overview architecture diagram",
+            "caption": "CVA6/Ariane high-level architecture diagram used as the first reading map.",
+            "sourceUrl": "https://github.com/openhwgroup/cva6/blob/master/README.md",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/assets/_images/ariane_overview.drawio.png",
+            "licenseStatus": "project-docs-public-ready"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cva6-readme-architecture-claim",
+            "title": "CVA6 README architecture claim",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/README.md",
+            "locator": "github-openhwgroup-cva6/README.md lines 3-5",
+            "claimSupported": "CVA6 is positioned as a configurable 6-stage, single-issue, in-order RISC-V CPU with separate TLBs, hardware PTW, and branch prediction."
+          },
+          {
+            "id": "cv32a60x-design-module-map",
+            "title": "Architecture and module map",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#architecture-and-modules",
+            "locator": "cv32a60x/design/design.md section 4 Architecture and Modules",
+            "claimSupported": "The design document names FRONTEND, DECODE, ISSUE, EXECUTE, COMMIT and CONTROLLER as part of the pipeline, with CSRFILE containing registers."
+          },
+          {
+            "id": "cv32a60x-design-global-functionality",
+            "title": "CV32A60X subsystem and pipeline",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html",
+            "locator": "cv32a60x/design/design.md section 2.1 Global functionality",
+            "claimSupported": "CV32A60X is described as a Harvard-based processor where instructions are issued in-order through decode, executed out-of-order, committed in-order, and single issue means at most one instruction per cycle can be issued to execute."
+          }
+        ],
+        "speakerNotes": "这张 overview 图不要当海报看。Design document 直接告诉我们：FRONTEND、DECODE、ISSUE、EXECUTE、COMMIT 和 CONTROLLER 是 pipeline 的主线，CSRFILE 保存寄存器状态。一个实用读法是问三件事：指令从哪里进入，结果在哪里暂存，架构状态在哪里真正改变。答案分别指向 frontend/decode、issue/scoreboard/execution，以及 commit。这样读图，模块名就不是一堆缩写，而是一条可以顺着源码走的路线。"
+      },
+      "sourceAnchors": [
+        "cva6-readme-architecture-claim",
+        "cv32a60x-design-module-map",
+        "cv32a60x-design-global-functionality"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-arch-overview-speech",
+          "type": "speech",
+          "text": "这张 overview 图不要当海报看。Design document 直接告诉我们：FRONTEND、DECODE、ISSUE、EXECUTE、COMMIT 和 CONTROLLER 是 pipeline 的主线，CSRFILE 保存寄存器状态。一个实用读法是问三件事：指令从哪里进入，结果在哪里暂存，架构状态在哪里真正改变。答案分别指向 frontend/decode、issue/scoreboard/execution，以及 commit。这样读图，模块名就不是一堆缩写，而是一条可以顺着源码走的路线。",
+          "voice": "alexchen-zh",
+          "speed": 0.84,
+          "audioId": "tts_scene-cva6-arch-overview-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-architecture-map-zh/audio/tts_scene-cva6-arch-overview-speech.mp3"
+        }
+      ],
+      "createdAt": 1778574000000,
+      "updatedAt": 1778574000000
+    },
+    {
+      "id": "scene-cva6-arch-pipeline-flow",
+      "stageId": "openhw-cva6-architecture-map-zh",
+      "type": "html-slide",
+      "title": "流水线读法：不要把 in-order 讲简单了",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "dark",
+        "content": {
+          "kicker": "PIPELINE READING PATH",
+          "title": "一条指令的阅读路径",
+          "subtitle": "CV32A60X 文档里最容易被误读的一句话：issue in-order, execute out-of-order, commit in-order。",
+          "steps": [
+            {
+              "badge": "01",
+              "title": "PC + Fetch",
+              "body": "决定 PC，从 cache 取 32-bit block 并 realign。"
+            },
+            {
+              "badge": "02",
+              "title": "Decode",
+              "body": "处理 compressed instruction，生成 scoreboard entry。"
+            },
+            {
+              "badge": "03",
+              "title": "Issue",
+              "body": "检查依赖、功能单元和 result bus。"
+            },
+            {
+              "badge": "04",
+              "title": "Execute",
+              "body": "ALU、branch、CSR、mult、LSU、CVXIF 产生结果。"
+            },
+            {
+              "badge": "05",
+              "title": "Commit",
+              "body": "按程序顺序写回状态，处理 store、CSR、exception。"
+            }
+          ],
+          "takeaway": "单发射不等于所有事情都排队慢慢做；真正要抓住的是：发射顺序、执行完成顺序、提交顺序不是同一个概念。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-global-functionality",
+            "title": "CV32A60X subsystem and pipeline",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html",
+            "locator": "cv32a60x/design/design.md section 2.1 Global functionality",
+            "claimSupported": "CV32A60X is described as a Harvard-based processor where instructions are issued in-order through decode, executed out-of-order, committed in-order, and single issue means at most one instruction per cycle can be issued to execute."
+          },
+          {
+            "id": "cv32a60x-design-module-map",
+            "title": "Architecture and module map",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#architecture-and-modules",
+            "locator": "cv32a60x/design/design.md section 4 Architecture and Modules",
+            "claimSupported": "The design document names FRONTEND, DECODE, ISSUE, EXECUTE, COMMIT and CONTROLLER as part of the pipeline, with CSRFILE containing registers."
+          },
+          {
+            "id": "cv32a60x-design-execute-commit",
+            "title": "Execute and commit responsibilities",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#ex-stage-module",
+            "locator": "cv32a60x/design/design.md sections 4.4 and 4.5",
+            "claimSupported": "EX_STAGE encapsulates ALU, Branch Unit, CSR buffer, Mult, load/store, and CVXIF; COMMIT_STAGE updates architectural state, commits stores, writes GPR/CSR data, controls flush/stall, and handles precise exceptions at commit."
+          }
+        ],
+        "speakerNotes": "这里进入第一条技术主线。CV32A60X 文档说，它是 Harvard-based architecture，指令通过 decode in-order issue，执行结果可以 out-of-order 返回，但最终 in-order commit。这个句子很重要：single issue 只表示每周期最多一条指令发射到 execute；它没有说所有功能单元都同延迟，也没有说结果一定按同样顺序回来。于是 Scoreboard 就变成中间枢纽：它既记住谁发射了，也记住谁完成了，最后把可以提交的最老指令交给 commit。"
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-global-functionality",
+        "cv32a60x-design-module-map",
+        "cv32a60x-design-execute-commit"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-arch-pipeline-flow-speech",
+          "type": "speech",
+          "text": "这里进入第一条技术主线。CV32A60X 文档说，它是 Harvard-based architecture，指令通过 decode in-order issue，执行结果可以 out-of-order 返回，但最终 in-order commit。这个句子很重要：single issue 只表示每周期最多一条指令发射到 execute；它没有说所有功能单元都同延迟，也没有说结果一定按同样顺序回来。于是 Scoreboard 就变成中间枢纽：它既记住谁发射了，也记住谁完成了，最后把可以提交的最老指令交给 commit。",
+          "voice": "alexchen-zh",
+          "speed": 0.84,
+          "audioId": "tts_scene-cva6-arch-pipeline-flow-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-architecture-map-zh/audio/tts_scene-cva6-arch-pipeline-flow-speech.mp3"
+        }
+      ],
+      "createdAt": 1778574000000,
+      "updatedAt": 1778574000000
+    },
+    {
+      "id": "scene-cva6-arch-scoreboard",
+      "stageId": "openhw-cva6-architecture-map-zh",
+      "type": "html-slide",
+      "title": "Scoreboard：结果重排的枢纽",
+      "order": 5,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "ISSUE / SCOREBOARD",
+          "title": "Scoreboard：结果重排账本",
+          "body": "Issue 不只是“发射器”：它还要登记指令、接收结果、交给 commit。",
+          "assetId": "cva6-scoreboard",
+          "caption": "Scoreboard is the middle ledger between issue, execution result buses, and commit.",
+          "callouts": [
+            {
+              "title": "FIFO 记录",
+              "body": "每条 issued instruction 占一个 entry；提交后才移除。CV32A60X 容量为 4。"
+            },
+            {
+              "title": "结果回填",
+              "body": "EX_STAGE 结果按 transaction ID 回填到对应 entry，异常也一起保存。"
+            },
+            {
+              "title": "提交出口",
+              "body": "最老 completed entry 交给 COMMIT_STAGE，保证架构状态按顺序改变。"
+            }
+          ]
+        },
+        "assets": [
+          {
+            "id": "cva6-scoreboard",
+            "type": "diagram",
+            "src": "/openhw-assets/cva6/scoreboard.png",
+            "alt": "CVA6 scoreboard diagram",
+            "caption": "Scoreboard diagram from the CVA6 user manual asset archive.",
+            "sourceUrl": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/assets/_images/scoreboard.png",
+            "licenseStatus": "project-docs-public-ready"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-scoreboard",
+            "title": "ISSUE_STAGE and Scoreboard",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md sections 4.3.1-4.3.3",
+            "claimSupported": "ISSUE_STAGE issues instructions in-order, stores out-of-order results in Scoreboard, and sends completed instructions in-order to COMMIT_STAGE; the Scoreboard FIFO has 4 entries in this configuration."
+          },
+          {
+            "id": "cv32a60x-design-hazards-forwarding",
+            "title": "Hazards and forwarding in issue_read_operands",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md section 4.3.3.2",
+            "claimSupported": "Issue_read_operands tracks data and structural hazards, blocks RAW/WAW cases when needed, uses operand forwarding when legal, and stalls following instructions because issue is in-order."
+          }
+        ],
+        "speakerNotes": "Scoreboard 是这节课最值得记住的模块。文档说它是一个 FIFO，每个 issued instruction 占一个 entry，结果 ready 后会按 transaction ID 写回对应 entry；当 commit stage acknowledge 后，这个 entry 才被移除。CV32A60X 这里的 Scoreboard capacity 是 4。换句话说，它像一本非常严肃的施工日志：谁进场、谁干完、谁允许交付，都要登记。没有它，out-of-order result 和 in-order commit 就很难讲清楚。"
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-scoreboard",
+        "cv32a60x-design-hazards-forwarding"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-arch-scoreboard-speech",
+          "type": "speech",
+          "text": "Scoreboard 是这节课最值得记住的模块。文档说它是一个 FIFO，每个 issued instruction 占一个 entry，结果 ready 后会按 transaction ID 写回对应 entry；当 commit stage acknowledge 后，这个 entry 才被移除。CV32A60X 这里的 Scoreboard capacity 是 4。换句话说，它像一本非常严肃的施工日志：谁进场、谁干完、谁允许交付，都要登记。没有它，out-of-order result 和 in-order commit 就很难讲清楚。",
+          "voice": "alexchen-zh",
+          "speed": 0.84,
+          "audioId": "tts_scene-cva6-arch-scoreboard-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-architecture-map-zh/audio/tts_scene-cva6-arch-scoreboard-speech.mp3"
+        }
+      ],
+      "createdAt": 1778574000000,
+      "updatedAt": 1778574000000
+    },
+    {
+      "id": "scene-cva6-arch-hazards",
+      "stageId": "openhw-cva6-architecture-map-zh",
+      "type": "html-slide",
+      "title": "Hazard 与 forwarding：为什么 issue 会停",
+      "order": 6,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "dark",
+        "content": {
+          "kicker": "HAZARD CONTROL",
+          "title": "Issue_read_operands：不是看见指令就发",
+          "subtitle": "这一页把 issue stage 的“刹车”和“绕行”分开看。",
+          "columns": [
+            {
+              "label": "Data hazard",
+              "title": "RAW / WAW 怎么处理",
+              "bullets": [
+                "RAW：源寄存器依赖 Scoreboard 中尚未可用的目的寄存器时，issue 可能被挡住。",
+                "合法时可以 operand forwarding，从功能单元结果或 Scoreboard entry 取值。",
+                "WAW：待发射指令和 Scoreboard 中指令写同一目的寄存器时，需要阻塞。",
+                "x0 是特例：文档明确没有 x0 data hazard。"
+              ]
+            },
+            {
+              "label": "Structural hazard",
+              "title": "功能单元和 result bus 也会卡住",
+              "bullets": [
+                "issue 会检查功能单元和 result bus 是否 ready。",
+                "未知延迟的 division 或部分 CSR 情况，会阻塞共享 result bus 的若干单元。",
+                "multiplication 固定两周期，但 multiplier 是 pipelined，可以每周期接收一条。",
+                "使用 LSU 的指令要等 LSU ready，否则后续 in-order issue 也会被挡住。"
+              ]
+            }
+          ],
+          "anchor": {
+            "label": "Engineering cue",
+            "text": "in-order issue 的代价是：当前指令一旦因为 hazard 停住，后面的指令也不能越过去乱跑。"
+          }
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-hazards-forwarding",
+            "title": "Hazards and forwarding in issue_read_operands",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md section 4.3.3.2",
+            "claimSupported": "Issue_read_operands tracks data and structural hazards, blocks RAW/WAW cases when needed, uses operand forwarding when legal, and stalls following instructions because issue is in-order."
+          },
+          {
+            "id": "cv32a60x-design-issue-scoreboard",
+            "title": "ISSUE_STAGE and Scoreboard",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md sections 4.3.1-4.3.3",
+            "claimSupported": "ISSUE_STAGE issues instructions in-order, stores out-of-order results in Scoreboard, and sends completed instructions in-order to COMMIT_STAGE; the Scoreboard FIFO has 4 entries in this configuration."
+          }
+        ],
+        "speakerNotes": "现在我们把 issue 为什么会停讲清楚。Issue_read_operands 主要看两类 hazard。第一类是 data hazard，比如 RAW：源寄存器等着前面指令写回；如果结果已经从功能单元或 Scoreboard entry 返回，而且不是异常，就可以 forwarding。WAW 则是两个指令想写同一个目的寄存器，也要挡住。第二类是 structural hazard：功能单元和 result bus 不一定总是 ready。特别是 division、某些 CSR、LSU 这类路径，会让 in-order issue 的后续指令也跟着等。"
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-hazards-forwarding",
+        "cv32a60x-design-issue-scoreboard"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-arch-hazards-speech",
+          "type": "speech",
+          "text": "现在我们把 issue 为什么会停讲清楚。Issue_read_operands 主要看两类 hazard。第一类是 data hazard，比如 RAW：源寄存器等着前面指令写回；如果结果已经从功能单元或 Scoreboard entry 返回，而且不是异常，就可以 forwarding。WAW 则是两个指令想写同一个目的寄存器，也要挡住。第二类是 structural hazard：功能单元和 result bus 不一定总是 ready。特别是 division、某些 CSR、LSU 这类路径，会让 in-order issue 的后续指令也跟着等。",
+          "voice": "alexchen-zh",
+          "speed": 0.84,
+          "audioId": "tts_scene-cva6-arch-hazards-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-architecture-map-zh/audio/tts_scene-cva6-arch-hazards-speech.mp3"
+        }
+      ],
+      "createdAt": 1778574000000,
+      "updatedAt": 1778574000000
+    },
+    {
+      "id": "scene-cva6-arch-branch",
+      "stageId": "openhw-cva6-architecture-map-zh",
+      "type": "html-slide",
+      "title": "Frontend：下一条 PC 不是永远 PC+4",
+      "order": 7,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "FRONTEND / BRANCH PREDICTION",
+          "title": "Frontend：PC 不只是 PC+4",
+          "body": "PC gen 会在 reset、prediction、default、replay、exception、return、commit PC 之间选择。",
+          "assetId": "cva6-branch-prediction",
+          "caption": "Branch prediction is taught here as frontend control logic, not as a generic CPU buzzword.",
+          "callouts": [
+            {
+              "title": "RAS",
+              "body": "return 型 JALR 可用 return address stack 预测；CV32A60X RAS 深度为 2。"
+            },
+            {
+              "title": "BHT",
+              "body": "conditional branch 使用 branch history table；该配置 BHT 有 32 entries。"
+            },
+            {
+              "title": "BTB nuance",
+              "body": "README 提到 BTB/BHT；CV32A60X design 明确该配置没有 BTB。"
+            }
+          ]
+        },
+        "assets": [
+          {
+            "id": "cva6-branch-prediction",
+            "type": "diagram",
+            "src": "/openhw-assets/cva6/branch_prediction.png",
+            "alt": "CVA6 branch prediction diagram",
+            "caption": "Branch prediction diagram from the CVA6 user manual asset archive.",
+            "sourceUrl": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/assets/_images/branch_prediction.png",
+            "licenseStatus": "project-docs-public-ready"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-frontend",
+            "title": "FRONTEND PC generation and fetch",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#frontend-module",
+            "locator": "cv32a60x/design/design.md section 4.1",
+            "claimSupported": "FRONTEND implements PC gen and Fetch stages; PC gen chooses next PC from reset, branch prediction, default fetch, replay, return, exception/interrupt, or commit PC; Fetch realigns data and feeds the instruction queue."
+          },
+          {
+            "id": "cv32a60x-design-branch-prediction",
+            "title": "BHT, BTB and RAS behavior",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#frontend-module",
+            "locator": "cv32a60x/design/design.md sections 4.1.3, 4.1.5.4-4.1.5.6",
+            "claimSupported": "The frontend uses predecode plus RAS/BHT/BTB rules for branch prediction; in CV32A60X the BHT has 32 entries, RAS has 2 entries, and there is no BTB."
+          },
+          {
+            "id": "cva6-readme-architecture-claim",
+            "title": "CVA6 README architecture claim",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/README.md",
+            "locator": "github-openhwgroup-cva6/README.md lines 3-5",
+            "claimSupported": "CVA6 is positioned as a configurable 6-stage, single-issue, in-order RISC-V CPU with separate TLBs, hardware PTW, and branch prediction."
+          }
+        ],
+        "speakerNotes": "最后看 frontend 的一个细节：下一条 PC 不总是 PC 加四。PC gen 的来源包括 reset、branch prediction、default fetch、fetch replay、exception 或 interrupt、return from environment call，以及从 commit PC 重新开始。更有意思的是配置差异：README 高层说 CVA6 有 branch prediction，包括 BTB 和 BHT；但 CV32A60X design document 里明确写着这个配置没有 BTB，RAS 是两项，BHT 是三十二项。这个例子提醒我们：讲 CVA6 要经常说清楚“哪一个 configuration”。"
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-frontend",
+        "cv32a60x-design-branch-prediction",
+        "cva6-readme-architecture-claim"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-arch-branch-speech",
+          "type": "speech",
+          "text": "最后看 frontend 的一个细节：下一条 PC 不总是 PC 加四。PC gen 的来源包括 reset、branch prediction、default fetch、fetch replay、exception 或 interrupt、return from environment call，以及从 commit PC 重新开始。更有意思的是配置差异：README 高层说 CVA6 有 branch prediction，包括 BTB 和 BHT；但 CV32A60X design document 里明确写着这个配置没有 BTB，RAS 是两项，BHT 是三十二项。这个例子提醒我们：讲 CVA6 要经常说清楚“哪一个 configuration”。",
+          "voice": "alexchen-zh",
+          "speed": 0.84,
+          "audioId": "tts_scene-cva6-arch-branch-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-architecture-map-zh/audio/tts_scene-cva6-arch-branch-speech.mp3"
+        }
+      ],
+      "createdAt": 1778574000000,
+      "updatedAt": 1778574000000
+    },
+    {
+      "id": "scene-cva6-arch-quiz",
+      "stageId": "openhw-cva6-architecture-map-zh",
+      "type": "quiz",
+      "title": "Checkpoint：你真的读懂这张地图了吗？",
+      "order": 8,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "cva6-arch-q1",
+            "type": "single",
+            "question": "根据 User Manual 的 Scope of the IP，下面哪一组更准确属于 CVA6 IP scope？",
+            "options": [
+              {
+                "label": "CVA6 core、L1 write-through cache、可选 FPU/MMU/PMP、CSR、AXI、CV-X-IF",
+                "value": "A"
+              },
+              {
+                "label": "CLINT、PLIC、debug module、L1 write-back cache support",
+                "value": "B"
+              },
+              {
+                "label": "完整 SoC、所有外设、板级 boot flow 和操作系统镜像",
+                "value": "C"
+              },
+              {
+                "label": "只有 RISC-V ISA 表格，不包含任何接口或 cache 相关内容",
+                "value": "D"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "analysis": "Scope 页面明确把 core、L1 write-through cache、可选 FPU/MMU/PMP、CSR、performance counters、AXI、P-Mesh 和 CV-X-IF 放在 IP 内，同时把 CLINT/PLIC/debug module 等排除在外。",
+            "hasAnswer": true,
+            "points": 1
+          },
+          {
+            "id": "cva6-arch-q2",
+            "type": "single",
+            "question": "CV32A60X design document 对流水线行为的正确描述是哪一个？",
+            "options": [
+              {
+                "label": "指令 in-order issue，执行结果可以 out-of-order 返回，最终 in-order commit",
+                "value": "A"
+              },
+              {
+                "label": "所有功能单元都一周期完成，所以不需要 Scoreboard",
+                "value": "B"
+              },
+              {
+                "label": "single issue 表示每周期可以向多个 execute port 同时发射多条指令",
+                "value": "C"
+              },
+              {
+                "label": "commit stage 不改变架构状态，只负责显示调试信息",
+                "value": "D"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "analysis": "文档明确说 single issue 意味着最多每周期一条指令发射到 EXECUTE，同时 ISSUE_STAGE 会重排执行结果并把完成的最老指令按顺序交给 COMMIT_STAGE。",
+            "hasAnswer": true,
+            "points": 1
+          },
+          {
+            "id": "cva6-arch-q3",
+            "type": "multiple",
+            "question": "关于 CV32A60X 的 Issue/Scoreboard 和 frontend，哪些说法有资料支持？",
+            "options": [
+              {
+                "label": "Scoreboard FIFO 在该配置中有 4 个 entries",
+                "value": "A"
+              },
+              {
+                "label": "RAW hazard 在合法条件下可以通过 operand forwarding 缓解",
+                "value": "B"
+              },
+              {
+                "label": "CV32A60X design document 明确说该配置没有 BTB",
+                "value": "C"
+              },
+              {
+                "label": "RAS 每次 flush 都必须清空，否则 commit 无法工作",
+                "value": "D"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C"
+            ],
+            "analysis": "Scoreboard 容量、RAW forwarding、CV32A60X 没有 BTB 都来自 design document。RAS 相关段落反而写着 RAS is never flushed，所以 D 是错误项。",
+            "hasAnswer": true,
+            "points": 2
+          }
+        ]
+      },
+      "sourceAnchors": [
+        "cva6-introduction-scope-ip",
+        "cv32a60x-design-global-functionality",
+        "cv32a60x-design-issue-scoreboard",
+        "cv32a60x-design-branch-prediction"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-arch-quiz-speech",
+          "type": "speech",
+          "text": "这一页不考记忆力，而是检查你有没有抓住工程阅读的三个关键点：第一，CVA6 IP scope 和 SoC 外设边界不能混；第二，single issue、out-of-order result、in-order commit 这三个词要放在一起理解；第三，configuration-specific design document 可能会覆盖 README 的高层说法，比如 CV32A60X 没有 BTB。能答对这三类问题，说明你已经可以开始读下一层资料了。",
+          "voice": "alexchen-zh",
+          "speed": 0.84,
+          "audioId": "tts_scene-cva6-arch-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-architecture-map-zh/audio/tts_scene-cva6-arch-quiz-speech.mp3"
+        }
+      ],
+      "createdAt": 1778574000000,
+      "updatedAt": 1778574000000
+    },
+    {
+      "id": "scene-cva6-arch-summary",
+      "stageId": "openhw-cva6-architecture-map-zh",
+      "type": "html-slide",
+      "title": "总结：这张地图怎么继续用",
+      "order": 9,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "dark",
+        "content": {
+          "kicker": "SUMMARY",
+          "title": "读 CVA6，先建地图",
+          "takeaways": [
+            "scope 图先分清 IP 内外，避免把 SoC 外设和 core 微架构混讲。",
+            "overview 图建立 PC Generation 到 Commit 的主线。",
+            "Issue/Scoreboard 连接 out-of-order result 与 in-order commit。",
+            "README 的高层 claim 要和 CV32A60X design document 对齐。"
+          ],
+          "nextStep": "下一节专讲 FRONTEND：PC generation、instr_queue、BHT/RAS、mispredict。",
+          "closing": "这节课如果只记一句话：先建地图，再读 RTL；先读证据，再下判断。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-docs-design-role",
+            "title": "Configuration-specific design documentation",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/README.html",
+            "locator": "overview/README.md Design documentation",
+            "claimSupported": "Configuration-specific design documentation describes the internal architecture of the CVA6 processor and is generated from documentation inputs, some of which are directly generated from RTL."
+          },
+          {
+            "id": "cv32a60x-design-module-map",
+            "title": "Architecture and module map",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#architecture-and-modules",
+            "locator": "cv32a60x/design/design.md section 4 Architecture and Modules",
+            "claimSupported": "The design document names FRONTEND, DECODE, ISSUE, EXECUTE, COMMIT and CONTROLLER as part of the pipeline, with CSRFILE containing registers."
+          },
+          {
+            "id": "cv32a60x-design-issue-scoreboard",
+            "title": "ISSUE_STAGE and Scoreboard",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md sections 4.3.1-4.3.3",
+            "claimSupported": "ISSUE_STAGE issues instructions in-order, stores out-of-order results in Scoreboard, and sends completed instructions in-order to COMMIT_STAGE; the Scoreboard FIFO has 4 entries in this configuration."
+          }
+        ],
+        "speakerNotes": "收一下这节课。我们没有把 CVA6 全部讲完，但已经有了一张能继续工作的地图：scope 决定边界，overview 决定主线，Issue 和 Scoreboard 解释为什么单发射处理器里仍然会出现 out-of-order result，而 Commit 保证架构状态按顺序改变。接下来最自然的一节，是单独拆 FRONTEND：PC generation 怎么选下一条地址，instr_realign 和 instr_queue 怎么处理 compressed instruction，BHT、RAS 和 mispredict 又怎样影响取指路径。"
+      },
+      "sourceAnchors": [
+        "cva6-docs-design-role",
+        "cv32a60x-design-module-map",
+        "cv32a60x-design-issue-scoreboard"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-arch-summary-speech",
+          "type": "speech",
+          "text": "收一下这节课。我们没有把 CVA6 全部讲完，但已经有了一张能继续工作的地图：scope 决定边界，overview 决定主线，Issue 和 Scoreboard 解释为什么单发射处理器里仍然会出现 out-of-order result，而 Commit 保证架构状态按顺序改变。接下来最自然的一节，是单独拆 FRONTEND：PC generation 怎么选下一条地址，instr_realign 和 instr_queue 怎么处理 compressed instruction，BHT、RAS 和 mispredict 又怎样影响取指路径。",
+          "voice": "alexchen-zh",
+          "speed": 0.84,
+          "audioId": "tts_scene-cva6-arch-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-architecture-map-zh/audio/tts_scene-cva6-arch-summary-speech.mp3"
+        }
+      ],
+      "createdAt": 1778574000000,
+      "updatedAt": 1778574000000
+    }
+  ]
+}
