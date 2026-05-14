@@ -1,4 +1,5 @@
 import type { MetadataRoute } from "next";
+import { classroomSeries } from "@/data/classrooms";
 import { projects } from "@/data/projects";
 import { features } from "@/lib/features";
 
@@ -27,6 +28,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 0.7,
     },
+    {
+      url: `${SITE_URL}/${locale}/classroom`,
+      lastModified: new Date(),
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
     ...(features.newsEnabled
       ? [
           {
@@ -39,6 +46,25 @@ export default function sitemap(): MetadataRoute.Sitemap {
       : []),
   ]);
 
+  const classroomPages = classroomSeries.flatMap((series) =>
+    locales.flatMap((locale) => [
+      {
+        url: `${SITE_URL}/${locale}/classroom/${series.id}`,
+        lastModified: new Date(),
+        changeFrequency: "weekly" as const,
+        priority: 0.7,
+      },
+      ...series.lessons
+        .filter((lesson) => lesson.classroomId)
+        .map((lesson) => ({
+          url: `${SITE_URL}/${locale}/classroom/${series.id}/${lesson.id}`,
+          lastModified: new Date(),
+          changeFrequency: "weekly" as const,
+          priority: 0.6,
+        })),
+    ]),
+  );
+
   // Project detail pages
   const projectPages = projects.flatMap((project) =>
     locales.map((locale) => ({
@@ -49,5 +75,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     })),
   );
 
-  return [...staticPages, ...projectPages];
+  return [...staticPages, ...classroomPages, ...projectPages];
 }

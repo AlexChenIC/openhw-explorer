@@ -32,7 +32,7 @@ export function ResourcesSection() {
     {
       title: t("cards.classroom.title"),
       description: t("cards.classroom.description"),
-      href: "/contribute#classroom",
+      href: "/classroom",
       cta: t("cards.classroom.cta"),
     },
     {

@@ -41,10 +41,16 @@ export function Header() {
             {t("explore")}
           </Link>
           <Link
-            href="/contribute"
+            href="/classroom"
             className="px-3.5 py-2 text-[var(--text-secondary)] text-sm font-medium hover:text-[var(--text-primary)] hover:bg-[var(--bg-subtle-hover)] rounded-lg transition-all"
           >
             {t("guide")}
+          </Link>
+          <Link
+            href="/contribute"
+            className="px-3.5 py-2 text-[var(--text-secondary)] text-sm font-medium hover:text-[var(--text-primary)] hover:bg-[var(--bg-subtle-hover)] rounded-lg transition-all"
+          >
+            {t("contribute")}
           </Link>
           {features.newsEnabled && (
             <Link
@@ -148,11 +154,18 @@ export function Header() {
               {t("explore")}
             </Link>
             <Link
-              href="/contribute"
+              href="/classroom"
               onClick={() => setIsMobileMenuOpen(false)}
               className="block px-3 py-2.5 text-[var(--text-secondary)] text-sm font-medium hover:text-[var(--text-primary)] hover:bg-[var(--bg-subtle-hover)] rounded-lg transition-all"
             >
               {t("guide")}
+            </Link>
+            <Link
+              href="/contribute"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block px-3 py-2.5 text-[var(--text-secondary)] text-sm font-medium hover:text-[var(--text-primary)] hover:bg-[var(--bg-subtle-hover)] rounded-lg transition-all"
+            >
+              {t("contribute")}
             </Link>
             {features.newsEnabled && (
               <Link
