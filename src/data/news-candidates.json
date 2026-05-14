@@ -1,48 +1,40 @@
 {
   "_meta": {
-    "generatedAt": "2026-05-07T14:10:04.814Z",
+    "generatedAt": "2026-05-13T01:52:23.216Z",
     "lookbackDays": 45,
     "openHwActivityDays": 14,
-    "totalCandidates": 21,
-    "sourceCount": 9,
+    "totalCandidates": 17,
+    "sourceCount": 7,
     "reviewWorkflow": "Review candidates, verify source facts, copy selected items into src/data/curated-news.json, then run npm run build-news."
   },
   "sources": [
     {
       "source": "Antmicro Blog",
-      "count": 5
+      "count": 4
     },
     {
       "source": "CHIPS Alliance / Chisel (GitHub)",
-      "count": 2
+      "count": 1
     },
     {
       "source": "CHIPS Alliance Blog",
-      "count": 2
+      "count": 1
     },
     {
       "source": "FOSSi Foundation",
-      "count": 1
-    },
-    {
-      "source": "lowRISC Newsroom",
-      "count": 1
+      "count": 2
     },
     {
       "source": "MLCommons",
-      "count": 5
-    },
-    {
-      "source": "Open Compute Project Blog",
-      "count": 2
+      "count": 4
     },
     {
       "source": "RISC-V International news",
-      "count": 2
+      "count": 3
     },
     {
       "source": "YosysHQ / Yosys (GitHub)",
-      "count": 1
+      "count": 2
     }
   ],
   "items": [
@@ -58,21 +50,6 @@
       "relevanceScore": 11,
       "tags": ["Antmicro", "Open Hardware", "RISC-V", "CHIPS Alliance", "VeeR"],
       "suggestedAudience": ["openhw-riscv", "soc-ip"],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "Using a Performance Model to Implement a Superscalar CVA6",
-      "url": "https://riscv.org/blog/using-a-performance-model-to-implement-a-superscalar-cva6/",
-      "source": "RISC-V International news",
-      "sourceType": "rss",
-      "sourceTier": "official",
-      "publishedAt": "2026-03-24T11:01:06.000Z",
-      "summary": "The post Using a Performance Model to Implement a Superscalar CVA6 appeared first on RISC-V International .",
-      "author": "RISC-V International Staff",
-      "relevanceScore": 11,
-      "tags": ["RISC-V", "CVA6"],
-      "suggestedAudience": ["openhw-riscv"],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -137,17 +114,47 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "CHERI-Mocha memory-safe compute subsystem is now open",
-      "url": "https://lowrisc.org/news/cheri-mocha-memory-safe-compute-subsystem-is-now-open/",
-      "source": "lowRISC Newsroom",
-      "sourceType": "web-page",
+      "title": "Call for Candidates: Help Us Build a Board That Represents Our Entire Ecosystem",
+      "url": "https://riscv.org/blog/2026-elections/",
+      "source": "RISC-V International news",
+      "sourceType": "rss",
       "sourceTier": "official",
-      "publishedAt": "2026-03-26T16:13:41.000Z",
+      "publishedAt": "2026-05-08T19:10:06.000Z",
+      "summary": "Voting is now open for RISC-V International's Board of Directors. Learn how to nominate, understand board member responsibilities, and discover key election dates. The post Call for Candidates: Help Us Build a Board That...",
+      "author": "Andrea Gallo",
+      "relevanceScore": 6,
+      "tags": ["RISC-V"],
+      "suggestedAudience": ["openhw-riscv"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "We Created a Single Source for All RISC-V Specifications",
+      "url": "https://riscv.org/blog/ratified-specifications-library/",
+      "source": "RISC-V International news",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-05-07T16:22:00.000Z",
+      "summary": "The RISC-V Ratified Specifications Library consolidates all of the available RISC-V specifications into one single, accessible repository. The post We Created a Single Source for All RISC-V Specifications appeared first...",
+      "author": "Bill Traynor",
+      "relevanceScore": 6,
+      "tags": ["RISC-V"],
+      "suggestedAudience": ["openhw-riscv"],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "Implementing a genetic algorithm in OpenROAD for improved resynthesis",
+      "url": "https://antmicro.com/blog/2026/05/genetic-algorithm-in-openroad",
+      "source": "Antmicro Blog",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-05-07T00:00:00.000Z",
       "summary": "",
       "author": "",
-      "relevanceScore": 7,
-      "tags": ["lowRISC", "OpenTitan", "CHERI", "SoC/IP"],
-      "suggestedAudience": ["security", "soc-ip"],
+      "relevanceScore": 6,
+      "tags": ["Antmicro", "Open Hardware", "OpenROAD", "EDA"],
+      "suggestedAudience": ["eda-tools"],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -212,70 +219,32 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "A new GPT-OSS benchmark and DeepSeek R1 updates for latency-optimized reasoning",
-      "url": "https://mlcommons.org/2026/03/mlperf-inference-gpt-oss/",
-      "source": "MLCommons",
+      "title": "Reflecting on Latch-Up 2026",
+      "url": "https://main--fossi-foundation.netlify.app/blog/2026-05-11-latchup-reflection",
+      "source": "FOSSi Foundation",
       "sourceType": "rss",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-03-24T14:47:34.000Z",
-      "summary": "MLPerf Inference v6.0 expands open-weight LLM coverage with a new GPT-OSS 120B benchmark and a latency-constrained interactive scenario for DeepSeek-R1 — the first MLPerf standard for speculative decoding. The post A new...",
-      "author": "MLCommons",
-      "relevanceScore": 6,
-      "tags": ["MLCommons", "Benchmarking", "MLPerf", "LLM"],
-      "suggestedAudience": ["ai-accelerators"],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "CHIPS Alliance at 2026 OCP EMEA Summit",
-      "url": "https://www.chipsalliance.org/news/chips-alliance-ocp-emea-2026/",
-      "source": "CHIPS Alliance Blog",
-      "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-03-27T16:00:00.000Z",
-      "summary": "",
+      "publishedAt": "2026-05-11T00:00:00.000Z",
+      "summary": "A report from Latch-Up 2026, the FOSSi Foundation's North American conference on free and open source silicon, held in Waterloo, Ontario, Canada from May 1-3, 2026.",
       "author": "",
       "relevanceScore": 5,
-      "tags": [
-        "CHIPS Alliance",
-        "Open Silicon",
-        "announcement",
-        "ocp",
-        "caliptra",
-        "guineveer",
-        "risc-v"
-      ],
-      "suggestedAudience": ["openhw-riscv", "security", "soc-ip"],
+      "tags": ["FOSSi", "Open Silicon"],
+      "suggestedAudience": ["general"],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "Delivering an Open Data Center Ecosystem for AI",
-      "url": "https://www.opencompute.org/blog/delivering-an-open-data-center-ecosystem-for-ai",
-      "source": "Open Compute Project Blog",
-      "sourceType": "web-page",
-      "sourceTier": "official",
-      "publishedAt": "2026-04-28T16:00:00.000Z",
-      "summary": "Driving Innovations from Chip to Grid Across Hyperscale and Local Data Centers April 29th, 2026 &ndash; The Open Compute Project Foundation (OCP), the nonprofit international organization bringing at-scale innovations an...",
-      "author": "",
+      "title": "YosysHQ/yosys release: Yosys 0.65",
+      "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.65",
+      "source": "YosysHQ / Yosys (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-05-12T10:30:49.000Z",
+      "summary": "Yosys 0.64 .. Yosys 0.65 -------------------------- * New commands and options - Added \"arith_tree\" pass to convert add/sub/macc chains to carry-save adder trees. - Removed \"-force\" option from \"share\" pass. * Various -...",
+      "author": "mmicko",
       "relevanceScore": 4,
-      "tags": ["OCP", "Open Compute Project", "AI", "OCP AI Infrastructure"],
-      "suggestedAudience": ["ai-accelerators"],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "Building the Foundation for an Open Chiplet Future: Foundation Chiplet System Architecture (FCSA)",
-      "url": "https://www.opencompute.org/blog/building-the-foundation-for-an-open-chiplet-future-foundation-chiplet-system-architecture-fcsa",
-      "source": "Open Compute Project Blog",
-      "sourceType": "web-page",
-      "sourceTier": "official",
-      "publishedAt": "2026-04-07T16:00:00.000Z",
-      "summary": "&ldquo;The future of Silicon is Modular, Scalable, and Standardized Chiplets&rdquo; The rapid acceleration of the AI economy is reshaping global compute infrastructure. From hyperscale data centers training trillion-para...",
-      "author": "",
-      "relevanceScore": 4,
-      "tags": ["OCP", "Open Compute Project", "AI", "OCP AI Infrastructure"],
-      "suggestedAudience": ["ai-accelerators", "soc-ip"],
+      "tags": ["Yosys", "EDA", "Synthesis"],
+      "suggestedAudience": ["eda-tools"],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -321,51 +290,6 @@
       "relevanceScore": 2,
       "tags": ["FOSSi", "Open Silicon"],
       "suggestedAudience": ["general"],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "chipsalliance/chisel release: Chisel v7.10.0",
-      "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.10.0",
-      "source": "CHIPS Alliance / Chisel (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "official",
-      "publishedAt": "2026-03-25T19:07:22.000Z",
-      "summary": "## Features - Add asReset cast for bools (by @fabianschuiki in https://github.com/chipsalliance/chisel/pull/5207) - Add Instance Choice Support to ChiselSim (by @uenoku in https://github.com/chipsalliance/chisel/pull/522...",
-      "author": "jackkoenig",
-      "relevanceScore": 2,
-      "tags": ["Chisel", "Hardware Construction", "SoC"],
-      "suggestedAudience": ["soc-ip"],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "Porting Zephyr RTOS to Synaptics SR100 AI MCUs",
-      "url": "https://antmicro.com/blog/2026/03/zephyr-support-for-synaptics-sr100",
-      "source": "Antmicro Blog",
-      "sourceType": "rss",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-03-25T00:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 2,
-      "tags": ["Antmicro", "Open Hardware", "AI"],
-      "suggestedAudience": ["ai-accelerators"],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "Antmicro supports Aethero next-gen space computers NxN and NxA with full-stack development around NVIDIA Jetson Orin and Jetson Thor edge AI platforms",
-      "url": "https://antmicro.com/blog/2026/03/antmicro-supports-aethero-with-nxn-and-nxa-space-computers",
-      "source": "Antmicro Blog",
-      "sourceType": "rss",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-03-24T00:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 2,
-      "tags": ["Antmicro", "Open Hardware", "AI"],
-      "suggestedAudience": ["ai-accelerators"],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     }
