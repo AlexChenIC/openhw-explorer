@@ -293,9 +293,31 @@
       "connectLinkedIn": "Say hi on LinkedIn"
     },
     "contribute": {
-      "title": "Contribute",
-      "content": "OpenHW Explorer is open source. If you'd like to report an issue, suggest a feature, or contribute code, you're welcome to visit the project repository.",
-      "cta": "View on GitHub"
+      "badge": "From learning to contribution",
+      "title": "How to Participate in OpenHW",
+      "content": "Contribution should not be the first pressure point for visitors. A better path is to understand the ecosystem, learn the fundamentals, and then choose a contribution route that matches the reader's role. This section keeps the contribution path, but folds it into About as part of the OpenHW Explorer brand and community story.",
+      "steps": {
+        "learn": {
+          "title": "Build context first",
+          "desc": "Start with the learning center and project profiles to understand the OpenHW ecosystem, CVA6, and other core project boundaries."
+        },
+        "choose": {
+          "title": "Choose a direction",
+          "desc": "Pick a contribution lane that fits your background: processor cores, verification, software tools, documentation, or community content."
+        },
+        "prepare": {
+          "title": "Read official rules",
+          "desc": "Before a pull request, check the project docs, ECA, contribution guide, and repository-specific collaboration habits."
+        },
+        "ship": {
+          "title": "Ship in small steps",
+          "desc": "Start with documentation fixes, issue reproduction, small examples, or course feedback before moving into deeper engineering work."
+        }
+      },
+      "resourcesTitle": "Recommended entry points",
+      "resourcesDesc": "If you want to learn, start with the learning center. If you are ready to contribute, read the official OpenHW docs and the target repository's rules.",
+      "classroomCta": "Open Learning Hub",
+      "docsCta": "Open Official Docs"
     }
   },
   "contributePage": {

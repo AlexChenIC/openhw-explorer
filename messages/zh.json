@@ -293,9 +293,31 @@
       "connectLinkedIn": "来 LinkedIn 打个招呼"
     },
     "contribute": {
-      "title": "参与贡献",
-      "content": "OpenHW Explorer 是开源项目。如果你想报告问题、建议功能或贡献代码，欢迎访问项目仓库。",
-      "cta": "在 GitHub 查看"
+      "badge": "从学习到贡献",
+      "title": "如何参与 OpenHW",
+      "content": "贡献不应该是用户进入网站后的第一个压力点。更好的路径是先理解项目、学习基础内容，再根据自己的角色选择合适的参与方式。这里保留贡献入口，但把它放在 About 里，作为 OpenHW Explorer 品牌与社区连接的一部分。",
+      "steps": {
+        "learn": {
+          "title": "先建立上下文",
+          "desc": "从学习中心和项目档案入手，先理解 OpenHW 生态、CVA6 等核心项目的边界与价值。"
+        },
+        "choose": {
+          "title": "选择合适方向",
+          "desc": "根据自己的背景选择处理器核心、验证、软件工具、文档整理或社区传播等参与方向。"
+        },
+        "prepare": {
+          "title": "阅读官方规则",
+          "desc": "在提交 PR 前，确认项目文档、ECA、贡献指南和每个仓库自己的协作习惯。"
+        },
+        "ship": {
+          "title": "小步提交成果",
+          "desc": "从文档修正、issue 复现、小型示例或课程反馈开始，逐步进入更深入的工程贡献。"
+        }
+      },
+      "resourcesTitle": "推荐入口",
+      "resourcesDesc": "如果你只是想学习，先进入学习中心；如果已经准备贡献，再阅读官方 OpenHW 文档和具体仓库要求。",
+      "classroomCta": "进入学习中心",
+      "docsCta": "查看官方文档"
     }
   },
   "contributePage": {
