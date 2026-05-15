@@ -17,7 +17,7 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             {/* Brand */}
             <div className="flex flex-col gap-2">
-              <BrandLockup size="sm" showTagline />
+              <BrandLockup size="md" />
             </div>
 
             {/* Links */}

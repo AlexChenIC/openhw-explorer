@@ -1,14 +1,14 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96">
   <defs>
-    <linearGradient id="openhw-explorer-mark-gradient" x1="8" x2="58" y1="6" y2="58">
-      <stop stop-color="#0E65C7" />
-      <stop offset="0.52" stop-color="#073B78" />
-      <stop offset="1" stop-color="#071B3E" />
+    <linearGradient id="openhw-explorer-mark-gradient" x1="16" x2="80" y1="10" y2="86">
+      <stop stop-color="#0D63D8" />
+      <stop offset="0.48" stop-color="#073D82" />
+      <stop offset="1" stop-color="#061B3F" />
     </linearGradient>
   </defs>
-  <rect x="4" y="4" width="56" height="56" rx="16" fill="url(#openhw-explorer-mark-gradient)" />
-  <text x="9" y="33" fill="#FFFFFF" font-family="Arial Black, Inter, system-ui, sans-serif" font-size="24" font-weight="900" letter-spacing="-2.2">OH</text>
-  <path d="M18 45 40 31M21 31l23 16" fill="none" stroke="#FFFFFF" stroke-linecap="square" stroke-linejoin="round" stroke-width="6" />
-  <path d="M42 45h12L41 33Z" fill="#18A957" />
-  <path d="M18 50h26" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.6" opacity="0.25" />
+  <rect x="8" y="8" width="80" height="80" rx="22" fill="url(#openhw-explorer-mark-gradient)" />
+  <path fill="#FFFFFF" fill-rule="evenodd" d="M25 25h20a8 8 0 0 1 8 8v10a8 8 0 0 1-8 8H25a8 8 0 0 1-8-8V33a8 8 0 0 1 8-8Zm2 9v8h16v-8H27Z" />
+  <path fill="#FFFFFF" d="M57 25h8v10h15V25h8v26h-8V42H65v9h-8V25Z" />
+  <path d="M25 70 62 48M33 50l39 26" fill="none" stroke="#FFFFFF" stroke-linecap="square" stroke-linejoin="round" stroke-width="9" />
+  <path d="M67 70h19L64 50Z" fill="#18A957" />
 </svg>

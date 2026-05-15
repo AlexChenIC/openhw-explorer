@@ -36,10 +36,11 @@ These colors are implemented through CSS variables in `src/app/globals.css`.
 ## Implementation
 
 - `public/brand/openhw-explorer-mark.svg`: reusable square mark.
-- `public/brand/openhw-explorer-wordmark.svg`: full vector wordmark.
+- `public/brand/openhw-explorer-wordmark.svg`: full vector wordmark for light surfaces.
+- `public/brand/openhw-explorer-wordmark-dark.svg`: full vector wordmark for dark surfaces.
 - `src/app/icon.svg`: browser favicon.
 - `public/apple-icon.svg`: app icon.
-- `src/components/BrandMark.tsx`: React mark and lockup used by site chrome.
+- `src/components/BrandMark.tsx`: React wrapper that renders the stored SVG assets directly.
 - `src/components/Header.tsx`: primary brand lockup.
 - `src/components/Footer.tsx`: secondary brand lockup.
 
@@ -47,6 +48,7 @@ These colors are implemented through CSS variables in `src/app/globals.css`.
 
 - Use the full lockup in navigation and footer.
 - Use the icon alone only where the available space is small, such as favicon or compact app surfaces.
+- The website should render the stored SVG assets directly. Do not rebuild the logo from separate HTML text and paths unless the SVG source is updated at the same time.
 - Keep the green accent small; the brand should remain primarily deep blue and engineering blue.
 - Do not put legal/status qualifiers in the main visual lockup.
 - Keep trademark and affiliation boundaries in documentation/about copy when needed, not in every persistent brand surface.

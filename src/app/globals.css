@@ -127,6 +127,14 @@
   }
 }
 
+[data-theme="dark"] .brand-lockup-light {
+  display: none;
+}
+
+[data-theme="dark"] .brand-lockup-dark {
+  display: block;
+}
+
 .page-shell {
   padding-top: 2rem;
   padding-bottom: 3rem;
