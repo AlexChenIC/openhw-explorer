@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-labelledby="title desc">
+  <title id="title">OpenHW Explorer mark</title>
+  <desc id="desc">A rounded blue icon with OH letters and a stylized X explorer mark.</desc>
+  <defs>
+    <linearGradient id="openhw-explorer-mark-gradient" x1="8" x2="58" y1="6" y2="58">
+      <stop stop-color="#0E65C7" />
+      <stop offset="0.52" stop-color="#073B78" />
+      <stop offset="1" stop-color="#071B3E" />
+    </linearGradient>
+  </defs>
+  <rect x="4" y="4" width="56" height="56" rx="16" fill="url(#openhw-explorer-mark-gradient)" />
+  <text x="9" y="33" fill="#FFFFFF" font-family="Arial Black, Inter, system-ui, sans-serif" font-size="24" font-weight="900" letter-spacing="-2.2">OH</text>
+  <path d="M18 45 40 31M21 31l23 16" fill="none" stroke="#FFFFFF" stroke-linecap="square" stroke-linejoin="round" stroke-width="6" />
+  <path d="M42 45h12L41 33Z" fill="#18A957" />
+  <path d="M18 50h26" stroke="#FFFFFF" stroke-linecap="round" stroke-width="2.6" opacity="0.25" />
+</svg>

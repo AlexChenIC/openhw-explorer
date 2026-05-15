@@ -1,6 +1,6 @@
 {
   "common": {
-    "communityProject": "Community Project · Not Official",
+    "communityProject": "AlexChen OpenHW Lab",
     "viewOnGitHub": "View on GitHub",
     "backToHome": "Back to Home",
     "language": {
@@ -36,7 +36,7 @@
     }
   },
   "hero": {
-    "badge": "Community Project · Not Official",
+    "badge": "OpenHW Explorer · RISC-V Learning Navigator",
     "title": "OpenHW Explorer",
     "subtitle": "Explore OpenHW projects, docs, and tools in one place.",
     "subtitleLine2": "Find the right starting point for open-source RISC-V hardware.",

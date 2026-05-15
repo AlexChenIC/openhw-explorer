@@ -2,35 +2,38 @@
 
 /* Dark theme (default) */
 :root {
-  --bg-dark: #0d1117;
-  --bg-card: #161b22;
-  --bg-card-hover: #21262d;
-  --border: #30363d;
+  --bg-dark: #0b1020;
+  --bg-card: #111827;
+  --bg-card-hover: #172033;
+  --border: #26364f;
 
-  --primary: #0066ff;
-  --primary-dark: #0052cc;
-  --cyan: #39d2c0;
+  --primary: #0b5cab;
+  --primary-dark: #083d79;
+  --cyan: #20c7b7;
 
-  --green: #3fb950;
+  --green: #18a957;
   --orange: #f0883e;
-  --purple: #a371f7;
+  --purple: #5b6ee1;
+  --brand-wordmark-primary: #ffffff;
+  --brand-wordmark-accent: #4f9bff;
+  --brand-wordmark-muted: #a5b4c7;
 
   --text-primary: #ffffff;
-  --text-secondary: #8b949e;
-  --text-tertiary: #6e7681;
+  --text-secondary: #a5b4c7;
+  --text-tertiary: #74849b;
 
-  --glow-blue: rgba(0, 102, 255, 0.06);
-  --glow-purple: rgba(163, 113, 247, 0.05);
-  --glow-green: rgba(63, 185, 80, 0.04);
+  --glow-blue: rgba(11, 92, 171, 0.1);
+  --glow-purple: rgba(32, 199, 183, 0.055);
+  --glow-green: rgba(24, 169, 87, 0.055);
   --glow-orange: rgba(240, 136, 62, 0.04);
 
   --noise-opacity: 0.025;
   --grid-line: rgba(255, 255, 255, 0.02);
-  --selection-bg: rgba(0, 102, 255, 0.3);
+  --selection-bg: rgba(11, 92, 171, 0.32);
   --selection-fg: white;
-  --card-shadow: 0 0 20px rgba(0, 102, 255, 0.1), 0 8px 32px rgba(0, 0, 0, 0.3);
-  --scrollbar-track: #0d1117;
-  --scrollbar-thumb: #30363d;
+  --card-shadow: 0 0 20px rgba(11, 92, 171, 0.12), 0 8px 32px rgba(0, 0, 0, 0.32);
+  --scrollbar-track: #0b1020;
+  --scrollbar-thumb: #26364f;
 
   /* Subtle overlays for backgrounds */
   --bg-subtle: rgba(255, 255, 255, 0.02);
@@ -41,34 +44,37 @@
 /* Light theme */
 [data-theme="light"] {
   --bg-dark: #ffffff;
-  --bg-card: #f6f8fa;
-  --bg-card-hover: #eaeef2;
-  --border: #d0d7de;
+  --bg-card: #f7fafc;
+  --bg-card-hover: #eef4f8;
+  --border: #d6e2eb;
 
-  --primary: #0550ae;
-  --primary-dark: #033d8b;
-  --cyan: #1a7f72;
+  --primary: #0b5cab;
+  --primary-dark: #083d79;
+  --cyan: #0f8f83;
 
-  --green: #1a7f37;
+  --green: #147d3f;
   --orange: #bc4c00;
-  --purple: #8250df;
+  --purple: #4757c5;
+  --brand-wordmark-primary: #071b3e;
+  --brand-wordmark-accent: #0b5cab;
+  --brand-wordmark-muted: #8b949e;
 
   --text-primary: #1f2328;
   --text-secondary: #656d76;
   --text-tertiary: #8b949e;
 
-  --glow-blue: rgba(0, 102, 255, 0.04);
-  --glow-purple: rgba(130, 80, 223, 0.03);
-  --glow-green: rgba(26, 127, 55, 0.03);
+  --glow-blue: rgba(11, 92, 171, 0.05);
+  --glow-purple: rgba(15, 143, 131, 0.035);
+  --glow-green: rgba(20, 125, 63, 0.035);
   --glow-orange: rgba(188, 76, 0, 0.03);
 
   --noise-opacity: 0.015;
   --grid-line: rgba(0, 0, 0, 0.03);
-  --selection-bg: rgba(5, 80, 174, 0.2);
+  --selection-bg: rgba(11, 92, 171, 0.2);
   --selection-fg: #1f2328;
   --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(0, 0, 0, 0.06);
-  --scrollbar-track: #f6f8fa;
-  --scrollbar-thumb: #d0d7de;
+  --scrollbar-track: #f7fafc;
+  --scrollbar-thumb: #d6e2eb;
 
   --bg-subtle: rgba(0, 0, 0, 0.03);
   --bg-subtle-hover: rgba(0, 0, 0, 0.05);
@@ -314,8 +320,8 @@
   inset: -50%;
   background: radial-gradient(
     ellipse 80% 60% at 50% 50%,
-    rgba(0, 102, 255, 0.08) 0%,
-    rgba(163, 113, 247, 0.04) 40%,
+    rgba(11, 92, 171, 0.1) 0%,
+    rgba(32, 199, 183, 0.045) 40%,
     transparent 70%
   );
   background-size: 200% 200%;
@@ -332,8 +338,8 @@
   top: 50%;
   background: radial-gradient(
     circle,
-    rgba(0, 102, 255, 0.15) 0%,
-    rgba(0, 102, 255, 0.05) 40%,
+    rgba(11, 92, 171, 0.16) 0%,
+    rgba(11, 92, 171, 0.055) 40%,
     transparent 70%
   );
   border-radius: 50%;
@@ -351,8 +357,8 @@
   top: 60%;
   background: radial-gradient(
     circle,
-    rgba(163, 113, 247, 0.12) 0%,
-    rgba(163, 113, 247, 0.04) 40%,
+    rgba(32, 199, 183, 0.12) 0%,
+    rgba(32, 199, 183, 0.04) 40%,
     transparent 70%
   );
   border-radius: 50%;
@@ -370,8 +376,8 @@
   top: 30%;
   background: radial-gradient(
     circle,
-    rgba(63, 185, 80, 0.08) 0%,
-    rgba(63, 185, 80, 0.02) 40%,
+    rgba(24, 169, 87, 0.09) 0%,
+    rgba(24, 169, 87, 0.025) 40%,
     transparent 70%
   );
   border-radius: 50%;
@@ -517,8 +523,8 @@
   top: 20%;
   background: radial-gradient(
     circle,
-    rgba(0, 102, 255, 0.06) 0%,
-    rgba(0, 102, 255, 0.02) 40%,
+    rgba(11, 92, 171, 0.07) 0%,
+    rgba(11, 92, 171, 0.025) 40%,
     transparent 70%
   );
   border-radius: 50%;
@@ -536,8 +542,8 @@
   bottom: 10%;
   background: radial-gradient(
     circle,
-    rgba(163, 113, 247, 0.05) 0%,
-    rgba(163, 113, 247, 0.02) 40%,
+    rgba(32, 199, 183, 0.055) 0%,
+    rgba(32, 199, 183, 0.02) 40%,
     transparent 70%
   );
   border-radius: 50%;
@@ -556,7 +562,7 @@
   border-top: 1px solid transparent;
   background-image:
     linear-gradient(var(--bg-dark), var(--bg-dark)),
-    linear-gradient(90deg, transparent 0%, rgba(0, 102, 255, 0.2) 50%, transparent 100%);
+    linear-gradient(90deg, transparent 0%, rgba(11, 92, 171, 0.22) 50%, transparent 100%);
   background-origin: padding-box, border-box;
   background-clip: padding-box, border-box;
 }
@@ -572,7 +578,7 @@
   transform: translateX(-50%);
   background: radial-gradient(
     ellipse 100% 100% at 50% 0%,
-    rgba(0, 102, 255, 0.04) 0%,
+    rgba(11, 92, 171, 0.05) 0%,
     transparent 70%
   );
   pointer-events: none;
@@ -588,8 +594,8 @@
   bottom: -100px;
   background: radial-gradient(
     circle,
-    rgba(63, 185, 80, 0.05) 0%,
-    rgba(63, 185, 80, 0.02) 40%,
+    rgba(24, 169, 87, 0.055) 0%,
+    rgba(24, 169, 87, 0.02) 40%,
     transparent 70%
   );
   border-radius: 50%;
@@ -628,7 +634,7 @@
   height: 100px;
   left: 0;
   top: 0;
-  background: linear-gradient(to bottom, rgba(0, 102, 255, 0.02) 0%, transparent 100%);
+  background: linear-gradient(to bottom, rgba(11, 92, 171, 0.025) 0%, transparent 100%);
   pointer-events: none;
 }
 
@@ -689,8 +695,8 @@
     135deg,
     transparent 0%,
     transparent 40%,
-    rgba(0, 102, 255, 0) 40%,
-    rgba(0, 102, 255, 0) 100%
+    rgba(11, 92, 171, 0) 40%,
+    rgba(11, 92, 171, 0) 100%
   );
   -webkit-mask:
     linear-gradient(#fff 0 0) content-box,
@@ -708,9 +714,9 @@
 .card-glow:hover::before {
   background: linear-gradient(
     135deg,
-    rgba(0, 102, 255, 0.3) 0%,
-    rgba(163, 113, 247, 0.2) 50%,
-    rgba(63, 185, 80, 0.1) 100%
+    rgba(11, 92, 171, 0.32) 0%,
+    rgba(32, 199, 183, 0.2) 50%,
+    rgba(24, 169, 87, 0.12) 100%
   );
   opacity: 1;
 }

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 180">
+  <defs>
+    <linearGradient id="openhw-explorer-mark-gradient" x1="22" x2="162" y1="18" y2="164">
+      <stop stop-color="#0E65C7" />
+      <stop offset="0.52" stop-color="#073B78" />
+      <stop offset="1" stop-color="#071B3E" />
+    </linearGradient>
+  </defs>
+  <rect x="10" y="10" width="160" height="160" rx="44" fill="url(#openhw-explorer-mark-gradient)" />
+  <text x="28" y="94" fill="#FFFFFF" font-family="Arial Black, Inter, system-ui, sans-serif" font-size="67" font-weight="900" letter-spacing="-7">OH</text>
+  <path d="M52 126 114 86M62 87l65 45" fill="none" stroke="#FFFFFF" stroke-linecap="square" stroke-linejoin="round" stroke-width="17" />
+  <path d="M122 126h34L119 91Z" fill="#18A957" />
+  <path d="M52 142h74" stroke="#FFFFFF" stroke-linecap="round" stroke-width="7" opacity="0.25" />
+</svg>

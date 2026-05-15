@@ -6,6 +6,7 @@ import { useTranslations, useLocale } from "next-intl";
 import { Link, useRouter, usePathname } from "@/lib/routing";
 import { useTheme } from "@/lib/theme";
 import { features } from "@/lib/features";
+import { BrandLockup } from "@/components/BrandMark";
 
 export function Header() {
   const t = useTranslations("header");
@@ -22,14 +23,8 @@ export function Header() {
   return (
     <header className="sticky top-0 z-50 bg-[var(--bg-dark)]/80 backdrop-blur-xl border-b border-[var(--border)]">
       <div className="max-w-7xl mx-auto flex items-center justify-between h-16 px-4 sm:px-6 lg:px-8">
-        {/* Logo - clickable back to home */}
         <Link href="/" className="flex items-center gap-2.5 hover:opacity-90 transition-opacity">
-          <div className="flex items-center justify-center w-8 h-8 rounded-lg bg-[var(--primary)] shadow-lg shadow-[var(--primary)]/25">
-            <span className="text-white font-bold text-sm">OH</span>
-          </div>
-          <span className="text-[var(--text-primary)] text-lg font-semibold tracking-tight">
-            {t("title")}
-          </span>
+          <BrandLockup />
         </Link>
 
         {/* Desktop Navigation */}

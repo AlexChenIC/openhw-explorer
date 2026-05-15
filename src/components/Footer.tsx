@@ -3,10 +3,10 @@
 import { Github, ExternalLink, Heart, Linkedin } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { externalLinks } from "@/data/resources";
+import { BrandLockup } from "@/components/BrandMark";
 
 export function Footer() {
   const t = useTranslations("footer");
-  const tc = useTranslations("common");
 
   return (
     <footer className="section-footer py-10 sm:py-12">
@@ -17,17 +17,7 @@ export function Footer() {
           <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
             {/* Brand */}
             <div className="flex flex-col gap-2">
-              <div className="flex items-center gap-2.5">
-                <div className="w-7 h-7 rounded-lg bg-[var(--primary)] flex items-center justify-center shadow-lg shadow-[var(--primary)]/20">
-                  <span className="text-white text-xs font-bold">OH</span>
-                </div>
-                <span className="text-sm font-semibold text-[var(--text-primary)]">
-                  OpenHW Explorer
-                </span>
-              </div>
-              <span className="text-xs text-[var(--text-tertiary)] ml-[38px]">
-                {tc("communityProject")}
-              </span>
+              <BrandLockup size="sm" showTagline />
             </div>
 
             {/* Links */}

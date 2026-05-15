@@ -1,6 +1,6 @@
 {
   "common": {
-    "communityProject": "社区项目 · 非官方",
+    "communityProject": "开源老陈 OpenHW Lab",
     "viewOnGitHub": "在 GitHub 查看",
     "backToHome": "返回首页",
     "language": {
@@ -36,7 +36,7 @@
     }
   },
   "hero": {
-    "badge": "社区项目 · 非官方",
+    "badge": "OpenHW Explorer · RISC-V 学习导航",
     "title": "OpenHW Explorer",
     "subtitle": "一站式探索 OpenHW 开源项目、文档和工具。",
     "subtitleLine2": "社区友好的导航器，帮你找到合适的起点。",

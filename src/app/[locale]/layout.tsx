@@ -55,8 +55,12 @@ export const metadata: Metadata = {
     description:
       "Explore OpenHW open-source RISC-V projects. Browse processor cores, verification tools, SoC platforms, and more.",
   },
+  icons: {
+    icon: "/icon.svg",
+    apple: "/apple-icon.svg",
+  },
   other: {
-    "theme-color": "#0066ff",
+    "theme-color": "#0B5CAB",
   },
   robots: {
     index: true,
