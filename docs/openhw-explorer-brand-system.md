@@ -12,21 +12,22 @@ The brand can take tonal inspiration from the OpenHW ecosystem: deep navy, engin
 
 ## Logo Concept
 
-The selected direction is the wordmark concept:
+The selected direction is the chip-mark wordmark concept:
 
-- A rounded deep-blue `OH` mark.
-- A stylized white `X` underneath the `OH`, standing for Explorer and crossing paths.
-- A small hardware-green accent to connect the brand to open hardware and board-level signal energy.
+- A white chip mark with grey pins and a deep navy outline, making the hardware identity visible at first glance.
+- A compact `OHX` symbol inside the chip, with `OH` in deep navy, an engineering-blue directional form, and a small hardware-green `X` accent.
 - A two-line `OpenHW / Explorer` wordmark with Explorer emphasized in engineering blue.
 - The optional tagline: `EXPLORE • LEARN • BUILD`.
 
-The logo should read quickly in a browser tab, website header, slide deck, classroom embed, and social profile. The full wordmark is preferred when horizontal space is available; the square mark is used for favicons and compact UI.
+The logo should read quickly in a browser tab, website header, slide deck, classroom embed, and social profile. The full wordmark is preferred when horizontal space is available; the chip mark is used for favicons and compact UI.
 
 ## Palette
 
 - Explorer navy: `#0B1736`
+- Chip outline navy: `#082454`
 - Explorer blue: `#0B5CAB`
-- Route green: `#2FE38C`
+- Route green: `#18A957`
+- Pin grey: `#9AA5B1`
 - Signal cyan: `#20C7B7`
 - Dark surface: `#0B1020`
 - Light surface: `#F7FAFC`

@@ -5,7 +5,7 @@ type BrandSize = "sm" | "md" | "lg";
 const lockupSizeClass: Record<BrandSize, string> = {
   sm: "h-10 w-[130px]",
   md: "h-12 w-[156px]",
-  lg: "h-16 w-[208px]",
+  lg: "h-[68px] w-[228px]",
 };
 
 const markSizeClass: Record<BrandSize, string> = {

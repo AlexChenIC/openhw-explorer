@@ -1,21 +1,42 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 470 150" role="img" aria-labelledby="title desc">
   <title id="title">OpenHW Explorer wordmark</title>
-  <desc id="desc">OpenHW Explorer wordmark with a deep navy OH mark, compact X accent, and Explore Learn Build tagline.</desc>
+  <desc id="desc">OpenHW Explorer wordmark with a chip-shaped OHX mark and Explore Learn Build tagline.</desc>
   <defs>
-    <linearGradient id="openhw-explorer-mark-gradient" x1="30" x2="116" y1="22" y2="124">
-      <stop stop-color="#073777" />
-      <stop offset="0.56" stop-color="#062552" />
-      <stop offset="1" stop-color="#03142F" />
+    <linearGradient id="openhw-explorer-chip-face" x1="44" x2="106" y1="30" y2="118">
+      <stop stop-color="#FFFFFF" />
+      <stop offset="1" stop-color="#F6FAFF" />
     </linearGradient>
+    <filter id="openhw-explorer-chip-shadow" x="-14%" y="-14%" width="128%" height="128%">
+      <feDropShadow dx="0" dy="3" stdDeviation="3" flood-color="#082454" flood-opacity="0.13" />
+    </filter>
   </defs>
-  <rect x="20" y="20" width="104" height="104" rx="27" fill="url(#openhw-explorer-mark-gradient)" />
-  <g transform="translate(20 20) scale(1.04)">
-    <rect x="15" y="24" width="40" height="31" rx="9" fill="#FFFFFF" />
-    <rect x="27" y="34" width="16" height="11" rx="2.5" fill="#062552" />
-    <path fill="#FFFFFF" d="M60 24h9v12h14V24h9v31h-9V44H69v11h-9V24Z" />
-    <path d="M68 75 85 84 76 64Z" fill="#18A957" />
-    <path d="M23 79 67 55" fill="none" stroke="#FFFFFF" stroke-linecap="square" stroke-linejoin="round" stroke-width="7.2" />
-    <path d="M37 59 82 82" fill="none" stroke="#FFFFFF" stroke-linecap="square" stroke-linejoin="round" stroke-width="7.2" />
+  <g transform="translate(18 18) scale(1.12)">
+    <g fill="#9AA5B1">
+      <rect x="27" y="8" width="6" height="11" rx="1" />
+      <rect x="39" y="8" width="6" height="11" rx="1" />
+      <rect x="51" y="8" width="6" height="11" rx="1" />
+      <rect x="63" y="8" width="6" height="11" rx="1" />
+      <rect x="27" y="77" width="6" height="11" rx="1" />
+      <rect x="39" y="77" width="6" height="11" rx="1" />
+      <rect x="51" y="77" width="6" height="11" rx="1" />
+      <rect x="63" y="77" width="6" height="11" rx="1" />
+      <rect x="8" y="27" width="11" height="6" rx="1" />
+      <rect x="8" y="39" width="11" height="6" rx="1" />
+      <rect x="8" y="51" width="11" height="6" rx="1" />
+      <rect x="8" y="63" width="11" height="6" rx="1" />
+      <rect x="77" y="27" width="11" height="6" rx="1" />
+      <rect x="77" y="39" width="11" height="6" rx="1" />
+      <rect x="77" y="51" width="11" height="6" rx="1" />
+      <rect x="77" y="63" width="11" height="6" rx="1" />
+    </g>
+    <rect x="19" y="19" width="58" height="58" rx="7" fill="url(#openhw-explorer-chip-face)" stroke="#082454" stroke-width="3.8" filter="url(#openhw-explorer-chip-shadow)" />
+    <g transform="translate(23 31) scale(0.74)">
+      <rect x="0" y="8" width="21" height="23" rx="6.5" fill="#082454" />
+      <rect x="7" y="15" width="8" height="10" rx="2" fill="#FFFFFF" />
+      <path fill="#082454" d="M25 8h6v8h12V8h6v31h-6V23H31v16h-6V8Z" />
+      <path d="M49 8 60 23 49 39h-8l11-16L41 8h8Z" fill="#0D56B3" />
+      <path d="M63 8h9L58 23l15 16h-9L54 27 44 39h-9l15-16L36 8h9l9 11 9-11Z" fill="#18A957" />
+    </g>
   </g>
   <text x="152" y="60" fill="#071B3E" font-family="Inter, Arial, Helvetica, system-ui, sans-serif" font-size="44" font-weight="800" letter-spacing="-1.6">OpenHW</text>
   <text x="152" y="101" fill="#0B5CAB" font-family="Inter, Arial, Helvetica, system-ui, sans-serif" font-size="44" font-weight="800" letter-spacing="-1.4">Explorer</text>
