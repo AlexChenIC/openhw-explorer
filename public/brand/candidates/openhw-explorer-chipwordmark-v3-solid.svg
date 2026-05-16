@@ -1,0 +1,45 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 180" role="img" aria-labelledby="title desc">
+  <title id="title">OpenHW Explorer chip wordmark candidate V3</title>
+  <desc id="desc">Solid navy chip mark optimized for small-size recognition.</desc>
+  <defs>
+    <linearGradient id="chipCore" x1="20" x2="120" y1="20" y2="120">
+      <stop stop-color="#0A3C82" />
+      <stop offset="0.58" stop-color="#082454" />
+      <stop offset="1" stop-color="#04142F" />
+    </linearGradient>
+  </defs>
+  <rect width="540" height="180" rx="24" fill="#FFFFFF" />
+  <g transform="translate(25 18)">
+    <g fill="#9FAAB5">
+      <rect x="34" y="0" width="8" height="15" rx="1.5" />
+      <rect x="53" y="0" width="8" height="15" rx="1.5" />
+      <rect x="72" y="0" width="8" height="15" rx="1.5" />
+      <rect x="91" y="0" width="8" height="15" rx="1.5" />
+      <rect x="34" y="116" width="8" height="15" rx="1.5" />
+      <rect x="53" y="116" width="8" height="15" rx="1.5" />
+      <rect x="72" y="116" width="8" height="15" rx="1.5" />
+      <rect x="91" y="116" width="8" height="15" rx="1.5" />
+      <rect x="0" y="34" width="15" height="8" rx="1.5" />
+      <rect x="0" y="53" width="15" height="8" rx="1.5" />
+      <rect x="0" y="72" width="15" height="8" rx="1.5" />
+      <rect x="0" y="91" width="15" height="8" rx="1.5" />
+      <rect x="116" y="34" width="15" height="8" rx="1.5" />
+      <rect x="116" y="53" width="15" height="8" rx="1.5" />
+      <rect x="116" y="72" width="15" height="8" rx="1.5" />
+      <rect x="116" y="91" width="15" height="8" rx="1.5" />
+    </g>
+    <rect x="15" y="15" width="101" height="101" rx="15" fill="url(#chipCore)" />
+    <text x="28" y="79" font-family="Inter, Arial Black, Arial, sans-serif" font-size="42" font-weight="900" letter-spacing="-4.2">
+      <tspan fill="#FFFFFF">OH</tspan><tspan fill="#21C66B" dx="-2">X</tspan>
+    </text>
+  </g>
+  <g transform="translate(176 30)">
+    <text x="0" y="42" fill="#071B3E" font-family="Inter, Arial, Helvetica, sans-serif" font-size="48" font-weight="850" letter-spacing="-2">OpenHW</text>
+    <text x="0" y="89" fill="#0B5CAB" font-family="Inter, Arial, Helvetica, sans-serif" font-size="48" font-weight="850" letter-spacing="-1.7">Explorer</text>
+    <text x="2" y="124" fill="#8B949E" font-family="Inter, Arial, Helvetica, sans-serif" font-size="14" font-weight="760" letter-spacing="3.9">EXPLORE</text>
+    <circle cx="96" cy="119.5" r="2.8" fill="#18A957" />
+    <text x="112" y="124" fill="#8B949E" font-family="Inter, Arial, Helvetica, sans-serif" font-size="14" font-weight="760" letter-spacing="3.9">LEARN</text>
+    <circle cx="192" cy="119.5" r="2.8" fill="#18A957" />
+    <text x="208" y="124" fill="#8B949E" font-family="Inter, Arial, Helvetica, sans-serif" font-size="14" font-weight="760" letter-spacing="3.9">BUILD</text>
+  </g>
+</svg>

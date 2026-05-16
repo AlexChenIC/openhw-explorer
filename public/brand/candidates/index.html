@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>OpenHW Explorer Logo Candidates</title>
+    <style>
+      :root {
+        color-scheme: light;
+        --ink: #071b3e;
+        --muted: #667085;
+        --line: #d8e0ea;
+        --paper: #f6f8fb;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+        background: var(--paper);
+        color: var(--ink);
+        font-family:
+          Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+      }
+
+      main {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 40px 28px 56px;
+      }
+
+      h1 {
+        margin: 0 0 8px;
+        font-size: 30px;
+        letter-spacing: -0.02em;
+      }
+
+      p {
+        margin: 0 0 28px;
+        color: var(--muted);
+        line-height: 1.6;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(420px, 1fr));
+        gap: 22px;
+      }
+
+      figure {
+        margin: 0;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: #ffffff;
+        box-shadow: 0 14px 42px rgba(8, 36, 84, 0.08);
+        overflow: hidden;
+      }
+
+      img {
+        display: block;
+        width: 100%;
+        height: auto;
+        background: #ffffff;
+      }
+
+      figcaption {
+        border-top: 1px solid var(--line);
+        padding: 14px 16px 16px;
+        color: var(--muted);
+        font-size: 13px;
+        line-height: 1.5;
+      }
+
+      strong {
+        display: block;
+        color: var(--ink);
+        font-size: 15px;
+        margin-bottom: 2px;
+      }
+    </style>
+  </head>
+  <body>
+    <main>
+      <h1>OpenHW Explorer Chip Mark + Wordmark Candidates</h1>
+      <p>
+        Candidate assets only. These do not replace the production logo until one direction is selected.
+      </p>
+      <section class="grid" aria-label="Logo candidates">
+        <figure>
+          <img src="./openhw-explorer-chipwordmark-v1-clean.svg" alt="Candidate V1 clean" />
+          <figcaption>
+            <strong>V1 Clean Reference</strong>
+            Closest to the supplied chip mark reference: white chip, full pin set, simple OHX.
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="./openhw-explorer-chipwordmark-v2-balanced.svg" alt="Candidate V2 balanced" />
+          <figcaption>
+            <strong>V2 Balanced</strong>
+            Fewer pins, stronger outline, and better small-size discipline.
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="./openhw-explorer-chipwordmark-v3-solid.svg" alt="Candidate V3 solid" />
+          <figcaption>
+            <strong>V3 Solid Navy</strong>
+            Most app-icon friendly. Stronger contrast and easier recognition in compact surfaces.
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="./openhw-explorer-chipwordmark-v4-minimal.svg" alt="Candidate V4 minimal" />
+          <figcaption>
+            <strong>V4 Minimal</strong>
+            Simplifies chip pins and gives the OHX symbol more space.
+          </figcaption>
+        </figure>
+        <figure>
+          <img src="./openhw-explorer-chipwordmark-v5-signal.svg" alt="Candidate V5 signal route" />
+          <figcaption>
+            <strong>V5 Signal Route</strong>
+            Adds a subtle board-signal route for a stronger open-hardware feel.
+          </figcaption>
+        </figure>
+      </section>
+    </main>
+  </body>
+</html>

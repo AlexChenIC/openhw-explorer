@@ -1,0 +1,41 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 540 180" role="img" aria-labelledby="title desc">
+  <title id="title">OpenHW Explorer chip wordmark candidate V2</title>
+  <desc id="desc">Balanced chip mark with fewer pins, stronger outline, and a refined two-line wordmark.</desc>
+  <defs>
+    <linearGradient id="chipFace" x1="35" x2="112" y1="26" y2="118">
+      <stop stop-color="#FFFFFF" />
+      <stop offset="0.62" stop-color="#FBFDFF" />
+      <stop offset="1" stop-color="#EFF6FF" />
+    </linearGradient>
+  </defs>
+  <rect width="540" height="180" rx="24" fill="#FFFFFF" />
+  <g transform="translate(28 21)">
+    <g fill="#A4AFBB">
+      <rect x="32" y="0" width="9" height="15" rx="1.5" />
+      <rect x="55" y="0" width="9" height="15" rx="1.5" />
+      <rect x="78" y="0" width="9" height="15" rx="1.5" />
+      <rect x="32" y="111" width="9" height="15" rx="1.5" />
+      <rect x="55" y="111" width="9" height="15" rx="1.5" />
+      <rect x="78" y="111" width="9" height="15" rx="1.5" />
+      <rect x="0" y="32" width="15" height="9" rx="1.5" />
+      <rect x="0" y="55" width="15" height="9" rx="1.5" />
+      <rect x="0" y="78" width="15" height="9" rx="1.5" />
+      <rect x="111" y="32" width="15" height="9" rx="1.5" />
+      <rect x="111" y="55" width="15" height="9" rx="1.5" />
+      <rect x="111" y="78" width="15" height="9" rx="1.5" />
+    </g>
+    <rect x="15" y="15" width="96" height="96" rx="11" fill="url(#chipFace)" stroke="#072B63" stroke-width="5.4" />
+    <text x="27" y="78" font-family="Avenir Next, Inter, Arial Black, Arial, sans-serif" font-size="42" font-weight="900" letter-spacing="-4.2">
+      <tspan fill="#072B63">OH</tspan><tspan fill="#18A957" dx="-2">X</tspan>
+    </text>
+  </g>
+  <g transform="translate(176 30)">
+    <text x="0" y="42" fill="#071B3E" font-family="Inter, Arial, Helvetica, sans-serif" font-size="48" font-weight="850" letter-spacing="-2">OpenHW</text>
+    <text x="0" y="89" fill="#0A60C2" font-family="Inter, Arial, Helvetica, sans-serif" font-size="48" font-weight="850" letter-spacing="-1.7">Explorer</text>
+    <text x="2" y="124" fill="#828C99" font-family="Inter, Arial, Helvetica, sans-serif" font-size="14" font-weight="760" letter-spacing="3.9">EXPLORE</text>
+    <circle cx="96" cy="119.5" r="2.8" fill="#18A957" />
+    <text x="112" y="124" fill="#828C99" font-family="Inter, Arial, Helvetica, sans-serif" font-size="14" font-weight="760" letter-spacing="3.9">LEARN</text>
+    <circle cx="192" cy="119.5" r="2.8" fill="#18A957" />
+    <text x="208" y="124" fill="#828C99" font-family="Inter, Arial, Helvetica, sans-serif" font-size="14" font-weight="760" letter-spacing="3.9">BUILD</text>
+  </g>
+</svg>
