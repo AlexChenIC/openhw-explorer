@@ -1,0 +1,53 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 560 180" role="img" aria-labelledby="title desc">
+  <title id="title">OpenHW Explorer selected chip wordmark candidate V6</title>
+  <desc id="desc">Refined selected chip mark with centered OHX lettering and aligned OpenHW Explorer tagline.</desc>
+  <defs>
+    <linearGradient id="chipFace" x1="26" x2="124" y1="22" y2="124">
+      <stop stop-color="#FFFFFF" />
+      <stop offset="0.62" stop-color="#FBFDFF" />
+      <stop offset="1" stop-color="#F2F8FF" />
+    </linearGradient>
+    <linearGradient id="trace" x1="38" x2="112" y1="95" y2="46">
+      <stop stop-color="#0B5CAB" />
+      <stop offset="1" stop-color="#18A957" />
+    </linearGradient>
+    <filter id="chipShadow" x="-12%" y="-12%" width="124%" height="128%">
+      <feDropShadow dx="0" dy="4" stdDeviation="3.5" flood-color="#082454" flood-opacity="0.12" />
+    </filter>
+  </defs>
+  <rect width="560" height="180" rx="24" fill="#FFFFFF" />
+  <g transform="translate(24 18)">
+    <g fill="#9CA6B2">
+      <rect x="38" y="0" width="8" height="16" rx="1.5" />
+      <rect x="59" y="0" width="8" height="16" rx="1.5" />
+      <rect x="80" y="0" width="8" height="16" rx="1.5" />
+      <rect x="101" y="0" width="8" height="16" rx="1.5" />
+      <rect x="38" y="120" width="8" height="16" rx="1.5" />
+      <rect x="59" y="120" width="8" height="16" rx="1.5" />
+      <rect x="80" y="120" width="8" height="16" rx="1.5" />
+      <rect x="101" y="120" width="8" height="16" rx="1.5" />
+      <rect x="0" y="38" width="16" height="8" rx="1.5" />
+      <rect x="0" y="59" width="16" height="8" rx="1.5" />
+      <rect x="0" y="80" width="16" height="8" rx="1.5" />
+      <rect x="0" y="101" width="16" height="8" rx="1.5" />
+      <rect x="120" y="38" width="16" height="8" rx="1.5" />
+      <rect x="120" y="59" width="16" height="8" rx="1.5" />
+      <rect x="120" y="80" width="16" height="8" rx="1.5" />
+      <rect x="120" y="101" width="16" height="8" rx="1.5" />
+    </g>
+    <rect x="16" y="16" width="104" height="104" rx="13.5" fill="url(#chipFace)" stroke="#082454" stroke-width="5.4" filter="url(#chipShadow)" />
+    <path d="M36 96 C54 76 83 73 101 49" fill="none" stroke="url(#trace)" stroke-width="6.2" stroke-linecap="round" opacity="0.18" />
+    <text x="68" y="83" text-anchor="middle" font-family="Inter, Arial Black, Arial, sans-serif" font-size="44" font-weight="900" letter-spacing="-4.4">
+      <tspan fill="#082454">OH</tspan><tspan fill="#18A957" dx="-2">X</tspan>
+    </text>
+  </g>
+  <g transform="translate(188 30)">
+    <text x="0" y="42" fill="#071B3E" font-family="Inter, Arial, Helvetica, sans-serif" font-size="49" font-weight="850" letter-spacing="-2.1">OpenHW</text>
+    <text x="0" y="90" fill="#0A5FBE" font-family="Inter, Arial, Helvetica, sans-serif" font-size="49" font-weight="850" letter-spacing="-1.8">Explorer</text>
+    <text x="0" y="126" fill="#818B98" font-family="Inter, Arial, Helvetica, sans-serif" font-size="14" font-weight="760" letter-spacing="4.1">EXPLORE</text>
+    <circle cx="105" cy="121.5" r="2.9" fill="#18A957" />
+    <text x="123" y="126" fill="#818B98" font-family="Inter, Arial, Helvetica, sans-serif" font-size="14" font-weight="760" letter-spacing="4.1">LEARN</text>
+    <circle cx="220" cy="121.5" r="2.9" fill="#18A957" />
+    <text x="238" y="126" fill="#818B98" font-family="Inter, Arial, Helvetica, sans-serif" font-size="14" font-weight="760" letter-spacing="4.1">BUILD</text>
+  </g>
+</svg>

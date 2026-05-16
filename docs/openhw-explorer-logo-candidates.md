@@ -9,6 +9,7 @@ This document records the current candidate set for the OpenHW Explorer brand ma
 - `public/brand/candidates/openhw-explorer-chipwordmark-v3-solid.svg`
 - `public/brand/candidates/openhw-explorer-chipwordmark-v4-minimal.svg`
 - `public/brand/candidates/openhw-explorer-chipwordmark-v5-signal.svg`
+- `public/brand/candidates/openhw-explorer-chipwordmark-v6-selected-refined.svg`
 - `public/brand/candidates/index.html`
 
 ## Evaluation Notes
@@ -18,6 +19,7 @@ This document records the current candidate set for the OpenHW Explorer brand ma
 - V3 is best for favicon/app icon usage because the solid navy chip body has stronger small-size contrast.
 - V4 is the most restrained and may work well if the site needs a quieter, documentation-like identity.
 - V5 has the most technical personality, but the signal route should stay subtle to avoid visual clutter.
+- V6 is the refined version of the selected V5 direction: it centers the OHX inside the chip and aligns the tagline as a single baseline under the wordmark.
 
 ## Recommended Review Flow
 
