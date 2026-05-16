@@ -1,19 +1,20 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
   <title id="title">OpenHW Explorer mark</title>
-  <desc id="desc">A deep blue rounded icon with geometric OH lettering and a stylized explorer X.</desc>
+  <desc id="desc">A deep navy rounded OH mark with a compact explorer X accent.</desc>
   <defs>
-    <linearGradient id="openhw-explorer-mark-gradient" x1="16" x2="80" y1="10" y2="86">
-      <stop stop-color="#0D63D8" />
-      <stop offset="0.48" stop-color="#073D82" />
-      <stop offset="1" stop-color="#061B3F" />
+    <linearGradient id="openhw-explorer-mark-gradient" x1="18" x2="78" y1="12" y2="84">
+      <stop stop-color="#073777" />
+      <stop offset="0.56" stop-color="#062552" />
+      <stop offset="1" stop-color="#03142F" />
     </linearGradient>
-    <filter id="openhw-explorer-mark-shadow" x="-10%" y="-10%" width="120%" height="125%">
-      <feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#061B3F" flood-opacity="0.18" />
-    </filter>
   </defs>
-  <rect x="8" y="8" width="80" height="80" rx="22" fill="url(#openhw-explorer-mark-gradient)" filter="url(#openhw-explorer-mark-shadow)" />
-  <path fill="#FFFFFF" fill-rule="evenodd" d="M25 25h20a8 8 0 0 1 8 8v10a8 8 0 0 1-8 8H25a8 8 0 0 1-8-8V33a8 8 0 0 1 8-8Zm2 9v8h16v-8H27Z" />
-  <path fill="#FFFFFF" d="M57 25h8v10h15V25h8v26h-8V42H65v9h-8V25Z" />
-  <path d="M25 70 62 48M33 50l39 26" fill="none" stroke="#FFFFFF" stroke-linecap="square" stroke-linejoin="round" stroke-width="9" />
-  <path d="M67 70h19L64 50Z" fill="#18A957" />
+  <rect x="9" y="9" width="78" height="78" rx="20" fill="url(#openhw-explorer-mark-gradient)" />
+  <g transform="translate(9 9) scale(0.78)">
+    <rect x="15" y="24" width="40" height="31" rx="9" fill="#FFFFFF" />
+    <rect x="27" y="34" width="16" height="11" rx="2.5" fill="#062552" />
+    <path fill="#FFFFFF" d="M60 24h9v12h14V24h9v31h-9V44H69v11h-9V24Z" />
+    <path d="M68 75 85 84 76 64Z" fill="#18A957" />
+    <path d="M23 79 67 55" fill="none" stroke="#FFFFFF" stroke-linecap="square" stroke-linejoin="round" stroke-width="7.2" />
+    <path d="M37 59 82 82" fill="none" stroke="#FFFFFF" stroke-linecap="square" stroke-linejoin="round" stroke-width="7.2" />
+  </g>
 </svg>
