@@ -3,9 +3,9 @@ import Image from "next/image";
 type BrandSize = "sm" | "md" | "lg";
 
 const lockupSizeClass: Record<BrandSize, string> = {
-  sm: "h-10 w-[130px]",
-  md: "h-12 w-[156px]",
-  lg: "h-[68px] w-[228px]",
+  sm: "h-10 w-[124px]",
+  md: "h-12 w-[150px]",
+  lg: "h-[68px] w-[212px]",
 };
 
 const markSizeClass: Record<BrandSize, string> = {
@@ -25,8 +25,8 @@ export function BrandMark({ size = "md", className = "" }: BrandAssetProps) {
       src="/brand/openhw-explorer-mark.svg"
       alt=""
       aria-hidden="true"
-      width={96}
-      height={96}
+      width={136}
+      height={136}
       unoptimized
       className={`${markSizeClass[size]} block flex-none ${className}`}
     />
@@ -43,8 +43,8 @@ export function BrandLockup({ size = "md", className = "" }: BrandAssetProps) {
         src="/brand/openhw-explorer-wordmark.svg"
         alt=""
         aria-hidden="true"
-        width={470}
-        height={150}
+        width={560}
+        height={180}
         priority
         unoptimized
         className={`brand-lockup-light block ${imageClass}`}
@@ -53,8 +53,8 @@ export function BrandLockup({ size = "md", className = "" }: BrandAssetProps) {
         src="/brand/openhw-explorer-wordmark-dark.svg"
         alt=""
         aria-hidden="true"
-        width={470}
-        height={150}
+        width={560}
+        height={180}
         priority
         unoptimized
         className={`brand-lockup-dark hidden ${imageClass}`}

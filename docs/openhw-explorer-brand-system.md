@@ -37,8 +37,8 @@ These colors are implemented through CSS variables in `src/app/globals.css`.
 ## Implementation
 
 - `public/brand/openhw-explorer-mark.svg`: reusable square mark.
-- `public/brand/openhw-explorer-wordmark.svg`: full vector wordmark for light surfaces.
-- `public/brand/openhw-explorer-wordmark-dark.svg`: full vector wordmark for dark surfaces.
+- `public/brand/openhw-explorer-wordmark.svg`: full vector wordmark for light surfaces, based on the V6 selected refined chip-mark candidate.
+- `public/brand/openhw-explorer-wordmark-dark.svg`: full vector wordmark for dark surfaces, using the same V6 geometry.
 - `src/app/icon.svg`: browser favicon.
 - `public/apple-icon.svg`: app icon.
 - `src/components/BrandMark.tsx`: React wrapper that renders the stored SVG assets directly.
