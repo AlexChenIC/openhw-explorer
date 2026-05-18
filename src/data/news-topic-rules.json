@@ -1,0 +1,42 @@
+[
+  {
+    "id": "openhw",
+    "labelKey": "audienceOpenhw",
+    "descriptionKey": "audienceOpenhwDesc",
+    "patterns": ["OpenHW|CORE-V|CVA6|CV32|CVW|CVFPU|RISC-V"]
+  },
+  {
+    "id": "ai",
+    "labelKey": "audienceAi",
+    "descriptionKey": "audienceAiDesc",
+    "patterns": [
+      "AI\\b|artificial intelligence|machine learning|\\bML\\b|deep learning|edge AI|LLM|large language|inference|transformer|vLLM|GPT|DeepSeek|MoE|MLPerf|accelerator|NPU|TPU|xPU|tensor|matrix|Tenstorrent|TT-Metal|TT-Metalium|TT-NN|OpenXLA|IREE|Apache TVM|\\bTVM\\b|MLIR|PULP|PULP-NN|Snitch|Ara|MemPool|Gemmini|Kenning|Open Compute|Open Rack|chiplet"
+    ]
+  },
+  {
+    "id": "verification",
+    "labelKey": "audienceVerification",
+    "descriptionKey": "audienceVerificationDesc",
+    "patterns": [
+      "Verification|UVM|SystemVerilog|Architecture Tests|Certification|RISCV-DV|cocotb|formal"
+    ]
+  },
+  {
+    "id": "eda",
+    "labelKey": "audienceEda",
+    "descriptionKey": "audienceEdaDesc",
+    "patterns": ["Yosys|Verilator|OpenROAD|OpenLane|EDA|Synthesis|Simulation|Physical Design|FPGA"]
+  },
+  {
+    "id": "security",
+    "labelKey": "audienceSecurity",
+    "descriptionKey": "audienceSecurityDesc",
+    "patterns": ["Caliptra|OpenTitan|Root of Trust|Security|Keystone|CHERI|Cryptography|enclave"]
+  },
+  {
+    "id": "soc",
+    "labelKey": "audienceSoc",
+    "descriptionKey": "audienceSocDesc",
+    "patterns": ["SoC|IP|RTL|Topwrap|Guineveer|VeeR|Ibex|Chipyard|subsystem|Core"]
+  }
+]

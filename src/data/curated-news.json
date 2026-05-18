@@ -59,6 +59,20 @@
       "highlightRank": 4
     },
     {
+      "title": "MLCommons adds GPT-OSS 20B as a sparse MoE pretraining benchmark for MLPerf Training v6.0",
+      "titleZh": "MLCommons 为 MLPerf Training v6.0 增加 GPT-OSS 20B sparse MoE 预训练 benchmark",
+      "url": "https://mlcommons.org/2026/05/gpt-oss-moe-training6/",
+      "source": "MLCommons",
+      "addedAt": "2026-05-07T13:23:00Z",
+      "summary": "MLCommons described GPT-OSS 20B, a sparse Mixture-of-Experts pretraining benchmark for MLPerf Training v6.0 designed to run on a single 8-GPU node while testing MoE routing, sparse computation, and hardware/software training efficiency.",
+      "summaryZh": "MLCommons 介绍 GPT-OSS 20B，这是面向 MLPerf Training v6.0 的 sparse Mixture-of-Experts 预训练 benchmark，目标是在单个 8-GPU 节点上测试 MoE routing、稀疏计算以及硬件/软件训练效率。",
+      "tags": ["MLCommons", "MLPerf", "AI", "LLM", "MoE", "Accelerator", "Benchmarking"],
+      "sourceTier": "trusted",
+      "language": "en",
+      "editorPick": true,
+      "placement": "featured"
+    },
+    {
       "title": "Antmicro implements a genetic algorithm strategy in OpenROAD resynthesis",
       "titleZh": "Antmicro 在 OpenROAD resynthesis 中实现 genetic algorithm 策略",
       "url": "https://antmicro.com/blog/2026/05/genetic-algorithm-in-openroad",

@@ -17,6 +17,7 @@ import {
   Wrench,
 } from "lucide-react";
 import newsDigest from "@/data/news-digest.json";
+import newsTopicRules from "@/data/news-topic-rules.json";
 
 interface NewsItem {
   title: string;
@@ -48,6 +49,15 @@ interface NewsDigest {
 
 type TopicFilter = "all" | "openhw" | "ai" | "verification" | "eda" | "security" | "soc";
 
+const TOPIC_ICONS: Record<Exclude<TopicFilter, "all">, LucideIcon> = {
+  openhw: Cpu,
+  ai: BrainCircuit,
+  verification: ShieldCheck,
+  eda: Wrench,
+  security: ShieldCheck,
+  soc: Layers3,
+};
+
 const TOPIC_FILTERS: Array<{
   id: TopicFilter;
   labelKey: string;
@@ -62,52 +72,13 @@ const TOPIC_FILTERS: Array<{
     icon: Newspaper,
     patterns: [],
   },
-  {
-    id: "openhw",
-    labelKey: "audienceOpenhw",
-    descriptionKey: "audienceOpenhwDesc",
-    icon: Cpu,
-    patterns: [/OpenHW|CORE-V|CVA6|CV32|CVW|CVFPU|RISC-V/i],
-  },
-  {
-    id: "ai",
-    labelKey: "audienceAi",
-    descriptionKey: "audienceAiDesc",
-    icon: BrainCircuit,
-    patterns: [
-      /AI\b|artificial intelligence|machine learning|\bML\b|deep learning|edge AI|LLM|large language|inference|transformer|vLLM|GPT|DeepSeek|MoE|MLPerf|accelerator|NPU|TPU|xPU|tensor|matrix|Tenstorrent|TT-Metal|TT-Metalium|TT-NN|OpenXLA|IREE|Apache TVM|\bTVM\b|MLIR|PULP|PULP-NN|Snitch|Ara|MemPool|Gemmini|Kenning|Open Compute|Open Rack|chiplet/i,
-    ],
-  },
-  {
-    id: "verification",
-    labelKey: "audienceVerification",
-    descriptionKey: "audienceVerificationDesc",
-    icon: ShieldCheck,
-    patterns: [
-      /Verification|UVM|SystemVerilog|Architecture Tests|Certification|RISCV-DV|cocotb|formal/i,
-    ],
-  },
-  {
-    id: "eda",
-    labelKey: "audienceEda",
-    descriptionKey: "audienceEdaDesc",
-    icon: Wrench,
-    patterns: [/Yosys|Verilator|OpenROAD|OpenLane|EDA|Synthesis|Simulation|Physical Design|FPGA/i],
-  },
-  {
-    id: "security",
-    labelKey: "audienceSecurity",
-    descriptionKey: "audienceSecurityDesc",
-    icon: ShieldCheck,
-    patterns: [/Caliptra|OpenTitan|Root of Trust|Security|Keystone|CHERI|Cryptography|enclave/i],
-  },
-  {
-    id: "soc",
-    labelKey: "audienceSoc",
-    descriptionKey: "audienceSocDesc",
-    icon: Layers3,
-    patterns: [/SoC|IP|RTL|Topwrap|Guineveer|VeeR|Ibex|Chipyard|subsystem|Core/i],
-  },
+  ...newsTopicRules.map((rule) => ({
+    id: rule.id as TopicFilter,
+    labelKey: rule.labelKey,
+    descriptionKey: rule.descriptionKey,
+    icon: TOPIC_ICONS[rule.id as Exclude<TopicFilter, "all">],
+    patterns: rule.patterns.map((pattern) => new RegExp(pattern, "i")),
+  })),
 ];
 
 function asString(value: unknown, fallback = ""): string {

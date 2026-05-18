@@ -1,8 +1,8 @@
 {
   "weekOf": "2026-05-18",
-  "generatedAt": "2026-05-18T01:08:16.157Z",
+  "generatedAt": "2026-05-18T02:12:34.653Z",
   "stats": {
-    "totalRelevant": 17,
+    "totalRelevant": 18,
     "totalSources": 11,
     "topTags": [
       {
@@ -141,8 +141,20 @@
         "zh": "AI 与加速器"
       },
       "icon": "brain",
-      "count": 3,
+      "count": 4,
       "items": [
+        {
+          "title": "MLCommons adds GPT-OSS 20B as a sparse MoE pretraining benchmark for MLPerf Training v6.0",
+          "titleZh": "MLCommons 为 MLPerf Training v6.0 增加 GPT-OSS 20B sparse MoE 预训练 benchmark",
+          "url": "https://mlcommons.org/2026/05/gpt-oss-moe-training6/",
+          "source": "MLCommons",
+          "tags": [
+            "MLCommons",
+            "MLPerf",
+            "AI"
+          ],
+          "publishedAt": "2026-05-07T13:23:00.000Z"
+        },
         {
           "title": "OCP outlines an open data center ecosystem for AI",
           "titleZh": "OCP 公布面向 AI 的开放数据中心生态进展",
@@ -336,6 +348,32 @@
       "highlightRank": 4,
       "titleZh": "Yosys 0.65 发布，带来 arithmetic tree 与 Verilog 前端更新",
       "summaryZh": "Yosys 0.65 新增 arith_tree pass，可将 add/sub/macc 链转换为 carry-save adder tree；同时移除 share -force option，并改进 read_verilog 对 unpacked array positional assignment pattern 的支持。"
+    },
+    {
+      "title": "MLCommons adds GPT-OSS 20B as a sparse MoE pretraining benchmark for MLPerf Training v6.0",
+      "url": "https://mlcommons.org/2026/05/gpt-oss-moe-training6/",
+      "source": "MLCommons",
+      "publishedAt": "2026-05-07T13:23:00.000Z",
+      "summary": "MLCommons described GPT-OSS 20B, a sparse Mixture-of-Experts pretraining benchmark for MLPerf Training v6.0 designed to run on a single 8-GPU node while testing...",
+      "author": "",
+      "relevanceScore": 6,
+      "tags": [
+        "MLCommons",
+        "MLPerf",
+        "AI",
+        "LLM",
+        "MoE",
+        "Accelerator",
+        "Benchmarking"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "editorPick": true,
+      "placement": "featured",
+      "titleZh": "MLCommons 为 MLPerf Training v6.0 增加 GPT-OSS 20B sparse MoE 预训练 benchmark",
+      "summaryZh": "MLCommons 介绍 GPT-OSS 20B，这是面向 MLPerf Training v6.0 的 sparse Mixture-of-Experts 预训练 benchmark，目标是在单个 8-GPU 节点上测试 MoE routing、稀疏计算以及硬件/软件训练效率。"
     },
     {
       "title": "Antmicro implements a genetic algorithm strategy in OpenROAD resynthesis",

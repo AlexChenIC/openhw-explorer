@@ -9,6 +9,7 @@ const ROOT = join(__dirname, "..");
 
 const GITHUB_STATS_FILE = join(ROOT, "src/data/github-stats.json");
 const NEWS_DIGEST_FILE = join(ROOT, "src/data/news-digest.json");
+const NEWS_TOPIC_RULES_FILE = join(ROOT, "src/data/news-topic-rules.json");
 const PROJECTS_FILE = join(ROOT, "src/data/projects.ts");
 const PROJECT_PROFILE_META_FILE = join(ROOT, "src/data/project-profile-meta.json");
 const REPO_DOCS_DIR = join(ROOT, "docs/repos");
@@ -33,6 +34,44 @@ function toDate(value) {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return null;
   return date;
+}
+
+function getNewsSearchText(item) {
+  return [
+    item.title,
+    item.titleZh,
+    item.summary,
+    item.summaryZh,
+    item.source,
+    Array.isArray(item.tags) ? item.tags.join(" ") : "",
+  ]
+    .filter(Boolean)
+    .join(" ");
+}
+
+function buildNewsTopicCoverage(items) {
+  if (!existsSync(NEWS_TOPIC_RULES_FILE)) return [];
+  const rules = readJson(NEWS_TOPIC_RULES_FILE);
+  if (!Array.isArray(rules)) return [];
+
+  return rules.map((rule) => {
+    const patterns = Array.isArray(rule.patterns)
+      ? rule.patterns.map((pattern) => new RegExp(pattern, "i"))
+      : [];
+    const topicItems = items.filter((item) =>
+      patterns.some((pattern) => pattern.test(getNewsSearchText(item))),
+    );
+    const latest = topicItems
+      .map((item) => toDate(item.publishedAt))
+      .filter(Boolean)
+      .sort((a, b) => b.getTime() - a.getTime())[0];
+
+    return {
+      id: rule.id || "unknown",
+      count: topicItems.length,
+      latestAt: latest ? latest.toISOString() : "",
+    };
+  });
 }
 
 function extractProjectIds() {
@@ -109,6 +148,20 @@ function validateNewsDigest() {
   if (!Array.isArray(data.items)) {
     errors.push("news-digest.items must be an array");
     return { errors, warnings };
+  }
+
+  const topicCoverage = buildNewsTopicCoverage(data.items);
+  if (topicCoverage.length) {
+    console.log(
+      `[news-digest] topic coverage: ${topicCoverage
+        .map((topic) => `${topic.id}=${topic.count}`)
+        .join(", ")}`,
+    );
+    for (const topic of topicCoverage) {
+      if (topic.count === 0) {
+        warnings.push(`news topic '${topic.id}' has no public items`);
+      }
+    }
   }
 
   data.items.forEach((item, index) => {
@@ -228,7 +281,9 @@ function validateProjectProfileMeta() {
   }
 
   if (!HAS_REPO_DOCS_DIR) {
-    warnings.push("docs/repos is not present; validating profile source URLs from project-profile-meta.json only");
+    warnings.push(
+      "docs/repos is not present; validating profile source URLs from project-profile-meta.json only",
+    );
   }
 
   return { errors, warnings };
