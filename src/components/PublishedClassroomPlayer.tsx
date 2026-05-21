@@ -1,7 +1,7 @@
 "use client";
 
 import Image from "next/image";
-import { useMemo, useState } from "react";
+import { useEffect, useMemo, useRef, useState } from "react";
 import {
   BookOpen,
   CheckCircle2,
@@ -10,6 +10,8 @@ import {
   FileText,
   Layers3,
   ListChecks,
+  Maximize2,
+  Minimize2,
   PlayCircle,
 } from "lucide-react";
 import type {
@@ -388,6 +390,8 @@ export function PublishedClassroomPlayer({
   standalone = false,
 }: PublishedClassroomPlayerProps) {
   const [sceneIndex, setSceneIndex] = useState(0);
+  const [isFullscreen, setIsFullscreen] = useState(false);
+  const playerRef = useRef<HTMLDivElement>(null);
   const scenes = useMemo(
     () => [...classroom.scenes].sort((a, b) => a.order - b.order),
     [classroom.scenes],
@@ -397,12 +401,56 @@ export function PublishedClassroomPlayer({
   const audio = audioPath(classroom.id, action?.audioUrl);
   const zh = locale === "zh";
 
+  useEffect(() => {
+    const handleFullscreenChange = () => {
+      setIsFullscreen(document.fullscreenElement === playerRef.current);
+    };
+
+    document.addEventListener("fullscreenchange", handleFullscreenChange);
+    return () => document.removeEventListener("fullscreenchange", handleFullscreenChange);
+  }, []);
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    if (isFullscreen) {
+      document.body.style.overflow = "hidden";
+    }
+
+    return () => {
+      document.body.style.overflow = previousOverflow;
+    };
+  }, [isFullscreen]);
+
+  const toggleFullscreen = async () => {
+    if (!playerRef.current) return;
+
+    if (isFullscreen) {
+      if (document.fullscreenElement === playerRef.current) {
+        await document.exitFullscreen();
+      }
+      setIsFullscreen(false);
+      return;
+    }
+
+    try {
+      await playerRef.current.requestFullscreen();
+      setIsFullscreen(true);
+    } catch {
+      setIsFullscreen(true);
+    }
+  };
+
   if (!scene) return null;
 
   return (
     <div
+      ref={playerRef}
       className={`overflow-hidden rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] shadow-[var(--card-shadow)] ${
         standalone ? "min-h-[calc(100vh-12rem)]" : ""
+      } ${
+        isFullscreen
+          ? "fixed inset-0 z-[9999] h-screen w-screen overflow-auto rounded-none border-0 bg-white shadow-none"
+          : ""
       }`}
     >
       <div className="flex flex-col gap-3 border-b border-[var(--border)] bg-[var(--bg-subtle)] px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
@@ -415,6 +463,14 @@ export function PublishedClassroomPlayer({
           <span>{scene.title}</span>
         </div>
         <div className="flex items-center gap-2">
+          <button
+            type="button"
+            onClick={toggleFullscreen}
+            className="inline-flex items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--bg-card)] px-3 py-2 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:bg-[var(--bg-card-hover)]"
+          >
+            {isFullscreen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
+            {isFullscreen ? (zh ? "退出全屏" : "Exit") : zh ? "全屏" : "Fullscreen"}
+          </button>
           <button
             type="button"
             onClick={() => setSceneIndex((value) => Math.max(0, value - 1))}
@@ -436,9 +492,23 @@ export function PublishedClassroomPlayer({
         </div>
       </div>
 
-      <div className="grid bg-slate-100 lg:grid-cols-[1fr_360px]">
-        <div className="min-h-[560px] bg-[linear-gradient(135deg,#fff7ed_0%,#f8fafc_48%,#ecfeff_100%)] p-5 sm:p-8">
-          <div className="mx-auto flex min-h-[500px] max-w-5xl flex-col justify-center rounded-2xl border border-slate-200 bg-white/50 p-5 shadow-xl shadow-slate-200/60 sm:p-8">
+      <div
+        className={`grid bg-slate-100 ${
+          isFullscreen
+            ? "min-h-[calc(100vh-65px)] lg:grid-cols-[minmax(0,1fr)_420px]"
+            : "lg:grid-cols-[1fr_360px]"
+        }`}
+      >
+        <div
+          className={`bg-[linear-gradient(135deg,#fff7ed_0%,#f8fafc_48%,#ecfeff_100%)] p-5 sm:p-8 ${
+            isFullscreen ? "min-h-[calc(100vh-65px)]" : "min-h-[560px]"
+          }`}
+        >
+          <div
+            className={`mx-auto flex flex-col justify-center rounded-2xl border border-slate-200 bg-white/50 p-5 shadow-xl shadow-slate-200/60 sm:p-8 ${
+              isFullscreen ? "min-h-[calc(100vh-129px)] max-w-7xl" : "min-h-[500px] max-w-5xl"
+            }`}
+          >
             <SlideBody scene={scene} />
           </div>
         </div>

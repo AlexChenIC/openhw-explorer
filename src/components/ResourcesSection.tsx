@@ -25,9 +25,9 @@ const cardStyles = [
   },
   {
     icon: Info,
-    accent: "var(--text-secondary)",
-    border: "border-[var(--border)]",
-    bg: "bg-[var(--bg-card)]",
+    accent: "var(--purple)",
+    border: "border-[var(--purple)]/30",
+    bg: "bg-[var(--purple)]/8",
   },
 ] as const;
 
