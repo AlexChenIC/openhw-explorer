@@ -64,4 +64,13 @@ Type definitions are in `src/types/index.ts`. To add a project, append an entry 
 
 ---
 
+## Release Notes
+
+Before promoting OpenHW Explorer as a formal public 1.0 release, review
+`docs/release-1.0-preflight.md`. That checklist records the required decisions
+around brand naming, trademark posture, copyright/license scope, professional
+domain setup, third-party attribution, and future paid-course flexibility.
+
+---
+
 Apache 2.0 — free to use and adapt.
