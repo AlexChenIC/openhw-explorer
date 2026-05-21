@@ -132,7 +132,7 @@
   "resources": {
     "kicker": "Next Steps",
     "title": "Where to Go Next",
-    "subtitle": "Choose your next move: learn, contribute, or track community momentum.",
+    "subtitle": "Choose the right path after the homepage: learn, browse references, read updates, or understand the project.",
     "cards": {
       "classroom": {
         "title": "OpenHW Mini Classroom",
@@ -144,10 +144,15 @@
         "description": "Browse specifications, official docs, HDLs, toolchains, simulators, design tools, verification tools, and communities.",
         "cta": "Open resources"
       },
-      "community": {
-        "title": "Community Insights",
-        "description": "See active repos, contributor signals, and beginner-friendly issues to find your best entry point.",
-        "cta": "See insights"
+      "news": {
+        "title": "News Digest",
+        "description": "Follow curated updates from OpenHW, RISC-V, open silicon projects, tooling, and ecosystem activity.",
+        "cta": "Read news"
+      },
+      "about": {
+        "title": "About the Project",
+        "description": "Understand why OpenHW Explorer exists, how it is curated, and how Alex Chen uses it to support open hardware learning.",
+        "cta": "Learn more"
       }
     }
   },

@@ -1,6 +1,6 @@
 "use client";
 
-import { ArrowRight, BookOpen, GraduationCap, Sparkles, Trophy } from "lucide-react";
+import { ArrowRight, BookOpen, GraduationCap, Info, Newspaper, Sparkles } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/lib/routing";
 
@@ -18,10 +18,16 @@ const cardStyles = [
     bg: "bg-[var(--green)]/8",
   },
   {
-    icon: Trophy,
+    icon: Newspaper,
     accent: "var(--orange)",
     border: "border-[var(--orange)]/30",
     bg: "bg-[var(--orange)]/8",
+  },
+  {
+    icon: Info,
+    accent: "var(--text-secondary)",
+    border: "border-[var(--border)]",
+    bg: "bg-[var(--bg-card)]",
   },
 ] as const;
 
@@ -42,10 +48,16 @@ export function ResourcesSection() {
       cta: t("cards.pathway.cta"),
     },
     {
-      title: t("cards.community.title"),
-      description: t("cards.community.description"),
-      href: "/#rankings",
-      cta: t("cards.community.cta"),
+      title: t("cards.news.title"),
+      description: t("cards.news.description"),
+      href: "/news",
+      cta: t("cards.news.cta"),
+    },
+    {
+      title: t("cards.about.title"),
+      description: t("cards.about.description"),
+      href: "/about",
+      cta: t("cards.about.cta"),
     },
   ] as const;
 
@@ -64,7 +76,7 @@ export function ResourcesSection() {
           <p className="text-sm sm:text-base text-[var(--text-secondary)]">{t("subtitle")}</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-3 sm:gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-3 sm:gap-4">
           {cards.map((card, index) => {
             const style = cardStyles[index];
             const Icon = style.icon;
@@ -84,7 +96,7 @@ export function ResourcesSection() {
                 <h3 className="text-base font-semibold text-[var(--text-primary)] mb-2">
                   {card.title}
                 </h3>
-                <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-4 min-h-[64px]">
+                <p className="text-sm text-[var(--text-secondary)] leading-relaxed mb-4 min-h-[76px]">
                   {card.description}
                 </p>
                 <span className="inline-flex items-center gap-1.5 text-sm font-medium text-[var(--primary)] group-hover:gap-2 transition-all">

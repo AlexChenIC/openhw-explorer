@@ -132,7 +132,7 @@
   "resources": {
     "kicker": "下一步",
     "title": "接下来做什么",
-    "subtitle": "选择你的下一步：学习、贡献，或查看社区动态。",
+    "subtitle": "从首页继续前进：开始学习、查资料、看资讯，或了解这个项目。",
     "cards": {
       "classroom": {
         "title": "OpenHW 小课堂",
@@ -144,10 +144,15 @@
         "description": "浏览规范、官方资料、HDL、工具链、模拟器、设计工具、验证工具和社区入口。",
         "cta": "打开资源库"
       },
-      "community": {
-        "title": "社区洞察",
-        "description": "查看活跃仓库、贡献信号与新手友好议题，找到你的最佳切入点。",
-        "cta": "查看洞察"
+      "news": {
+        "title": "资讯精选",
+        "description": "跟踪 OpenHW、RISC-V、开源芯片、工具链与生态项目的重点动态。",
+        "cta": "阅读资讯"
+      },
+      "about": {
+        "title": "关于项目",
+        "description": "了解 OpenHW Explorer 的定位、整理方式，以及 Alex Chen 如何用它支持开源硬件学习。",
+        "cta": "了解更多"
       }
     }
   },
