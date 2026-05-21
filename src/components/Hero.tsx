@@ -1,8 +1,9 @@
 "use client";
 
 import { useEffect } from "react";
-import { Compass, Search, BookOpen } from "lucide-react";
+import { Compass, GraduationCap, Search } from "lucide-react";
 import { useTranslations } from "next-intl";
+import { Link } from "@/lib/routing";
 import { trackEvent } from "@/lib/observability";
 
 /**
@@ -105,16 +106,16 @@ export function Hero() {
             <Search className="w-[18px] h-[18px] text-white" />
             <span className="text-white text-base font-semibold">{t("exploreProjects")}</span>
           </a>
-          <a
-            href="#resources"
-            onClick={() => trackEvent("hero_cta_clicked", { target: "resources" })}
+          <Link
+            href="/classroom"
+            onClick={() => trackEvent("hero_cta_clicked", { target: "classroom" })}
             className="flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3.5 rounded-lg border border-[var(--border)] hover:bg-[var(--bg-card)] hover:border-[var(--text-tertiary)] transition-all backdrop-blur-sm"
           >
-            <BookOpen className="w-[18px] h-[18px] text-[var(--text-primary)]" />
+            <GraduationCap className="w-[18px] h-[18px] text-[var(--text-primary)]" />
             <span className="text-[var(--text-primary)] text-base font-semibold">
-              {t("browseDocs")}
+              {t("startLearning")}
             </span>
-          </a>
+          </Link>
         </div>
       </div>
     </section>

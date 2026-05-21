@@ -39,10 +39,10 @@
   "hero": {
     "badge": "OpenHW Explorer · RISC-V Learning Navigator",
     "title": "OpenHW Explorer",
-    "subtitle": "Explore OpenHW projects, docs, and tools in one place.",
-    "subtitleLine2": "Find the right starting point for open-source RISC-V hardware.",
+    "subtitle": "Explore OpenHW projects, interactive lessons, and curated RISC-V resources.",
+    "subtitleLine2": "Start from the right project, concept, or course path.",
     "exploreProjects": "Explore Projects",
-    "browseDocs": "Browse Docs"
+    "startLearning": "Start Learning"
   },
   "projects": {
     "title": "All Projects",

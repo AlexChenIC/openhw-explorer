@@ -39,10 +39,10 @@
   "hero": {
     "badge": "OpenHW Explorer · RISC-V 学习导航",
     "title": "OpenHW Explorer",
-    "subtitle": "一站式探索 OpenHW 开源项目、文档和工具。",
-    "subtitleLine2": "社区友好的导航器，帮你找到合适的起点。",
+    "subtitle": "探索 OpenHW 项目、交互式课程和精选 RISC-V 资源。",
+    "subtitleLine2": "从合适的项目、概念或课程路径开始。",
     "exploreProjects": "探索项目",
-    "browseDocs": "浏览文档"
+    "startLearning": "开始学习"
   },
   "projects": {
     "title": "全部项目",
