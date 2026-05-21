@@ -69,6 +69,14 @@ export function ProjectsSection() {
   const tf = useTranslations("filters");
   const searchParams = useSearchParams();
 
+  useEffect(() => {
+    if (window.location.hash !== "#project-list") return;
+
+    window.requestAnimationFrame(() => {
+      document.getElementById("project-list")?.scrollIntoView({ block: "start" });
+    });
+  }, []);
+
   const initialCategory = toCategory(searchParams.get("cat"));
   const initialRole = toRole(searchParams.get("role"));
   const initialCoreType = toCoreType(searchParams.get("core"));
@@ -258,7 +266,7 @@ export function ProjectsSection() {
   }, [activeCategory, activeCoreType, activeRole, activeVerificationType, searchQuery, t, tf]);
 
   return (
-    <section id="projects" className="section-projects py-12 sm:py-16 scroll-mt-24">
+    <section id="project-list" className="section-projects py-12 scroll-mt-24 sm:py-16">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Quick Filters */}
         <QuickFilters

@@ -95,6 +95,8 @@ Recommended content widths:
 
 The header should be quiet and persistent. Use the brand lockup, clear navigation, language switcher, and theme toggle. Avoid adding badges, disclaimers, or secondary promotional text in the header.
 
+The `#projects` anchor belongs to the homepage hero/main presentation area. Use `#project-list` for the actual project directory and filter grid. This keeps direct visits to `/en#projects` visually oriented instead of dropping the reader straight into filters.
+
 ### Cards
 
 Cards are for grouped items, not for every page section. Use:

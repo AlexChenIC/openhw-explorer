@@ -92,7 +92,7 @@ export function ProjectDetail({
   const numberFormatter = new Intl.NumberFormat(locale);
   const formatNumber = (value: number) => numberFormatter.format(value);
   const returnQuery = searchParams.toString();
-  const projectListHref = returnQuery ? `/?${returnQuery}#projects` : "/#projects";
+  const projectListHref = returnQuery ? `/?${returnQuery}#project-list` : "/#project-list";
   const getProjectDetailHref = (projectId: string) =>
     returnQuery ? `/projects/${projectId}?${returnQuery}` : `/projects/${projectId}`;
   const status = statusConfig[project.status];
