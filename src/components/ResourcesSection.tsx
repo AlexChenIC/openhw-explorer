@@ -38,7 +38,7 @@ export function ResourcesSection() {
     {
       title: t("cards.pathway.title"),
       description: t("cards.pathway.description"),
-      href: "/about#contribute",
+      href: "/resources",
       cta: t("cards.pathway.cta"),
     },
     {

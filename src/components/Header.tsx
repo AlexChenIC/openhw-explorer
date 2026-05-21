@@ -41,6 +41,12 @@ export function Header() {
           >
             {t("guide")}
           </Link>
+          <Link
+            href="/resources"
+            className="px-3.5 py-2 text-[var(--text-secondary)] text-sm font-medium hover:text-[var(--text-primary)] hover:bg-[var(--bg-subtle-hover)] rounded-lg transition-all"
+          >
+            {t("resources")}
+          </Link>
           {features.newsEnabled && (
             <Link
               href="/news"
@@ -148,6 +154,13 @@ export function Header() {
               className="block px-3 py-2.5 text-[var(--text-secondary)] text-sm font-medium hover:text-[var(--text-primary)] hover:bg-[var(--bg-subtle-hover)] rounded-lg transition-all"
             >
               {t("guide")}
+            </Link>
+            <Link
+              href="/resources"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="block px-3 py-2.5 text-[var(--text-secondary)] text-sm font-medium hover:text-[var(--text-primary)] hover:bg-[var(--bg-subtle-hover)] rounded-lg transition-all"
+            >
+              {t("resources")}
             </Link>
             {features.newsEnabled && (
               <Link

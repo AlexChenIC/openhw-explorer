@@ -18,6 +18,7 @@
     "title": "OpenHW Explorer",
     "explore": "Explore",
     "guide": "Learning Hub",
+    "resources": "Resources",
     "about": "About",
     "news": "News",
     "contribute": "Contribute",
@@ -139,9 +140,9 @@
         "cta": "Open classroom"
       },
       "pathway": {
-        "title": "Contribution Pathway",
-        "description": "Follow a clear step-by-step route from choosing a repo to shipping your first pull request.",
-        "cta": "View pathway"
+        "title": "Resource Directory",
+        "description": "Browse specifications, official docs, HDLs, toolchains, simulators, design tools, verification tools, and communities.",
+        "cta": "Open resources"
       },
       "community": {
         "title": "Community Insights",

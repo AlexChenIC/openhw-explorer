@@ -18,6 +18,7 @@
     "title": "OpenHW Explorer",
     "explore": "项目探索",
     "guide": "学习中心",
+    "resources": "资源库",
     "about": "关于",
     "news": "资讯",
     "contribute": "参与贡献",
@@ -139,9 +140,9 @@
         "cta": "进入课堂"
       },
       "pathway": {
-        "title": "贡献路径",
-        "description": "按步骤完成从选仓库到提交首个 PR 的完整流程。",
-        "cta": "查看路径"
+        "title": "资源导航库",
+        "description": "浏览规范、官方资料、HDL、工具链、模拟器、设计工具、验证工具和社区入口。",
+        "cta": "打开资源库"
       },
       "community": {
         "title": "社区洞察",

@@ -43,42 +43,42 @@
 
 /* Light theme */
 [data-theme="light"] {
-  --bg-dark: #ffffff;
-  --bg-card: #f7fafc;
-  --bg-card-hover: #eef4f8;
-  --border: #d6e2eb;
+  --bg-dark: #f5f7fb;
+  --bg-card: #ffffff;
+  --bg-card-hover: #f8fafc;
+  --border: #dfe7f0;
 
   --primary: #0b5cab;
-  --primary-dark: #083d79;
-  --cyan: #0f8f83;
+  --primary-dark: #084a8f;
+  --cyan: #0f766e;
 
-  --green: #147d3f;
-  --orange: #bc4c00;
+  --green: #16a34a;
+  --orange: #b45309;
   --purple: #4757c5;
   --brand-wordmark-primary: #071b3e;
   --brand-wordmark-accent: #0b5cab;
-  --brand-wordmark-muted: #8b949e;
+  --brand-wordmark-muted: #7d8896;
 
-  --text-primary: #1f2328;
-  --text-secondary: #656d76;
-  --text-tertiary: #8b949e;
+  --text-primary: #1d1d1f;
+  --text-secondary: #5f6b7a;
+  --text-tertiary: #8592a3;
 
-  --glow-blue: rgba(11, 92, 171, 0.05);
-  --glow-purple: rgba(15, 143, 131, 0.035);
-  --glow-green: rgba(20, 125, 63, 0.035);
-  --glow-orange: rgba(188, 76, 0, 0.03);
+  --glow-blue: rgba(11, 92, 171, 0.035);
+  --glow-purple: rgba(15, 118, 110, 0.018);
+  --glow-green: rgba(22, 163, 74, 0.018);
+  --glow-orange: rgba(180, 83, 9, 0.012);
 
-  --noise-opacity: 0.015;
-  --grid-line: rgba(0, 0, 0, 0.03);
-  --selection-bg: rgba(11, 92, 171, 0.2);
+  --noise-opacity: 0.01;
+  --grid-line: rgba(29, 29, 31, 0.025);
+  --selection-bg: rgba(11, 92, 171, 0.16);
   --selection-fg: #1f2328;
-  --card-shadow: 0 1px 3px rgba(0, 0, 0, 0.08), 0 4px 16px rgba(0, 0, 0, 0.06);
-  --scrollbar-track: #f7fafc;
-  --scrollbar-thumb: #d6e2eb;
+  --card-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 12px 28px rgba(15, 23, 42, 0.07);
+  --scrollbar-track: #eef2f7;
+  --scrollbar-thumb: #cbd5e1;
 
-  --bg-subtle: rgba(0, 0, 0, 0.03);
-  --bg-subtle-hover: rgba(0, 0, 0, 0.05);
-  --bg-subtle-strong: rgba(0, 0, 0, 0.07);
+  --bg-subtle: rgba(15, 23, 42, 0.035);
+  --bg-subtle-hover: rgba(15, 23, 42, 0.055);
+  --bg-subtle-strong: rgba(15, 23, 42, 0.075);
 }
 
 @layer base {
@@ -252,6 +252,13 @@
     radial-gradient(ellipse 80% 60% at 100% 80%, var(--glow-green) 0%, transparent 40%);
 }
 
+[data-theme="light"] .page-wrapper::after {
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(245, 247, 251, 0) 34%),
+    radial-gradient(ellipse 78% 48% at 50% -10%, rgba(11, 92, 171, 0.055) 0%, transparent 62%),
+    radial-gradient(ellipse 46% 34% at 100% 12%, rgba(22, 163, 74, 0.028) 0%, transparent 62%);
+}
+
 /* Custom scrollbar for dark theme */
 @layer utilities {
   .scrollbar-dark::-webkit-scrollbar {
@@ -322,6 +329,19 @@
   z-index: 0;
 }
 
+[data-theme="light"] .hero-bg {
+  background:
+    linear-gradient(
+      180deg,
+      rgba(221, 241, 255, 0.92) 0%,
+      rgba(238, 248, 255, 0.78) 42%,
+      rgba(245, 247, 251, 0.96) 78%,
+      var(--bg-dark) 100%
+    ),
+    linear-gradient(115deg, rgba(11, 92, 171, 0.085) 0%, rgba(255, 255, 255, 0) 38%),
+    linear-gradient(245deg, rgba(15, 118, 110, 0.045) 0%, rgba(255, 255, 255, 0) 34%);
+}
+
 /* 渐变层 - 缓慢漂移 */
 .hero-gradient {
   position: absolute;
@@ -335,6 +355,19 @@
   background-size: 200% 200%;
   animation: gradient-drift 20s ease-in-out infinite;
   will-change: background-position;
+}
+
+[data-theme="light"] .hero-gradient {
+  inset: 0;
+  background:
+    linear-gradient(180deg, rgba(255, 255, 255, 0.26) 0%, rgba(255, 255, 255, 0) 34%),
+    linear-gradient(
+      90deg,
+      rgba(11, 92, 171, 0.035) 0%,
+      rgba(255, 255, 255, 0) 48%,
+      rgba(11, 92, 171, 0.028) 100%
+    );
+  animation: none;
 }
 
 /* 主光晕 - 蓝色 */
@@ -356,6 +389,10 @@
   will-change: transform, opacity;
 }
 
+[data-theme="light"] .hero-glow {
+  display: none;
+}
+
 /* 次光晕 - 紫色 */
 .hero-glow-secondary {
   position: absolute;
@@ -373,6 +410,10 @@
   filter: blur(80px);
   animation: glow-pulse-alt 12s ease-in-out infinite;
   will-change: transform, opacity;
+}
+
+[data-theme="light"] .hero-glow-secondary {
+  display: none;
 }
 
 /* 第三光晕 - 绿色点缀 */
@@ -393,6 +434,10 @@
   animation: glow-pulse 15s ease-in-out infinite;
   animation-delay: -5s;
   will-change: transform, opacity;
+}
+
+[data-theme="light"] .hero-glow-tertiary {
+  display: none;
 }
 
 /* 噪声纹理覆盖层 */
@@ -733,6 +778,25 @@
 .card-glow:hover {
   box-shadow: var(--card-shadow);
   transform: translateY(-2px);
+}
+
+[data-theme="light"] .card-glow::before {
+  background: linear-gradient(
+    135deg,
+    transparent 0%,
+    transparent 45%,
+    rgba(11, 92, 171, 0) 45%,
+    rgba(11, 92, 171, 0) 100%
+  );
+}
+
+[data-theme="light"] .card-glow:hover::before {
+  background: linear-gradient(
+    135deg,
+    rgba(11, 92, 171, 0.14) 0%,
+    rgba(15, 118, 110, 0.08) 55%,
+    rgba(22, 163, 74, 0.06) 100%
+  );
 }
 
 /* ============================================
