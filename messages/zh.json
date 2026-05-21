@@ -397,7 +397,8 @@
       "byContributors": "按贡献者数",
       "stars": "stars",
       "commits": "提交 (4 周)",
-      "contributors": "贡献者"
+      "contributors": "贡献者",
+      "updatedAt": "数据快照：{date}"
     },
     "metrics": {
       "goodFirstIssues": "{count} 个开放 issue",

@@ -4,7 +4,7 @@ import { useMemo, useState } from "react";
 import { Activity, Star, Users } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/lib/routing";
-import { projects, getGitHubStats } from "@/data/projects";
+import { projects, getGitHubStats, getGitHubStatsMeta } from "@/data/projects";
 import { getCategoryStyle } from "@/lib/category-styles";
 import type { GitHubRepoStats } from "@/data/projects";
 
@@ -40,6 +40,11 @@ export function ProjectRankingsSection() {
   const locale = useLocale();
   const [rankingTab, setRankingTab] = useState<RankingTab>("stars");
   const numberFormatter = new Intl.NumberFormat(locale);
+  const statsMeta = getGitHubStatsMeta();
+  const fetchedAt = typeof statsMeta.fetchedAt === "string" ? statsMeta.fetchedAt : null;
+  const snapshotDate = fetchedAt
+    ? new Intl.DateTimeFormat(locale, { dateStyle: "medium" }).format(new Date(fetchedAt))
+    : null;
   const formatNumber = (value: number) => numberFormatter.format(value);
 
   const top10 = useMemo(() => {
@@ -68,6 +73,11 @@ export function ProjectRankingsSection() {
           <p className="text-xs text-[var(--text-tertiary)] mb-4 leading-relaxed">
             {t("rankings.disclaimer")}
           </p>
+          {snapshotDate && (
+            <p className="-mt-2 mb-4 text-xs font-medium text-[var(--text-secondary)]">
+              {t("rankings.updatedAt", { date: snapshotDate })}
+            </p>
+          )}
 
           <div className="flex gap-1 p-1 rounded-lg bg-[var(--bg-subtle-hover)] mb-4">
             {(["stars", "activity", "contributors"] as const).map((tab) => (

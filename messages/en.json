@@ -397,7 +397,8 @@
       "byContributors": "By Contributors",
       "stars": "stars",
       "commits": "commits (4w)",
-      "contributors": "contributors"
+      "contributors": "contributors",
+      "updatedAt": "Data snapshot: {date}"
     },
     "metrics": {
       "goodFirstIssues": "{count} open issue(s)",
