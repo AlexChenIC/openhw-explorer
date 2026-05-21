@@ -696,6 +696,19 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     upstreamSource: "riscv-ottawa",
   },
   {
+    id: "sail-riscv-simulator",
+    title: "Sail RISC-V Model",
+    url: "https://github.com/riscv/sail-riscv",
+    category: "simulation",
+    kind: "tool",
+    summary: {
+      en: "Executable formal ISA model that can build sail_riscv_sim for ELF execution, testing, and reference-model workflows.",
+      zh: "可执行的形式化 ISA 模型，可构建 sail_riscv_sim，用于 ELF 执行、测试和参考模型流程。",
+    },
+    tags: ["Sail", "Reference Model", "Executable Spec"],
+    featured: true,
+  },
+  {
     id: "qemu-riscv",
     title: "QEMU RISC-V",
     url: "https://www.qemu.org/docs/master/system/target-riscv.html",
