@@ -1,4 +1,5 @@
 import architectureMap from "./published-classrooms/openhw-cva6-architecture-map-en.json";
+import ipNotSoc from "./published-classrooms/openhw-cva6-u01-l02-ip-not-soc-en.json";
 import slidekitPrototype from "./published-classrooms/openhw-cva6-slidekit-a1-en.json";
 import whatIsCva6 from "./published-classrooms/openhw-cva6-u01-l01-what-is-cva6-en.json";
 
@@ -58,6 +59,7 @@ export type PublishedClassroom = {
 
 const publishedClassrooms = {
   [whatIsCva6.id]: whatIsCva6,
+  [ipNotSoc.id]: ipNotSoc,
   [architectureMap.id]: architectureMap,
   [slidekitPrototype.id]: slidekitPrototype,
 } as Record<string, PublishedClassroom>;
