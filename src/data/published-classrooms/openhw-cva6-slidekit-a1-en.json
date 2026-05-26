@@ -1,0 +1,527 @@
+{
+  "id": "openhw-cva6-slidekit-a1-en",
+  "stage": {
+    "id": "openhw-cva6-slidekit-a1-en",
+    "name": "What is CVA6: OpenHW SlideKit A1 microcourse",
+    "description": "Task C2 pilot classroom using the first-party openhw-signal-technical HTML SlideKit adapter.",
+    "createdAt": 1778589000000,
+    "updatedAt": 1779786533554,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-repo-reading-workshop",
+    "courseTemplateName": "Source Reading Workshop - HTML SlideKit Pilot",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-a1-title",
+      "stageId": "openhw-cva6-slidekit-a1-en",
+      "type": "html-slide",
+      "title": "What is CVA6: hold the map first",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "dark",
+        "content": {
+          "kicker": "CVA6 - MICROCOURSE A1",
+          "title": "What is CVA6? Hold the map first",
+          "subtitle": "Build the first OpenHW / CORE-V / CVA6 reading map in about ten minutes.",
+          "chips": [
+            "RISC-V core",
+            "OpenHW source-grounded",
+            "6-8 slide microcourse",
+            "AlexChen narration"
+          ],
+          "thesis": "This prototype does not start by grinding through RTL. It first checks CVA6 positioning, learning boundaries, and source entry points so later source reading has direction."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-readme",
+            "title": "CVA6 README",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/README.md",
+            "claimSupported": "README positions CVA6 as a configurable, 6-stage, single-issue, in-order RISC-V CPU."
+          },
+          {
+            "id": "cva6-user-manual",
+            "title": "CVA6 User Manual",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "claimSupported": "The user manual is the stable documentation hub for architecture, configuration and interfaces."
+          }
+        ],
+        "speakerNotes": "Welcome to the first CVA6 microcourse built with the newer OpenHW SlideKit direction. We will not dive into RTL immediately, because the first problem in an open-source processor project is rarely a lack of information. The real problem is too much information without a map. CVA6 is a good anchor for learning OpenHW, but only if we first decide what it is, where the boundary is, and which sources deserve trust."
+      },
+      "sourceAnchors": [
+        "cva6-readme",
+        "cva6-user-manual"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-a1-title-speech",
+          "type": "speech",
+          "text": "Welcome to the first CVA6 microcourse built with the newer OpenHW SlideKit direction. We will not dive into RTL immediately, because the first problem in an open-source processor project is rarely a lack of information. The real problem is too much information without a map. CVA6 is a good anchor for learning OpenHW, but only if we first decide what it is, where the boundary is, and which sources deserve trust.",
+          "voice": "alexchen-en",
+          "speed": 0.9,
+          "audioId": "tts_scene-cva6-a1-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-slidekit-a1-en/audio/tts_scene-cva6-a1-title-speech.mp3"
+        }
+      ],
+      "createdAt": 1778589000000,
+      "updatedAt": 1779786533554
+    },
+    {
+      "id": "scene-cva6-a1-source-map",
+      "stageId": "openhw-cva6-slidekit-a1-en",
+      "type": "html-slide",
+      "title": "Three source types, three jobs",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "SOURCE MAP",
+          "title": "Three source types, three jobs",
+          "subtitle": "The same CVA6 knowledge base can play different teaching roles depending on the source.",
+          "cards": [
+            {
+              "label": "Positioning entry",
+              "title": "README",
+              "body": "Answers what CVA6 is, where a first reading can begin, and which keywords should be tracked later.",
+              "tone": "teal"
+            },
+            {
+              "label": "Official spine",
+              "title": "User Manual",
+              "body": "Organizes overview, configuration, interfaces, and programmer-facing material into a learnable path.",
+              "tone": "blue"
+            },
+            {
+              "label": "Course assets",
+              "title": "Raw archive",
+              "body": "Stores HTML, Markdown, RST, and images so each lesson can select source pages and asset references.",
+              "tone": "gold"
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-readme",
+            "title": "CVA6 README",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/README.md",
+            "claimSupported": "README positions CVA6 as a configurable, 6-stage, single-issue, in-order RISC-V CPU."
+          },
+          {
+            "id": "cva6-user-manual",
+            "title": "CVA6 User Manual",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "claimSupported": "The user manual is the stable documentation hub for architecture, configuration and interfaces."
+          },
+          {
+            "id": "cva6-local-raw-library",
+            "title": "CVA6 local raw archive",
+            "locator": "content/sources/libraries/cva6-raw-library.md",
+            "claimSupported": "The local archive contains mirrored HTML, Markdown, RST and image assets for later source-grounded courses."
+          }
+        ],
+        "speakerNotes": "This slide gives us the source map. The README acts like the front door: it tells us the project identity and the keywords worth following. The User Manual is closer to a formal guide: it organizes overview, configuration, interfaces, and programmer-facing information. The local raw archive is the production asset library. It preserves pages and images so each lesson can point to traceable source anchors instead of vague memory."
+      },
+      "sourceAnchors": [
+        "cva6-readme",
+        "cva6-user-manual",
+        "cva6-local-raw-library"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-a1-source-map-speech",
+          "type": "speech",
+          "text": "This slide gives us the source map. The README acts like the front door: it tells us the project identity and the keywords worth following. The User Manual is closer to a formal guide: it organizes overview, configuration, interfaces, and programmer-facing information. The local raw archive is the production asset library. It preserves pages and images so each lesson can point to traceable source anchors instead of vague memory.",
+          "voice": "alexchen-en",
+          "speed": 0.9,
+          "audioId": "tts_scene-cva6-a1-source-map-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-slidekit-a1-en/audio/tts_scene-cva6-a1-source-map-speech.mp3"
+        }
+      ],
+      "createdAt": 1778589000000,
+      "updatedAt": 1779786533554
+    },
+    {
+      "id": "scene-cva6-a1-scope",
+      "stageId": "openhw-cva6-slidekit-a1-en",
+      "type": "html-slide",
+      "title": "Start with scope: CVA6 is a core, not the whole SoC",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "DIAGRAM FOCUS",
+          "title": "Start with scope: CVA6 is a core, not the whole SoC",
+          "body": "Beginners often mix core, test harness, SoC peripherals, and verification environment. Scope prevents that.",
+          "assetId": "cva6-scope",
+          "caption": "Scope diagram used in the first lesson to separate the CVA6 core learning boundary.",
+          "callouts": [
+            {
+              "title": "Boundary sense",
+              "body": "First decide which questions belong to the core and which belong to system integration."
+            },
+            {
+              "title": "Reading order",
+              "body": "Read scope before overview so you do not infer the whole project from isolated details."
+            }
+          ]
+        },
+        "assets": [
+          {
+            "id": "cva6-scope",
+            "type": "diagram",
+            "src": "/openhw-assets/cva6/cva6_scope.png",
+            "alt": "CVA6 scope diagram",
+            "caption": "CVA6 scope diagram from the official CVA6 user manual asset archive.",
+            "sourceUrl": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/assets/_images/cva6_scope.png",
+            "licenseStatus": "project-docs-public-ready"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cva6-user-manual",
+            "title": "CVA6 User Manual",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "claimSupported": "The user manual is the stable documentation hub for architecture, configuration and interfaces."
+          },
+          {
+            "id": "cva6-local-raw-library",
+            "title": "CVA6 local raw archive",
+            "locator": "content/sources/libraries/cva6-raw-library.md",
+            "claimSupported": "The local archive contains mirrored HTML, Markdown, RST and image assets for later source-grounded courses."
+          }
+        ],
+        "speakerNotes": "The first diagram worth pausing on is scope. New readers often blend core logic, SoC integration, test harnesses, peripherals, and verification environment into one big mental object. That is how confusion starts. Scope separates the object of study. In this prototype course, we are building a CVA6 core learning entry point, not explaining every surrounding system component at once. Boundaries make the later lessons cleaner."
+      },
+      "sourceAnchors": [
+        "cva6-user-manual",
+        "cva6-local-raw-library"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-a1-scope-speech",
+          "type": "speech",
+          "text": "The first diagram worth pausing on is scope. New readers often blend core logic, SoC integration, test harnesses, peripherals, and verification environment into one big mental object. That is how confusion starts. Scope separates the object of study. In this prototype course, we are building a CVA6 core learning entry point, not explaining every surrounding system component at once. Boundaries make the later lessons cleaner.",
+          "voice": "alexchen-en",
+          "speed": 0.9,
+          "audioId": "tts_scene-cva6-a1-scope-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-slidekit-a1-en/audio/tts_scene-cva6-a1-scope-speech.mp3"
+        }
+      ],
+      "createdAt": 1778589000000,
+      "updatedAt": 1779786533554
+    },
+    {
+      "id": "scene-cva6-a1-overview",
+      "stageId": "openhw-cva6-slidekit-a1-en",
+      "type": "html-slide",
+      "title": "Then use overview to build the reading spine",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "ARCHITECTURE MAP",
+          "title": "Then use overview to build the reading spine",
+          "body": "The overview diagram is not for memorizing every module name. It is for planning a source-reading route.",
+          "assetId": "cva6-ariane-overview",
+          "caption": "CVA6/Ariane overview diagram works well for architecture introduction and later module lessons.",
+          "callouts": [
+            {
+              "title": "Reading goal",
+              "body": "First follow how data and control pass through major blocks."
+            },
+            {
+              "title": "Avoid over-reading",
+              "body": "Do not treat the overview as every implementation detail."
+            }
+          ]
+        },
+        "assets": [
+          {
+            "id": "cva6-ariane-overview",
+            "type": "diagram",
+            "src": "/openhw-assets/cva6/ariane_overview.drawio.png",
+            "alt": "CVA6 Ariane overview architecture diagram",
+            "caption": "Ariane/CVA6 high-level overview diagram from the official documentation assets.",
+            "sourceUrl": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/assets/_images/ariane_overview.drawio.png",
+            "licenseStatus": "project-docs-public-ready"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cva6-readme",
+            "title": "CVA6 README",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/README.md",
+            "claimSupported": "README positions CVA6 as a configurable, 6-stage, single-issue, in-order RISC-V CPU."
+          },
+          {
+            "id": "cva6-user-manual",
+            "title": "CVA6 User Manual",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "claimSupported": "The user manual is the stable documentation hub for architecture, configuration and interfaces."
+          },
+          {
+            "id": "cva6-local-raw-library",
+            "title": "CVA6 local raw archive",
+            "locator": "content/sources/libraries/cva6-raw-library.md",
+            "claimSupported": "The local archive contains mirrored HTML, Markdown, RST and image assets for later source-grounded courses."
+          }
+        ],
+        "speakerNotes": "The overview diagram has a different job. We should not use it as a memorization poster. Instead, use it to ask three route-building questions: where does the instruction enter, where is state recorded, and where does a result become committed behavior? Once that route exists, we can later zoom into frontend, issue, load-store, commit, and controller modules without pretending that one diagram contains every implementation detail."
+      },
+      "sourceAnchors": [
+        "cva6-readme",
+        "cva6-user-manual",
+        "cva6-local-raw-library"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-a1-overview-speech",
+          "type": "speech",
+          "text": "The overview diagram has a different job. We should not use it as a memorization poster. Instead, use it to ask three route-building questions: where does the instruction enter, where is state recorded, and where does a result become committed behavior? Once that route exists, we can later zoom into frontend, issue, load-store, commit, and controller modules without pretending that one diagram contains every implementation detail.",
+          "voice": "alexchen-en",
+          "speed": 0.9,
+          "audioId": "tts_scene-cva6-a1-overview-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-slidekit-a1-en/audio/tts_scene-cva6-a1-overview-speech.mp3"
+        }
+      ],
+      "createdAt": 1778589000000,
+      "updatedAt": 1779786533554
+    },
+    {
+      "id": "scene-cva6-a1-production-flow",
+      "stageId": "openhw-cva6-slidekit-a1-en",
+      "type": "html-slide",
+      "title": "From source archive to classroom: control the generation flow",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "dark",
+        "content": {
+          "kicker": "CONTROLLED GENERATION",
+          "title": "From source archive to classroom: control the generation flow",
+          "subtitle": "This SlideKit direction makes the generator follow structure instead of improvising a fresh PPT style every time.",
+          "steps": [
+            {
+              "badge": "01",
+              "title": "Select sources",
+              "body": "Choose one to four source anchors from manifest, pages, and assets."
+            },
+            {
+              "badge": "02",
+              "title": "Set the topic",
+              "body": "One 10-minute lesson answers one clear technical question."
+            },
+            {
+              "badge": "03",
+              "title": "Fill slots",
+              "body": "The generator fills controlled layouts such as titleHero and diagramFocus."
+            },
+            {
+              "badge": "04",
+              "title": "Review quality",
+              "body": "Check sources, overflow, narration, quiz, and pacing before release."
+            }
+          ],
+          "takeaway": "The goal is not to generate many lessons. The goal is to repeatedly ship source-backed, reviewable, branded technical microcourses."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-local-raw-library",
+            "title": "CVA6 local raw archive",
+            "locator": "content/sources/libraries/cva6-raw-library.md",
+            "claimSupported": "The local archive contains mirrored HTML, Markdown, RST and image assets for later source-grounded courses."
+          }
+        ],
+        "speakerNotes": "This slide is really about the production system. Future classrooms should not let a model freely write random HTML, and they should not reinvent the slide style every time. A stronger flow is controlled: choose source anchors, constrain the topic to one ten-minute question, fill stable SlideKit slots, then review source grounding, layout, narration, quiz quality, and pacing. The ambition is quality and repeatability, not volume for its own sake."
+      },
+      "sourceAnchors": [
+        "cva6-local-raw-library"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-a1-production-flow-speech",
+          "type": "speech",
+          "text": "This slide is really about the production system. Future classrooms should not let a model freely write random HTML, and they should not reinvent the slide style every time. A stronger flow is controlled: choose source anchors, constrain the topic to one ten-minute question, fill stable SlideKit slots, then review source grounding, layout, narration, quiz quality, and pacing. The ambition is quality and repeatability, not volume for its own sake.",
+          "voice": "alexchen-en",
+          "speed": 0.9,
+          "audioId": "tts_scene-cva6-a1-production-flow-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-slidekit-a1-en/audio/tts_scene-cva6-a1-production-flow-speech.mp3"
+        }
+      ],
+      "createdAt": 1778589000000,
+      "updatedAt": 1779786533554
+    },
+    {
+      "id": "scene-cva6-a1-checkpoint",
+      "stageId": "openhw-cva6-slidekit-a1-en",
+      "type": "quiz",
+      "title": "Checkpoint: where should CVA6 reading begin?",
+      "order": 5,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "cva6-a1-q1",
+            "type": "single",
+            "question": "If you meet CVA6 for the first time, what understanding should you establish first?",
+            "options": [
+              {
+                "label": "CVA6 is an open-source RISC-V core best introduced through official positioning, scope, and document maps",
+                "value": "A"
+              },
+              {
+                "label": "The first step is to read every RTL file line by line with no map",
+                "value": "B"
+              },
+              {
+                "label": "CVA6 is only a RISC-V ISA reference, so project documentation is unnecessary",
+                "value": "C"
+              },
+              {
+                "label": "CVA6 learning should begin from random issue comments with no source anchor",
+                "value": "D"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "analysis": "The first lesson should establish positioning and a reading map. README, User Manual, scope, and overview diagrams help the learner know what object is being studied.",
+            "hasAnswer": true,
+            "points": 1
+          },
+          {
+            "id": "cva6-a1-q2",
+            "type": "multiple",
+            "question": "Which sources are appropriate entry anchors for a CVA6 beginner lesson?",
+            "options": [
+              {
+                "label": "CVA6 README",
+                "value": "A"
+              },
+              {
+                "label": "CVA6 User Manual",
+                "value": "B"
+              },
+              {
+                "label": "The local CVA6 raw archive manifest and asset inventory",
+                "value": "C"
+              },
+              {
+                "label": "Generic chip articles with no source grounding",
+                "value": "D"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C"
+            ],
+            "analysis": "README supports positioning, User Manual supports the official route, and the local raw archive preserves traceable pages and images for course generation.",
+            "hasAnswer": true,
+            "points": 2
+          }
+        ]
+      },
+      "actions": [
+        {
+          "id": "scene-cva6-a1-checkpoint-speech",
+          "type": "speech",
+          "text": "This checkpoint is small by design. It checks whether we picked the right learning entry point. For a first CVA6 lesson, the most important skill is not memorizing parameters. It is knowing which sources answer positioning questions, which sources answer structure questions, and why source anchors matter. Since these are choice questions, they can be graded locally in the public classroom.",
+          "voice": "alexchen-en",
+          "speed": 0.9,
+          "audioId": "tts_scene-cva6-a1-checkpoint-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-slidekit-a1-en/audio/tts_scene-cva6-a1-checkpoint-speech.mp3"
+        }
+      ],
+      "createdAt": 1778589000000,
+      "updatedAt": 1779786533554
+    },
+    {
+      "id": "scene-cva6-a1-summary",
+      "stageId": "openhw-cva6-slidekit-a1-en",
+      "type": "html-slide",
+      "title": "Summary: build the map before the details",
+      "order": 6,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "dark",
+        "content": {
+          "kicker": "WRAP-UP",
+          "title": "Build the map before the details",
+          "takeaways": [
+            "The first CVA6 step is positioning, boundary, and source entry, not full RTL digestion.",
+            "README, User Manual, and raw archive each play a different teaching role.",
+            "Scope and overview diagrams are good seeds for later 10-minute microcourses."
+          ],
+          "nextStep": "Suggested next lesson: how to read the official CVA6 materials and which pages to open first.",
+          "closing": "This SlideKit prototype focuses on visual rhythm, source grounding, and whether AlexChen narration can feel like a professional OpenHW microcourse."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-readme",
+            "title": "CVA6 README",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/README.md",
+            "claimSupported": "README positions CVA6 as a configurable, 6-stage, single-issue, in-order RISC-V CPU."
+          },
+          {
+            "id": "cva6-user-manual",
+            "title": "CVA6 User Manual",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "claimSupported": "The user manual is the stable documentation hub for architecture, configuration and interfaces."
+          },
+          {
+            "id": "cva6-local-raw-library",
+            "title": "CVA6 local raw archive",
+            "locator": "content/sources/libraries/cva6-raw-library.md",
+            "claimSupported": "The local archive contains mirrored HTML, Markdown, RST and image assets for later source-grounded courses."
+          }
+        ],
+        "speakerNotes": "Let us wrap up. This prototype does not try to explain all of CVA6. It demonstrates a rule for the future series: build the map before the details. The README helps confirm identity. The User Manual gives the official route. The raw archive keeps pages and images traceable. Scope and overview diagrams then become natural seeds for short, focused lessons. That is the foundation for a professional OpenHW classroom pipeline."
+      },
+      "sourceAnchors": [
+        "cva6-readme",
+        "cva6-user-manual",
+        "cva6-local-raw-library"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-a1-summary-speech",
+          "type": "speech",
+          "text": "Let us wrap up. This prototype does not try to explain all of CVA6. It demonstrates a rule for the future series: build the map before the details. The README helps confirm identity. The User Manual gives the official route. The raw archive keeps pages and images traceable. Scope and overview diagrams then become natural seeds for short, focused lessons. That is the foundation for a professional OpenHW classroom pipeline.",
+          "voice": "alexchen-en",
+          "speed": 0.9,
+          "audioId": "tts_scene-cva6-a1-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-slidekit-a1-en/audio/tts_scene-cva6-a1-summary-speech.mp3"
+        }
+      ],
+      "createdAt": 1778589000000,
+      "updatedAt": 1779786533554
+    }
+  ],
+  "createdAt": "2026-05-12T12:30:00.000Z"
+}

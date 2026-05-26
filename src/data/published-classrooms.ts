@@ -1,6 +1,6 @@
-import architectureMap from "./published-classrooms/openhw-cva6-architecture-map-zh.json";
-import slidekitPrototype from "./published-classrooms/openhw-cva6-slidekit-a1-zh.json";
-import whatIsCva6 from "./published-classrooms/openhw-cva6-u01-l01-what-is-cva6-zh.json";
+import architectureMap from "./published-classrooms/openhw-cva6-architecture-map-en.json";
+import slidekitPrototype from "./published-classrooms/openhw-cva6-slidekit-a1-en.json";
+import whatIsCva6 from "./published-classrooms/openhw-cva6-u01-l01-what-is-cva6-en.json";
 
 export type PublishedClassroomAction = {
   id: string;
