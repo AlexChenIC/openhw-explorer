@@ -169,7 +169,7 @@ export const classroomSeries: ClassroomSeries[] = [
     },
     estimatedHours: 7,
     lessonsPlanned: 50,
-    lessonsReady: 3,
+    lessonsReady: 4,
     featuredLessonId: "cva6-u01-l01-what-is-cva6",
     units: [
       {
@@ -321,15 +321,16 @@ export const classroomSeries: ClassroomSeries[] = [
       },
       {
         id: "cva6-u01-l03-doc-roles",
+        classroomId: "openhw-cva6-u01-l03-doc-roles-en",
         projectId: "cva6",
         seriesId: "cva6-from-zero",
-        status: "planned",
+        status: "pilot",
         order: 3,
         unitId: "u01-orientation",
         skillId: "u01-s02-source-literacy",
         language: "en",
-        durationMinutes: 8,
-        slideCount: 8,
+        durationMinutes: 9,
+        slideCount: 9,
         quizCount: 4,
         level: {
           en: "Starter",
@@ -348,7 +349,12 @@ export const classroomSeries: ClassroomSeries[] = [
           zh: "判断一个问题应该由 README、User Manual、requirements，还是具体配置 design doc 回答。",
         },
         tags: ["source literacy", "documentation", "CVA6"],
-        sourceRefs: ["CVA6 README", "CVA6 User Manual", "CV32A60X Design"],
+        sourceRefs: [
+          "CVA6 README",
+          "CVA6 User Manual",
+          "CVA6 Requirements Specification",
+          "CV32A60X Design",
+        ],
       },
       {
         id: "cva6-u01-l04-scope-diagram",
