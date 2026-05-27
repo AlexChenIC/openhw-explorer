@@ -13,6 +13,11 @@ import issueInorder from "./published-classrooms/openhw-cva6-u05-l01-inorder-iss
 import issueRawWaw from "./published-classrooms/openhw-cva6-u05-l03-raw-waw-en.json";
 import issueScoreboardFifo from "./published-classrooms/openhw-cva6-u05-l02-scoreboard-fifo-en.json";
 import issueStructuralHazards from "./published-classrooms/openhw-cva6-u05-l05-structural-hazards-en.json";
+import executeBranchUnit from "./published-classrooms/openhw-cva6-u06-l02-branch-unit-en.json";
+import executeCheckpoint from "./published-classrooms/openhw-cva6-u06-l05-checkpoint-commit-en.json";
+import executeCommitStage from "./published-classrooms/openhw-cva6-u06-l03-commit-stage-en.json";
+import executeExStageMap from "./published-classrooms/openhw-cva6-u06-l01-ex-stage-map-en.json";
+import executePreciseException from "./published-classrooms/openhw-cva6-u06-l04-precise-exception-en.json";
 import orientationCheckpoint from "./published-classrooms/openhw-cva6-u01-l06-checkpoint-orientation-en.json";
 import parameterMap from "./published-classrooms/openhw-cva6-u02-l03-parameter-map-en.json";
 import pcgenFetch from "./published-classrooms/openhw-cva6-u03-l02-pcgen-fetch-en.json";
@@ -111,6 +116,11 @@ const publishedClassrooms = {
   [issueRawWaw.id]: issueRawWaw,
   [issueForwarding.id]: issueForwarding,
   [issueStructuralHazards.id]: issueStructuralHazards,
+  [executeExStageMap.id]: executeExStageMap,
+  [executeBranchUnit.id]: executeBranchUnit,
+  [executeCommitStage.id]: executeCommitStage,
+  [executePreciseException.id]: executePreciseException,
+  [executeCheckpoint.id]: executeCheckpoint,
   [slidekitPrototype.id]: slidekitPrototype,
 } as Record<string, PublishedClassroom>;
 

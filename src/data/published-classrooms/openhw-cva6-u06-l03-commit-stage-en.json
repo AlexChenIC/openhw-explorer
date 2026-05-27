@@ -1,0 +1,598 @@
+{
+  "id": "openhw-cva6-u06-l03-commit-stage-en",
+  "stage": {
+    "id": "openhw-cva6-u06-l03-commit-stage-en",
+    "name": "COMMIT_STAGE: where architectural state becomes real",
+    "description": "A commit-stage lesson on in-order retirement, GPR writeback, store commit, CSR commit, flush control, and the architectural-state boundary.",
+    "createdAt": 1779880739333,
+    "updatedAt": 1779881244402,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u06-l03-title",
+      "stageId": "openhw-cva6-u06-l03-commit-stage-en",
+      "type": "html-slide",
+      "title": "Commit is the architectural gate",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 06 / LESSON 03",
+          "title": "COMMIT_STAGE: where architectural state becomes real",
+          "subtitle": "Execution may finish earlier, but architectural state is updated only through commit discipline.",
+          "chips": [
+            "COMMIT_STAGE",
+            "Retirement",
+            "CSR write",
+            "Store commit",
+            "GPR writeback"
+          ],
+          "thesis": "The commit stage is the point where completed work stops being a pending result and becomes official machine state."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-commit-stage",
+            "title": "CV32A60X design: COMMIT_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#commit-stage-module",
+            "locator": "cv32a60x/design/design.md COMMIT_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "COMMIT_STAGE is the last pipeline stage and updates architectural state by writing CSR registers, committing stores, and writing back data to the register file."
+          },
+          {
+            "id": "deprecated-commit-stage",
+            "title": "CVA6 deprecated design docs: Commit stage",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "deprecated-design-docs/commit_stage.md",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/deprecated-design-docs/commit_stage.md",
+            "claimSupported": "The legacy commit-stage note states the design rule that no other pipeline stage updates architectural state under any circumstances."
+          }
+        ],
+        "speakerNotes": "This lesson is about the architectural gate. The CV32A60X design text says COMMIT_STAGE is the last pipeline stage and updates architectural state by writing CSR registers, committing stores, and writing back data to the register file. The older design note says the rule even more sharply: no other pipeline stage updates architectural state. That is the sentence to remember."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-commit-stage",
+        "deprecated-commit-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u06-l03-title-speech",
+          "type": "speech",
+          "text": "This lesson is about the architectural gate. The CV32A60X design text says COMMIT_STAGE is the last pipeline stage and updates architectural state by writing CSR registers, committing stores, and writing back data to the register file. The older design note says the rule even more sharply: no other pipeline stage updates architectural state. That is the sentence to remember.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u06-l03-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u06-l03-commit-stage-en/audio/tts_scene-cva6-u06-l03-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u06-l03-scoreboard",
+      "stageId": "openhw-cva6-u06-l03-commit-stage-en",
+      "type": "html-slide",
+      "title": "Commit uses completed tracked work",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "RETIREMENT BOUNDARY",
+          "title": "The oldest completed instruction gets the architectural chance",
+          "body": "ISSUE_STAGE tracks execution completion; COMMIT_STAGE receives commit candidates and acknowledges the work that is actually allowed to retire.",
+          "assetId": "scoreboard",
+          "caption": "The scoreboard explains why completion and retirement are related but not identical.",
+          "callouts": [
+            "Completion evidence",
+            "Oldest-first discipline",
+            "Commit acknowledge"
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-commit-stage",
+            "title": "CV32A60X design: COMMIT_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#commit-stage-module",
+            "locator": "cv32a60x/design/design.md COMMIT_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "COMMIT_STAGE is the last pipeline stage and updates architectural state by writing CSR registers, committing stores, and writing back data to the register file."
+          },
+          {
+            "id": "deprecated-commit-stage",
+            "title": "CVA6 deprecated design docs: Commit stage",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "deprecated-design-docs/commit_stage.md",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/deprecated-design-docs/commit_stage.md",
+            "claimSupported": "The legacy commit-stage note states the design rule that no other pipeline stage updates architectural state under any circumstances."
+          }
+        ],
+        "speakerNotes": "Completion and retirement are close, but they are not the same word. The scoreboard can know that a result returned. Commit asks whether the completed instruction is the right one to retire now, and then acknowledges that retirement. This distinction is why a simple in-order machine can still have a disciplined backend story."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-commit-stage",
+        "deprecated-commit-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u06-l03-scoreboard-speech",
+          "type": "speech",
+          "text": "Completion and retirement are close, but they are not the same word. The scoreboard can know that a result returned. Commit asks whether the completed instruction is the right one to retire now, and then acknowledges that retirement. This distinction is why a simple in-order machine can still have a disciplined backend story.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u06-l03-scoreboard-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u06-l03-commit-stage-en/audio/tts_scene-cva6-u06-l03-scoreboard-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u06-l03-state",
+      "stageId": "openhw-cva6-u06-l03-commit-stage-en",
+      "type": "html-slide",
+      "title": "What counts as architectural state?",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "STATE UPDATES",
+          "title": "COMMIT_STAGE coordinates the visible changes",
+          "subtitle": "Look for the updates a software-visible machine would care about.",
+          "cards": [
+            {
+              "title": "GPR writeback",
+              "body": "Register file write address, data, and enable signals make ordinary results visible."
+            },
+            {
+              "title": "CSR write",
+              "body": "CSR operation and data are handed to CSR_REGFILE through the commit path."
+            },
+            {
+              "title": "Store commit",
+              "body": "Stores are committed through LSU interaction rather than applied casually at issue time."
+            },
+            {
+              "title": "Flush control",
+              "body": "Commit can request pipeline flush when architectural control flow requires it."
+            }
+          ],
+          "takeaway": "Commit is where side effects become intentional, ordered, and externally meaningful."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-commit-stage",
+            "title": "CV32A60X design: COMMIT_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#commit-stage-module",
+            "locator": "cv32a60x/design/design.md COMMIT_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "COMMIT_STAGE is the last pipeline stage and updates architectural state by writing CSR registers, committing stores, and writing back data to the register file."
+          },
+          {
+            "id": "cv32a60x-design-csr-regfile",
+            "title": "CV32A60X design: CSR_REGFILE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#csr-regfile-module",
+            "locator": "cv32a60x/design/design.md CSR_REGFILE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "CSR_REGFILE interacts with commit, trap, return, and frontend redirection through CSR exception, EPC, trap-vector, and return signals."
+          },
+          {
+            "id": "cv32a60x-design-lsu",
+            "title": "CV32A60X design: Load Store Unit",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#load-store-unit",
+            "locator": "cv32a60x/design/design.md Load Store Unit",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The LSU handles load and store requests, store commit interaction, load result return, and selected ordering checks with the store buffer."
+          }
+        ],
+        "speakerNotes": "Architectural state is what the machine must make visible in the right order. Ordinary integer results become register-file writes. CSR operations can change privileged state. Stores affect memory-side behavior and therefore need commit discipline. Commit can also participate in flush control. These are not implementation trivia; these are the public contract of the processor."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-commit-stage",
+        "cv32a60x-design-csr-regfile",
+        "cv32a60x-design-lsu"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u06-l03-state-speech",
+          "type": "speech",
+          "text": "Architectural state is what the machine must make visible in the right order. Ordinary integer results become register-file writes. CSR operations can change privileged state. Stores affect memory-side behavior and therefore need commit discipline. Commit can also participate in flush control. These are not implementation trivia; these are the public contract of the processor.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u06-l03-state-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u06-l03-commit-stage-en/audio/tts_scene-cva6-u06-l03-state-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u06-l03-flow",
+      "stageId": "openhw-cva6-u06-l03-commit-stage-en",
+      "type": "html-slide",
+      "title": "The commit handshake",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "light",
+        "content": {
+          "kicker": "HANDSHAKE",
+          "title": "Retirement is an acknowledged action",
+          "subtitle": "Signals matter here because they protect ordering and side-effect boundaries.",
+          "steps": [
+            {
+              "title": "Candidate arrives",
+              "body": "COMMIT_STAGE receives the instruction or instructions proposed for commit."
+            },
+            {
+              "title": "Readiness checked",
+              "body": "Store and CSR paths can impose readiness or exception constraints."
+            },
+            {
+              "title": "Commit acknowledged",
+              "body": "Commit acknowledge tells ISSUE_STAGE that retirement really happened."
+            },
+            {
+              "title": "State updated",
+              "body": "GPR, CSR, store, and control updates occur through the commit boundary."
+            }
+          ],
+          "takeaway": "A commit signal is not ceremonial; it is the boundary between pending and official."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-commit-stage",
+            "title": "CV32A60X design: COMMIT_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#commit-stage-module",
+            "locator": "cv32a60x/design/design.md COMMIT_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "COMMIT_STAGE is the last pipeline stage and updates architectural state by writing CSR registers, committing stores, and writing back data to the register file."
+          },
+          {
+            "id": "cv32a60x-design-csr-buffer",
+            "title": "CV32A60X design: CSR buffer submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#csr-buffer",
+            "locator": "cv32a60x/design/design.md CSR buffer submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CSR buffer stores CSR address and operation information until COMMIT_STAGE decides whether the CSR side effect should execute."
+          },
+          {
+            "id": "cv32a60x-design-lsu",
+            "title": "CV32A60X design: Load Store Unit",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#load-store-unit",
+            "locator": "cv32a60x/design/design.md Load Store Unit",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The LSU handles load and store requests, store commit interaction, load result return, and selected ordering checks with the store buffer."
+          }
+        ],
+        "speakerNotes": "The commit handshake is what keeps the story honest. A candidate instruction arrives from the tracked backend path. Commit checks whether related paths are ready: for example, store commit readiness or CSR exception conditions. Then commit acknowledges retirement and performs the state update. This is why side-effect buffering exists: it gives commit a final say."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-commit-stage",
+        "cv32a60x-design-csr-buffer",
+        "cv32a60x-design-lsu"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u06-l03-flow-speech",
+          "type": "speech",
+          "text": "The commit handshake is what keeps the story honest. A candidate instruction arrives from the tracked backend path. Commit checks whether related paths are ready: for example, store commit readiness or CSR exception conditions. Then commit acknowledges retirement and performs the state update. This is why side-effect buffering exists: it gives commit a final say.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u06-l03-flow-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u06-l03-commit-stage-en/audio/tts_scene-cva6-u06-l03-flow-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u06-l03-discipline",
+      "stageId": "openhw-cva6-u06-l03-commit-stage-en",
+      "type": "html-slide",
+      "title": "The golden rule for public explanations",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "GOLDEN RULE",
+          "title": "Never let an early stage casually update architectural state",
+          "subtitle": "This rule prevents wrong-path work from becoming real.",
+          "items": [
+            "Execution may compute a result before retirement.",
+            "A CSR buffer may carry intent before the CSR state changes.",
+            "A store may be tracked before it is committed.",
+            "Commit acknowledge marks the ordered retirement point.",
+            "Precise exception handling depends on this discipline."
+          ],
+          "takeaway": "Commit is not just another stage; it is the processor state boundary."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "deprecated-commit-stage",
+            "title": "CVA6 deprecated design docs: Commit stage",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "deprecated-design-docs/commit_stage.md",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/deprecated-design-docs/commit_stage.md",
+            "claimSupported": "The legacy commit-stage note states the design rule that no other pipeline stage updates architectural state under any circumstances."
+          },
+          {
+            "id": "cv32a60x-design-commit-stage",
+            "title": "CV32A60X design: COMMIT_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#commit-stage-module",
+            "locator": "cv32a60x/design/design.md COMMIT_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "COMMIT_STAGE is the last pipeline stage and updates architectural state by writing CSR registers, committing stores, and writing back data to the register file."
+          }
+        ],
+        "speakerNotes": "Here is the rule I would put on a sticky note next to the waveform viewer: early stages may compute, predict, track, or buffer, but they should not casually update architectural state. Commit is the state boundary. Once you accept that rule, precise exceptions, store commit, CSR behavior, and branch repair all become much easier to explain."
+      },
+      "sourceAnchors": [
+        "deprecated-commit-stage",
+        "cv32a60x-design-commit-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u06-l03-discipline-speech",
+          "type": "speech",
+          "text": "Here is the rule I would put on a sticky note next to the waveform viewer: early stages may compute, predict, track, or buffer, but they should not casually update architectural state. Commit is the state boundary. Once you accept that rule, precise exceptions, store commit, CSR behavior, and branch repair all become much easier to explain.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u06-l03-discipline-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u06-l03-commit-stage-en/audio/tts_scene-cva6-u06-l03-discipline-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u06-l03-quiz",
+      "stageId": "openhw-cva6-u06-l03-commit-stage-en",
+      "type": "quiz",
+      "title": "Check commit discipline",
+      "order": 5,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u06-l03-q1",
+            "type": "single",
+            "question": "What is the best definition of COMMIT_STAGE in this lesson?",
+            "options": [
+              {
+                "value": "A",
+                "label": "The first place where instructions are decoded"
+              },
+              {
+                "value": "B",
+                "label": "The last pipeline stage where completed work updates architectural state"
+              },
+              {
+                "value": "C",
+                "label": "A frontend predictor table"
+              },
+              {
+                "value": "D",
+                "label": "A purely decorative RTL wrapper"
+              }
+            ],
+            "answer": [
+              "B"
+            ],
+            "hasAnswer": true,
+            "analysis": "The design text explicitly describes COMMIT_STAGE as the last stage that updates architectural state."
+          },
+          {
+            "id": "u06-l03-q2",
+            "type": "multiple",
+            "question": "Which actions are part of the commit-stage state boundary?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Writing CSR registers"
+              },
+              {
+                "value": "B",
+                "label": "Committing stores"
+              },
+              {
+                "value": "C",
+                "label": "Writing back data to the register file"
+              },
+              {
+                "value": "D",
+                "label": "Selecting the next predicted PC every cycle"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C"
+            ],
+            "hasAnswer": true,
+            "analysis": "Prediction belongs to the frontend; commit owns final architectural updates."
+          },
+          {
+            "id": "u06-l03-q3",
+            "type": "single",
+            "question": "Why is commit acknowledge important?",
+            "options": [
+              {
+                "value": "A",
+                "label": "It confirms that retirement actually happened"
+              },
+              {
+                "value": "B",
+                "label": "It disables all future instruction fetch forever"
+              },
+              {
+                "value": "C",
+                "label": "It predicts the next branch target"
+              },
+              {
+                "value": "D",
+                "label": "It replaces the scoreboard entry fields with random data"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "Acknowledge closes the loop between commit and tracked backend state."
+          },
+          {
+            "id": "u06-l03-q4",
+            "type": "single",
+            "question": "Which sentence follows the golden rule?",
+            "options": [
+              {
+                "value": "A",
+                "label": "A CSR write may update state as soon as decode sees it"
+              },
+              {
+                "value": "B",
+                "label": "A store should become architectural only through commit discipline"
+              },
+              {
+                "value": "C",
+                "label": "Wrong-path side effects are harmless"
+              },
+              {
+                "value": "D",
+                "label": "The ALU owns final retirement"
+              }
+            ],
+            "answer": [
+              "B"
+            ],
+            "hasAnswer": true,
+            "analysis": "State-changing behavior must pass through the commit boundary."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-commit-stage",
+            "title": "CV32A60X design: COMMIT_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#commit-stage-module",
+            "locator": "cv32a60x/design/design.md COMMIT_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "COMMIT_STAGE is the last pipeline stage and updates architectural state by writing CSR registers, committing stores, and writing back data to the register file."
+          },
+          {
+            "id": "deprecated-commit-stage",
+            "title": "CVA6 deprecated design docs: Commit stage",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "deprecated-design-docs/commit_stage.md",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/deprecated-design-docs/commit_stage.md",
+            "claimSupported": "The legacy commit-stage note states the design rule that no other pipeline stage updates architectural state under any circumstances."
+          }
+        ],
+        "speakerNotes": "The quiz checks whether commit is now a boundary in your head. If you know that GPR writes, CSR writes, stores, and flush behavior meet at commit, then the next lesson is ready: precise exceptions. That topic sounds intimidating, but with commit discipline in place, it becomes a very logical idea."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-commit-stage",
+        "deprecated-commit-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u06-l03-quiz-speech",
+          "type": "speech",
+          "text": "The quiz checks whether commit is now a boundary in your head. If you know that GPR writes, CSR writes, stores, and flush behavior meet at commit, then the next lesson is ready: precise exceptions. That topic sounds intimidating, but with commit discipline in place, it becomes a very logical idea.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u06-l03-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u06-l03-commit-stage-en/audio/tts_scene-cva6-u06-l03-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u06-l03-summary",
+      "stageId": "openhw-cva6-u06-l03-commit-stage-en",
+      "type": "html-slide",
+      "title": "Commit turns completion into official state",
+      "order": 6,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "SUMMARY",
+          "title": "Completion is evidence; commit is authority",
+          "takeaways": [
+            "COMMIT_STAGE is the last pipeline stage and the architectural-state boundary.",
+            "GPR writeback, CSR write, and store commit must be explained as ordered side effects.",
+            "Commit acknowledge is the handshake that says retirement happened."
+          ],
+          "nextStep": "Next lesson: precise exceptions, where errors and interrupts are associated with the right instruction.",
+          "closing": "If execute is where work happens, commit is where the machine promises it happened."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-commit-stage",
+            "title": "CV32A60X design: COMMIT_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#commit-stage-module",
+            "locator": "cv32a60x/design/design.md COMMIT_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "COMMIT_STAGE is the last pipeline stage and updates architectural state by writing CSR registers, committing stores, and writing back data to the register file."
+          }
+        ],
+        "speakerNotes": "The summary is short but important. Completion is evidence; commit is authority. Results may return earlier, and side effects may be buffered earlier, but official state changes live at commit. Next we use that rule to explain precise exceptions without hand waving."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-commit-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u06-l03-summary-speech",
+          "type": "speech",
+          "text": "The summary is short but important. Completion is evidence; commit is authority. Results may return earlier, and side effects may be buffered earlier, but official state changes live at commit. Next we use that rule to explain precise exceptions without hand waving.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u06-l03-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u06-l03-commit-stage-en/audio/tts_scene-cva6-u06-l03-summary-speech.mp3"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "default-1",
+      "name": "AlexChen",
+      "role": "Professional OpenHW classroom narrator",
+      "voice": "local-tts:kokoro:am_eric"
+    }
+  ],
+  "metadata": {
+    "seriesId": "cva6-from-zero",
+    "unitId": "u06-execute-commit",
+    "skillId": "u06-s02-commit-state",
+    "lessonId": "cva6-u06-l03-commit-stage",
+    "sourceRefs": [
+      "cv32a60x-design-commit-stage",
+      "cv32a60x-design-csr-buffer",
+      "cv32a60x-design-lsu",
+      "cv32a60x-design-csr-regfile",
+      "deprecated-commit-stage"
+    ],
+    "assetRefs": [
+      "scoreboard.png"
+    ],
+    "generatedAt": "2026-05-27T11:18:59.333Z"
+  }
+}

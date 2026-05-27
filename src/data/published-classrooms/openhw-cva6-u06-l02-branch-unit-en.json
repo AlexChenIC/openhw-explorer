@@ -1,0 +1,569 @@
+{
+  "id": "openhw-cva6-u06-l02-branch-unit-en",
+  "stage": {
+    "id": "openhw-cva6-u06-l02-branch-unit-en",
+    "name": "Branch Unit: prediction still needs a judge",
+    "description": "A branch-resolution lesson on how CVA6 separates frontend prediction from execute-stage verification, target calculation, and corrective action.",
+    "createdAt": 1779880739333,
+    "updatedAt": 1779881179196,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u06-l02-title",
+      "stageId": "openhw-cva6-u06-l02-branch-unit-en",
+      "type": "html-slide",
+      "title": "Prediction is a guess; Branch Unit is the judge",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 06 / LESSON 02",
+          "title": "Branch Unit: prediction still needs a judge",
+          "subtitle": "Frontend prediction helps fetch stay busy, but execute-stage branch resolution decides what really happened.",
+          "chips": [
+            "Branch Unit",
+            "Resolved branch",
+            "Redirect",
+            "Target calculation"
+          ],
+          "thesis": "The clean mental model is predict early, verify later, and repair quickly when the guess was wrong."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-branch-unit",
+            "title": "CV32A60X design: Branch Unit submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#branch-unit",
+            "locator": "cv32a60x/design/design.md Branch Unit submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The Branch Unit manages conditional and unconditional jumps, calculates targets, decides take or not take, and reports corrective actions."
+          }
+        ],
+        "speakerNotes": "Unit 04 explained frontend prediction. This lesson protects us from a common mistake: treating prediction as the final branch decision. In C V A six, the Branch Unit manages conditional and unconditional jumps, calculates targets, decides whether a branch is taken, and reports corrective actions. Prediction is useful, but the judge lives later."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-branch-unit"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u06-l02-title-speech",
+          "type": "speech",
+          "text": "Unit 04 explained frontend prediction. This lesson protects us from a common mistake: treating prediction as the final branch decision. In C V A six, the Branch Unit manages conditional and unconditional jumps, calculates targets, decides whether a branch is taken, and reports corrective actions. Prediction is useful, but the judge lives later.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u06-l02-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u06-l02-branch-unit-en/audio/tts_scene-cva6-u06-l02-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u06-l02-diagram",
+      "stageId": "openhw-cva6-u06-l02-branch-unit-en",
+      "type": "html-slide",
+      "title": "Keep prediction and resolution separate",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "PREDICT VS RESOLVE",
+          "title": "The frontend starts a path; the Branch Unit verifies it",
+          "body": "A branch predictor can choose a likely path before operands are known. The Branch Unit resolves the real condition and target once the branch reaches execute.",
+          "assetId": "branch-prediction",
+          "caption": "Use the prediction diagram as context; this lesson focuses on the later resolution contract.",
+          "callouts": [
+            "Predicted path",
+            "Resolved outcome",
+            "Corrective redirect"
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-branch-unit",
+            "title": "CV32A60X design: Branch Unit submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#branch-unit",
+            "locator": "cv32a60x/design/design.md Branch Unit submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The Branch Unit manages conditional and unconditional jumps, calculates targets, decides take or not take, and reports corrective actions."
+          },
+          {
+            "id": "cv32a60x-design-controller",
+            "title": "CV32A60X design: CONTROLLER module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#controller-module",
+            "locator": "cv32a60x/design/design.md CONTROLLER module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The controller receives resolved branch and commit flush information and drives frontend and pipeline flush or restart control."
+          }
+        ],
+        "speakerNotes": "The prediction diagram is still useful here, but the lesson has shifted. The frontend tries to avoid waiting. The Branch Unit receives the real operation later, evaluates the condition, computes or confirms the target, and tells the machine whether a correction is needed. In plain language: the predictor is allowed to be fast; the Branch Unit has to be right."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-branch-unit",
+        "cv32a60x-design-controller"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u06-l02-diagram-speech",
+          "type": "speech",
+          "text": "The prediction diagram is still useful here, but the lesson has shifted. The frontend tries to avoid waiting. The Branch Unit receives the real operation later, evaluates the condition, computes or confirms the target, and tells the machine whether a correction is needed. In plain language: the predictor is allowed to be fast; the Branch Unit has to be right.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u06-l02-diagram-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u06-l02-branch-unit-en/audio/tts_scene-cva6-u06-l02-diagram-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u06-l02-responsibilities",
+      "stageId": "openhw-cva6-u06-l02-branch-unit-en",
+      "type": "html-slide",
+      "title": "What the Branch Unit owns",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "RESPONSIBILITY MAP",
+          "title": "Branch resolution has more than one output",
+          "subtitle": "A good reader watches condition, target, and correction signals together.",
+          "cards": [
+            {
+              "title": "Condition decision",
+              "body": "For conditional branches, decide taken versus not taken."
+            },
+            {
+              "title": "Target calculation",
+              "body": "Calculate the branch or jump target that should become the next path."
+            },
+            {
+              "title": "Resolution report",
+              "body": "Report a resolved branch so later control can compare prediction with reality."
+            },
+            {
+              "title": "Corrective action",
+              "body": "If the predicted path was wrong, provide the information needed to repair control flow."
+            }
+          ],
+          "takeaway": "Branch resolution is a correctness contract, not just a PC arithmetic detail."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-branch-unit",
+            "title": "CV32A60X design: Branch Unit submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#branch-unit",
+            "locator": "cv32a60x/design/design.md Branch Unit submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The Branch Unit manages conditional and unconditional jumps, calculates targets, decides take or not take, and reports corrective actions."
+          }
+        ],
+        "speakerNotes": "There are several responsibilities hiding behind the phrase branch execute. A conditional branch needs a taken or not-taken decision. A jump or branch needs a target. The backend needs a resolution report, and if frontend prediction was wrong, control logic needs enough information to redirect. If you only say branch calculates PC, you are leaving half the design on the floor."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-branch-unit"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u06-l02-responsibilities-speech",
+          "type": "speech",
+          "text": "There are several responsibilities hiding behind the phrase branch execute. A conditional branch needs a taken or not-taken decision. A jump or branch needs a target. The backend needs a resolution report, and if frontend prediction was wrong, control logic needs enough information to redirect. If you only say branch calculates PC, you are leaving half the design on the floor.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u06-l02-responsibilities-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u06-l02-branch-unit-en/audio/tts_scene-cva6-u06-l02-responsibilities-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u06-l02-flow",
+      "stageId": "openhw-cva6-u06-l02-branch-unit-en",
+      "type": "html-slide",
+      "title": "The branch repair loop",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "light",
+        "content": {
+          "kicker": "CONTROL REPAIR",
+          "title": "A wrong guess becomes a controlled redirect",
+          "subtitle": "The backend must repair the path without losing precise state discipline.",
+          "steps": [
+            {
+              "title": "Frontend predicts",
+              "body": "Fetch starts from the predicted next PC before the real branch is resolved."
+            },
+            {
+              "title": "Branch reaches EX_STAGE",
+              "body": "Operands and branch operation become available for the Branch Unit."
+            },
+            {
+              "title": "Outcome is resolved",
+              "body": "The branch unit produces target and resolution information."
+            },
+            {
+              "title": "Controller repairs path",
+              "body": "Correction information can drive pipeline flush and frontend restart behavior."
+            }
+          ],
+          "takeaway": "The redirect is not a panic button. It is a designed recovery path."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-branch-unit",
+            "title": "CV32A60X design: Branch Unit submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#branch-unit",
+            "locator": "cv32a60x/design/design.md Branch Unit submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The Branch Unit manages conditional and unconditional jumps, calculates targets, decides take or not take, and reports corrective actions."
+          },
+          {
+            "id": "cv32a60x-design-controller",
+            "title": "CV32A60X design: CONTROLLER module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#controller-module",
+            "locator": "cv32a60x/design/design.md CONTROLLER module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The controller receives resolved branch and commit flush information and drives frontend and pipeline flush or restart control."
+          },
+          {
+            "id": "deprecated-ex-stage",
+            "title": "CVA6 deprecated design docs: EX stage",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "deprecated-design-docs/ex_stage.md",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/deprecated-design-docs/ex_stage.md",
+            "claimSupported": "The legacy EX stage design note explains valid/ready FU handshakes, transaction IDs, branch corrective action, and CSR-buffer commit discipline."
+          }
+        ],
+        "speakerNotes": "The repair loop is controlled, not magical. The frontend predicts so work can continue. Later, the branch reaches EX_STAGE with the information needed to resolve it. The Branch Unit produces outcome and target evidence. Then control can flush wrong-path work and restart the frontend from the corrected path. That is why branch resolution sits at the boundary between performance optimism and correctness."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-branch-unit",
+        "cv32a60x-design-controller",
+        "deprecated-ex-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u06-l02-flow-speech",
+          "type": "speech",
+          "text": "The repair loop is controlled, not magical. The frontend predicts so work can continue. Later, the branch reaches EX_STAGE with the information needed to resolve it. The Branch Unit produces outcome and target evidence. Then control can flush wrong-path work and restart the frontend from the corrected path. That is why branch resolution sits at the boundary between performance optimism and correctness.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u06-l02-flow-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u06-l02-branch-unit-en/audio/tts_scene-cva6-u06-l02-flow-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u06-l02-pitfalls",
+      "stageId": "openhw-cva6-u06-l02-branch-unit-en",
+      "type": "html-slide",
+      "title": "Three wording mistakes to avoid",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "PUBLIC EXPLANATION CHECK",
+          "title": "Use careful branch language",
+          "subtitle": "The most common branch explanations sound plausible but blur roles.",
+          "items": [
+            "Do not say the predictor decides the final program path.",
+            "Do not say all branches are known in the frontend.",
+            "Do not discuss redirect without naming the resolved outcome.",
+            "Do not mix branch-resolution repair with commit-stage exception repair.",
+            "Do say: prediction is early; resolution is authoritative."
+          ],
+          "takeaway": "Crisp branch language keeps frontend and backend lessons from fighting each other."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-branch-unit",
+            "title": "CV32A60X design: Branch Unit submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#branch-unit",
+            "locator": "cv32a60x/design/design.md Branch Unit submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The Branch Unit manages conditional and unconditional jumps, calculates targets, decides take or not take, and reports corrective actions."
+          },
+          {
+            "id": "cv32a60x-design-controller",
+            "title": "CV32A60X design: CONTROLLER module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#controller-module",
+            "locator": "cv32a60x/design/design.md CONTROLLER module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The controller receives resolved branch and commit flush information and drives frontend and pipeline flush or restart control."
+          }
+        ],
+        "speakerNotes": "This is where public course wording matters. Do not say the predictor decides the final path. Do not imply all branch facts are known in the frontend. Do not talk about redirect without explaining the resolved outcome. Also, do not mix branch redirect with commit exception handling; they are different repair stories. The clean sentence is: prediction is early, resolution is authoritative."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-branch-unit",
+        "cv32a60x-design-controller"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u06-l02-pitfalls-speech",
+          "type": "speech",
+          "text": "This is where public course wording matters. Do not say the predictor decides the final path. Do not imply all branch facts are known in the frontend. Do not talk about redirect without explaining the resolved outcome. Also, do not mix branch redirect with commit exception handling; they are different repair stories. The clean sentence is: prediction is early, resolution is authoritative.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u06-l02-pitfalls-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u06-l02-branch-unit-en/audio/tts_scene-cva6-u06-l02-pitfalls-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u06-l02-quiz",
+      "stageId": "openhw-cva6-u06-l02-branch-unit-en",
+      "type": "quiz",
+      "title": "Check branch resolution",
+      "order": 5,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u06-l02-q1",
+            "type": "single",
+            "question": "What is the safest relationship between frontend prediction and Branch Unit resolution?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Prediction is the final decision"
+              },
+              {
+                "value": "B",
+                "label": "Resolution checks what actually happened after the branch reaches execute"
+              },
+              {
+                "value": "C",
+                "label": "Branch Unit only exists for documentation"
+              },
+              {
+                "value": "D",
+                "label": "Prediction removes the need for redirects"
+              }
+            ],
+            "answer": [
+              "B"
+            ],
+            "hasAnswer": true,
+            "analysis": "The Branch Unit calculates targets, decides outcomes, and reports corrective information."
+          },
+          {
+            "id": "u06-l02-q2",
+            "type": "multiple",
+            "question": "Which responsibilities belong in the branch-resolution story?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Taken/not-taken decision"
+              },
+              {
+                "value": "B",
+                "label": "Target calculation"
+              },
+              {
+                "value": "C",
+                "label": "Corrective action reporting"
+              },
+              {
+                "value": "D",
+                "label": "Final CSR writeback"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C"
+            ],
+            "hasAnswer": true,
+            "analysis": "CSR writeback is a commit and CSR_REGFILE story, not the core branch-resolution responsibility."
+          },
+          {
+            "id": "u06-l02-q3",
+            "type": "single",
+            "question": "Why is a redirect path needed?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Because prediction can choose a path before the real branch outcome is known"
+              },
+              {
+                "value": "B",
+                "label": "Because all branches are illegal"
+              },
+              {
+                "value": "C",
+                "label": "Because execute cannot calculate targets"
+              },
+              {
+                "value": "D",
+                "label": "Because commit never handles control state"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "Early prediction is useful but can be wrong; resolved branch evidence repairs the path."
+          },
+          {
+            "id": "u06-l02-q4",
+            "type": "single",
+            "question": "Which sentence is best for a professional lesson?",
+            "options": [
+              {
+                "value": "A",
+                "label": "The branch predictor is always correct"
+              },
+              {
+                "value": "B",
+                "label": "The Branch Unit verifies branch reality and can trigger correction"
+              },
+              {
+                "value": "C",
+                "label": "The frontend knows all branch operands immediately"
+              },
+              {
+                "value": "D",
+                "label": "Branch resolution is the same thing as precise exception handling"
+              }
+            ],
+            "answer": [
+              "B"
+            ],
+            "hasAnswer": true,
+            "analysis": "It separates the early prediction role from the authoritative resolution role."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-branch-unit",
+            "title": "CV32A60X design: Branch Unit submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#branch-unit",
+            "locator": "cv32a60x/design/design.md Branch Unit submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The Branch Unit manages conditional and unconditional jumps, calculates targets, decides take or not take, and reports corrective actions."
+          },
+          {
+            "id": "cv32a60x-design-controller",
+            "title": "CV32A60X design: CONTROLLER module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#controller-module",
+            "locator": "cv32a60x/design/design.md CONTROLLER module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The controller receives resolved branch and commit flush information and drives frontend and pipeline flush or restart control."
+          }
+        ],
+        "speakerNotes": "The quiz is deliberately about role separation. If you can separate predictor, Branch Unit, resolved outcome, and corrective redirect, the frontend and execute-stage stories now fit together. This is one of those small mental models that prevents many confused branch-prediction explanations later."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-branch-unit",
+        "cv32a60x-design-controller"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u06-l02-quiz-speech",
+          "type": "speech",
+          "text": "The quiz is deliberately about role separation. If you can separate predictor, Branch Unit, resolved outcome, and corrective redirect, the frontend and execute-stage stories now fit together. This is one of those small mental models that prevents many confused branch-prediction explanations later.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u06-l02-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u06-l02-branch-unit-en/audio/tts_scene-cva6-u06-l02-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u06-l02-summary",
+      "stageId": "openhw-cva6-u06-l02-branch-unit-en",
+      "type": "html-slide",
+      "title": "Branch prediction needs later verification",
+      "order": 6,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "SUMMARY",
+          "title": "Prediction is early; resolution is authoritative",
+          "takeaways": [
+            "The predictor helps the frontend move before all branch facts are known.",
+            "The Branch Unit decides real branch outcome and target in EX_STAGE.",
+            "Corrective redirect is a designed recovery path, not a vague pipeline reset."
+          ],
+          "nextStep": "Next lesson: COMMIT_STAGE, where completed work becomes architectural state.",
+          "closing": "Fast guesses are useful only because later logic can check them."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-branch-unit",
+            "title": "CV32A60X design: Branch Unit submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#branch-unit",
+            "locator": "cv32a60x/design/design.md Branch Unit submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The Branch Unit manages conditional and unconditional jumps, calculates targets, decides take or not take, and reports corrective actions."
+          }
+        ],
+        "speakerNotes": "That is the branch lesson. Predict early, resolve later, repair cleanly. The Branch Unit is where the guess faces evidence. Next we move from control correction to architectural commitment: when a completed instruction is allowed to update registers, stores, and CSR state."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-branch-unit"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u06-l02-summary-speech",
+          "type": "speech",
+          "text": "That is the branch lesson. Predict early, resolve later, repair cleanly. The Branch Unit is where the guess faces evidence. Next we move from control correction to architectural commitment: when a completed instruction is allowed to update registers, stores, and CSR state.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u06-l02-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u06-l02-branch-unit-en/audio/tts_scene-cva6-u06-l02-summary-speech.mp3"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "default-1",
+      "name": "AlexChen",
+      "role": "Professional OpenHW classroom narrator",
+      "voice": "local-tts:kokoro:am_eric"
+    }
+  ],
+  "metadata": {
+    "seriesId": "cva6-from-zero",
+    "unitId": "u06-execute-commit",
+    "skillId": "u06-s01-execute-units",
+    "lessonId": "cva6-u06-l02-branch-unit",
+    "sourceRefs": [
+      "cv32a60x-design-branch-unit",
+      "cv32a60x-design-controller",
+      "cv32a60x-design-ex-stage",
+      "deprecated-ex-stage"
+    ],
+    "assetRefs": [
+      "branch_prediction.png"
+    ],
+    "generatedAt": "2026-05-27T11:18:59.333Z"
+  }
+}
