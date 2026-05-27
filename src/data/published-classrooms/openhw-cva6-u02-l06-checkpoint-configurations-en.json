@@ -1,0 +1,608 @@
+{
+  "id": "openhw-cva6-u02-l06-checkpoint-configurations-en",
+  "stage": {
+    "id": "openhw-cva6-u02-l06-checkpoint-configurations-en",
+    "name": "Checkpoint 02: do not teach one variant as all CVA6",
+    "description": "A choice-only Unit 02 checkpoint that tests whether learners can keep CVA6 family, variant, parameter, workflow, and claim scope separated.",
+    "createdAt": 1779850800000,
+    "updatedAt": 1779850800000,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u02-l06-title",
+      "stageId": "openhw-cva6-u02-l06-checkpoint-configurations-en",
+      "type": "html-slide",
+      "title": "Configuration literacy checkpoint",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 02 / LESSON 06",
+          "title": "Checkpoint 02: do not teach one variant as all CVA6",
+          "subtitle": "Before architecture lessons begin, prove that the selected configuration, parameter evidence, and public claim all point to the same target.",
+          "chips": [
+            "Family",
+            "Variant",
+            "Parameters",
+            "Scoped claims"
+          ],
+          "thesis": "A learner is ready for CVA6 architecture only when configuration assumptions stop leaking into every sentence."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-user-manual-configuration-family",
+            "title": "CVA6 User Manual configuration table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#configurations",
+            "locator": "cva6-user-manual/Introduction.md Configurations",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The User Manual identifies CV32A60AX, CV32A60X, and CV64A6_MMU as verified configurations with different short descriptions, privilege levels, ISA strings, and CV-X-IF support."
+          },
+          {
+            "id": "cva6-parameters-catalog",
+            "title": "CVA6 Parameters and Configuration catalog",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Parameters_Configuration.html",
+            "locator": "cva6-user-manual/Parameters_Configuration.md Parameters",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Parameters_Configuration.md",
+            "claimSupported": "The Parameters and Configuration page lists CVA6 parameters such as XLEN, VLEN, MmuPresent, RVS, RVU, CvxifEn, cache sizes, SuperscalarEn, commit ports, and PipelineOnly."
+          }
+        ],
+        "speakerNotes": "This is the Unit 02 checkpoint. The purpose is not to make you memorize every parameter. The purpose is to catch configuration drift before it poisons architecture learning. If you can keep family, variant, parameter evidence, and public claims aligned, then the next unit on architecture will feel much more concrete and much less mystical."
+      },
+      "sourceAnchors": [
+        "cva6-user-manual-configuration-family",
+        "cva6-parameters-catalog"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l06-title-speech",
+          "type": "speech",
+          "text": "This is the Unit 02 checkpoint. The purpose is not to make you memorize every parameter. The purpose is to catch configuration drift before it poisons architecture learning. If you can keep family, variant, parameter evidence, and public claims aligned, then the next unit on architecture will feel much more concrete and much less mystical.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l06-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l06-checkpoint-configurations-en/audio/tts_scene-cva6-u02-l06-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l06-skills",
+      "stageId": "openhw-cva6-u02-l06-checkpoint-configurations-en",
+      "type": "html-slide",
+      "title": "The four skills Unit 02 should give you",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT SKILLS",
+          "title": "Configuration literacy is a reading discipline",
+          "subtitle": "You should now be able to slow down before making a broad CVA6 claim.",
+          "items": [
+            {
+              "title": "Family first",
+              "body": "Treat CVA6 as a configurable family before selecting a named configuration."
+            },
+            {
+              "title": "Profile baseline",
+              "body": "Use CV32A60X as the first concrete baseline when the source evidence is CV32A60X-specific."
+            },
+            {
+              "title": "Parameter evidence",
+              "body": "Check fields such as XLEN, MmuPresent, RVS, RVU, CvxifEn, cache sizes, and commit ports."
+            },
+            {
+              "title": "Workflow traceability",
+              "body": "Prefer traceable configuration objects and scoped claims over scattered implicit switches."
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-user-manual-configuration-family",
+            "title": "CVA6 User Manual configuration table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#configurations",
+            "locator": "cva6-user-manual/Introduction.md Configurations",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The User Manual identifies CV32A60AX, CV32A60X, and CV64A6_MMU as verified configurations with different short descriptions, privilege levels, ISA strings, and CV-X-IF support."
+          },
+          {
+            "id": "cva6-parameters-catalog",
+            "title": "CVA6 Parameters and Configuration catalog",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Parameters_Configuration.html",
+            "locator": "cva6-user-manual/Parameters_Configuration.md Parameters",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Parameters_Configuration.md",
+            "claimSupported": "The Parameters and Configuration page lists CVA6 parameters such as XLEN, VLEN, MmuPresent, RVS, RVU, CvxifEn, cache sizes, SuperscalarEn, commit ports, and PipelineOnly."
+          },
+          {
+            "id": "cva6-systemverilog-rtl-config-wiki",
+            "title": "CVA6 Wiki: Configuring SystemVerilog RTL Models",
+            "url": "https://github.com/openhwgroup/cva6/wiki/Configuring-SystemVerilog-RTL-Models",
+            "locator": "CVA6 wiki Configuring SystemVerilog RTL Models",
+            "localPath": "OpenHW-Classroom-phase1/content/sources/sources.json",
+            "claimSupported": "The source registry summarizes the CVA6 wiki guidance around package-based configuration, typed parameters, generate blocks, TARGET_CFG, cva6_config_pkg, and build_config_pkg."
+          }
+        ],
+        "speakerNotes": "These are the four skills Unit 02 should leave behind. First, read CVA6 as a configurable family. Second, use CV32A60X as a concrete baseline when the evidence comes from that design document. Third, inspect parameters that change conclusions. Fourth, demand workflow traceability. This is how we avoid teaching a blurry super-core that exists only in our imagination."
+      },
+      "sourceAnchors": [
+        "cva6-user-manual-configuration-family",
+        "cva6-parameters-catalog",
+        "cva6-systemverilog-rtl-config-wiki"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l06-skills-speech",
+          "type": "speech",
+          "text": "These are the four skills Unit 02 should leave behind. First, read CVA6 as a configurable family. Second, use CV32A60X as a concrete baseline when the evidence comes from that design document. Third, inspect parameters that change conclusions. Fourth, demand workflow traceability. This is how we avoid teaching a blurry super-core that exists only in our imagination.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l06-skills-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l06-checkpoint-configurations-en/audio/tts_scene-cva6-u02-l06-skills-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l06-decision-tree",
+      "stageId": "openhw-cva6-u02-l06-checkpoint-configurations-en",
+      "type": "html-slide",
+      "title": "The configuration decision tree",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "light",
+        "content": {
+          "kicker": "DECISION TREE",
+          "title": "Route the question before answering it",
+          "subtitle": "Most configuration mistakes come from answering before routing.",
+          "steps": [
+            {
+              "title": "What is the question?",
+              "body": "Architecture path, software behavior, memory translation, interface support, or implementation structure?"
+            },
+            {
+              "title": "Which variant?",
+              "body": "Choose the exact row or design document before borrowing facts."
+            },
+            {
+              "title": "Which fields decide it?",
+              "body": "Extract only parameters or table fields that change this answer."
+            },
+            {
+              "title": "How should the claim be scoped?",
+              "body": "Phrase the final statement as variant-specific unless evidence proves it is family-wide."
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-user-manual-configuration-family",
+            "title": "CVA6 User Manual configuration table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#configurations",
+            "locator": "cva6-user-manual/Introduction.md Configurations",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The User Manual identifies CV32A60AX, CV32A60X, and CV64A6_MMU as verified configurations with different short descriptions, privilege levels, ISA strings, and CV-X-IF support."
+          },
+          {
+            "id": "cva6-requirements-initial-release",
+            "title": "CVA6 Requirements initial release table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#initial-release",
+            "locator": "requirements/cva6_requirements_specification.md Initial Release",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The initial release table compares CV32A60X and CV32A60AX by target, ISA, XLEN, FPU, CV-X-IF, MMU, and L1 instruction/data cache size."
+          },
+          {
+            "id": "cv32a60x-parameter-config",
+            "title": "CV32A60X parameter configuration table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#parameter-configuration",
+            "locator": "cv32a60x/design/design.md Parameter configuration",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X parameter table records concrete values such as XLEN 32, VLEN 32, RVC true, MmuPresent false, RVS false, RVU false, CvxifEn true, PipelineOnly true, and single commit port behavior."
+          }
+        ],
+        "speakerNotes": "Use this decision tree whenever you feel tempted to say CVA6 generally. What kind of question is it? Which variant are we using? Which fields actually decide the answer? And how should the final sentence be scoped? This routing step feels slow at first, but it saves time because the answer becomes defensible instead of dramatic."
+      },
+      "sourceAnchors": [
+        "cva6-user-manual-configuration-family",
+        "cva6-requirements-initial-release",
+        "cv32a60x-parameter-config"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l06-decision-tree-speech",
+          "type": "speech",
+          "text": "Use this decision tree whenever you feel tempted to say CVA6 generally. What kind of question is it? Which variant are we using? Which fields actually decide the answer? And how should the final sentence be scoped? This routing step feels slow at first, but it saves time because the answer becomes defensible instead of dramatic.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l06-decision-tree-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l06-checkpoint-configurations-en/audio/tts_scene-cva6-u02-l06-decision-tree-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l06-claim-quality",
+      "stageId": "openhw-cva6-u02-l06-checkpoint-configurations-en",
+      "type": "html-slide",
+      "title": "Upgrade weak claims into professional claims",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "CLAIM QUALITY",
+          "title": "A scoped claim is stronger, not weaker",
+          "subtitle": "Precision makes the lesson more trustworthy.",
+          "columns": [
+            {
+              "title": "Weak claim",
+              "body": "CVA6 has an MMU, supports these privilege modes, and has this cache structure."
+            },
+            {
+              "title": "Professional claim",
+              "body": "For this named configuration, the source table lists these MMU, privilege, cache, and interface facts; other variants must be checked separately."
+            }
+          ],
+          "takeaway": "The public version should sound less magical and more inspectable."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-requirements-initial-release",
+            "title": "CVA6 Requirements initial release table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#initial-release",
+            "locator": "requirements/cva6_requirements_specification.md Initial Release",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The initial release table compares CV32A60X and CV32A60AX by target, ISA, XLEN, FPU, CV-X-IF, MMU, and L1 instruction/data cache size."
+          },
+          {
+            "id": "cva6-requirements-optional-features",
+            "title": "CVA6 optional feature parameter rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#scope-of-the-ip",
+            "locator": "requirements/cva6_requirements_specification.md optional feature SystemVerilog parameter rule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements specification states that optional features are controlled by SystemVerilog parameters and are absent from the synthesized netlist when not selected."
+          }
+        ],
+        "speakerNotes": "A scoped claim may sound less flashy, but it is stronger. The weak version says CVA6 has some behavior without naming the configuration. The professional version says: for this named configuration, this source table supports these MMU, privilege, cache, and interface facts. That is the tone we want for OpenHW Explorer: confident because it is inspectable."
+      },
+      "sourceAnchors": [
+        "cva6-requirements-initial-release",
+        "cva6-requirements-optional-features"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l06-claim-quality-speech",
+          "type": "speech",
+          "text": "A scoped claim may sound less flashy, but it is stronger. The weak version says CVA6 has some behavior without naming the configuration. The professional version says: for this named configuration, this source table supports these MMU, privilege, cache, and interface facts. That is the tone we want for OpenHW Explorer: confident because it is inspectable.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l06-claim-quality-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l06-checkpoint-configurations-en/audio/tts_scene-cva6-u02-l06-claim-quality-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l06-quiz",
+      "stageId": "openhw-cva6-u02-l06-checkpoint-configurations-en",
+      "type": "quiz",
+      "title": "Unit 02 final checkpoint",
+      "order": 4,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u02-l06-q1",
+            "type": "single",
+            "question": "What is the safest first sentence when beginning a CVA6 technical explanation?",
+            "options": [
+              {
+                "value": "A",
+                "label": "First identify whether this is a family-wide statement or a named-configuration statement"
+              },
+              {
+                "value": "B",
+                "label": "Assume all CVA6 configurations have the same MMU behavior"
+              },
+              {
+                "value": "C",
+                "label": "Start from the longest RTL file and infer the whole architecture"
+              },
+              {
+                "value": "D",
+                "label": "Skip documentation because configuration tables are only administrative"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "Configuration literacy begins by deciding whether the claim is family-wide or tied to a named variant."
+          },
+          {
+            "id": "u02-l06-q2",
+            "type": "single",
+            "question": "Which source is the strongest anchor for concrete CV32A60X parameter values?",
+            "options": [
+              {
+                "value": "A",
+                "label": "The CV32A60X design document parameter configuration table"
+              },
+              {
+                "value": "B",
+                "label": "A generic social-media summary of RISC-V"
+              },
+              {
+                "value": "C",
+                "label": "The name CVA6 by itself"
+              },
+              {
+                "value": "D",
+                "label": "Any unrelated CORE-V repository"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "Concrete CV32A60X values should be anchored to the configuration-specific design document and parameter table."
+          },
+          {
+            "id": "u02-l06-q3",
+            "type": "multiple",
+            "question": "Which fields should raise a warning before generalizing from one CVA6 variant to another?",
+            "options": [
+              {
+                "value": "A",
+                "label": "MmuPresent or MMU column"
+              },
+              {
+                "value": "B",
+                "label": "Privilege levels such as machine, supervisor, and user"
+              },
+              {
+                "value": "C",
+                "label": "L1 cache sizes"
+              },
+              {
+                "value": "D",
+                "label": "Whether the slide title has a nice visual rhythm"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C"
+            ],
+            "hasAnswer": true,
+            "analysis": "MMU, privilege, and cache differences directly change architecture and software explanations; slide rhythm does not validate the claim."
+          },
+          {
+            "id": "u02-l06-q4",
+            "type": "single",
+            "question": "What does a maintainable RTL configuration workflow improve?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Traceability from selected target to configuration values, RTL, and verification"
+              },
+              {
+                "value": "B",
+                "label": "The ability to hide build decisions from reviewers"
+              },
+              {
+                "value": "C",
+                "label": "The need to avoid source anchors"
+              },
+              {
+                "value": "D",
+                "label": "The guarantee that every variant has identical hardware"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "A maintainable workflow makes the selected target and consumed configuration traceable across build, RTL, and verification contexts."
+          },
+          {
+            "id": "u02-l06-q5",
+            "type": "multiple",
+            "question": "Which statements are acceptable for a professional public lesson?",
+            "options": [
+              {
+                "value": "A",
+                "label": "For CV32A60X, this parameter table lists MmuPresent as false"
+              },
+              {
+                "value": "B",
+                "label": "The requirements table lists CV32A60AX with Sv32 MMU"
+              },
+              {
+                "value": "C",
+                "label": "All CVA6 variants must behave exactly like CV32A60X"
+              },
+              {
+                "value": "D",
+                "label": "This claim needs a source row before publication"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "D"
+            ],
+            "hasAnswer": true,
+            "analysis": "A, B, and D are source-scoped habits. C is the classic overgeneralization that Unit 02 is meant to remove."
+          },
+          {
+            "id": "u02-l06-q6",
+            "type": "single",
+            "question": "Why is Unit 02 placed before deeper architecture lessons?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Because architecture explanations depend on the selected configuration and parameter evidence"
+              },
+              {
+                "value": "B",
+                "label": "Because configuration is unrelated to architecture"
+              },
+              {
+                "value": "C",
+                "label": "Because quizzes are easier before technical content"
+              },
+              {
+                "value": "D",
+                "label": "Because all official tables should be memorized before reading diagrams"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "The architecture path becomes clearer once learners know which configuration the evidence describes and which parameters can change conclusions."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cva6-user-manual-configuration-family",
+            "title": "CVA6 User Manual configuration table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#configurations",
+            "locator": "cva6-user-manual/Introduction.md Configurations",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The User Manual identifies CV32A60AX, CV32A60X, and CV64A6_MMU as verified configurations with different short descriptions, privilege levels, ISA strings, and CV-X-IF support."
+          },
+          {
+            "id": "cva6-parameters-catalog",
+            "title": "CVA6 Parameters and Configuration catalog",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Parameters_Configuration.html",
+            "locator": "cva6-user-manual/Parameters_Configuration.md Parameters",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Parameters_Configuration.md",
+            "claimSupported": "The Parameters and Configuration page lists CVA6 parameters such as XLEN, VLEN, MmuPresent, RVS, RVU, CvxifEn, cache sizes, SuperscalarEn, commit ports, and PipelineOnly."
+          },
+          {
+            "id": "cva6-requirements-initial-release",
+            "title": "CVA6 Requirements initial release table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#initial-release",
+            "locator": "requirements/cva6_requirements_specification.md Initial Release",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The initial release table compares CV32A60X and CV32A60AX by target, ISA, XLEN, FPU, CV-X-IF, MMU, and L1 instruction/data cache size."
+          },
+          {
+            "id": "cv32a60x-parameter-config",
+            "title": "CV32A60X parameter configuration table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#parameter-configuration",
+            "locator": "cv32a60x/design/design.md Parameter configuration",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X parameter table records concrete values such as XLEN 32, VLEN 32, RVC true, MmuPresent false, RVS false, RVU false, CvxifEn true, PipelineOnly true, and single commit port behavior."
+          },
+          {
+            "id": "cva6-systemverilog-rtl-config-wiki",
+            "title": "CVA6 Wiki: Configuring SystemVerilog RTL Models",
+            "url": "https://github.com/openhwgroup/cva6/wiki/Configuring-SystemVerilog-RTL-Models",
+            "locator": "CVA6 wiki Configuring SystemVerilog RTL Models",
+            "localPath": "OpenHW-Classroom-phase1/content/sources/sources.json",
+            "claimSupported": "The source registry summarizes the CVA6 wiki guidance around package-based configuration, typed parameters, generate blocks, TARGET_CFG, cva6_config_pkg, and build_config_pkg."
+          }
+        ],
+        "speakerNotes": "This quiz closes Unit 02. Every question is choice-only because the public classroom must be locally gradable. The answers test the habits we need before architecture: identify claim scope, use the right source table, watch MMU and privilege differences, respect configuration workflow, and reject the sentence that turns one variant into all of CVA6."
+      },
+      "sourceAnchors": [
+        "cva6-user-manual-configuration-family",
+        "cva6-parameters-catalog",
+        "cva6-requirements-initial-release",
+        "cv32a60x-parameter-config",
+        "cva6-systemverilog-rtl-config-wiki"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l06-quiz-speech",
+          "type": "speech",
+          "text": "This quiz closes Unit 02. Every question is choice-only because the public classroom must be locally gradable. The answers test the habits we need before architecture: identify claim scope, use the right source table, watch MMU and privilege differences, respect configuration workflow, and reject the sentence that turns one variant into all of CVA6.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l06-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l06-checkpoint-configurations-en/audio/tts_scene-cva6-u02-l06-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l06-next-unit",
+      "stageId": "openhw-cva6-u02-l06-checkpoint-configurations-en",
+      "type": "html-slide",
+      "title": "Ready for the architecture spine",
+      "order": 5,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "NEXT UNIT",
+          "title": "Unit 03 can now stay source-grounded",
+          "subtitle": "The next lessons can focus on frontend, decode, issue, execute, memory, and commit without hiding configuration assumptions.",
+          "takeaways": [
+            "CVA6 is a configurable family, not one frozen hardware object.",
+            "CV32A60X is the first baseline for this series because it has concrete design and parameter evidence.",
+            "A professional course names the variant before teaching architecture details."
+          ],
+          "nextStep": "Begin Unit 03 by reading the CV32A60X architecture overview and building the pipeline spine from frontend to commit.",
+          "closing": "Now we can open the architecture documents with cleaner eyes and fewer accidental assumptions."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-objective",
+            "title": "CV32A60X design document objective",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html",
+            "locator": "cv32a60x/design/design.md Design documentation introduction",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X design document describes the CV32A60X configuration version of CVA6 and is intended as formal configuration-specific design documentation."
+          },
+          {
+            "id": "cv32a60x-parameter-config",
+            "title": "CV32A60X parameter configuration table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#parameter-configuration",
+            "locator": "cv32a60x/design/design.md Parameter configuration",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X parameter table records concrete values such as XLEN 32, VLEN 32, RVC true, MmuPresent false, RVS false, RVU false, CvxifEn true, PipelineOnly true, and single commit port behavior."
+          }
+        ],
+        "speakerNotes": "With Unit 02 complete, we are ready for the architecture spine. The next unit can discuss frontend, decode, issue, execute, memory, and commit while keeping the baseline explicit. That is the trick: we are not making the course narrower by naming CV32A60X. We are making the first pass strong enough that later branches will make sense."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-objective",
+        "cv32a60x-parameter-config"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l06-next-unit-speech",
+          "type": "speech",
+          "text": "With Unit 02 complete, we are ready for the architecture spine. The next unit can discuss frontend, decode, issue, execute, memory, and commit while keeping the baseline explicit. That is the trick: we are not making the course narrower by naming CV32A60X. We are making the first pass strong enough that later branches will make sense.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l06-next-unit-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l06-checkpoint-configurations-en/audio/tts_scene-cva6-u02-l06-next-unit-speech.mp3"
+        }
+      ]
+    }
+  ]
+}

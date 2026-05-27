@@ -4,9 +4,12 @@ import docRoles from "./published-classrooms/openhw-cva6-u01-l03-doc-roles-en.js
 import ipNotSoc from "./published-classrooms/openhw-cva6-u01-l02-ip-not-soc-en.json";
 import orientationCheckpoint from "./published-classrooms/openhw-cva6-u01-l06-checkpoint-orientation-en.json";
 import parameterMap from "./published-classrooms/openhw-cva6-u02-l03-parameter-map-en.json";
+import rtlConfigWorkflow from "./published-classrooms/openhw-cva6-u02-l04-rtl-config-workflow-en.json";
 import scopeDiagram from "./published-classrooms/openhw-cva6-u01-l04-scope-diagram-en.json";
 import slidekitPrototype from "./published-classrooms/openhw-cva6-slidekit-a1-en.json";
+import unit02Checkpoint from "./published-classrooms/openhw-cva6-u02-l06-checkpoint-configurations-en.json";
 import variantFamily from "./published-classrooms/openhw-cva6-u02-l01-cv32-cv64-family-en.json";
+import variantComparison from "./published-classrooms/openhw-cva6-u02-l05-variant-comparison-en.json";
 import whatIsCva6 from "./published-classrooms/openhw-cva6-u01-l01-what-is-cva6-en.json";
 
 export type PublishedClassroomAction = {
@@ -73,6 +76,9 @@ const publishedClassrooms = {
   [variantFamily.id]: variantFamily,
   [cv32a60xProfile.id]: cv32a60xProfile,
   [parameterMap.id]: parameterMap,
+  [rtlConfigWorkflow.id]: rtlConfigWorkflow,
+  [variantComparison.id]: variantComparison,
+  [unit02Checkpoint.id]: unit02Checkpoint,
   [slidekitPrototype.id]: slidekitPrototype,
 } as Record<string, PublishedClassroom>;
 

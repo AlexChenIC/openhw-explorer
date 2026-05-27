@@ -1,0 +1,642 @@
+{
+  "id": "openhw-cva6-u02-l04-rtl-config-workflow-en",
+  "stage": {
+    "id": "openhw-cva6-u02-l04-rtl-config-workflow-en",
+    "name": "RTL configuration workflow: from macros to maintainable variants",
+    "description": "A configuration-literacy lesson that turns TARGET_CFG, package-based configuration, typed parameters, and generate blocks into a maintainable CVA6 RTL workflow.",
+    "createdAt": 1779850800000,
+    "updatedAt": 1779850800000,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u02-l04-title",
+      "stageId": "openhw-cva6-u02-l04-rtl-config-workflow-en",
+      "type": "html-slide",
+      "title": "Configuration is a workflow, not a switch pile",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 02 / LESSON 04",
+          "title": "RTL configuration workflow: from macros to maintainable variants",
+          "subtitle": "CVA6 configuration work should make the selected variant traceable from build choice to RTL and verification evidence.",
+          "chips": [
+            "TARGET_CFG",
+            "SystemVerilog packages",
+            "Typed parameters",
+            "Generate blocks"
+          ],
+          "thesis": "A good configuration flow answers one question clearly: which hardware variant did we build and verify?"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-systemverilog-rtl-config-wiki",
+            "title": "CVA6 Wiki: Configuring SystemVerilog RTL Models",
+            "url": "https://github.com/openhwgroup/cva6/wiki/Configuring-SystemVerilog-RTL-Models",
+            "locator": "CVA6 wiki Configuring SystemVerilog RTL Models",
+            "localPath": "OpenHW-Classroom-phase1/content/sources/sources.json",
+            "claimSupported": "The source registry summarizes the CVA6 wiki guidance around package-based configuration, typed parameters, generate blocks, TARGET_CFG, cva6_config_pkg, and build_config_pkg."
+          },
+          {
+            "id": "cva6-parameters-catalog",
+            "title": "CVA6 Parameters and Configuration catalog",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Parameters_Configuration.html",
+            "locator": "cva6-user-manual/Parameters_Configuration.md Parameters",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Parameters_Configuration.md",
+            "claimSupported": "The Parameters and Configuration page lists CVA6 parameters such as XLEN, VLEN, MmuPresent, RVS, RVU, CvxifEn, cache sizes, SuperscalarEn, commit ports, and PipelineOnly."
+          }
+        ],
+        "speakerNotes": "In this lesson, configuration stops being a pile of switches and becomes a workflow. The practical question is simple: when someone reviews a build, can they trace which CVA6 variant was selected, where the values came from, and how RTL and verification consumed them? That traceability is what separates engineering configuration from a heroic collection of ifdefs."
+      },
+      "sourceAnchors": [
+        "cva6-systemverilog-rtl-config-wiki",
+        "cva6-parameters-catalog"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l04-title-speech",
+          "type": "speech",
+          "text": "In this lesson, configuration stops being a pile of switches and becomes a workflow. The practical question is simple: when someone reviews a build, can they trace which CVA6 variant was selected, where the values came from, and how RTL and verification consumed them? That traceability is what separates engineering configuration from a heroic collection of ifdefs.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l04-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l04-rtl-config-workflow-en/audio/tts_scene-cva6-u02-l04-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l04-risk",
+      "stageId": "openhw-cva6-u02-l04-rtl-config-workflow-en",
+      "type": "html-slide",
+      "title": "Why macro-heavy RTL gets risky",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "RISK MODEL",
+          "title": "Macros hide too much state in too many places",
+          "subtitle": "The problem is not that a macro is always evil. The problem is that uncontrolled macros make the selected hardware hard to review.",
+          "columns": [
+            {
+              "title": "Macro-heavy flow",
+              "body": "Feature decisions can leak through command lines, include order, file lists, and text substitution. Reviewers must reconstruct hidden global state."
+            },
+            {
+              "title": "Configuration-object flow",
+              "body": "A package, typed parameters, and generate blocks keep values visible, scoped, and easier for tools and humans to check."
+            }
+          ],
+          "takeaway": "If a setting changes hardware, it deserves a traceable configuration object."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-systemverilog-rtl-config-wiki",
+            "title": "CVA6 Wiki: Configuring SystemVerilog RTL Models",
+            "url": "https://github.com/openhwgroup/cva6/wiki/Configuring-SystemVerilog-RTL-Models",
+            "locator": "CVA6 wiki Configuring SystemVerilog RTL Models",
+            "localPath": "OpenHW-Classroom-phase1/content/sources/sources.json",
+            "claimSupported": "The source registry summarizes the CVA6 wiki guidance around package-based configuration, typed parameters, generate blocks, TARGET_CFG, cva6_config_pkg, and build_config_pkg."
+          },
+          {
+            "id": "cva6-requirements-optional-features",
+            "title": "CVA6 optional feature parameter rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#scope-of-the-ip",
+            "locator": "requirements/cva6_requirements_specification.md optional feature SystemVerilog parameter rule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements specification states that optional features are controlled by SystemVerilog parameters and are absent from the synthesized netlist when not selected."
+          }
+        ],
+        "speakerNotes": "Macro-heavy RTL becomes risky because the important decision may not be visible where the hardware is described. A reviewer has to ask: was that macro defined in the file list, the simulator command, a wrapper, or an include? A package and typed parameters make the decision more explicit. It is still configuration, but now it behaves like engineering evidence."
+      },
+      "sourceAnchors": [
+        "cva6-systemverilog-rtl-config-wiki",
+        "cva6-requirements-optional-features"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l04-risk-speech",
+          "type": "speech",
+          "text": "Macro-heavy RTL becomes risky because the important decision may not be visible where the hardware is described. A reviewer has to ask: was that macro defined in the file list, the simulator command, a wrapper, or an include? A package and typed parameters make the decision more explicit. It is still configuration, but now it behaves like engineering evidence.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l04-risk-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l04-rtl-config-workflow-en/audio/tts_scene-cva6-u02-l04-risk-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l04-flow",
+      "stageId": "openhw-cva6-u02-l04-rtl-config-workflow-en",
+      "type": "html-slide",
+      "title": "The maintainable CVA6 flow",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "light",
+        "content": {
+          "kicker": "FLOW",
+          "title": "Selection, definition, bridge, consumption",
+          "subtitle": "Keep each responsibility separate so the chosen configuration remains auditable.",
+          "steps": [
+            {
+              "title": "Select target",
+              "body": "TARGET_CFG identifies the intended variant for this build or run."
+            },
+            {
+              "title": "Load config package",
+              "body": "A configuration package provides the typed values for that target."
+            },
+            {
+              "title": "Bridge to local cfg",
+              "body": "Build logic converts the selected package values into a local CVA6Cfg consumed by downstream code."
+            },
+            {
+              "title": "Consume in RTL/testbench",
+              "body": "RTL and verification consume the selected configuration rather than re-selecting it silently."
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-systemverilog-rtl-config-wiki",
+            "title": "CVA6 Wiki: Configuring SystemVerilog RTL Models",
+            "url": "https://github.com/openhwgroup/cva6/wiki/Configuring-SystemVerilog-RTL-Models",
+            "locator": "CVA6 wiki Configuring SystemVerilog RTL Models",
+            "localPath": "OpenHW-Classroom-phase1/content/sources/sources.json",
+            "claimSupported": "The source registry summarizes the CVA6 wiki guidance around package-based configuration, typed parameters, generate blocks, TARGET_CFG, cva6_config_pkg, and build_config_pkg."
+          }
+        ],
+        "speakerNotes": "A maintainable flow separates four jobs. TARGET_CFG selects the target. A configuration package defines typed values. A bridge layer turns those values into the local configuration object used by the build or testbench. Then RTL and verification consume that object. The point is not ceremony. The point is that each stage has one responsibility and one place to inspect."
+      },
+      "sourceAnchors": [
+        "cva6-systemverilog-rtl-config-wiki"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l04-flow-speech",
+          "type": "speech",
+          "text": "A maintainable flow separates four jobs. TARGET_CFG selects the target. A configuration package defines typed values. A bridge layer turns those values into the local configuration object used by the build or testbench. Then RTL and verification consume that object. The point is not ceremony. The point is that each stage has one responsibility and one place to inspect.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l04-flow-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l04-rtl-config-workflow-en/audio/tts_scene-cva6-u02-l04-flow-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l04-constructs",
+      "stageId": "openhw-cva6-u02-l04-rtl-config-workflow-en",
+      "type": "html-slide",
+      "title": "Use the right SystemVerilog construct",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "CONSTRUCTS",
+          "title": "Do not ask one mechanism to do every job",
+          "subtitle": "Configuration is cleaner when each SystemVerilog feature has a narrow role.",
+          "cards": [
+            {
+              "title": "Package",
+              "body": "Centralize types, enums, structs, constants, and named configuration values."
+            },
+            {
+              "title": "Parameter",
+              "body": "Specialize module behavior with typed, scoped values."
+            },
+            {
+              "title": "Generate block",
+              "body": "Elaborate or remove hardware structure from static configuration expressions."
+            },
+            {
+              "title": "Macro",
+              "body": "Reserve for rare compile-environment cases, not as the default hardware model."
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-systemverilog-rtl-config-wiki",
+            "title": "CVA6 Wiki: Configuring SystemVerilog RTL Models",
+            "url": "https://github.com/openhwgroup/cva6/wiki/Configuring-SystemVerilog-RTL-Models",
+            "locator": "CVA6 wiki Configuring SystemVerilog RTL Models",
+            "localPath": "OpenHW-Classroom-phase1/content/sources/sources.json",
+            "claimSupported": "The source registry summarizes the CVA6 wiki guidance around package-based configuration, typed parameters, generate blocks, TARGET_CFG, cva6_config_pkg, and build_config_pkg."
+          },
+          {
+            "id": "cva6-parameters-catalog",
+            "title": "CVA6 Parameters and Configuration catalog",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Parameters_Configuration.html",
+            "locator": "cva6-user-manual/Parameters_Configuration.md Parameters",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Parameters_Configuration.md",
+            "claimSupported": "The Parameters and Configuration page lists CVA6 parameters such as XLEN, VLEN, MmuPresent, RVS, RVU, CvxifEn, cache sizes, SuperscalarEn, commit ports, and PipelineOnly."
+          }
+        ],
+        "speakerNotes": "The workflow becomes much easier to reason about when every construct has a job. Packages carry shared configuration vocabulary. Parameters specialize a module. Generate blocks elaborate structure from static values. Macros should be the exceptional tool, not the default hammer. If a course later says a unit is present, we should be able to point to the parameter or generated structure that supports that claim."
+      },
+      "sourceAnchors": [
+        "cva6-systemverilog-rtl-config-wiki",
+        "cva6-parameters-catalog"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l04-constructs-speech",
+          "type": "speech",
+          "text": "The workflow becomes much easier to reason about when every construct has a job. Packages carry shared configuration vocabulary. Parameters specialize a module. Generate blocks elaborate structure from static values. Macros should be the exceptional tool, not the default hammer. If a course later says a unit is present, we should be able to point to the parameter or generated structure that supports that claim.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l04-constructs-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l04-rtl-config-workflow-en/audio/tts_scene-cva6-u02-l04-constructs-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l04-review",
+      "stageId": "openhw-cva6-u02-l04-rtl-config-workflow-en",
+      "type": "html-slide",
+      "title": "Review checklist for a configuration change",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "REVIEW CHECKLIST",
+          "title": "Ask five questions before trusting the variant",
+          "subtitle": "This checklist is useful for RTL review, verification review, and course-production review.",
+          "items": [
+            {
+              "title": "Selection is explicit",
+              "body": "Can you name the target configuration without reading a dozen files?"
+            },
+            {
+              "title": "Values are typed",
+              "body": "Are configuration values expressed as package data or parameters, not only text macros?"
+            },
+            {
+              "title": "Absent features are absent",
+              "body": "If a feature is disabled, is it removed or tied off according to the intended design rule?"
+            },
+            {
+              "title": "Verification sees the same config",
+              "body": "Does the testbench consume the same chosen configuration as the RTL build?"
+            },
+            {
+              "title": "The claim is scoped",
+              "body": "Does documentation say which CVA6 configuration the statement applies to?"
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-systemverilog-rtl-config-wiki",
+            "title": "CVA6 Wiki: Configuring SystemVerilog RTL Models",
+            "url": "https://github.com/openhwgroup/cva6/wiki/Configuring-SystemVerilog-RTL-Models",
+            "locator": "CVA6 wiki Configuring SystemVerilog RTL Models",
+            "localPath": "OpenHW-Classroom-phase1/content/sources/sources.json",
+            "claimSupported": "The source registry summarizes the CVA6 wiki guidance around package-based configuration, typed parameters, generate blocks, TARGET_CFG, cva6_config_pkg, and build_config_pkg."
+          },
+          {
+            "id": "cva6-requirements-optional-features",
+            "title": "CVA6 optional feature parameter rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#scope-of-the-ip",
+            "locator": "requirements/cva6_requirements_specification.md optional feature SystemVerilog parameter rule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements specification states that optional features are controlled by SystemVerilog parameters and are absent from the synthesized netlist when not selected."
+          }
+        ],
+        "speakerNotes": "Here is the review checklist I want you to keep. Is the selection explicit? Are values typed? Are disabled features really absent or safely tied off? Does verification see the same configuration as RTL? And is every statement scoped to a named CVA6 configuration? If any answer is vague, the technical claim is not ready for a public lesson."
+      },
+      "sourceAnchors": [
+        "cva6-systemverilog-rtl-config-wiki",
+        "cva6-requirements-optional-features"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l04-review-speech",
+          "type": "speech",
+          "text": "Here is the review checklist I want you to keep. Is the selection explicit? Are values typed? Are disabled features really absent or safely tied off? Does verification see the same configuration as RTL? And is every statement scoped to a named CVA6 configuration? If any answer is vague, the technical claim is not ready for a public lesson.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l04-review-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l04-rtl-config-workflow-en/audio/tts_scene-cva6-u02-l04-review-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l04-course-use",
+      "stageId": "openhw-cva6-u02-l04-rtl-config-workflow-en",
+      "type": "html-slide",
+      "title": "How this affects OpenHW course production",
+      "order": 5,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "light",
+        "content": {
+          "kicker": "COURSE WORKFLOW",
+          "title": "Translate configuration evidence into teachable claims",
+          "subtitle": "A high-quality lesson should not merely repeat parameter names. It should explain what the selected values let us conclude.",
+          "steps": [
+            {
+              "title": "Choose variant",
+              "body": "Name the target, such as CV32A60X, before interpreting architecture behavior."
+            },
+            {
+              "title": "Extract evidence",
+              "body": "Pull only the parameter rows that can change the lesson conclusion."
+            },
+            {
+              "title": "Write scoped claim",
+              "body": "Phrase the slide so it says what is true for this variant, not for every CVA6 configuration."
+            },
+            {
+              "title": "Add quiz trap",
+              "body": "Test whether the learner can reject an overgeneralized conclusion."
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-systemverilog-rtl-config-wiki",
+            "title": "CVA6 Wiki: Configuring SystemVerilog RTL Models",
+            "url": "https://github.com/openhwgroup/cva6/wiki/Configuring-SystemVerilog-RTL-Models",
+            "locator": "CVA6 wiki Configuring SystemVerilog RTL Models",
+            "localPath": "OpenHW-Classroom-phase1/content/sources/sources.json",
+            "claimSupported": "The source registry summarizes the CVA6 wiki guidance around package-based configuration, typed parameters, generate blocks, TARGET_CFG, cva6_config_pkg, and build_config_pkg."
+          },
+          {
+            "id": "cv32a60x-parameter-config",
+            "title": "CV32A60X parameter configuration table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#parameter-configuration",
+            "locator": "cv32a60x/design/design.md Parameter configuration",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X parameter table records concrete values such as XLEN 32, VLEN 32, RVC true, MmuPresent false, RVS false, RVU false, CvxifEn true, PipelineOnly true, and single commit port behavior."
+          }
+        ],
+        "speakerNotes": "For course production, this workflow is gold. First name the variant. Then extract the few parameter rows that change the conclusion. Next write a scoped claim, such as for CV32A60X rather than for all CVA6. Finally, add a quiz trap that catches overgeneralization. That is how we turn raw documentation into a professional micro lesson."
+      },
+      "sourceAnchors": [
+        "cva6-systemverilog-rtl-config-wiki",
+        "cv32a60x-parameter-config"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l04-course-use-speech",
+          "type": "speech",
+          "text": "For course production, this workflow is gold. First name the variant. Then extract the few parameter rows that change the conclusion. Next write a scoped claim, such as for CV32A60X rather than for all CVA6. Finally, add a quiz trap that catches overgeneralization. That is how we turn raw documentation into a professional micro lesson.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l04-course-use-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l04-rtl-config-workflow-en/audio/tts_scene-cva6-u02-l04-course-use-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l04-quiz",
+      "stageId": "openhw-cva6-u02-l04-rtl-config-workflow-en",
+      "type": "quiz",
+      "title": "Configuration workflow checkpoint",
+      "order": 6,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u02-l04-q1",
+            "type": "single",
+            "question": "What is the core purpose of TARGET_CFG in a maintainable configuration flow?",
+            "options": [
+              {
+                "value": "A",
+                "label": "To select the intended target configuration in one traceable place"
+              },
+              {
+                "value": "B",
+                "label": "To replace every SystemVerilog parameter in the design"
+              },
+              {
+                "value": "C",
+                "label": "To make verification independent from the selected hardware"
+              },
+              {
+                "value": "D",
+                "label": "To hide configuration details from reviewers"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "TARGET_CFG is useful as a selection boundary: it names the chosen target so later package and build steps can consume it traceably."
+          },
+          {
+            "id": "u02-l04-q2",
+            "type": "multiple",
+            "question": "Which mechanisms are good defaults for hardware feature configuration?",
+            "options": [
+              {
+                "value": "A",
+                "label": "SystemVerilog packages"
+              },
+              {
+                "value": "B",
+                "label": "Typed parameters"
+              },
+              {
+                "value": "C",
+                "label": "Generate blocks driven by static expressions"
+              },
+              {
+                "value": "D",
+                "label": "Untracked global text macros everywhere"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C"
+            ],
+            "hasAnswer": true,
+            "analysis": "Packages, typed parameters, and generate blocks keep configuration scoped and auditable. Untracked global macros are the risk pattern."
+          },
+          {
+            "id": "u02-l04-q3",
+            "type": "single",
+            "question": "Which review question best protects a public technical lesson from overclaiming?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Can this statement be scoped to the exact CVA6 configuration used as evidence?"
+              },
+              {
+                "value": "B",
+                "label": "Does the slide sound confident enough?"
+              },
+              {
+                "value": "C",
+                "label": "Can the macro name be made shorter?"
+              },
+              {
+                "value": "D",
+                "label": "Can the quiz be removed to keep the lesson faster?"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "A professional lesson must scope claims to the configuration that supports them. Confidence without scope is not evidence."
+          },
+          {
+            "id": "u02-l04-q4",
+            "type": "single",
+            "question": "If a feature is controlled by a SystemVerilog parameter and not selected, what should the course avoid saying?",
+            "options": [
+              {
+                "value": "A",
+                "label": "That the feature is present in the synthesized configuration"
+              },
+              {
+                "value": "B",
+                "label": "That the feature is optional in the configurable family"
+              },
+              {
+                "value": "C",
+                "label": "That a different variant may enable it"
+              },
+              {
+                "value": "D",
+                "label": "That the parameter should be checked before claiming behavior"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "The requirements rule makes disabled optional features absent from the selected netlist, so teaching them as present would be misleading."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cva6-systemverilog-rtl-config-wiki",
+            "title": "CVA6 Wiki: Configuring SystemVerilog RTL Models",
+            "url": "https://github.com/openhwgroup/cva6/wiki/Configuring-SystemVerilog-RTL-Models",
+            "locator": "CVA6 wiki Configuring SystemVerilog RTL Models",
+            "localPath": "OpenHW-Classroom-phase1/content/sources/sources.json",
+            "claimSupported": "The source registry summarizes the CVA6 wiki guidance around package-based configuration, typed parameters, generate blocks, TARGET_CFG, cva6_config_pkg, and build_config_pkg."
+          },
+          {
+            "id": "cva6-requirements-optional-features",
+            "title": "CVA6 optional feature parameter rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#scope-of-the-ip",
+            "locator": "requirements/cva6_requirements_specification.md optional feature SystemVerilog parameter rule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements specification states that optional features are controlled by SystemVerilog parameters and are absent from the synthesized netlist when not selected."
+          }
+        ],
+        "speakerNotes": "This checkpoint checks the engineering habit, not memorization. TARGET_CFG should be understood as a traceable selection boundary. Packages, parameters, and generate blocks are the maintainable defaults. Most importantly, a public course must scope every architecture claim to the configuration that supports it. If a disabled feature is taught as present, the lesson is wrong even if the slide looks polished."
+      },
+      "sourceAnchors": [
+        "cva6-systemverilog-rtl-config-wiki",
+        "cva6-requirements-optional-features"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l04-quiz-speech",
+          "type": "speech",
+          "text": "This checkpoint checks the engineering habit, not memorization. TARGET_CFG should be understood as a traceable selection boundary. Packages, parameters, and generate blocks are the maintainable defaults. Most importantly, a public course must scope every architecture claim to the configuration that supports it. If a disabled feature is taught as present, the lesson is wrong even if the slide looks polished.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l04-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l04-rtl-config-workflow-en/audio/tts_scene-cva6-u02-l04-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l04-summary",
+      "stageId": "openhw-cva6-u02-l04-rtl-config-workflow-en",
+      "type": "html-slide",
+      "title": "What you can now inspect",
+      "order": 7,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "WRAP",
+          "title": "Configuration literacy now has a workflow",
+          "subtitle": "You can inspect a CVA6 variant from selection to values to generated hardware claims.",
+          "takeaways": [
+            "Configuration should be traceable from target selection to RTL and verification consumption.",
+            "Typed packages, parameters, and generate blocks are safer teaching anchors than scattered macros.",
+            "Every public lesson should say which CVA6 configuration supports its technical claim."
+          ],
+          "nextStep": "Compare CV32A60X with CV32A60AX so the same workflow is applied to concrete variant differences.",
+          "closing": "Configuration is not paperwork. It is the difference between a useful technical claim and an attractive guess."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-systemverilog-rtl-config-wiki",
+            "title": "CVA6 Wiki: Configuring SystemVerilog RTL Models",
+            "url": "https://github.com/openhwgroup/cva6/wiki/Configuring-SystemVerilog-RTL-Models",
+            "locator": "CVA6 wiki Configuring SystemVerilog RTL Models",
+            "localPath": "OpenHW-Classroom-phase1/content/sources/sources.json",
+            "claimSupported": "The source registry summarizes the CVA6 wiki guidance around package-based configuration, typed parameters, generate blocks, TARGET_CFG, cva6_config_pkg, and build_config_pkg."
+          },
+          {
+            "id": "cv32a60x-parameter-config",
+            "title": "CV32A60X parameter configuration table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#parameter-configuration",
+            "locator": "cv32a60x/design/design.md Parameter configuration",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X parameter table records concrete values such as XLEN 32, VLEN 32, RVC true, MmuPresent false, RVS false, RVU false, CvxifEn true, PipelineOnly true, and single commit port behavior."
+          }
+        ],
+        "speakerNotes": "You now have a workflow: select the target, inspect the configuration values, understand what generated structure they imply, and scope the claim. That prepares us for the next lesson, where we compare CV32A60X and CV32A60AX. Same family, similar names, but the conclusions about privilege, MMU, cache, and application profile are not interchangeable."
+      },
+      "sourceAnchors": [
+        "cva6-systemverilog-rtl-config-wiki",
+        "cv32a60x-parameter-config"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l04-summary-speech",
+          "type": "speech",
+          "text": "You now have a workflow: select the target, inspect the configuration values, understand what generated structure they imply, and scope the claim. That prepares us for the next lesson, where we compare CV32A60X and CV32A60AX. Same family, similar names, but the conclusions about privilege, MMU, cache, and application profile are not interchangeable.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l04-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l04-rtl-config-workflow-en/audio/tts_scene-cva6-u02-l04-summary-speech.mp3"
+        }
+      ]
+    }
+  ]
+}
