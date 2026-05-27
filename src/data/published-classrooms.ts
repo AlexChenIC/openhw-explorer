@@ -18,6 +18,11 @@ import executeCheckpoint from "./published-classrooms/openhw-cva6-u06-l05-checkp
 import executeCommitStage from "./published-classrooms/openhw-cva6-u06-l03-commit-stage-en.json";
 import executeExStageMap from "./published-classrooms/openhw-cva6-u06-l01-ex-stage-map-en.json";
 import executePreciseException from "./published-classrooms/openhw-cva6-u06-l04-precise-exception-en.json";
+import memoryAddressTranslation from "./published-classrooms/openhw-cva6-u07-l03-address-translation-en.json";
+import memoryCacheInterface from "./published-classrooms/openhw-cva6-u07-l04-cache-interface-boundary-en.json";
+import memoryLsuMap from "./published-classrooms/openhw-cva6-u07-l01-lsu-map-en.json";
+import memoryOrderingCheckpoint from "./published-classrooms/openhw-cva6-u07-l05-ordering-fence-checkpoint-en.json";
+import memoryStoreBufferAlias from "./published-classrooms/openhw-cva6-u07-l02-store-buffer-alias-en.json";
 import orientationCheckpoint from "./published-classrooms/openhw-cva6-u01-l06-checkpoint-orientation-en.json";
 import parameterMap from "./published-classrooms/openhw-cva6-u02-l03-parameter-map-en.json";
 import pcgenFetch from "./published-classrooms/openhw-cva6-u03-l02-pcgen-fetch-en.json";
@@ -121,6 +126,11 @@ const publishedClassrooms = {
   [executeCommitStage.id]: executeCommitStage,
   [executePreciseException.id]: executePreciseException,
   [executeCheckpoint.id]: executeCheckpoint,
+  [memoryLsuMap.id]: memoryLsuMap,
+  [memoryStoreBufferAlias.id]: memoryStoreBufferAlias,
+  [memoryAddressTranslation.id]: memoryAddressTranslation,
+  [memoryCacheInterface.id]: memoryCacheInterface,
+  [memoryOrderingCheckpoint.id]: memoryOrderingCheckpoint,
   [slidekitPrototype.id]: slidekitPrototype,
 } as Record<string, PublishedClassroom>;
 

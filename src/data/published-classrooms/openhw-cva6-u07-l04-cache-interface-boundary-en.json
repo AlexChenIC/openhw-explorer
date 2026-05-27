@@ -1,0 +1,593 @@
+{
+  "id": "openhw-cva6-u07-l04-cache-interface-boundary-en",
+  "stage": {
+    "id": "openhw-cva6-u07-l04-cache-interface-boundary-en",
+    "name": "Cache and interface boundary: what belongs to CVA6, cache, and SoC",
+    "description": "A boundary lesson separating LSU-D-cache interaction, cacheability/PMA, OBI or AXI-facing interfaces, and system-level memory responsibilities.",
+    "createdAt": 1779889173249,
+    "updatedAt": 1779889994022,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u07-l04-title",
+      "stageId": "openhw-cva6-u07-l04-cache-interface-boundary-en",
+      "type": "html-slide",
+      "title": "Cache is a boundary, not just a box",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 07 / LESSON 04",
+          "title": "Cache and interface boundary",
+          "subtitle": "The memory path crosses from core-side LSU behavior into D-cache requests, PMA attributes, and system-level responsibilities.",
+          "chips": [
+            "D-cache",
+            "PMA",
+            "OBI / AXI",
+            "Cacheable",
+            "Non-idempotent",
+            "SoC boundary"
+          ],
+          "thesis": "A high-quality CVA6 lesson must say where the core contract ends and where the memory system or SoC contract begins."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a65x-design-lsu",
+            "title": "CV32A65X design: load_store_unit",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/04_cv32a65x/design/design.html#load-store-unit-lsu",
+            "locator": "cv32a65x/design/design.md load_store_unit",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a65x/design/design.md",
+            "claimSupported": "The LSU interfaces with the data cache, handles load/store operations, reports load and store results or exceptions, and connects to commit and PMP configuration."
+          },
+          {
+            "id": "cva6-pma",
+            "title": "CVA6 user manual: PMA",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/PMA.html",
+            "locator": "cva6-user-manual/PMA.md",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/PMA.md",
+            "claimSupported": "CVA6 PMA regions include non-idempotent, executable, and cacheable regions; standalone CVA6 does not define a coherence protocol."
+          }
+        ],
+        "speakerNotes": "This lesson is about boundaries. Many bad explanations say the core reads memory and move on. A better explanation names the LSU, the cache request and response path, PMA attributes, and the external memory system. The purpose is not to overcomplicate things. The purpose is to avoid claiming that CVA6 alone owns behavior that belongs to integration or the SoC."
+      },
+      "sourceAnchors": [
+        "cv32a65x-design-lsu",
+        "cva6-pma"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u07-l04-title-speech",
+          "type": "speech",
+          "text": "This lesson is about boundaries. Many bad explanations say the core reads memory and move on. A better explanation names the LSU, the cache request and response path, PMA attributes, and the external memory system. The purpose is not to overcomplicate things. The purpose is to avoid claiming that CVA6 alone owns behavior that belongs to integration or the SoC.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u07-l04-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u07-l04-cache-interface-boundary-en/audio/tts_scene-cva6-u07-l04-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u07-l04-scope",
+      "stageId": "openhw-cva6-u07-l04-cache-interface-boundary-en",
+      "type": "html-slide",
+      "title": "Use the scope diagram to avoid over-claiming",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "SOURCE BOUNDARY",
+          "title": "The scope diagram is a guardrail for memory claims",
+          "body": "The course should distinguish the processor core, its cache-facing interfaces, and the surrounding system memory infrastructure. That boundary keeps public lessons accurate.",
+          "assetId": "cva6-scope",
+          "caption": "Scope diagrams are not decorative; they prevent the course from inventing responsibilities.",
+          "callouts": [
+            "Core responsibility",
+            "Cache/interface responsibility",
+            "SoC responsibility"
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-scope-cache",
+            "title": "CV32A60X design and scope: cache/interface boundary",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html",
+            "locator": "cv32a60x/design/design.md cache/interface references",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The design documentation separates core pipeline modules from cache and system-level memory-interface responsibilities."
+          }
+        ],
+        "speakerNotes": "The scope diagram is a guardrail. It helps us say what we know from the CVA6 materials and what belongs to integration. This matters for caches. A core-side LSU request, a data-cache response, an external bus protocol, and a final DRAM behavior are related, but they are not the same responsibility. A professional course keeps those layers separate."
+      },
+      "sourceAnchors": [
+        "cva6-scope-cache"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u07-l04-scope-speech",
+          "type": "speech",
+          "text": "The scope diagram is a guardrail. It helps us say what we know from the CVA6 materials and what belongs to integration. This matters for caches. A core-side LSU request, a data-cache response, an external bus protocol, and a final DRAM behavior are related, but they are not the same responsibility. A professional course keeps those layers separate.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u07-l04-scope-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u07-l04-cache-interface-boundary-en/audio/tts_scene-cva6-u07-l04-scope-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u07-l04-pma",
+      "stageId": "openhw-cva6-u07-l04-cache-interface-boundary-en",
+      "type": "html-slide",
+      "title": "PMA tells the core how regions should behave",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "PHYSICAL MEMORY ATTRIBUTES",
+          "title": "Three PMA properties shape safe memory access",
+          "subtitle": "PMA is one bridge between core behavior and system memory semantics.",
+          "cards": [
+            {
+              "title": "Non-idempotent",
+              "body": "I/O-like regions should not be queried speculatively because reads may destroy or change state."
+            },
+            {
+              "title": "Executable",
+              "body": "Executable regions are considered code regions and can be used for instruction fetch."
+            },
+            {
+              "title": "Cacheable",
+              "body": "Cacheable regions are considered data and instruction regions for fetch, load, and store."
+            },
+            {
+              "title": "Static configuration",
+              "body": "CVA6 describes PMA regions through instantiation-time configuration fields."
+            }
+          ],
+          "takeaway": "PMA is where memory semantics enter the hardware reading path."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-pma",
+            "title": "CVA6 user manual: PMA",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/PMA.html",
+            "locator": "cva6-user-manual/PMA.md",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/PMA.md",
+            "claimSupported": "CVA6 PMA regions include non-idempotent, executable, and cacheable regions; standalone CVA6 does not define a coherence protocol."
+          }
+        ],
+        "speakerNotes": "PMA is the right tool for talking about memory-region behavior. The user manual describes non-idempotent, executable, and cacheable regions. Non-idempotent is especially important: speculative reads to an interrupt claim register or UART-like device can be harmful. So the memory system is not just fast or slow. It has semantics, and those semantics affect speculation."
+      },
+      "sourceAnchors": [
+        "cva6-pma"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u07-l04-pma-speech",
+          "type": "speech",
+          "text": "PMA is the right tool for talking about memory-region behavior. The user manual describes non-idempotent, executable, and cacheable regions. Non-idempotent is especially important: speculative reads to an interrupt claim register or UART-like device can be harmful. So the memory system is not just fast or slow. It has semantics, and those semantics affect speculation.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u07-l04-pma-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u07-l04-cache-interface-boundary-en/audio/tts_scene-cva6-u07-l04-pma-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u07-l04-interface",
+      "stageId": "openhw-cva6-u07-l04-cache-interface-boundary-en",
+      "type": "html-slide",
+      "title": "Cache-facing signals are not the whole system",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "INTERFACE LAYERS",
+          "title": "Separate LSU-to-cache from cache-to-system",
+          "subtitle": "This is where learners often blur implementation boundaries.",
+          "columns": [
+            {
+              "title": "Core-side view",
+              "body": "The LSU exposes load and store request and response paths toward the D-cache side, plus exception and commit coordination.",
+              "points": [
+                "obi_load_req/rsp",
+                "obi_store_req/rsp",
+                "load/store exceptions"
+              ]
+            },
+            {
+              "title": "System-side view",
+              "body": "Cacheability, coherence, atomicity, vacant regions, and final memory behavior involve target integration and underlying system decisions.",
+              "points": [
+                "PMA region rules",
+                "No standalone coherence",
+                "AXI errors for vacant regions"
+              ]
+            }
+          ],
+          "takeaway": "A cache interface is a contract boundary, not the entire memory hierarchy."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a65x-design-lsu",
+            "title": "CV32A65X design: load_store_unit",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/04_cv32a65x/design/design.html#load-store-unit-lsu",
+            "locator": "cv32a65x/design/design.md load_store_unit",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a65x/design/design.md",
+            "claimSupported": "The LSU interfaces with the data cache, handles load/store operations, reports load and store results or exceptions, and connects to commit and PMP configuration."
+          },
+          {
+            "id": "cva6-pma",
+            "title": "CVA6 user manual: PMA",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/PMA.html",
+            "locator": "cva6-user-manual/PMA.md",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/PMA.md",
+            "claimSupported": "CVA6 PMA regions include non-idempotent, executable, and cacheable regions; standalone CVA6 does not define a coherence protocol."
+          }
+        ],
+        "speakerNotes": "A cache-facing request is not the whole memory system. The LSU talks to a D-cache side through request and response channels. The PMA text then reminds us that standalone CVA6 does not define a coherence protocol, and that atomicity, reservability, and vacant-region behavior can be delegated to the underlying system. That is an important boundary for honest teaching."
+      },
+      "sourceAnchors": [
+        "cv32a65x-design-lsu",
+        "cva6-pma"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u07-l04-interface-speech",
+          "type": "speech",
+          "text": "A cache-facing request is not the whole memory system. The LSU talks to a D-cache side through request and response channels. The PMA text then reminds us that standalone CVA6 does not define a coherence protocol, and that atomicity, reservability, and vacant-region behavior can be delegated to the underlying system. That is an important boundary for honest teaching.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u07-l04-interface-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u07-l04-cache-interface-boundary-en/audio/tts_scene-cva6-u07-l04-interface-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u07-l04-flush",
+      "stageId": "openhw-cva6-u07-l04-cache-interface-boundary-en",
+      "type": "html-slide",
+      "title": "Flush and fence wires are clues, not assumptions",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "CONTROL WIRES",
+          "title": "Treat cache flush and fence behavior as configuration-scoped",
+          "items": [
+            {
+              "title": "flush_dcache path exists",
+              "body": "Commit and controller documentation expose D-cache flush interaction and acknowledgment signals."
+            },
+            {
+              "title": "Several fence wires are tied off",
+              "body": "The CV32A65X design text shows fence and TLB-flush signals tied to zero in this configuration."
+            },
+            {
+              "title": "Do not generalize blindly",
+              "body": "Explain what the documented configuration says before claiming universal CVA6 behavior."
+            },
+            {
+              "title": "Keep software semantics separate",
+              "body": "ISA-level fences and this module wiring are related but not identical teaching layers."
+            }
+          ],
+          "takeaway": "A signal name is evidence, but context tells you what it means."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a65x-design-controller-fence",
+            "title": "CV32A65X design: controller fence and cache flush signals",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/04_cv32a65x/design/design.html#controller-module",
+            "locator": "cv32a65x/design/design.md CONTROLLER fence/cache flush signals",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a65x/design/design.md",
+            "claimSupported": "The controller exposes cache flush and fence-related wiring; several fence and TLB-flush signals are tied off in this configuration."
+          },
+          {
+            "id": "cv32a65x-design-commit-stage",
+            "title": "CV32A65X design: COMMIT_STAGE",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/04_cv32a65x/design/design.html#commit-stage-module",
+            "locator": "cv32a65x/design/design.md COMMIT_STAGE",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a65x/design/design.md",
+            "claimSupported": "COMMIT_STAGE updates architectural state, commits stores, manages exceptions, and exposes commit_lsu signals toward EX_STAGE."
+          }
+        ],
+        "speakerNotes": "Fence and flush signals are a good example of why source reading requires discipline. The controller and commit-stage documentation expose cache-flush interaction and several fence-related wires, but some are tied off in this configuration. The lesson should not become, quote, CVA6 fully implements every fence behavior here. The better phrase is: this configuration exposes these control wires, and the documented tie-offs define the local behavior."
+      },
+      "sourceAnchors": [
+        "cv32a65x-design-controller-fence",
+        "cv32a65x-design-commit-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u07-l04-flush-speech",
+          "type": "speech",
+          "text": "Fence and flush signals are a good example of why source reading requires discipline. The controller and commit-stage documentation expose cache-flush interaction and several fence-related wires, but some are tied off in this configuration. The lesson should not become, quote, CVA6 fully implements every fence behavior here. The better phrase is: this configuration exposes these control wires, and the documented tie-offs define the local behavior.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u07-l04-flush-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u07-l04-cache-interface-boundary-en/audio/tts_scene-cva6-u07-l04-flush-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u07-l04-quiz",
+      "stageId": "openhw-cva6-u07-l04-cache-interface-boundary-en",
+      "type": "quiz",
+      "title": "Check cache/interface boundaries",
+      "order": 5,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u07-l04-q1",
+            "type": "single",
+            "question": "Why is the scope diagram useful in a memory lesson?",
+            "options": [
+              {
+                "value": "A",
+                "label": "It proves every memory behavior belongs inside the core"
+              },
+              {
+                "value": "B",
+                "label": "It helps separate core, cache/interface, and SoC responsibilities"
+              },
+              {
+                "value": "C",
+                "label": "It replaces source citations"
+              },
+              {
+                "value": "D",
+                "label": "It removes the need to discuss PMA"
+              }
+            ],
+            "answer": [
+              "B"
+            ],
+            "hasAnswer": true,
+            "analysis": "The scope diagram helps prevent over-claiming and keeps memory responsibilities layered."
+          },
+          {
+            "id": "u07-l04-q2",
+            "type": "multiple",
+            "question": "Which PMA categories are described in the CVA6 PMA material?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Non-idempotent regions"
+              },
+              {
+                "value": "B",
+                "label": "Executable regions"
+              },
+              {
+                "value": "C",
+                "label": "Cacheable regions"
+              },
+              {
+                "value": "D",
+                "label": "Return-address-stack regions"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C"
+            ],
+            "hasAnswer": true,
+            "analysis": "RAS belongs to frontend prediction; the other three are PMA access-property categories."
+          },
+          {
+            "id": "u07-l04-q3",
+            "type": "single",
+            "question": "What is the safest statement about standalone CVA6 coherence?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Standalone CVA6 defines all coherence protocol behavior"
+              },
+              {
+                "value": "B",
+                "label": "Standalone CVA6 does not support a coherence protocol; coherent systems define attributes at the system level"
+              },
+              {
+                "value": "C",
+                "label": "Coherence is a branch predictor feature"
+              },
+              {
+                "value": "D",
+                "label": "Coherence is unrelated to memory systems"
+              }
+            ],
+            "answer": [
+              "B"
+            ],
+            "hasAnswer": true,
+            "analysis": "The PMA material states standalone CVA6 does not support any coherence protocol."
+          },
+          {
+            "id": "u07-l04-q4",
+            "type": "single",
+            "question": "How should fence-related tied-off signals be taught?",
+            "options": [
+              {
+                "value": "A",
+                "label": "As evidence that every possible fence behavior is implemented universally"
+              },
+              {
+                "value": "B",
+                "label": "As configuration-scoped evidence that must be explained with source context"
+              },
+              {
+                "value": "C",
+                "label": "As a reason to ignore fences forever"
+              },
+              {
+                "value": "D",
+                "label": "As proof the LSU is a frontend module"
+              }
+            ],
+            "answer": [
+              "B"
+            ],
+            "hasAnswer": true,
+            "analysis": "Signal names must be interpreted in the context of the documented configuration."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a65x-design-lsu",
+            "title": "CV32A65X design: load_store_unit",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/04_cv32a65x/design/design.html#load-store-unit-lsu",
+            "locator": "cv32a65x/design/design.md load_store_unit",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a65x/design/design.md",
+            "claimSupported": "The LSU interfaces with the data cache, handles load/store operations, reports load and store results or exceptions, and connects to commit and PMP configuration."
+          },
+          {
+            "id": "cva6-pma",
+            "title": "CVA6 user manual: PMA",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/PMA.html",
+            "locator": "cva6-user-manual/PMA.md",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/PMA.md",
+            "claimSupported": "CVA6 PMA regions include non-idempotent, executable, and cacheable regions; standalone CVA6 does not define a coherence protocol."
+          },
+          {
+            "id": "cv32a65x-design-controller-fence",
+            "title": "CV32A65X design: controller fence and cache flush signals",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/04_cv32a65x/design/design.html#controller-module",
+            "locator": "cv32a65x/design/design.md CONTROLLER fence/cache flush signals",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a65x/design/design.md",
+            "claimSupported": "The controller exposes cache flush and fence-related wiring; several fence and TLB-flush signals are tied off in this configuration."
+          }
+        ],
+        "speakerNotes": "This quiz checks boundary discipline. The LSU-to-cache interface is one layer. PMA describes physical memory attributes. Coherence and vacant-region behavior may belong to system integration. Fence and flush wires need source context. That is what keeps the course professional."
+      },
+      "sourceAnchors": [
+        "cv32a65x-design-lsu",
+        "cva6-pma",
+        "cv32a65x-design-controller-fence"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u07-l04-quiz-speech",
+          "type": "speech",
+          "text": "This quiz checks boundary discipline. The LSU-to-cache interface is one layer. PMA describes physical memory attributes. Coherence and vacant-region behavior may belong to system integration. Fence and flush wires need source context. That is what keeps the course professional.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u07-l04-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u07-l04-cache-interface-boundary-en/audio/tts_scene-cva6-u07-l04-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u07-l04-summary",
+      "stageId": "openhw-cva6-u07-l04-cache-interface-boundary-en",
+      "type": "html-slide",
+      "title": "Memory boundaries make the course credible",
+      "order": 6,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "SUMMARY",
+          "title": "Cache/interface claims need ownership labels",
+          "takeaways": [
+            "The LSU exposes cache-facing request and response contracts.",
+            "PMA classifies memory-region behavior such as non-idempotent, executable, and cacheable.",
+            "Some memory-system behavior is delegated to integration or target-system design."
+          ],
+          "nextStep": "Next lesson: ordering, fence, and memory-path checkpoint before moving into interfaces and integration.",
+          "closing": "Professional memory teaching is mostly about drawing the right boundaries."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-pma",
+            "title": "CVA6 user manual: PMA",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/PMA.html",
+            "locator": "cva6-user-manual/PMA.md",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/PMA.md",
+            "claimSupported": "CVA6 PMA regions include non-idempotent, executable, and cacheable regions; standalone CVA6 does not define a coherence protocol."
+          },
+          {
+            "id": "cva6-scope-cache",
+            "title": "CV32A60X design and scope: cache/interface boundary",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html",
+            "locator": "cv32a60x/design/design.md cache/interface references",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The design documentation separates core pipeline modules from cache and system-level memory-interface responsibilities."
+          }
+        ],
+        "speakerNotes": "The main takeaway is ownership labeling. The LSU has cache-facing contracts. PMA shapes region behavior. Coherence, atomicity, and vacant-region handling may belong outside standalone CVA6. If a public course gets these boundaries right, it earns trust. Next, we close Unit 07 with ordering, fence, and a checkpoint."
+      },
+      "sourceAnchors": [
+        "cva6-pma",
+        "cva6-scope-cache"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u07-l04-summary-speech",
+          "type": "speech",
+          "text": "The main takeaway is ownership labeling. The LSU has cache-facing contracts. PMA shapes region behavior. Coherence, atomicity, and vacant-region handling may belong outside standalone CVA6. If a public course gets these boundaries right, it earns trust. Next, we close Unit 07 with ordering, fence, and a checkpoint.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u07-l04-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u07-l04-cache-interface-boundary-en/audio/tts_scene-cva6-u07-l04-summary-speech.mp3"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "default-1",
+      "name": "AlexChen",
+      "role": "Professional OpenHW classroom narrator",
+      "voice": "local-tts:kokoro:am_eric"
+    }
+  ],
+  "metadata": {
+    "seriesId": "cva6-from-zero",
+    "unitId": "u07-memory-system",
+    "skillId": "u07-s02-translation-cache",
+    "lessonId": "cva6-u07-l04-cache-interface-boundary",
+    "sourceRefs": [
+      "cv32a65x-design-lsu",
+      "cva6-pma",
+      "cva6-scope-cache",
+      "cv32a65x-design-controller-fence"
+    ],
+    "assetRefs": [
+      "cva6_scope.png",
+      "lsu_blockdiagram.png"
+    ],
+    "generatedAt": "2026-05-27T13:39:33.248Z"
+  }
+}

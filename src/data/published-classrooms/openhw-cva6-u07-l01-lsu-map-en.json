@@ -1,0 +1,603 @@
+{
+  "id": "openhw-cva6-u07-l01-lsu-map-en",
+  "stage": {
+    "id": "openhw-cva6-u07-l01-lsu-map-en",
+    "name": "LSU map: where memory stops being a simple operand",
+    "description": "A source-grounded LSU map covering load and store result paths, commit interaction, D-cache requests, PMP inputs, and memory-side exceptions.",
+    "createdAt": 1779889173249,
+    "updatedAt": 1779889773285,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u07-l01-title",
+      "stageId": "openhw-cva6-u07-l01-lsu-map-en",
+      "type": "html-slide",
+      "title": "The LSU is not just an address adder",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 07 / LESSON 01",
+          "title": "LSU map: where memory stops being a simple operand",
+          "subtitle": "Loads and stores look like ordinary instructions in assembly, but the backend treats them as memory protocol, ordering, exception, and commit problems.",
+          "chips": [
+            "LSU",
+            "Load result",
+            "Store result",
+            "D-cache",
+            "PMP",
+            "Commit"
+          ],
+          "thesis": "Read the LSU as the place where execute-stage work meets memory-system reality and commit-stage discipline."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a65x-design-lsu",
+            "title": "CV32A65X design: load_store_unit",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/04_cv32a65x/design/design.html#load-store-unit-lsu",
+            "locator": "cv32a65x/design/design.md load_store_unit",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a65x/design/design.md",
+            "claimSupported": "The LSU interfaces with the data cache, handles load/store operations, reports load and store results or exceptions, and connects to commit and PMP configuration."
+          }
+        ],
+        "speakerNotes": "Unit 07 starts with a careful map. A load or store is not just an ALU add followed by magic memory. The CVA6 LSU interfaces with the data cache, reports load and store results or exceptions, connects to commit, and receives PMP configuration. In other words, memory is where arithmetic, ordering, protection, and side effects all show up at once."
+      },
+      "sourceAnchors": [
+        "cv32a65x-design-lsu"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u07-l01-title-speech",
+          "type": "speech",
+          "text": "Unit 07 starts with a careful map. A load or store is not just an ALU add followed by magic memory. The CVA6 LSU interfaces with the data cache, reports load and store results or exceptions, connects to commit, and receives PMP configuration. In other words, memory is where arithmetic, ordering, protection, and side effects all show up at once.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u07-l01-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u07-l01-lsu-map-en/audio/tts_scene-cva6-u07-l01-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u07-l01-placement",
+      "stageId": "openhw-cva6-u07-l01-lsu-map-en",
+      "type": "html-slide",
+      "title": "Place the LSU inside the backend",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "PIPELINE PLACEMENT",
+          "title": "LSU sits in execute, but stores become real through commit",
+          "body": "Issue sends memory operations into the LSU. Loads can return values and exceptions to issue. Stores are tracked and require commit coordination before their memory side effect becomes non-speculative.",
+          "assetId": "ariane-overview",
+          "caption": "Use the overview diagram to place LSU between issue, execute, commit, and the memory system.",
+          "callouts": [
+            "Issue sends work",
+            "LSU touches memory",
+            "Commit authorizes state"
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a65x-design-lsu",
+            "title": "CV32A65X design: load_store_unit",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/04_cv32a65x/design/design.html#load-store-unit-lsu",
+            "locator": "cv32a65x/design/design.md load_store_unit",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a65x/design/design.md",
+            "claimSupported": "The LSU interfaces with the data cache, handles load/store operations, reports load and store results or exceptions, and connects to commit and PMP configuration."
+          },
+          {
+            "id": "cv32a65x-design-commit-stage",
+            "title": "CV32A65X design: COMMIT_STAGE",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/04_cv32a65x/design/design.html#commit-stage-module",
+            "locator": "cv32a65x/design/design.md COMMIT_STAGE",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a65x/design/design.md",
+            "claimSupported": "COMMIT_STAGE updates architectural state, commits stores, manages exceptions, and exposes commit_lsu signals toward EX_STAGE."
+          }
+        ],
+        "speakerNotes": "The first professional habit is to separate placement from authority. The LSU is part of the execute-side functional-unit map, but that does not mean every memory action is immediately architectural. Loads produce values and exceptions. Stores need the commit story we built in Unit 06. This is why memory is the natural next chapter after precise state."
+      },
+      "sourceAnchors": [
+        "cv32a65x-design-lsu",
+        "cv32a65x-design-commit-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u07-l01-placement-speech",
+          "type": "speech",
+          "text": "The first professional habit is to separate placement from authority. The LSU is part of the execute-side functional-unit map, but that does not mean every memory action is immediately architectural. Loads produce values and exceptions. Stores need the commit story we built in Unit 06. This is why memory is the natural next chapter after precise state.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u07-l01-placement-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u07-l01-lsu-map-en/audio/tts_scene-cva6-u07-l01-placement-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u07-l01-block",
+      "stageId": "openhw-cva6-u07-l01-lsu-map-en",
+      "type": "html-slide",
+      "title": "Read the LSU block as four contracts",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "LSU CONTRACTS",
+          "title": "Four questions the LSU must answer",
+          "subtitle": "The official block diagram is best read as contracts, not as a wall of signals.",
+          "cards": [
+            {
+              "title": "Can I accept it?",
+              "body": "lsu_ready and bypass capacity decide whether issue can send another memory operation."
+            },
+            {
+              "title": "Is the address legal?",
+              "body": "Alignment, PMP, and translation-related checks can turn a memory op into an exception."
+            },
+            {
+              "title": "Can memory serve it?",
+              "body": "Load and store OBI requests interact with the D-cache side of the memory system."
+            },
+            {
+              "title": "May it change state?",
+              "body": "Store commit, no-store-pending, and commit-ready signals keep side effects disciplined."
+            }
+          ],
+          "takeaway": "The LSU is a protocol hub, not a single-cycle arithmetic unit."
+        },
+        "assets": [
+          {
+            "id": "lsu-block",
+            "type": "image",
+            "src": "/classroom-assets/cva6-shared/assets/lsu_blockdiagram.png",
+            "alt": "Official CVA6 LSU block diagram",
+            "caption": "Official LSU block diagram from the CVA6 user manual archive.",
+            "source": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/assets/_images/lsu_blockdiagram.png"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a65x-design-lsu",
+            "title": "CV32A65X design: load_store_unit",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/04_cv32a65x/design/design.html#load-store-unit-lsu",
+            "locator": "cv32a65x/design/design.md load_store_unit",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a65x/design/design.md",
+            "claimSupported": "The LSU interfaces with the data cache, handles load/store operations, reports load and store results or exceptions, and connects to commit and PMP configuration."
+          },
+          {
+            "id": "deprecated-lsu-overview",
+            "title": "CVA6 deprecated design docs: LSU overview",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "deprecated-design-docs/ex_stage.md Load Store Unit",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/deprecated-design-docs/ex_stage.md",
+            "claimSupported": "The legacy LSU note explains the DTLB, PTW, MMU, store buffer, load alias checks, and why loads can issue earlier than stores."
+          }
+        ],
+        "speakerNotes": "A helpful way to read the LSU is to ask four questions. Can it accept a new operation? Is the address legal and aligned? Can the cache or memory interface serve it? And for a store, may this operation actually change state? Those questions are more useful than memorizing every signal name. They also explain why LSU timing is often harder than ordinary integer execution."
+      },
+      "sourceAnchors": [
+        "cv32a65x-design-lsu",
+        "deprecated-lsu-overview"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u07-l01-block-speech",
+          "type": "speech",
+          "text": "A helpful way to read the LSU is to ask four questions. Can it accept a new operation? Is the address legal and aligned? Can the cache or memory interface serve it? And for a store, may this operation actually change state? Those questions are more useful than memorizing every signal name. They also explain why LSU timing is often harder than ordinary integer execution.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u07-l01-block-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u07-l01-lsu-map-en/audio/tts_scene-cva6-u07-l01-block-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u07-l01-load-store",
+      "stageId": "openhw-cva6-u07-l01-lsu-map-en",
+      "type": "html-slide",
+      "title": "Loads and stores are asymmetric",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "LOAD VS STORE",
+          "title": "Same address calculation, different architectural risk",
+          "subtitle": "Loads and stores both use addresses, but they do not have the same side-effect profile.",
+          "columns": [
+            {
+              "title": "Load path",
+              "body": "A load can be issued toward memory once aliasing, translation, and cache interaction permit it. Its result and exception return to the backend.",
+              "points": [
+                "Returns data",
+                "Can raise exception",
+                "Must avoid stale data"
+              ]
+            },
+            {
+              "title": "Store path",
+              "body": "A store may be tracked speculatively, but the memory write side effect is separated from the initial execution of the store instruction.",
+              "points": [
+                "Tracks intent",
+                "Waits for commit",
+                "Writes oldest committed store"
+              ]
+            }
+          ],
+          "takeaway": "Loads ask for a value; stores carry a side effect."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a65x-design-load-unit",
+            "title": "CV32A65X design: load_unit",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/04_cv32a65x/design/design.html#load-unit",
+            "locator": "cv32a65x/design/design.md load_unit",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a65x/design/design.md",
+            "claimSupported": "The load unit checks the store buffer before issuing a load and stalls load-after-store cases when the older store has not reached the cache."
+          },
+          {
+            "id": "cv32a65x-design-store-unit",
+            "title": "CV32A65X design: store_unit",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/04_cv32a65x/design/design.html#store-unit",
+            "locator": "cv32a65x/design/design.md store_unit",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a65x/design/design.md",
+            "claimSupported": "Stores can be speculative, so outstanding stores are tracked separately from committed stores; commit turns an outstanding store into a committed one."
+          },
+          {
+            "id": "deprecated-lsu-overview",
+            "title": "CVA6 deprecated design docs: LSU overview",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "deprecated-design-docs/ex_stage.md Load Store Unit",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/deprecated-design-docs/ex_stage.md",
+            "claimSupported": "The legacy LSU note explains the DTLB, PTW, MMU, store buffer, load alias checks, and why loads can issue earlier than stores."
+          }
+        ],
+        "speakerNotes": "This asymmetry is the key. Loads are still careful, because stale data and exceptions matter, but a load mainly asks memory for a value. Stores carry an architectural side effect. The design text says stores can be speculative and need commit before altering processor state. So never explain load and store as mirror images. That shortcut hides the point of the store buffer."
+      },
+      "sourceAnchors": [
+        "cv32a65x-design-load-unit",
+        "cv32a65x-design-store-unit",
+        "deprecated-lsu-overview"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u07-l01-load-store-speech",
+          "type": "speech",
+          "text": "This asymmetry is the key. Loads are still careful, because stale data and exceptions matter, but a load mainly asks memory for a value. Stores carry an architectural side effect. The design text says stores can be speculative and need commit before altering processor state. So never explain load and store as mirror images. That shortcut hides the point of the store buffer.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u07-l01-load-store-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u07-l01-lsu-map-en/audio/tts_scene-cva6-u07-l01-load-store-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u07-l01-exceptions",
+      "stageId": "openhw-cva6-u07-l01-lsu-map-en",
+      "type": "html-slide",
+      "title": "Memory can fail before data returns",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "FAILURE MODES",
+          "title": "The LSU must report more than values",
+          "items": [
+            {
+              "title": "Misalignment",
+              "body": "CVA6 does not handle non-aligned memory accesses and raises misaligned exceptions for unsupported alignment."
+            },
+            {
+              "title": "Protection",
+              "body": "PMP configuration reaches the LSU path and can constrain physical memory access."
+            },
+            {
+              "title": "Translation",
+              "body": "When translation exists, page faults can convert a memory access into an exception."
+            },
+            {
+              "title": "Cache/interface response",
+              "body": "The D-cache request and response path can stall or report conditions that shape backend progress."
+            }
+          ],
+          "takeaway": "A memory instruction is not complete just because its address was computed."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a65x-design-lsu",
+            "title": "CV32A65X design: load_store_unit",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/04_cv32a65x/design/design.html#load-store-unit-lsu",
+            "locator": "cv32a65x/design/design.md load_store_unit",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a65x/design/design.md",
+            "claimSupported": "The LSU interfaces with the data cache, handles load/store operations, reports load and store results or exceptions, and connects to commit and PMP configuration."
+          },
+          {
+            "id": "deprecated-lsu-overview",
+            "title": "CVA6 deprecated design docs: LSU overview",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "deprecated-design-docs/ex_stage.md Load Store Unit",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/deprecated-design-docs/ex_stage.md",
+            "claimSupported": "The legacy LSU note explains the DTLB, PTW, MMU, store buffer, load alias checks, and why loads can issue earlier than stores."
+          }
+        ],
+        "speakerNotes": "A second habit: memory operations can fail before useful data returns. Misalignment, protection, translation, and cache-interface behavior all matter. The lesson here is not to memorize every exception code today. The lesson is to stop treating memory as an infinite array that always answers nicely. Hardware is more honest than that, and occasionally less polite."
+      },
+      "sourceAnchors": [
+        "cv32a65x-design-lsu",
+        "deprecated-lsu-overview"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u07-l01-exceptions-speech",
+          "type": "speech",
+          "text": "A second habit: memory operations can fail before useful data returns. Misalignment, protection, translation, and cache-interface behavior all matter. The lesson here is not to memorize every exception code today. The lesson is to stop treating memory as an infinite array that always answers nicely. Hardware is more honest than that, and occasionally less polite.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u07-l01-exceptions-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u07-l01-lsu-map-en/audio/tts_scene-cva6-u07-l01-exceptions-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u07-l01-quiz",
+      "stageId": "openhw-cva6-u07-l01-lsu-map-en",
+      "type": "quiz",
+      "title": "Check the LSU map",
+      "order": 5,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u07-l01-q1",
+            "type": "single",
+            "question": "Which description best fits the CVA6 LSU in this lesson?",
+            "options": [
+              {
+                "value": "A",
+                "label": "A single-cycle ALU dedicated to address addition"
+              },
+              {
+                "value": "B",
+                "label": "A protocol hub for load/store operations, cache interaction, exceptions, and commit coordination"
+              },
+              {
+                "value": "C",
+                "label": "A frontend branch-prediction unit"
+              },
+              {
+                "value": "D",
+                "label": "A replacement for COMMIT_STAGE"
+              }
+            ],
+            "answer": [
+              "B"
+            ],
+            "hasAnswer": true,
+            "analysis": "The LSU connects issue, load/store result reporting, D-cache requests, PMP inputs, and commit-related store control."
+          },
+          {
+            "id": "u07-l01-q2",
+            "type": "multiple",
+            "question": "Which concerns belong in a careful LSU explanation?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Load results"
+              },
+              {
+                "value": "B",
+                "label": "Store commit discipline"
+              },
+              {
+                "value": "C",
+                "label": "PMP or protection checks"
+              },
+              {
+                "value": "D",
+                "label": "Only PC plus four selection"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C"
+            ],
+            "hasAnswer": true,
+            "analysis": "PC selection is a frontend topic; the other three are part of the memory-side LSU story."
+          },
+          {
+            "id": "u07-l01-q3",
+            "type": "single",
+            "question": "Why are stores more architecturally dangerous than loads?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Stores cannot calculate addresses"
+              },
+              {
+                "value": "B",
+                "label": "Stores can change memory state and therefore need commit discipline"
+              },
+              {
+                "value": "C",
+                "label": "Stores never interact with cache"
+              },
+              {
+                "value": "D",
+                "label": "Stores always bypass the backend"
+              }
+            ],
+            "answer": [
+              "B"
+            ],
+            "hasAnswer": true,
+            "analysis": "A store carries a memory side effect, so speculative tracking and committed memory write must be separated."
+          },
+          {
+            "id": "u07-l01-q4",
+            "type": "single",
+            "question": "What is the safest statement about a memory operation after address calculation?",
+            "options": [
+              {
+                "value": "A",
+                "label": "It is always complete"
+              },
+              {
+                "value": "B",
+                "label": "It may still stall, raise an exception, wait for translation, or wait for cache/interface response"
+              },
+              {
+                "value": "C",
+                "label": "It no longer needs instruction identity"
+              },
+              {
+                "value": "D",
+                "label": "It cannot interact with commit"
+              }
+            ],
+            "answer": [
+              "B"
+            ],
+            "hasAnswer": true,
+            "analysis": "Address generation is only one part of memory execution; the memory path still has several checks and handshakes."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a65x-design-lsu",
+            "title": "CV32A65X design: load_store_unit",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/04_cv32a65x/design/design.html#load-store-unit-lsu",
+            "locator": "cv32a65x/design/design.md load_store_unit",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a65x/design/design.md",
+            "claimSupported": "The LSU interfaces with the data cache, handles load/store operations, reports load and store results or exceptions, and connects to commit and PMP configuration."
+          },
+          {
+            "id": "cv32a65x-design-store-unit",
+            "title": "CV32A65X design: store_unit",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/04_cv32a65x/design/design.html#store-unit",
+            "locator": "cv32a65x/design/design.md store_unit",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a65x/design/design.md",
+            "claimSupported": "Stores can be speculative, so outstanding stores are tracked separately from committed stores; commit turns an outstanding store into a committed one."
+          }
+        ],
+        "speakerNotes": "This quiz checks whether the LSU map is in place. You should now see the LSU as a protocol hub: it accepts memory work, reports values or exceptions, checks store ordering, and coordinates with cache and commit. That map lets the next lesson zoom into the store buffer and load-store ordering without getting lost."
+      },
+      "sourceAnchors": [
+        "cv32a65x-design-lsu",
+        "cv32a65x-design-store-unit"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u07-l01-quiz-speech",
+          "type": "speech",
+          "text": "This quiz checks whether the LSU map is in place. You should now see the LSU as a protocol hub: it accepts memory work, reports values or exceptions, checks store ordering, and coordinates with cache and commit. That map lets the next lesson zoom into the store buffer and load-store ordering without getting lost.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u07-l01-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u07-l01-lsu-map-en/audio/tts_scene-cva6-u07-l01-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u07-l01-summary",
+      "stageId": "openhw-cva6-u07-l01-lsu-map-en",
+      "type": "html-slide",
+      "title": "The LSU is the backend memory contract",
+      "order": 6,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "SUMMARY",
+          "title": "Memory operations need contracts, not guesses",
+          "takeaways": [
+            "The LSU bridges issue, execute, cache/interface, protection, and commit.",
+            "Loads and stores are asymmetric because stores carry side effects.",
+            "Misalignment, protection, translation, and cache response can shape memory progress."
+          ],
+          "nextStep": "Next lesson: load/store queue discipline, store buffer states, alias checks, and why no forwarding matters.",
+          "closing": "Once the LSU map is stable, memory ordering becomes explainable instead of mysterious."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a65x-design-lsu",
+            "title": "CV32A65X design: load_store_unit",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/04_cv32a65x/design/design.html#load-store-unit-lsu",
+            "locator": "cv32a65x/design/design.md load_store_unit",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a65x/design/design.md",
+            "claimSupported": "The LSU interfaces with the data cache, handles load/store operations, reports load and store results or exceptions, and connects to commit and PMP configuration."
+          }
+        ],
+        "speakerNotes": "The summary is simple: the LSU is where backend memory work becomes real engineering. It bridges issue, execution, cache interaction, protection, and commit. Loads and stores are asymmetric. Exceptions and stalls are normal parts of the path. Next, we focus on the store buffer, load alias checks, and the queue discipline that keeps speculative memory from quietly corrupting reality."
+      },
+      "sourceAnchors": [
+        "cv32a65x-design-lsu"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u07-l01-summary-speech",
+          "type": "speech",
+          "text": "The summary is simple: the LSU is where backend memory work becomes real engineering. It bridges issue, execution, cache interaction, protection, and commit. Loads and stores are asymmetric. Exceptions and stalls are normal parts of the path. Next, we focus on the store buffer, load alias checks, and the queue discipline that keeps speculative memory from quietly corrupting reality.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u07-l01-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u07-l01-lsu-map-en/audio/tts_scene-cva6-u07-l01-summary-speech.mp3"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "default-1",
+      "name": "AlexChen",
+      "role": "Professional OpenHW classroom narrator",
+      "voice": "local-tts:kokoro:am_eric"
+    }
+  ],
+  "metadata": {
+    "seriesId": "cva6-from-zero",
+    "unitId": "u07-memory-system",
+    "skillId": "u07-s01-lsu",
+    "lessonId": "cva6-u07-l01-lsu-map",
+    "sourceRefs": [
+      "cv32a65x-design-lsu",
+      "cv32a65x-design-store-unit",
+      "cv32a65x-design-load-unit",
+      "cv32a65x-design-commit-stage",
+      "deprecated-lsu-overview"
+    ],
+    "assetRefs": [
+      "ariane_overview.drawio.png",
+      "lsu_blockdiagram.png"
+    ],
+    "generatedAt": "2026-05-27T13:39:33.248Z"
+  }
+}
