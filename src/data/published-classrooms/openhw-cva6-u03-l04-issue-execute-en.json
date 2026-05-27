@@ -1,0 +1,635 @@
+{
+  "id": "openhw-cva6-u03-l04-issue-execute-en",
+  "stage": {
+    "id": "openhw-cva6-u03-l04-issue-execute-en",
+    "name": "Issue to execute: single issue does not mean no concurrency",
+    "description": "A backend-spine lesson on in-order issue, hazard checks, operand forwarding, scoreboard tracking, functional-unit readiness, and out-of-order result arrival.",
+    "createdAt": 1779852717181,
+    "updatedAt": 1779853505628,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u03-l04-title",
+      "stageId": "openhw-cva6-u03-l04-issue-execute-en",
+      "type": "html-slide",
+      "title": "Issue is the backend gatekeeper",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 03 / LESSON 04",
+          "title": "Issue to execute: single issue does not mean no concurrency",
+          "subtitle": "The backend admits work in order, checks hazards and readiness, then lets functional units produce results with different timing.",
+          "chips": [
+            "Issue",
+            "Scoreboard",
+            "Hazards",
+            "Forwarding",
+            "Execute"
+          ],
+          "thesis": "The professional mental model is ordered admission, tracked dependencies, and variable completion."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-scoreboard",
+            "title": "CV32A60X design: ISSUE_STAGE and scoreboard",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module and issue_read_operands",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The issue path tracks RAW, WAW, and structural hazards, uses forwarding when possible, issues instructions in order, and can still receive out-of-order functional-unit results."
+          }
+        ],
+        "speakerNotes": "Now we enter the backend. The title matters: single issue does not mean no concurrency. Issue admits instructions in order, but functional units may take different amounts of time. The scoreboard and hazard checks are what let the core keep track of work without pretending every instruction behaves the same."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-scoreboard"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u03-l04-title-speech",
+          "type": "speech",
+          "text": "Now we enter the backend. The title matters: single issue does not mean no concurrency. Issue admits instructions in order, but functional units may take different amounts of time. The scoreboard and hazard checks are what let the core keep track of work without pretending every instruction behaves the same.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u03-l04-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u03-l04-issue-execute-en/audio/tts_scene-cva6-u03-l04-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u03-l04-scoreboard-diagram",
+      "stageId": "openhw-cva6-u03-l04-issue-execute-en",
+      "type": "html-slide",
+      "title": "The scoreboard is the backend notebook",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "SCOREBOARD",
+          "title": "Track work before trusting results",
+          "subtitle": "Scoreboard-style tracking lets issue reason about dependencies, availability, exceptions, and completion.",
+          "callouts": [
+            {
+              "title": "Entries",
+              "body": "Decoded instruction records become tracked backend work."
+            },
+            {
+              "title": "Hazards",
+              "body": "Read-after-write, write-after-write, and structural checks influence admission."
+            },
+            {
+              "title": "Results",
+              "body": "Functional-unit outputs can update tracked entries before commit retires them."
+            }
+          ],
+          "takeaway": "The scoreboard turns backend progress into inspectable state."
+        },
+        "assets": [
+          {
+            "id": "scoreboard",
+            "type": "image",
+            "src": "/classroom-assets/cva6-shared/assets/scoreboard.png",
+            "alt": "Official CVA6 scoreboard diagram",
+            "caption": "Official scoreboard diagram used to explain issue, hazards, and result tracking.",
+            "source": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/assets/_images/scoreboard.png"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-scoreboard",
+            "title": "CV32A60X design: ISSUE_STAGE and scoreboard",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module and issue_read_operands",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The issue path tracks RAW, WAW, and structural hazards, uses forwarding when possible, issues instructions in order, and can still receive out-of-order functional-unit results."
+          }
+        ],
+        "speakerNotes": "Think of the scoreboard as the backend notebook. It records which instruction work exists, what it depends on, what unit will handle it, and when results appear. That is not just implementation trivia. It is the reason we can talk clearly about in-order issue and out-of-order result arrival without confusing either one with commit."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-scoreboard"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u03-l04-scoreboard-diagram-speech",
+          "type": "speech",
+          "text": "Think of the scoreboard as the backend notebook. It records which instruction work exists, what it depends on, what unit will handle it, and when results appear. That is not just implementation trivia. It is the reason we can talk clearly about in-order issue and out-of-order result arrival without confusing either one with commit.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u03-l04-scoreboard-diagram-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u03-l04-issue-execute-en/audio/tts_scene-cva6-u03-l04-scoreboard-diagram-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u03-l04-issue-flow",
+      "stageId": "openhw-cva6-u03-l04-issue-execute-en",
+      "type": "html-slide",
+      "title": "Issue checks three kinds of readiness",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "light",
+        "content": {
+          "kicker": "ISSUE FLOW",
+          "title": "An instruction moves only when the path is safe enough",
+          "subtitle": "The issue path checks data hazards, structural hazards, and operand availability.",
+          "steps": [
+            {
+              "title": "Receive decoded entry",
+              "body": "The instruction is already decoded into backend-tracked information."
+            },
+            {
+              "title": "Check data hazards",
+              "body": "RAW and WAW relationships can block or require forwarding."
+            },
+            {
+              "title": "Check structural hazards",
+              "body": "Functional units and result buses must be able to accept or return work."
+            },
+            {
+              "title": "Select operands",
+              "body": "Operands come from the register file or from forwarding when allowed."
+            },
+            {
+              "title": "Send to EX_STAGE",
+              "body": "The instruction enters execution through the registered execute boundary."
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-scoreboard",
+            "title": "CV32A60X design: ISSUE_STAGE and scoreboard",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module and issue_read_operands",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The issue path tracks RAW, WAW, and structural hazards, uses forwarding when possible, issues instructions in order, and can still receive out-of-order functional-unit results."
+          }
+        ],
+        "speakerNotes": "Issue is a readiness filter. It receives a decoded entry, then checks data hazards, structural hazards, and operand availability. A read-after-write dependency may be solved by forwarding. A write-after-write conflict can block progress. A busy functional unit or result path can also block progress. This is why issue is where many real backend bugs become visible."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-scoreboard"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u03-l04-issue-flow-speech",
+          "type": "speech",
+          "text": "Issue is a readiness filter. It receives a decoded entry, then checks data hazards, structural hazards, and operand availability. A read-after-write dependency may be solved by forwarding. A write-after-write conflict can block progress. A busy functional unit or result path can also block progress. This is why issue is where many real backend bugs become visible.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u03-l04-issue-flow-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u03-l04-issue-execute-en/audio/tts_scene-cva6-u03-l04-issue-flow-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u03-l04-hazards",
+      "stageId": "openhw-cva6-u03-l04-issue-execute-en",
+      "type": "html-slide",
+      "title": "Hazards are not all the same",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "HAZARD MODEL",
+          "title": "Name the reason for the stall",
+          "subtitle": "A vague stall explanation is not enough for engineering review.",
+          "cards": [
+            {
+              "title": "RAW",
+              "body": "A later instruction needs a value an older instruction will produce."
+            },
+            {
+              "title": "WAW",
+              "body": "Two tracked instructions want to write the same destination in a conflicting way."
+            },
+            {
+              "title": "Structural",
+              "body": "The needed functional unit, LSU, CSR path, or result bus cannot accept the work now."
+            },
+            {
+              "title": "x0 exception",
+              "body": "The zero register removes some dependency meaning because writes to x0 are architecturally ignored."
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-scoreboard",
+            "title": "CV32A60X design: ISSUE_STAGE and scoreboard",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module and issue_read_operands",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The issue path tracks RAW, WAW, and structural hazards, uses forwarding when possible, issues instructions in order, and can still receive out-of-order functional-unit results."
+          }
+        ],
+        "speakerNotes": "Do not just say the instruction stalls. Say why. A RAW hazard means the source value is not ready yet. A WAW hazard means two writes to the same destination must be controlled. A structural hazard means the machine resource is not ready. And x0 is special because the architectural zero register changes what a dependency means."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-scoreboard"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u03-l04-hazards-speech",
+          "type": "speech",
+          "text": "Do not just say the instruction stalls. Say why. A RAW hazard means the source value is not ready yet. A WAW hazard means two writes to the same destination must be controlled. A structural hazard means the machine resource is not ready. And x0 is special because the architectural zero register changes what a dependency means.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u03-l04-hazards-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u03-l04-issue-execute-en/audio/tts_scene-cva6-u03-l04-hazards-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u03-l04-execute",
+      "stageId": "openhw-cva6-u03-l04-issue-execute-en",
+      "type": "html-slide",
+      "title": "Execute is a set of functional paths",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "EX_STAGE",
+          "title": "Execution is not one magic box",
+          "subtitle": "The execute stage hosts different resources with different latency and readiness behavior.",
+          "columns": [
+            {
+              "title": "Fast/common paths",
+              "body": "ALU and branch-style work can often be thought of as short-latency control and arithmetic paths."
+            },
+            {
+              "title": "Variable/special paths",
+              "body": "LSU, CSR, multiplier, division-like behavior, and interface-related paths can have different readiness and result timing."
+            }
+          ],
+          "takeaway": "Issue must know enough about execution resources to avoid sending work into a blocked path."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-execute",
+            "title": "CV32A60X design: EX_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#ex-stage-module",
+            "locator": "cv32a60x/design/design.md EX_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "EX_STAGE contains functional-unit paths such as ALU, branch unit, CSR buffer, multiplier, LSU, and CV-X-IF related execution resources."
+          }
+        ],
+        "speakerNotes": "Execute is not a single magic box. Different functional paths can behave differently. Some results are short-latency, some depend on memory or special paths, and some share result resources. This is exactly why issue cannot just pass everything forward blindly. It must know whether the selected path can accept work and whether the result path can handle completion."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-execute"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u03-l04-execute-speech",
+          "type": "speech",
+          "text": "Execute is not a single magic box. Different functional paths can behave differently. Some results are short-latency, some depend on memory or special paths, and some share result resources. This is exactly why issue cannot just pass everything forward blindly. It must know whether the selected path can accept work and whether the result path can handle completion.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u03-l04-execute-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u03-l04-issue-execute-en/audio/tts_scene-cva6-u03-l04-execute-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u03-l04-ordering",
+      "stageId": "openhw-cva6-u03-l04-issue-execute-en",
+      "type": "html-slide",
+      "title": "Ordered admission, variable completion",
+      "order": 5,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "MENTAL MODEL",
+          "title": "Keep these four backend facts together",
+          "subtitle": "Separating them creates the usual beginner confusion.",
+          "items": [
+            {
+              "title": "Issue is in order",
+              "body": "If one instruction stalls at issue, younger instructions do not simply skip around it."
+            },
+            {
+              "title": "Operands may be forwarded",
+              "body": "RAW does not always mean wait for register-file writeback."
+            },
+            {
+              "title": "Resources can block",
+              "body": "Functional-unit readiness and result-bus availability matter."
+            },
+            {
+              "title": "Results can differ in timing",
+              "body": "Out-of-order result arrival is not the same as out-of-order commit."
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-scoreboard",
+            "title": "CV32A60X design: ISSUE_STAGE and scoreboard",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module and issue_read_operands",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The issue path tracks RAW, WAW, and structural hazards, uses forwarding when possible, issues instructions in order, and can still receive out-of-order functional-unit results."
+          },
+          {
+            "id": "cv32a60x-design-execute",
+            "title": "CV32A60X design: EX_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#ex-stage-module",
+            "locator": "cv32a60x/design/design.md EX_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "EX_STAGE contains functional-unit paths such as ALU, branch unit, CSR buffer, multiplier, LSU, and CV-X-IF related execution resources."
+          }
+        ],
+        "speakerNotes": "Keep these facts together. Issue is in order, so a stalled instruction can block younger work. Forwarding can resolve some read-after-write cases without waiting for register-file writeback. Resources can still block. And results can complete with different timing before commit imposes architectural order. This is the backend story in one clean paragraph."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-scoreboard",
+        "cv32a60x-design-execute"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u03-l04-ordering-speech",
+          "type": "speech",
+          "text": "Keep these facts together. Issue is in order, so a stalled instruction can block younger work. Forwarding can resolve some read-after-write cases without waiting for register-file writeback. Resources can still block. And results can complete with different timing before commit imposes architectural order. This is the backend story in one clean paragraph.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u03-l04-ordering-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u03-l04-issue-execute-en/audio/tts_scene-cva6-u03-l04-ordering-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u03-l04-quiz",
+      "stageId": "openhw-cva6-u03-l04-issue-execute-en",
+      "type": "quiz",
+      "title": "Issue and execute quiz",
+      "order": 6,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u03-l04-q1",
+            "type": "single",
+            "question": "What does “single issue” most directly describe here?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Admission of instructions into the backend issue path"
+              },
+              {
+                "value": "B",
+                "label": "A guarantee that all functional units finish in one cycle"
+              },
+              {
+                "value": "C",
+                "label": "A guarantee that commit is out of order"
+              },
+              {
+                "value": "D",
+                "label": "A rule that hazards do not exist"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "Single issue is about how instructions are admitted, not about every result completing in one cycle."
+          },
+          {
+            "id": "u03-l04-q2",
+            "type": "multiple",
+            "question": "Which hazards can the issue path need to consider?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Read-after-write"
+              },
+              {
+                "value": "B",
+                "label": "Write-after-write"
+              },
+              {
+                "value": "C",
+                "label": "Structural resource readiness"
+              },
+              {
+                "value": "D",
+                "label": "Final publication approval for a course page"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C"
+            ],
+            "hasAnswer": true,
+            "analysis": "RAW, WAW, and structural hazards are backend engineering concerns."
+          },
+          {
+            "id": "u03-l04-q3",
+            "type": "single",
+            "question": "Why is forwarding important?",
+            "options": [
+              {
+                "value": "A",
+                "label": "It can provide an operand from a producing result before normal register-file writeback"
+              },
+              {
+                "value": "B",
+                "label": "It removes the need for decode"
+              },
+              {
+                "value": "C",
+                "label": "It commits stores out of order"
+              },
+              {
+                "value": "D",
+                "label": "It makes BTB and RAS identical"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "Forwarding can satisfy operand dependencies when the data is available from a producing path."
+          },
+          {
+            "id": "u03-l04-q4",
+            "type": "single",
+            "question": "Which sentence is the best backend summary?",
+            "options": [
+              {
+                "value": "A",
+                "label": "CVA6 can issue in order while results from different execution paths complete with different timing before in-order commit"
+              },
+              {
+                "value": "B",
+                "label": "All instructions jump directly from fetch to commit"
+              },
+              {
+                "value": "C",
+                "label": "Decode is responsible for final register-file writeback"
+              },
+              {
+                "value": "D",
+                "label": "Branch prediction proves there are no hazards"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "This sentence keeps admission, completion, and commit responsibilities separate."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-scoreboard",
+            "title": "CV32A60X design: ISSUE_STAGE and scoreboard",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module and issue_read_operands",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The issue path tracks RAW, WAW, and structural hazards, uses forwarding when possible, issues instructions in order, and can still receive out-of-order functional-unit results."
+          },
+          {
+            "id": "cv32a60x-design-execute",
+            "title": "CV32A60X design: EX_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#ex-stage-module",
+            "locator": "cv32a60x/design/design.md EX_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "EX_STAGE contains functional-unit paths such as ALU, branch unit, CSR buffer, multiplier, LSU, and CV-X-IF related execution resources."
+          }
+        ],
+        "speakerNotes": "This quiz tests the phrase that matters most: ordered admission, tracked hazards, variable completion, precise retirement later. If you can say that calmly, you are ready for the commit lesson. If not, backend behavior will look like chaos when it is really controlled bookkeeping."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-scoreboard",
+        "cv32a60x-design-execute"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u03-l04-quiz-speech",
+          "type": "speech",
+          "text": "This quiz tests the phrase that matters most: ordered admission, tracked hazards, variable completion, precise retirement later. If you can say that calmly, you are ready for the commit lesson. If not, backend behavior will look like chaos when it is really controlled bookkeeping.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u03-l04-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u03-l04-issue-execute-en/audio/tts_scene-cva6-u03-l04-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u03-l04-summary",
+      "stageId": "openhw-cva6-u03-l04-issue-execute-en",
+      "type": "html-slide",
+      "title": "Backend work is now trackable",
+      "order": 7,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "WRAP",
+          "title": "You can now explain issue-to-execute without handwaving",
+          "subtitle": "The backend is a controlled gate plus a set of execution resources.",
+          "takeaways": [
+            "Issue checks data hazards, structural hazards, and operands before admitting work.",
+            "The scoreboard tracks decoded entries and result progress.",
+            "Functional units can produce results with different timing before commit retires state."
+          ],
+          "nextStep": "Next: Commit, where backend results become precise architectural state.",
+          "closing": "The backend is not magic. It is disciplined bookkeeping with fast consequences."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-scoreboard",
+            "title": "CV32A60X design: ISSUE_STAGE and scoreboard",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module and issue_read_operands",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The issue path tracks RAW, WAW, and structural hazards, uses forwarding when possible, issues instructions in order, and can still receive out-of-order functional-unit results."
+          },
+          {
+            "id": "cv32a60x-design-execute",
+            "title": "CV32A60X design: EX_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#ex-stage-module",
+            "locator": "cv32a60x/design/design.md EX_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "EX_STAGE contains functional-unit paths such as ALU, branch unit, CSR buffer, multiplier, LSU, and CV-X-IF related execution resources."
+          }
+        ],
+        "speakerNotes": "Backend work is now trackable. Issue checks whether the next decoded entry can safely move. Execute produces results through different functional paths. The scoreboard helps the machine remember what is happening. Next, commit answers the final question: which results are allowed to become the architectural truth?"
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-scoreboard",
+        "cv32a60x-design-execute"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u03-l04-summary-speech",
+          "type": "speech",
+          "text": "Backend work is now trackable. Issue checks whether the next decoded entry can safely move. Execute produces results through different functional paths. The scoreboard helps the machine remember what is happening. Next, commit answers the final question: which results are allowed to become the architectural truth?",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u03-l04-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u03-l04-issue-execute-en/audio/tts_scene-cva6-u03-l04-summary-speech.mp3"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "default-1",
+      "name": "AlexChen",
+      "role": "Professional OpenHW classroom narrator",
+      "voice": "local-tts:kokoro:am_eric"
+    }
+  ],
+  "metadata": {
+    "seriesId": "cva6-from-zero",
+    "unitId": "u03-architecture",
+    "skillId": "u03-s02-backend-spine",
+    "lessonId": "cva6-u03-l04-issue-execute",
+    "sourceRefs": [
+      "cv32a60x-design-issue-scoreboard",
+      "cv32a60x-design-execute"
+    ],
+    "assetRefs": [
+      "scoreboard.png"
+    ],
+    "generatedAt": "2026-05-27T03:31:57.180Z"
+  }
+}

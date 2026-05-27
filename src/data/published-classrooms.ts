@@ -1,12 +1,18 @@
 import architectureMap from "./published-classrooms/openhw-cva6-architecture-map-en.json";
 import cv32a60xProfile from "./published-classrooms/openhw-cva6-u02-l02-cv32a60x-profile-en.json";
+import commit from "./published-classrooms/openhw-cva6-u03-l05-commit-en.json";
 import docRoles from "./published-classrooms/openhw-cva6-u01-l03-doc-roles-en.json";
 import ipNotSoc from "./published-classrooms/openhw-cva6-u01-l02-ip-not-soc-en.json";
 import orientationCheckpoint from "./published-classrooms/openhw-cva6-u01-l06-checkpoint-orientation-en.json";
 import parameterMap from "./published-classrooms/openhw-cva6-u02-l03-parameter-map-en.json";
+import pcgenFetch from "./published-classrooms/openhw-cva6-u03-l02-pcgen-fetch-en.json";
+import pipelineCheckpoint from "./published-classrooms/openhw-cva6-u03-l06-checkpoint-pipeline-en.json";
 import rtlConfigWorkflow from "./published-classrooms/openhw-cva6-u02-l04-rtl-config-workflow-en.json";
 import scopeDiagram from "./published-classrooms/openhw-cva6-u01-l04-scope-diagram-en.json";
 import slidekitPrototype from "./published-classrooms/openhw-cva6-slidekit-a1-en.json";
+import decode from "./published-classrooms/openhw-cva6-u03-l03-decode-en.json";
+import issueExecute from "./published-classrooms/openhw-cva6-u03-l04-issue-execute-en.json";
+import sixStageMap from "./published-classrooms/openhw-cva6-u03-l01-six-stage-map-en.json";
 import unit02Checkpoint from "./published-classrooms/openhw-cva6-u02-l06-checkpoint-configurations-en.json";
 import variantFamily from "./published-classrooms/openhw-cva6-u02-l01-cv32-cv64-family-en.json";
 import variantComparison from "./published-classrooms/openhw-cva6-u02-l05-variant-comparison-en.json";
@@ -79,6 +85,12 @@ const publishedClassrooms = {
   [rtlConfigWorkflow.id]: rtlConfigWorkflow,
   [variantComparison.id]: variantComparison,
   [unit02Checkpoint.id]: unit02Checkpoint,
+  [sixStageMap.id]: sixStageMap,
+  [pcgenFetch.id]: pcgenFetch,
+  [decode.id]: decode,
+  [issueExecute.id]: issueExecute,
+  [commit.id]: commit,
+  [pipelineCheckpoint.id]: pipelineCheckpoint,
   [slidekitPrototype.id]: slidekitPrototype,
 } as Record<string, PublishedClassroom>;
 
