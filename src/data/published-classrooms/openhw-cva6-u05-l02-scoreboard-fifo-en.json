@@ -1,0 +1,550 @@
+{
+  "id": "openhw-cva6-u05-l02-scoreboard-fifo-en",
+  "stage": {
+    "id": "openhw-cva6-u05-l02-scoreboard-fifo-en",
+    "name": "Scoreboard FIFO: where out-of-order results are parked",
+    "description": "A scoreboard-focused lesson on FIFO entries, four-entry capacity, transaction IDs, result writeback, flush behavior, and oldest-entry exposure to commit.",
+    "createdAt": 1779871019271,
+    "updatedAt": 1779871286583,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u05-l02-title",
+      "stageId": "openhw-cva6-u05-l02-scoreboard-fifo-en",
+      "type": "html-slide",
+      "title": "The scoreboard is a small ordered memory",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 05 / LESSON 02",
+          "title": "Scoreboard FIFO: where out-of-order results are parked",
+          "subtitle": "The scoreboard is the structure that lets the backend remember issued work while execution results arrive later.",
+          "chips": [
+            "FIFO",
+            "4 entries",
+            "Transaction ID",
+            "Writeback",
+            "Commit"
+          ],
+          "thesis": "The scoreboard turns moving backend work into named entries: issued, waiting, completed, and finally acknowledged by commit."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-scoreboard",
+            "title": "CV32A60X design: Scoreboard submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#scoreboard",
+            "locator": "cv32a60x/design/design.md Scoreboard submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The scoreboard contains a FIFO of issued instructions, has capacity for four entries in this configuration, stores returned results by transaction ID, and exposes oldest completed entries to commit."
+          }
+        ],
+        "speakerNotes": "Now we zoom into the scoreboard itself. Think of it as a small ordered memory for in-flight instructions. In this configuration, it has four entries. It receives issued instructions, tags them with transaction IDs that wrap at four, stores returned execution results, and exposes the oldest completed entries to commit."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-scoreboard"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l02-title-speech",
+          "type": "speech",
+          "text": "Now we zoom into the scoreboard itself. Think of it as a small ordered memory for in-flight instructions. In this configuration, it has four entries. It receives issued instructions, tags them with transaction IDs that wrap at four, stores returned execution results, and exposes the oldest completed entries to commit.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l02-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l02-scoreboard-fifo-en/audio/tts_scene-cva6-u05-l02-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l02-lifecycle",
+      "stageId": "openhw-cva6-u05-l02-scoreboard-fifo-en",
+      "type": "html-slide",
+      "title": "One scoreboard entry has a lifecycle",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "light",
+        "content": {
+          "kicker": "ENTRY LIFECYCLE",
+          "title": "Admit, wait, complete, remove",
+          "subtitle": "The source describes a compact but important state story.",
+          "steps": [
+            {
+              "title": "Decoded entry arrives",
+              "body": "ID_STAGE provides a scoreboard_entry_t and instruction value."
+            },
+            {
+              "title": "Issue_read_operands accepts",
+              "body": "When ready, the instruction is acknowledged and inserted into the FIFO."
+            },
+            {
+              "title": "Execute writes result",
+              "body": "A result bus returns data, exception status, and transaction ID."
+            },
+            {
+              "title": "Commit acknowledges",
+              "body": "Oldest completed entry is removed after COMMIT_STAGE acknowledgement."
+            }
+          ],
+          "takeaway": "The scoreboard is not just a queue; it is the backend completion ledger."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-scoreboard",
+            "title": "CV32A60X design: Scoreboard submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#scoreboard",
+            "locator": "cv32a60x/design/design.md Scoreboard submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The scoreboard contains a FIFO of issued instructions, has capacity for four entries in this configuration, stores returned results by transaction ID, and exposes oldest completed entries to commit."
+          }
+        ],
+        "speakerNotes": "A scoreboard entry has a lifecycle. A decoded entry arrives. Issue_read_operands accepts it only when the instruction can run. Then the entry is inserted. Later, execute returns result data, exception information, and the transaction ID. Finally, commit acknowledges the oldest completed entry and the scoreboard removes it. That is the backbone of precise backend tracking."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-scoreboard"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l02-lifecycle-speech",
+          "type": "speech",
+          "text": "A scoreboard entry has a lifecycle. A decoded entry arrives. Issue_read_operands accepts it only when the instruction can run. Then the entry is inserted. Later, execute returns result data, exception information, and the transaction ID. Finally, commit acknowledges the oldest completed entry and the scoreboard removes it. That is the backbone of precise backend tracking.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l02-lifecycle-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l02-scoreboard-fifo-en/audio/tts_scene-cva6-u05-l02-lifecycle-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l02-capacity",
+      "stageId": "openhw-cva6-u05-l02-scoreboard-fifo-en",
+      "type": "html-slide",
+      "title": "Capacity is part of correctness",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "CAPACITY",
+          "title": "Four entries means the backend can fill up",
+          "subtitle": "The source says entries that would overflow the scoreboard are not transmitted to Issue_read_operands.",
+          "columns": [
+            {
+              "title": "Useful concurrency",
+              "body": "Several issued instructions can be in flight, waiting for results or commit, even with single-issue admission.",
+              "points": [
+                "4-entry FIFO",
+                "Transaction IDs wrap at 4",
+                "Results tracked by ID"
+              ]
+            },
+            {
+              "title": "Stall boundary",
+              "body": "If a new instruction would overflow the scoreboard, it is held back and issue-stage progress stalls.",
+              "points": [
+                "No overflow",
+                "Backpressure to decode",
+                "Capacity is observable"
+              ]
+            }
+          ],
+          "takeaway": "A full scoreboard is not a performance footnote; it changes whether the next instruction can issue."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-scoreboard",
+            "title": "CV32A60X design: Scoreboard submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#scoreboard",
+            "locator": "cv32a60x/design/design.md Scoreboard submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The scoreboard contains a FIFO of issued instructions, has capacity for four entries in this configuration, stores returned results by transaction ID, and exposes oldest completed entries to commit."
+          }
+        ],
+        "speakerNotes": "The four-entry capacity is not just a number to memorize. It explains why the issue path can stall. The scoreboard can hold several in-flight entries, but it is not infinite. If admitting a new instruction would overflow the FIFO, the instruction is not transmitted onward. That is capacity acting as correctness, not merely performance."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-scoreboard"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l02-capacity-speech",
+          "type": "speech",
+          "text": "The four-entry capacity is not just a number to memorize. It explains why the issue path can stall. The scoreboard can hold several in-flight entries, but it is not infinite. If admitting a new instruction would overflow the FIFO, the instruction is not transmitted onward. That is capacity acting as correctness, not merely performance.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l02-capacity-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l02-scoreboard-fifo-en/audio/tts_scene-cva6-u05-l02-capacity-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l02-diagram",
+      "stageId": "openhw-cva6-u05-l02-scoreboard-fifo-en",
+      "type": "html-slide",
+      "title": "Follow IDs, not vibes",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "TRANSACTION ID",
+          "title": "Results come back with names",
+          "subtitle": "Transaction IDs let returned results update the correct scoreboard entry even when result timing differs.",
+          "body": "The scoreboard sends incremental transaction IDs with issued work. EX_STAGE returns results with transaction IDs, and the scoreboard stores data or exceptions into the matching entry.",
+          "assetId": "scoreboard",
+          "caption": "Track the ID loop between scoreboard, issue logic, execute, and commit.",
+          "callouts": [
+            {
+              "title": "Issue ID",
+              "body": "Incremental ID wraps at four."
+            },
+            {
+              "title": "Writeback ID",
+              "body": "Returned result identifies its entry."
+            },
+            {
+              "title": "Commit order",
+              "body": "Oldest completed entry is exposed."
+            }
+          ],
+          "takeaway": "If you cannot follow the ID, you cannot debug the backend."
+        },
+        "assets": [
+          {
+            "id": "scoreboard",
+            "type": "image",
+            "src": "/classroom-assets/cva6-shared/assets/scoreboard.png",
+            "alt": "Official CVA6 scoreboard diagram",
+            "caption": "Official scoreboard diagram used to explain issue, hazards, forwarding, and result tracking.",
+            "source": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/assets/_images/scoreboard.png"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-scoreboard",
+            "title": "CV32A60X design: Scoreboard submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#scoreboard",
+            "locator": "cv32a60x/design/design.md Scoreboard submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The scoreboard contains a FIFO of issued instructions, has capacity for four entries in this configuration, stores returned results by transaction ID, and exposes oldest completed entries to commit."
+          },
+          {
+            "id": "cv32a60x-design-issue-stage",
+            "title": "CV32A60X design: ISSUE_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "ISSUE_STAGE issues instructions in-order, reorders execution results, and sends completed instructions in-order to COMMIT_STAGE."
+          }
+        ],
+        "speakerNotes": "Here is the debugging habit: follow transaction IDs, not vibes. The scoreboard gives issued work an incremental ID. The result returns from execute with an ID. The scoreboard uses that ID to update the matching entry. Then commit sees oldest completed entries, not whichever result shouted loudest. This is how a small in-order core avoids turning latency variation into architectural chaos."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-scoreboard",
+        "cv32a60x-design-issue-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l02-diagram-speech",
+          "type": "speech",
+          "text": "Here is the debugging habit: follow transaction IDs, not vibes. The scoreboard gives issued work an incremental ID. The result returns from execute with an ID. The scoreboard uses that ID to update the matching entry. Then commit sees oldest completed entries, not whichever result shouted loudest. This is how a small in-order core avoids turning latency variation into architectural chaos.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l02-diagram-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l02-scoreboard-fifo-en/audio/tts_scene-cva6-u05-l02-diagram-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l02-flush",
+      "stageId": "openhw-cva6-u05-l02-scoreboard-fifo-en",
+      "type": "html-slide",
+      "title": "Flush resets trust",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "FLUSH",
+          "title": "When the controller says flush, the scoreboard must stop trusting old work",
+          "subtitle": "The source states that the controller flush signal removes all entries and prevents issuing.",
+          "items": [
+            {
+              "title": "Whole-scoreboard flush",
+              "body": "All scoreboard entries are removed."
+            },
+            {
+              "title": "Prevent issuing",
+              "body": "Flush prevents new issue during the cleanup condition."
+            },
+            {
+              "title": "Next ID reset",
+              "body": "The transaction ID of the next issued instruction becomes zero."
+            },
+            {
+              "title": "Unissued flush path",
+              "body": "The controller also has a path to prevent unissued instructions from issuing."
+            }
+          ],
+          "takeaway": "Flush is a trust boundary: old tracked work is no longer part of the valid backend story."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-scoreboard",
+            "title": "CV32A60X design: Scoreboard submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#scoreboard",
+            "locator": "cv32a60x/design/design.md Scoreboard submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The scoreboard contains a FIFO of issued instructions, has capacity for four entries in this configuration, stores returned results by transaction ID, and exposes oldest completed entries to commit."
+          },
+          {
+            "id": "cv32a60x-design-issue-stage",
+            "title": "CV32A60X design: ISSUE_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "ISSUE_STAGE issues instructions in-order, reorders execution results, and sends completed instructions in-order to COMMIT_STAGE."
+          }
+        ],
+        "speakerNotes": "Flush behavior is a trust boundary. If the controller requests a whole-scoreboard flush, entries are removed and issue is prevented. The next issued instruction restarts transaction ID numbering at zero. That is clean and very teachable: once the machine decides the current backend state is not trustworthy, the scoreboard cannot keep pretending."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-scoreboard",
+        "cv32a60x-design-issue-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l02-flush-speech",
+          "type": "speech",
+          "text": "Flush behavior is a trust boundary. If the controller requests a whole-scoreboard flush, entries are removed and issue is prevented. The next issued instruction restarts transaction ID numbering at zero. That is clean and very teachable: once the machine decides the current backend state is not trustworthy, the scoreboard cannot keep pretending.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l02-flush-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l02-scoreboard-fifo-en/audio/tts_scene-cva6-u05-l02-flush-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l02-quiz",
+      "stageId": "openhw-cva6-u05-l02-scoreboard-fifo-en",
+      "type": "quiz",
+      "title": "Scoreboard FIFO checkpoint",
+      "order": 5,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u05-l02-q1",
+            "type": "single",
+            "question": "How many scoreboard entries does the CV32A60X source describe for this configuration?",
+            "options": [
+              {
+                "value": "A",
+                "label": "4 entries"
+              },
+              {
+                "value": "B",
+                "label": "2 entries"
+              },
+              {
+                "value": "C",
+                "label": "32 entries"
+              },
+              {
+                "value": "D",
+                "label": "Unlimited entries"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "The scoreboard section states a capacity of four entries."
+          },
+          {
+            "id": "u05-l02-q2",
+            "type": "single",
+            "question": "What happens when an instruction would make the scoreboard overflow?",
+            "options": [
+              {
+                "value": "A",
+                "label": "It is not transmitted to Issue_read_operands and ISSUE_STAGE stalls"
+              },
+              {
+                "value": "B",
+                "label": "It is committed immediately"
+              },
+              {
+                "value": "C",
+                "label": "It is silently dropped without a flush"
+              },
+              {
+                "value": "D",
+                "label": "It is converted into a branch prediction update"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "The source says entries that would overflow the scoreboard are not transmitted, causing issue-stage stall behavior."
+          },
+          {
+            "id": "u05-l02-q3",
+            "type": "multiple",
+            "question": "Which facts belong to the scoreboard lifecycle?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Issued instructions are inserted into the FIFO"
+              },
+              {
+                "value": "B",
+                "label": "Results are stored into entries identified by transaction ID"
+              },
+              {
+                "value": "C",
+                "label": "Oldest completed entries are exposed to COMMIT_STAGE"
+              },
+              {
+                "value": "D",
+                "label": "Commit acknowledgement removes entries"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "hasAnswer": true,
+            "analysis": "All four facts are part of the scoreboard issue, result storage, and commit handoff behavior."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-scoreboard",
+            "title": "CV32A60X design: Scoreboard submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#scoreboard",
+            "locator": "cv32a60x/design/design.md Scoreboard submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The scoreboard contains a FIFO of issued instructions, has capacity for four entries in this configuration, stores returned results by transaction ID, and exposes oldest completed entries to commit."
+          }
+        ],
+        "speakerNotes": "This checkpoint asks whether the scoreboard has become concrete. Four entries, transaction IDs, result storage, commit exposure, and flush behavior are enough to read many backend waveforms without panicking. Panic is allowed, but only after checking the transaction ID."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-scoreboard"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l02-quiz-speech",
+          "type": "speech",
+          "text": "This checkpoint asks whether the scoreboard has become concrete. Four entries, transaction IDs, result storage, commit exposure, and flush behavior are enough to read many backend waveforms without panicking. Panic is allowed, but only after checking the transaction ID.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l02-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l02-scoreboard-fifo-en/audio/tts_scene-cva6-u05-l02-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l02-summary",
+      "stageId": "openhw-cva6-u05-l02-scoreboard-fifo-en",
+      "type": "html-slide",
+      "title": "The scoreboard is now concrete",
+      "order": 6,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "WRAP",
+          "title": "Scoreboard tracking makes issue-stage behavior inspectable",
+          "subtitle": "The FIFO gives each issued instruction a place to wait for result and commit.",
+          "takeaways": [
+            "CV32A60X scoreboard capacity is four entries.",
+            "Transaction IDs connect issued work with returned results.",
+            "Flush removes entries, prevents issuing, and restarts the next transaction ID at zero."
+          ],
+          "nextStep": "Next: RAW and WAW hazards, where the issue stage decides whether an instruction is allowed to move.",
+          "closing": "Once the scoreboard is visible, hazards stop being mysterious. They become conditions on entries."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-scoreboard",
+            "title": "CV32A60X design: Scoreboard submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#scoreboard",
+            "locator": "cv32a60x/design/design.md Scoreboard submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The scoreboard contains a FIFO of issued instructions, has capacity for four entries in this configuration, stores returned results by transaction ID, and exposes oldest completed entries to commit."
+          }
+        ],
+        "speakerNotes": "The scoreboard is now concrete: four entries, transaction IDs, result storage, commit exposure, and flush. Next we use that structure to explain RAW and WAW hazards. That is the point where issue-stage behavior becomes more than a block diagram."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-scoreboard"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l02-summary-speech",
+          "type": "speech",
+          "text": "The scoreboard is now concrete: four entries, transaction IDs, result storage, commit exposure, and flush. Next we use that structure to explain RAW and WAW hazards. That is the point where issue-stage behavior becomes more than a block diagram.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l02-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l02-scoreboard-fifo-en/audio/tts_scene-cva6-u05-l02-summary-speech.mp3"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "default-1",
+      "name": "AlexChen",
+      "role": "Professional OpenHW classroom narrator",
+      "voice": "local-tts:kokoro:am_eric"
+    }
+  ],
+  "metadata": {
+    "seriesId": "cva6-from-zero",
+    "unitId": "u05-issue-scoreboard",
+    "skillId": "u05-s01-issue-stage",
+    "lessonId": "cva6-u05-l02-scoreboard-fifo",
+    "sourceRefs": [
+      "cv32a60x-design-scoreboard",
+      "cv32a60x-design-issue-stage",
+      "cv32a60x-design-issue-read-operands",
+      "cv32a60x-design-commit-stage"
+    ],
+    "assetRefs": [
+      "scoreboard.png"
+    ],
+    "generatedAt": "2026-05-27T08:36:59.271Z"
+  }
+}

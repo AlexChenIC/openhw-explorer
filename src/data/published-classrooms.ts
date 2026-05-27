@@ -8,6 +8,11 @@ import frontendPcSelection from "./published-classrooms/openhw-cva6-u04-l01-pc-p
 import frontendRas from "./published-classrooms/openhw-cva6-u04-l03-ras-en.json";
 import frontendReplayRedirect from "./published-classrooms/openhw-cva6-u04-l02-replay-return-exception-en.json";
 import ipNotSoc from "./published-classrooms/openhw-cva6-u01-l02-ip-not-soc-en.json";
+import issueForwarding from "./published-classrooms/openhw-cva6-u05-l04-forwarding-en.json";
+import issueInorder from "./published-classrooms/openhw-cva6-u05-l01-inorder-issue-en.json";
+import issueRawWaw from "./published-classrooms/openhw-cva6-u05-l03-raw-waw-en.json";
+import issueScoreboardFifo from "./published-classrooms/openhw-cva6-u05-l02-scoreboard-fifo-en.json";
+import issueStructuralHazards from "./published-classrooms/openhw-cva6-u05-l05-structural-hazards-en.json";
 import orientationCheckpoint from "./published-classrooms/openhw-cva6-u01-l06-checkpoint-orientation-en.json";
 import parameterMap from "./published-classrooms/openhw-cva6-u02-l03-parameter-map-en.json";
 import pcgenFetch from "./published-classrooms/openhw-cva6-u03-l02-pcgen-fetch-en.json";
@@ -101,6 +106,11 @@ const publishedClassrooms = {
   [frontendRas.id]: frontendRas,
   [frontendBhtBtb.id]: frontendBhtBtb,
   [frontendCheckpoint.id]: frontendCheckpoint,
+  [issueInorder.id]: issueInorder,
+  [issueScoreboardFifo.id]: issueScoreboardFifo,
+  [issueRawWaw.id]: issueRawWaw,
+  [issueForwarding.id]: issueForwarding,
+  [issueStructuralHazards.id]: issueStructuralHazards,
   [slidekitPrototype.id]: slidekitPrototype,
 } as Record<string, PublishedClassroom>;
 

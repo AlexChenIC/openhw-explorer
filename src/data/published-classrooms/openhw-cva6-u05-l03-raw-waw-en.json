@@ -1,0 +1,554 @@
+{
+  "id": "openhw-cva6-u05-l03-raw-waw-en",
+  "stage": {
+    "id": "openhw-cva6-u05-l03-raw-waw-en",
+    "name": "RAW/WAW hazard: when issue must wait",
+    "description": "A data-hazard lesson explaining RAW, WAW, x0 exceptions, commit-ignored entries, and why in-order issue blocks younger instructions behind stalled older ones.",
+    "createdAt": 1779871019271,
+    "updatedAt": 1779871345562,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u05-l03-title",
+      "stageId": "openhw-cva6-u05-l03-raw-waw-en",
+      "type": "html-slide",
+      "title": "Hazards are questions about promises",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 05 / LESSON 03",
+          "title": "RAW/WAW hazard: when issue must wait",
+          "subtitle": "Data hazards are not abstract textbook labels; they are issue-stage questions about source operands and destination registers.",
+          "chips": [
+            "RAW",
+            "WAW",
+            "x0",
+            "Scoreboard",
+            "In-order stall"
+          ],
+          "thesis": "ISSUE_STAGE checks whether an instruction can safely read its operands and claim its destination before it is allowed to execute."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-data-hazards",
+            "title": "CV32A60X design: data hazards in issue",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-read-operands",
+            "locator": "cv32a60x/design/design.md Issue_read_operands data hazards",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "RAW hazards block issue unless forwarding can provide the operand; WAW hazards block issue when the destination register matches an in-flight scoreboard entry; x0 has no data hazards."
+          }
+        ],
+        "speakerNotes": "Now we turn hazards into engineering questions. RAW means a source operand may depend on an older destination. WAW means a new destination may collide with an older in-flight destination. In CV32A60X, Issue_read_operands checks these conditions using scoreboard information before it lets the instruction move."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-data-hazards"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l03-title-speech",
+          "type": "speech",
+          "text": "Now we turn hazards into engineering questions. RAW means a source operand may depend on an older destination. WAW means a new destination may collide with an older in-flight destination. In CV32A60X, Issue_read_operands checks these conditions using scoreboard information before it lets the instruction move.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l03-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l03-raw-waw-en/audio/tts_scene-cva6-u05-l03-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l03-raw",
+      "stageId": "openhw-cva6-u05-l03-raw-waw-en",
+      "type": "html-slide",
+      "title": "RAW: can I read this source yet?",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "READ-AFTER-WRITE",
+          "title": "RAW blocks unless forwarding can satisfy the operand",
+          "subtitle": "A source register that matches an older destination is unsafe unless a valid forwarded value exists.",
+          "columns": [
+            {
+              "title": "Unsafe by default",
+              "body": "If a source register of the instruction to issue matches a destination in the scoreboard, issue is blocked.",
+              "points": [
+                "Source depends on older work",
+                "Scoreboard detects match",
+                "Do not read stale data"
+              ]
+            },
+            {
+              "title": "Forwarding escape",
+              "body": "Forwarding can provide the operand from a returning functional-unit result or a ready scoreboard entry.",
+              "points": [
+                "Non-exception result",
+                "Matching transaction ID",
+                "Operand replacement"
+              ]
+            }
+          ],
+          "takeaway": "RAW is a wait condition unless the value is already safely available through forwarding."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-data-hazards",
+            "title": "CV32A60X design: data hazards in issue",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-read-operands",
+            "locator": "cv32a60x/design/design.md Issue_read_operands data hazards",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "RAW hazards block issue unless forwarding can provide the operand; WAW hazards block issue when the destination register matches an in-flight scoreboard entry; x0 has no data hazards."
+          },
+          {
+            "id": "cv32a60x-design-forwarding",
+            "title": "CV32A60X design: operand forwarding",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-read-operands",
+            "locator": "cv32a60x/design/design.md Issue_read_operands RAW forwarding",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "Forwarding can take operands from a returning functional-unit result or from a scoreboard entry with a ready non-exception result; forwarding is not possible from CSR instructions."
+          }
+        ],
+        "speakerNotes": "RAW asks: can this instruction read its source operand yet? If the source register matches an older destination still in the scoreboard, issuing would risk reading stale data. But CVA6 has a forwarding escape. If a non-exception result is already returning, or a scoreboard entry already contains the result, the operand can be replaced with the forwarded value."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-data-hazards",
+        "cv32a60x-design-forwarding"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l03-raw-speech",
+          "type": "speech",
+          "text": "RAW asks: can this instruction read its source operand yet? If the source register matches an older destination still in the scoreboard, issuing would risk reading stale data. But CVA6 has a forwarding escape. If a non-exception result is already returning, or a scoreboard entry already contains the result, the operand can be replaced with the forwarded value.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l03-raw-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l03-raw-waw-en/audio/tts_scene-cva6-u05-l03-raw-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l03-waw",
+      "stageId": "openhw-cva6-u05-l03-raw-waw-en",
+      "type": "html-slide",
+      "title": "WAW: can I claim this destination yet?",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "light",
+        "content": {
+          "kicker": "WRITE-AFTER-WRITE",
+          "title": "Destination conflicts also block issue",
+          "subtitle": "The issue stage protects write ordering by checking destination registers against in-flight entries.",
+          "steps": [
+            {
+              "title": "New instruction has rd",
+              "body": "The candidate instruction wants to write a destination register."
+            },
+            {
+              "title": "Scoreboard has older rd",
+              "body": "An older in-flight entry already targets the same destination."
+            },
+            {
+              "title": "Issue blocks",
+              "body": "The new instruction waits so destination ordering remains safe."
+            },
+            {
+              "title": "Commit ignored case",
+              "body": "Instructions being committed are ignored because they will leave the scoreboard next cycle."
+            }
+          ],
+          "takeaway": "WAW is about preserving destination ownership among in-flight entries."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-data-hazards",
+            "title": "CV32A60X design: data hazards in issue",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-read-operands",
+            "locator": "cv32a60x/design/design.md Issue_read_operands data hazards",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "RAW hazards block issue unless forwarding can provide the operand; WAW hazards block issue when the destination register matches an in-flight scoreboard entry; x0 has no data hazards."
+          },
+          {
+            "id": "cv32a60x-design-scoreboard",
+            "title": "CV32A60X design: Scoreboard submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#scoreboard",
+            "locator": "cv32a60x/design/design.md Scoreboard submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The scoreboard contains a FIFO of issued instructions, has capacity for four entries in this configuration, stores returned results by transaction ID, and exposes oldest completed entries to commit."
+          }
+        ],
+        "speakerNotes": "WAW asks a different question: can this instruction claim its destination register yet? If an older scoreboard entry has the same destination, the candidate blocks. The source adds a subtle point: instructions being committed are ignored because they will not be in the scoreboard anymore next cycle. That is the sort of detail that keeps a lesson grounded in implementation, not just diagrams."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-data-hazards",
+        "cv32a60x-design-scoreboard"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l03-waw-speech",
+          "type": "speech",
+          "text": "WAW asks a different question: can this instruction claim its destination register yet? If an older scoreboard entry has the same destination, the candidate blocks. The source adds a subtle point: instructions being committed are ignored because they will not be in the scoreboard anymore next cycle. That is the sort of detail that keeps a lesson grounded in implementation, not just diagrams.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l03-waw-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l03-raw-waw-en/audio/tts_scene-cva6-u05-l03-waw-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l03-x0",
+      "stageId": "openhw-cva6-u05-l03-raw-waw-en",
+      "type": "html-slide",
+      "title": "x0 changes the hazard story",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "SPECIAL CASE",
+          "title": "There are no data hazards on x0",
+          "subtitle": "The zero register is architecturally special, so hazard logic treats it specially too.",
+          "cards": [
+            {
+              "title": "x0 reads as zero",
+              "body": "Reading x0 does not depend on an older computed value."
+            },
+            {
+              "title": "x0 writes do not create useful state",
+              "body": "A write to x0 is not a real future operand producer."
+            },
+            {
+              "title": "Hazard exception",
+              "body": "The source explicitly says there are no data hazards on x0."
+            },
+            {
+              "title": "Teaching rule",
+              "body": "Mention x0 when explaining RAW/WAW so the rule is not overgeneralized."
+            }
+          ],
+          "takeaway": "A professional hazard explanation includes architectural special cases."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-data-hazards",
+            "title": "CV32A60X design: data hazards in issue",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-read-operands",
+            "locator": "cv32a60x/design/design.md Issue_read_operands data hazards",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "RAW hazards block issue unless forwarding can provide the operand; WAW hazards block issue when the destination register matches an in-flight scoreboard entry; x0 has no data hazards."
+          }
+        ],
+        "speakerNotes": "The zero register is the friendly exception that makes blanket rules dangerous. The source explicitly says there are no data hazards on x0. That is because x0 reads as zero and does not create meaningful future data through writes. If a course says every register match creates a hazard, it is already slightly wrong. Slightly wrong is where debugging starts its revenge arc."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-data-hazards"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l03-x0-speech",
+          "type": "speech",
+          "text": "The zero register is the friendly exception that makes blanket rules dangerous. The source explicitly says there are no data hazards on x0. That is because x0 reads as zero and does not create meaningful future data through writes. If a course says every register match creates a hazard, it is already slightly wrong. Slightly wrong is where debugging starts its revenge arc.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l03-x0-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l03-raw-waw-en/audio/tts_scene-cva6-u05-l03-x0-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l03-stall",
+      "stageId": "openhw-cva6-u05-l03-raw-waw-en",
+      "type": "html-slide",
+      "title": "One stalled instruction can block the queue",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "IN-ORDER CONSEQUENCE",
+          "title": "In-order issue makes old blockers visible",
+          "subtitle": "When an instruction stalls ISSUE_STAGE, next instructions are blocked even if they look independent locally.",
+          "items": [
+            {
+              "title": "Check the oldest candidate",
+              "body": "You cannot debug the younger instruction first."
+            },
+            {
+              "title": "Classify the hazard",
+              "body": "RAW, WAW, structural, flush, or scoreboard capacity."
+            },
+            {
+              "title": "Look for forwarding",
+              "body": "A RAW hazard may be bypassed if the value is ready and legal to forward."
+            },
+            {
+              "title": "Check x0",
+              "body": "Register zero matches should not be treated like normal data hazards."
+            },
+            {
+              "title": "Remember the front-door rule",
+              "body": "A younger instruction waits behind an older stalled candidate."
+            }
+          ],
+          "takeaway": "In-order issue turns the oldest blocked instruction into the first debugging target."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-read-operands",
+            "title": "CV32A60X design: Issue_read_operands submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-read-operands",
+            "locator": "cv32a60x/design/design.md Issue_read_operands submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "Issue_read_operands tracks hazards, obtains input operands, uses register file values by default, can replace operands with forwarded values, and sends issued instructions to EX_STAGE through a register."
+          }
+        ],
+        "speakerNotes": "In-order issue gives us a powerful debugging shortcut: look at the oldest blocked candidate first. A younger instruction might look perfectly ready, but it cannot jump ahead. So classify the old blocker: RAW, WAW, structural hazard, flush, or capacity. Then check forwarding and x0. This is how backend stalls become inspectable instead of spooky."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-read-operands"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l03-stall-speech",
+          "type": "speech",
+          "text": "In-order issue gives us a powerful debugging shortcut: look at the oldest blocked candidate first. A younger instruction might look perfectly ready, but it cannot jump ahead. So classify the old blocker: RAW, WAW, structural hazard, flush, or capacity. Then check forwarding and x0. This is how backend stalls become inspectable instead of spooky.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l03-stall-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l03-raw-waw-en/audio/tts_scene-cva6-u05-l03-stall-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l03-quiz",
+      "stageId": "openhw-cva6-u05-l03-raw-waw-en",
+      "type": "quiz",
+      "title": "RAW/WAW checkpoint",
+      "order": 5,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u05-l03-q1",
+            "type": "single",
+            "question": "What is a RAW hazard in this lesson?",
+            "options": [
+              {
+                "value": "A",
+                "label": "A source register depends on an older scoreboard destination whose value may not be available yet"
+              },
+              {
+                "value": "B",
+                "label": "A branch target buffer miss"
+              },
+              {
+                "value": "C",
+                "label": "A cache line replacement policy"
+              },
+              {
+                "value": "D",
+                "label": "A commit-stage logo problem"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "RAW means read-after-write: the source operand can depend on an older destination."
+          },
+          {
+            "id": "u05-l03-q2",
+            "type": "single",
+            "question": "What is a WAW hazard in this lesson?",
+            "options": [
+              {
+                "value": "A",
+                "label": "A candidate destination matches an older in-flight destination in the scoreboard"
+              },
+              {
+                "value": "B",
+                "label": "A source register is x0"
+              },
+              {
+                "value": "C",
+                "label": "A branch direction counter saturates"
+              },
+              {
+                "value": "D",
+                "label": "A frontend replay address is selected"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "WAW means write-after-write: destination ownership conflicts with an older in-flight entry."
+          },
+          {
+            "id": "u05-l03-q3",
+            "type": "multiple",
+            "question": "Which statements are source-backed for data hazards?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Forwarding can avoid some RAW stalls"
+              },
+              {
+                "value": "B",
+                "label": "Forwarding is not possible from CSR instructions"
+              },
+              {
+                "value": "C",
+                "label": "There are no data hazards on x0"
+              },
+              {
+                "value": "D",
+                "label": "Instructions being committed are ignored for WAW because they leave the scoreboard next cycle"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "hasAnswer": true,
+            "analysis": "All four statements come from the Issue_read_operands hazard description."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-data-hazards",
+            "title": "CV32A60X design: data hazards in issue",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-read-operands",
+            "locator": "cv32a60x/design/design.md Issue_read_operands data hazards",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "RAW hazards block issue unless forwarding can provide the operand; WAW hazards block issue when the destination register matches an in-flight scoreboard entry; x0 has no data hazards."
+          },
+          {
+            "id": "cv32a60x-design-forwarding",
+            "title": "CV32A60X design: operand forwarding",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-read-operands",
+            "locator": "cv32a60x/design/design.md Issue_read_operands RAW forwarding",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "Forwarding can take operands from a returning functional-unit result or from a scoreboard entry with a ready non-exception result; forwarding is not possible from CSR instructions."
+          }
+        ],
+        "speakerNotes": "This checkpoint asks whether hazard labels have become concrete. RAW is about source readiness. WAW is about destination ownership. x0 is special. Forwarding can help, but not from CSR. Those four statements will carry us straight into the forwarding lesson."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-data-hazards",
+        "cv32a60x-design-forwarding"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l03-quiz-speech",
+          "type": "speech",
+          "text": "This checkpoint asks whether hazard labels have become concrete. RAW is about source readiness. WAW is about destination ownership. x0 is special. Forwarding can help, but not from CSR. Those four statements will carry us straight into the forwarding lesson.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l03-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l03-raw-waw-en/audio/tts_scene-cva6-u05-l03-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l03-summary",
+      "stageId": "openhw-cva6-u05-l03-raw-waw-en",
+      "type": "html-slide",
+      "title": "Data hazards are now readable",
+      "order": 6,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "WRAP",
+          "title": "RAW and WAW are issue-stage permission checks",
+          "subtitle": "The scoreboard turns register conflicts into explicit wait or forward decisions.",
+          "takeaways": [
+            "RAW asks whether source operands are safely available.",
+            "WAW asks whether a destination register can be claimed safely.",
+            "x0 and committing entries are important special cases."
+          ],
+          "nextStep": "Next: forwarding, where some RAW hazards become legal operand substitutions instead of stalls.",
+          "closing": "Hazard logic is not dramatic. It is just the core asking permission before causing trouble."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-data-hazards",
+            "title": "CV32A60X design: data hazards in issue",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-read-operands",
+            "locator": "cv32a60x/design/design.md Issue_read_operands data hazards",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "RAW hazards block issue unless forwarding can provide the operand; WAW hazards block issue when the destination register matches an in-flight scoreboard entry; x0 has no data hazards."
+          }
+        ],
+        "speakerNotes": "RAW and WAW are now issue-stage permission checks. RAW checks whether a source is safe. WAW checks whether a destination is safe. x0 and committing entries shape the edge cases. Next we focus on forwarding, the feature that lets some RAW hazards become legal operand substitutions instead of stalls."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-data-hazards"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l03-summary-speech",
+          "type": "speech",
+          "text": "RAW and WAW are now issue-stage permission checks. RAW checks whether a source is safe. WAW checks whether a destination is safe. x0 and committing entries shape the edge cases. Next we focus on forwarding, the feature that lets some RAW hazards become legal operand substitutions instead of stalls.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l03-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l03-raw-waw-en/audio/tts_scene-cva6-u05-l03-summary-speech.mp3"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "default-1",
+      "name": "AlexChen",
+      "role": "Professional OpenHW classroom narrator",
+      "voice": "local-tts:kokoro:am_eric"
+    }
+  ],
+  "metadata": {
+    "seriesId": "cva6-from-zero",
+    "unitId": "u05-issue-scoreboard",
+    "skillId": "u05-s02-hazards",
+    "lessonId": "cva6-u05-l03-raw-waw",
+    "sourceRefs": [
+      "cv32a60x-design-issue-read-operands",
+      "cv32a60x-design-data-hazards",
+      "cv32a60x-design-scoreboard"
+    ],
+    "assetRefs": [
+      "scoreboard.png"
+    ],
+    "generatedAt": "2026-05-27T08:36:59.271Z"
+  }
+}

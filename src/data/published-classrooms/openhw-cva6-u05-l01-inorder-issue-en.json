@@ -1,0 +1,558 @@
+{
+  "id": "openhw-cva6-u05-l01-inorder-issue-en",
+  "stage": {
+    "id": "openhw-cva6-u05-l01-inorder-issue-en",
+    "name": "In-order issue: why it still deserves a serious reading",
+    "description": "A deeper issue-stage lesson on in-order admission, out-of-order result return, scoreboard-backed tracking, and in-order handoff to commit.",
+    "createdAt": 1779871019271,
+    "updatedAt": 1779871224924,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u05-l01-title",
+      "stageId": "openhw-cva6-u05-l01-inorder-issue-en",
+      "type": "html-slide",
+      "title": "In-order issue is not a boring backend",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 05 / LESSON 01",
+          "title": "In-order issue: why it still deserves a serious reading",
+          "subtitle": "The issue stage is where decoded work becomes executable work without losing track of dependencies, readiness, and final order.",
+          "chips": [
+            "ISSUE_STAGE",
+            "In-order issue",
+            "Out-of-order results",
+            "Commit handoff"
+          ],
+          "thesis": "CVA6 can issue instructions in order while still receiving results later and out of order. The scoreboard is what keeps that story coherent."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-stage",
+            "title": "CV32A60X design: ISSUE_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "ISSUE_STAGE issues instructions in-order, reorders execution results, and sends completed instructions in-order to COMMIT_STAGE."
+          }
+        ],
+        "speakerNotes": "Unit 05 moves into the issue and scoreboard machinery. The first trap is thinking in-order issue means the backend is simple. It is simpler than a wide out-of-order machine, sure, but CVA6 still has to decide when an instruction is ready, send it to execute, remember it, receive results that may return at different times, and present completed work to commit in order."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l01-title-speech",
+          "type": "speech",
+          "text": "Unit 05 moves into the issue and scoreboard machinery. The first trap is thinking in-order issue means the backend is simple. It is simpler than a wide out-of-order machine, sure, but CVA6 still has to decide when an instruction is ready, send it to execute, remember it, receive results that may return at different times, and present completed work to commit in order.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l01-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l01-inorder-issue-en/audio/tts_scene-cva6-u05-l01-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l01-three-jobs",
+      "stageId": "openhw-cva6-u05-l01-inorder-issue-en",
+      "type": "html-slide",
+      "title": "ISSUE_STAGE has three jobs",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "light",
+        "content": {
+          "kicker": "OFFICIAL FUNCTIONALITY",
+          "title": "Issue, reorder, commit-facing handoff",
+          "subtitle": "The source gives a clean three-part structure; use it as the teaching spine.",
+          "steps": [
+            {
+              "title": "Issue in order",
+              "body": "Decoded instructions move forward only when their requirements are met."
+            },
+            {
+              "title": "Store returned results",
+              "body": "Execution results can return out of order and are stored against tracked entries."
+            },
+            {
+              "title": "Expose oldest completed work",
+              "body": "Completed entries are presented to COMMIT_STAGE in order."
+            }
+          ],
+          "takeaway": "Do not explain ISSUE_STAGE as only a dispatch block; it also tracks completion and commit order."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-stage",
+            "title": "CV32A60X design: ISSUE_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "ISSUE_STAGE issues instructions in-order, reorders execution results, and sends completed instructions in-order to COMMIT_STAGE."
+          }
+        ],
+        "speakerNotes": "The official text gives us a clean structure: issue, reorder results, and send completed instructions to commit. That is the spine of the lesson. Issue is the front door. Result storage is the memory of what happened in execute. The commit-facing handoff is what protects architectural order. If you remember only one sentence, use this one: issue is in order, results can return out of order, commit sees ordered completion."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l01-three-jobs-speech",
+          "type": "speech",
+          "text": "The official text gives us a clean structure: issue, reorder results, and send completed instructions to commit. That is the spine of the lesson. Issue is the front door. Result storage is the memory of what happened in execute. The commit-facing handoff is what protects architectural order. If you remember only one sentence, use this one: issue is in order, results can return out of order, commit sees ordered completion.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l01-three-jobs-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l01-inorder-issue-en/audio/tts_scene-cva6-u05-l01-three-jobs-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l01-diagram",
+      "stageId": "openhw-cva6-u05-l01-inorder-issue-en",
+      "type": "html-slide",
+      "title": "Read the scoreboard diagram as a contract",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "SOURCE DIAGRAM",
+          "title": "The backend has a notebook, not just wires",
+          "subtitle": "The diagram is useful because it shows where decoded instructions, forwarding, writeback results, and commit acknowledgement meet.",
+          "body": "The scoreboard and Issue_read_operands split the job: one tracks entries and returned results, while the other checks readiness and gathers operands for execution.",
+          "assetId": "scoreboard",
+          "caption": "Official scoreboard diagram used as Unit 05 visual anchor.",
+          "callouts": [
+            {
+              "title": "From ID_STAGE",
+              "body": "Decoded scoreboard entries arrive."
+            },
+            {
+              "title": "Toward EX_STAGE",
+              "body": "Ready work is issued with operands."
+            },
+            {
+              "title": "Toward COMMIT_STAGE",
+              "body": "Oldest completed entries are exposed."
+            }
+          ],
+          "takeaway": "Use the diagram to separate tracking, readiness, execution, and retirement."
+        },
+        "assets": [
+          {
+            "id": "scoreboard",
+            "type": "image",
+            "src": "/classroom-assets/cva6-shared/assets/scoreboard.png",
+            "alt": "Official CVA6 scoreboard diagram",
+            "caption": "Official scoreboard diagram used to explain issue, hazards, forwarding, and result tracking.",
+            "source": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/assets/_images/scoreboard.png"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-stage",
+            "title": "CV32A60X design: ISSUE_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "ISSUE_STAGE issues instructions in-order, reorders execution results, and sends completed instructions in-order to COMMIT_STAGE."
+          },
+          {
+            "id": "cv32a60x-design-scoreboard",
+            "title": "CV32A60X design: Scoreboard submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#scoreboard",
+            "locator": "cv32a60x/design/design.md Scoreboard submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The scoreboard contains a FIFO of issued instructions, has capacity for four entries in this configuration, stores returned results by transaction ID, and exposes oldest completed entries to commit."
+          }
+        ],
+        "speakerNotes": "This diagram is not just decoration. It tells us where the backend contract lives. ID stage sends decoded entries. Issue_read_operands asks whether a candidate can safely execute and gathers operands. Scoreboard tracks entries and returned results. Commit acknowledges oldest completed work. That is the map we need before we talk about hazards, forwarding, or structural stalls."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-stage",
+        "cv32a60x-design-scoreboard"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l01-diagram-speech",
+          "type": "speech",
+          "text": "This diagram is not just decoration. It tells us where the backend contract lives. ID stage sends decoded entries. Issue_read_operands asks whether a candidate can safely execute and gathers operands. Scoreboard tracks entries and returned results. Commit acknowledges oldest completed work. That is the map we need before we talk about hazards, forwarding, or structural stalls.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l01-diagram-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l01-inorder-issue-en/audio/tts_scene-cva6-u05-l01-diagram-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l01-in-order",
+      "stageId": "openhw-cva6-u05-l01-inorder-issue-en",
+      "type": "html-slide",
+      "title": "In-order issue is a discipline",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "ORDERING",
+          "title": "Admission order and completion order are different",
+          "subtitle": "The issue stage keeps the front-door rule separate from result timing.",
+          "columns": [
+            {
+              "title": "Issue rule",
+              "body": "An instruction cannot be issued unless all predecessors have been issued and its own requirements are met.",
+              "points": [
+                "In-order admission",
+                "Hazard checked",
+                "Functional unit ready"
+              ]
+            },
+            {
+              "title": "Result reality",
+              "body": "Different functional units can take different time, so results return to the scoreboard with transaction IDs.",
+              "points": [
+                "Out-of-order return",
+                "Stored by ID",
+                "Commit sees ordered entries"
+              ]
+            }
+          ],
+          "takeaway": "The design is conservative at issue, but still needs precise tracking after execution starts."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-stage",
+            "title": "CV32A60X design: ISSUE_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "ISSUE_STAGE issues instructions in-order, reorders execution results, and sends completed instructions in-order to COMMIT_STAGE."
+          },
+          {
+            "id": "cv32a60x-design-issue-read-operands",
+            "title": "CV32A60X design: Issue_read_operands submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-read-operands",
+            "locator": "cv32a60x/design/design.md Issue_read_operands submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "Issue_read_operands tracks hazards, obtains input operands, uses register file values by default, can replace operands with forwarded values, and sends issued instructions to EX_STAGE through a register."
+          }
+        ],
+        "speakerNotes": "The core distinction is admission order versus completion timing. The front door is in order. A younger instruction cannot leap over an older instruction that has not issued. But once instructions reach execute, different units have different latency, so results may come back at different times. That is why the scoreboard is central even in a single-issue design."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-stage",
+        "cv32a60x-design-issue-read-operands"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l01-in-order-speech",
+          "type": "speech",
+          "text": "The core distinction is admission order versus completion timing. The front door is in order. A younger instruction cannot leap over an older instruction that has not issued. But once instructions reach execute, different units have different latency, so results may come back at different times. That is why the scoreboard is central even in a single-issue design.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l01-in-order-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l01-inorder-issue-en/audio/tts_scene-cva6-u05-l01-in-order-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l01-checklist",
+      "stageId": "openhw-cva6-u05-l01-inorder-issue-en",
+      "type": "html-slide",
+      "title": "How to read any issue-stage claim",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "READING METHOD",
+          "title": "Five questions before accepting a backend sentence",
+          "subtitle": "This checklist prevents vague “it dispatches” explanations.",
+          "items": [
+            {
+              "title": "What arrives?",
+              "body": "Decoded scoreboard entries from ID_STAGE, not raw frontend bytes."
+            },
+            {
+              "title": "What blocks issue?",
+              "body": "Data hazards, structural hazards, flush, or scoreboard capacity."
+            },
+            {
+              "title": "What is sent to execute?",
+              "body": "Functional-unit data and operands."
+            },
+            {
+              "title": "How do results return?",
+              "body": "EX_STAGE result buses identify the tracked entry by transaction ID."
+            },
+            {
+              "title": "Who removes entries?",
+              "body": "COMMIT_STAGE acknowledges oldest completed entries."
+            }
+          ],
+          "takeaway": "Issue-stage reading is mostly careful placement of responsibility."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-stage",
+            "title": "CV32A60X design: ISSUE_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "ISSUE_STAGE issues instructions in-order, reorders execution results, and sends completed instructions in-order to COMMIT_STAGE."
+          }
+        ],
+        "speakerNotes": "Use this checklist whenever you read a backend sentence. What arrives from decode? What can block issue? What exactly is sent to execute? How do results come back? And who removes the tracked entry? These questions sound plain, but they prevent a lot of confused explanations. The backend rewards boring precision. I know, heartbreaking, but useful."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l01-checklist-speech",
+          "type": "speech",
+          "text": "Use this checklist whenever you read a backend sentence. What arrives from decode? What can block issue? What exactly is sent to execute? How do results come back? And who removes the tracked entry? These questions sound plain, but they prevent a lot of confused explanations. The backend rewards boring precision. I know, heartbreaking, but useful.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l01-checklist-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l01-inorder-issue-en/audio/tts_scene-cva6-u05-l01-checklist-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l01-quiz",
+      "stageId": "openhw-cva6-u05-l01-inorder-issue-en",
+      "type": "quiz",
+      "title": "In-order issue checkpoint",
+      "order": 5,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u05-l01-q1",
+            "type": "single",
+            "question": "Which summary best matches the official ISSUE_STAGE functionality?",
+            "options": [
+              {
+                "value": "A",
+                "label": "It issues instructions in-order, stores execution results, and exposes completed instructions in-order to commit"
+              },
+              {
+                "value": "B",
+                "label": "It only increments the program counter"
+              },
+              {
+                "value": "C",
+                "label": "It only performs instruction decompression"
+              },
+              {
+                "value": "D",
+                "label": "It replaces the entire execute stage"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "The source describes ISSUE_STAGE as issuing, reordering results, and sending completed instructions in-order to commit."
+          },
+          {
+            "id": "u05-l01-q2",
+            "type": "single",
+            "question": "Why is a scoreboard still needed if issue is in-order?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Because execution results can return at different times and must be tracked until ordered commit"
+              },
+              {
+                "value": "B",
+                "label": "Because the frontend has no PC generation"
+              },
+              {
+                "value": "C",
+                "label": "Because all instructions complete in the same cycle"
+              },
+              {
+                "value": "D",
+                "label": "Because commit is allowed to retire entries randomly"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "In-order issue does not remove the need to track out-of-order result return and in-order completion."
+          },
+          {
+            "id": "u05-l01-q3",
+            "type": "multiple",
+            "question": "Which modules interact with ISSUE_STAGE according to this lesson?",
+            "options": [
+              {
+                "value": "A",
+                "label": "ID_STAGE"
+              },
+              {
+                "value": "B",
+                "label": "EX_STAGE"
+              },
+              {
+                "value": "C",
+                "label": "COMMIT_STAGE"
+              },
+              {
+                "value": "D",
+                "label": "CONTROLLER"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "hasAnswer": true,
+            "analysis": "The source names decode, execute, commit, and controller interactions for issue-stage data, results, acknowledgement, and flush behavior."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-stage",
+            "title": "CV32A60X design: ISSUE_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "ISSUE_STAGE issues instructions in-order, reorders execution results, and sends completed instructions in-order to COMMIT_STAGE."
+          },
+          {
+            "id": "cv32a60x-design-scoreboard",
+            "title": "CV32A60X design: Scoreboard submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#scoreboard",
+            "locator": "cv32a60x/design/design.md Scoreboard submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The scoreboard contains a FIFO of issued instructions, has capacity for four entries in this configuration, stores returned results by transaction ID, and exposes oldest completed entries to commit."
+          }
+        ],
+        "speakerNotes": "This checkpoint is deliberately simple. If issue, result storage, and commit handoff are placed correctly, the next four lessons can get technical without becoming a fog machine. If those three jobs are not clear, every hazard example will feel random."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-stage",
+        "cv32a60x-design-scoreboard"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l01-quiz-speech",
+          "type": "speech",
+          "text": "This checkpoint is deliberately simple. If issue, result storage, and commit handoff are placed correctly, the next four lessons can get technical without becoming a fog machine. If those three jobs are not clear, every hazard example will feel random.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l01-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l01-inorder-issue-en/audio/tts_scene-cva6-u05-l01-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l01-summary",
+      "stageId": "openhw-cva6-u05-l01-inorder-issue-en",
+      "type": "html-slide",
+      "title": "The issue-stage spine is stable",
+      "order": 6,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "WRAP",
+          "title": "Issue is the backend gate plus the tracking bridge",
+          "subtitle": "CVA6 keeps admission ordered, tracks returned results, and hands architectural completion to commit in order.",
+          "takeaways": [
+            "In-order issue means younger work does not bypass older unissued work.",
+            "Different execution paths can still return results at different times.",
+            "The scoreboard connects issue readiness, writeback tracking, and commit ordering."
+          ],
+          "nextStep": "Next: the scoreboard FIFO itself, including capacity, transaction IDs, result storage, and flush behavior.",
+          "closing": "A good backend explanation starts with order, then earns its way into hazards."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-stage",
+            "title": "CV32A60X design: ISSUE_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "ISSUE_STAGE issues instructions in-order, reorders execution results, and sends completed instructions in-order to COMMIT_STAGE."
+          }
+        ],
+        "speakerNotes": "The Unit 05 spine is now stable. Issue is an ordered front door. The scoreboard tracks entries and returned results. Commit receives oldest completed work. Next we open the scoreboard FIFO itself. That is where capacity, transaction IDs, flush, and result storage become concrete."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l01-summary-speech",
+          "type": "speech",
+          "text": "The Unit 05 spine is now stable. Issue is an ordered front door. The scoreboard tracks entries and returned results. Commit receives oldest completed work. Next we open the scoreboard FIFO itself. That is where capacity, transaction IDs, flush, and result storage become concrete.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l01-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l01-inorder-issue-en/audio/tts_scene-cva6-u05-l01-summary-speech.mp3"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "default-1",
+      "name": "AlexChen",
+      "role": "Professional OpenHW classroom narrator",
+      "voice": "local-tts:kokoro:am_eric"
+    }
+  ],
+  "metadata": {
+    "seriesId": "cva6-from-zero",
+    "unitId": "u05-issue-scoreboard",
+    "skillId": "u05-s01-issue-stage",
+    "lessonId": "cva6-u05-l01-inorder-issue",
+    "sourceRefs": [
+      "cv32a60x-design-issue-stage",
+      "cv32a60x-design-scoreboard",
+      "cv32a60x-design-execute-stage",
+      "cv32a60x-design-commit-stage"
+    ],
+    "assetRefs": [
+      "scoreboard.png"
+    ],
+    "generatedAt": "2026-05-27T08:36:59.271Z"
+  }
+}
