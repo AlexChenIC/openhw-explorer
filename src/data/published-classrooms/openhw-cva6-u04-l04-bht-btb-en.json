@@ -1,0 +1,709 @@
+{
+  "id": "openhw-cva6-u04-l04-bht-btb-en",
+  "stage": {
+    "id": "openhw-cva6-u04-l04-bht-btb-en",
+    "name": "BHT and BTB: direction is not target",
+    "description": "A component-comparison lesson that separates BHT direction prediction from BTB target prediction, with the CV32A60X caveat that this configuration has no BTB.",
+    "createdAt": 1779859356896,
+    "updatedAt": 1779859356896,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u04-l04-title",
+      "stageId": "openhw-cva6-u04-l04-bht-btb-en",
+      "type": "html-slide",
+      "title": "Direction and target are different questions",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 04 / LESSON 04",
+          "title": "BHT and BTB: direction is not target",
+          "subtitle": "This lesson fixes a common branch-prediction mistake: confusing whether a branch is taken with where it goes.",
+          "chips": [
+            "BHT",
+            "BTB",
+            "Direction",
+            "Target",
+            "CV32A60X caveat"
+          ],
+          "thesis": "BHT answers a direction question. BTB is a target-buffer concept. In CV32A60X, the BTB caveat is not optional: there is no BTB."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-bht",
+            "title": "CV32A60X design: BHT submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#bht-branch-history-table-submodule",
+            "locator": "cv32a60x/design/design.md BHT submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The BHT has 32 entries, stores valid bits and two-bit saturating counters, predicts taken/not taken from the counter MSB, is updated by Execute, and is never flushed."
+          },
+          {
+            "id": "cv32a60x-design-btb",
+            "title": "CV32A60X design: BTB submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#btb-branch-target-buffer-submodule",
+            "locator": "cv32a60x/design/design.md BTB submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X configuration has no BTB, so no valid address is returned from BTB."
+          }
+        ],
+        "speakerNotes": "This lesson is the one that keeps future slides honest. BHT and BTB are easy to say in one breath, but they answer different questions. BHT predicts direction: taken or not taken. BTB is a target-buffer concept: where should we go? And for CV32A60X, the source is explicit: there is no BTB, so no valid address is returned from it."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-bht",
+        "cv32a60x-design-btb"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l04-title-speech",
+          "type": "speech",
+          "text": "This lesson is the one that keeps future slides honest. BHT and BTB are easy to say in one breath, but they answer different questions. BHT predicts direction: taken or not taken. BTB is a target-buffer concept: where should we go? And for CV32A60X, the source is explicit: there is no BTB, so no valid address is returned from it.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l04-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l04-bht-btb-en/audio/tts_scene-cva6-u04-l04-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l04-compare",
+      "stageId": "openhw-cva6-u04-l04-bht-btb-en",
+      "type": "html-slide",
+      "title": "Two branch-prediction questions",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "COMPONENT BOUNDARY",
+          "title": "First ask: direction or target?",
+          "subtitle": "If you cannot name the question, you cannot explain the component.",
+          "columns": [
+            {
+              "title": "BHT: direction",
+              "body": "The branch history table validates whether an address is in the table and predicts taken or not taken using the counter MSB.",
+              "points": [
+                "Conditional branches",
+                "Two-bit counters",
+                "Updated by Execute"
+              ]
+            },
+            {
+              "title": "BTB: target caveat",
+              "body": "A branch target buffer would provide target addresses, but the CV32A60X design says this configuration has no BTB.",
+              "points": [
+                "Target concept",
+                "No valid BTB address",
+                "Configuration-specific statement"
+              ]
+            }
+          ],
+          "takeaway": "A safe public claim must say both what the concept means and what this configuration actually implements."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-bht",
+            "title": "CV32A60X design: BHT submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#bht-branch-history-table-submodule",
+            "locator": "cv32a60x/design/design.md BHT submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The BHT has 32 entries, stores valid bits and two-bit saturating counters, predicts taken/not taken from the counter MSB, is updated by Execute, and is never flushed."
+          },
+          {
+            "id": "cv32a60x-design-btb",
+            "title": "CV32A60X design: BTB submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#btb-branch-target-buffer-submodule",
+            "locator": "cv32a60x/design/design.md BTB submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X configuration has no BTB, so no valid address is returned from BTB."
+          }
+        ],
+        "speakerNotes": "The most useful teaching split is direction versus target. The BHT says whether a conditional branch should be treated as taken. It does not give the full target story. A BTB would be about target addresses, but here the configuration-specific statement matters more than the generic textbook sentence. CV32A60X has no BTB."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-bht",
+        "cv32a60x-design-btb"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l04-compare-speech",
+          "type": "speech",
+          "text": "The most useful teaching split is direction versus target. The BHT says whether a conditional branch should be treated as taken. It does not give the full target story. A BTB would be about target addresses, but here the configuration-specific statement matters more than the generic textbook sentence. CV32A60X has no BTB.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l04-compare-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l04-bht-btb-en/audio/tts_scene-cva6-u04-l04-compare-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l04-bht",
+      "stageId": "openhw-cva6-u04-l04-bht-btb-en",
+      "type": "html-slide",
+      "title": "BHT is a small learning memory",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "light",
+        "content": {
+          "kicker": "BHT LIFECYCLE",
+          "title": "Predict, resolve, update",
+          "subtitle": "The BHT keeps valid bits and two-bit saturating counters, then learns from execute-stage outcomes.",
+          "steps": [
+            {
+              "title": "Predecode branch",
+              "body": "instr_scan identifies a conditional branch before full decode."
+            },
+            {
+              "title": "Index BHT",
+              "body": "Selected virtual-address bits access a BHT entry."
+            },
+            {
+              "title": "Predict direction",
+              "body": "The counter MSB gives taken or not-taken, where one means taken."
+            },
+            {
+              "title": "Update from Execute",
+              "body": "When the branch is resolved, Execute sends branch status to update the table."
+            }
+          ],
+          "takeaway": "BHT is not guessing randomly. It is a compact feedback loop around branch direction."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-bht",
+            "title": "CV32A60X design: BHT submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#bht-branch-history-table-submodule",
+            "locator": "cv32a60x/design/design.md BHT submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The BHT has 32 entries, stores valid bits and two-bit saturating counters, predicts taken/not taken from the counter MSB, is updated by Execute, and is never flushed."
+          },
+          {
+            "id": "cv32a60x-design-instr-scan",
+            "title": "CV32A60X design: instr_scan submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#instr-scan-submodule",
+            "locator": "cv32a60x/design/design.md Instr_scan submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "instr_scan pre-decodes fetched instructions, including compressed instructions, and outputs branch, jump, return, JALR, call, and immediate facts used by branch prediction."
+          }
+        ],
+        "speakerNotes": "The BHT is a small learning memory. instr_scan identifies the branch. The BHT indexes using selected address bits. A two-bit saturating counter gives a direction prediction from its most significant bit. Later, execute resolves the branch and sends status back so the table can update. That is the feedback loop: predict from history, then learn from reality."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-bht",
+        "cv32a60x-design-instr-scan"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l04-bht-speech",
+          "type": "speech",
+          "text": "The BHT is a small learning memory. instr_scan identifies the branch. The BHT indexes using selected address bits. A two-bit saturating counter gives a direction prediction from its most significant bit. Later, execute resolves the branch and sends status back so the table can update. That is the feedback loop: predict from history, then learn from reality.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l04-bht-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l04-bht-btb-en/audio/tts_scene-cva6-u04-l04-bht-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l04-aliasing",
+      "stageId": "openhw-cva6-u04-l04-bht-btb-en",
+      "type": "html-slide",
+      "title": "Small tables also have edge cases",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "BHT DETAILS",
+          "title": "CV32A60X BHT facts worth preserving",
+          "subtitle": "These details make the lesson technical instead of generic.",
+          "cards": [
+            {
+              "title": "32 entries",
+              "body": "The BHT is implemented as a memory composed of 32 entries."
+            },
+            {
+              "title": "Two-bit counters",
+              "body": "Each entry contains a two-bit saturating counter and a valid bit."
+            },
+            {
+              "title": "Possible aliasing",
+              "body": "Different branch addresses can share the same BHT entry if selected access bits match."
+            },
+            {
+              "title": "Never flushed",
+              "body": "The source states that the BHT is never flushed."
+            }
+          ],
+          "takeaway": "A good BHT explanation includes table size, update behavior, aliasing risk, and flush behavior."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-bht",
+            "title": "CV32A60X design: BHT submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#bht-branch-history-table-submodule",
+            "locator": "cv32a60x/design/design.md BHT submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The BHT has 32 entries, stores valid bits and two-bit saturating counters, predicts taken/not taken from the counter MSB, is updated by Execute, and is never flushed."
+          }
+        ],
+        "speakerNotes": "These details are the difference between a respectable lesson and a motivational poster. CV32A60X has a 32-entry BHT. Each entry has a valid bit and a two-bit saturating counter. Different branches can share an entry if the selected address bits match, which is a classic aliasing caveat. And the source explicitly says the BHT is never flushed."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-bht"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l04-aliasing-speech",
+          "type": "speech",
+          "text": "These details are the difference between a respectable lesson and a motivational poster. CV32A60X has a 32-entry BHT. Each entry has a valid bit and a two-bit saturating counter. Different branches can share an entry if the selected address bits match, which is a classic aliasing caveat. And the source explicitly says the BHT is never flushed.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l04-aliasing-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l04-bht-btb-en/audio/tts_scene-cva6-u04-l04-aliasing-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l04-btb-caveat",
+      "stageId": "openhw-cva6-u04-l04-bht-btb-en",
+      "type": "html-slide",
+      "title": "The BTB caveat is the point",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "CONFIGURATION-SPECIFIC CLAIM",
+          "title": "Do not teach generic BTB as present in CV32A60X",
+          "subtitle": "The PC generation text discusses BTB-style behavior, but the BTB submodule section says this configuration has no BTB.",
+          "body": "This is exactly why Unit 02 configuration literacy existed. A family-level concept can appear in the architecture vocabulary while a specific configuration ties the hardware off or omits it.",
+          "assetId": "branch-prediction",
+          "caption": "Use the diagram for concepts, then check the configuration-specific submodule text.",
+          "callouts": [
+            {
+              "title": "Generic concept",
+              "body": "BTB means target-buffer prediction."
+            },
+            {
+              "title": "Specific source",
+              "body": "CV32A60X: no BTB, no valid BTB address."
+            },
+            {
+              "title": "Teaching rule",
+              "body": "Always state the configuration boundary."
+            }
+          ],
+          "takeaway": "For CV32A60X, say \"BTB concept exists in the discussion, but this configuration has no BTB.\""
+        },
+        "assets": [
+          {
+            "id": "branch-prediction",
+            "type": "image",
+            "src": "/classroom-assets/cva6-shared/assets/branch_prediction.png",
+            "alt": "Official CVA6 branch prediction diagram",
+            "caption": "Official branch prediction diagram from the CV32A60X design documentation.",
+            "source": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/assets/_images/branch_prediction.png"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-pc-generation",
+            "title": "CV32A60X design: PC Generation stage",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#pc-generation-stage",
+            "locator": "cv32a60x/design/design.md PC Generation stage",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "PC gen selects the next PC from reset, branch prediction, default fetch, mispredict correction, replay, exception/interrupt, return from exception, or commit-PC restart cases."
+          },
+          {
+            "id": "cv32a60x-design-btb",
+            "title": "CV32A60X design: BTB submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#btb-branch-target-buffer-submodule",
+            "locator": "cv32a60x/design/design.md BTB submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X configuration has no BTB, so no valid address is returned from BTB."
+          }
+        ],
+        "speakerNotes": "This caveat is not a footnote to hide. It is a teaching feature. The PC generation description discusses BTB-style behavior, but the BTB submodule section says there is no BTB in CV32A60X. That tells us how to write the public claim: BTB is a branch target buffer concept, but this configuration does not implement one. Configuration literacy pays rent right here."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-pc-generation",
+        "cv32a60x-design-btb"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l04-btb-caveat-speech",
+          "type": "speech",
+          "text": "This caveat is not a footnote to hide. It is a teaching feature. The PC generation description discusses BTB-style behavior, but the BTB submodule section says there is no BTB in CV32A60X. That tells us how to write the public claim: BTB is a branch target buffer concept, but this configuration does not implement one. Configuration literacy pays rent right here.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l04-btb-caveat-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l04-bht-btb-en/audio/tts_scene-cva6-u04-l04-btb-caveat-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l04-safe-claims",
+      "stageId": "openhw-cva6-u04-l04-bht-btb-en",
+      "type": "html-slide",
+      "title": "Safe wording for public lessons",
+      "order": 5,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "QUALITY CONTROL",
+          "title": "Use these wording checks before publishing",
+          "subtitle": "They keep the frontend lesson accurate and reusable.",
+          "items": [
+            {
+              "title": "BHT",
+              "body": "Say direction prediction for conditional branches, not target prediction."
+            },
+            {
+              "title": "BTB",
+              "body": "Say no BTB in CV32A60X; do not imply target-buffer hardware exists."
+            },
+            {
+              "title": "RAS",
+              "body": "Say return-target prediction with a two-entry LIFO."
+            },
+            {
+              "title": "Update path",
+              "body": "Say Execute updates BHT after branch resolution."
+            },
+            {
+              "title": "Flush behavior",
+              "body": "Say BHT and RAS are never flushed only when citing this source."
+            }
+          ],
+          "takeaway": "The best technical slides often come from careful nouns, not more decoration."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-bht",
+            "title": "CV32A60X design: BHT submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#bht-branch-history-table-submodule",
+            "locator": "cv32a60x/design/design.md BHT submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The BHT has 32 entries, stores valid bits and two-bit saturating counters, predicts taken/not taken from the counter MSB, is updated by Execute, and is never flushed."
+          },
+          {
+            "id": "cv32a60x-design-btb",
+            "title": "CV32A60X design: BTB submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#btb-branch-target-buffer-submodule",
+            "locator": "cv32a60x/design/design.md BTB submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X configuration has no BTB, so no valid address is returned from BTB."
+          },
+          {
+            "id": "cv32a60x-design-ras",
+            "title": "CV32A60X design: RAS submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#ras-return-address-stack-submodule",
+            "locator": "cv32a60x/design/design.md RAS submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "RAS is a two-entry LIFO; call JAL pushes the following PC, return JALR pops a predicted return address, wrong prediction can generate a mispredict, and RAS is never flushed."
+          }
+        ],
+        "speakerNotes": "Here is the public wording checklist. BHT is direction. BTB is target concept, but absent in CV32A60X. RAS is return target. Execute updates BHT after resolving branches. BHT and RAS are never flushed according to this source. These may feel like small wording choices, but small wording choices are how technical trust is built."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-bht",
+        "cv32a60x-design-btb",
+        "cv32a60x-design-ras"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l04-safe-claims-speech",
+          "type": "speech",
+          "text": "Here is the public wording checklist. BHT is direction. BTB is target concept, but absent in CV32A60X. RAS is return target. Execute updates BHT after resolving branches. BHT and RAS are never flushed according to this source. These may feel like small wording choices, but small wording choices are how technical trust is built.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l04-safe-claims-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l04-bht-btb-en/audio/tts_scene-cva6-u04-l04-safe-claims-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l04-quiz",
+      "stageId": "openhw-cva6-u04-l04-bht-btb-en",
+      "type": "quiz",
+      "title": "BHT and BTB checkpoint",
+      "order": 6,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u04-l04-q1",
+            "type": "single",
+            "question": "What does the BHT primarily predict in this lesson?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Whether a conditional branch is taken or not taken"
+              },
+              {
+                "value": "B",
+                "label": "The final commit order of stores"
+              },
+              {
+                "value": "C",
+                "label": "The value of integer register x1"
+              },
+              {
+                "value": "D",
+                "label": "The cache-line replacement way"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "The BHT provides taken/not-taken direction prediction for branch instructions."
+          },
+          {
+            "id": "u04-l04-q2",
+            "type": "single",
+            "question": "What is the correct CV32A60X-specific BTB statement?",
+            "options": [
+              {
+                "value": "A",
+                "label": "There is no BTB in CV32A60X, so no valid address is returned from BTB"
+              },
+              {
+                "value": "B",
+                "label": "CV32A60X has a 1024-entry BTB"
+              },
+              {
+                "value": "C",
+                "label": "BTB and BHT are the same memory"
+              },
+              {
+                "value": "D",
+                "label": "BTB is flushed after every instruction"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "The BTB submodule section explicitly states that CV32A60X has no BTB."
+          },
+          {
+            "id": "u04-l04-q3",
+            "type": "multiple",
+            "question": "Which statements about the CV32A60X BHT are source-backed?",
+            "options": [
+              {
+                "value": "A",
+                "label": "It has 32 entries"
+              },
+              {
+                "value": "B",
+                "label": "It uses two-bit saturating counters and valid bits"
+              },
+              {
+                "value": "C",
+                "label": "The prediction uses the counter MSB, where 1 means taken"
+              },
+              {
+                "value": "D",
+                "label": "Execute sends branch status to update the BHT"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "hasAnswer": true,
+            "analysis": "All four details are in the BHT section or its signal/update description."
+          },
+          {
+            "id": "u04-l04-q4",
+            "type": "single",
+            "question": "Why is it risky to say \"CVA6 has BTB\" without context in this course?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Because the CV32A60X configuration we are teaching explicitly has no BTB"
+              },
+              {
+                "value": "B",
+                "label": "Because BTB is a software compiler pass"
+              },
+              {
+                "value": "C",
+                "label": "Because BHT entries are always stored in the register file"
+              },
+              {
+                "value": "D",
+                "label": "Because RAS and BTB are both disabled by compressed instructions"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "This course is currently grounded in CV32A60X source material, so configuration-specific statements must control public claims."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-bht",
+            "title": "CV32A60X design: BHT submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#bht-branch-history-table-submodule",
+            "locator": "cv32a60x/design/design.md BHT submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The BHT has 32 entries, stores valid bits and two-bit saturating counters, predicts taken/not taken from the counter MSB, is updated by Execute, and is never flushed."
+          },
+          {
+            "id": "cv32a60x-design-btb",
+            "title": "CV32A60X design: BTB submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#btb-branch-target-buffer-submodule",
+            "locator": "cv32a60x/design/design.md BTB submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X configuration has no BTB, so no valid address is returned from BTB."
+          },
+          {
+            "id": "cv32a60x-design-ras",
+            "title": "CV32A60X design: RAS submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#ras-return-address-stack-submodule",
+            "locator": "cv32a60x/design/design.md RAS submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "RAS is a two-entry LIFO; call JAL pushes the following PC, return JALR pops a predicted return address, wrong prediction can generate a mispredict, and RAS is never flushed."
+          }
+        ],
+        "speakerNotes": "The checkpoint is about disciplined terminology. BHT direction, BTB target concept, CV32A60X no BTB, RAS return target. If those four stay separate, the frontend story becomes much easier to extend later to other CVA6 configurations without rewriting the entire course."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-bht",
+        "cv32a60x-design-btb",
+        "cv32a60x-design-ras"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l04-quiz-speech",
+          "type": "speech",
+          "text": "The checkpoint is about disciplined terminology. BHT direction, BTB target concept, CV32A60X no BTB, RAS return target. If those four stay separate, the frontend story becomes much easier to extend later to other CVA6 configurations without rewriting the entire course.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l04-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l04-bht-btb-en/audio/tts_scene-cva6-u04-l04-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l04-summary",
+      "stageId": "openhw-cva6-u04-l04-bht-btb-en",
+      "type": "html-slide",
+      "title": "Direction and target are now separated",
+      "order": 7,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "WRAP",
+          "title": "You can now make safe branch-prediction claims",
+          "subtitle": "The lesson is not \"CVA6 predicts branches\"; it is a set of scoped component claims.",
+          "takeaways": [
+            "BHT predicts conditional-branch direction using compact history counters.",
+            "BTB is a target-buffer concept, but CV32A60X has no BTB.",
+            "RAS, BHT, and BTB-style target prediction must remain separate in explanations."
+          ],
+          "nextStep": "Next: a Unit 04 checkpoint that combines PC selection, replay, RAS, BHT, BTB caveats, and redirects.",
+          "closing": "Good architecture teaching is often the art of refusing to merge different things just because their acronyms sit near each other."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-bht",
+            "title": "CV32A60X design: BHT submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#bht-branch-history-table-submodule",
+            "locator": "cv32a60x/design/design.md BHT submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The BHT has 32 entries, stores valid bits and two-bit saturating counters, predicts taken/not taken from the counter MSB, is updated by Execute, and is never flushed."
+          },
+          {
+            "id": "cv32a60x-design-btb",
+            "title": "CV32A60X design: BTB submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#btb-branch-target-buffer-submodule",
+            "locator": "cv32a60x/design/design.md BTB submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X configuration has no BTB, so no valid address is returned from BTB."
+          }
+        ],
+        "speakerNotes": "You now have the core component distinction. BHT predicts direction. BTB is about target addresses, but absent in this configuration. RAS predicts return targets. Next we close Unit 04 with a checkpoint that mixes these ideas together, because real reading never presents them one at a time with polite labels."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-bht",
+        "cv32a60x-design-btb"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l04-summary-speech",
+          "type": "speech",
+          "text": "You now have the core component distinction. BHT predicts direction. BTB is about target addresses, but absent in this configuration. RAS predicts return targets. Next we close Unit 04 with a checkpoint that mixes these ideas together, because real reading never presents them one at a time with polite labels.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l04-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l04-bht-btb-en/audio/tts_scene-cva6-u04-l04-summary-speech.mp3"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "default-1",
+      "name": "AlexChen",
+      "role": "Professional OpenHW classroom narrator",
+      "voice": "local-tts:kokoro:am_eric"
+    }
+  ],
+  "metadata": {
+    "seriesId": "cva6-from-zero",
+    "unitId": "u04-frontend",
+    "skillId": "u04-s02-predictors",
+    "lessonId": "cva6-u04-l04-bht-btb",
+    "sourceRefs": [
+      "cv32a60x-design-pc-generation",
+      "cv32a60x-design-instr-scan",
+      "cv32a60x-design-bht",
+      "cv32a60x-design-btb",
+      "cv32a60x-design-ras"
+    ],
+    "assetRefs": [
+      "branch_prediction.png"
+    ],
+    "generatedAt": "2026-05-27T05:22:36.895Z"
+  }
+}

@@ -1,0 +1,699 @@
+{
+  "id": "openhw-cva6-u04-l02-replay-return-exception-en",
+  "stage": {
+    "id": "openhw-cva6-u04-l02-replay-return-exception-en",
+    "name": "Replay, return, exception: the frontend recovery paths",
+    "description": "A focused lesson on non-default PC sources: instruction-queue replay, return-from-exception, trap-vector entry, commit-PC restart, and flush-sensitive redirects.",
+    "createdAt": 1779859356896,
+    "updatedAt": 1779859356896,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u04-l02-title",
+      "stageId": "openhw-cva6-u04-l02-replay-return-exception-en",
+      "type": "html-slide",
+      "title": "Recovery paths are part of frontend design",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 04 / LESSON 02",
+          "title": "Replay, return, exception: the frontend recovery paths",
+          "subtitle": "A serious frontend lesson must explain what happens when normal fetch is no longer the right story.",
+          "chips": [
+            "Replay",
+            "Exception",
+            "eret",
+            "Flush",
+            "Commit PC"
+          ],
+          "thesis": "The frontend is not only a fast path. It is also the place where the machine restarts a trustworthy instruction stream."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-pc-generation",
+            "title": "CV32A60X design: PC Generation stage",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#pc-generation-stage",
+            "locator": "cv32a60x/design/design.md PC Generation stage",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "PC gen selects the next PC from reset, branch prediction, default fetch, mispredict correction, replay, exception/interrupt, return from exception, or commit-PC restart cases."
+          }
+        ],
+        "speakerNotes": "In lesson one we built the next-PC ladder. Now we focus on the paths that are easy to skip in a shallow course: replay, return-from-exception, trap-vector entry, commit-PC restart, and controller-driven flushes. These cases are not decorative edge cases. They are how the frontend recovers when the current instruction stream should not simply continue."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-pc-generation"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l02-title-speech",
+          "type": "speech",
+          "text": "In lesson one we built the next-PC ladder. Now we focus on the paths that are easy to skip in a shallow course: replay, return-from-exception, trap-vector entry, commit-PC restart, and controller-driven flushes. These cases are not decorative edge cases. They are how the frontend recovers when the current instruction stream should not simply continue.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l02-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l02-replay-return-exception-en/audio/tts_scene-cva6-u04-l02-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l02-replay",
+      "stageId": "openhw-cva6-u04-l02-replay-return-exception-en",
+      "type": "html-slide",
+      "title": "Replay is a capacity signal, not a branch predictor",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "INSTRUCTION QUEUE",
+          "title": "Replay comes from queue pressure",
+          "subtitle": "The instruction queue can request a replay when it cannot safely accept or track what fetch produced.",
+          "cards": [
+            {
+              "title": "Instruction FIFO full",
+              "body": "If the instruction FIFO is full, the queue asks fetch to replay."
+            },
+            {
+              "title": "Address FIFO full",
+              "body": "If the address FIFO is full during prediction, replay can be requested even when instruction space exists."
+            },
+            {
+              "title": "Replay address",
+              "body": "The queue provides the address at which fetch should replay."
+            },
+            {
+              "title": "Not a prediction",
+              "body": "Replay is a recovery/flow-control request, not a taken/not-taken guess."
+            }
+          ],
+          "takeaway": "Replay answers \"please fetch this again safely\", not \"which way will the branch go?\""
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-instr-queue",
+            "title": "CV32A60X design: instr_queue submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#instr-queue-submodule",
+            "locator": "cv32a60x/design/design.md Instr_queue submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The instruction queue stores instructions, addresses, control-flow type, exceptions, and predicted addresses; it requests replay when instruction or address FIFO capacity is exceeded."
+          },
+          {
+            "id": "cv32a60x-design-pc-generation",
+            "title": "CV32A60X design: PC Generation stage",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#pc-generation-stage",
+            "locator": "cv32a60x/design/design.md PC Generation stage",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "PC gen selects the next PC from reset, branch prediction, default fetch, mispredict correction, replay, exception/interrupt, return from exception, or commit-PC restart cases."
+          }
+        ],
+        "speakerNotes": "Replay is not a branch prediction feature. It is a flow-control recovery feature. The instruction queue stores instructions and associated addresses, including information needed for prediction and exception handling. If either relevant FIFO cannot accept the work safely, it asks the fetch mechanism to replay from a supplied address. That is a very different idea from guessing a branch direction."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-instr-queue",
+        "cv32a60x-design-pc-generation"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l02-replay-speech",
+          "type": "speech",
+          "text": "Replay is not a branch prediction feature. It is a flow-control recovery feature. The instruction queue stores instructions and associated addresses, including information needed for prediction and exception handling. If either relevant FIFO cannot accept the work safely, it asks the fetch mechanism to replay from a supplied address. That is a very different idea from guessing a branch direction.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l02-replay-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l02-replay-return-exception-en/audio/tts_scene-cva6-u04-l02-replay-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l02-csr",
+      "stageId": "openhw-cva6-u04-l02-replay-return-exception-en",
+      "type": "html-slide",
+      "title": "Exception paths choose new official PCs",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "CSR REDIRECTS",
+          "title": "Trap entry and return are not branch predictions",
+          "subtitle": "These paths are architectural control-flow events, so the frontend must restart from the specified PC.",
+          "columns": [
+            {
+              "title": "Exception or interrupt",
+              "body": "If CSR_REGFILE triggers an exception path, PC gen uses the trap vector base address.",
+              "points": [
+                "trap_vector_base_o",
+                "Precise restart target",
+                "Not speculative"
+              ]
+            },
+            {
+              "title": "Return from exception",
+              "body": "For eret, PC gen uses the exception PC path so execution resumes after the saved exception point.",
+              "points": [
+                "eret_o",
+                "epc_o",
+                "Architectural return"
+              ]
+            }
+          ],
+          "takeaway": "Prediction guesses; exception machinery specifies where trustworthy execution resumes."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-pc-generation",
+            "title": "CV32A60X design: PC Generation stage",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#pc-generation-stage",
+            "locator": "cv32a60x/design/design.md PC Generation stage",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "PC gen selects the next PC from reset, branch prediction, default fetch, mispredict correction, replay, exception/interrupt, return from exception, or commit-PC restart cases."
+          },
+          {
+            "id": "cv32a60x-design-csr-redirect",
+            "title": "CV32A60X design: CSR redirect outputs",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#csr-regfile-module",
+            "locator": "cv32a60x/design/design.md CSR_REGFILE signal table",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "CSR_REGFILE outputs epc_o, eret_o, and trap_vector_base_o to FRONTEND for exception return and trap-vector PC redirection."
+          }
+        ],
+        "speakerNotes": "Exception entry and return-from-exception are not smarter branches. They are architectural redirects. The CSR path provides trap vector and exception PC outputs, and PC gen uses those values to restart the instruction stream correctly. This distinction matters because teaching them as branch prediction would quietly erase the architectural contract."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-pc-generation",
+        "cv32a60x-design-csr-redirect"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l02-csr-speech",
+          "type": "speech",
+          "text": "Exception entry and return-from-exception are not smarter branches. They are architectural redirects. The CSR path provides trap vector and exception PC outputs, and PC gen uses those values to restart the instruction stream correctly. This distinction matters because teaching them as branch prediction would quietly erase the architectural contract.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l02-csr-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l02-replay-return-exception-en/audio/tts_scene-cva6-u04-l02-csr-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l02-commit",
+      "stageId": "openhw-cva6-u04-l02-replay-return-exception-en",
+      "type": "html-slide",
+      "title": "Commit can restart the frontend",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "light",
+        "content": {
+          "kicker": "COMMIT PC RESTART",
+          "title": "Some flushes restart from commit PC",
+          "subtitle": "When WFI or CSR side-effect handling stops normal progress, commit can provide the next PC source.",
+          "steps": [
+            {
+              "title": "Commit-side event",
+              "body": "WFI halt or CSR-change flush makes normal fetch unsafe."
+            },
+            {
+              "title": "Controller request",
+              "body": "set_pc_commit routes the commit PC toward PC generation."
+            },
+            {
+              "title": "Frontend restart",
+              "body": "PC gen restarts fetching from the commit-provided PC."
+            },
+            {
+              "title": "Instruction-size nuance",
+              "body": "CSR instructions are not compressed, so the PC increment is unconditionally four in this path."
+            }
+          ],
+          "takeaway": "Commit-PC restart connects frontend behavior to architectural control and pipeline cleanup."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-pc-generation",
+            "title": "CV32A60X design: PC Generation stage",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#pc-generation-stage",
+            "locator": "cv32a60x/design/design.md PC Generation stage",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "PC gen selects the next PC from reset, branch prediction, default fetch, mispredict correction, replay, exception/interrupt, return from exception, or commit-PC restart cases."
+          },
+          {
+            "id": "cv32a60x-design-controller-redirect",
+            "title": "CV32A60X design: controller redirects and flushes",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#controller-module",
+            "locator": "cv32a60x/design/design.md CONTROLLER module signal table",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The controller exposes set_pc_commit_o, flush_if_o, flush_bp_o, eret_i, ex_valid_i, and resolved_branch_i paths that can flush or redirect frontend behavior."
+          }
+        ],
+        "speakerNotes": "The commit-PC path is a good reminder that the frontend is connected to the whole machine. A WFI halt or CSR side-effect flush can make the current stream unsafe. The controller can request PC generation to use the commit PC, and the source notes a useful detail: CSR instructions are not compressed, so this path increments by four. Small detail, big clue that the document is talking about real hardware."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-pc-generation",
+        "cv32a60x-design-controller-redirect"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l02-commit-speech",
+          "type": "speech",
+          "text": "The commit-PC path is a good reminder that the frontend is connected to the whole machine. A WFI halt or CSR side-effect flush can make the current stream unsafe. The controller can request PC generation to use the commit PC, and the source notes a useful detail: CSR instructions are not compressed, so this path increments by four. Small detail, big clue that the document is talking about real hardware.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l02-commit-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l02-replay-return-exception-en/audio/tts_scene-cva6-u04-l02-commit-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l02-flush",
+      "stageId": "openhw-cva6-u04-l02-replay-return-exception-en",
+      "type": "html-slide",
+      "title": "Flush signals protect the instruction stream",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "FLUSH-SENSITIVE FRONTEND",
+          "title": "Old frontend work may need to disappear",
+          "subtitle": "If a redirect changes the correct path, the queued or incoming instruction work must be treated carefully.",
+          "cards": [
+            {
+              "title": "flush_if",
+              "body": "Controller can flush the instruction-fetch side of the pipeline."
+            },
+            {
+              "title": "flush_bp",
+              "body": "Controller exposes a branch-predictor flush output, even though specific submodules may have their own behavior."
+            },
+            {
+              "title": "resolved_branch",
+              "body": "A resolved branch lets the controller check whether the frontend must be flushed."
+            },
+            {
+              "title": "fetch exceptions",
+              "body": "Fetch can forward cache or page-fault style exceptions to decode as part of the entry data."
+            }
+          ],
+          "takeaway": "A redirect is not finished until stale frontend work is either trusted, dropped, or replayed."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-controller-redirect",
+            "title": "CV32A60X design: controller redirects and flushes",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#controller-module",
+            "locator": "cv32a60x/design/design.md CONTROLLER module signal table",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The controller exposes set_pc_commit_o, flush_if_o, flush_bp_o, eret_i, ex_valid_i, and resolved_branch_i paths that can flush or redirect frontend behavior."
+          },
+          {
+            "id": "cv32a60x-design-fetch-stage",
+            "title": "CV32A60X design: Fetch stage",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#fetch-stage",
+            "locator": "cv32a60x/design/design.md Fetch Stage",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "Fetch requests 32-bit aligned blocks from cache, realigns instructions, pushes entries into the instruction queue, attaches predicted addresses, and forwards cache exceptions to decode."
+          }
+        ],
+        "speakerNotes": "Flush-sensitive behavior is the part of frontend design that prevents ghosts from walking into decode. If a branch resolves differently, or an exception path wins, the machine must decide what queued work is still valid. The controller exposes signals for flushing the fetch side and checking resolved branch feedback. In a public lesson, that is the level of precision we want: not every RTL wire, but the right control idea."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-controller-redirect",
+        "cv32a60x-design-fetch-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l02-flush-speech",
+          "type": "speech",
+          "text": "Flush-sensitive behavior is the part of frontend design that prevents ghosts from walking into decode. If a branch resolves differently, or an exception path wins, the machine must decide what queued work is still valid. The controller exposes signals for flushing the fetch side and checking resolved branch feedback. In a public lesson, that is the level of precision we want: not every RTL wire, but the right control idea.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l02-flush-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l02-replay-return-exception-en/audio/tts_scene-cva6-u04-l02-flush-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l02-debug",
+      "stageId": "openhw-cva6-u04-l02-replay-return-exception-en",
+      "type": "html-slide",
+      "title": "A practical debugging map",
+      "order": 5,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "DEBUG METHOD",
+          "title": "When the frontend jumps unexpectedly, ask in this order",
+          "subtitle": "This is the investigation order I would use before blaming \"the branch predictor\".",
+          "items": [
+            {
+              "title": "Was there a replay request?",
+              "body": "Check instruction queue capacity and replay address."
+            },
+            {
+              "title": "Was there a resolved mispredict?",
+              "body": "Separate execute correction from frontend prediction."
+            },
+            {
+              "title": "Was there an exception or eret?",
+              "body": "CSR redirection may be the correct architectural path."
+            },
+            {
+              "title": "Was commit PC selected?",
+              "body": "WFI or CSR side-effect flush can restart from commit."
+            },
+            {
+              "title": "Was old work flushed?",
+              "body": "If the stream changed, stale fetch or queue entries must not be trusted blindly."
+            }
+          ],
+          "takeaway": "The fastest way to debug the frontend is to identify the winning restart reason."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-pc-generation",
+            "title": "CV32A60X design: PC Generation stage",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#pc-generation-stage",
+            "locator": "cv32a60x/design/design.md PC Generation stage",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "PC gen selects the next PC from reset, branch prediction, default fetch, mispredict correction, replay, exception/interrupt, return from exception, or commit-PC restart cases."
+          },
+          {
+            "id": "cv32a60x-design-instr-queue",
+            "title": "CV32A60X design: instr_queue submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#instr-queue-submodule",
+            "locator": "cv32a60x/design/design.md Instr_queue submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The instruction queue stores instructions, addresses, control-flow type, exceptions, and predicted addresses; it requests replay when instruction or address FIFO capacity is exceeded."
+          },
+          {
+            "id": "cv32a60x-design-controller-redirect",
+            "title": "CV32A60X design: controller redirects and flushes",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#controller-module",
+            "locator": "cv32a60x/design/design.md CONTROLLER module signal table",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The controller exposes set_pc_commit_o, flush_if_o, flush_bp_o, eret_i, ex_valid_i, and resolved_branch_i paths that can flush or redirect frontend behavior."
+          }
+        ],
+        "speakerNotes": "Here is the frontend debug order I would actually use. First, look for replay. Then look for resolved branch correction. Then check exception or eret paths. Then check commit-PC restart. Finally ask whether stale frontend work was flushed. This order keeps you from yelling at the branch predictor when the real cause was queue pressure or CSR control flow. Yelling is emotionally satisfying, but the waveform will not care."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-pc-generation",
+        "cv32a60x-design-instr-queue",
+        "cv32a60x-design-controller-redirect"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l02-debug-speech",
+          "type": "speech",
+          "text": "Here is the frontend debug order I would actually use. First, look for replay. Then look for resolved branch correction. Then check exception or eret paths. Then check commit-PC restart. Finally ask whether stale frontend work was flushed. This order keeps you from yelling at the branch predictor when the real cause was queue pressure or CSR control flow. Yelling is emotionally satisfying, but the waveform will not care.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l02-debug-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l02-replay-return-exception-en/audio/tts_scene-cva6-u04-l02-debug-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l02-quiz",
+      "stageId": "openhw-cva6-u04-l02-replay-return-exception-en",
+      "type": "quiz",
+      "title": "Replay and redirect checkpoint",
+      "order": 6,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u04-l02-q1",
+            "type": "single",
+            "question": "What is the most accurate description of instruction fetch replay in this lesson?",
+            "options": [
+              {
+                "value": "A",
+                "label": "A request from the instruction queue to replay fetch when FIFO capacity makes the current delivery unsafe"
+              },
+              {
+                "value": "B",
+                "label": "A two-bit direction prediction stored in the BHT"
+              },
+              {
+                "value": "C",
+                "label": "A register-file writeback event"
+              },
+              {
+                "value": "D",
+                "label": "A commit-stage store operation"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "The instruction queue can request replay when instruction or address FIFO capacity prevents safe acceptance."
+          },
+          {
+            "id": "u04-l02-q2",
+            "type": "single",
+            "question": "Which path provides the PC for exception return behavior?",
+            "options": [
+              {
+                "value": "A",
+                "label": "CSR exception PC / eret path"
+              },
+              {
+                "value": "B",
+                "label": "The load-store unit data bus"
+              },
+              {
+                "value": "C",
+                "label": "The multiplier result path"
+              },
+              {
+                "value": "D",
+                "label": "The GitHub README"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "CSR_REGFILE provides epc/eret style outputs to FRONTEND for exception-return control flow."
+          },
+          {
+            "id": "u04-l02-q3",
+            "type": "multiple",
+            "question": "Which situations can make normal sequential fetching unsafe?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Instruction queue replay"
+              },
+              {
+                "value": "B",
+                "label": "Resolved branch correction"
+              },
+              {
+                "value": "C",
+                "label": "Exception or interrupt redirect"
+              },
+              {
+                "value": "D",
+                "label": "Commit-PC restart after selected control events"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "hasAnswer": true,
+            "analysis": "All four can redirect, replay, or restart the frontend path according to the source-grounded frontend/control material."
+          },
+          {
+            "id": "u04-l02-q4",
+            "type": "single",
+            "question": "Why should exception paths not be taught as branch prediction?",
+            "options": [
+              {
+                "value": "A",
+                "label": "They are architectural redirect paths with specified PC sources, not speculative taken/not-taken guesses"
+              },
+              {
+                "value": "B",
+                "label": "They only happen in software simulators"
+              },
+              {
+                "value": "C",
+                "label": "They are handled by the scoreboard FIFO only"
+              },
+              {
+                "value": "D",
+                "label": "They are disabled whenever compressed instructions are enabled"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "Exception and eret paths use CSR-provided PC values and are architectural control-flow events."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-instr-queue",
+            "title": "CV32A60X design: instr_queue submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#instr-queue-submodule",
+            "locator": "cv32a60x/design/design.md Instr_queue submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The instruction queue stores instructions, addresses, control-flow type, exceptions, and predicted addresses; it requests replay when instruction or address FIFO capacity is exceeded."
+          },
+          {
+            "id": "cv32a60x-design-pc-generation",
+            "title": "CV32A60X design: PC Generation stage",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#pc-generation-stage",
+            "locator": "cv32a60x/design/design.md PC Generation stage",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "PC gen selects the next PC from reset, branch prediction, default fetch, mispredict correction, replay, exception/interrupt, return from exception, or commit-PC restart cases."
+          },
+          {
+            "id": "cv32a60x-design-csr-redirect",
+            "title": "CV32A60X design: CSR redirect outputs",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#csr-regfile-module",
+            "locator": "cv32a60x/design/design.md CSR_REGFILE signal table",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "CSR_REGFILE outputs epc_o, eret_o, and trap_vector_base_o to FRONTEND for exception return and trap-vector PC redirection."
+          }
+        ],
+        "speakerNotes": "This checkpoint tests the recovery paths. Replay is capacity and flow control. Exception entry and eret are architectural redirects. Commit-PC restart is tied to controlled pipeline cleanup. If those are clear, you can now read frontend behavior as a set of restart reasons, not as one giant mysterious branch-prediction blob."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-instr-queue",
+        "cv32a60x-design-pc-generation",
+        "cv32a60x-design-csr-redirect"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l02-quiz-speech",
+          "type": "speech",
+          "text": "This checkpoint tests the recovery paths. Replay is capacity and flow control. Exception entry and eret are architectural redirects. Commit-PC restart is tied to controlled pipeline cleanup. If those are clear, you can now read frontend behavior as a set of restart reasons, not as one giant mysterious branch-prediction blob.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l02-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l02-replay-return-exception-en/audio/tts_scene-cva6-u04-l02-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l02-summary",
+      "stageId": "openhw-cva6-u04-l02-replay-return-exception-en",
+      "type": "html-slide",
+      "title": "Recovery paths make frontend behavior trustworthy",
+      "order": 7,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "WRAP",
+          "title": "The frontend must know when to redo, return, trap, or restart",
+          "subtitle": "Normal fetch is only trustworthy while the current stream is still the right stream.",
+          "takeaways": [
+            "Replay is driven by instruction-queue capacity and tracking limits.",
+            "Exception and return-from-exception paths use CSR-provided PC sources.",
+            "Commit and controller paths can flush or restart frontend work."
+          ],
+          "nextStep": "Next: RAS, where function returns get their own small prediction structure.",
+          "closing": "A clean frontend is a fast path with a recovery plan. Without the plan, speed just reaches the wrong answer sooner."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-pc-generation",
+            "title": "CV32A60X design: PC Generation stage",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#pc-generation-stage",
+            "locator": "cv32a60x/design/design.md PC Generation stage",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "PC gen selects the next PC from reset, branch prediction, default fetch, mispredict correction, replay, exception/interrupt, return from exception, or commit-PC restart cases."
+          },
+          {
+            "id": "cv32a60x-design-instr-queue",
+            "title": "CV32A60X design: instr_queue submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#instr-queue-submodule",
+            "locator": "cv32a60x/design/design.md Instr_queue submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The instruction queue stores instructions, addresses, control-flow type, exceptions, and predicted addresses; it requests replay when instruction or address FIFO capacity is exceeded."
+          }
+        ],
+        "speakerNotes": "The recovery map is now in place. Replay asks fetch to redo work safely. CSR paths specify exception entry and return targets. Commit and controller paths can restart or flush the frontend. Next we focus on the return address stack. It is small, but it teaches a big lesson: not all control flow should be predicted with the same tool."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-pc-generation",
+        "cv32a60x-design-instr-queue"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l02-summary-speech",
+          "type": "speech",
+          "text": "The recovery map is now in place. Replay asks fetch to redo work safely. CSR paths specify exception entry and return targets. Commit and controller paths can restart or flush the frontend. Next we focus on the return address stack. It is small, but it teaches a big lesson: not all control flow should be predicted with the same tool.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l02-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l02-replay-return-exception-en/audio/tts_scene-cva6-u04-l02-summary-speech.mp3"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "default-1",
+      "name": "AlexChen",
+      "role": "Professional OpenHW classroom narrator",
+      "voice": "local-tts:kokoro:am_eric"
+    }
+  ],
+  "metadata": {
+    "seriesId": "cva6-from-zero",
+    "unitId": "u04-frontend",
+    "skillId": "u04-s01-pc-selection",
+    "lessonId": "cva6-u04-l02-replay-return-exception",
+    "sourceRefs": [
+      "cv32a60x-design-pc-generation",
+      "cv32a60x-design-instr-queue",
+      "cv32a60x-design-controller-redirect",
+      "cv32a60x-design-csr-redirect",
+      "cv32a60x-design-fetch-stage"
+    ],
+    "assetRefs": [],
+    "generatedAt": "2026-05-27T05:22:36.895Z"
+  }
+}

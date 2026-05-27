@@ -2,6 +2,11 @@ import architectureMap from "./published-classrooms/openhw-cva6-architecture-map
 import cv32a60xProfile from "./published-classrooms/openhw-cva6-u02-l02-cv32a60x-profile-en.json";
 import commit from "./published-classrooms/openhw-cva6-u03-l05-commit-en.json";
 import docRoles from "./published-classrooms/openhw-cva6-u01-l03-doc-roles-en.json";
+import frontendBhtBtb from "./published-classrooms/openhw-cva6-u04-l04-bht-btb-en.json";
+import frontendCheckpoint from "./published-classrooms/openhw-cva6-u04-l05-checkpoint-frontend-en.json";
+import frontendPcSelection from "./published-classrooms/openhw-cva6-u04-l01-pc-plus-four-is-not-enough-en.json";
+import frontendRas from "./published-classrooms/openhw-cva6-u04-l03-ras-en.json";
+import frontendReplayRedirect from "./published-classrooms/openhw-cva6-u04-l02-replay-return-exception-en.json";
 import ipNotSoc from "./published-classrooms/openhw-cva6-u01-l02-ip-not-soc-en.json";
 import orientationCheckpoint from "./published-classrooms/openhw-cva6-u01-l06-checkpoint-orientation-en.json";
 import parameterMap from "./published-classrooms/openhw-cva6-u02-l03-parameter-map-en.json";
@@ -91,6 +96,11 @@ const publishedClassrooms = {
   [issueExecute.id]: issueExecute,
   [commit.id]: commit,
   [pipelineCheckpoint.id]: pipelineCheckpoint,
+  [frontendPcSelection.id]: frontendPcSelection,
+  [frontendReplayRedirect.id]: frontendReplayRedirect,
+  [frontendRas.id]: frontendRas,
+  [frontendBhtBtb.id]: frontendBhtBtb,
+  [frontendCheckpoint.id]: frontendCheckpoint,
   [slidekitPrototype.id]: slidekitPrototype,
 } as Record<string, PublishedClassroom>;
 

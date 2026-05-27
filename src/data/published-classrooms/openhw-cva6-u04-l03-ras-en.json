@@ -1,0 +1,572 @@
+{
+  "id": "openhw-cva6-u04-l03-ras-en",
+  "stage": {
+    "id": "openhw-cva6-u04-l03-ras-en",
+    "name": "RAS: why returns need a tiny stack",
+    "description": "A return-address-stack lesson explaining call push, return pop, the two-entry CV32A60X depth, speculation limits, and mispredict recovery.",
+    "createdAt": 1779859356896,
+    "updatedAt": 1779859356896,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u04-l03-title",
+      "stageId": "openhw-cva6-u04-l03-ras-en",
+      "type": "html-slide",
+      "title": "Returns deserve their own predictor",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 04 / LESSON 03",
+          "title": "RAS: why returns need a tiny stack",
+          "subtitle": "Function returns are structured control flow, so a stack-like predictor is often a better fit than a generic branch rule.",
+          "chips": [
+            "RAS",
+            "Call",
+            "Return",
+            "JAL",
+            "JALR"
+          ],
+          "thesis": "A return address stack is a small bet on program structure: calls push the next PC, returns pop the expected target."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-ras",
+            "title": "CV32A60X design: RAS submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#ras-return-address-stack-submodule",
+            "locator": "cv32a60x/design/design.md RAS submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "RAS is a two-entry LIFO; call JAL pushes the following PC, return JALR pops a predicted return address, wrong prediction can generate a mispredict, and RAS is never flushed."
+          }
+        ],
+        "speakerNotes": "Now we zoom into RAS, the return address stack. The idea is small enough to explain in one sentence, but important enough to deserve its own lesson. Function calls usually return to the instruction after the call. CV32A60X uses that structure: call-like JAL pushes the following PC, and return-like JALR pops a predicted return address."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-ras"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l03-title-speech",
+          "type": "speech",
+          "text": "Now we zoom into RAS, the return address stack. The idea is small enough to explain in one sentence, but important enough to deserve its own lesson. Function calls usually return to the instruction after the call. CV32A60X uses that structure: call-like JAL pushes the following PC, and return-like JALR pops a predicted return address.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l03-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l03-ras-en/audio/tts_scene-cva6-u04-l03-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l03-diagram",
+      "stageId": "openhw-cva6-u04-l03-ras-en",
+      "type": "html-slide",
+      "title": "Place RAS inside the frontend prediction story",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "SOURCE DIAGRAM",
+          "title": "RAS handles return-target prediction",
+          "subtitle": "It is not a direction table and not a generic target buffer.",
+          "body": "In the frontend map, RAS is used when instr_scan identifies return-like control flow. Its job is to provide a likely return target from stack history.",
+          "assetId": "branch-prediction",
+          "caption": "Branch prediction diagram with RAS as the return-oriented prediction structure.",
+          "callouts": [
+            {
+              "title": "Call",
+              "body": "Push PC after the call."
+            },
+            {
+              "title": "Return",
+              "body": "Pop predicted return target."
+            },
+            {
+              "title": "Mispredict",
+              "body": "Wrong target triggers correction."
+            }
+          ],
+          "takeaway": "RAS is a control-flow memory specialized for calls and returns."
+        },
+        "assets": [
+          {
+            "id": "branch-prediction",
+            "type": "image",
+            "src": "/classroom-assets/cva6-shared/assets/branch_prediction.png",
+            "alt": "Official CVA6 branch prediction diagram",
+            "caption": "Official branch prediction diagram from the CV32A60X design documentation.",
+            "source": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/assets/_images/branch_prediction.png"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-pc-generation",
+            "title": "CV32A60X design: PC Generation stage",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#pc-generation-stage",
+            "locator": "cv32a60x/design/design.md PC Generation stage",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "PC gen selects the next PC from reset, branch prediction, default fetch, mispredict correction, replay, exception/interrupt, return from exception, or commit-PC restart cases."
+          },
+          {
+            "id": "cv32a60x-design-ras",
+            "title": "CV32A60X design: RAS submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#ras-return-address-stack-submodule",
+            "locator": "cv32a60x/design/design.md RAS submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "RAS is a two-entry LIFO; call JAL pushes the following PC, return JALR pops a predicted return address, wrong prediction can generate a mispredict, and RAS is never flushed."
+          }
+        ],
+        "speakerNotes": "Keep RAS in its lane. It is not a BHT. It is not a BTB. It remembers return addresses using a tiny stack abstraction. When the frontend sees a return-like JALR, the stack can provide a target quickly. The beautiful part is that the predictor uses software structure without needing to understand the whole program. Small hardware, useful hint."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-pc-generation",
+        "cv32a60x-design-ras"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l03-diagram-speech",
+          "type": "speech",
+          "text": "Keep RAS in its lane. It is not a BHT. It is not a BTB. It remembers return addresses using a tiny stack abstraction. When the frontend sees a return-like JALR, the stack can provide a target quickly. The beautiful part is that the predictor uses software structure without needing to understand the whole program. Small hardware, useful hint.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l03-diagram-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l03-ras-en/audio/tts_scene-cva6-u04-l03-diagram-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l03-flow",
+      "stageId": "openhw-cva6-u04-l03-ras-en",
+      "type": "html-slide",
+      "title": "Call push, return pop",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "light",
+        "content": {
+          "kicker": "RAS MECHANICS",
+          "title": "The two operations are simple",
+          "subtitle": "The source defines exactly when CV32A60X pushes and pops.",
+          "steps": [
+            {
+              "title": "instr_scan classifies",
+              "body": "The frontend identifies call-like and return-like control flow."
+            },
+            {
+              "title": "Call JAL pushes",
+              "body": "For rd equal to x1 or x5, the PC of the following instruction is pushed."
+            },
+            {
+              "title": "ret JALR pops",
+              "body": "For rs1 equal to x1 or x5 and rd not equal to rs1, the predicted return address is popped."
+            },
+            {
+              "title": "PC gen uses target",
+              "body": "The popped address becomes the candidate return target for frontend prediction."
+            }
+          ],
+          "takeaway": "RAS prediction is not complicated; the hard part is knowing exactly which instruction forms qualify."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-ras",
+            "title": "CV32A60X design: RAS submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#ras-return-address-stack-submodule",
+            "locator": "cv32a60x/design/design.md RAS submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "RAS is a two-entry LIFO; call JAL pushes the following PC, return JALR pops a predicted return address, wrong prediction can generate a mispredict, and RAS is never flushed."
+          },
+          {
+            "id": "cv32a60x-design-instr-scan",
+            "title": "CV32A60X design: instr_scan submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#instr-scan-submodule",
+            "locator": "cv32a60x/design/design.md Instr_scan submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "instr_scan pre-decodes fetched instructions, including compressed instructions, and outputs branch, jump, return, JALR, call, and immediate facts used by branch prediction."
+          }
+        ],
+        "speakerNotes": "The mechanics are intentionally simple. instr_scan classifies the instruction. A call JAL with destination register x1 or x5 pushes the PC of the following instruction. A return JALR with source register x1 or x5, and destination not equal to the source, pops a predicted return address. That qualification detail is not trivia. It is the difference between explaining RAS and merely naming it."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-ras",
+        "cv32a60x-design-instr-scan"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l03-flow-speech",
+          "type": "speech",
+          "text": "The mechanics are intentionally simple. instr_scan classifies the instruction. A call JAL with destination register x1 or x5 pushes the PC of the following instruction. A return JALR with source register x1 or x5, and destination not equal to the source, pops a predicted return address. That qualification detail is not trivia. It is the difference between explaining RAS and merely naming it.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l03-flow-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l03-ras-en/audio/tts_scene-cva6-u04-l03-flow-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l03-limits",
+      "stageId": "openhw-cva6-u04-l03-ras-en",
+      "type": "html-slide",
+      "title": "The CV32A60X RAS is deliberately small",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "CONFIGURATION FACT",
+          "title": "Two entries means useful, not infinite",
+          "subtitle": "The official CV32A60X design says the RAS is a LIFO composed of two entries.",
+          "columns": [
+            {
+              "title": "Why it helps",
+              "body": "Most near-term call and return patterns can be predicted better with a stack-like structure than with a generic conditional branch heuristic.",
+              "points": [
+                "Matches call/return shape",
+                "Low-cost hardware",
+                "Fast target candidate"
+              ]
+            },
+            {
+              "title": "Why it can fail",
+              "body": "Speculation and limited depth can make the popped address wrong, which the source explicitly connects to misprediction.",
+              "points": [
+                "Only two entries",
+                "Speculative pollution risk",
+                "Needs correction path"
+              ]
+            }
+          ],
+          "takeaway": "A small predictor is still useful when the correction contract is clear."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-ras",
+            "title": "CV32A60X design: RAS submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#ras-return-address-stack-submodule",
+            "locator": "cv32a60x/design/design.md RAS submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "RAS is a two-entry LIFO; call JAL pushes the following PC, return JALR pops a predicted return address, wrong prediction can generate a mispredict, and RAS is never flushed."
+          }
+        ],
+        "speakerNotes": "CV32A60X uses a two-entry RAS. That sounds almost comically small until you remember the goal: catch common short return patterns cheaply, not prove a theorem about every nested call in the universe. The source also tells us how it can fail: speculation or depth limits can pop the wrong address, and then the machine must generate a mispredict."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-ras"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l03-limits-speech",
+          "type": "speech",
+          "text": "CV32A60X uses a two-entry RAS. That sounds almost comically small until you remember the goal: catch common short return patterns cheaply, not prove a theorem about every nested call in the universe. The source also tells us how it can fail: speculation or depth limits can pop the wrong address, and then the machine must generate a mispredict.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l03-limits-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l03-ras-en/audio/tts_scene-cva6-u04-l03-limits-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l03-never-flushed",
+      "stageId": "openhw-cva6-u04-l03-ras-en",
+      "type": "html-slide",
+      "title": "Never flushed does not mean always correct",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "CAREFUL WORDING",
+          "title": "Three wording traps to avoid",
+          "subtitle": "RAS is easy to overstate if we explain it too casually.",
+          "items": [
+            {
+              "title": "Do not say it is perfect",
+              "body": "Speculation and depth limits can still cause wrong predictions."
+            },
+            {
+              "title": "Do not say it is flushed",
+              "body": "The source explicitly says the RAS is never flushed."
+            },
+            {
+              "title": "Do not call it BHT",
+              "body": "It predicts return targets, not conditional branch direction."
+            },
+            {
+              "title": "Do not ignore x1/x5",
+              "body": "The call/return register convention is part of the source-backed behavior."
+            },
+            {
+              "title": "Do name the repair path",
+              "body": "Wrong RAS prediction becomes a mispredict and must be corrected."
+            }
+          ],
+          "takeaway": "A good RAS slide is mostly about precision, not glamour."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-ras",
+            "title": "CV32A60X design: RAS submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#ras-return-address-stack-submodule",
+            "locator": "cv32a60x/design/design.md RAS submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "RAS is a two-entry LIFO; call JAL pushes the following PC, return JALR pops a predicted return address, wrong prediction can generate a mispredict, and RAS is never flushed."
+          },
+          {
+            "id": "cv32a60x-design-pc-generation",
+            "title": "CV32A60X design: PC Generation stage",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#pc-generation-stage",
+            "locator": "cv32a60x/design/design.md PC Generation stage",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "PC gen selects the next PC from reset, branch prediction, default fetch, mispredict correction, replay, exception/interrupt, return from exception, or commit-PC restart cases."
+          }
+        ],
+        "speakerNotes": "Here are the wording traps. Do not say RAS is perfect. Do not say it is flushed. Do not blur it with BHT. Do not omit the x1 and x5 convention. And always name the repair path: if speculation or depth limitations make the predicted return address wrong, a mispredict is generated. That is the clean teaching version."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-ras",
+        "cv32a60x-design-pc-generation"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l03-never-flushed-speech",
+          "type": "speech",
+          "text": "Here are the wording traps. Do not say RAS is perfect. Do not say it is flushed. Do not blur it with BHT. Do not omit the x1 and x5 convention. And always name the repair path: if speculation or depth limitations make the predicted return address wrong, a mispredict is generated. That is the clean teaching version.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l03-never-flushed-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l03-ras-en/audio/tts_scene-cva6-u04-l03-never-flushed-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l03-quiz",
+      "stageId": "openhw-cva6-u04-l03-ras-en",
+      "type": "quiz",
+      "title": "RAS checkpoint",
+      "order": 5,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u04-l03-q1",
+            "type": "single",
+            "question": "What is the main job of RAS in this lesson?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Predict return addresses for return-like control flow"
+              },
+              {
+                "value": "B",
+                "label": "Store the direction of every conditional branch"
+              },
+              {
+                "value": "C",
+                "label": "Commit architectural register writes"
+              },
+              {
+                "value": "D",
+                "label": "Replace the instruction cache"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "RAS is the return address stack; it provides predicted return targets for return-like instructions."
+          },
+          {
+            "id": "u04-l03-q2",
+            "type": "single",
+            "question": "How deep is the CV32A60X RAS according to the source?",
+            "options": [
+              {
+                "value": "A",
+                "label": "2 entries"
+              },
+              {
+                "value": "B",
+                "label": "8 entries"
+              },
+              {
+                "value": "C",
+                "label": "32 entries"
+              },
+              {
+                "value": "D",
+                "label": "It has no defined depth"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "The CV32A60X design says the RAS is a LIFO composed of two entries."
+          },
+          {
+            "id": "u04-l03-q3",
+            "type": "multiple",
+            "question": "Which statements are source-backed for CV32A60X RAS?",
+            "options": [
+              {
+                "value": "A",
+                "label": "A call JAL with rd equal to x1 or x5 pushes the following PC"
+              },
+              {
+                "value": "B",
+                "label": "A ret JALR with rs1 equal to x1 or x5 can pop the predicted return address"
+              },
+              {
+                "value": "C",
+                "label": "Speculation or RAS depth limitation can cause a wrong prediction"
+              },
+              {
+                "value": "D",
+                "label": "The RAS is never flushed"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "hasAnswer": true,
+            "analysis": "All four statements appear in the RAS source text or directly follow from its specified behavior."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-ras",
+            "title": "CV32A60X design: RAS submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#ras-return-address-stack-submodule",
+            "locator": "cv32a60x/design/design.md RAS submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "RAS is a two-entry LIFO; call JAL pushes the following PC, return JALR pops a predicted return address, wrong prediction can generate a mispredict, and RAS is never flushed."
+          },
+          {
+            "id": "cv32a60x-design-instr-scan",
+            "title": "CV32A60X design: instr_scan submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#instr-scan-submodule",
+            "locator": "cv32a60x/design/design.md Instr_scan submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "instr_scan pre-decodes fetched instructions, including compressed instructions, and outputs branch, jump, return, JALR, call, and immediate facts used by branch prediction."
+          }
+        ],
+        "speakerNotes": "This checkpoint is short because RAS itself is a tight component. The key is not memorizing a hundred signals. The key is knowing the push condition, the pop condition, the two-entry depth, and the fact that wrong predictions still need correction. If those four are clear, you can teach RAS without pretending it is more mysterious than it is."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-ras",
+        "cv32a60x-design-instr-scan"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l03-quiz-speech",
+          "type": "speech",
+          "text": "This checkpoint is short because RAS itself is a tight component. The key is not memorizing a hundred signals. The key is knowing the push condition, the pop condition, the two-entry depth, and the fact that wrong predictions still need correction. If those four are clear, you can teach RAS without pretending it is more mysterious than it is.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l03-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l03-ras-en/audio/tts_scene-cva6-u04-l03-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u04-l03-summary",
+      "stageId": "openhw-cva6-u04-l03-ras-en",
+      "type": "html-slide",
+      "title": "RAS is small but conceptually sharp",
+      "order": 6,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "WRAP",
+          "title": "You can now explain return prediction without handwaving",
+          "subtitle": "RAS maps program call/return structure onto a tiny frontend prediction memory.",
+          "takeaways": [
+            "Call-like JAL pushes the following PC into the RAS.",
+            "Return-like JALR pops a predicted return target.",
+            "Two-entry depth and speculation mean misprediction remains possible."
+          ],
+          "nextStep": "Next: BHT and BTB, where direction and target prediction must not be confused.",
+          "closing": "RAS is a good reminder that small hardware ideas can carry a lot of architectural meaning."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-ras",
+            "title": "CV32A60X design: RAS submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#ras-return-address-stack-submodule",
+            "locator": "cv32a60x/design/design.md RAS submodule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "RAS is a two-entry LIFO; call JAL pushes the following PC, return JALR pops a predicted return address, wrong prediction can generate a mispredict, and RAS is never flushed."
+          }
+        ],
+        "speakerNotes": "RAS is now placed correctly. It is a two-entry return address stack, not a direction table. Calls push, returns pop, and wrong pops are repaired through misprediction. Next we compare BHT and BTB. That lesson matters because people often merge direction and target prediction into one mushy sentence, and Unit 04 is where mushy sentences go to retire."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-ras"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u04-l03-summary-speech",
+          "type": "speech",
+          "text": "RAS is now placed correctly. It is a two-entry return address stack, not a direction table. Calls push, returns pop, and wrong pops are repaired through misprediction. Next we compare BHT and BTB. That lesson matters because people often merge direction and target prediction into one mushy sentence, and Unit 04 is where mushy sentences go to retire.",
+          "speed": 0.84,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u04-l03-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u04-l03-ras-en/audio/tts_scene-cva6-u04-l03-summary-speech.mp3"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "default-1",
+      "name": "AlexChen",
+      "role": "Professional OpenHW classroom narrator",
+      "voice": "local-tts:kokoro:am_eric"
+    }
+  ],
+  "metadata": {
+    "seriesId": "cva6-from-zero",
+    "unitId": "u04-frontend",
+    "skillId": "u04-s02-predictors",
+    "lessonId": "cva6-u04-l03-ras",
+    "sourceRefs": [
+      "cv32a60x-design-pc-generation",
+      "cv32a60x-design-instr-scan",
+      "cv32a60x-design-ras",
+      "cv32a60x-design-fetch-stage"
+    ],
+    "assetRefs": [
+      "branch_prediction.png"
+    ],
+    "generatedAt": "2026-05-27T05:22:36.895Z"
+  }
+}
