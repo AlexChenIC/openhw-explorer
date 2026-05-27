@@ -1,0 +1,656 @@
+{
+  "id": "openhw-cva6-u02-l01-cv32-cv64-family-en",
+  "stage": {
+    "id": "openhw-cva6-u02-l01-cv32-cv64-family-en",
+    "name": "CV32A6, CV64A6, CV32A60X: names, family, and variants",
+    "description": "An English microcourse that explains why CVA6 should be read as a configurable family instead of one fixed core instance.",
+    "createdAt": 1779870600000,
+    "updatedAt": 1779870600000,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u02-l01-title",
+      "stageId": "openhw-cva6-u02-l01-cv32-cv64-family-en",
+      "type": "html-slide",
+      "title": "CVA6 is a family, not one frozen object",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 02 / LESSON 01",
+          "title": "CV32A6, CV64A6, CV32A60X: names, family, and variants",
+          "subtitle": "Before reading configuration code, learn why CVA6 names carry width, class, pipeline, and product meaning.",
+          "chips": [
+            "CVA6 family",
+            "CORE-V naming",
+            "Configuration literacy",
+            "Variant-aware reading"
+          ],
+          "thesis": "The first configuration mistake is treating CVA6 like one fixed chip instead of a family of related core configurations."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-overview-family-goal",
+            "title": "CVA6 project family goal",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "overview/index.md CVA6 application class RISC-V CPU core",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/index.md",
+            "claimSupported": "The documentation overview states that CVA6 is a family of production-quality, open-source, application-class RISC-V CPU cores targeting ASIC and FPGA implementations."
+          },
+          {
+            "id": "cva6-overview-nomenclature",
+            "title": "CORE-V nomenclature and CVA6 naming rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/#core-v-nomenclature",
+            "locator": "overview/index.md CORE-V Nomenclature",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/index.md",
+            "claimSupported": "The overview explains CV prefix, application-class A, six-stage A6 naming, and the CV <ILEN> <class> <pipeline stages> <product identifier> convention."
+          }
+        ],
+        "speakerNotes": "Welcome to Unit 02. The big idea is that CVA6 is not one frozen object. The official overview describes a family of production-quality, open-source, application-class RISC V CPU cores. Names such as CV32A6, CV64A6, and CV32A60X are not decoration. They are clues about width, class, pipeline, and product intent."
+      },
+      "sourceAnchors": [
+        "cva6-overview-family-goal",
+        "cva6-overview-nomenclature"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l01-title-speech",
+          "type": "speech",
+          "text": "Welcome to Unit 02. The big idea is that CVA6 is not one frozen object. The official overview describes a family of production-quality, open-source, application-class RISC V CPU cores. Names such as CV32A6, CV64A6, and CV32A60X are not decoration. They are clues about width, class, pipeline, and product intent.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l01-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l01-cv32-cv64-family-en/audio/tts_scene-cva6-u02-l01-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l01-family",
+      "stageId": "openhw-cva6-u02-l01-cv32-cv64-family-en",
+      "type": "html-slide",
+      "title": "The repository family view",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "FAMILY VIEW",
+          "title": "CVA6 is the source base for related CORE-V cores",
+          "subtitle": "Think repository family first, product configuration second.",
+          "cards": [
+            {
+              "title": "Open source family",
+              "body": "The overview frames CVA6 as a family of open-source application-class RISC V CPU cores."
+            },
+            {
+              "title": "Configurable base",
+              "body": "SystemVerilog parameters allow width and optional feature choices."
+            },
+            {
+              "title": "Not one production product",
+              "body": "The overview says CVA6 as-is is the basis for several application-class cores."
+            },
+            {
+              "title": "Named configurations",
+              "body": "Specific configurations make concrete claims possible."
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-overview-family-goal",
+            "title": "CVA6 project family goal",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "overview/index.md CVA6 application class RISC-V CPU core",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/index.md",
+            "claimSupported": "The documentation overview states that CVA6 is a family of production-quality, open-source, application-class RISC-V CPU cores targeting ASIC and FPGA implementations."
+          },
+          {
+            "id": "cva6-overview-nomenclature",
+            "title": "CORE-V nomenclature and CVA6 naming rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/#core-v-nomenclature",
+            "locator": "overview/index.md CORE-V Nomenclature",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/index.md",
+            "claimSupported": "The overview explains CV prefix, application-class A, six-stage A6 naming, and the CV <ILEN> <class> <pipeline stages> <product identifier> convention."
+          }
+        ],
+        "speakerNotes": "The official overview gives us the family view. CVA6 is written in SystemVerilog and is heavily parameterizable. The repository is the source base, while named configurations make specific technical claims possible. If you mix those layers, you will either overgeneralize from one variant or make the whole project sound vague."
+      },
+      "sourceAnchors": [
+        "cva6-overview-family-goal",
+        "cva6-overview-nomenclature"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l01-family-speech",
+          "type": "speech",
+          "text": "The official overview gives us the family view. CVA6 is written in SystemVerilog and is heavily parameterizable. The repository is the source base, while named configurations make specific technical claims possible. If you mix those layers, you will either overgeneralize from one variant or make the whole project sound vague.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l01-family-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l01-cv32-cv64-family-en/audio/tts_scene-cva6-u02-l01-family-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l01-naming",
+      "stageId": "openhw-cva6-u02-l01-cv32-cv64-family-en",
+      "type": "html-slide",
+      "title": "Decode the naming convention",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "NAMING SYSTEM",
+          "title": "Each part of the name carries a job",
+          "subtitle": "The official naming rule is a compact map: CV, ILEN, class, pipeline stages, product identifier.",
+          "items": [
+            {
+              "title": "CV",
+              "body": "CORE-V family prefix."
+            },
+            {
+              "title": "32 or 64",
+              "body": "Instruction or architectural width signal in the name, depending on product naming context."
+            },
+            {
+              "title": "A",
+              "body": "Application-class processor core."
+            },
+            {
+              "title": "6",
+              "body": "Six-stage execution pipeline lineage."
+            },
+            {
+              "title": "Product identifier",
+              "body": "A named product or configuration marker, such as the trailing 0X style."
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-overview-nomenclature",
+            "title": "CORE-V nomenclature and CVA6 naming rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/#core-v-nomenclature",
+            "locator": "overview/index.md CORE-V Nomenclature",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/index.md",
+            "claimSupported": "The overview explains CV prefix, application-class A, six-stage A6 naming, and the CV <ILEN> <class> <pipeline stages> <product identifier> convention."
+          }
+        ],
+        "speakerNotes": "The naming convention is useful because it compresses a lot of context. CV marks the CORE-V family. The width marker separates thirty-two-bit and sixty-four-bit contexts. A marks application class. Six tells you the six-stage pipeline lineage. The product identifier then narrows the discussion to a named configuration. It is not perfect poetry, but it is a good engineering label."
+      },
+      "sourceAnchors": [
+        "cva6-overview-nomenclature"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l01-naming-speech",
+          "type": "speech",
+          "text": "The naming convention is useful because it compresses a lot of context. CV marks the CORE-V family. The width marker separates thirty-two-bit and sixty-four-bit contexts. A marks application class. Six tells you the six-stage pipeline lineage. The product identifier then narrows the discussion to a named configuration. It is not perfect poetry, but it is a good engineering label.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l01-naming-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l01-cv32-cv64-family-en/audio/tts_scene-cva6-u02-l01-naming-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l01-table",
+      "stageId": "openhw-cva6-u02-l01-cv32-cv64-family-en",
+      "type": "html-slide",
+      "title": "Three configurations in the User Manual",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "CONFIGURATION TABLE",
+          "title": "Use named rows before making named claims",
+          "subtitle": "The User Manual table gives three rows that should not be collapsed into one generic statement.",
+          "cards": [
+            {
+              "title": "CV32A60AX",
+              "body": "32-bit application core, ASIC target, Machine/Supervisor/User privilege levels, CV-X-IF included."
+            },
+            {
+              "title": "CV32A60X",
+              "body": "32-bit embedded core, ASIC target, Machine-only privilege, CV-X-IF included."
+            },
+            {
+              "title": "CV64A6_MMU",
+              "body": "64-bit embedded core with MMU, ASIC target, Machine/Supervisor/User privilege levels."
+            },
+            {
+              "title": "Configuration first",
+              "body": "A statement about privilege, width, or MMU support should name the row it came from."
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-user-manual-configuration-family",
+            "title": "CVA6 configuration family table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#configuration",
+            "locator": "cva6-user-manual/Introduction.md Configuration table",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The User Manual table compares CV32A60AX, CV32A60X, and CV64A6_MMU by target, privilege levels, ISA, and CV-X-IF support."
+          }
+        ],
+        "speakerNotes": "The User Manual table is a good example of why names matter. CV32A60AX, CV32A60X, and CV64A6_MMU do not have the same privilege story or the same width story. If a course says CVA6 has Machine, Supervisor, and User modes, that may be true for one row and false for another. So, name the row before making the claim."
+      },
+      "sourceAnchors": [
+        "cva6-user-manual-configuration-family"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l01-table-speech",
+          "type": "speech",
+          "text": "The User Manual table is a good example of why names matter. CV32A60AX, CV32A60X, and CV64A6_MMU do not have the same privilege story or the same width story. If a course says CVA6 has Machine, Supervisor, and User modes, that may be true for one row and false for another. So, name the row before making the claim.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l01-table-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l01-cv32-cv64-family-en/audio/tts_scene-cva6-u02-l01-table-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l01-route",
+      "stageId": "openhw-cva6-u02-l01-cv32-cv64-family-en",
+      "type": "html-slide",
+      "title": "A variant-aware reading route",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "light",
+        "content": {
+          "kicker": "READING ROUTE",
+          "title": "Move from family to configuration to design detail",
+          "subtitle": "Do not jump straight from the repository name to a module claim.",
+          "steps": [
+            {
+              "title": "Start with family role",
+              "body": "Understand CVA6 as a configurable application-class core base."
+            },
+            {
+              "title": "Select the named row",
+              "body": "Choose the configuration relevant to your question."
+            },
+            {
+              "title": "Open the matching design document",
+              "body": "Use configuration-specific docs for how-level behavior."
+            },
+            {
+              "title": "Write a scoped conclusion",
+              "body": "Say which configuration the conclusion belongs to."
+            }
+          ],
+          "takeaway": "Configuration literacy is a guardrail against accidental universal claims."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-overview-family-goal",
+            "title": "CVA6 project family goal",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "overview/index.md CVA6 application class RISC-V CPU core",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/index.md",
+            "claimSupported": "The documentation overview states that CVA6 is a family of production-quality, open-source, application-class RISC-V CPU cores targeting ASIC and FPGA implementations."
+          },
+          {
+            "id": "cva6-user-manual-configuration-family",
+            "title": "CVA6 configuration family table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#configuration",
+            "locator": "cva6-user-manual/Introduction.md Configuration table",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The User Manual table compares CV32A60AX, CV32A60X, and CV64A6_MMU by target, privilege levels, ISA, and CV-X-IF support."
+          },
+          {
+            "id": "cv32a60x-design-objective",
+            "title": "CV32A60X Design Document objective",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#introduction",
+            "locator": "cv32a60x/design/design.md Introduction",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X design document describes a specific configuration and provides information for RTL modification and RTL verification rather than software-only instruction lookup."
+          }
+        ],
+        "speakerNotes": "Here is the route I recommend. Start with the family role, then select the named configuration row, then open the matching design document, and only then write a technical conclusion. This route sounds formal, but it is how you avoid the classic mistake: reading one variant and presenting it as every CVA6 core."
+      },
+      "sourceAnchors": [
+        "cva6-overview-family-goal",
+        "cva6-user-manual-configuration-family",
+        "cv32a60x-design-objective"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l01-route-speech",
+          "type": "speech",
+          "text": "Here is the route I recommend. Start with the family role, then select the named configuration row, then open the matching design document, and only then write a technical conclusion. This route sounds formal, but it is how you avoid the classic mistake: reading one variant and presenting it as every CVA6 core.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l01-route-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l01-cv32-cv64-family-en/audio/tts_scene-cva6-u02-l01-route-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l01-claims",
+      "stageId": "openhw-cva6-u02-l01-cv32-cv64-family-en",
+      "type": "html-slide",
+      "title": "What changes when the variant changes",
+      "order": 5,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "CLAIM IMPACT",
+          "title": "A different row can change the answer",
+          "subtitle": "Width, privilege, MMU, and optional capabilities can move when the configuration changes.",
+          "columns": [
+            {
+              "title": "Family-level claim",
+              "body": "CVA6 is a configurable application-class RISC V core family and source base."
+            },
+            {
+              "title": "Variant-level claim",
+              "body": "This named configuration has this width, privilege profile, optional feature set, and interface behavior."
+            }
+          ],
+          "takeaway": "The family-level claim gives orientation. The variant-level claim gives engineering precision."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-user-manual-configuration-family",
+            "title": "CVA6 configuration family table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#configuration",
+            "locator": "cva6-user-manual/Introduction.md Configuration table",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The User Manual table compares CV32A60AX, CV32A60X, and CV64A6_MMU by target, privilege levels, ISA, and CV-X-IF support."
+          },
+          {
+            "id": "cva6-requirements-optional-features",
+            "title": "CVA6 optional feature parameter rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#scope-of-the-ip",
+            "locator": "requirements/cva6_requirements_specification.md optional feature SystemVerilog parameter rule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements specification states that optional features are controlled by SystemVerilog parameters and are absent from the synthesized netlist when not selected."
+          }
+        ],
+        "speakerNotes": "A family-level claim is useful for orientation, but it is not enough for engineering detail. Variant-level claims are where width, privilege profile, MMU presence, FPU absence, and interface choices become precise. So when the variant changes, the answer may change. That is not inconsistency; that is the whole point of a configurable family."
+      },
+      "sourceAnchors": [
+        "cva6-user-manual-configuration-family",
+        "cva6-requirements-optional-features"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l01-claims-speech",
+          "type": "speech",
+          "text": "A family-level claim is useful for orientation, but it is not enough for engineering detail. Variant-level claims are where width, privilege profile, MMU presence, FPU absence, and interface choices become precise. So when the variant changes, the answer may change. That is not inconsistency; that is the whole point of a configurable family.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l01-claims-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l01-cv32-cv64-family-en/audio/tts_scene-cva6-u02-l01-claims-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l01-quiz",
+      "stageId": "openhw-cva6-u02-l01-cv32-cv64-family-en",
+      "type": "quiz",
+      "title": "Checkpoint: family versus variant",
+      "order": 6,
+      "content": {
+        "type": "quiz",
+        "slideKit": "openhw-signal-technical",
+        "slot": "quiz",
+        "theme": "light",
+        "questions": [
+          {
+            "id": "q-u02-l01-1",
+            "type": "single",
+            "hasAnswer": true,
+            "question": "What is the safest high-level description of CVA6 from the official overview?",
+            "options": [
+              {
+                "value": "A",
+                "label": "A family of configurable application-class RISC V CPU cores"
+              },
+              {
+                "value": "B",
+                "label": "Only one fixed SoC product"
+              },
+              {
+                "value": "C",
+                "label": "Only a software simulator"
+              },
+              {
+                "value": "D",
+                "label": "Only a debug transport module"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "analysis": "The overview frames CVA6 as a family of configurable application-class RISC V CPU cores."
+          },
+          {
+            "id": "q-u02-l01-2",
+            "type": "single",
+            "hasAnswer": true,
+            "question": "Which habit prevents overgeneralizing from one named configuration?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Name the configuration row before making a variant-specific claim"
+              },
+              {
+                "value": "B",
+                "label": "Never read design documents"
+              },
+              {
+                "value": "C",
+                "label": "Ignore privilege levels"
+              },
+              {
+                "value": "D",
+                "label": "Treat every row as identical"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "analysis": "Variant-specific statements need a named row or matching design source."
+          },
+          {
+            "id": "q-u02-l01-3",
+            "type": "multiple",
+            "hasAnswer": true,
+            "question": "Which items can differ across CVA6 configurations?",
+            "options": [
+              {
+                "value": "A",
+                "label": "XLEN or width context"
+              },
+              {
+                "value": "B",
+                "label": "Privilege levels"
+              },
+              {
+                "value": "C",
+                "label": "MMU presence"
+              },
+              {
+                "value": "D",
+                "label": "The existence of the website navigation bar"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C"
+            ],
+            "analysis": "Width, privilege, and MMU support are configuration-relevant technical properties."
+          },
+          {
+            "id": "q-u02-l01-4",
+            "type": "single",
+            "hasAnswer": true,
+            "question": "What does the A in CVA6 naming indicate in the overview explanation?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Application-class processor"
+              },
+              {
+                "value": "B",
+                "label": "Audio subsystem"
+              },
+              {
+                "value": "C",
+                "label": "AXI-only product"
+              },
+              {
+                "value": "D",
+                "label": "Analog accelerator"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "analysis": "The overview explains A as application class in the CORE-V naming context."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cva6-overview-family-goal",
+            "title": "CVA6 project family goal",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "overview/index.md CVA6 application class RISC-V CPU core",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/index.md",
+            "claimSupported": "The documentation overview states that CVA6 is a family of production-quality, open-source, application-class RISC-V CPU cores targeting ASIC and FPGA implementations."
+          },
+          {
+            "id": "cva6-overview-nomenclature",
+            "title": "CORE-V nomenclature and CVA6 naming rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/#core-v-nomenclature",
+            "locator": "overview/index.md CORE-V Nomenclature",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/index.md",
+            "claimSupported": "The overview explains CV prefix, application-class A, six-stage A6 naming, and the CV <ILEN> <class> <pipeline stages> <product identifier> convention."
+          },
+          {
+            "id": "cva6-user-manual-configuration-family",
+            "title": "CVA6 configuration family table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#configuration",
+            "locator": "cva6-user-manual/Introduction.md Configuration table",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The User Manual table compares CV32A60AX, CV32A60X, and CV64A6_MMU by target, privilege levels, ISA, and CV-X-IF support."
+          }
+        ],
+        "speakerNotes": "This quiz checks the central Unit 02 habit: do not flatten a family into one object. When a question asks about CVA6 generally, answer at the family level. When it asks about privilege, width, MMU, or a module profile, name the configuration. That one rule will keep many future lessons cleaner."
+      },
+      "sourceAnchors": [
+        "cva6-overview-family-goal",
+        "cva6-overview-nomenclature",
+        "cva6-user-manual-configuration-family"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l01-quiz-speech",
+          "type": "speech",
+          "text": "This quiz checks the central Unit 02 habit: do not flatten a family into one object. When a question asks about CVA6 generally, answer at the family level. When it asks about privilege, width, MMU, or a module profile, name the configuration. That one rule will keep many future lessons cleaner.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l01-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l01-cv32-cv64-family-en/audio/tts_scene-cva6-u02-l01-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l01-summary",
+      "stageId": "openhw-cva6-u02-l01-cv32-cv64-family-en",
+      "type": "html-slide",
+      "title": "Summary: name the configuration before the conclusion",
+      "order": 7,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "NEXT STEP",
+          "title": "The family map is ready; now pick one learning target",
+          "subtitle": "The next lesson uses CV32A60X as the first concrete profile.",
+          "takeaways": [
+            "CVA6 is a configurable family, not one fixed object.",
+            "CORE-V names carry engineering context.",
+            "Configuration rows should not be collapsed into one claim.",
+            "Variant-specific lessons need variant-specific sources."
+          ],
+          "nextStep": "Study the CV32A60X profile so later architecture lessons have one concrete configuration to stand on.",
+          "closing": "A name is not just a label. In hardware, a name often tells you which facts you are allowed to say."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-overview-family-goal",
+            "title": "CVA6 project family goal",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "overview/index.md CVA6 application class RISC-V CPU core",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/index.md",
+            "claimSupported": "The documentation overview states that CVA6 is a family of production-quality, open-source, application-class RISC-V CPU cores targeting ASIC and FPGA implementations."
+          },
+          {
+            "id": "cva6-user-manual-configuration-family",
+            "title": "CVA6 configuration family table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#configuration",
+            "locator": "cva6-user-manual/Introduction.md Configuration table",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The User Manual table compares CV32A60AX, CV32A60X, and CV64A6_MMU by target, privilege levels, ISA, and CV-X-IF support."
+          }
+        ],
+        "speakerNotes": "The summary is straightforward: name the configuration before the conclusion. CVA6 gives the family context, but a row such as CV32A60X gives the concrete learning target. In the next lesson, we will fix that target deliberately. That lets later architecture lessons become more specific without pretending they describe every possible CVA6 configuration."
+      },
+      "sourceAnchors": [
+        "cva6-overview-family-goal",
+        "cva6-user-manual-configuration-family"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l01-summary-speech",
+          "type": "speech",
+          "text": "The summary is straightforward: name the configuration before the conclusion. CVA6 gives the family context, but a row such as CV32A60X gives the concrete learning target. In the next lesson, we will fix that target deliberately. That lets later architecture lessons become more specific without pretending they describe every possible CVA6 configuration.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l01-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l01-cv32-cv64-family-en/audio/tts_scene-cva6-u02-l01-summary-speech.mp3"
+        }
+      ]
+    }
+  ]
+}

@@ -1,7 +1,12 @@
 import architectureMap from "./published-classrooms/openhw-cva6-architecture-map-en.json";
+import cv32a60xProfile from "./published-classrooms/openhw-cva6-u02-l02-cv32a60x-profile-en.json";
 import docRoles from "./published-classrooms/openhw-cva6-u01-l03-doc-roles-en.json";
 import ipNotSoc from "./published-classrooms/openhw-cva6-u01-l02-ip-not-soc-en.json";
+import orientationCheckpoint from "./published-classrooms/openhw-cva6-u01-l06-checkpoint-orientation-en.json";
+import parameterMap from "./published-classrooms/openhw-cva6-u02-l03-parameter-map-en.json";
+import scopeDiagram from "./published-classrooms/openhw-cva6-u01-l04-scope-diagram-en.json";
 import slidekitPrototype from "./published-classrooms/openhw-cva6-slidekit-a1-en.json";
+import variantFamily from "./published-classrooms/openhw-cva6-u02-l01-cv32-cv64-family-en.json";
 import whatIsCva6 from "./published-classrooms/openhw-cva6-u01-l01-what-is-cva6-en.json";
 
 export type PublishedClassroomAction = {
@@ -62,7 +67,12 @@ const publishedClassrooms = {
   [whatIsCva6.id]: whatIsCva6,
   [ipNotSoc.id]: ipNotSoc,
   [docRoles.id]: docRoles,
+  [scopeDiagram.id]: scopeDiagram,
   [architectureMap.id]: architectureMap,
+  [orientationCheckpoint.id]: orientationCheckpoint,
+  [variantFamily.id]: variantFamily,
+  [cv32a60xProfile.id]: cv32a60xProfile,
+  [parameterMap.id]: parameterMap,
   [slidekitPrototype.id]: slidekitPrototype,
 } as Record<string, PublishedClassroom>;
 

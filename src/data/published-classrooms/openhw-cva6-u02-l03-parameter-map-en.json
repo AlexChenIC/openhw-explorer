@@ -1,0 +1,704 @@
+{
+  "id": "openhw-cva6-u02-l03-parameter-map-en",
+  "stage": {
+    "id": "openhw-cva6-u02-l03-parameter-map-en",
+    "name": "Parameter map: which switches change your conclusion",
+    "description": "A configuration-literacy lesson on the CV32A60X parameter table and the habit of checking parameter evidence before technical claims.",
+    "createdAt": 1779870600000,
+    "updatedAt": 1779870600000,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u02-l03-title",
+      "stageId": "openhw-cva6-u02-l03-parameter-map-en",
+      "type": "html-slide",
+      "title": "Parameters are technical evidence, not footnotes",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 02 / LESSON 03",
+          "title": "Parameter map: which switches change your conclusion",
+          "subtitle": "The CV32A60X parameter table tells you which facts are fixed for this profile and which facts must never be assumed globally.",
+          "chips": [
+            "Parameters",
+            "CV32A60X",
+            "Optional features",
+            "Technical claims"
+          ],
+          "thesis": "When a core is configurable, parameter reading is part of architecture reading."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-parameter-config",
+            "title": "CV32A60X parameter configuration table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#parameter-configuration",
+            "locator": "cv32a60x/design/design.md Parameter configuration",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X parameter table records values such as XLEN 32, VLEN 32, RVC true, MmuPresent false, CvxifEn true, PipelineOnly true, and single commit port behavior."
+          },
+          {
+            "id": "cva6-requirements-optional-features",
+            "title": "CVA6 optional feature parameter rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#scope-of-the-ip",
+            "locator": "requirements/cva6_requirements_specification.md optional feature SystemVerilog parameter rule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements specification states that optional features are controlled by SystemVerilog parameters and are absent from the synthesized netlist when not selected."
+          }
+        ],
+        "speakerNotes": "This lesson treats parameters as evidence, not as annoying footnotes. CVA6 is configurable, and CV32A60X has a parameter table that changes what we can safely say. If you skip that table, you may make a beautiful architecture slide with a false assumption hiding inside it. So today, parameter reading becomes part of architecture reading."
+      },
+      "sourceAnchors": [
+        "cv32a60x-parameter-config",
+        "cva6-requirements-optional-features"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l03-title-speech",
+          "type": "speech",
+          "text": "This lesson treats parameters as evidence, not as annoying footnotes. CVA6 is configurable, and CV32A60X has a parameter table that changes what we can safely say. If you skip that table, you may make a beautiful architecture slide with a false assumption hiding inside it. So today, parameter reading becomes part of architecture reading.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l03-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l03-parameter-map-en/audio/tts_scene-cva6-u02-l03-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l03-layers",
+      "stageId": "openhw-cva6-u02-l03-parameter-map-en",
+      "type": "html-slide",
+      "title": "A parameter map has layers",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "MAP LAYERS",
+          "title": "Do not read the table as one flat list",
+          "subtitle": "Group parameters by the kind of conclusion they can change.",
+          "cards": [
+            {
+              "title": "Width and ISA",
+              "body": "XLEN, VLEN, RVC, RVB, and related extension switches change instruction and datapath claims."
+            },
+            {
+              "title": "Privilege and memory",
+              "body": "MmuPresent, RVS, RVU, PMP, and TLB fields change address translation and protection claims."
+            },
+            {
+              "title": "Interfaces and system shape",
+              "body": "CvxifEn, AXI width, OBI version, and PipelineOnly change integration claims."
+            },
+            {
+              "title": "Microarchitecture knobs",
+              "body": "Scoreboard entries, cache sizes, branch tables, and commit ports shape performance and structure discussion."
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-parameter-config",
+            "title": "CV32A60X parameter configuration table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#parameter-configuration",
+            "locator": "cv32a60x/design/design.md Parameter configuration",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X parameter table records values such as XLEN 32, VLEN 32, RVC true, MmuPresent false, CvxifEn true, PipelineOnly true, and single commit port behavior."
+          }
+        ],
+        "speakerNotes": "The table is too large to memorize, so group it. Width and ISA parameters change instruction and datapath claims. Privilege and memory parameters change MMU, protection, and mode claims. Interface parameters change how the core connects outward. Microarchitecture knobs, such as scoreboard entries or branch-table sizes, change how specific structures should be discussed."
+      },
+      "sourceAnchors": [
+        "cv32a60x-parameter-config"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l03-layers-speech",
+          "type": "speech",
+          "text": "The table is too large to memorize, so group it. Width and ISA parameters change instruction and datapath claims. Privilege and memory parameters change MMU, protection, and mode claims. Interface parameters change how the core connects outward. Microarchitecture knobs, such as scoreboard entries or branch-table sizes, change how specific structures should be discussed.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l03-layers-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l03-parameter-map-en/audio/tts_scene-cva6-u02-l03-layers-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l03-must-check",
+      "stageId": "openhw-cva6-u02-l03-parameter-map-en",
+      "type": "html-slide",
+      "title": "The first parameters to check",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "FIRST PASS",
+          "title": "Six checks before writing a technical slide",
+          "subtitle": "For early CVA6 lessons, these checks catch most accidental overclaims.",
+          "items": [
+            {
+              "title": "XLEN and VLEN",
+              "body": "Confirm the width context before explaining registers, addresses, and datapath behavior."
+            },
+            {
+              "title": "ISA extensions",
+              "body": "Check RVC, RVB, floating point, vector, and other extension switches."
+            },
+            {
+              "title": "MMU and privilege",
+              "body": "Look at MmuPresent, RVS, and RVU before discussing virtual memory or privilege levels."
+            },
+            {
+              "title": "CV-X-IF",
+              "body": "Check whether coprocessor interface support is enabled for the profile."
+            },
+            {
+              "title": "Cache and memory interfaces",
+              "body": "Cache sizes, AXI width, and OBI/PipelineOnly values affect integration wording."
+            },
+            {
+              "title": "Pipeline width",
+              "body": "Commit ports and superscalar-related values influence single-issue versus wider claims."
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-parameter-config",
+            "title": "CV32A60X parameter configuration table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#parameter-configuration",
+            "locator": "cv32a60x/design/design.md Parameter configuration",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X parameter table records values such as XLEN 32, VLEN 32, RVC true, MmuPresent false, CvxifEn true, PipelineOnly true, and single commit port behavior."
+          }
+        ],
+        "speakerNotes": "Here is the first pass I would use before writing a slide. Check XLEN and VLEN, then ISA extension switches, then MMU and privilege, then CV-X-IF, then cache and memory-interface values, then pipeline-width-related values. This is not every parameter. It is the shortest checklist that catches most accidental overclaims in an introductory lesson."
+      },
+      "sourceAnchors": [
+        "cv32a60x-parameter-config"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l03-must-check-speech",
+          "type": "speech",
+          "text": "Here is the first pass I would use before writing a slide. Check XLEN and VLEN, then ISA extension switches, then MMU and privilege, then CV-X-IF, then cache and memory-interface values, then pipeline-width-related values. This is not every parameter. It is the shortest checklist that catches most accidental overclaims in an introductory lesson.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l03-must-check-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l03-parameter-map-en/audio/tts_scene-cva6-u02-l03-must-check-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l03-optional-rule",
+      "stageId": "openhw-cva6-u02-l03-parameter-map-en",
+      "type": "html-slide",
+      "title": "Optional feature rule",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "RULE",
+          "title": "A false parameter is an architectural absence",
+          "subtitle": "The requirements text gives the rule that turns parameters into evidence.",
+          "columns": [
+            {
+              "title": "When selected",
+              "body": "An optional feature can be discussed for the configuration that enables it."
+            },
+            {
+              "title": "When not selected",
+              "body": "The feature is absent from the synthesized netlist, so do not teach it as present."
+            }
+          ],
+          "takeaway": "Optional does not mean hidden. Optional means selected by evidence."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-requirements-optional-features",
+            "title": "CVA6 optional feature parameter rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#scope-of-the-ip",
+            "locator": "requirements/cva6_requirements_specification.md optional feature SystemVerilog parameter rule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements specification states that optional features are controlled by SystemVerilog parameters and are absent from the synthesized netlist when not selected."
+          },
+          {
+            "id": "cv32a60x-parameter-config",
+            "title": "CV32A60X parameter configuration table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#parameter-configuration",
+            "locator": "cv32a60x/design/design.md Parameter configuration",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X parameter table records values such as XLEN 32, VLEN 32, RVC true, MmuPresent false, CvxifEn true, PipelineOnly true, and single commit port behavior."
+          }
+        ],
+        "speakerNotes": "The requirements document gives a very important rule. Optional features are controlled by SystemVerilog parameters, and if not selected, the feature is not present in the synthesized netlist. That means a false parameter is not just a minor variation. For teaching purposes, it is an architectural absence in that configuration."
+      },
+      "sourceAnchors": [
+        "cva6-requirements-optional-features",
+        "cv32a60x-parameter-config"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l03-optional-rule-speech",
+          "type": "speech",
+          "text": "The requirements document gives a very important rule. Optional features are controlled by SystemVerilog parameters, and if not selected, the feature is not present in the synthesized netlist. That means a false parameter is not just a minor variation. For teaching purposes, it is an architectural absence in that configuration.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l03-optional-rule-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l03-parameter-map-en/audio/tts_scene-cva6-u02-l03-optional-rule-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l03-values",
+      "stageId": "openhw-cva6-u02-l03-parameter-map-en",
+      "type": "html-slide",
+      "title": "CV32A60X values that immediately matter",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "CV32A60X EXAMPLES",
+          "title": "Use concrete values to train your reading eye",
+          "subtitle": "A few values already change how the first public lessons should speak.",
+          "cards": [
+            {
+              "title": "XLEN = 32",
+              "body": "Early examples should avoid silently becoming 64-bit explanations."
+            },
+            {
+              "title": "MmuPresent = false",
+              "body": "Do not teach virtual memory behavior as present for this profile."
+            },
+            {
+              "title": "CvxifEn = true",
+              "body": "CV-X-IF can be introduced as enabled in this configuration."
+            },
+            {
+              "title": "NrCommitPorts = 1",
+              "body": "Single commit-port wording is safer unless superscalar evidence says otherwise."
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-parameter-config",
+            "title": "CV32A60X parameter configuration table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#parameter-configuration",
+            "locator": "cv32a60x/design/design.md Parameter configuration",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X parameter table records values such as XLEN 32, VLEN 32, RVC true, MmuPresent false, CvxifEn true, PipelineOnly true, and single commit port behavior."
+          }
+        ],
+        "speakerNotes": "A few concrete values already matter. XLEN equals thirty-two, so do not let examples silently become sixty-four-bit. MmuPresent is false, so virtual memory behavior is not part of this profile. CvxifEn is true, so the coprocessor interface can be discussed as enabled. NrCommitPorts is one, so single commit-port wording is the safe starting point."
+      },
+      "sourceAnchors": [
+        "cv32a60x-parameter-config"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l03-values-speech",
+          "type": "speech",
+          "text": "A few concrete values already matter. XLEN equals thirty-two, so do not let examples silently become sixty-four-bit. MmuPresent is false, so virtual memory behavior is not part of this profile. CvxifEn is true, so the coprocessor interface can be discussed as enabled. NrCommitPorts is one, so single commit-port wording is the safe starting point.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l03-values-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l03-parameter-map-en/audio/tts_scene-cva6-u02-l03-values-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l03-workflow",
+      "stageId": "openhw-cva6-u02-l03-parameter-map-en",
+      "type": "html-slide",
+      "title": "Parameter-backed claim workflow",
+      "order": 5,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "light",
+        "content": {
+          "kicker": "WORKFLOW",
+          "title": "Turn the parameter table into claim control",
+          "subtitle": "This is the workflow for every future CVA6 micro-course that teaches configuration-sensitive behavior.",
+          "steps": [
+            {
+              "title": "Write the claim draft",
+              "body": "Example: this configuration supports a given feature or stage behavior."
+            },
+            {
+              "title": "Find the parameter group",
+              "body": "Map the claim to width, ISA, privilege, interface, cache, or pipeline controls."
+            },
+            {
+              "title": "Check the concrete value",
+              "body": "Read the CV32A60X value and any optional-feature rule."
+            },
+            {
+              "title": "Publish the scoped sentence",
+              "body": "Attach the configuration name and avoid universal wording unless a broader source supports it."
+            }
+          ],
+          "takeaway": "This workflow is the quality-control loop between authoring and publishing."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-parameter-config",
+            "title": "CV32A60X parameter configuration table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#parameter-configuration",
+            "locator": "cv32a60x/design/design.md Parameter configuration",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X parameter table records values such as XLEN 32, VLEN 32, RVC true, MmuPresent false, CvxifEn true, PipelineOnly true, and single commit port behavior."
+          },
+          {
+            "id": "cva6-requirements-optional-features",
+            "title": "CVA6 optional feature parameter rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#scope-of-the-ip",
+            "locator": "requirements/cva6_requirements_specification.md optional feature SystemVerilog parameter rule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements specification states that optional features are controlled by SystemVerilog parameters and are absent from the synthesized netlist when not selected."
+          }
+        ],
+        "speakerNotes": "The workflow is simple enough to reuse. Draft the claim, map it to a parameter group, check the concrete value, then publish the scoped sentence. For example, if a claim depends on MMU presence, do not infer it from a family overview. Go to the parameter table and the optional-feature rule. This is the quality-control loop between authoring and publishing."
+      },
+      "sourceAnchors": [
+        "cv32a60x-parameter-config",
+        "cva6-requirements-optional-features"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l03-workflow-speech",
+          "type": "speech",
+          "text": "The workflow is simple enough to reuse. Draft the claim, map it to a parameter group, check the concrete value, then publish the scoped sentence. For example, if a claim depends on MMU presence, do not infer it from a family overview. Go to the parameter table and the optional-feature rule. This is the quality-control loop between authoring and publishing.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l03-workflow-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l03-parameter-map-en/audio/tts_scene-cva6-u02-l03-workflow-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l03-red-flags",
+      "stageId": "openhw-cva6-u02-l03-parameter-map-en",
+      "type": "html-slide",
+      "title": "Red flags in generated course text",
+      "order": 6,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "QA HABITS",
+          "title": "Catch these before publishing",
+          "subtitle": "These phrasing patterns usually mean the lesson needs a parameter check.",
+          "items": [
+            {
+              "title": "Always",
+              "body": "Usually too broad for a configurable core unless backed by a family-level source."
+            },
+            {
+              "title": "Obviously",
+              "body": "Often hides a missing source anchor or parameter value."
+            },
+            {
+              "title": "CVA6 has...",
+              "body": "Ask whether the statement is family-level or CV32A60X-specific."
+            },
+            {
+              "title": "The MMU/FPU/cache does...",
+              "body": "Check whether that unit exists and which cache behavior is actually in scope."
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-parameter-config",
+            "title": "CV32A60X parameter configuration table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#parameter-configuration",
+            "locator": "cv32a60x/design/design.md Parameter configuration",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X parameter table records values such as XLEN 32, VLEN 32, RVC true, MmuPresent false, CvxifEn true, PipelineOnly true, and single commit port behavior."
+          },
+          {
+            "id": "cva6-requirements-optional-features",
+            "title": "CVA6 optional feature parameter rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#scope-of-the-ip",
+            "locator": "requirements/cva6_requirements_specification.md optional feature SystemVerilog parameter rule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements specification states that optional features are controlled by SystemVerilog parameters and are absent from the synthesized netlist when not selected."
+          }
+        ],
+        "speakerNotes": "When reviewing generated text, look for red flags. Always is dangerous. Obviously is often a missing source anchor wearing a confident hat. CVA6 has should trigger the family-versus-variant question. And any sentence about MMU, FPU, or cache needs a parameter or scope check. These review habits are how we move from demo quality to publishable teaching."
+      },
+      "sourceAnchors": [
+        "cv32a60x-parameter-config",
+        "cva6-requirements-optional-features"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l03-red-flags-speech",
+          "type": "speech",
+          "text": "When reviewing generated text, look for red flags. Always is dangerous. Obviously is often a missing source anchor wearing a confident hat. CVA6 has should trigger the family-versus-variant question. And any sentence about MMU, FPU, or cache needs a parameter or scope check. These review habits are how we move from demo quality to publishable teaching.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l03-red-flags-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l03-parameter-map-en/audio/tts_scene-cva6-u02-l03-red-flags-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l03-quiz",
+      "stageId": "openhw-cva6-u02-l03-parameter-map-en",
+      "type": "quiz",
+      "title": "Checkpoint: parameter map discipline",
+      "order": 7,
+      "content": {
+        "type": "quiz",
+        "slideKit": "openhw-signal-technical",
+        "slot": "quiz",
+        "theme": "light",
+        "questions": [
+          {
+            "id": "q-u02-l03-1",
+            "type": "single",
+            "hasAnswer": true,
+            "question": "Why does parameter reading matter for CVA6 lessons?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Configurable cores can change technical conclusions by configuration"
+              },
+              {
+                "value": "B",
+                "label": "Parameters are only website decoration"
+              },
+              {
+                "value": "C",
+                "label": "Parameters replace source anchors"
+              },
+              {
+                "value": "D",
+                "label": "Parameters make quizzes impossible"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "analysis": "A configurable core requires parameter evidence for many technical claims."
+          },
+          {
+            "id": "q-u02-l03-2",
+            "type": "single",
+            "hasAnswer": true,
+            "question": "If MmuPresent is false for a profile, what is the safest teaching implication?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Do not teach MMU behavior as present for that profile"
+              },
+              {
+                "value": "B",
+                "label": "Assume virtual memory is enabled anyway"
+              },
+              {
+                "value": "C",
+                "label": "Ignore the value because MMU is popular"
+              },
+              {
+                "value": "D",
+                "label": "Treat it as a logo choice"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "analysis": "A false optional feature value means the feature should not be taught as present for that configuration."
+          },
+          {
+            "id": "q-u02-l03-3",
+            "type": "multiple",
+            "hasAnswer": true,
+            "question": "Which claim areas should trigger a parameter check?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Width-sensitive explanation"
+              },
+              {
+                "value": "B",
+                "label": "Privilege or MMU behavior"
+              },
+              {
+                "value": "C",
+                "label": "CV-X-IF support"
+              },
+              {
+                "value": "D",
+                "label": "The spelling of OpenHW Explorer"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C"
+            ],
+            "analysis": "Width, privilege/MMU, and interface support are configuration-sensitive technical areas."
+          },
+          {
+            "id": "q-u02-l03-4",
+            "type": "single",
+            "hasAnswer": true,
+            "question": "What is the best final wording style after a parameter check?",
+            "options": [
+              {
+                "value": "A",
+                "label": "For CV32A60X, this parameter value supports this scoped conclusion"
+              },
+              {
+                "value": "B",
+                "label": "Every CVA6 must behave this way"
+              },
+              {
+                "value": "C",
+                "label": "No source is needed after reading the table once"
+              },
+              {
+                "value": "D",
+                "label": "The parameter value is private"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "analysis": "The final sentence should name the configuration and keep the conclusion scoped to the checked evidence."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-parameter-config",
+            "title": "CV32A60X parameter configuration table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#parameter-configuration",
+            "locator": "cv32a60x/design/design.md Parameter configuration",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X parameter table records values such as XLEN 32, VLEN 32, RVC true, MmuPresent false, CvxifEn true, PipelineOnly true, and single commit port behavior."
+          },
+          {
+            "id": "cva6-requirements-optional-features",
+            "title": "CVA6 optional feature parameter rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#scope-of-the-ip",
+            "locator": "requirements/cva6_requirements_specification.md optional feature SystemVerilog parameter rule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements specification states that optional features are controlled by SystemVerilog parameters and are absent from the synthesized netlist when not selected."
+          }
+        ],
+        "speakerNotes": "This checkpoint tests parameter discipline. You do not need to memorize every value. You need to know which kind of value controls which kind of conclusion. That is the skill we will reuse when generating future high-quality CVA6 lessons from new source material."
+      },
+      "sourceAnchors": [
+        "cv32a60x-parameter-config",
+        "cva6-requirements-optional-features"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l03-quiz-speech",
+          "type": "speech",
+          "text": "This checkpoint tests parameter discipline. You do not need to memorize every value. You need to know which kind of value controls which kind of conclusion. That is the skill we will reuse when generating future high-quality CVA6 lessons from new source material.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l03-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l03-parameter-map-en/audio/tts_scene-cva6-u02-l03-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u02-l03-summary",
+      "stageId": "openhw-cva6-u02-l03-parameter-map-en",
+      "type": "html-slide",
+      "title": "Summary: parameters are the bridge to real architecture",
+      "order": 8,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "NEXT STEP",
+          "title": "Now configuration literacy is ready for architecture depth",
+          "subtitle": "The next lessons can enter frontend, issue, execute, and commit with cleaner assumptions.",
+          "takeaways": [
+            "Read parameter tables by groups, not as a flat wall.",
+            "Optional features require selected-parameter evidence.",
+            "CV32A60X values should stay attached to CV32A60X claims.",
+            "Generated lessons need parameter QA before publication."
+          ],
+          "nextStep": "Move toward the next configuration lesson or begin the Unit 03 architecture spine with parameter-aware assumptions.",
+          "closing": "Parameters are not administrative detail. They are the switchboard behind the architecture story."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-parameter-config",
+            "title": "CV32A60X parameter configuration table",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#parameter-configuration",
+            "locator": "cv32a60x/design/design.md Parameter configuration",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The CV32A60X parameter table records values such as XLEN 32, VLEN 32, RVC true, MmuPresent false, CvxifEn true, PipelineOnly true, and single commit port behavior."
+          },
+          {
+            "id": "cva6-requirements-optional-features",
+            "title": "CVA6 optional feature parameter rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#scope-of-the-ip",
+            "locator": "requirements/cva6_requirements_specification.md optional feature SystemVerilog parameter rule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements specification states that optional features are controlled by SystemVerilog parameters and are absent from the synthesized netlist when not selected."
+          }
+        ],
+        "speakerNotes": "This lesson gives us the bridge into real architecture. We can now say which assumptions belong to CV32A60X and which require broader evidence. That matters for the next public lessons, because frontend, issue, execute, commit, cache, and interface topics all become better when their configuration assumptions are visible."
+      },
+      "sourceAnchors": [
+        "cv32a60x-parameter-config",
+        "cva6-requirements-optional-features"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u02-l03-summary-speech",
+          "type": "speech",
+          "text": "This lesson gives us the bridge into real architecture. We can now say which assumptions belong to CV32A60X and which require broader evidence. That matters for the next public lessons, because frontend, issue, execute, commit, cache, and interface topics all become better when their configuration assumptions are visible.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u02-l03-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u02-l03-parameter-map-en/audio/tts_scene-cva6-u02-l03-summary-speech.mp3"
+        }
+      ]
+    }
+  ]
+}

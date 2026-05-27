@@ -1,0 +1,710 @@
+{
+  "id": "openhw-cva6-u01-l04-scope-diagram-en",
+  "stage": {
+    "id": "openhw-cva6-u01-l04-scope-diagram-en",
+    "name": "Reading the scope diagram: what not to invent",
+    "description": "A source-grounded microcourse on reading the CVA6 IP scope diagram as a boundary contract.",
+    "createdAt": 1779870600000,
+    "updatedAt": 1779870600000,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-l04-title",
+      "stageId": "openhw-cva6-u01-l04-scope-diagram-en",
+      "type": "html-slide",
+      "title": "Read the diagram like a boundary contract",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 01 / LESSON 04",
+          "title": "Reading the scope diagram: what not to invent",
+          "subtitle": "The goal is not to memorize a picture. The goal is to learn what the official diagram allows you to claim, and what it does not.",
+          "chips": [
+            "CVA6",
+            "IP scope",
+            "Diagram reading",
+            "Boundary discipline"
+          ],
+          "thesis": "A scope diagram is a guardrail: it tells you where a technical explanation may start, and where it must stop."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-user-manual-scope",
+            "title": "CVA6 User Manual Scope of the IP",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#scope-of-the-ip",
+            "locator": "cva6-user-manual/Introduction.md Scope of the IP",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The User Manual lists the CVA6 core, L1 write-through cache, optional FPU/MMU/PMP, CSR, counters, AXI, P-Mesh, and CV-X-IF as in-scope, and CLINT/PLIC, debug module, and L1 write-back cache support as out of scope."
+          },
+          {
+            "id": "cva6-requirements-scope-ip",
+            "title": "CVA6 requirements scope and in-scope IP items",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#scope-of-the-ip",
+            "locator": "requirements/cva6_requirements_specification.md Scope of the IP",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements document mirrors the scope list and clarifies that the documented IP excludes several surrounding integration and verification objects."
+          }
+        ],
+        "speakerNotes": "This lesson is about disciplined diagram reading. The CVA6 scope picture is not a decorative overview; it is a boundary contract. If we read it casually, we can accidentally teach SoC integration, debug infrastructure, or cache-policy assumptions as if they were CVA6 core facts. Good engineering teaching starts by saying exactly what the diagram supports."
+      },
+      "sourceAnchors": [
+        "cva6-user-manual-scope",
+        "cva6-requirements-scope-ip"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-l04-title-speech",
+          "type": "speech",
+          "text": "This lesson is about disciplined diagram reading. The CVA6 scope picture is not a decorative overview; it is a boundary contract. If we read it casually, we can accidentally teach SoC integration, debug infrastructure, or cache-policy assumptions as if they were CVA6 core facts. Good engineering teaching starts by saying exactly what the diagram supports.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-l04-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u01-l04-scope-diagram-en/audio/tts_scene-cva6-l04-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-l04-diagram",
+      "stageId": "openhw-cva6-u01-l04-scope-diagram-en",
+      "type": "html-slide",
+      "title": "Start with the box, not with a favorite subsystem",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "OFFICIAL FIGURE",
+          "title": "The scope line is the first technical claim",
+          "subtitle": "Before discussing modules, ask whether the object is drawn inside the documented IP boundary.",
+          "assetId": "cva6-scope",
+          "caption": "CVA6 User Manual: Scope of the IP.",
+          "body": "The official diagram frames the documented CVA6 IP and separates it from surrounding integration objects. Treat the box as a source anchor, not as a suggestion.",
+          "callouts": [
+            {
+              "title": "Inside the lesson",
+              "body": "Core, L1 write-through cache, optional units, counters, AXI, P-Mesh, and CV-X-IF can be discussed as documented IP items."
+            },
+            {
+              "title": "Outside the lesson",
+              "body": "CLINT, PLIC, debug module, and L1 write-back cache support need separate sources or integration context."
+            }
+          ]
+        },
+        "assets": [
+          {
+            "id": "cva6-scope",
+            "type": "image",
+            "src": "/classroom-assets/openhw-assets/cva6/cva6_scope.png",
+            "alt": "Official CVA6 Scope of the IP diagram",
+            "caption": "Official CVA6 User Manual scope diagram archived from docs.openhwgroup.org."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cva6-user-manual-scope",
+            "title": "CVA6 User Manual Scope of the IP",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#scope-of-the-ip",
+            "locator": "cva6-user-manual/Introduction.md Scope of the IP",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The User Manual lists the CVA6 core, L1 write-through cache, optional FPU/MMU/PMP, CSR, counters, AXI, P-Mesh, and CV-X-IF as in-scope, and CLINT/PLIC, debug module, and L1 write-back cache support as out of scope."
+          }
+        ],
+        "speakerNotes": "When you open the scope diagram, do not begin with the most interesting acronym. Begin with the boundary. The User Manual places CVA6 core material, cache, optional units, counters, AXI, P-Mesh, and CV-X-IF inside the documented scope. It also names objects outside that scope. That one distinction prevents many messy explanations later."
+      },
+      "sourceAnchors": [
+        "cva6-user-manual-scope"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-l04-diagram-speech",
+          "type": "speech",
+          "text": "When you open the scope diagram, do not begin with the most interesting acronym. Begin with the boundary. The User Manual places CVA6 core material, cache, optional units, counters, AXI, P-Mesh, and CV-X-IF inside the documented scope. It also names objects outside that scope. That one distinction prevents many messy explanations later.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-l04-diagram-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u01-l04-scope-diagram-en/audio/tts_scene-cva6-l04-diagram-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-l04-inside",
+      "stageId": "openhw-cva6-u01-l04-scope-diagram-en",
+      "type": "html-slide",
+      "title": "What the diagram lets us teach as in-scope",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "IN-SCOPE OBJECTS",
+          "title": "Inside means documented responsibility, not equal importance",
+          "subtitle": "Group the items by teaching role so the learner can remember why each item appears.",
+          "cards": [
+            {
+              "title": "Core and control",
+              "body": "CVA6 core, CSR, and performance counters are central to processor behavior and observable state."
+            },
+            {
+              "title": "Memory-side support",
+              "body": "The documented IP includes L1 write-through cache and interfaces toward AXI and P-Mesh contexts."
+            },
+            {
+              "title": "Optional capability",
+              "body": "FPU, MMU, and PMP are listed as optional, so their presence depends on configuration."
+            },
+            {
+              "title": "Extension path",
+              "body": "CV-X-IF is the coprocessor interface path, but still needs configuration-aware wording."
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-user-manual-scope",
+            "title": "CVA6 User Manual Scope of the IP",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#scope-of-the-ip",
+            "locator": "cva6-user-manual/Introduction.md Scope of the IP",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The User Manual lists the CVA6 core, L1 write-through cache, optional FPU/MMU/PMP, CSR, counters, AXI, P-Mesh, and CV-X-IF as in-scope, and CLINT/PLIC, debug module, and L1 write-back cache support as out of scope."
+          },
+          {
+            "id": "cva6-requirements-scope-ip",
+            "title": "CVA6 requirements scope and in-scope IP items",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#scope-of-the-ip",
+            "locator": "requirements/cva6_requirements_specification.md Scope of the IP",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements document mirrors the scope list and clarifies that the documented IP excludes several surrounding integration and verification objects."
+          }
+        ],
+        "speakerNotes": "Inside scope does not mean every item is equally central. A clean explanation groups items by role. The core, CSR, and counters explain processor behavior and state. Cache and bus interfaces explain memory-side connection. Optional FPU, MMU, and PMP explain why configuration matters. CV-X-IF explains extension capability. This keeps the slide technical without turning it into a parts list."
+      },
+      "sourceAnchors": [
+        "cva6-user-manual-scope",
+        "cva6-requirements-scope-ip"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-l04-inside-speech",
+          "type": "speech",
+          "text": "Inside scope does not mean every item is equally central. A clean explanation groups items by role. The core, CSR, and counters explain processor behavior and state. Cache and bus interfaces explain memory-side connection. Optional FPU, MMU, and PMP explain why configuration matters. CV-X-IF explains extension capability. This keeps the slide technical without turning it into a parts list.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-l04-inside-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u01-l04-scope-diagram-en/audio/tts_scene-cva6-l04-inside-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-l04-optional",
+      "stageId": "openhw-cva6-u01-l04-scope-diagram-en",
+      "type": "html-slide",
+      "title": "Optional is not the same as always present",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "CONFIGURATION RULE",
+          "title": "Every optional block needs careful grammar",
+          "subtitle": "The requirements source gives the exact mental model: optional features are parameter controlled.",
+          "columns": [
+            {
+              "title": "Safe wording",
+              "body": "CVA6 can support optional FPU, MMU, and PMP, and a concrete configuration decides whether a feature is present."
+            },
+            {
+              "title": "Unsafe wording",
+              "body": "CVA6 always has an MMU, always has an FPU, or always behaves like one named configuration."
+            }
+          ],
+          "takeaway": "Use may, optional, and in this configuration deliberately. Those words are small, but they carry the engineering truth."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-user-manual-scope",
+            "title": "CVA6 User Manual Scope of the IP",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#scope-of-the-ip",
+            "locator": "cva6-user-manual/Introduction.md Scope of the IP",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The User Manual lists the CVA6 core, L1 write-through cache, optional FPU/MMU/PMP, CSR, counters, AXI, P-Mesh, and CV-X-IF as in-scope, and CLINT/PLIC, debug module, and L1 write-back cache support as out of scope."
+          },
+          {
+            "id": "cva6-requirements-optional-features",
+            "title": "CVA6 optional feature parameter rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#scope-of-the-ip",
+            "locator": "requirements/cva6_requirements_specification.md optional feature SystemVerilog parameter rule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements specification states that optional features are controlled by SystemVerilog parameters and are absent from the synthesized netlist when not selected."
+          }
+        ],
+        "speakerNotes": "The word optional deserves respect. The requirements document says optional features are controlled by SystemVerilog parameters, and if a feature is not selected, it is not present in the synthesized netlist. So the safe sentence is: CVA6 can support this optional unit, and this configuration decides whether it exists. The unsafe sentence is: CVA6 always has it."
+      },
+      "sourceAnchors": [
+        "cva6-user-manual-scope",
+        "cva6-requirements-optional-features"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-l04-optional-speech",
+          "type": "speech",
+          "text": "The word optional deserves respect. The requirements document says optional features are controlled by SystemVerilog parameters, and if a feature is not selected, it is not present in the synthesized netlist. So the safe sentence is: CVA6 can support this optional unit, and this configuration decides whether it exists. The unsafe sentence is: CVA6 always has it.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-l04-optional-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u01-l04-scope-diagram-en/audio/tts_scene-cva6-l04-optional-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-l04-outside",
+      "stageId": "openhw-cva6-u01-l04-scope-diagram-en",
+      "type": "html-slide",
+      "title": "What the diagram explicitly leaves outside",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "OUT OF SCOPE",
+          "title": "Do not smuggle integration blocks into the core lesson",
+          "subtitle": "These items may be important, but the scope source does not make them CVA6 IP internals.",
+          "items": [
+            {
+              "title": "Interrupt controllers",
+              "body": "CLINT and PLIC are outside the IP scope, even though systems around CVA6 may need them."
+            },
+            {
+              "title": "Debug module",
+              "body": "Debug infrastructure such as DTM is not part of the documented CVA6 IP scope."
+            },
+            {
+              "title": "Write-back L1 support",
+              "body": "The source distinguishes L1 write-through cache from L1 write-back support."
+            },
+            {
+              "title": "Testbench and software layers",
+              "body": "Requirements notes also separate IP scope from software and verification environment objects."
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-user-manual-scope",
+            "title": "CVA6 User Manual Scope of the IP",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#scope-of-the-ip",
+            "locator": "cva6-user-manual/Introduction.md Scope of the IP",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The User Manual lists the CVA6 core, L1 write-through cache, optional FPU/MMU/PMP, CSR, counters, AXI, P-Mesh, and CV-X-IF as in-scope, and CLINT/PLIC, debug module, and L1 write-back cache support as out of scope."
+          },
+          {
+            "id": "cva6-requirements-scope-ip",
+            "title": "CVA6 requirements scope and in-scope IP items",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#scope-of-the-ip",
+            "locator": "requirements/cva6_requirements_specification.md Scope of the IP",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements document mirrors the scope list and clarifies that the documented IP excludes several surrounding integration and verification objects."
+          }
+        ],
+        "speakerNotes": "The outside list is just as valuable as the inside list. CLINT and PLIC are not boring footnotes; they are a reminder that processor-core learning and SoC integration learning are different layers. The debug module and write-back cache support also require separate evidence. If a future lesson needs them, we can teach them, but we should not pretend this scope diagram already did."
+      },
+      "sourceAnchors": [
+        "cva6-user-manual-scope",
+        "cva6-requirements-scope-ip"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-l04-outside-speech",
+          "type": "speech",
+          "text": "The outside list is just as valuable as the inside list. CLINT and PLIC are not boring footnotes; they are a reminder that processor-core learning and SoC integration learning are different layers. The debug module and write-back cache support also require separate evidence. If a future lesson needs them, we can teach them, but we should not pretend this scope diagram already did.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-l04-outside-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u01-l04-scope-diagram-en/audio/tts_scene-cva6-l04-outside-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-l04-workflow",
+      "stageId": "openhw-cva6-u01-l04-scope-diagram-en",
+      "type": "html-slide",
+      "title": "How to answer a boundary question",
+      "order": 5,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "light",
+        "content": {
+          "kicker": "WORKFLOW",
+          "title": "A four-step method for boundary claims",
+          "subtitle": "Use this method whenever a learner asks whether something is part of CVA6.",
+          "steps": [
+            {
+              "title": "Name the object",
+              "body": "State the exact block, interface, feature, or external service."
+            },
+            {
+              "title": "Locate it in the source",
+              "body": "Find whether the User Manual or Requirements page places it inside or outside scope."
+            },
+            {
+              "title": "Check optionality",
+              "body": "If it is optional, ask which configuration or parameter selects it."
+            },
+            {
+              "title": "Write the claim narrowly",
+              "body": "Say only what the source supports, then defer the rest to the right future lesson."
+            }
+          ],
+          "takeaway": "This is slower than hand-waving, but much faster than debugging a wrong mental model."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-user-manual-scope",
+            "title": "CVA6 User Manual Scope of the IP",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#scope-of-the-ip",
+            "locator": "cva6-user-manual/Introduction.md Scope of the IP",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The User Manual lists the CVA6 core, L1 write-through cache, optional FPU/MMU/PMP, CSR, counters, AXI, P-Mesh, and CV-X-IF as in-scope, and CLINT/PLIC, debug module, and L1 write-back cache support as out of scope."
+          },
+          {
+            "id": "cva6-requirements-optional-features",
+            "title": "CVA6 optional feature parameter rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#scope-of-the-ip",
+            "locator": "requirements/cva6_requirements_specification.md optional feature SystemVerilog parameter rule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements specification states that optional features are controlled by SystemVerilog parameters and are absent from the synthesized netlist when not selected."
+          }
+        ],
+        "speakerNotes": "Here is the practical method. First, name the object precisely. Second, locate it in the scope source. Third, if it is optional, check which configuration or parameter selects it. Fourth, write the claim narrowly. This is a little slower than hand-waving, but it saves time because the learner never has to unlearn a false boundary later."
+      },
+      "sourceAnchors": [
+        "cva6-user-manual-scope",
+        "cva6-requirements-optional-features"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-l04-workflow-speech",
+          "type": "speech",
+          "text": "Here is the practical method. First, name the object precisely. Second, locate it in the scope source. Third, if it is optional, check which configuration or parameter selects it. Fourth, write the claim narrowly. This is a little slower than hand-waving, but it saves time because the learner never has to unlearn a false boundary later.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-l04-workflow-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u01-l04-scope-diagram-en/audio/tts_scene-cva6-l04-workflow-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-l04-phrasing",
+      "stageId": "openhw-cva6-u01-l04-scope-diagram-en",
+      "type": "html-slide",
+      "title": "Professional phrasing patterns",
+      "order": 6,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "TEACHING STYLE",
+          "title": "Say less, but make each sentence more defensible",
+          "subtitle": "A professional classroom does not sound vague. It sounds carefully scoped.",
+          "columns": [
+            {
+              "title": "Boundary sentence",
+              "body": "According to the User Manual scope, this item is inside the documented IP boundary."
+            },
+            {
+              "title": "Configuration sentence",
+              "body": "For a named configuration, check the parameter table before claiming the optional block is present."
+            }
+          ],
+          "takeaway": "Precision is not timid. Precision is how technical teaching earns trust."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-user-manual-scope",
+            "title": "CVA6 User Manual Scope of the IP",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#scope-of-the-ip",
+            "locator": "cva6-user-manual/Introduction.md Scope of the IP",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The User Manual lists the CVA6 core, L1 write-through cache, optional FPU/MMU/PMP, CSR, counters, AXI, P-Mesh, and CV-X-IF as in-scope, and CLINT/PLIC, debug module, and L1 write-back cache support as out of scope."
+          },
+          {
+            "id": "cva6-requirements-optional-features",
+            "title": "CVA6 optional feature parameter rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#scope-of-the-ip",
+            "locator": "requirements/cva6_requirements_specification.md optional feature SystemVerilog parameter rule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements specification states that optional features are controlled by SystemVerilog parameters and are absent from the synthesized netlist when not selected."
+          }
+        ],
+        "speakerNotes": "Here are two phrasing patterns I want you to keep using. For a boundary claim, say: according to the User Manual scope, this item is inside the documented IP boundary. For a configuration claim, say: for a named configuration, check the parameter table before claiming the optional block is present. That sounds modest, but it is actually a very strong engineering style."
+      },
+      "sourceAnchors": [
+        "cva6-user-manual-scope",
+        "cva6-requirements-optional-features"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-l04-phrasing-speech",
+          "type": "speech",
+          "text": "Here are two phrasing patterns I want you to keep using. For a boundary claim, say: according to the User Manual scope, this item is inside the documented IP boundary. For a configuration claim, say: for a named configuration, check the parameter table before claiming the optional block is present. That sounds modest, but it is actually a very strong engineering style.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-l04-phrasing-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u01-l04-scope-diagram-en/audio/tts_scene-cva6-l04-phrasing-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-l04-quiz",
+      "stageId": "openhw-cva6-u01-l04-scope-diagram-en",
+      "type": "quiz",
+      "title": "Checkpoint: scope diagram discipline",
+      "order": 7,
+      "content": {
+        "type": "quiz",
+        "slideKit": "openhw-signal-technical",
+        "slot": "quiz",
+        "theme": "light",
+        "questions": [
+          {
+            "id": "q-l04-1",
+            "type": "single",
+            "hasAnswer": true,
+            "question": "The User Manual lists CLINT and PLIC under which category?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Inside the CVA6 core pipeline"
+              },
+              {
+                "value": "B",
+                "label": "Outside the documented IP scope"
+              },
+              {
+                "value": "C",
+                "label": "Mandatory optional units"
+              },
+              {
+                "value": "D",
+                "label": "CV-X-IF subchannels"
+              }
+            ],
+            "answer": [
+              "B"
+            ],
+            "analysis": "The scope section names CLINT and PLIC as outside the documented IP scope."
+          },
+          {
+            "id": "q-l04-2",
+            "type": "single",
+            "hasAnswer": true,
+            "question": "Which wording is safest for the MMU when speaking about CVA6 generally?",
+            "options": [
+              {
+                "value": "A",
+                "label": "CVA6 always has an MMU"
+              },
+              {
+                "value": "B",
+                "label": "The MMU is optional and configuration dependent"
+              },
+              {
+                "value": "C",
+                "label": "The MMU is part of CLINT"
+              },
+              {
+                "value": "D",
+                "label": "The MMU is only a README feature"
+              }
+            ],
+            "answer": [
+              "B"
+            ],
+            "analysis": "The scope and requirements materials treat the MMU as an optional feature, so configuration matters."
+          },
+          {
+            "id": "q-l04-3",
+            "type": "multiple",
+            "hasAnswer": true,
+            "question": "Which items are listed as in-scope CVA6 IP responsibilities or interfaces?",
+            "options": [
+              {
+                "value": "A",
+                "label": "CVA6 core"
+              },
+              {
+                "value": "B",
+                "label": "AXI interface"
+              },
+              {
+                "value": "C",
+                "label": "PLIC interrupt controller"
+              },
+              {
+                "value": "D",
+                "label": "Performance counters"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "D"
+            ],
+            "analysis": "Core, AXI interface, and counters are in the scope list. PLIC is explicitly outside."
+          },
+          {
+            "id": "q-l04-4",
+            "type": "single",
+            "hasAnswer": true,
+            "question": "What should you do before claiming an optional feature exists in a concrete course example?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Check the named configuration or parameter evidence"
+              },
+              {
+                "value": "B",
+                "label": "Assume the feature exists because it is popular"
+              },
+              {
+                "value": "C",
+                "label": "Ignore optionality for simplicity"
+              },
+              {
+                "value": "D",
+                "label": "Move it to the About page"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "analysis": "The requirements document says optional features are parameter controlled, so a concrete claim needs configuration evidence."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cva6-user-manual-scope",
+            "title": "CVA6 User Manual Scope of the IP",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#scope-of-the-ip",
+            "locator": "cva6-user-manual/Introduction.md Scope of the IP",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The User Manual lists the CVA6 core, L1 write-through cache, optional FPU/MMU/PMP, CSR, counters, AXI, P-Mesh, and CV-X-IF as in-scope, and CLINT/PLIC, debug module, and L1 write-back cache support as out of scope."
+          },
+          {
+            "id": "cva6-requirements-optional-features",
+            "title": "CVA6 optional feature parameter rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#scope-of-the-ip",
+            "locator": "requirements/cva6_requirements_specification.md optional feature SystemVerilog parameter rule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements specification states that optional features are controlled by SystemVerilog parameters and are absent from the synthesized netlist when not selected."
+          }
+        ],
+        "speakerNotes": "Use this checkpoint to test the habit, not trivia. If a question is inside the scope diagram, we can teach it as documented IP context. If it is outside, we either defer it or bring a new source. If it is optional, we must ask which configuration selects it. That habit is what keeps future CVA6 lessons trustworthy."
+      },
+      "sourceAnchors": [
+        "cva6-user-manual-scope",
+        "cva6-requirements-optional-features"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-l04-quiz-speech",
+          "type": "speech",
+          "text": "Use this checkpoint to test the habit, not trivia. If a question is inside the scope diagram, we can teach it as documented IP context. If it is outside, we either defer it or bring a new source. If it is optional, we must ask which configuration selects it. That habit is what keeps future CVA6 lessons trustworthy.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-l04-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u01-l04-scope-diagram-en/audio/tts_scene-cva6-l04-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-l04-summary",
+      "stageId": "openhw-cva6-u01-l04-scope-diagram-en",
+      "type": "html-slide",
+      "title": "Summary: the scope diagram is a quality gate",
+      "order": 8,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "NEXT STEP",
+          "title": "You can now read boundaries before modules",
+          "subtitle": "The learner should now be able to answer what belongs to the CVA6 IP lesson and what belongs elsewhere.",
+          "takeaways": [
+            "Start with the boundary box before naming modules.",
+            "Treat optional units as configuration-dependent.",
+            "Do not teach external SoC objects as CVA6 internals.",
+            "Use narrow, source-backed wording."
+          ],
+          "nextStep": "Close Unit 01 with a checkpoint that tests positioning, source routing, boundary discipline, and architecture-map readiness.",
+          "closing": "A good CVA6 reader is not just fast. A good reader knows when the source has stopped speaking."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-user-manual-scope",
+            "title": "CVA6 User Manual Scope of the IP",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#scope-of-the-ip",
+            "locator": "cva6-user-manual/Introduction.md Scope of the IP",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The User Manual lists the CVA6 core, L1 write-through cache, optional FPU/MMU/PMP, CSR, counters, AXI, P-Mesh, and CV-X-IF as in-scope, and CLINT/PLIC, debug module, and L1 write-back cache support as out of scope."
+          },
+          {
+            "id": "cva6-requirements-optional-features",
+            "title": "CVA6 optional feature parameter rule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#scope-of-the-ip",
+            "locator": "requirements/cva6_requirements_specification.md optional feature SystemVerilog parameter rule",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements specification states that optional features are controlled by SystemVerilog parameters and are absent from the synthesized netlist when not selected."
+          }
+        ],
+        "speakerNotes": "The key takeaway is simple: the diagram is a quality gate. It tells us what the source supports, what remains optional, and what belongs to another layer. Now Unit 01 needs one checkpoint. If you can pass that checkpoint, you are ready to move from orientation into configuration literacy, where the same discipline becomes even more important."
+      },
+      "sourceAnchors": [
+        "cva6-user-manual-scope",
+        "cva6-requirements-optional-features"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-l04-summary-speech",
+          "type": "speech",
+          "text": "The key takeaway is simple: the diagram is a quality gate. It tells us what the source supports, what remains optional, and what belongs to another layer. Now Unit 01 needs one checkpoint. If you can pass that checkpoint, you are ready to move from orientation into configuration literacy, where the same discipline becomes even more important.",
+          "speed": 0.86,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-l04-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u01-l04-scope-diagram-en/audio/tts_scene-cva6-l04-summary-speech.mp3"
+        }
+      ]
+    }
+  ]
+}
