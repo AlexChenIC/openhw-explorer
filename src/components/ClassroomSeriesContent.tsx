@@ -35,8 +35,11 @@ const copy = {
     totalLessons: "planned lessons",
     curriculum: "Curriculum map",
     curriculumSubtitle:
-      "Series pages show units, skills, and lesson readiness. Individual playback lives one level deeper.",
+      "Click a unit to jump to its lessons. Individual playback lives one level deeper.",
+    viewUnitLessons: "View unit lessons",
+    unitLessonCount: "lessons",
     lessons: "Lessons",
+    lessonsSubtitle: "Lessons are grouped by unit so the path stays easy to scan.",
     minutes: "min",
     slides: "slides",
     quiz: "quiz",
@@ -58,8 +61,11 @@ const copy = {
     readyLessons: "节已就绪",
     totalLessons: "节规划中",
     curriculum: "课程地图",
-    curriculumSubtitle: "系列页展示 Unit、Skill 和 Lesson 状态。真正的课堂播放放在下一层单课页面。",
+    curriculumSubtitle: "点击 Unit 卡片可以跳到对应课程组。真正的课堂播放放在下一层单课页面。",
+    viewUnitLessons: "查看本 Unit 课程",
+    unitLessonCount: "节课程",
     lessons: "课程列表",
+    lessonsSubtitle: "课程按 Unit 分组展示，这样整条学习路径更容易浏览。",
     minutes: "分钟",
     slides: "页 slide",
     quiz: "题 quiz",
@@ -99,7 +105,14 @@ export function ClassroomSeriesContent({ locale, series }: ClassroomSeriesConten
   const resolvedLocale = locale === "zh" ? "zh" : "en";
   const t = copy[resolvedLocale];
   const featuredLesson = getFeaturedLesson(series);
-  const playableLessons = series.lessons.filter((lesson) => lesson.classroomId);
+  const publicLessons = series.lessons.filter((lesson) => lesson.status !== "draft");
+  const playableLessons = publicLessons.filter((lesson) => lesson.classroomId);
+  const lessonsByUnit = new Map(
+    series.units.map((unit) => [
+      unit.id,
+      publicLessons.filter((lesson) => lesson.unitId === unit.id),
+    ]),
+  );
 
   return (
     <div className="page-shell">
@@ -205,96 +218,148 @@ export function ClassroomSeriesContent({ locale, series }: ClassroomSeriesConten
             </p>
           </div>
           <div className="grid gap-4 lg:grid-cols-3">
-            {series.units.map((unit) => (
-              <article
-                key={unit.id}
-                className="rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-5"
-              >
-                <div className="mb-3 flex items-center justify-between gap-3">
-                  <span className="rounded-md bg-[var(--bg-subtle)] px-2 py-1 text-xs font-semibold text-[var(--text-tertiary)]">
-                    Unit {String(unit.order).padStart(2, "0")}
-                  </span>
-                  <Route className="h-4 w-4 text-[var(--primary)]" />
-                </div>
-                <h3 className="text-lg font-semibold text-[var(--text-primary)]">
-                  {getLocalizedText(unit.title, resolvedLocale)}
-                </h3>
-                <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
-                  {getLocalizedText(unit.goal, resolvedLocale)}
-                </p>
-              </article>
-            ))}
+            {series.units.map((unit) => {
+              const unitLessons = lessonsByUnit.get(unit.id) ?? [];
+              const unitPlayableLessons = unitLessons.filter((lesson) => lesson.classroomId);
+
+              return (
+                <a
+                  key={unit.id}
+                  href={`#lessons-${unit.id}`}
+                  className="group block h-full rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-5 transition hover:-translate-y-0.5 hover:border-[var(--primary)]/40 hover:shadow-[var(--card-shadow)]"
+                >
+                  <div className="mb-3 flex items-center justify-between gap-3">
+                    <span className="rounded-md bg-[var(--bg-subtle)] px-2 py-1 text-xs font-semibold text-[var(--text-tertiary)]">
+                      Unit {String(unit.order).padStart(2, "0")}
+                    </span>
+                    <Route className="h-4 w-4 text-[var(--primary)] transition-transform group-hover:translate-x-0.5" />
+                  </div>
+                  <h3 className="text-lg font-semibold text-[var(--text-primary)]">
+                    {getLocalizedText(unit.title, resolvedLocale)}
+                  </h3>
+                  <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
+                    {getLocalizedText(unit.goal, resolvedLocale)}
+                  </p>
+                  <div className="mt-5 flex flex-wrap items-center justify-between gap-3 border-t border-[var(--border)] pt-4">
+                    <span className="text-xs font-semibold text-[var(--text-tertiary)]">
+                      {unitPlayableLessons.length}/{unitLessons.length} {t.unitLessonCount}
+                    </span>
+                    <span className="inline-flex items-center gap-2 text-sm font-semibold text-[var(--primary)]">
+                      {t.viewUnitLessons}
+                      <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-0.5" />
+                    </span>
+                  </div>
+                </a>
+              );
+            })}
           </div>
         </section>
 
         <section id="lessons" className="mb-4 scroll-mt-24">
           <div className="mb-5">
             <h2 className="text-2xl font-semibold text-[var(--text-primary)]">{t.lessons}</h2>
+            <p className="mt-2 max-w-3xl text-sm leading-7 text-[var(--text-secondary)]">
+              {t.lessonsSubtitle}
+            </p>
           </div>
-          <div className="space-y-4">
-            {series.lessons.map((lesson) => {
-              const isPlayable = Boolean(lesson.classroomId);
+          <div className="space-y-6">
+            {series.units.map((unit) => {
+              const unitLessons = lessonsByUnit.get(unit.id) ?? [];
+
               return (
-                <article
-                  key={lesson.id}
-                  className="rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-5"
+                <section
+                  key={unit.id}
+                  id={`lessons-${unit.id}`}
+                  className="scroll-mt-28 rounded-3xl border border-[var(--border)] bg-[var(--bg-card)] p-5 shadow-[var(--card-shadow)]"
                 >
-                  <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
-                    <div className="max-w-3xl">
-                      <div className="mb-3 flex flex-wrap items-center gap-2">
-                        <span
-                          className={`inline-flex rounded-full border px-2.5 py-1 text-xs font-semibold ${lessonStatusClass(
-                            lesson.status,
-                          )}`}
-                        >
-                          {lessonStatusLabel(lesson.status, resolvedLocale)}
-                        </span>
-                        <span className="rounded-md bg-[var(--bg-subtle)] px-2 py-1 text-xs font-semibold text-[var(--text-tertiary)]">
-                          {lesson.order > 0 ? `L${String(lesson.order).padStart(2, "0")}` : "LAB"}
-                        </span>
-                      </div>
-                      <h3 className="text-xl font-semibold leading-snug text-[var(--text-primary)]">
-                        {getLocalizedText(lesson.title, resolvedLocale)}
+                  <div className="mb-5 flex flex-col gap-3 border-b border-[var(--border)] pb-5 lg:flex-row lg:items-start lg:justify-between">
+                    <div>
+                      <span className="rounded-md bg-[var(--bg-subtle)] px-2 py-1 text-xs font-semibold text-[var(--text-tertiary)]">
+                        Unit {String(unit.order).padStart(2, "0")}
+                      </span>
+                      <h3 className="mt-3 text-xl font-semibold text-[var(--text-primary)]">
+                        {getLocalizedText(unit.title, resolvedLocale)}
                       </h3>
                       <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
-                        {getLocalizedText(lesson.summary, resolvedLocale)}
-                      </p>
-                      <p className="mt-3 text-xs font-medium text-[var(--text-tertiary)]">
-                        {t.sources}: {lesson.sourceRefs.join(" · ")}
+                        {getLocalizedText(unit.goal, resolvedLocale)}
                       </p>
                     </div>
-                    <div className="flex min-w-full flex-col gap-3 lg:min-w-[280px]">
-                      <div className="grid grid-cols-3 gap-2 text-xs text-[var(--text-tertiary)]">
-                        <span className="inline-flex items-center gap-1">
-                          <Clock3 className="h-3.5 w-3.5" />
-                          {lesson.durationMinutes} {t.minutes}
-                        </span>
-                        <span className="inline-flex items-center gap-1">
-                          <Layers3 className="h-3.5 w-3.5" />
-                          {lesson.slideCount} {t.slides}
-                        </span>
-                        <span className="inline-flex items-center gap-1">
-                          <ListChecks className="h-3.5 w-3.5" />
-                          {lesson.quizCount} {t.quiz}
-                        </span>
-                      </div>
-                      {isPlayable ? (
-                        <Link
-                          href={`/classroom/${series.id}/${lesson.id}`}
-                          className="inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--primary)] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--primary-dark)]"
-                        >
-                          {t.openLesson}
-                          <ArrowRight className="h-4 w-4" />
-                        </Link>
-                      ) : (
-                        <div className="inline-flex items-center justify-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--bg-subtle)] px-4 py-2.5 text-sm font-semibold text-[var(--text-tertiary)]">
-                          <Lock className="h-4 w-4" />
-                          {t.notReady}
-                        </div>
-                      )}
+                    <div className="inline-flex h-fit items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] px-3 py-1 text-xs font-semibold text-[var(--text-tertiary)]">
+                      <BookOpen className="h-3.5 w-3.5" />
+                      {unitLessons.length} {t.unitLessonCount}
                     </div>
                   </div>
-                </article>
+
+                  <div className="space-y-4">
+                    {unitLessons.map((lesson) => {
+                      const isPlayable = Boolean(lesson.classroomId);
+                      return (
+                        <article
+                          key={lesson.id}
+                          className="rounded-2xl border border-[var(--border)] bg-[var(--bg-subtle)] p-5"
+                        >
+                          <div className="flex flex-col gap-4 lg:flex-row lg:items-start lg:justify-between">
+                            <div className="max-w-3xl">
+                              <div className="mb-3 flex flex-wrap items-center gap-2">
+                                <span
+                                  className={`inline-flex rounded-full border px-2.5 py-1 text-xs font-semibold ${lessonStatusClass(
+                                    lesson.status,
+                                  )}`}
+                                >
+                                  {lessonStatusLabel(lesson.status, resolvedLocale)}
+                                </span>
+                                <span className="rounded-md bg-[var(--bg-card)] px-2 py-1 text-xs font-semibold text-[var(--text-tertiary)]">
+                                  {lesson.order > 0
+                                    ? `L${String(lesson.order).padStart(2, "0")}`
+                                    : "LAB"}
+                                </span>
+                              </div>
+                              <h4 className="text-xl font-semibold leading-snug text-[var(--text-primary)]">
+                                {getLocalizedText(lesson.title, resolvedLocale)}
+                              </h4>
+                              <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
+                                {getLocalizedText(lesson.summary, resolvedLocale)}
+                              </p>
+                              <p className="mt-3 text-xs font-medium text-[var(--text-tertiary)]">
+                                {t.sources}: {lesson.sourceRefs.join(" · ")}
+                              </p>
+                            </div>
+                            <div className="flex min-w-full flex-col gap-3 lg:min-w-[280px]">
+                              <div className="grid grid-cols-3 gap-2 text-xs text-[var(--text-tertiary)]">
+                                <span className="inline-flex items-center gap-1">
+                                  <Clock3 className="h-3.5 w-3.5" />
+                                  {lesson.durationMinutes} {t.minutes}
+                                </span>
+                                <span className="inline-flex items-center gap-1">
+                                  <Layers3 className="h-3.5 w-3.5" />
+                                  {lesson.slideCount} {t.slides}
+                                </span>
+                                <span className="inline-flex items-center gap-1">
+                                  <ListChecks className="h-3.5 w-3.5" />
+                                  {lesson.quizCount} {t.quiz}
+                                </span>
+                              </div>
+                              {isPlayable ? (
+                                <Link
+                                  href={`/classroom/${series.id}/${lesson.id}`}
+                                  className="inline-flex items-center justify-center gap-2 rounded-lg bg-[var(--primary)] px-4 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-[var(--primary-dark)]"
+                                >
+                                  {t.openLesson}
+                                  <ArrowRight className="h-4 w-4" />
+                                </Link>
+                              ) : (
+                                <div className="inline-flex items-center justify-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--bg-card)] px-4 py-2.5 text-sm font-semibold text-[var(--text-tertiary)]">
+                                  <Lock className="h-4 w-4" />
+                                  {t.notReady}
+                                </div>
+                              )}
+                            </div>
+                          </div>
+                        </article>
+                      );
+                    })}
+                  </div>
+                </section>
               );
             })}
           </div>
