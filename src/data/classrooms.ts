@@ -156,8 +156,8 @@ export const classroomSeries: ClassroomSeries[] = [
       zh: "在打开大型 RTL 目录之前，先建立 CVA6 的资料、边界、配置和架构地图。",
     },
     description: {
-      en: "This pilot series starts with CVA6 orientation, IP boundaries, configuration literacy, and architecture reading habits. The currently published lessons are temporary previews for validating the OpenHW Explorer publishing flow.",
-      zh: "这条试发布课程线从 CVA6 官方定位、IP 边界、配置意识和架构阅读方法开始。当前发布的课程仍是临时样课，用于验证 OpenHW Explorer 的课程发布流程。",
+      en: "This first complete OpenHW Explorer course path starts with CVA6 orientation, IP boundaries, configuration literacy, and architecture reading habits, then moves through frontend, issue, execute, memory, interfaces, and source-reading handoff.",
+      zh: "这条 OpenHW Explorer 的第一条完整课程路径从 CVA6 官方定位、IP 边界、配置意识和架构阅读方法开始，再逐步进入 frontend、issue、execute、memory、interfaces 和源码阅读交接。",
     },
     audience: {
       en: "Learners who know basic RISC-V concepts and want to read CVA6 like an engineer.",
