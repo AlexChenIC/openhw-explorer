@@ -1,0 +1,620 @@
+{
+  "id": "openhw-cva6-u05-l06-checkpoint-scoreboard-en",
+  "stage": {
+    "id": "openhw-cva6-u05-l06-checkpoint-scoreboard-en",
+    "name": "Checkpoint 05: issue, scoreboard, and hazards",
+    "description": "Use a classification-heavy checkpoint to confirm the learner can reason about issue discipline and scoreboard state.",
+    "createdAt": 1780304374203,
+    "updatedAt": 1780304959452,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u05-l06-title",
+      "stageId": "openhw-cva6-u05-l06-checkpoint-scoreboard-en",
+      "type": "html-slide",
+      "title": "Issue is a discipline, not a queue of wishes",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 05 / CHECKPOINT",
+          "title": "Issue is a discipline, not a queue of wishes",
+          "subtitle": "This checkpoint checks whether scoreboard, hazards, forwarding, and structural readiness have become separate ideas.",
+          "chips": [
+            "Issue",
+            "Scoreboard",
+            "RAW/WAW",
+            "Forwarding",
+            "Structural stalls"
+          ],
+          "thesis": "A correct backend explanation first names the limiting condition, then names the source evidence."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-stage",
+            "title": "CV32A60X design: ISSUE_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "ISSUE_STAGE issues instructions in order, reorders execution results, and sends completed instructions in order to COMMIT_STAGE."
+          }
+        ],
+        "speakerNotes": "This lesson is Checkpoint 05: issue, scoreboard, and hazards. This checkpoint checks whether scoreboard, hazards, forwarding, and structural readiness have become separate ideas. The point is not to memorize a wall of CVA6 facts. The point is to build a disciplined source-reading habit: name the boundary, name the source, and avoid claims that the public material does not support."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l06-title-speech",
+          "type": "speech",
+          "text": "This lesson is Checkpoint 05: issue, scoreboard, and hazards. This checkpoint checks whether scoreboard, hazards, forwarding, and structural readiness have become separate ideas. The point is not to memorize a wall of CVA6 facts. The point is to build a disciplined source-reading habit: name the boundary, name the source, and avoid claims that the public material does not support.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l06-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l06-checkpoint-scoreboard-en/audio/tts_scene-cva6-u05-l06-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l06-map",
+      "stageId": "openhw-cva6-u05-l06-checkpoint-scoreboard-en",
+      "type": "html-slide",
+      "title": "Checkpoint map: five things to classify",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "CHECKPOINT MAP",
+          "title": "Do not mix queue state, operand state, and resource state",
+          "subtitle": "Most issue-stage mistakes come from naming the wrong blocker.",
+          "cards": [
+            {
+              "title": "Admission",
+              "body": "Can issue accept another decoded instruction?"
+            },
+            {
+              "title": "Operands",
+              "body": "Are sources available from the register file or forwarding?"
+            },
+            {
+              "title": "Hazards",
+              "body": "Is a RAW or WAW condition blocking the instruction?"
+            },
+            {
+              "title": "Resources",
+              "body": "Is the functional unit or result bus ready?"
+            }
+          ],
+          "takeaway": "A good issue-stage answer is a classification answer."
+        },
+        "assets": [
+          {
+            "id": "scoreboard",
+            "type": "image",
+            "src": "/classroom-assets/cva6-shared/assets/scoreboard.png",
+            "alt": "Official CVA6 scoreboard diagram",
+            "caption": "Official CVA6 scoreboard diagram",
+            "source": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/assets/_images/scoreboard.png"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-stage",
+            "title": "CV32A60X design: ISSUE_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "ISSUE_STAGE issues instructions in order, reorders execution results, and sends completed instructions in order to COMMIT_STAGE."
+          },
+          {
+            "id": "cv32a60x-design-scoreboard",
+            "title": "CV32A60X design: Scoreboard submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#scoreboard",
+            "locator": "cv32a60x/design/design.md Scoreboard submodule",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The scoreboard tracks issued instructions, stores returned results by transaction ID, and exposes the oldest completed entry to commit."
+          },
+          {
+            "id": "cv32a60x-design-hazards",
+            "title": "CV32A60X design: issue hazards and forwarding",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-read-operands",
+            "locator": "cv32a60x/design/design.md Issue_read_operands hazards",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "Issue_read_operands handles RAW, WAW, forwarding, structural readiness, result-bus pressure, CSR cases, and LSU readiness."
+          }
+        ],
+        "speakerNotes": "Before we leave Unit 05, we need a checkpoint. The learner should be able to look at a backend stall and ask: is this about admission into the scoreboard, source operand readiness, RAW or WAW hazards, forwarding opportunity, functional-unit readiness, or result-bus pressure? Those are different problems, and good RTL reading starts by not blending them together."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-stage",
+        "cv32a60x-design-scoreboard",
+        "cv32a60x-design-hazards"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l06-map-speech",
+          "type": "speech",
+          "text": "Before we leave Unit 05, we need a checkpoint. The learner should be able to look at a backend stall and ask: is this about admission into the scoreboard, source operand readiness, RAW or WAW hazards, forwarding opportunity, functional-unit readiness, or result-bus pressure? Those are different problems, and good RTL reading starts by not blending them together.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l06-map-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l06-checkpoint-scoreboard-en/audio/tts_scene-cva6-u05-l06-map-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l06-evidence",
+      "stageId": "openhw-cva6-u05-l06-checkpoint-scoreboard-en",
+      "type": "html-slide",
+      "title": "Use the scoreboard as the instruction lifetime ledger",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "SCOREBOARD ROLE",
+          "title": "The scoreboard keeps identity while results arrive later",
+          "body": "Issued instructions stay visible by transaction identity until completed work can be presented to commit in order.",
+          "assetId": "scoreboard",
+          "caption": "Use the scoreboard diagram as the ledger for issue, result return, and commit handoff.",
+          "callouts": [
+            "Instruction identity",
+            "Result return",
+            "Oldest completed entry"
+          ]
+        },
+        "assets": [
+          {
+            "id": "scoreboard",
+            "type": "image",
+            "src": "/classroom-assets/cva6-shared/assets/scoreboard.png",
+            "alt": "Official CVA6 scoreboard diagram",
+            "caption": "Official CVA6 scoreboard diagram",
+            "source": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/assets/_images/scoreboard.png"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-scoreboard",
+            "title": "CV32A60X design: Scoreboard submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#scoreboard",
+            "locator": "cv32a60x/design/design.md Scoreboard submodule",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The scoreboard tracks issued instructions, stores returned results by transaction ID, and exposes the oldest completed entry to commit."
+          },
+          {
+            "id": "cv32a60x-design-commit-stage",
+            "title": "CV32A60X design: COMMIT_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#commit-stage-module",
+            "locator": "cv32a60x/design/design.md COMMIT_STAGE module",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "COMMIT_STAGE updates architectural state, writes CSR/register state, commits stores, and handles precise traps in order."
+          }
+        ],
+        "speakerNotes": "The scoreboard is not just a pretty FIFO picture. It is the ledger that lets CVA6 issue in order, receive results later, and still give commit a disciplined view of the oldest completed work. If a result comes back but the older row is not ready, commit discipline still matters. This is the bridge from Unit 05 to Unit 06."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-scoreboard",
+        "cv32a60x-design-commit-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l06-evidence-speech",
+          "type": "speech",
+          "text": "The scoreboard is not just a pretty FIFO picture. It is the ledger that lets CVA6 issue in order, receive results later, and still give commit a disciplined view of the oldest completed work. If a result comes back but the older row is not ready, commit discipline still matters. This is the bridge from Unit 05 to Unit 06.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l06-evidence-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l06-checkpoint-scoreboard-en/audio/tts_scene-cva6-u05-l06-evidence-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l06-summary-rules",
+      "stageId": "openhw-cva6-u05-l06-checkpoint-scoreboard-en",
+      "type": "html-slide",
+      "title": "Four rules before you answer a hazard question",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "ISSUE RULES",
+          "title": "Backend timing claims need a rule, not a vibe",
+          "items": [
+            {
+              "title": "RAW",
+              "body": "A source depends on an older destination unless forwarding can supply it."
+            },
+            {
+              "title": "WAW",
+              "body": "A destination may be blocked by an older in-flight destination."
+            },
+            {
+              "title": "Forwarding",
+              "body": "A ready result can help, but not every producer is forwardable."
+            },
+            {
+              "title": "Structural",
+              "body": "Functional units, LSU readiness, and result bus pressure can still block issue."
+            }
+          ],
+          "takeaway": "Classify the blocker before proposing a fix."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-hazards",
+            "title": "CV32A60X design: issue hazards and forwarding",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-read-operands",
+            "locator": "cv32a60x/design/design.md Issue_read_operands hazards",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "Issue_read_operands handles RAW, WAW, forwarding, structural readiness, result-bus pressure, CSR cases, and LSU readiness."
+          }
+        ],
+        "speakerNotes": "Here is the rule of thumb. If the operand is not ready, think RAW. If the destination collides with an older in-flight destination, think WAW. If a result is ready and allowed to forward, forwarding may solve the RAW case. If the operands are fine but the unit or bus is unavailable, it is structural. That sounds simple, but it prevents many wrong explanations."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-hazards"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l06-summary-rules-speech",
+          "type": "speech",
+          "text": "Here is the rule of thumb. If the operand is not ready, think RAW. If the destination collides with an older in-flight destination, think WAW. If a result is ready and allowed to forward, forwarding may solve the RAW case. If the operands are fine but the unit or bus is unavailable, it is structural. That sounds simple, but it prevents many wrong explanations.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l06-summary-rules-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l06-checkpoint-scoreboard-en/audio/tts_scene-cva6-u05-l06-summary-rules-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l06-quiz",
+      "stageId": "openhw-cva6-u05-l06-checkpoint-scoreboard-en",
+      "type": "quiz",
+      "title": "Check understanding: Checkpoint 05: issue, scoreboard, and hazards",
+      "order": 4,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u05-l06-q1",
+            "type": "single",
+            "question": "A younger instruction needs a source register produced by an older in-flight instruction. What class of issue problem is this?",
+            "options": [
+              {
+                "value": "A",
+                "label": "RAW hazard"
+              },
+              {
+                "value": "B",
+                "label": "WAW hazard"
+              },
+              {
+                "value": "C",
+                "label": "Frontend BTB miss"
+              },
+              {
+                "value": "D",
+                "label": "AXI burst length"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "A read-after-write dependency is a RAW hazard unless forwarding can safely provide the value."
+          },
+          {
+            "id": "u05-l06-q2",
+            "type": "single",
+            "question": "The destination register matches an older in-flight destination. What is the safest classification?",
+            "options": [
+              {
+                "value": "A",
+                "label": "WAW hazard"
+              },
+              {
+                "value": "B",
+                "label": "Return-address stack update"
+              },
+              {
+                "value": "C",
+                "label": "PMA attribute lookup"
+              },
+              {
+                "value": "D",
+                "label": "Debug-module access"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "This is a write-after-write ordering concern in the issue/scoreboard path."
+          },
+          {
+            "id": "u05-l06-q3",
+            "type": "multiple",
+            "question": "Which items are part of the Unit 05 issue-stage story?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Scoreboard identity"
+              },
+              {
+                "value": "B",
+                "label": "Operand readiness"
+              },
+              {
+                "value": "C",
+                "label": "Forwarding from ready results"
+              },
+              {
+                "value": "D",
+                "label": "External CLINT wiring"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C"
+            ],
+            "hasAnswer": true,
+            "analysis": "CLINT belongs to interrupt/system integration, not the issue-stage hazard lesson."
+          },
+          {
+            "id": "u05-l06-q4",
+            "type": "single",
+            "question": "Why is the scoreboard useful even when issue is in-order?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Results can return later and still need identity and commit ordering"
+              },
+              {
+                "value": "B",
+                "label": "It replaces all functional units"
+              },
+              {
+                "value": "C",
+                "label": "It predicts branch targets"
+              },
+              {
+                "value": "D",
+                "label": "It implements AXI atomic operations"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "In-order issue does not remove the need to track instruction identity and completed results."
+          },
+          {
+            "id": "u05-l06-q5",
+            "type": "single",
+            "question": "If operands are ready but the functional unit or shared result path is unavailable, what should you suspect?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Structural hazard"
+              },
+              {
+                "value": "B",
+                "label": "Illegal instruction from CV-X-IF only"
+              },
+              {
+                "value": "C",
+                "label": "Page-table shootdown"
+              },
+              {
+                "value": "D",
+                "label": "A documentation typo"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "Structural readiness is distinct from operand data hazards."
+          },
+          {
+            "id": "u05-l06-q6",
+            "type": "multiple",
+            "question": "A professional checkpoint answer should include which habits?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Name the blocker"
+              },
+              {
+                "value": "B",
+                "label": "Name the source evidence"
+              },
+              {
+                "value": "C",
+                "label": "Keep RAW, WAW, forwarding, and structural cases separate"
+              },
+              {
+                "value": "D",
+                "label": "Assume every stall is a cache miss"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C"
+            ],
+            "hasAnswer": true,
+            "analysis": "The cache-miss assumption is exactly the kind of shortcut this checkpoint is meant to prevent."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-stage",
+            "title": "CV32A60X design: ISSUE_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "ISSUE_STAGE issues instructions in order, reorders execution results, and sends completed instructions in order to COMMIT_STAGE."
+          },
+          {
+            "id": "cv32a60x-design-scoreboard",
+            "title": "CV32A60X design: Scoreboard submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#scoreboard",
+            "locator": "cv32a60x/design/design.md Scoreboard submodule",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The scoreboard tracks issued instructions, stores returned results by transaction ID, and exposes the oldest completed entry to commit."
+          },
+          {
+            "id": "cv32a60x-design-hazards",
+            "title": "CV32A60X design: issue hazards and forwarding",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-read-operands",
+            "locator": "cv32a60x/design/design.md Issue_read_operands hazards",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "Issue_read_operands handles RAW, WAW, forwarding, structural readiness, result-bus pressure, CSR cases, and LSU readiness."
+          },
+          {
+            "id": "cv32a60x-design-commit-stage",
+            "title": "CV32A60X design: COMMIT_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#commit-stage-module",
+            "locator": "cv32a60x/design/design.md COMMIT_STAGE module",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "COMMIT_STAGE updates architectural state, writes CSR/register state, commits stores, and handles precise traps in order."
+          }
+        ],
+        "speakerNotes": "This quiz checks the core judgment of Checkpoint 05: issue, scoreboard, and hazards. The right answers should feel less like trivia and more like disciplined classification: what is the boundary, what is the source, what is the limitation, and what would we check next?"
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-stage",
+        "cv32a60x-design-scoreboard",
+        "cv32a60x-design-hazards",
+        "cv32a60x-design-commit-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l06-quiz-speech",
+          "type": "speech",
+          "text": "This quiz checks the core judgment of Checkpoint 05: issue, scoreboard, and hazards. The right answers should feel less like trivia and more like disciplined classification: what is the boundary, what is the source, what is the limitation, and what would we check next?",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l06-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l06-checkpoint-scoreboard-en/audio/tts_scene-cva6-u05-l06-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u05-l06-summary",
+      "stageId": "openhw-cva6-u05-l06-checkpoint-scoreboard-en",
+      "type": "html-slide",
+      "title": "Summary: Checkpoint 05: issue, scoreboard, and hazards",
+      "order": 5,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "SUMMARY",
+          "title": "Checkpoint 05: issue, scoreboard, and hazards",
+          "takeaways": [
+            "Classify backend issue-stage cases before moving from scoreboard behavior to execute, commit, and memory.",
+            "Keep claims source-scoped and configuration-aware.",
+            "Turn every public explanation into an evidence-backed learning artifact."
+          ],
+          "nextStep": "Next unit: the same classification habit moves outward into AXI, interrupt/debug boundaries, CV-X-IF, and SoC integration.",
+          "closing": "This is how OpenHW Explorer can teach serious open hardware without drifting into unsupported certainty."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-issue-stage",
+            "title": "CV32A60X design: ISSUE_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "ISSUE_STAGE issues instructions in order, reorders execution results, and sends completed instructions in order to COMMIT_STAGE."
+          },
+          {
+            "id": "cv32a60x-design-scoreboard",
+            "title": "CV32A60X design: Scoreboard submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#scoreboard",
+            "locator": "cv32a60x/design/design.md Scoreboard submodule",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The scoreboard tracks issued instructions, stores returned results by transaction ID, and exposes the oldest completed entry to commit."
+          },
+          {
+            "id": "cv32a60x-design-hazards",
+            "title": "CV32A60X design: issue hazards and forwarding",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-read-operands",
+            "locator": "cv32a60x/design/design.md Issue_read_operands hazards",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "Issue_read_operands handles RAW, WAW, forwarding, structural readiness, result-bus pressure, CSR cases, and LSU readiness."
+          }
+        ],
+        "speakerNotes": "To summarize: Classify backend issue-stage cases before moving from scoreboard behavior to execute, commit, and memory. Keep the claim small, keep the source visible, and keep the boundary honest. Next unit: the same classification habit moves outward into AXI, interrupt/debug boundaries, CV-X-IF, and SoC integration."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-issue-stage",
+        "cv32a60x-design-scoreboard",
+        "cv32a60x-design-hazards"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u05-l06-summary-speech",
+          "type": "speech",
+          "text": "To summarize: Classify backend issue-stage cases before moving from scoreboard behavior to execute, commit, and memory. Keep the claim small, keep the source visible, and keep the boundary honest. Next unit: the same classification habit moves outward into AXI, interrupt/debug boundaries, CV-X-IF, and SoC integration.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u05-l06-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u05-l06-checkpoint-scoreboard-en/audio/tts_scene-cva6-u05-l06-summary-speech.mp3"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "default-1",
+      "name": "AlexChen",
+      "role": "Professional OpenHW classroom narrator",
+      "voice": "local-tts:kokoro:am_eric"
+    }
+  ],
+  "metadata": {
+    "seriesId": "cva6-from-zero",
+    "unitId": "u05-issue-scoreboard",
+    "skillId": "u05-s03-checkpoint",
+    "lessonId": "cva6-u05-l06-checkpoint-scoreboard",
+    "sourceRefs": [
+      "cv32a60x-design-issue-stage",
+      "cv32a60x-design-scoreboard",
+      "cv32a60x-design-hazards",
+      "cv32a60x-design-commit-stage"
+    ],
+    "assetRefs": [
+      "scoreboard.png"
+    ],
+    "generatedAt": "2026-06-01T08:59:34.201Z"
+  }
+}

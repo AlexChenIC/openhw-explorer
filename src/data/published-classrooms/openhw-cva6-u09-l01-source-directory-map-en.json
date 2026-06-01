@@ -1,0 +1,549 @@
+{
+  "id": "openhw-cva6-u09-l01-source-directory-map-en",
+  "stage": {
+    "id": "openhw-cva6-u09-l01-source-directory-map-en",
+    "name": "Source directory map: where to look first",
+    "description": "A practical source-route lesson for learners who now need to open the repository themselves.",
+    "createdAt": 1780304374203,
+    "updatedAt": 1780305191438,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u09-l01-title",
+      "stageId": "openhw-cva6-u09-l01-source-directory-map-en",
+      "type": "html-slide",
+      "title": "The first source skill is choosing the right door",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 09 / LESSON 01",
+          "title": "The first source skill is choosing the right door",
+          "subtitle": "CVA6 is too large to read by wandering. Start with the question, then choose core, config, docs, APU, or verification.",
+          "chips": [
+            "core",
+            "config",
+            "docs",
+            "corev_apu",
+            "verif"
+          ],
+          "thesis": "A source-reading route is a productivity tool, not bureaucracy."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-source-tree",
+            "title": "CVA6 public repository source tree",
+            "url": "https://github.com/openhwgroup/cva6",
+            "locator": "repository directories core, docs, corev_apu, verif, config, util",
+            "localPath": "/Users/alexchen/1_workspace/4_openhw/2_cva6_ci/1_tier_v1/cva6",
+            "claimSupported": "The public repository is organized around core RTL, documentation, APU/testharness material, verification, configuration, and tooling directories."
+          }
+        ],
+        "speakerNotes": "This lesson is Source directory map: where to look first. CVA6 is too large to read by wandering. Start with the question, then choose core, config, docs, APU, or verification. The point is not to memorize a wall of CVA6 facts. The point is to build a disciplined source-reading habit: name the boundary, name the source, and avoid claims that the public material does not support."
+      },
+      "sourceAnchors": [
+        "cva6-source-tree"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u09-l01-title-speech",
+          "type": "speech",
+          "text": "This lesson is Source directory map: where to look first. CVA6 is too large to read by wandering. Start with the question, then choose core, config, docs, APU, or verification. The point is not to memorize a wall of CVA6 facts. The point is to build a disciplined source-reading habit: name the boundary, name the source, and avoid claims that the public material does not support.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u09-l01-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u09-l01-source-directory-map-en/audio/tts_scene-cva6-u09-l01-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u09-l01-route",
+      "stageId": "openhw-cva6-u09-l01-source-directory-map-en",
+      "type": "html-slide",
+      "title": "Match the question to the directory family",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "REPOSITORY MAP",
+          "title": "Open the path that matches the question",
+          "subtitle": "Most wasted source-reading time comes from starting in the wrong folder.",
+          "cards": [
+            {
+              "title": "core",
+              "body": "Pipeline RTL, frontend, backend, cache subsystem, MMU, PMP, CV-X-IF example."
+            },
+            {
+              "title": "config",
+              "body": "Configuration generation and variant-level choices."
+            },
+            {
+              "title": "docs",
+              "body": "Generated manuals, requirements, design documents, and user-guide material."
+            },
+            {
+              "title": "verif",
+              "body": "Testbench, tests, simulation, regressions, and verification environment."
+            }
+          ],
+          "takeaway": "A source question should become a path hypothesis."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-source-tree",
+            "title": "CVA6 public repository source tree",
+            "url": "https://github.com/openhwgroup/cva6",
+            "locator": "repository directories core, docs, corev_apu, verif, config, util",
+            "localPath": "/Users/alexchen/1_workspace/4_openhw/2_cva6_ci/1_tier_v1/cva6",
+            "claimSupported": "The public repository is organized around core RTL, documentation, APU/testharness material, verification, configuration, and tooling directories."
+          },
+          {
+            "id": "cva6-overview-docs",
+            "title": "CVA6 documentation overview",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "overview/index.md Organization of this Document",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/index.md",
+            "claimSupported": "The official documentation separates user guide, requirements, design documents, configuration-specific manuals, and APU material."
+          }
+        ],
+        "speakerNotes": "Unit 09 turns the learner into a source reader. The first skill is boring but powerful: choose the right door. If the question is pipeline behavior, start in core and the design docs. If it is configuration, start in config and generated documentation. If it is system context, open corev_apu. If it is proof and testing, go to verif."
+      },
+      "sourceAnchors": [
+        "cva6-source-tree",
+        "cva6-overview-docs"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u09-l01-route-speech",
+          "type": "speech",
+          "text": "Unit 09 turns the learner into a source reader. The first skill is boring but powerful: choose the right door. If the question is pipeline behavior, start in core and the design docs. If it is configuration, start in config and generated documentation. If it is system context, open corev_apu. If it is proof and testing, go to verif.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u09-l01-route-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u09-l01-source-directory-map-en/audio/tts_scene-cva6-u09-l01-route-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u09-l01-docs",
+      "stageId": "openhw-cva6-u09-l01-source-directory-map-en",
+      "type": "html-slide",
+      "title": "Generated docs are part of the source map",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "DOCS AS SOURCE",
+          "title": "Documentation is generated from project material",
+          "subtitle": "The README explains that configuration-specific manuals and design docs are generated.",
+          "columns": [
+            {
+              "title": "Why docs help",
+              "body": "Generated docs summarize architecture, parameters, and manuals into readable entry points.",
+              "points": [
+                "Design docs",
+                "Instruction manuals",
+                "Requirements"
+              ]
+            },
+            {
+              "title": "Why RTL still matters",
+              "body": "Generated docs may lag, simplify, or omit details that source review must confirm.",
+              "points": [
+                "Check exact variant",
+                "Check current branch",
+                "Trace to code"
+              ]
+            }
+          ],
+          "takeaway": "Use docs to route, then use source to confirm."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-doc-build-readme",
+            "title": "CVA6 documentation README",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/README.html",
+            "locator": "overview/README.md generated documentation",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/README.md",
+            "claimSupported": "CVA6 documentation is generated from repository material, including configuration-specific instruction and design manuals."
+          },
+          {
+            "id": "cva6-overview-docs",
+            "title": "CVA6 documentation overview",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "overview/index.md Organization of this Document",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/index.md",
+            "claimSupported": "The official documentation separates user guide, requirements, design documents, configuration-specific manuals, and APU material."
+          }
+        ],
+        "speakerNotes": "The CVA6 documentation README is important because it says design documentation and instruction manuals are generated from project material. That makes docs a real source entry, not a blog post. But generated docs are still an entry point. For final confidence, especially on a moving branch, source and verification must be checked."
+      },
+      "sourceAnchors": [
+        "cva6-doc-build-readme",
+        "cva6-overview-docs"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u09-l01-docs-speech",
+          "type": "speech",
+          "text": "The CVA6 documentation README is important because it says design documentation and instruction manuals are generated from project material. That makes docs a real source entry, not a blog post. But generated docs are still an entry point. For final confidence, especially on a moving branch, source and verification must be checked.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u09-l01-docs-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u09-l01-source-directory-map-en/audio/tts_scene-cva6-u09-l01-docs-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u09-l01-workflow",
+      "stageId": "openhw-cva6-u09-l01-source-directory-map-en",
+      "type": "html-slide",
+      "title": "Turn every question into a source route",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "SOURCE ROUTE",
+          "title": "A four-step route for any CVA6 question",
+          "items": [
+            {
+              "title": "Frame the claim",
+              "body": "What exactly are you trying to say?"
+            },
+            {
+              "title": "Choose the source family",
+              "body": "Requirement, design doc, RTL, APU, or verification?"
+            },
+            {
+              "title": "Check variant scope",
+              "body": "Which configuration or generated manual supports the claim?"
+            },
+            {
+              "title": "Record evidence",
+              "body": "Keep anchor, file, section, and review notes."
+            }
+          ],
+          "takeaway": "The habit matters more than memorizing every file."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-source-tree",
+            "title": "CVA6 public repository source tree",
+            "url": "https://github.com/openhwgroup/cva6",
+            "locator": "repository directories core, docs, corev_apu, verif, config, util",
+            "localPath": "/Users/alexchen/1_workspace/4_openhw/2_cva6_ci/1_tier_v1/cva6",
+            "claimSupported": "The public repository is organized around core RTL, documentation, APU/testharness material, verification, configuration, and tooling directories."
+          },
+          {
+            "id": "cva6-requirements-scope",
+            "title": "CVA6 requirements: scope and verification intent",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html",
+            "locator": "requirements/cva6_requirements_specification.md scope and verification",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements document defines the CVA6 feature scope and ties requirements to verification intent and interface requirements."
+          }
+        ],
+        "speakerNotes": "This workflow is what we want the whole course to produce. A learner frames the claim, chooses the source family, checks variant scope, and records evidence. That is how we move from passive course watching to real engineering reading. It is also how future OpenHW Explorer lessons should be produced."
+      },
+      "sourceAnchors": [
+        "cva6-source-tree",
+        "cva6-requirements-scope"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u09-l01-workflow-speech",
+          "type": "speech",
+          "text": "This workflow is what we want the whole course to produce. A learner frames the claim, chooses the source family, checks variant scope, and records evidence. That is how we move from passive course watching to real engineering reading. It is also how future OpenHW Explorer lessons should be produced.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u09-l01-workflow-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u09-l01-source-directory-map-en/audio/tts_scene-cva6-u09-l01-workflow-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u09-l01-quiz",
+      "stageId": "openhw-cva6-u09-l01-source-directory-map-en",
+      "type": "quiz",
+      "title": "Check understanding: Source directory map: where to look first",
+      "order": 4,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u09-l01-q1",
+            "type": "single",
+            "question": "Where should a pipeline behavior question usually begin?",
+            "options": [
+              {
+                "value": "A",
+                "label": "core plus design docs"
+              },
+              {
+                "value": "B",
+                "label": "Only social media"
+              },
+              {
+                "value": "C",
+                "label": "Only the logo SVG"
+              },
+              {
+                "value": "D",
+                "label": "Only browser cache"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "Pipeline behavior should be routed to core RTL and design documentation."
+          },
+          {
+            "id": "u09-l01-q2",
+            "type": "multiple",
+            "question": "Which repository families are useful source-reading doors?",
+            "options": [
+              {
+                "value": "A",
+                "label": "core"
+              },
+              {
+                "value": "B",
+                "label": "config"
+              },
+              {
+                "value": "C",
+                "label": "docs"
+              },
+              {
+                "value": "D",
+                "label": "verif"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "hasAnswer": true,
+            "analysis": "All four are useful depending on the question."
+          },
+          {
+            "id": "u09-l01-q3",
+            "type": "single",
+            "question": "What is the safest use of generated documentation?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Use it to route and explain, then confirm detailed claims when needed"
+              },
+              {
+                "value": "B",
+                "label": "Treat it as unrelated decoration"
+              },
+              {
+                "value": "C",
+                "label": "Use it to avoid all source review forever"
+              },
+              {
+                "value": "D",
+                "label": "Assume it proves every branch"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "Generated docs are valuable but should be paired with source and branch awareness."
+          },
+          {
+            "id": "u09-l01-q4",
+            "type": "single",
+            "question": "What should every source route record?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Claim, source family, variant scope, and evidence anchor"
+              },
+              {
+                "value": "B",
+                "label": "Only personal confidence"
+              },
+              {
+                "value": "C",
+                "label": "Only a screenshot color"
+              },
+              {
+                "value": "D",
+                "label": "Only the number of slides"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "Evidence recording is what makes the course maintainable and reviewable."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cva6-source-tree",
+            "title": "CVA6 public repository source tree",
+            "url": "https://github.com/openhwgroup/cva6",
+            "locator": "repository directories core, docs, corev_apu, verif, config, util",
+            "localPath": "/Users/alexchen/1_workspace/4_openhw/2_cva6_ci/1_tier_v1/cva6",
+            "claimSupported": "The public repository is organized around core RTL, documentation, APU/testharness material, verification, configuration, and tooling directories."
+          },
+          {
+            "id": "cva6-overview-docs",
+            "title": "CVA6 documentation overview",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "overview/index.md Organization of this Document",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/index.md",
+            "claimSupported": "The official documentation separates user guide, requirements, design documents, configuration-specific manuals, and APU material."
+          },
+          {
+            "id": "cva6-doc-build-readme",
+            "title": "CVA6 documentation README",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/README.html",
+            "locator": "overview/README.md generated documentation",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/README.md",
+            "claimSupported": "CVA6 documentation is generated from repository material, including configuration-specific instruction and design manuals."
+          }
+        ],
+        "speakerNotes": "This quiz checks the core judgment of Source directory map: where to look first. The right answers should feel less like trivia and more like disciplined classification: what is the boundary, what is the source, what is the limitation, and what would we check next?"
+      },
+      "sourceAnchors": [
+        "cva6-source-tree",
+        "cva6-overview-docs",
+        "cva6-doc-build-readme"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u09-l01-quiz-speech",
+          "type": "speech",
+          "text": "This quiz checks the core judgment of Source directory map: where to look first. The right answers should feel less like trivia and more like disciplined classification: what is the boundary, what is the source, what is the limitation, and what would we check next?",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u09-l01-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u09-l01-source-directory-map-en/audio/tts_scene-cva6-u09-l01-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u09-l01-summary",
+      "stageId": "openhw-cva6-u09-l01-source-directory-map-en",
+      "type": "html-slide",
+      "title": "Summary: Source directory map: where to look first",
+      "order": 5,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "SUMMARY",
+          "title": "Source directory map: where to look first",
+          "takeaways": [
+            "Choose the right repo directory or official document before starting a CVA6 source-reading task.",
+            "Keep claims source-scoped and configuration-aware.",
+            "Turn every public explanation into an evidence-backed learning artifact."
+          ],
+          "nextStep": "Next: a review checklist for turning source routes into engineering review habits.",
+          "closing": "This is how OpenHW Explorer can teach serious open hardware without drifting into unsupported certainty."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-source-tree",
+            "title": "CVA6 public repository source tree",
+            "url": "https://github.com/openhwgroup/cva6",
+            "locator": "repository directories core, docs, corev_apu, verif, config, util",
+            "localPath": "/Users/alexchen/1_workspace/4_openhw/2_cva6_ci/1_tier_v1/cva6",
+            "claimSupported": "The public repository is organized around core RTL, documentation, APU/testharness material, verification, configuration, and tooling directories."
+          },
+          {
+            "id": "cva6-overview-docs",
+            "title": "CVA6 documentation overview",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "overview/index.md Organization of this Document",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/index.md",
+            "claimSupported": "The official documentation separates user guide, requirements, design documents, configuration-specific manuals, and APU material."
+          },
+          {
+            "id": "cva6-doc-build-readme",
+            "title": "CVA6 documentation README",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/README.html",
+            "locator": "overview/README.md generated documentation",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/README.md",
+            "claimSupported": "CVA6 documentation is generated from repository material, including configuration-specific instruction and design manuals."
+          }
+        ],
+        "speakerNotes": "To summarize: Choose the right repo directory or official document before starting a CVA6 source-reading task. Keep the claim small, keep the source visible, and keep the boundary honest. Next: a review checklist for turning source routes into engineering review habits."
+      },
+      "sourceAnchors": [
+        "cva6-source-tree",
+        "cva6-overview-docs",
+        "cva6-doc-build-readme"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u09-l01-summary-speech",
+          "type": "speech",
+          "text": "To summarize: Choose the right repo directory or official document before starting a CVA6 source-reading task. Keep the claim small, keep the source visible, and keep the boundary honest. Next: a review checklist for turning source routes into engineering review habits.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u09-l01-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u09-l01-source-directory-map-en/audio/tts_scene-cva6-u09-l01-summary-speech.mp3"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "default-1",
+      "name": "AlexChen",
+      "role": "Professional OpenHW classroom narrator",
+      "voice": "local-tts:kokoro:am_eric"
+    }
+  ],
+  "metadata": {
+    "seriesId": "cva6-from-zero",
+    "unitId": "u09-source-reading-verification",
+    "skillId": "u09-s01-source-route",
+    "lessonId": "cva6-u09-l01-source-directory-map",
+    "sourceRefs": [
+      "cva6-source-tree",
+      "cva6-overview-docs",
+      "cva6-doc-build-readme"
+    ],
+    "assetRefs": [
+      "cva6_scope.png"
+    ],
+    "generatedAt": "2026-06-01T08:59:34.201Z"
+  }
+}

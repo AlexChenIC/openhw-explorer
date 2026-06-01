@@ -1,0 +1,564 @@
+{
+  "id": "openhw-cva6-u08-l05-checkpoint-interfaces-en",
+  "stage": {
+    "id": "openhw-cva6-u08-l05-checkpoint-interfaces-en",
+    "name": "Checkpoint 08: interfaces and integration",
+    "description": "A checkpoint that turns Unit 08 into practical integration judgment.",
+    "createdAt": 1780304374203,
+    "updatedAt": 1780305151897,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u08-l05-title",
+      "stageId": "openhw-cva6-u08-l05-checkpoint-interfaces-en",
+      "type": "html-slide",
+      "title": "The interface question is always: whose responsibility is this?",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 08 / CHECKPOINT",
+          "title": "The interface question is always: whose responsibility is this?",
+          "subtitle": "CVA6 core, AXI fabric, interrupt/debug infrastructure, CV-X-IF coprocessor, PMA, and SoC integration are different ownership zones.",
+          "chips": [
+            "AXI",
+            "Interrupt",
+            "Debug",
+            "CV-X-IF",
+            "PMA",
+            "TRI"
+          ],
+          "thesis": "A correct integration answer names the boundary before naming the fix."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-axi-interface",
+            "title": "CVA6 user manual: AXI interface",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/AXI_Interface.html",
+            "locator": "cva6-user-manual/AXI_Interface.md AXI4 and CVA6",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/AXI_Interface.md",
+            "claimSupported": "CVA6 uses AXI as the memory interface, implements required AXI signals, supports AXI4 features and the AXI5 atomic operation feature with restrictions."
+          }
+        ],
+        "speakerNotes": "This lesson is Checkpoint 08: interfaces and integration. CVA6 core, AXI fabric, interrupt/debug infrastructure, CV-X-IF coprocessor, PMA, and SoC integration are different ownership zones. The point is not to memorize a wall of CVA6 facts. The point is to build a disciplined source-reading habit: name the boundary, name the source, and avoid claims that the public material does not support."
+      },
+      "sourceAnchors": [
+        "cva6-axi-interface"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u08-l05-title-speech",
+          "type": "speech",
+          "text": "This lesson is Checkpoint 08: interfaces and integration. CVA6 core, AXI fabric, interrupt/debug infrastructure, CV-X-IF coprocessor, PMA, and SoC integration are different ownership zones. The point is not to memorize a wall of CVA6 facts. The point is to build a disciplined source-reading habit: name the boundary, name the source, and avoid claims that the public material does not support.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u08-l05-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u08-l05-checkpoint-interfaces-en/audio/tts_scene-cva6-u08-l05-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u08-l05-zones",
+      "stageId": "openhw-cva6-u08-l05-checkpoint-interfaces-en",
+      "type": "html-slide",
+      "title": "Five responsibility zones",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "RESPONSIBILITY MAP",
+          "title": "Classify the boundary before debugging the behavior",
+          "subtitle": "A system symptom is rarely owned by only one paragraph of documentation.",
+          "cards": [
+            {
+              "title": "Core",
+              "body": "Pipeline, commit, CSR, LSU, and execution contracts."
+            },
+            {
+              "title": "Memory fabric",
+              "body": "AXI channels, responses, outstanding behavior, and mapped slaves."
+            },
+            {
+              "title": "Event infrastructure",
+              "body": "Interrupt and debug sources around the core."
+            },
+            {
+              "title": "Extension",
+              "body": "CV-X-IF issue, commit, and result contract."
+            }
+          ],
+          "takeaway": "Boundary classification makes integration practical."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-axi-interface",
+            "title": "CVA6 user manual: AXI interface",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/AXI_Interface.html",
+            "locator": "cva6-user-manual/AXI_Interface.md AXI4 and CVA6",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/AXI_Interface.md",
+            "claimSupported": "CVA6 uses AXI as the memory interface, implements required AXI signals, supports AXI4 features and the AXI5 atomic operation feature with restrictions."
+          },
+          {
+            "id": "cva6-interfaces",
+            "title": "CVA6 user manual: Interfaces",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Interfaces.html",
+            "locator": "cva6-user-manual/Interfaces.md",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Interfaces.md",
+            "claimSupported": "The user manual lists AXI, Debug, Interrupt, and TRI interface applicability across CVA6 configurations."
+          },
+          {
+            "id": "cva6-cvxif",
+            "title": "CVA6 user manual: CV-X-IF Interface and Coprocessor",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/CVX_Interface_Coprocessor.html",
+            "locator": "cva6-user-manual/CVX_Interface_Coprocessor.md",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/CVX_Interface_Coprocessor.md",
+            "claimSupported": "CV-X-IF extends CVA6 with external coprocessors; CVA6 implements issue, commit, and result interfaces while compressed and memory interfaces are not implemented yet."
+          },
+          {
+            "id": "cva6-pma",
+            "title": "CVA6 user manual: PMA",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/PMA.html",
+            "locator": "cva6-user-manual/PMA.md",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/PMA.md",
+            "claimSupported": "PMA describes non-idempotent, executable, and cacheable regions and reminds readers not to invent coherence behavior for standalone CVA6."
+          }
+        ],
+        "speakerNotes": "This checkpoint is about ownership. If memory returns a response, is the issue in the LSU, AXI fabric, subordinate device, PMA region, or integration wrapper? If an interrupt is missing, is the source missing, the core input wrong, the CSR state wrong, or the pipeline response wrong? Naming the zone is half the solution."
+      },
+      "sourceAnchors": [
+        "cva6-axi-interface",
+        "cva6-interfaces",
+        "cva6-cvxif",
+        "cva6-pma"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u08-l05-zones-speech",
+          "type": "speech",
+          "text": "This checkpoint is about ownership. If memory returns a response, is the issue in the LSU, AXI fabric, subordinate device, PMA region, or integration wrapper? If an interrupt is missing, is the source missing, the core input wrong, the CSR state wrong, or the pipeline response wrong? Naming the zone is half the solution.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u08-l05-zones-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u08-l05-checkpoint-interfaces-en/audio/tts_scene-cva6-u08-l05-zones-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u08-l05-source-discipline",
+      "stageId": "openhw-cva6-u08-l05-checkpoint-interfaces-en",
+      "type": "html-slide",
+      "title": "Integration claims need source discipline",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "SOURCE DISCIPLINE",
+          "title": "Do not publish system claims from one signal name",
+          "items": [
+            {
+              "title": "Check requirement",
+              "body": "Does a requirement name the feature or interface?"
+            },
+            {
+              "title": "Check applicability",
+              "body": "Does the interface page say the configuration implements it?"
+            },
+            {
+              "title": "Check context",
+              "body": "Is this a testharness example, product doc, or generic core note?"
+            },
+            {
+              "title": "Check gaps",
+              "body": "If documentation is incomplete, mark the claim as a review item."
+            }
+          ],
+          "takeaway": "Evidence quality is part of course quality."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-requirements-interfaces",
+            "title": "CVA6 requirements: interface requirements",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#interface-requirements",
+            "locator": "requirements/cva6_requirements_specification.md Interface requirements",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements document names MEM, DBG, IRQ, XIF, and TRI requirements, including AXI memory interface, CLINT interrupt interface, CV-X-IF, and P-Mesh TRI."
+          },
+          {
+            "id": "cva6-core-integration",
+            "title": "CVA6 user manual: Core Integration",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Core_Integration.html",
+            "locator": "cva6-user-manual/Core_Integration.md",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Core_Integration.md",
+            "claimSupported": "The integration chapter is explicitly incomplete and lists intended integration topics such as instantiation, resets, clocking, timing, ASIC, and FPGA guidance."
+          }
+        ],
+        "speakerNotes": "The final integration habit is source discipline. A requirement tells us intent. An interface table tells us applicability. A testharness diagram gives a concrete integration example. An incomplete integration chapter tells us not to over-claim. That is exactly the level of care we want in a public technical course."
+      },
+      "sourceAnchors": [
+        "cva6-requirements-interfaces",
+        "cva6-core-integration"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u08-l05-source-discipline-speech",
+          "type": "speech",
+          "text": "The final integration habit is source discipline. A requirement tells us intent. An interface table tells us applicability. A testharness diagram gives a concrete integration example. An incomplete integration chapter tells us not to over-claim. That is exactly the level of care we want in a public technical course.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u08-l05-source-discipline-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u08-l05-checkpoint-interfaces-en/audio/tts_scene-cva6-u08-l05-source-discipline-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u08-l05-quiz",
+      "stageId": "openhw-cva6-u08-l05-checkpoint-interfaces-en",
+      "type": "quiz",
+      "title": "Checkpoint 08: interfaces and integration",
+      "order": 3,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u08-l05-q1",
+            "type": "single",
+            "question": "A memory transaction reaches the external bus. Which concept should you consider first?",
+            "options": [
+              {
+                "value": "A",
+                "label": "AXI boundary and memory-fabric contract"
+              },
+              {
+                "value": "B",
+                "label": "RAS only"
+              },
+              {
+                "value": "C",
+                "label": "Instruction decode opcode table only"
+              },
+              {
+                "value": "D",
+                "label": "Logo alignment"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "External bus behavior belongs to the interface/fabric layer, not only to frontend or decode."
+          },
+          {
+            "id": "u08-l05-q2",
+            "type": "multiple",
+            "question": "Which facts are safe CV-X-IF statements for CVA6?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Issue interface is implemented"
+              },
+              {
+                "value": "B",
+                "label": "Commit interface is implemented"
+              },
+              {
+                "value": "C",
+                "label": "Result interface is implemented"
+              },
+              {
+                "value": "D",
+                "label": "Memory interface is implemented already"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C"
+            ],
+            "hasAnswer": true,
+            "analysis": "The CV-X-IF memory interface is not implemented yet in CVA6."
+          },
+          {
+            "id": "u08-l05-q3",
+            "type": "single",
+            "question": "When docs say an integration chapter is incomplete, what is the professional response?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Mark the gap and avoid over-claiming"
+              },
+              {
+                "value": "B",
+                "label": "Invent the missing implementation"
+              },
+              {
+                "value": "C",
+                "label": "Assume all systems are coherent"
+              },
+              {
+                "value": "D",
+                "label": "Ignore requirements"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "Documentation gaps become review items."
+          },
+          {
+            "id": "u08-l05-q4",
+            "type": "single",
+            "question": "Which item is outside the CVA6 core pipeline but relevant to interrupt behavior?",
+            "options": [
+              {
+                "value": "A",
+                "label": "CLINT or PLIC infrastructure"
+              },
+              {
+                "value": "B",
+                "label": "ALU add instruction only"
+              },
+              {
+                "value": "C",
+                "label": "BHT counter only"
+              },
+              {
+                "value": "D",
+                "label": "Scoreboard row width only"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "Interrupt infrastructure is a system boundary around the core."
+          },
+          {
+            "id": "u08-l05-q5",
+            "type": "multiple",
+            "question": "Which boundaries should a learner keep separate after Unit 08?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Core-internal behavior"
+              },
+              {
+                "value": "B",
+                "label": "AXI memory fabric"
+              },
+              {
+                "value": "C",
+                "label": "External interrupt/debug infrastructure"
+              },
+              {
+                "value": "D",
+                "label": "Coprocessor extension contract"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "hasAnswer": true,
+            "analysis": "Unit 08 is largely about preserving these ownership boundaries."
+          },
+          {
+            "id": "u08-l05-q6",
+            "type": "single",
+            "question": "What is the best one-sentence summary of Unit 08?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Name the interface boundary before explaining the system behavior"
+              },
+              {
+                "value": "B",
+                "label": "Every interface is a branch predictor"
+              },
+              {
+                "value": "C",
+                "label": "AXI replaces all CSRs"
+              },
+              {
+                "value": "D",
+                "label": "PMA is a slide theme"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "This is the operating rule for integration work."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cva6-axi-interface",
+            "title": "CVA6 user manual: AXI interface",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/AXI_Interface.html",
+            "locator": "cva6-user-manual/AXI_Interface.md AXI4 and CVA6",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/AXI_Interface.md",
+            "claimSupported": "CVA6 uses AXI as the memory interface, implements required AXI signals, supports AXI4 features and the AXI5 atomic operation feature with restrictions."
+          },
+          {
+            "id": "cva6-interfaces",
+            "title": "CVA6 user manual: Interfaces",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Interfaces.html",
+            "locator": "cva6-user-manual/Interfaces.md",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Interfaces.md",
+            "claimSupported": "The user manual lists AXI, Debug, Interrupt, and TRI interface applicability across CVA6 configurations."
+          },
+          {
+            "id": "cva6-cvxif",
+            "title": "CVA6 user manual: CV-X-IF Interface and Coprocessor",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/CVX_Interface_Coprocessor.html",
+            "locator": "cva6-user-manual/CVX_Interface_Coprocessor.md",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/CVX_Interface_Coprocessor.md",
+            "claimSupported": "CV-X-IF extends CVA6 with external coprocessors; CVA6 implements issue, commit, and result interfaces while compressed and memory interfaces are not implemented yet."
+          },
+          {
+            "id": "cva6-pma",
+            "title": "CVA6 user manual: PMA",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/PMA.html",
+            "locator": "cva6-user-manual/PMA.md",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/PMA.md",
+            "claimSupported": "PMA describes non-idempotent, executable, and cacheable regions and reminds readers not to invent coherence behavior for standalone CVA6."
+          }
+        ],
+        "speakerNotes": "This quiz checks the core judgment of Checkpoint 08: interfaces and integration. The right answers should feel less like trivia and more like disciplined classification: what is the boundary, what is the source, what is the limitation, and what would we check next?"
+      },
+      "sourceAnchors": [
+        "cva6-axi-interface",
+        "cva6-interfaces",
+        "cva6-cvxif",
+        "cva6-pma"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u08-l05-quiz-speech",
+          "type": "speech",
+          "text": "This quiz checks the core judgment of Checkpoint 08: interfaces and integration. The right answers should feel less like trivia and more like disciplined classification: what is the boundary, what is the source, what is the limitation, and what would we check next?",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u08-l05-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u08-l05-checkpoint-interfaces-en/audio/tts_scene-cva6-u08-l05-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u08-l05-summary",
+      "stageId": "openhw-cva6-u08-l05-checkpoint-interfaces-en",
+      "type": "html-slide",
+      "title": "Summary: Checkpoint 08: interfaces and integration",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "SUMMARY",
+          "title": "Checkpoint 08: interfaces and integration",
+          "takeaways": [
+            "Classify interface issues as core, memory fabric, interrupt/debug, extension, or system-integration responsibilities.",
+            "Keep claims source-scoped and configuration-aware.",
+            "Turn every public explanation into an evidence-backed learning artifact."
+          ],
+          "nextStep": "Next unit: source reading and verification handoff, where learners turn architecture knowledge into their own review workflow.",
+          "closing": "This is how OpenHW Explorer can teach serious open hardware without drifting into unsupported certainty."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-axi-interface",
+            "title": "CVA6 user manual: AXI interface",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/AXI_Interface.html",
+            "locator": "cva6-user-manual/AXI_Interface.md AXI4 and CVA6",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/AXI_Interface.md",
+            "claimSupported": "CVA6 uses AXI as the memory interface, implements required AXI signals, supports AXI4 features and the AXI5 atomic operation feature with restrictions."
+          },
+          {
+            "id": "cva6-interfaces",
+            "title": "CVA6 user manual: Interfaces",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Interfaces.html",
+            "locator": "cva6-user-manual/Interfaces.md",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Interfaces.md",
+            "claimSupported": "The user manual lists AXI, Debug, Interrupt, and TRI interface applicability across CVA6 configurations."
+          },
+          {
+            "id": "cva6-cvxif",
+            "title": "CVA6 user manual: CV-X-IF Interface and Coprocessor",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/CVX_Interface_Coprocessor.html",
+            "locator": "cva6-user-manual/CVX_Interface_Coprocessor.md",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/CVX_Interface_Coprocessor.md",
+            "claimSupported": "CV-X-IF extends CVA6 with external coprocessors; CVA6 implements issue, commit, and result interfaces while compressed and memory interfaces are not implemented yet."
+          }
+        ],
+        "speakerNotes": "To summarize: Classify interface issues as core, memory fabric, interrupt/debug, extension, or system-integration responsibilities. Keep the claim small, keep the source visible, and keep the boundary honest. Next unit: source reading and verification handoff, where learners turn architecture knowledge into their own review workflow."
+      },
+      "sourceAnchors": [
+        "cva6-axi-interface",
+        "cva6-interfaces",
+        "cva6-cvxif"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u08-l05-summary-speech",
+          "type": "speech",
+          "text": "To summarize: Classify interface issues as core, memory fabric, interrupt/debug, extension, or system-integration responsibilities. Keep the claim small, keep the source visible, and keep the boundary honest. Next unit: source reading and verification handoff, where learners turn architecture knowledge into their own review workflow.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u08-l05-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u08-l05-checkpoint-interfaces-en/audio/tts_scene-cva6-u08-l05-summary-speech.mp3"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "default-1",
+      "name": "AlexChen",
+      "role": "Professional OpenHW classroom narrator",
+      "voice": "local-tts:kokoro:am_eric"
+    }
+  ],
+  "metadata": {
+    "seriesId": "cva6-from-zero",
+    "unitId": "u08-interfaces-integration",
+    "skillId": "u08-s03-checkpoint",
+    "lessonId": "cva6-u08-l05-checkpoint-interfaces",
+    "sourceRefs": [
+      "cva6-axi-interface",
+      "cva6-interfaces",
+      "cva6-cvxif",
+      "cva6-pma",
+      "cva6-testharness"
+    ],
+    "assetRefs": [
+      "test_harness.png",
+      "cva6_scope.png"
+    ],
+    "generatedAt": "2026-06-01T08:59:34.201Z"
+  }
+}

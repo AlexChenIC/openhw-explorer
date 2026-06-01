@@ -1,0 +1,567 @@
+{
+  "id": "openhw-cva6-u09-l02-review-checklist-en",
+  "stage": {
+    "id": "openhw-cva6-u09-l02-review-checklist-en",
+    "name": "Review checklist: how to read CVA6 like an engineer",
+    "description": "A practical checklist lesson that converts the course into repeatable source-reading behavior.",
+    "createdAt": 1780304374203,
+    "updatedAt": 1780305229955,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u09-l02-title",
+      "stageId": "openhw-cva6-u09-l02-review-checklist-en",
+      "type": "html-slide",
+      "title": "A checklist turns source reading into engineering",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 09 / LESSON 02",
+          "title": "A checklist turns source reading into engineering",
+          "subtitle": "The goal is not to read more files; the goal is to ask better questions while reading.",
+          "chips": [
+            "Scope",
+            "Inputs",
+            "State",
+            "Handshake",
+            "Exceptions"
+          ],
+          "thesis": "A public technical claim should survive a small, repeatable review checklist."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-source-tree",
+            "title": "CVA6 public repository source tree",
+            "url": "https://github.com/openhwgroup/cva6",
+            "locator": "repository directories core, docs, corev_apu, verif, config, util",
+            "localPath": "/Users/alexchen/1_workspace/4_openhw/2_cva6_ci/1_tier_v1/cva6",
+            "claimSupported": "The public repository is organized around core RTL, documentation, APU/testharness material, verification, configuration, and tooling directories."
+          }
+        ],
+        "speakerNotes": "This lesson is Review checklist: how to read CVA6 like an engineer. The goal is not to read more files; the goal is to ask better questions while reading. The point is not to memorize a wall of CVA6 facts. The point is to build a disciplined source-reading habit: name the boundary, name the source, and avoid claims that the public material does not support."
+      },
+      "sourceAnchors": [
+        "cva6-source-tree"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u09-l02-title-speech",
+          "type": "speech",
+          "text": "This lesson is Review checklist: how to read CVA6 like an engineer. The goal is not to read more files; the goal is to ask better questions while reading. The point is not to memorize a wall of CVA6 facts. The point is to build a disciplined source-reading habit: name the boundary, name the source, and avoid claims that the public material does not support.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u09-l02-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u09-l02-review-checklist-en/audio/tts_scene-cva6-u09-l02-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u09-l02-checklist",
+      "stageId": "openhw-cva6-u09-l02-review-checklist-en",
+      "type": "html-slide",
+      "title": "Seven questions for every module",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "MODULE REVIEW",
+          "title": "Before explaining a block, interrogate it",
+          "items": [
+            {
+              "title": "Scope",
+              "body": "What problem does this block own, and what does it not own?"
+            },
+            {
+              "title": "Inputs/outputs",
+              "body": "Which signals define the external contract?"
+            },
+            {
+              "title": "State",
+              "body": "What persistent state or queue changes across cycles?"
+            },
+            {
+              "title": "Handshake",
+              "body": "Where are valid, ready, stall, flush, or commit controls?"
+            }
+          ],
+          "takeaway": "A module explanation should be built from contracts."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-source-tree",
+            "title": "CVA6 public repository source tree",
+            "url": "https://github.com/openhwgroup/cva6",
+            "locator": "repository directories core, docs, corev_apu, verif, config, util",
+            "localPath": "/Users/alexchen/1_workspace/4_openhw/2_cva6_ci/1_tier_v1/cva6",
+            "claimSupported": "The public repository is organized around core RTL, documentation, APU/testharness material, verification, configuration, and tooling directories."
+          },
+          {
+            "id": "cv32a60x-design-issue-stage",
+            "title": "CV32A60X design: ISSUE_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "ISSUE_STAGE issues instructions in order, reorders execution results, and sends completed instructions in order to COMMIT_STAGE."
+          }
+        ],
+        "speakerNotes": "This lesson gives a reusable checklist. For any CVA6 block, ask: what does it own, what enters and leaves, what state persists, what handshakes control progress, what exceptions or flushes affect it, what configuration changes it, and how would verification observe it? That checklist is simple, but it prevents shallow reading."
+      },
+      "sourceAnchors": [
+        "cva6-source-tree",
+        "cv32a60x-design-issue-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u09-l02-checklist-speech",
+          "type": "speech",
+          "text": "This lesson gives a reusable checklist. For any CVA6 block, ask: what does it own, what enters and leaves, what state persists, what handshakes control progress, what exceptions or flushes affect it, what configuration changes it, and how would verification observe it? That checklist is simple, but it prevents shallow reading.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u09-l02-checklist-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u09-l02-review-checklist-en/audio/tts_scene-cva6-u09-l02-checklist-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u09-l02-state",
+      "stageId": "openhw-cva6-u09-l02-review-checklist-en",
+      "type": "html-slide",
+      "title": "State and authority are not the same thing",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "STATE VS AUTHORITY",
+          "title": "A block may remember something without owning final architectural truth",
+          "subtitle": "Scoreboard and commit are a useful example.",
+          "columns": [
+            {
+              "title": "Scoreboard state",
+              "body": "Tracks issued instructions and returned results by identity.",
+              "points": [
+                "Instruction rows",
+                "Returned values",
+                "Completion state"
+              ]
+            },
+            {
+              "title": "Commit authority",
+              "body": "Decides architectural updates in program order.",
+              "points": [
+                "Register writeback",
+                "CSR/store effects",
+                "Precise traps"
+              ]
+            }
+          ],
+          "takeaway": "Ask who tracks and who authorizes."
+        },
+        "assets": [
+          {
+            "id": "scoreboard",
+            "type": "image",
+            "src": "/classroom-assets/cva6-shared/assets/scoreboard.png",
+            "alt": "Official CVA6 scoreboard diagram",
+            "caption": "Official CVA6 scoreboard diagram",
+            "source": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/assets/_images/scoreboard.png"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cv32a60x-design-scoreboard",
+            "title": "CV32A60X design: Scoreboard submodule",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#scoreboard",
+            "locator": "cv32a60x/design/design.md Scoreboard submodule",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "The scoreboard tracks issued instructions, stores returned results by transaction ID, and exposes the oldest completed entry to commit."
+          },
+          {
+            "id": "cv32a60x-design-commit-stage",
+            "title": "CV32A60X design: COMMIT_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#commit-stage-module",
+            "locator": "cv32a60x/design/design.md COMMIT_STAGE module",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "COMMIT_STAGE updates architectural state, writes CSR/register state, commits stores, and handles precise traps in order."
+          }
+        ],
+        "speakerNotes": "A subtle source-reading question is: who tracks, and who authorizes? The scoreboard tracks issued work and results. Commit authorizes architectural state updates. If you collapse those two, you will explain precise state incorrectly. This pattern appears everywhere: buffers remember, controllers decide, commit authorizes."
+      },
+      "sourceAnchors": [
+        "cv32a60x-design-scoreboard",
+        "cv32a60x-design-commit-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u09-l02-state-speech",
+          "type": "speech",
+          "text": "A subtle source-reading question is: who tracks, and who authorizes? The scoreboard tracks issued work and results. Commit authorizes architectural state updates. If you collapse those two, you will explain precise state incorrectly. This pattern appears everywhere: buffers remember, controllers decide, commit authorizes.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u09-l02-state-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u09-l02-review-checklist-en/audio/tts_scene-cva6-u09-l02-state-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u09-l02-review-output",
+      "stageId": "openhw-cva6-u09-l02-review-checklist-en",
+      "type": "html-slide",
+      "title": "A good review creates an artifact",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "REVIEW OUTPUT",
+          "title": "Do not finish with only a feeling",
+          "subtitle": "A review should leave a trace that another person can check.",
+          "cards": [
+            {
+              "title": "Claim",
+              "body": "A precise one-sentence statement."
+            },
+            {
+              "title": "Evidence",
+              "body": "Source URL, local file, section, and relevant signal or paragraph."
+            },
+            {
+              "title": "Scope",
+              "body": "Configuration, branch, and known limitations."
+            },
+            {
+              "title": "Question",
+              "body": "What still needs verification or maintainer confirmation?"
+            }
+          ],
+          "takeaway": "The review artifact becomes course input."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-requirements-scope",
+            "title": "CVA6 requirements: scope and verification intent",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html",
+            "locator": "requirements/cva6_requirements_specification.md scope and verification",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements document defines the CVA6 feature scope and ties requirements to verification intent and interface requirements."
+          },
+          {
+            "id": "cva6-doc-build-readme",
+            "title": "CVA6 documentation README",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/README.html",
+            "locator": "overview/README.md generated documentation",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/README.md",
+            "claimSupported": "CVA6 documentation is generated from repository material, including configuration-specific instruction and design manuals."
+          }
+        ],
+        "speakerNotes": "For OpenHW Explorer, this is the production workflow. Every review should output a claim, evidence, scope, and unresolved question. That artifact can become a slide, a narration note, a quiz distractor, or a TODO. It also makes the work maintainable when future AI threads pick it up."
+      },
+      "sourceAnchors": [
+        "cva6-requirements-scope",
+        "cva6-doc-build-readme"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u09-l02-review-output-speech",
+          "type": "speech",
+          "text": "For OpenHW Explorer, this is the production workflow. Every review should output a claim, evidence, scope, and unresolved question. That artifact can become a slide, a narration note, a quiz distractor, or a TODO. It also makes the work maintainable when future AI threads pick it up.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u09-l02-review-output-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u09-l02-review-checklist-en/audio/tts_scene-cva6-u09-l02-review-output-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u09-l02-quiz",
+      "stageId": "openhw-cva6-u09-l02-review-checklist-en",
+      "type": "quiz",
+      "title": "Check understanding: Review checklist: how to read CVA6 like an engineer",
+      "order": 4,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u09-l02-q1",
+            "type": "multiple",
+            "question": "Which questions belong in a module review checklist?",
+            "options": [
+              {
+                "value": "A",
+                "label": "What does this block own?"
+              },
+              {
+                "value": "B",
+                "label": "What state does it keep?"
+              },
+              {
+                "value": "C",
+                "label": "What handshakes control it?"
+              },
+              {
+                "value": "D",
+                "label": "What is the slide background color only?"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C"
+            ],
+            "hasAnswer": true,
+            "analysis": "Visual style may matter for publishing, but it is not a source-review question."
+          },
+          {
+            "id": "u09-l02-q2",
+            "type": "single",
+            "question": "What is the difference between scoreboard and commit in the checklist example?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Scoreboard tracks work; commit authorizes architectural state"
+              },
+              {
+                "value": "B",
+                "label": "Scoreboard is a debug cable; commit is a font choice"
+              },
+              {
+                "value": "C",
+                "label": "They are the same block"
+              },
+              {
+                "value": "D",
+                "label": "Commit predicts branches only"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "Tracking and architectural authority are different responsibilities."
+          },
+          {
+            "id": "u09-l02-q3",
+            "type": "single",
+            "question": "What should a review leave behind?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Claim, evidence, scope, and unresolved questions"
+              },
+              {
+                "value": "B",
+                "label": "Only vibes"
+              },
+              {
+                "value": "C",
+                "label": "Only a long quote with no context"
+              },
+              {
+                "value": "D",
+                "label": "Only a generated image"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "A review artifact makes future course production reliable."
+          },
+          {
+            "id": "u09-l02-q4",
+            "type": "single",
+            "question": "Why does configuration scope belong in the checklist?",
+            "options": [
+              {
+                "value": "A",
+                "label": "CVA6 is configurable, so claims may not apply to every variant"
+              },
+              {
+                "value": "B",
+                "label": "It makes quizzes impossible"
+              },
+              {
+                "value": "C",
+                "label": "It replaces all RTL review"
+              },
+              {
+                "value": "D",
+                "label": "It has no effect on public claims"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "Variant and configuration scope are core to accurate CVA6 explanation."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cva6-source-tree",
+            "title": "CVA6 public repository source tree",
+            "url": "https://github.com/openhwgroup/cva6",
+            "locator": "repository directories core, docs, corev_apu, verif, config, util",
+            "localPath": "/Users/alexchen/1_workspace/4_openhw/2_cva6_ci/1_tier_v1/cva6",
+            "claimSupported": "The public repository is organized around core RTL, documentation, APU/testharness material, verification, configuration, and tooling directories."
+          },
+          {
+            "id": "cv32a60x-design-issue-stage",
+            "title": "CV32A60X design: ISSUE_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "ISSUE_STAGE issues instructions in order, reorders execution results, and sends completed instructions in order to COMMIT_STAGE."
+          },
+          {
+            "id": "cv32a60x-design-ex-stage",
+            "title": "CV32A60X design: EX_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#ex-stage-module",
+            "locator": "cv32a60x/design/design.md EX_STAGE module",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "EX_STAGE groups functional units such as ALU, Branch Unit, CSR buffer, Mult, load/store, and CVXIF."
+          },
+          {
+            "id": "cv32a60x-design-commit-stage",
+            "title": "CV32A60X design: COMMIT_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#commit-stage-module",
+            "locator": "cv32a60x/design/design.md COMMIT_STAGE module",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "COMMIT_STAGE updates architectural state, writes CSR/register state, commits stores, and handles precise traps in order."
+          }
+        ],
+        "speakerNotes": "This quiz checks the core judgment of Review checklist: how to read CVA6 like an engineer. The right answers should feel less like trivia and more like disciplined classification: what is the boundary, what is the source, what is the limitation, and what would we check next?"
+      },
+      "sourceAnchors": [
+        "cva6-source-tree",
+        "cv32a60x-design-issue-stage",
+        "cv32a60x-design-ex-stage",
+        "cv32a60x-design-commit-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u09-l02-quiz-speech",
+          "type": "speech",
+          "text": "This quiz checks the core judgment of Review checklist: how to read CVA6 like an engineer. The right answers should feel less like trivia and more like disciplined classification: what is the boundary, what is the source, what is the limitation, and what would we check next?",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u09-l02-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u09-l02-review-checklist-en/audio/tts_scene-cva6-u09-l02-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u09-l02-summary",
+      "stageId": "openhw-cva6-u09-l02-review-checklist-en",
+      "type": "html-slide",
+      "title": "Summary: Review checklist: how to read CVA6 like an engineer",
+      "order": 5,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "SUMMARY",
+          "title": "Review checklist: how to read CVA6 like an engineer",
+          "takeaways": [
+            "Apply a disciplined review checklist before making a public technical claim about a CVA6 block.",
+            "Keep claims source-scoped and configuration-aware.",
+            "Turn every public explanation into an evidence-backed learning artifact."
+          ],
+          "nextStep": "Next: a source-to-slide practice lesson that turns one review artifact into classroom material.",
+          "closing": "This is how OpenHW Explorer can teach serious open hardware without drifting into unsupported certainty."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-source-tree",
+            "title": "CVA6 public repository source tree",
+            "url": "https://github.com/openhwgroup/cva6",
+            "locator": "repository directories core, docs, corev_apu, verif, config, util",
+            "localPath": "/Users/alexchen/1_workspace/4_openhw/2_cva6_ci/1_tier_v1/cva6",
+            "claimSupported": "The public repository is organized around core RTL, documentation, APU/testharness material, verification, configuration, and tooling directories."
+          },
+          {
+            "id": "cv32a60x-design-issue-stage",
+            "title": "CV32A60X design: ISSUE_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#issue-stage-module",
+            "locator": "cv32a60x/design/design.md ISSUE_STAGE module",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "ISSUE_STAGE issues instructions in order, reorders execution results, and sends completed instructions in order to COMMIT_STAGE."
+          },
+          {
+            "id": "cv32a60x-design-ex-stage",
+            "title": "CV32A60X design: EX_STAGE module",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/07_cv32a60x/design/design.html#ex-stage-module",
+            "locator": "cv32a60x/design/design.md EX_STAGE module",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cv32a60x/design/design.md",
+            "claimSupported": "EX_STAGE groups functional units such as ALU, Branch Unit, CSR buffer, Mult, load/store, and CVXIF."
+          }
+        ],
+        "speakerNotes": "To summarize: Apply a disciplined review checklist before making a public technical claim about a CVA6 block. Keep the claim small, keep the source visible, and keep the boundary honest. Next: a source-to-slide practice lesson that turns one review artifact into classroom material."
+      },
+      "sourceAnchors": [
+        "cva6-source-tree",
+        "cv32a60x-design-issue-stage",
+        "cv32a60x-design-ex-stage"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u09-l02-summary-speech",
+          "type": "speech",
+          "text": "To summarize: Apply a disciplined review checklist before making a public technical claim about a CVA6 block. Keep the claim small, keep the source visible, and keep the boundary honest. Next: a source-to-slide practice lesson that turns one review artifact into classroom material.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u09-l02-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u09-l02-review-checklist-en/audio/tts_scene-cva6-u09-l02-summary-speech.mp3"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "default-1",
+      "name": "AlexChen",
+      "role": "Professional OpenHW classroom narrator",
+      "voice": "local-tts:kokoro:am_eric"
+    }
+  ],
+  "metadata": {
+    "seriesId": "cva6-from-zero",
+    "unitId": "u09-source-reading-verification",
+    "skillId": "u09-s01-source-route",
+    "lessonId": "cva6-u09-l02-review-checklist",
+    "sourceRefs": [
+      "cva6-source-tree",
+      "cv32a60x-design-issue-stage",
+      "cv32a60x-design-ex-stage",
+      "cv32a60x-design-commit-stage"
+    ],
+    "assetRefs": [
+      "scoreboard.png"
+    ],
+    "generatedAt": "2026-06-01T08:59:34.201Z"
+  }
+}

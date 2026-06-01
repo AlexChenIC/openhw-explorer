@@ -1,0 +1,520 @@
+{
+  "id": "openhw-cva6-u08-l01-axi-boundary-en",
+  "stage": {
+    "id": "openhw-cva6-u08-l01-axi-boundary-en",
+    "name": "AXI boundary: where CVA6 becomes a system component",
+    "description": "A boundary lesson on AXI channels, required signals, atomic support, and the manager/subordinate split.",
+    "createdAt": 1780304374203,
+    "updatedAt": 1780304999756,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u08-l01-title",
+      "stageId": "openhw-cva6-u08-l01-axi-boundary-en",
+      "type": "html-slide",
+      "title": "AXI is the handoff from core story to system story",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 08 / LESSON 01",
+          "title": "AXI is the handoff from core story to system story",
+          "subtitle": "Once memory leaves the core-local explanation, AXI becomes the contract that other system blocks can understand.",
+          "chips": [
+            "AXI",
+            "Manager",
+            "Subordinate",
+            "Atomic ops",
+            "Memory fabric"
+          ],
+          "thesis": "Do not explain AXI as another pipeline stage; explain it as the external memory-interface contract."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-axi-interface",
+            "title": "CVA6 user manual: AXI interface",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/AXI_Interface.html",
+            "locator": "cva6-user-manual/AXI_Interface.md AXI4 and CVA6",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/AXI_Interface.md",
+            "claimSupported": "CVA6 uses AXI as the memory interface, implements required AXI signals, supports AXI4 features and the AXI5 atomic operation feature with restrictions."
+          }
+        ],
+        "speakerNotes": "This lesson is AXI boundary: where CVA6 becomes a system component. Once memory leaves the core-local explanation, AXI becomes the contract that other system blocks can understand. The point is not to memorize a wall of CVA6 facts. The point is to build a disciplined source-reading habit: name the boundary, name the source, and avoid claims that the public material does not support."
+      },
+      "sourceAnchors": [
+        "cva6-axi-interface"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u08-l01-title-speech",
+          "type": "speech",
+          "text": "This lesson is AXI boundary: where CVA6 becomes a system component. Once memory leaves the core-local explanation, AXI becomes the contract that other system blocks can understand. The point is not to memorize a wall of CVA6 facts. The point is to build a disciplined source-reading habit: name the boundary, name the source, and avoid claims that the public material does not support.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u08-l01-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u08-l01-axi-boundary-en/audio/tts_scene-cva6-u08-l01-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u08-l01-contract",
+      "stageId": "openhw-cva6-u08-l01-axi-boundary-en",
+      "type": "html-slide",
+      "title": "CVA6 is the AXI manager for memory",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "AXI ROLE",
+          "title": "Manager and subordinate are system roles",
+          "subtitle": "The AXI chapter says CVA6 initiates the memory connection.",
+          "columns": [
+            {
+              "title": "CVA6 side",
+              "body": "CVA6 sends requests through a manager interface toward memory.",
+              "points": [
+                "Initiates transactions",
+                "Drives request channels",
+                "Receives responses"
+              ]
+            },
+            {
+              "title": "System side",
+              "body": "Memory or interconnect behaves as the subordinate side of the transaction.",
+              "points": [
+                "Accepts requests",
+                "Returns responses",
+                "Adds latency and policy"
+              ]
+            }
+          ],
+          "takeaway": "AXI is a boundary vocabulary."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-axi-interface",
+            "title": "CVA6 user manual: AXI interface",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/AXI_Interface.html",
+            "locator": "cva6-user-manual/AXI_Interface.md AXI4 and CVA6",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/AXI_Interface.md",
+            "claimSupported": "CVA6 uses AXI as the memory interface, implements required AXI signals, supports AXI4 features and the AXI5 atomic operation feature with restrictions."
+          }
+        ],
+        "speakerNotes": "Unit 08 starts outside the pipeline. The AXI chapter describes CVA6 as the initiator of memory transactions, so CVA6 has the manager role and the memory system is subordinate. This matters because LSU behavior and AXI fabric behavior are not the same explanation. The LSU prepares memory operations; AXI carries requests and responses across a system boundary."
+      },
+      "sourceAnchors": [
+        "cva6-axi-interface"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u08-l01-contract-speech",
+          "type": "speech",
+          "text": "Unit 08 starts outside the pipeline. The AXI chapter describes CVA6 as the initiator of memory transactions, so CVA6 has the manager role and the memory system is subordinate. This matters because LSU behavior and AXI fabric behavior are not the same explanation. The LSU prepares memory operations; AXI carries requests and responses across a system boundary.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u08-l01-contract-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u08-l01-axi-boundary-en/audio/tts_scene-cva6-u08-l01-contract-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u08-l01-channels",
+      "stageId": "openhw-cva6-u08-l01-axi-boundary-en",
+      "type": "html-slide",
+      "title": "Read AXI as channels, not as one giant wire",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "AXI CHANNELS",
+          "title": "Separate address, data, and response phases",
+          "subtitle": "The AXI chapter emphasizes separate address/control and data phases.",
+          "cards": [
+            {
+              "title": "Write address",
+              "body": "AW signals identify the write transaction address and attributes."
+            },
+            {
+              "title": "Write data",
+              "body": "W signals carry write data and byte strobes."
+            },
+            {
+              "title": "Write response",
+              "body": "B signals return completion status."
+            },
+            {
+              "title": "Read path",
+              "body": "AR and R channels separate read request from read data response."
+            }
+          ],
+          "takeaway": "Channel separation is why AXI can support latency and outstanding work."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-axi-interface",
+            "title": "CVA6 user manual: AXI interface",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/AXI_Interface.html",
+            "locator": "cva6-user-manual/AXI_Interface.md AXI4 and CVA6",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/AXI_Interface.md",
+            "claimSupported": "CVA6 uses AXI as the memory interface, implements required AXI signals, supports AXI4 features and the AXI5 atomic operation feature with restrictions."
+          }
+        ],
+        "speakerNotes": "A learner should not read AXI as one massive bundle. AXI separates address, data, and response phases, and that separation is exactly why the protocol can support high-frequency systems, latency, and outstanding transactions. The official CVA6 chapter then adds restrictions. So the professional reading is: first protocol shape, then CVA6-specific support, then system integration."
+      },
+      "sourceAnchors": [
+        "cva6-axi-interface"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u08-l01-channels-speech",
+          "type": "speech",
+          "text": "A learner should not read AXI as one massive bundle. AXI separates address, data, and response phases, and that separation is exactly why the protocol can support high-frequency systems, latency, and outstanding transactions. The official CVA6 chapter then adds restrictions. So the professional reading is: first protocol shape, then CVA6-specific support, then system integration.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u08-l01-channels-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u08-l01-axi-boundary-en/audio/tts_scene-cva6-u08-l01-channels-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u08-l01-testharness",
+      "stageId": "openhw-cva6-u08-l01-axi-boundary-en",
+      "type": "html-slide",
+      "title": "The testharness shows the integration picture",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "diagramFocus",
+        "theme": "light",
+        "content": {
+          "kicker": "APU CONTEXT",
+          "title": "CVA6 becomes one master among many mapped components",
+          "body": "The APU testharness connects ariane/CVA6, debug, DRAM, CLINT, PLIC, ROM, UART, timer, and other blocks through AXI-related wiring.",
+          "assetId": "test-harness",
+          "caption": "Use the testharness diagram to move from core to system.",
+          "callouts": [
+            "CVA6 request path",
+            "Debug path",
+            "Peripheral slaves"
+          ]
+        },
+        "assets": [
+          {
+            "id": "test-harness",
+            "type": "image",
+            "src": "/classroom-assets/cva6-shared/assets/test_harness.png",
+            "alt": "Official CVA6 APU testharness diagram",
+            "caption": "Official CVA6 APU testharness diagram",
+            "source": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/assets/_images/test_harness.png"
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cva6-testharness",
+            "title": "CVA6 APU: testharness",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/05_cva6_apu/cva6_testharness.html",
+            "locator": "apu/cva6_testharness.md ariane_testharness",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/apu/cva6_testharness.md",
+            "claimSupported": "The testharness connects CVA6, debug, CLINT, PLIC, timer, ROM, UART, DRAM, and other slaves through AXI-related structures."
+          }
+        ],
+        "speakerNotes": "The APU testharness is useful because it makes the boundary visible. CVA6 is no longer just a pipeline diagram. It is one component connected to memory, debug, interrupt, ROM, timer, UART, and other blocks. Some details in that chapter are testharness-specific, so we should not overgeneralize it, but it is excellent for seeing what integration means."
+      },
+      "sourceAnchors": [
+        "cva6-testharness"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u08-l01-testharness-speech",
+          "type": "speech",
+          "text": "The APU testharness is useful because it makes the boundary visible. CVA6 is no longer just a pipeline diagram. It is one component connected to memory, debug, interrupt, ROM, timer, UART, and other blocks. Some details in that chapter are testharness-specific, so we should not overgeneralize it, but it is excellent for seeing what integration means.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u08-l01-testharness-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u08-l01-axi-boundary-en/audio/tts_scene-cva6-u08-l01-testharness-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u08-l01-quiz",
+      "stageId": "openhw-cva6-u08-l01-axi-boundary-en",
+      "type": "quiz",
+      "title": "Check understanding: AXI boundary: where CVA6 becomes a system component",
+      "order": 4,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u08-l01-q1",
+            "type": "single",
+            "question": "In the AXI memory-interface explanation, what role does CVA6 play?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Manager that initiates memory requests"
+              },
+              {
+                "value": "B",
+                "label": "Subordinate memory device only"
+              },
+              {
+                "value": "C",
+                "label": "Branch predictor only"
+              },
+              {
+                "value": "D",
+                "label": "PLIC gateway only"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "The AXI chapter describes CVA6 as initiating the connection with memory."
+          },
+          {
+            "id": "u08-l01-q2",
+            "type": "multiple",
+            "question": "Which AXI ideas should stay separate in a careful explanation?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Address/control phase"
+              },
+              {
+                "value": "B",
+                "label": "Data phase"
+              },
+              {
+                "value": "C",
+                "label": "Response phase"
+              },
+              {
+                "value": "D",
+                "label": "Return-address stack prediction"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C"
+            ],
+            "hasAnswer": true,
+            "analysis": "RAS prediction is frontend behavior, not an AXI channel."
+          },
+          {
+            "id": "u08-l01-q3",
+            "type": "single",
+            "question": "What is the biggest boundary mistake to avoid?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Treating AXI as a pipeline stage inside issue"
+              },
+              {
+                "value": "B",
+                "label": "Using official source anchors"
+              },
+              {
+                "value": "C",
+                "label": "Checking supported signals"
+              },
+              {
+                "value": "D",
+                "label": "Reading restrictions"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "AXI is an external memory-interface contract, not an issue-stage pipeline step."
+          },
+          {
+            "id": "u08-l01-q4",
+            "type": "single",
+            "question": "Which source is best for seeing CVA6 in a SoC-like wiring context?",
+            "options": [
+              {
+                "value": "A",
+                "label": "APU testharness"
+              },
+              {
+                "value": "B",
+                "label": "Only the ALU subsection"
+              },
+              {
+                "value": "C",
+                "label": "Only the RAS subsection"
+              },
+              {
+                "value": "D",
+                "label": "Only the scoreboard FIFO row"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "The testharness connects CVA6 to memory, debug, CLINT, PLIC, timer, ROM, and other blocks."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cva6-axi-interface",
+            "title": "CVA6 user manual: AXI interface",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/AXI_Interface.html",
+            "locator": "cva6-user-manual/AXI_Interface.md AXI4 and CVA6",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/AXI_Interface.md",
+            "claimSupported": "CVA6 uses AXI as the memory interface, implements required AXI signals, supports AXI4 features and the AXI5 atomic operation feature with restrictions."
+          },
+          {
+            "id": "cva6-requirements-interfaces",
+            "title": "CVA6 requirements: interface requirements",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#interface-requirements",
+            "locator": "requirements/cva6_requirements_specification.md Interface requirements",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements document names MEM, DBG, IRQ, XIF, and TRI requirements, including AXI memory interface, CLINT interrupt interface, CV-X-IF, and P-Mesh TRI."
+          },
+          {
+            "id": "cva6-testharness",
+            "title": "CVA6 APU: testharness",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/05_cva6_apu/cva6_testharness.html",
+            "locator": "apu/cva6_testharness.md ariane_testharness",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/apu/cva6_testharness.md",
+            "claimSupported": "The testharness connects CVA6, debug, CLINT, PLIC, timer, ROM, UART, DRAM, and other slaves through AXI-related structures."
+          }
+        ],
+        "speakerNotes": "This quiz checks the core judgment of AXI boundary: where CVA6 becomes a system component. The right answers should feel less like trivia and more like disciplined classification: what is the boundary, what is the source, what is the limitation, and what would we check next?"
+      },
+      "sourceAnchors": [
+        "cva6-axi-interface",
+        "cva6-requirements-interfaces",
+        "cva6-testharness"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u08-l01-quiz-speech",
+          "type": "speech",
+          "text": "This quiz checks the core judgment of AXI boundary: where CVA6 becomes a system component. The right answers should feel less like trivia and more like disciplined classification: what is the boundary, what is the source, what is the limitation, and what would we check next?",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u08-l01-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u08-l01-axi-boundary-en/audio/tts_scene-cva6-u08-l01-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u08-l01-summary",
+      "stageId": "openhw-cva6-u08-l01-axi-boundary-en",
+      "type": "html-slide",
+      "title": "Summary: AXI boundary: where CVA6 becomes a system component",
+      "order": 5,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "SUMMARY",
+          "title": "AXI boundary: where CVA6 becomes a system component",
+          "takeaways": [
+            "Explain CVA6 AXI support without confusing core-internal LSU behavior with SoC memory-fabric behavior.",
+            "Keep claims source-scoped and configuration-aware.",
+            "Turn every public explanation into an evidence-backed learning artifact."
+          ],
+          "nextStep": "Next: interrupt and debug boundaries, where external events become precise architectural control flow.",
+          "closing": "This is how OpenHW Explorer can teach serious open hardware without drifting into unsupported certainty."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-axi-interface",
+            "title": "CVA6 user manual: AXI interface",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/AXI_Interface.html",
+            "locator": "cva6-user-manual/AXI_Interface.md AXI4 and CVA6",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/AXI_Interface.md",
+            "claimSupported": "CVA6 uses AXI as the memory interface, implements required AXI signals, supports AXI4 features and the AXI5 atomic operation feature with restrictions."
+          },
+          {
+            "id": "cva6-requirements-interfaces",
+            "title": "CVA6 requirements: interface requirements",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#interface-requirements",
+            "locator": "requirements/cva6_requirements_specification.md Interface requirements",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements document names MEM, DBG, IRQ, XIF, and TRI requirements, including AXI memory interface, CLINT interrupt interface, CV-X-IF, and P-Mesh TRI."
+          },
+          {
+            "id": "cva6-testharness",
+            "title": "CVA6 APU: testharness",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/05_cva6_apu/cva6_testharness.html",
+            "locator": "apu/cva6_testharness.md ariane_testharness",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/apu/cva6_testharness.md",
+            "claimSupported": "The testharness connects CVA6, debug, CLINT, PLIC, timer, ROM, UART, DRAM, and other slaves through AXI-related structures."
+          }
+        ],
+        "speakerNotes": "To summarize: Explain CVA6 AXI support without confusing core-internal LSU behavior with SoC memory-fabric behavior. Keep the claim small, keep the source visible, and keep the boundary honest. Next: interrupt and debug boundaries, where external events become precise architectural control flow."
+      },
+      "sourceAnchors": [
+        "cva6-axi-interface",
+        "cva6-requirements-interfaces",
+        "cva6-testharness"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u08-l01-summary-speech",
+          "type": "speech",
+          "text": "To summarize: Explain CVA6 AXI support without confusing core-internal LSU behavior with SoC memory-fabric behavior. Keep the claim small, keep the source visible, and keep the boundary honest. Next: interrupt and debug boundaries, where external events become precise architectural control flow.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u08-l01-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u08-l01-axi-boundary-en/audio/tts_scene-cva6-u08-l01-summary-speech.mp3"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "default-1",
+      "name": "AlexChen",
+      "role": "Professional OpenHW classroom narrator",
+      "voice": "local-tts:kokoro:am_eric"
+    }
+  ],
+  "metadata": {
+    "seriesId": "cva6-from-zero",
+    "unitId": "u08-interfaces-integration",
+    "skillId": "u08-s01-bus-and-soc",
+    "lessonId": "cva6-u08-l01-axi-boundary",
+    "sourceRefs": [
+      "cva6-axi-interface",
+      "cva6-requirements-interfaces",
+      "cva6-testharness"
+    ],
+    "assetRefs": [
+      "test_harness.png",
+      "ariane.png"
+    ],
+    "generatedAt": "2026-06-01T08:59:34.201Z"
+  }
+}

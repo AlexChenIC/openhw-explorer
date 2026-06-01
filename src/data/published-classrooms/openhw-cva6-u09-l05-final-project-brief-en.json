@@ -1,0 +1,550 @@
+{
+  "id": "openhw-cva6-u09-l05-final-project-brief-en",
+  "stage": {
+    "id": "openhw-cva6-u09-l05-final-project-brief-en",
+    "name": "Final project brief: produce a CVA6 reading note",
+    "description": "A capstone brief that lets learners practice the whole CVA6 From Zero workflow.",
+    "createdAt": 1780304374203,
+    "updatedAt": 1780305351713,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u09-l05-title",
+      "stageId": "openhw-cva6-u09-l05-final-project-brief-en",
+      "type": "html-slide",
+      "title": "The capstone is a source-backed reading note",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 09 / LESSON 05",
+          "title": "The capstone is a source-backed reading note",
+          "subtitle": "Pick one small CVA6 topic, trace the source, explain the boundary, and create a publishable micro-lesson artifact.",
+          "chips": [
+            "Topic",
+            "Source",
+            "Boundary",
+            "Slide",
+            "Verification"
+          ],
+          "thesis": "The final project proves the learner can produce technical understanding, not just consume it."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-overview-docs",
+            "title": "CVA6 documentation overview",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "overview/index.md Organization of this Document",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/index.md",
+            "claimSupported": "The official documentation separates user guide, requirements, design documents, configuration-specific manuals, and APU material."
+          }
+        ],
+        "speakerNotes": "This lesson is Final project brief: produce a CVA6 reading note. Pick one small CVA6 topic, trace the source, explain the boundary, and create a publishable micro-lesson artifact. The point is not to memorize a wall of CVA6 facts. The point is to build a disciplined source-reading habit: name the boundary, name the source, and avoid claims that the public material does not support."
+      },
+      "sourceAnchors": [
+        "cva6-overview-docs"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u09-l05-title-speech",
+          "type": "speech",
+          "text": "This lesson is Final project brief: produce a CVA6 reading note. Pick one small CVA6 topic, trace the source, explain the boundary, and create a publishable micro-lesson artifact. The point is not to memorize a wall of CVA6 facts. The point is to build a disciplined source-reading habit: name the boundary, name the source, and avoid claims that the public material does not support.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u09-l05-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u09-l05-final-project-brief-en/audio/tts_scene-cva6-u09-l05-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u09-l05-brief",
+      "stageId": "openhw-cva6-u09-l05-final-project-brief-en",
+      "type": "html-slide",
+      "title": "Project output: one serious reading note",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "CAPSTONE OUTPUT",
+          "title": "A good final note has five parts",
+          "items": [
+            {
+              "title": "Topic",
+              "body": "A small CVA6 behavior or boundary."
+            },
+            {
+              "title": "Evidence",
+              "body": "Official doc/source anchors and local paths."
+            },
+            {
+              "title": "Explanation",
+              "body": "Plain technical explanation with caveats."
+            },
+            {
+              "title": "Quiz",
+              "body": "Choice-only question that tests the key misunderstanding."
+            }
+          ],
+          "takeaway": "The project mirrors the production workflow."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-source-tree",
+            "title": "CVA6 public repository source tree",
+            "url": "https://github.com/openhwgroup/cva6",
+            "locator": "repository directories core, docs, corev_apu, verif, config, util",
+            "localPath": "/Users/alexchen/1_workspace/4_openhw/2_cva6_ci/1_tier_v1/cva6",
+            "claimSupported": "The public repository is organized around core RTL, documentation, APU/testharness material, verification, configuration, and tooling directories."
+          },
+          {
+            "id": "cva6-requirements-scope",
+            "title": "CVA6 requirements: scope and verification intent",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html",
+            "locator": "requirements/cva6_requirements_specification.md scope and verification",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements document defines the CVA6 feature scope and ties requirements to verification intent and interface requirements."
+          }
+        ],
+        "speakerNotes": "The capstone is intentionally small. Pick one CVA6 behavior or boundary. Provide source evidence. Explain it plainly with caveats. Add one slide or note, one choice-only quiz, and one verification handoff question. This is exactly the workflow OpenHW Explorer should scale across future OpenHW courses."
+      },
+      "sourceAnchors": [
+        "cva6-source-tree",
+        "cva6-requirements-scope"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u09-l05-brief-speech",
+          "type": "speech",
+          "text": "The capstone is intentionally small. Pick one CVA6 behavior or boundary. Provide source evidence. Explain it plainly with caveats. Add one slide or note, one choice-only quiz, and one verification handoff question. This is exactly the workflow OpenHW Explorer should scale across future OpenHW courses.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u09-l05-brief-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u09-l05-final-project-brief-en/audio/tts_scene-cva6-u09-l05-brief-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u09-l05-topics",
+      "stageId": "openhw-cva6-u09-l05-final-project-brief-en",
+      "type": "html-slide",
+      "title": "Good project topics are narrow",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "TOPIC SELECTION",
+          "title": "Choose a topic that can fit in ten minutes",
+          "subtitle": "A capstone topic should be narrow enough to finish and deep enough to teach.",
+          "cards": [
+            {
+              "title": "Good",
+              "body": "Why store commit is separate from store issue."
+            },
+            {
+              "title": "Good",
+              "body": "How CV-X-IF result identity connects to scoreboard ID."
+            },
+            {
+              "title": "Good",
+              "body": "Why AXI manager/subordinate language matters."
+            },
+            {
+              "title": "Too broad",
+              "body": "Explain the entire CVA6 SoC and verification flow."
+            }
+          ],
+          "takeaway": "Narrow topics produce sharper public lessons."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-overview-docs",
+            "title": "CVA6 documentation overview",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "overview/index.md Organization of this Document",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/index.md",
+            "claimSupported": "The official documentation separates user guide, requirements, design documents, configuration-specific manuals, and APU material."
+          },
+          {
+            "id": "cva6-core-integration",
+            "title": "CVA6 user manual: Core Integration",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Core_Integration.html",
+            "locator": "cva6-user-manual/Core_Integration.md",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Core_Integration.md",
+            "claimSupported": "The integration chapter is explicitly incomplete and lists intended integration topics such as instantiation, resets, clocking, timing, ASIC, and FPGA guidance."
+          }
+        ],
+        "speakerNotes": "The biggest capstone risk is scope creep. A ten-minute lesson cannot explain the whole SoC. It can explain why store commit is separate from issue, why CV-X-IF ID matters, or why AXI manager language matters. Narrow topics create high-quality technical teaching because every sentence has a job."
+      },
+      "sourceAnchors": [
+        "cva6-overview-docs",
+        "cva6-core-integration"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u09-l05-topics-speech",
+          "type": "speech",
+          "text": "The biggest capstone risk is scope creep. A ten-minute lesson cannot explain the whole SoC. It can explain why store commit is separate from issue, why CV-X-IF ID matters, or why AXI manager language matters. Narrow topics create high-quality technical teaching because every sentence has a job.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u09-l05-topics-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u09-l05-final-project-brief-en/audio/tts_scene-cva6-u09-l05-topics-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u09-l05-rubric",
+      "stageId": "openhw-cva6-u09-l05-final-project-brief-en",
+      "type": "html-slide",
+      "title": "Release rubric for a public note",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "PUBLIC RUBRIC",
+          "title": "A publishable note must be accurate and useful",
+          "subtitle": "The bar is not perfection; the bar is traceable, scoped, and helpful.",
+          "columns": [
+            {
+              "title": "Must have",
+              "body": "Source anchors, variant scope, choice-only quiz, and one verification question.",
+              "points": [
+                "Evidence",
+                "Scope",
+                "Assessment"
+              ]
+            },
+            {
+              "title": "Must avoid",
+              "body": "Unsupported claims, over-broad conclusions, hidden uncertainty, and untestable narration.",
+              "points": [
+                "No hype",
+                "No vague claims",
+                "No fake certainty"
+              ]
+            }
+          ],
+          "takeaway": "Public trust comes from disciplined caveats."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-requirements-scope",
+            "title": "CVA6 requirements: scope and verification intent",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html",
+            "locator": "requirements/cva6_requirements_specification.md scope and verification",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements document defines the CVA6 feature scope and ties requirements to verification intent and interface requirements."
+          }
+        ],
+        "speakerNotes": "This rubric is also for us. A publishable OpenHW Explorer note needs evidence, scope, a quiz, and a verification question. It should avoid unsupported claims and hidden uncertainty. The public brand is not built by pretending to know everything. It is built by being precise enough that serious engineers can trust the work."
+      },
+      "sourceAnchors": [
+        "cva6-requirements-scope"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u09-l05-rubric-speech",
+          "type": "speech",
+          "text": "This rubric is also for us. A publishable OpenHW Explorer note needs evidence, scope, a quiz, and a verification question. It should avoid unsupported claims and hidden uncertainty. The public brand is not built by pretending to know everything. It is built by being precise enough that serious engineers can trust the work.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u09-l05-rubric-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u09-l05-final-project-brief-en/audio/tts_scene-cva6-u09-l05-rubric-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u09-l05-quiz",
+      "stageId": "openhw-cva6-u09-l05-final-project-brief-en",
+      "type": "quiz",
+      "title": "Check understanding: Final project brief: produce a CVA6 reading note",
+      "order": 4,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u09-l05-q1",
+            "type": "single",
+            "question": "What is the best capstone scope?",
+            "options": [
+              {
+                "value": "A",
+                "label": "One narrow source-backed CVA6 behavior or boundary"
+              },
+              {
+                "value": "B",
+                "label": "The whole world of RISC-V in one slide"
+              },
+              {
+                "value": "C",
+                "label": "Only visual decoration"
+              },
+              {
+                "value": "D",
+                "label": "A claim with no source"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "Narrow, source-backed topics are publishable."
+          },
+          {
+            "id": "u09-l05-q2",
+            "type": "multiple",
+            "question": "Which items belong in the capstone output?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Source evidence"
+              },
+              {
+                "value": "B",
+                "label": "Plain explanation with caveats"
+              },
+              {
+                "value": "C",
+                "label": "Choice-only quiz"
+              },
+              {
+                "value": "D",
+                "label": "Verification handoff question"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C",
+              "D"
+            ],
+            "hasAnswer": true,
+            "analysis": "The capstone mirrors the full production workflow."
+          },
+          {
+            "id": "u09-l05-q3",
+            "type": "single",
+            "question": "Which topic is too broad for one micro-course?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Explain the entire CVA6 SoC and verification flow"
+              },
+              {
+                "value": "B",
+                "label": "Store commit versus store issue"
+              },
+              {
+                "value": "C",
+                "label": "CV-X-IF ID and scoreboard identity"
+              },
+              {
+                "value": "D",
+                "label": "AXI manager/subordinate language"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "The broad topic should be split into several lessons."
+          },
+          {
+            "id": "u09-l05-q4",
+            "type": "single",
+            "question": "What builds trust in a public technical note?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Traceable evidence and disciplined caveats"
+              },
+              {
+                "value": "B",
+                "label": "Pretending uncertainty does not exist"
+              },
+              {
+                "value": "C",
+                "label": "Removing all sources"
+              },
+              {
+                "value": "D",
+                "label": "Using only slogans"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "Trust comes from accuracy, scope, and evidence."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cva6-overview-docs",
+            "title": "CVA6 documentation overview",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "overview/index.md Organization of this Document",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/index.md",
+            "claimSupported": "The official documentation separates user guide, requirements, design documents, configuration-specific manuals, and APU material."
+          },
+          {
+            "id": "cva6-source-tree",
+            "title": "CVA6 public repository source tree",
+            "url": "https://github.com/openhwgroup/cva6",
+            "locator": "repository directories core, docs, corev_apu, verif, config, util",
+            "localPath": "/Users/alexchen/1_workspace/4_openhw/2_cva6_ci/1_tier_v1/cva6",
+            "claimSupported": "The public repository is organized around core RTL, documentation, APU/testharness material, verification, configuration, and tooling directories."
+          },
+          {
+            "id": "cva6-requirements-scope",
+            "title": "CVA6 requirements: scope and verification intent",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html",
+            "locator": "requirements/cva6_requirements_specification.md scope and verification",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements document defines the CVA6 feature scope and ties requirements to verification intent and interface requirements."
+          },
+          {
+            "id": "cva6-core-integration",
+            "title": "CVA6 user manual: Core Integration",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Core_Integration.html",
+            "locator": "cva6-user-manual/Core_Integration.md",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Core_Integration.md",
+            "claimSupported": "The integration chapter is explicitly incomplete and lists intended integration topics such as instantiation, resets, clocking, timing, ASIC, and FPGA guidance."
+          }
+        ],
+        "speakerNotes": "This quiz checks the core judgment of Final project brief: produce a CVA6 reading note. The right answers should feel less like trivia and more like disciplined classification: what is the boundary, what is the source, what is the limitation, and what would we check next?"
+      },
+      "sourceAnchors": [
+        "cva6-overview-docs",
+        "cva6-source-tree",
+        "cva6-requirements-scope",
+        "cva6-core-integration"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u09-l05-quiz-speech",
+          "type": "speech",
+          "text": "This quiz checks the core judgment of Final project brief: produce a CVA6 reading note. The right answers should feel less like trivia and more like disciplined classification: what is the boundary, what is the source, what is the limitation, and what would we check next?",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u09-l05-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u09-l05-final-project-brief-en/audio/tts_scene-cva6-u09-l05-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u09-l05-summary",
+      "stageId": "openhw-cva6-u09-l05-final-project-brief-en",
+      "type": "html-slide",
+      "title": "Summary: Final project brief: produce a CVA6 reading note",
+      "order": 5,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "SUMMARY",
+          "title": "Final project brief: produce a CVA6 reading note",
+          "takeaways": [
+            "Prepare one publishable technical note from a CVA6 source slice using the OpenHW Explorer workflow.",
+            "Keep claims source-scoped and configuration-aware.",
+            "Turn every public explanation into an evidence-backed learning artifact."
+          ],
+          "nextStep": "Next: final checkpoint for the whole CVA6 From Zero series.",
+          "closing": "This is how OpenHW Explorer can teach serious open hardware without drifting into unsupported certainty."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-overview-docs",
+            "title": "CVA6 documentation overview",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/",
+            "locator": "overview/index.md Organization of this Document",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/index.md",
+            "claimSupported": "The official documentation separates user guide, requirements, design documents, configuration-specific manuals, and APU material."
+          },
+          {
+            "id": "cva6-source-tree",
+            "title": "CVA6 public repository source tree",
+            "url": "https://github.com/openhwgroup/cva6",
+            "locator": "repository directories core, docs, corev_apu, verif, config, util",
+            "localPath": "/Users/alexchen/1_workspace/4_openhw/2_cva6_ci/1_tier_v1/cva6",
+            "claimSupported": "The public repository is organized around core RTL, documentation, APU/testharness material, verification, configuration, and tooling directories."
+          },
+          {
+            "id": "cva6-requirements-scope",
+            "title": "CVA6 requirements: scope and verification intent",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html",
+            "locator": "requirements/cva6_requirements_specification.md scope and verification",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements document defines the CVA6 feature scope and ties requirements to verification intent and interface requirements."
+          }
+        ],
+        "speakerNotes": "To summarize: Prepare one publishable technical note from a CVA6 source slice using the OpenHW Explorer workflow. Keep the claim small, keep the source visible, and keep the boundary honest. Next: final checkpoint for the whole CVA6 From Zero series."
+      },
+      "sourceAnchors": [
+        "cva6-overview-docs",
+        "cva6-source-tree",
+        "cva6-requirements-scope"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u09-l05-summary-speech",
+          "type": "speech",
+          "text": "To summarize: Prepare one publishable technical note from a CVA6 source slice using the OpenHW Explorer workflow. Keep the claim small, keep the source visible, and keep the boundary honest. Next: final checkpoint for the whole CVA6 From Zero series.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u09-l05-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u09-l05-final-project-brief-en/audio/tts_scene-cva6-u09-l05-summary-speech.mp3"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "default-1",
+      "name": "AlexChen",
+      "role": "Professional OpenHW classroom narrator",
+      "voice": "local-tts:kokoro:am_eric"
+    }
+  ],
+  "metadata": {
+    "seriesId": "cva6-from-zero",
+    "unitId": "u09-source-reading-verification",
+    "skillId": "u09-s02-verification-handoff",
+    "lessonId": "cva6-u09-l05-final-project-brief",
+    "sourceRefs": [
+      "cva6-overview-docs",
+      "cva6-source-tree",
+      "cva6-requirements-scope",
+      "cva6-core-integration"
+    ],
+    "assetRefs": [
+      "cva6_scope.png"
+    ],
+    "generatedAt": "2026-06-01T08:59:34.201Z"
+  }
+}

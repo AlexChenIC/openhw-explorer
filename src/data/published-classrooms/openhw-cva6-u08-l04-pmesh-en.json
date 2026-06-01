@@ -1,0 +1,549 @@
+{
+  "id": "openhw-cva6-u08-l04-pmesh-en",
+  "stage": {
+    "id": "openhw-cva6-u08-l04-pmesh-en",
+    "name": "P-Mesh and integration boundaries: requirements, scope, and caveats",
+    "description": "A boundary lesson for multi-core interface language and responsible system-level CVA6 claims.",
+    "createdAt": 1780304374203,
+    "updatedAt": 1780305119609,
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "Professional Technical Deep Dive - Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-u08-l04-title",
+      "stageId": "openhw-cva6-u08-l04-pmesh-en",
+      "type": "html-slide",
+      "title": "System integration is where over-claiming gets expensive",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "light",
+        "content": {
+          "kicker": "UNIT 08 / LESSON 04",
+          "title": "System integration is where over-claiming gets expensive",
+          "subtitle": "TRI, P-Mesh, PMA, and cache boundaries must be taught as source-scoped claims, not marketing fog.",
+          "chips": [
+            "TRI",
+            "P-Mesh",
+            "PMA",
+            "Cache scope",
+            "Integration TODO"
+          ],
+          "thesis": "A good integration lesson separates requirements, implemented applicability, and system responsibility."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-requirements-interfaces",
+            "title": "CVA6 requirements: interface requirements",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#interface-requirements",
+            "locator": "requirements/cva6_requirements_specification.md Interface requirements",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements document names MEM, DBG, IRQ, XIF, and TRI requirements, including AXI memory interface, CLINT interrupt interface, CV-X-IF, and P-Mesh TRI."
+          }
+        ],
+        "speakerNotes": "This lesson is P-Mesh and integration boundaries: requirements, scope, and caveats. TRI, P-Mesh, PMA, and cache boundaries must be taught as source-scoped claims, not marketing fog. The point is not to memorize a wall of CVA6 facts. The point is to build a disciplined source-reading habit: name the boundary, name the source, and avoid claims that the public material does not support."
+      },
+      "sourceAnchors": [
+        "cva6-requirements-interfaces"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u08-l04-title-speech",
+          "type": "speech",
+          "text": "This lesson is P-Mesh and integration boundaries: requirements, scope, and caveats. TRI, P-Mesh, PMA, and cache boundaries must be taught as source-scoped claims, not marketing fog. The point is not to memorize a wall of CVA6 facts. The point is to build a disciplined source-reading habit: name the boundary, name the source, and avoid claims that the public material does not support.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u08-l04-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u08-l04-pmesh-en/audio/tts_scene-cva6-u08-l04-title-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u08-l04-tri",
+      "stageId": "openhw-cva6-u08-l04-pmesh-en",
+      "type": "html-slide",
+      "title": "Requirement language and applicability can diverge",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "TRI / P-MESH",
+          "title": "Read the requirement, then read the applicability table",
+          "subtitle": "The requirements mention TRI for P-Mesh; the interface page marks current configurations carefully.",
+          "columns": [
+            {
+              "title": "Requirement intent",
+              "body": "TRI is named as the interface needed for P-Mesh coherence system integration.",
+              "points": [
+                "TRI-10",
+                "OpenPiton context",
+                "Multi-core intent"
+              ]
+            },
+            {
+              "title": "Applicability check",
+              "body": "The interface page states TRI is exclusive of AXI and marks listed configurations as no TRI interface.",
+              "points": [
+                "Configuration-specific",
+                "No blanket claim",
+                "Check source date"
+              ]
+            }
+          ],
+          "takeaway": "Read requirements and implementation applicability together."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-requirements-interfaces",
+            "title": "CVA6 requirements: interface requirements",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#interface-requirements",
+            "locator": "requirements/cva6_requirements_specification.md Interface requirements",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements document names MEM, DBG, IRQ, XIF, and TRI requirements, including AXI memory interface, CLINT interrupt interface, CV-X-IF, and P-Mesh TRI."
+          },
+          {
+            "id": "cva6-interfaces",
+            "title": "CVA6 user manual: Interfaces",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Interfaces.html",
+            "locator": "cva6-user-manual/Interfaces.md",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Interfaces.md",
+            "claimSupported": "The user manual lists AXI, Debug, Interrupt, and TRI interface applicability across CVA6 configurations."
+          }
+        ],
+        "speakerNotes": "This lesson is a good example of mature source reading. The requirements document names TRI for P-Mesh coherence integration. The interface page then says TRI is exclusive of AXI and marks listed configurations as no TRI interface. Those statements are not useless or contradictory if read correctly. They tell us to distinguish product requirement intent from current configuration applicability."
+      },
+      "sourceAnchors": [
+        "cva6-requirements-interfaces",
+        "cva6-interfaces"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u08-l04-tri-speech",
+          "type": "speech",
+          "text": "This lesson is a good example of mature source reading. The requirements document names TRI for P-Mesh coherence integration. The interface page then says TRI is exclusive of AXI and marks listed configurations as no TRI interface. Those statements are not useless or contradictory if read correctly. They tell us to distinguish product requirement intent from current configuration applicability.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u08-l04-tri-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u08-l04-pmesh-en/audio/tts_scene-cva6-u08-l04-tri-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u08-l04-pma",
+      "stageId": "openhw-cva6-u08-l04-pmesh-en",
+      "type": "html-slide",
+      "title": "PMA is the local region-semantics guardrail",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "PMA",
+          "title": "Before saying coherence, first ask region semantics",
+          "items": [
+            {
+              "title": "Non-idempotent",
+              "body": "Some regions can have side effects on access and must be treated carefully."
+            },
+            {
+              "title": "Executable",
+              "body": "Instruction fetch permission is a region property, not a guess."
+            },
+            {
+              "title": "Cacheable",
+              "body": "Cacheability is a declared property that shapes memory behavior."
+            },
+            {
+              "title": "Coherence",
+              "body": "Standalone CVA6 does not let us invent a coherence protocol."
+            }
+          ],
+          "takeaway": "PMA keeps memory claims local and precise."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-pma",
+            "title": "CVA6 user manual: PMA",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/PMA.html",
+            "locator": "cva6-user-manual/PMA.md",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/PMA.md",
+            "claimSupported": "PMA describes non-idempotent, executable, and cacheable regions and reminds readers not to invent coherence behavior for standalone CVA6."
+          }
+        ],
+        "speakerNotes": "PMA is the guardrail before big system claims. A region may be non-idempotent, executable, or cacheable, and those are real properties. But that does not let us invent full coherence behavior for standalone CVA6. If a learner remembers one thing: cacheability and coherence are not synonyms."
+      },
+      "sourceAnchors": [
+        "cva6-pma"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u08-l04-pma-speech",
+          "type": "speech",
+          "text": "PMA is the guardrail before big system claims. A region may be non-idempotent, executable, or cacheable, and those are real properties. But that does not let us invent full coherence behavior for standalone CVA6. If a learner remembers one thing: cacheability and coherence are not synonyms.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u08-l04-pma-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u08-l04-pmesh-en/audio/tts_scene-cva6-u08-l04-pma-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u08-l04-integration",
+      "stageId": "openhw-cva6-u08-l04-pmesh-en",
+      "type": "html-slide",
+      "title": "The integration chapter is a TODO, and that matters",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "INTEGRATION MATURITY",
+          "title": "Incomplete documentation is also source evidence",
+          "subtitle": "The core-integration chapter openly asks for contributors and lists intended topics.",
+          "cards": [
+            {
+              "title": "Instantiation",
+              "body": "How to instantiate CVA6 into a core complex or SoC."
+            },
+            {
+              "title": "Reset and clocking",
+              "body": "Reset styles, clock gating, and timing assumptions need integration care."
+            },
+            {
+              "title": "ASIC/FPGA guidance",
+              "body": "Implementation targets introduce different RAM, timing, and critical-path concerns."
+            },
+            {
+              "title": "Verification scope",
+              "body": "Requirements and verification plans define what the IP is expected to cover."
+            }
+          ],
+          "takeaway": "When docs are incomplete, say so and narrow the claim."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-core-integration",
+            "title": "CVA6 user manual: Core Integration",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Core_Integration.html",
+            "locator": "cva6-user-manual/Core_Integration.md",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Core_Integration.md",
+            "claimSupported": "The integration chapter is explicitly incomplete and lists intended integration topics such as instantiation, resets, clocking, timing, ASIC, and FPGA guidance."
+          },
+          {
+            "id": "cva6-requirements-scope",
+            "title": "CVA6 requirements: scope and verification intent",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html",
+            "locator": "requirements/cva6_requirements_specification.md scope and verification",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements document defines the CVA6 feature scope and ties requirements to verification intent and interface requirements."
+          }
+        ],
+        "speakerNotes": "Incomplete documentation is not something to hide. The core-integration chapter explicitly says the team is looking for contributors and lists topics such as instantiation, reset, clocking, ASIC, and FPGA guidance. For our course, this is a feature: it teaches learners to say what is known, what is planned, and what needs direct project review."
+      },
+      "sourceAnchors": [
+        "cva6-core-integration",
+        "cva6-requirements-scope"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u08-l04-integration-speech",
+          "type": "speech",
+          "text": "Incomplete documentation is not something to hide. The core-integration chapter explicitly says the team is looking for contributors and lists topics such as instantiation, reset, clocking, ASIC, and FPGA guidance. For our course, this is a feature: it teaches learners to say what is known, what is planned, and what needs direct project review.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u08-l04-integration-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u08-l04-pmesh-en/audio/tts_scene-cva6-u08-l04-integration-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u08-l04-quiz",
+      "stageId": "openhw-cva6-u08-l04-pmesh-en",
+      "type": "quiz",
+      "title": "Check understanding: P-Mesh and integration boundaries: requirements, scope, and caveats",
+      "order": 4,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "u08-l04-q1",
+            "type": "single",
+            "question": "What is the safest reading of TRI/P-Mesh material?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Separate requirement intent from current configuration applicability"
+              },
+              {
+                "value": "B",
+                "label": "Assume every CVA6 config has TRI"
+              },
+              {
+                "value": "C",
+                "label": "Assume AXI and TRI are identical"
+              },
+              {
+                "value": "D",
+                "label": "Ignore interface tables"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "The requirements and interface applicability tables must be read together."
+          },
+          {
+            "id": "u08-l04-q2",
+            "type": "multiple",
+            "question": "Which PMA categories are useful before making memory-system claims?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Non-idempotent"
+              },
+              {
+                "value": "B",
+                "label": "Executable"
+              },
+              {
+                "value": "C",
+                "label": "Cacheable"
+              },
+              {
+                "value": "D",
+                "label": "RAS depth"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "C"
+            ],
+            "hasAnswer": true,
+            "analysis": "RAS depth is a frontend predictor detail, not a PMA category."
+          },
+          {
+            "id": "u08-l04-q3",
+            "type": "single",
+            "question": "What should an incomplete integration chapter cause you to do?",
+            "options": [
+              {
+                "value": "A",
+                "label": "Narrow the public claim and mark follow-up review"
+              },
+              {
+                "value": "B",
+                "label": "Invent missing details"
+              },
+              {
+                "value": "C",
+                "label": "Delete all interface lessons"
+              },
+              {
+                "value": "D",
+                "label": "Assume no SoC can use CVA6"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "Incomplete documentation is a reason for careful scope, not imagination."
+          },
+          {
+            "id": "u08-l04-q4",
+            "type": "single",
+            "question": "Which phrase is most professional?",
+            "options": [
+              {
+                "value": "A",
+                "label": "This behavior is configuration-scoped and should be checked against integration sources"
+              },
+              {
+                "value": "B",
+                "label": "All CVA6 systems are fully coherent by default"
+              },
+              {
+                "value": "C",
+                "label": "PMA means branch prediction"
+              },
+              {
+                "value": "D",
+                "label": "TRI always replaces every memory topic"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "hasAnswer": true,
+            "analysis": "System-level claims require configuration and integration evidence."
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cva6-requirements-interfaces",
+            "title": "CVA6 requirements: interface requirements",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#interface-requirements",
+            "locator": "requirements/cva6_requirements_specification.md Interface requirements",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements document names MEM, DBG, IRQ, XIF, and TRI requirements, including AXI memory interface, CLINT interrupt interface, CV-X-IF, and P-Mesh TRI."
+          },
+          {
+            "id": "cva6-interfaces",
+            "title": "CVA6 user manual: Interfaces",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Interfaces.html",
+            "locator": "cva6-user-manual/Interfaces.md",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Interfaces.md",
+            "claimSupported": "The user manual lists AXI, Debug, Interrupt, and TRI interface applicability across CVA6 configurations."
+          },
+          {
+            "id": "cva6-pma",
+            "title": "CVA6 user manual: PMA",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/PMA.html",
+            "locator": "cva6-user-manual/PMA.md",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/PMA.md",
+            "claimSupported": "PMA describes non-idempotent, executable, and cacheable regions and reminds readers not to invent coherence behavior for standalone CVA6."
+          },
+          {
+            "id": "cva6-core-integration",
+            "title": "CVA6 user manual: Core Integration",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Core_Integration.html",
+            "locator": "cva6-user-manual/Core_Integration.md",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Core_Integration.md",
+            "claimSupported": "The integration chapter is explicitly incomplete and lists intended integration topics such as instantiation, resets, clocking, timing, ASIC, and FPGA guidance."
+          }
+        ],
+        "speakerNotes": "This quiz checks the core judgment of P-Mesh and integration boundaries: requirements, scope, and caveats. The right answers should feel less like trivia and more like disciplined classification: what is the boundary, what is the source, what is the limitation, and what would we check next?"
+      },
+      "sourceAnchors": [
+        "cva6-requirements-interfaces",
+        "cva6-interfaces",
+        "cva6-pma",
+        "cva6-core-integration"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u08-l04-quiz-speech",
+          "type": "speech",
+          "text": "This quiz checks the core judgment of P-Mesh and integration boundaries: requirements, scope, and caveats. The right answers should feel less like trivia and more like disciplined classification: what is the boundary, what is the source, what is the limitation, and what would we check next?",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u08-l04-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u08-l04-pmesh-en/audio/tts_scene-cva6-u08-l04-quiz-speech.mp3"
+        }
+      ]
+    },
+    {
+      "id": "scene-cva6-u08-l04-summary",
+      "stageId": "openhw-cva6-u08-l04-pmesh-en",
+      "type": "html-slide",
+      "title": "Summary: P-Mesh and integration boundaries: requirements, scope, and caveats",
+      "order": 5,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "content": {
+          "kicker": "SUMMARY",
+          "title": "P-Mesh and integration boundaries: requirements, scope, and caveats",
+          "takeaways": [
+            "Separate requirement intent, current interface applicability, PMA attributes, cache boundaries, and integration TODOs.",
+            "Keep claims source-scoped and configuration-aware.",
+            "Turn every public explanation into an evidence-backed learning artifact."
+          ],
+          "nextStep": "Next: Unit 08 checkpoint, where learners classify AXI, interrupt/debug, CV-X-IF, PMA, and integration questions.",
+          "closing": "This is how OpenHW Explorer can teach serious open hardware without drifting into unsupported certainty."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-requirements-interfaces",
+            "title": "CVA6 requirements: interface requirements",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/02_cva6_requirements/cva6_requirements_specification.html#interface-requirements",
+            "locator": "requirements/cva6_requirements_specification.md Interface requirements",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/requirements/cva6_requirements_specification.md",
+            "claimSupported": "The requirements document names MEM, DBG, IRQ, XIF, and TRI requirements, including AXI memory interface, CLINT interrupt interface, CV-X-IF, and P-Mesh TRI."
+          },
+          {
+            "id": "cva6-interfaces",
+            "title": "CVA6 user manual: Interfaces",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Interfaces.html",
+            "locator": "cva6-user-manual/Interfaces.md",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Interfaces.md",
+            "claimSupported": "The user manual lists AXI, Debug, Interrupt, and TRI interface applicability across CVA6 configurations."
+          },
+          {
+            "id": "cva6-pma",
+            "title": "CVA6 user manual: PMA",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/PMA.html",
+            "locator": "cva6-user-manual/PMA.md",
+            "localPath": "../openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/PMA.md",
+            "claimSupported": "PMA describes non-idempotent, executable, and cacheable regions and reminds readers not to invent coherence behavior for standalone CVA6."
+          }
+        ],
+        "speakerNotes": "To summarize: Separate requirement intent, current interface applicability, PMA attributes, cache boundaries, and integration TODOs. Keep the claim small, keep the source visible, and keep the boundary honest. Next: Unit 08 checkpoint, where learners classify AXI, interrupt/debug, CV-X-IF, PMA, and integration questions."
+      },
+      "sourceAnchors": [
+        "cva6-requirements-interfaces",
+        "cva6-interfaces",
+        "cva6-pma"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-u08-l04-summary-speech",
+          "type": "speech",
+          "text": "To summarize: Separate requirement intent, current interface applicability, PMA attributes, cache boundaries, and integration TODOs. Keep the claim small, keep the source visible, and keep the boundary honest. Next: Unit 08 checkpoint, where learners classify AXI, interrupt/debug, CV-X-IF, PMA, and integration questions.",
+          "speed": 0.82,
+          "voice": "local-tts:kokoro:am_eric",
+          "audioId": "tts_scene-cva6-u08-l04-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u08-l04-pmesh-en/audio/tts_scene-cva6-u08-l04-summary-speech.mp3"
+        }
+      ]
+    }
+  ],
+  "agents": [
+    {
+      "id": "default-1",
+      "name": "AlexChen",
+      "role": "Professional OpenHW classroom narrator",
+      "voice": "local-tts:kokoro:am_eric"
+    }
+  ],
+  "metadata": {
+    "seriesId": "cva6-from-zero",
+    "unitId": "u08-interfaces-integration",
+    "skillId": "u08-s02-extension-interfaces",
+    "lessonId": "cva6-u08-l04-pmesh",
+    "sourceRefs": [
+      "cva6-requirements-interfaces",
+      "cva6-interfaces",
+      "cva6-pma",
+      "cva6-core-integration"
+    ],
+    "assetRefs": [
+      "cva6_scope.png"
+    ],
+    "generatedAt": "2026-06-01T08:59:34.201Z"
+  }
+}
