@@ -1,9 +1,9 @@
 {
-  "weekOf": "2026-05-18",
-  "generatedAt": "2026-05-18T02:12:34.653Z",
+  "weekOf": "2026-06-02",
+  "generatedAt": "2026-06-02T13:16:11.278Z",
   "stats": {
-    "totalRelevant": 18,
-    "totalSources": 11,
+    "totalRelevant": 23,
+    "totalSources": 14,
     "topTags": [
       {
         "tag": "RISC-V",
@@ -11,19 +11,19 @@
       },
       {
         "tag": "EDA",
-        "count": 4
-      },
-      {
-        "tag": "Antmicro",
-        "count": 4
+        "count": 7
       },
       {
         "tag": "Security",
-        "count": 3
+        "count": 5
+      },
+      {
+        "tag": "Antmicro",
+        "count": 5
       },
       {
         "tag": "Verification",
-        "count": 3
+        "count": 5
       }
     ]
   },
@@ -35,18 +35,30 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 3,
+      "count": 5,
       "items": [
+        {
+          "title": "Chisel v7.13.0 released with ChiselTest compatibility and FIRRTL 7 backend updates",
+          "titleZh": "Chisel v7.13.0 发布，带来 ChiselTest 兼容层与 FIRRTL 7 后端更新",
+          "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.13.0",
+          "source": "CHIPS Alliance / Chisel (GitHub)",
+          "tags": ["CHIPS Alliance", "Chisel", "FIRRTL"],
+          "publishedAt": "2026-06-01T20:37:33.000Z"
+        },
+        {
+          "title": "Yosys 0.66 released with Lattice Nexus DSP inference and GateMate synthesis updates",
+          "titleZh": "Yosys 0.66 发布，加入 Lattice Nexus DSP inference 与 GateMate 综合更新",
+          "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.66",
+          "source": "YosysHQ / Yosys (GitHub)",
+          "tags": ["Yosys", "EDA", "Synthesis"],
+          "publishedAt": "2026-06-01T16:22:15.000Z"
+        },
         {
           "title": "Yosys 0.65 released with arithmetic tree and Verilog frontend updates",
           "titleZh": "Yosys 0.65 发布，带来 arithmetic tree 与 Verilog 前端更新",
           "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.65",
           "source": "YosysHQ (GitHub)",
-          "tags": [
-            "Yosys",
-            "EDA",
-            "Synthesis"
-          ],
+          "tags": ["Yosys", "EDA", "Synthesis"],
           "publishedAt": "2026-05-12T10:30:49.000Z"
         },
         {
@@ -54,24 +66,8 @@
           "titleZh": "RISC-V Architecture Tests 发布 4.0.0",
           "url": "https://github.com/riscv/riscv-arch-test/releases/tag/4.0.0",
           "source": "RISC-V Architecture Tests (GitHub)",
-          "tags": [
-            "RISC-V",
-            "Architecture Tests",
-            "Verification"
-          ],
+          "tags": ["RISC-V", "Architecture Tests", "Verification"],
           "publishedAt": "2026-04-16T17:21:16.000Z"
-        },
-        {
-          "title": "Caliptra RTL v2.1.2 patch release published",
-          "titleZh": "Caliptra RTL 发布 v2.1.2 patch release",
-          "url": "https://github.com/chipsalliance/caliptra-rtl/releases/tag/v2.1.2",
-          "source": "CHIPS Alliance / Caliptra (GitHub)",
-          "tags": [
-            "Caliptra",
-            "Root of Trust",
-            "Security"
-          ],
-          "publishedAt": "2026-03-19T22:26:10.000Z"
         }
       ]
     },
@@ -82,18 +78,30 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 8,
+      "count": 10,
       "items": [
+        {
+          "title": "Fraunhofer AISEC joins OpenHW Foundation to advance secure CVA6/OpenTitan platforms",
+          "titleZh": "Fraunhofer AISEC 加入 OpenHW Foundation，推进基于 CVA6 与 OpenTitan 的安全平台",
+          "url": "https://www.aisec.fraunhofer.de/en/media/press-releases/2026/FraunhoferAISEC-joins-OpenHW-Foundation.html",
+          "source": "Fraunhofer AISEC",
+          "tags": ["OpenHW", "Fraunhofer AISEC", "CVA6"],
+          "publishedAt": "2026-06-01T21:30:00.000Z"
+        },
+        {
+          "title": "Real Intent joins OpenTitan as tools partner for static sign-off and verification",
+          "titleZh": "Real Intent 加入 OpenTitan，成为 static sign-off 与验证工具合作伙伴",
+          "url": "https://lowrisc.org/news/real-intent-joins-opentitan-as-tools-partner-to-strengthen-open-source-silicon-sign-off-and-verification/",
+          "source": "lowRISC Newsroom",
+          "tags": ["lowRISC", "OpenTitan", "Real Intent"],
+          "publishedAt": "2026-05-18T09:00:00.000Z"
+        },
         {
           "title": "Cadence joins OpenTitan as a tools partner for open-source silicon security",
           "titleZh": "Cadence 加入 OpenTitan，成为开源硅安全项目工具合作伙伴",
           "url": "https://lowrisc.org/news/cadence-joins-opentitan-as-a-tools-partner-to-accelerate-open-source-silicon-security/",
           "source": "lowRISC Newsroom",
-          "tags": [
-            "lowRISC",
-            "OpenTitan",
-            "Security"
-          ],
+          "tags": ["lowRISC", "OpenTitan", "Security"],
           "publishedAt": "2026-05-14T08:50:25.000Z"
         },
         {
@@ -101,36 +109,8 @@
           "titleZh": "RISC-V International 推出统一的已批准规格文档库",
           "url": "https://riscv.org/blog/ratified-specifications-library/",
           "source": "RISC-V International",
-          "tags": [
-            "RISC-V",
-            "Specification",
-            "Documentation"
-          ],
+          "tags": ["RISC-V", "Specification", "Documentation"],
           "publishedAt": "2026-05-07T16:22:00.000Z"
-        },
-        {
-          "title": "RISC-V International highlights a performance-model-driven superscalar CVA6 effort",
-          "titleZh": "RISC-V International 介绍基于性能模型推进 superscalar CVA6 的工作",
-          "url": "https://riscv.org/blog/using-a-performance-model-to-implement-a-superscalar-cva6/",
-          "source": "RISC-V International",
-          "tags": [
-            "RISC-V",
-            "CVA6",
-            "OpenHW"
-          ],
-          "publishedAt": "2026-03-24T11:01:06.000Z"
-        },
-        {
-          "title": "Antmicro adds Renode support for RISC-V Andes D25F-based ChromiumOS FPMCU testing",
-          "titleZh": "Antmicro 为基于 RISC-V Andes D25F 的 ChromiumOS FPMCU 测试加入 Renode 支持",
-          "url": "https://antmicro.com/blog/2026/05/andes-d25f-based-egis-et171-in-renode",
-          "source": "Antmicro Blog",
-          "tags": [
-            "Antmicro",
-            "Renode",
-            "RISC-V"
-          ],
-          "publishedAt": "2026-05-05T00:00:00.000Z"
         }
       ]
     },
@@ -148,11 +128,7 @@
           "titleZh": "MLCommons 为 MLPerf Training v6.0 增加 GPT-OSS 20B sparse MoE 预训练 benchmark",
           "url": "https://mlcommons.org/2026/05/gpt-oss-moe-training6/",
           "source": "MLCommons",
-          "tags": [
-            "MLCommons",
-            "MLPerf",
-            "AI"
-          ],
+          "tags": ["MLCommons", "MLPerf", "AI"],
           "publishedAt": "2026-05-07T13:23:00.000Z"
         },
         {
@@ -160,11 +136,7 @@
           "titleZh": "OCP 公布面向 AI 的开放数据中心生态进展",
           "url": "https://www.opencompute.org/blog/delivering-an-open-data-center-ecosystem-for-ai",
           "source": "Open Compute Project",
-          "tags": [
-            "OCP",
-            "Open Hardware",
-            "AI"
-          ],
+          "tags": ["OCP", "Open Hardware", "AI"],
           "publishedAt": "2026-04-29T00:00:00.000Z"
         },
         {
@@ -172,11 +144,7 @@
           "titleZh": "MLPerf Inference v6.0 扩展 GPT-OSS 与 DeepSeek-R1 LLM benchmark",
           "url": "https://mlcommons.org/2026/03/mlperf-inference-gpt-oss/",
           "source": "MLCommons",
-          "tags": [
-            "MLCommons",
-            "MLPerf",
-            "AI"
-          ],
+          "tags": ["MLCommons", "MLPerf", "AI"],
           "publishedAt": "2026-03-24T00:00:00.000Z"
         },
         {
@@ -184,11 +152,7 @@
           "titleZh": "OCP 介绍 Foundation Chiplet System Architecture，推动开放 chiplet 互操作",
           "url": "https://www.opencompute.org/blog/building-the-foundation-for-an-open-chiplet-future-foundation-chiplet-system-architecture-fcsa",
           "source": "Open Compute Project",
-          "tags": [
-            "OCP",
-            "Open Hardware",
-            "Chiplet"
-          ],
+          "tags": ["OCP", "Open Hardware", "Chiplet"],
           "publishedAt": "2026-04-08T00:00:00.000Z"
         }
       ]
@@ -200,18 +164,22 @@
         "zh": "硬件与嵌入式"
       },
       "icon": "circuit",
-      "count": 2,
+      "count": 3,
       "items": [
+        {
+          "title": "Antmicro brings IEEE-compliant force/release statement support to Verilator",
+          "titleZh": "Antmicro 为 Verilator 带来更接近 IEEE 规范的 force/release statement 支持",
+          "url": "https://antmicro.com/blog/2026/05/force-release-statement-support-in-verilator",
+          "source": "Antmicro Blog",
+          "tags": ["Antmicro", "Verilator", "SystemVerilog"],
+          "publishedAt": "2026-05-20T00:00:00.000Z"
+        },
         {
           "title": "Antmicro implements a genetic algorithm strategy in OpenROAD resynthesis",
           "titleZh": "Antmicro 在 OpenROAD resynthesis 中实现 genetic algorithm 策略",
           "url": "https://antmicro.com/blog/2026/05/genetic-algorithm-in-openroad",
           "source": "Antmicro Blog",
-          "tags": [
-            "Antmicro",
-            "OpenROAD",
-            "EDA"
-          ],
+          "tags": ["Antmicro", "OpenROAD", "EDA"],
           "publishedAt": "2026-05-07T00:00:00.000Z"
         },
         {
@@ -219,11 +187,7 @@
           "titleZh": "Antmicro 推进 Verilator four-state logic 的初始实现里程碑",
           "url": "https://antmicro.com/blog/2026/04/initial-support-for-four-state-logic-in-verilator",
           "source": "Antmicro Blog",
-          "tags": [
-            "Antmicro",
-            "Verilator",
-            "SystemVerilog"
-          ],
+          "tags": ["Antmicro", "Verilator", "SystemVerilog"],
           "publishedAt": "2026-04-30T00:00:00.000Z"
         }
       ]
@@ -242,17 +206,127 @@
           "titleZh": "CHIPS Alliance 推出 SV Tools Project，聚合 SystemVerilog/UVM 开源工具",
           "url": "https://www.chipsalliance.org/news/sv-tools-project-launch/",
           "source": "CHIPS Alliance",
-          "tags": [
-            "CHIPS Alliance",
-            "SystemVerilog",
-            "UVM"
-          ],
+          "tags": ["CHIPS Alliance", "SystemVerilog", "UVM"],
           "publishedAt": "2026-03-30T00:00:00.000Z"
         }
       ]
     }
   ],
   "items": [
+    {
+      "title": "Fraunhofer AISEC joins OpenHW Foundation to advance secure CVA6/OpenTitan platforms",
+      "url": "https://www.aisec.fraunhofer.de/en/media/press-releases/2026/FraunhoferAISEC-joins-OpenHW-Foundation.html",
+      "source": "Fraunhofer AISEC",
+      "publishedAt": "2026-06-01T21:30:00.000Z",
+      "summary": "Fraunhofer AISEC joined the OpenHW Foundation and described work on a secure SoC built around the RISC-V CVA6 core and OpenTitan root-of-trust platform, with Gy...",
+      "author": "",
+      "relevanceScore": 16,
+      "tags": [
+        "OpenHW",
+        "Fraunhofer AISEC",
+        "CVA6",
+        "OpenTitan",
+        "Security",
+        "SoC",
+        "Digital Sovereignty"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "editorPick": true,
+      "highlightRank": 1,
+      "titleZh": "Fraunhofer AISEC 加入 OpenHW Foundation，推进基于 CVA6 与 OpenTitan 的安全平台",
+      "summaryZh": "Fraunhofer AISEC 宣布加入 OpenHW Foundation，并介绍其围绕 RISC-V CVA6 core 与 OpenTitan root-of-trust 平台开发安全 SoC 的工作；其 GyroidOS 已运行在采用 CVA6 core 的 FPGA 参考平台上。"
+    },
+    {
+      "title": "Chisel v7.13.0 released with ChiselTest compatibility and FIRRTL 7 backend updates",
+      "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.13.0",
+      "source": "CHIPS Alliance / Chisel (GitHub)",
+      "publishedAt": "2026-06-01T20:37:33.000Z",
+      "summary": "Chisel v7.13.0 adds a ChiselTest compatibility layer for Chisel 7, debug intrinsics for Chisel type metadata, and bumps the FIRRTL backend to 7.0.0 while carryi...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": ["CHIPS Alliance", "Chisel", "FIRRTL", "CIRCT", "Hardware Construction", "SoC"],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "editorPick": true,
+      "highlightRank": 2,
+      "titleZh": "Chisel v7.13.0 发布，带来 ChiselTest 兼容层与 FIRRTL 7 后端更新",
+      "summaryZh": "Chisel v7.13.0 新增面向 Chisel 7 的 ChiselTest compatibility layer、用于 Chisel type metadata 的 debug intrinsic，并将 FIRRTL backend 升级到 7.0.0，同时包含多项 core fix 与文档更新。"
+    },
+    {
+      "title": "Yosys 0.66 released with Lattice Nexus DSP inference and GateMate synthesis updates",
+      "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.66",
+      "source": "YosysHQ / Yosys (GitHub)",
+      "publishedAt": "2026-06-01T16:22:15.000Z",
+      "summary": "Yosys 0.66 adds the lattice_dsp_nexus pass for Lattice Nexus DSP inference, extends synth_gatemate with a scopename option propagated to flatten, and moves the ...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": ["Yosys", "EDA", "Synthesis", "FPGA", "Lattice Nexus", "GateMate"],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "editorPick": true,
+      "highlightRank": 3,
+      "titleZh": "Yosys 0.66 发布，加入 Lattice Nexus DSP inference 与 GateMate 综合更新",
+      "summaryZh": "Yosys 0.66 新增 lattice_dsp_nexus pass，用于 Lattice Nexus DSP inference；同时为 synth_gatemate 增加可传递到 flatten 的 scopename option，并将项目基线推进到 C++20，后续计划迁移到 CMake。"
+    },
+    {
+      "title": "Antmicro brings IEEE-compliant force/release statement support to Verilator",
+      "url": "https://antmicro.com/blog/2026/05/force-release-statement-support-in-verilator",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-05-20T00:00:00.000Z",
+      "summary": "Antmicro detailed a runtime force-tracking implementation for Verilator that supports conditional and overlapping SystemVerilog force/release statements more cl...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Antmicro",
+        "Verilator",
+        "SystemVerilog",
+        "Verification",
+        "Simulation",
+        "EDA",
+        "TRISTAN"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "editorPick": true,
+      "highlightRank": 4,
+      "titleZh": "Antmicro 为 Verilator 带来更接近 IEEE 规范的 force/release statement 支持",
+      "summaryZh": "Antmicro 介绍了 Verilator 中基于 runtime force tracking 的实现，使其能更好支持 SystemVerilog 中 conditional 与 overlapping force/release statement，并更接近 IEEE 1800-2023 规范；相关工作已进入 Verilator 5.048。"
+    },
+    {
+      "title": "Real Intent joins OpenTitan as tools partner for static sign-off and verification",
+      "url": "https://lowrisc.org/news/real-intent-joins-opentitan-as-tools-partner-to-strengthen-open-source-silicon-sign-off-and-verification/",
+      "source": "lowRISC Newsroom",
+      "publishedAt": "2026-05-18T09:00:00.000Z",
+      "summary": "lowRISC announced that Real Intent has joined the OpenTitan coalition as an official tools partner, adding access to static sign-off tools for hardware security...",
+      "author": "",
+      "relevanceScore": 6,
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "Real Intent",
+        "Security",
+        "Verification",
+        "EDA",
+        "Root of Trust"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "editorPick": true,
+      "highlightRank": 5,
+      "titleZh": "Real Intent 加入 OpenTitan，成为 static sign-off 与验证工具合作伙伴",
+      "summaryZh": "lowRISC 宣布 Real Intent 加入 OpenTitan 联盟并成为官方工具合作伙伴，为 OpenTitan 工程社区带来 hardware security、linting、CDC 与 RDC 等 static sign-off 工具支持。"
+    },
     {
       "title": "Cadence joins OpenTitan as a tools partner for open-source silicon security",
       "url": "https://lowrisc.org/news/cadence-joins-opentitan-as-a-tools-partner-to-accelerate-open-source-silicon-security/",
@@ -261,20 +335,13 @@
       "summary": "lowRISC announced that Cadence has joined the OpenTitan coalition as an official tools partner, bringing enterprise EDA support across verification, formal anal...",
       "author": "",
       "relevanceScore": 8,
-      "tags": [
-        "lowRISC",
-        "OpenTitan",
-        "Security",
-        "EDA",
-        "Verification",
-        "Silicon"
-      ],
+      "tags": ["lowRISC", "OpenTitan", "Security", "EDA", "Verification", "Silicon"],
       "language": "en",
       "sourceTier": "official",
       "reviewStatus": "curated",
       "curated": true,
       "editorPick": true,
-      "highlightRank": 1,
+      "highlightRank": 6,
       "titleZh": "Cadence 加入 OpenTitan，成为开源硅安全项目工具合作伙伴",
       "summaryZh": "lowRISC 宣布 Cadence 加入 OpenTitan 联盟并成为官方工具合作伙伴，为 OpenTitan 设计在验证、形式化分析、综合和物理实现等环节提供企业级 EDA 支持。"
     },
@@ -286,18 +353,13 @@
       "summary": "RISC-V International introduced the Ratified Specifications Library, a consolidated site for ratified RISC-V specifications in HTML and PDF formats, designed to...",
       "author": "",
       "relevanceScore": 5,
-      "tags": [
-        "RISC-V",
-        "Specification",
-        "Documentation",
-        "Open Standard"
-      ],
+      "tags": ["RISC-V", "Specification", "Documentation", "Open Standard"],
       "language": "en",
       "sourceTier": "official",
       "reviewStatus": "curated",
       "curated": true,
       "editorPick": true,
-      "highlightRank": 2,
+      "highlightRank": 7,
       "titleZh": "RISC-V International 推出统一的已批准规格文档库",
       "summaryZh": "RISC-V International 推出 Ratified Specifications Library，将已批准的 RISC-V 规格以 HTML 和 PDF 形式集中呈现，减少过去分散在多个仓库和草稿页面中的查找成本。"
     },
@@ -309,19 +371,13 @@
       "summary": "RISC-V International featured Thales' work on a cycle-based Python performance model for CVA6, used to guide a dual-issue CVA6 implementation and improve CoreMa...",
       "author": "",
       "relevanceScore": 7,
-      "tags": [
-        "RISC-V",
-        "CVA6",
-        "OpenHW",
-        "Performance Modeling",
-        "Microarchitecture"
-      ],
+      "tags": ["RISC-V", "CVA6", "OpenHW", "Performance Modeling", "Microarchitecture"],
       "language": "en",
       "sourceTier": "official",
       "reviewStatus": "curated",
       "curated": true,
       "editorPick": true,
-      "highlightRank": 3,
+      "highlightRank": 8,
       "titleZh": "RISC-V International 介绍基于性能模型推进 superscalar CVA6 的工作",
       "summaryZh": "RISC-V International 介绍了 Thales 围绕 CVA6 建立 cycle-based Python 性能模型的工作，用它指导 dual-issue CVA6 实现，并在较小功耗与面积开销下提升 CoreMark/MHz。"
     },
@@ -333,19 +389,13 @@
       "summary": "Yosys 0.65 adds an arith_tree pass for converting add/sub/macc chains to carry-save adder trees, removes the share -force option, and improves read_verilog supp...",
       "author": "",
       "relevanceScore": 5,
-      "tags": [
-        "Yosys",
-        "EDA",
-        "Synthesis",
-        "Verilog",
-        "FPGA"
-      ],
+      "tags": ["Yosys", "EDA", "Synthesis", "Verilog", "FPGA"],
       "language": "en",
       "sourceTier": "trusted",
       "reviewStatus": "curated",
       "curated": true,
       "editorPick": true,
-      "highlightRank": 4,
+      "highlightRank": 9,
       "titleZh": "Yosys 0.65 发布，带来 arithmetic tree 与 Verilog 前端更新",
       "summaryZh": "Yosys 0.65 新增 arith_tree pass，可将 add/sub/macc 链转换为 carry-save adder tree；同时移除 share -force option，并改进 read_verilog 对 unpacked array positional assignment pattern 的支持。"
     },
@@ -357,15 +407,7 @@
       "summary": "MLCommons described GPT-OSS 20B, a sparse Mixture-of-Experts pretraining benchmark for MLPerf Training v6.0 designed to run on a single 8-GPU node while testing...",
       "author": "",
       "relevanceScore": 6,
-      "tags": [
-        "MLCommons",
-        "MLPerf",
-        "AI",
-        "LLM",
-        "MoE",
-        "Accelerator",
-        "Benchmarking"
-      ],
+      "tags": ["MLCommons", "MLPerf", "AI", "LLM", "MoE", "Accelerator", "Benchmarking"],
       "language": "en",
       "sourceTier": "trusted",
       "reviewStatus": "curated",
@@ -383,13 +425,7 @@
       "summary": "Antmicro described a genetic-algorithm-based local resynthesis strategy in OpenROAD, giving users another optimization path alongside simulated annealing for im...",
       "author": "",
       "relevanceScore": 5,
-      "tags": [
-        "Antmicro",
-        "OpenROAD",
-        "EDA",
-        "ASIC",
-        "Synthesis"
-      ],
+      "tags": ["Antmicro", "OpenROAD", "EDA", "ASIC", "Synthesis"],
       "language": "en",
       "sourceTier": "trusted",
       "reviewStatus": "curated",
@@ -405,14 +441,7 @@
       "summary": "Antmicro expanded simulation-based testing for Google's ChromiumOS fingerprint firmware module by adding Renode support for an Egis ET171 platform based on the ...",
       "author": "",
       "relevanceScore": 5,
-      "tags": [
-        "Antmicro",
-        "Renode",
-        "RISC-V",
-        "Zephyr",
-        "Embedded",
-        "CI"
-      ],
+      "tags": ["Antmicro", "Renode", "RISC-V", "Zephyr", "Embedded", "CI"],
       "language": "en",
       "sourceTier": "trusted",
       "reviewStatus": "curated",
@@ -428,14 +457,7 @@
       "summary": "FOSSi published Mike Thompson's Latch-Up 2026 talk, \"RISC-V in Space (The Canadian version)\". The talk describes a Canadian effort with the University of Saskat...",
       "author": "",
       "relevanceScore": 13,
-      "tags": [
-        "FOSSi",
-        "OpenHW",
-        "RISC-V",
-        "CV32E40P",
-        "Space",
-        "Silicon"
-      ],
+      "tags": ["FOSSi", "OpenHW", "RISC-V", "CV32E40P", "Space", "Silicon"],
       "language": "en",
       "sourceTier": "official",
       "reviewStatus": "curated",
@@ -451,14 +473,7 @@
       "summary": "OCP announced newly approved contributions, projects, and alliances for its Open Data Center Ecosystem for AI, covering open AI data center facilities, power di...",
       "author": "",
       "relevanceScore": 5,
-      "tags": [
-        "OCP",
-        "Open Hardware",
-        "AI",
-        "AI Infrastructure",
-        "Open Rack",
-        "Chiplet"
-      ],
+      "tags": ["OCP", "Open Hardware", "AI", "AI Infrastructure", "Open Rack", "Chiplet"],
       "language": "en",
       "sourceTier": "official",
       "reviewStatus": "curated",
@@ -474,12 +489,7 @@
       "summary": "ACT 4.0 is a major update to the RISC-V Architecture Certification Test suite, replacing the older riscof/riscv-ctg/riscv-isac/riscv-config flow with a new Pyth...",
       "author": "",
       "relevanceScore": 6,
-      "tags": [
-        "RISC-V",
-        "Architecture Tests",
-        "Verification",
-        "Certification"
-      ],
+      "tags": ["RISC-V", "Architecture Tests", "Verification", "Certification"],
       "language": "en",
       "sourceTier": "official",
       "reviewStatus": "curated",
@@ -495,14 +505,7 @@
       "summary": "MLCommons detailed new MLPerf Inference v6.0 workloads for GPT-OSS 120B and a latency-constrained DeepSeek-R1 interactive scenario, including speculative decodi...",
       "author": "",
       "relevanceScore": 6,
-      "tags": [
-        "MLCommons",
-        "MLPerf",
-        "AI",
-        "LLM",
-        "Inference",
-        "Benchmarking"
-      ],
+      "tags": ["MLCommons", "MLPerf", "AI", "LLM", "Inference", "Benchmarking"],
       "language": "en",
       "sourceTier": "trusted",
       "reviewStatus": "curated",
@@ -518,14 +521,7 @@
       "summary": "Antmicro described an optional dual-core lockstep feature for VeeR EL2, including shadow-core behavior, multibit control encoding, error reporting, and cocotb/P...",
       "author": "",
       "relevanceScore": 5,
-      "tags": [
-        "Antmicro",
-        "CHIPS Alliance",
-        "VeeR",
-        "RISC-V",
-        "Security",
-        "Verification"
-      ],
+      "tags": ["Antmicro", "CHIPS Alliance", "VeeR", "RISC-V", "Security", "Verification"],
       "language": "en",
       "sourceTier": "trusted",
       "reviewStatus": "curated",
@@ -541,13 +537,7 @@
       "summary": "Antmicro reported an initial Verilator four-state logic implementation behind an experimental --fourstate flag, aimed at more accurate SystemVerilog simulation ...",
       "author": "",
       "relevanceScore": 5,
-      "tags": [
-        "Antmicro",
-        "Verilator",
-        "SystemVerilog",
-        "Simulation",
-        "EDA"
-      ],
+      "tags": ["Antmicro", "Verilator", "SystemVerilog", "Simulation", "EDA"],
       "language": "en",
       "sourceTier": "trusted",
       "reviewStatus": "curated",
@@ -563,13 +553,7 @@
       "summary": "OCP described Foundation Chiplet System Architecture as a CPU-architecture-neutral framework for chiplet systems, defining common chiplet classes and hardware/f...",
       "author": "",
       "relevanceScore": 5,
-      "tags": [
-        "OCP",
-        "Open Hardware",
-        "Chiplet",
-        "AI Infrastructure",
-        "Interoperability"
-      ],
+      "tags": ["OCP", "Open Hardware", "Chiplet", "AI Infrastructure", "Interoperability"],
       "language": "en",
       "sourceTier": "official",
       "reviewStatus": "curated",
@@ -585,13 +569,7 @@
       "summary": "CHIPS Alliance introduced the SV Tools Project to improve visibility and support for open-source SystemVerilog and UVM tooling, including sv-tests, Verible, Syn...",
       "author": "",
       "relevanceScore": 6,
-      "tags": [
-        "CHIPS Alliance",
-        "SystemVerilog",
-        "UVM",
-        "Verible",
-        "RISCV-DV"
-      ],
+      "tags": ["CHIPS Alliance", "SystemVerilog", "UVM", "Verible", "RISCV-DV"],
       "language": "en",
       "sourceTier": "official",
       "reviewStatus": "curated",
@@ -607,12 +585,7 @@
       "summary": "Caliptra RTL v2.1.2 is a patch release for Caliptra 2.1 RTL, including AES countermeasure and Key Vault hardening plus a future-use ML-KEM Key Vault endianness ...",
       "author": "",
       "relevanceScore": 5,
-      "tags": [
-        "Caliptra",
-        "Root of Trust",
-        "Security",
-        "RTL"
-      ],
+      "tags": ["Caliptra", "Root of Trust", "Security", "RTL"],
       "language": "en",
       "sourceTier": "official",
       "reviewStatus": "curated",
@@ -628,13 +601,7 @@
       "summary": "OpenHW announced the Unified RISC-V IP Access Platform as part of TRISTAN, positioning it as a unified source for verified, industry-ready RISC-V components and...",
       "author": "",
       "relevanceScore": 7,
-      "tags": [
-        "OpenHW",
-        "RISC-V",
-        "IP Platform",
-        "TRISTAN",
-        "Digital Sovereignty"
-      ],
+      "tags": ["OpenHW", "RISC-V", "IP Platform", "TRISTAN", "Digital Sovereignty"],
       "language": "en",
       "sourceTier": "official",
       "reviewStatus": "curated",
@@ -650,14 +617,7 @@
       "summary": "CHIPS Alliance described an open digital design flow using Topwrap and Guineveer, a RISC-V reference SoC based on the VeeR EL2 core, for modular and reusable So...",
       "author": "",
       "relevanceScore": 6,
-      "tags": [
-        "CHIPS Alliance",
-        "RISC-V",
-        "SoC",
-        "Topwrap",
-        "Guineveer",
-        "VeeR"
-      ],
+      "tags": ["CHIPS Alliance", "RISC-V", "SoC", "Topwrap", "Guineveer", "VeeR"],
       "language": "en",
       "sourceTier": "official",
       "reviewStatus": "curated",
@@ -670,13 +630,16 @@
     "Antmicro Blog",
     "CHIPS Alliance",
     "CHIPS Alliance / Caliptra (GitHub)",
+    "CHIPS Alliance / Chisel (GitHub)",
     "FOSSi Foundation / Latch-Up 2026",
+    "Fraunhofer AISEC",
     "MLCommons",
     "Open Compute Project",
     "OpenHW Foundation / Eclipse Foundation Canada",
     "RISC-V Architecture Tests (GitHub)",
     "RISC-V International",
     "YosysHQ (GitHub)",
+    "YosysHQ / Yosys (GitHub)",
     "lowRISC Newsroom"
   ]
 }

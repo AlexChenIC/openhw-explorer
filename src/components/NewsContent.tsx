@@ -4,19 +4,25 @@ import { useMemo, useState } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import {
   type LucideIcon,
+  Activity,
+  ArrowRight,
   BrainCircuit,
   CalendarDays,
   CheckCircle2,
+  Clock3,
   Cpu,
   ExternalLink,
+  Eye,
   Layers3,
   ListFilter,
   Newspaper,
+  Radio,
+  SearchCheck,
   ShieldCheck,
-  Star,
   Wrench,
 } from "lucide-react";
 import newsDigest from "@/data/news-digest.json";
+import newsSourceGroups from "@/data/news-source-groups.json";
 import newsTopicRules from "@/data/news-topic-rules.json";
 
 interface NewsItem {
@@ -45,6 +51,24 @@ interface NewsDigest {
   };
   items: NewsItem[];
   sources: string[];
+}
+
+interface NewsSourceGroup {
+  id: string;
+  title?: {
+    en?: string;
+    zh?: string;
+  };
+  description?: {
+    en?: string;
+    zh?: string;
+  };
+  cadence?: {
+    en?: string;
+    zh?: string;
+  };
+  sources?: string[];
+  tags?: string[];
 }
 
 type TopicFilter = "all" | "openhw" | "ai" | "verification" | "eda" | "security" | "soc";
@@ -160,6 +184,22 @@ const digest: NewsDigest = {
   sources: asStringArray(newsDigest.sources),
 };
 
+const rawSourceGroups: unknown = newsSourceGroups.groups;
+const sourceGroups: NewsSourceGroup[] = Array.isArray(rawSourceGroups)
+  ? rawSourceGroups
+      .filter(
+        (group): group is Record<string, unknown> => Boolean(group) && typeof group === "object",
+      )
+      .map((group) => ({
+        id: asString(group.id),
+        title: group.title as NewsSourceGroup["title"],
+        description: group.description as NewsSourceGroup["description"],
+        cadence: group.cadence as NewsSourceGroup["cadence"],
+        sources: asStringArray(group.sources),
+        tags: asStringArray(group.tags),
+      }))
+  : [];
+
 function formatDate(dateStr: string, locale: string): string {
   if (!dateStr) return "";
   const date = new Date(dateStr);
@@ -191,6 +231,26 @@ function getLocalizedSummary(item: Pick<NewsItem, "summary" | "summaryZh">, loca
   return locale.startsWith("zh") && item.summaryZh ? item.summaryZh : item.summary;
 }
 
+function getItemKey(item?: NewsItem) {
+  if (!item) return "";
+  return item.url || `${item.source}:${item.title}`;
+}
+
+function pickDistinctItem(
+  candidates: Array<NewsItem | undefined>,
+  selectedKeys: Set<string>,
+): NewsItem | undefined {
+  for (const item of candidates) {
+    const key = getItemKey(item);
+    if (item && key && !selectedKeys.has(key)) {
+      selectedKeys.add(key);
+      return item;
+    }
+  }
+
+  return undefined;
+}
+
 function getTopicSearchText(item: NewsItem) {
   return `${item.title} ${item.titleZh || ""} ${item.summary} ${item.summaryZh || ""} ${item.source} ${item.tags.join(" ")}`;
 }
@@ -205,6 +265,36 @@ function matchesTopic(item: NewsItem, topic: TopicFilter) {
 
 function sortByDateDesc(items: NewsItem[]) {
   return [...items].sort((a, b) => (b.publishedAt || "").localeCompare(a.publishedAt || ""));
+}
+
+function getValidDate(dateStr: string) {
+  const date = new Date(dateStr);
+  return Number.isNaN(date.getTime()) ? null : date;
+}
+
+function daysSince(dateStr: string) {
+  const date = getValidDate(dateStr);
+  if (!date) return null;
+  const diff = Date.now() - date.getTime();
+  return Math.max(0, Math.floor(diff / (24 * 60 * 60 * 1000)));
+}
+
+function getFreshnessKey(days: number | null) {
+  if (days == null) return "freshnessUnknown";
+  if (days <= 2) return "freshnessFresh";
+  if (days <= 7) return "freshnessWatch";
+  return "freshnessStale";
+}
+
+function getItemsWithinDays(items: NewsItem[], days: number) {
+  const maxAge = days * 24 * 60 * 60 * 1000;
+  const now = Date.now();
+  return items.filter((item) => {
+    const date = getValidDate(item.publishedAt);
+    if (!date) return false;
+    const age = now - date.getTime();
+    return age >= 0 && age <= maxAge;
+  });
 }
 
 function getTierBadgeMeta(tier: NewsItem["sourceTier"]) {
@@ -243,12 +333,14 @@ function EmptyState() {
   );
 }
 
-function PageHeader() {
+function PageHeader({ latestItem }: { latestItem?: NewsItem } = {}) {
   const t = useTranslations("news");
   const locale = useLocale();
+  const latestDays = daysSince(latestItem?.publishedAt || digest.generatedAt || digest.weekOf);
+  const latestDate = latestItem?.publishedAt || digest.generatedAt || digest.weekOf;
 
   return (
-    <header className="mb-8 border-b border-[var(--border)] pb-6">
+    <header className="mb-8 border-b border-[var(--border)] pb-7">
       <div className="mb-4 flex flex-wrap items-center gap-2">
         <span className="inline-flex items-center rounded-full bg-[var(--primary)]/10 px-3 py-1 text-xs font-semibold text-[var(--primary)]">
           {t("badge")}
@@ -257,13 +349,22 @@ function PageHeader() {
           <CalendarDays className="h-3.5 w-3.5" />
           {t("updatedAt", { date: formatFullDate(digest.generatedAt || digest.weekOf, locale) })}
         </span>
+        <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] px-3 py-1 text-xs text-[var(--text-tertiary)]">
+          <Radio className="h-3.5 w-3.5" />
+          {t(getFreshnessKey(latestDays), { count: latestDays ?? 0 })}
+        </span>
       </div>
-      <h1 className="max-w-3xl text-3xl font-bold leading-tight text-[var(--text-primary)] sm:text-4xl">
+      <h1 className="max-w-3xl text-4xl font-bold leading-tight text-[var(--text-primary)] sm:text-5xl">
         {t("title")}
       </h1>
       <p className="mt-3 max-w-3xl text-base leading-relaxed text-[var(--text-secondary)]">
         {t("subtitle")}
       </p>
+      {latestDate && (
+        <p className="mt-4 text-sm text-[var(--text-tertiary)]">
+          {t("latestPublicSignal", { date: formatFullDate(latestDate, locale) })}
+        </p>
+      )}
     </header>
   );
 }
@@ -301,104 +402,139 @@ function TagList({ tags, limit = 4 }: { tags: string[]; limit?: number }) {
   );
 }
 
-function HighlightPicks({ items }: { items: NewsItem[] }) {
+function StoryCard({
+  item,
+  label,
+  prominent = false,
+}: {
+  item: NewsItem;
+  label?: string;
+  prominent?: boolean;
+}) {
   const t = useTranslations("news");
   const locale = useLocale();
-  const picks = items.slice(0, 4);
-  const lead = picks[0];
-  const secondary = picks.slice(1);
 
-  if (!lead) return null;
+  return (
+    <article
+      className={`h-full rounded-lg border border-[var(--border)] bg-[var(--bg-card)] p-4 transition-colors hover:border-[var(--text-tertiary)] ${
+        prominent ? "sm:p-5" : ""
+      }`}
+    >
+      {label && (
+        <div className="mb-3 text-[10px] font-semibold uppercase tracking-wide text-[var(--primary)]">
+          {label}
+        </div>
+      )}
+      <MetaLine item={item} />
+      <h3
+        className={`mt-3 font-semibold leading-snug text-[var(--text-primary)] ${
+          prominent ? "text-xl sm:text-2xl" : "text-base"
+        }`}
+      >
+        <a
+          href={item.url}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="inline-flex items-start gap-1.5 hover:text-[var(--primary)]"
+        >
+          <span>{getLocalizedTitle(item, locale)}</span>
+          <ExternalLink className="mt-1 h-3.5 w-3.5 shrink-0 opacity-60" />
+        </a>
+      </h3>
+      {getLocalizedSummary(item, locale) && (
+        <p className="mt-3 line-clamp-3 text-sm leading-7 text-[var(--text-secondary)]">
+          {getLocalizedSummary(item, locale)}
+        </p>
+      )}
+      <div className="mt-4">
+        <TagList tags={item.tags} limit={prominent ? 5 : 4} />
+      </div>
+    </article>
+  );
+}
+
+function DailyBrief({
+  allItems,
+  editorialItems,
+}: {
+  allItems: NewsItem[];
+  editorialItems: NewsItem[];
+}) {
+  const t = useTranslations("news");
+  const locale = useLocale();
+  const latestItem = allItems[0];
+  const recentItems = getItemsWithinDays(allItems, 7);
+  const latestDays = daysSince(latestItem?.publishedAt || "");
+
+  if (!latestItem) return null;
+
+  const selectedKeys = new Set<string>();
+  const latestSignal = pickDistinctItem([latestItem], selectedKeys) || latestItem;
+  const editorPick = pickDistinctItem([...editorialItems, ...allItems], selectedKeys);
+  const toolchainItem = pickDistinctItem(
+    [
+      ...allItems.filter((item) => matchesTopic(item, "eda") || matchesTopic(item, "verification")),
+      ...allItems,
+    ],
+    selectedKeys,
+  );
 
   return (
     <section className="mb-9">
       <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <div className="mb-1 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[var(--primary)]">
-            <Star className="h-3.5 w-3.5" />
-            {t("picksEyebrow")}
+            <Activity className="h-3.5 w-3.5" />
+            {t("dailyBriefEyebrow")}
           </div>
-          <h2 className="text-2xl font-bold text-[var(--text-primary)]">{t("picksTitle")}</h2>
+          <h2 className="text-2xl font-bold text-[var(--text-primary)]">{t("dailyBriefTitle")}</h2>
         </div>
-        <p className="text-sm text-[var(--text-tertiary)]">{t("picksSubtitle")}</p>
+        <p className="max-w-xl text-sm text-[var(--text-tertiary)]">{t("dailyBriefSubtitle")}</p>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.35fr_1fr]">
-        <article className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-5 sm:p-6">
-          <div className="mb-4 flex items-center gap-2">
-            <span className="inline-flex items-center gap-1.5 rounded-full bg-[var(--primary)]/10 px-2.5 py-1 text-xs font-semibold text-[var(--primary)]">
-              <CheckCircle2 className="h-3.5 w-3.5" />
-              {t("leadPick")}
-            </span>
+      <div className="mb-4 grid grid-cols-2 gap-2 md:grid-cols-4">
+        <div className="rounded-lg border border-[var(--border)] bg-[var(--bg-card)] p-3">
+          <div className="mb-2 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
+            <CheckCircle2 className="h-3.5 w-3.5" />
+            {t("pulseReviewed")}
           </div>
-
-          <MetaLine item={lead} />
-
-          <h3 className="mt-3 text-xl font-bold leading-tight text-[var(--text-primary)] sm:text-2xl">
-            <a
-              href={lead.url}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="hover:text-[var(--primary)]"
-            >
-              {getLocalizedTitle(lead, locale)}
-            </a>
-          </h3>
-
-          {getLocalizedSummary(lead, locale) && (
-            <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
-              {getLocalizedSummary(lead, locale)}
-            </p>
-          )}
-
-          <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-            <TagList tags={lead.tags} />
-            {lead.url && (
-              <a
-                href={lead.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex w-fit items-center gap-1.5 rounded-md border border-[var(--border)] bg-[var(--bg-subtle)] px-3 py-1.5 text-xs font-semibold text-[var(--text-primary)] hover:border-[var(--primary)] hover:text-[var(--primary)]"
-              >
-                {t("openOriginal")}
-                <ExternalLink className="h-3.5 w-3.5" />
-              </a>
-            )}
-          </div>
-        </article>
-
-        <div className="grid grid-cols-1 gap-3">
-          {secondary.map((item, index) => (
-            <article
-              key={`${item.url}-${index}`}
-              className="rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-4 transition-colors hover:border-[var(--text-tertiary)]"
-            >
-              <div className="mb-2 flex items-center justify-between gap-3">
-                <span className="text-[10px] font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
-                  {t("secondaryPick", { index: index + 2 })}
-                </span>
-                {item.publishedAt && (
-                  <span className="text-[10px] text-[var(--text-tertiary)]">
-                    {formatDate(item.publishedAt, locale)}
-                  </span>
-                )}
-              </div>
-              <h3 className="text-sm font-semibold leading-snug text-[var(--text-primary)]">
-                <a
-                  href={item.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="hover:text-[var(--primary)]"
-                >
-                  {getLocalizedTitle(item, locale)}
-                </a>
-              </h3>
-              <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-[var(--text-tertiary)]">
-                {getLocalizedSummary(item, locale)}
-              </p>
-            </article>
-          ))}
+          <div className="text-2xl font-bold text-[var(--text-primary)]">{allItems.length}</div>
+          <div className="mt-1 text-xs text-[var(--text-tertiary)]">{t("pulseReviewedHint")}</div>
         </div>
+        <div className="rounded-lg border border-[var(--border)] bg-[var(--bg-card)] p-3">
+          <div className="mb-2 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
+            <SearchCheck className="h-3.5 w-3.5" />
+            {t("pulseSources")}
+          </div>
+          <div className="text-2xl font-bold text-[var(--text-primary)]">
+            {digest.sources.length}
+          </div>
+          <div className="mt-1 text-xs text-[var(--text-tertiary)]">{t("pulseSourcesHint")}</div>
+        </div>
+        <div className="rounded-lg border border-[var(--border)] bg-[var(--bg-card)] p-3">
+          <div className="mb-2 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
+            <Radio className="h-3.5 w-3.5" />
+            {t("pulseRecent")}
+          </div>
+          <div className="text-2xl font-bold text-[var(--text-primary)]">{recentItems.length}</div>
+          <div className="mt-1 text-xs text-[var(--text-tertiary)]">{t("pulseRecentHint")}</div>
+        </div>
+        <div className="rounded-lg border border-[var(--border)] bg-[var(--bg-card)] p-3">
+          <div className="mb-2 flex items-center gap-2 text-[11px] font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
+            <Clock3 className="h-3.5 w-3.5" />
+            {t("pulseGap")}
+          </div>
+          <div className="text-2xl font-bold text-[var(--text-primary)]">
+            {latestDays == null ? "—" : latestDays}
+          </div>
+          <div className="mt-1 text-xs text-[var(--text-tertiary)]">{t("pulseGapHint")}</div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.35fr_1fr_1fr]">
+        <StoryCard item={latestSignal} label={t("latestSignal")} prominent />
+        {editorPick && <StoryCard item={editorPick} label={t("editorSignal")} />}
+        {toolchainItem && <StoryCard item={toolchainItem} label={t("toolchainSignal")} />}
       </div>
     </section>
   );
@@ -417,7 +553,7 @@ function TopicBrowser({
   const active = TOPIC_FILTERS.find((filter) => filter.id === activeTopic) || TOPIC_FILTERS[0];
 
   return (
-    <section className="mb-6">
+    <section className="mb-8">
       <div className="mb-3 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
         <div>
           <div className="mb-1 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
@@ -482,7 +618,10 @@ function NewsTimeline({ items, activeTopic }: { items: NewsItem[]; activeTopic: 
             {t("timelineSubtitle", { count: items.length })}
           </p>
         </div>
-        <span className="text-xs text-[var(--text-tertiary)]">{t("latestFirst")}</span>
+        <span className="inline-flex items-center gap-1.5 text-xs text-[var(--text-tertiary)]">
+          {t("latestFirst")}
+          <ArrowRight className="h-3.5 w-3.5" />
+        </span>
       </div>
 
       {items.length ? (
@@ -532,6 +671,61 @@ function NewsTimeline({ items, activeTopic }: { items: NewsItem[]; activeTopic: 
   );
 }
 
+function SourceCoverage() {
+  const t = useTranslations("news");
+  const locale = useLocale();
+  const localized = locale.startsWith("zh") ? "zh" : "en";
+
+  if (!sourceGroups.length) return null;
+
+  return (
+    <section className="mt-10 border-t border-[var(--border)] pt-6">
+      <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
+        <div>
+          <div className="mb-1 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[var(--text-tertiary)]">
+            <Eye className="h-3.5 w-3.5" />
+            {t("sourceCoverageTitle")}
+          </div>
+          <h2 className="text-xl font-bold text-[var(--text-primary)]">
+            {t("sourceCoverageHeading")}
+          </h2>
+        </div>
+        <p className="max-w-xl text-sm text-[var(--text-tertiary)]">
+          {t("sourceCoverageSubtitle")}
+        </p>
+      </div>
+
+      <div className="grid grid-cols-1 gap-3 md:grid-cols-2 lg:grid-cols-3">
+        {sourceGroups.slice(0, 6).map((group) => (
+          <div
+            key={group.id}
+            className="rounded-lg border border-[var(--border)] bg-[var(--bg-card)] p-4"
+          >
+            <div className="mb-2 flex items-center justify-between gap-3">
+              <h3 className="text-sm font-semibold text-[var(--text-primary)]">
+                {group.title?.[localized] || group.id}
+              </h3>
+              {group.cadence?.[localized] && (
+                <span className="shrink-0 rounded border border-[var(--border)] bg-[var(--bg-subtle)] px-2 py-0.5 text-[10px] text-[var(--text-tertiary)]">
+                  {group.cadence[localized]}
+                </span>
+              )}
+            </div>
+            {group.description?.[localized] && (
+              <p className="line-clamp-2 text-xs leading-relaxed text-[var(--text-tertiary)]">
+                {group.description[localized]}
+              </p>
+            )}
+            <div className="mt-3">
+              <TagList tags={group.tags || []} limit={4} />
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
+}
+
 function NewsFooter() {
   const t = useTranslations("news");
 
@@ -550,6 +744,7 @@ export function NewsContent() {
   const [activeTopic, setActiveTopic] = useState<TopicFilter>("all");
 
   const allItems = useMemo(() => sortByDateDesc(digest.items), []);
+  const editorialItems = useMemo(() => digest.items, []);
   const filteredItems = useMemo(
     () => allItems.filter((item) => matchesTopic(item, activeTopic)),
     [activeTopic, allItems],
@@ -561,11 +756,12 @@ export function NewsContent() {
 
   return (
     <div className="page-shell">
-      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-        <PageHeader />
-        <HighlightPicks items={digest.items} />
+      <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+        <PageHeader latestItem={allItems[0]} />
+        <DailyBrief allItems={allItems} editorialItems={editorialItems} />
         <TopicBrowser activeTopic={activeTopic} onChange={setActiveTopic} items={allItems} />
         <NewsTimeline items={filteredItems} activeTopic={activeTopic} />
+        <SourceCoverage />
         <NewsFooter />
       </div>
     </div>
