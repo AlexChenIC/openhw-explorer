@@ -64,7 +64,7 @@ export function Header() {
         </nav>
 
         {/* Right section */}
-        <div className="flex items-center gap-3">
+        <div className="flex items-center gap-1.5 sm:gap-3">
           {/* Language switcher */}
           <div
             className="flex rounded-md border border-[var(--border)] bg-[var(--bg-card)] overflow-hidden"
@@ -75,7 +75,7 @@ export function Header() {
               onClick={() => switchLocale("zh")}
               aria-label={t("aria.switchToChinese")}
               aria-pressed={locale === "zh"}
-              className={`px-2.5 py-1.5 text-xs font-medium transition-all ${
+              className={`px-2 py-1.5 text-xs font-medium transition-all sm:px-2.5 ${
                 locale === "zh"
                   ? "text-white bg-[var(--primary)]"
                   : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
@@ -87,7 +87,7 @@ export function Header() {
               onClick={() => switchLocale("en")}
               aria-label={t("aria.switchToEnglish")}
               aria-pressed={locale === "en"}
-              className={`px-2.5 py-1.5 text-xs font-medium transition-all ${
+              className={`px-2 py-1.5 text-xs font-medium transition-all sm:px-2.5 ${
                 locale === "en"
                   ? "text-white bg-[var(--primary)]"
                   : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
@@ -101,7 +101,7 @@ export function Header() {
           <button
             onClick={toggleTheme}
             aria-label={theme === "dark" ? t("aria.switchToLight") : t("aria.switchToDark")}
-            className="p-2 rounded-lg border border-[var(--border)] bg-[var(--bg-card)] hover:bg-[var(--bg-card-hover)] hover:border-[var(--text-tertiary)] transition-all"
+            className="rounded-lg border border-[var(--border)] bg-[var(--bg-card)] p-1.5 transition-all hover:bg-[var(--bg-card-hover)] hover:border-[var(--text-tertiary)] sm:p-2"
           >
             {theme === "dark" ? (
               <Sun className="w-4 h-4 text-[var(--text-primary)]" />
@@ -127,7 +127,7 @@ export function Header() {
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             aria-label={isMobileMenuOpen ? t("aria.closeMenu") : t("aria.openMenu")}
             aria-expanded={isMobileMenuOpen}
-            className="md:hidden p-2 rounded-lg text-[var(--text-secondary)] hover:text-[var(--text-primary)] hover:bg-[var(--bg-subtle-hover)] transition-all"
+            className="rounded-lg p-1.5 text-[var(--text-secondary)] transition-all hover:bg-[var(--bg-subtle-hover)] hover:text-[var(--text-primary)] sm:p-2 md:hidden"
           >
             {isMobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
           </button>
