@@ -1,17 +1,21 @@
 {
   "weekOf": "2026-06-02",
-  "generatedAt": "2026-06-02T13:16:11.278Z",
+  "generatedAt": "2026-06-02T19:45:06.274Z",
   "stats": {
-    "totalRelevant": 23,
-    "totalSources": 14,
+    "totalRelevant": 24,
+    "totalSources": 15,
     "topTags": [
       {
         "tag": "RISC-V",
-        "count": 8
+        "count": 9
       },
       {
         "tag": "EDA",
         "count": 7
+      },
+      {
+        "tag": "OpenHW",
+        "count": 5
       },
       {
         "tag": "Security",
@@ -19,10 +23,6 @@
       },
       {
         "tag": "Antmicro",
-        "count": 5
-      },
-      {
-        "tag": "Verification",
         "count": 5
       }
     ]
@@ -78,8 +78,16 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 10,
+      "count": 11,
       "items": [
+        {
+          "title": "Ainekko's CORE-ET edge AI silicon platform becomes an OpenHW Foundation project",
+          "titleZh": "Ainekko 的 CORE-ET 边缘 AI 硅平台成为 OpenHW Foundation 开源项目",
+          "url": "https://www.globenewswire.com/news-release/2026/06/02/3305225/0/en/ainekko-s-edge-ai-silicon-platform-is-now-an-openhw-foundation-open-source-project.html",
+          "source": "Ainekko / GlobeNewswire",
+          "tags": ["OpenHW", "Ainekko", "CORE-ET"],
+          "publishedAt": "2026-06-02T13:00:00.000Z"
+        },
         {
           "title": "Fraunhofer AISEC joins OpenHW Foundation to advance secure CVA6/OpenTitan platforms",
           "titleZh": "Fraunhofer AISEC 加入 OpenHW Foundation，推进基于 CVA6 与 OpenTitan 的安全平台",
@@ -103,14 +111,6 @@
           "source": "lowRISC Newsroom",
           "tags": ["lowRISC", "OpenTitan", "Security"],
           "publishedAt": "2026-05-14T08:50:25.000Z"
-        },
-        {
-          "title": "RISC-V International launches a single library for ratified specifications",
-          "titleZh": "RISC-V International 推出统一的已批准规格文档库",
-          "url": "https://riscv.org/blog/ratified-specifications-library/",
-          "source": "RISC-V International",
-          "tags": ["RISC-V", "Specification", "Documentation"],
-          "publishedAt": "2026-05-07T16:22:00.000Z"
         }
       ]
     },
@@ -214,6 +214,33 @@
   ],
   "items": [
     {
+      "title": "Ainekko's CORE-ET edge AI silicon platform becomes an OpenHW Foundation project",
+      "url": "https://www.globenewswire.com/news-release/2026/06/02/3305225/0/en/ainekko-s-edge-ai-silicon-platform-is-now-an-openhw-foundation-open-source-project.html",
+      "source": "Ainekko / GlobeNewswire",
+      "publishedAt": "2026-06-02T13:00:00.000Z",
+      "summary": "Ainekko announced that its CORE-ET Silicon Platform has been accepted as an OpenHW Foundation project. The platform combines many-core 64-bit RISC-V compute, MR...",
+      "author": "",
+      "relevanceScore": 8,
+      "tags": [
+        "OpenHW",
+        "Ainekko",
+        "CORE-ET",
+        "RISC-V",
+        "Edge AI",
+        "MRAM",
+        "Open Silicon",
+        "Solderpad"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "editorPick": true,
+      "highlightRank": 1,
+      "titleZh": "Ainekko 的 CORE-ET 边缘 AI 硅平台成为 OpenHW Foundation 开源项目",
+      "summaryZh": "Ainekko 宣布其 CORE-ET Silicon Platform 已被 OpenHW Foundation 接收为开源项目。该平台结合 many-core 64-bit RISC-V compute、MRAM-based memory、可扩展 NoC、architecture emulator 与开放工具链，面向低功耗边缘 AI 推理。"
+    },
+    {
       "title": "Fraunhofer AISEC joins OpenHW Foundation to advance secure CVA6/OpenTitan platforms",
       "url": "https://www.aisec.fraunhofer.de/en/media/press-releases/2026/FraunhoferAISEC-joins-OpenHW-Foundation.html",
       "source": "Fraunhofer AISEC",
@@ -235,7 +262,7 @@
       "reviewStatus": "curated",
       "curated": true,
       "editorPick": true,
-      "highlightRank": 1,
+      "highlightRank": 2,
       "titleZh": "Fraunhofer AISEC 加入 OpenHW Foundation，推进基于 CVA6 与 OpenTitan 的安全平台",
       "summaryZh": "Fraunhofer AISEC 宣布加入 OpenHW Foundation，并介绍其围绕 RISC-V CVA6 core 与 OpenTitan root-of-trust 平台开发安全 SoC 的工作；其 GyroidOS 已运行在采用 CVA6 core 的 FPGA 参考平台上。"
     },
@@ -253,7 +280,7 @@
       "reviewStatus": "curated",
       "curated": true,
       "editorPick": true,
-      "highlightRank": 2,
+      "highlightRank": 3,
       "titleZh": "Chisel v7.13.0 发布，带来 ChiselTest 兼容层与 FIRRTL 7 后端更新",
       "summaryZh": "Chisel v7.13.0 新增面向 Chisel 7 的 ChiselTest compatibility layer、用于 Chisel type metadata 的 debug intrinsic，并将 FIRRTL backend 升级到 7.0.0，同时包含多项 core fix 与文档更新。"
     },
@@ -271,7 +298,7 @@
       "reviewStatus": "curated",
       "curated": true,
       "editorPick": true,
-      "highlightRank": 3,
+      "highlightRank": 4,
       "titleZh": "Yosys 0.66 发布，加入 Lattice Nexus DSP inference 与 GateMate 综合更新",
       "summaryZh": "Yosys 0.66 新增 lattice_dsp_nexus pass，用于 Lattice Nexus DSP inference；同时为 synth_gatemate 增加可传递到 flatten 的 scopename option，并将项目基线推进到 C++20，后续计划迁移到 CMake。"
     },
@@ -297,7 +324,7 @@
       "reviewStatus": "curated",
       "curated": true,
       "editorPick": true,
-      "highlightRank": 4,
+      "highlightRank": 5,
       "titleZh": "Antmicro 为 Verilator 带来更接近 IEEE 规范的 force/release statement 支持",
       "summaryZh": "Antmicro 介绍了 Verilator 中基于 runtime force tracking 的实现，使其能更好支持 SystemVerilog 中 conditional 与 overlapping force/release statement，并更接近 IEEE 1800-2023 规范；相关工作已进入 Verilator 5.048。"
     },
@@ -323,7 +350,7 @@
       "reviewStatus": "curated",
       "curated": true,
       "editorPick": true,
-      "highlightRank": 5,
+      "highlightRank": 6,
       "titleZh": "Real Intent 加入 OpenTitan，成为 static sign-off 与验证工具合作伙伴",
       "summaryZh": "lowRISC 宣布 Real Intent 加入 OpenTitan 联盟并成为官方工具合作伙伴，为 OpenTitan 工程社区带来 hardware security、linting、CDC 与 RDC 等 static sign-off 工具支持。"
     },
@@ -341,7 +368,7 @@
       "reviewStatus": "curated",
       "curated": true,
       "editorPick": true,
-      "highlightRank": 6,
+      "highlightRank": 7,
       "titleZh": "Cadence 加入 OpenTitan，成为开源硅安全项目工具合作伙伴",
       "summaryZh": "lowRISC 宣布 Cadence 加入 OpenTitan 联盟并成为官方工具合作伙伴，为 OpenTitan 设计在验证、形式化分析、综合和物理实现等环节提供企业级 EDA 支持。"
     },
@@ -359,7 +386,7 @@
       "reviewStatus": "curated",
       "curated": true,
       "editorPick": true,
-      "highlightRank": 7,
+      "highlightRank": 8,
       "titleZh": "RISC-V International 推出统一的已批准规格文档库",
       "summaryZh": "RISC-V International 推出 Ratified Specifications Library，将已批准的 RISC-V 规格以 HTML 和 PDF 形式集中呈现，减少过去分散在多个仓库和草稿页面中的查找成本。"
     },
@@ -377,7 +404,7 @@
       "reviewStatus": "curated",
       "curated": true,
       "editorPick": true,
-      "highlightRank": 8,
+      "highlightRank": 9,
       "titleZh": "RISC-V International 介绍基于性能模型推进 superscalar CVA6 的工作",
       "summaryZh": "RISC-V International 介绍了 Thales 围绕 CVA6 建立 cycle-based Python 性能模型的工作，用它指导 dual-issue CVA6 实现，并在较小功耗与面积开销下提升 CoreMark/MHz。"
     },
@@ -395,7 +422,7 @@
       "reviewStatus": "curated",
       "curated": true,
       "editorPick": true,
-      "highlightRank": 9,
+      "highlightRank": 10,
       "titleZh": "Yosys 0.65 发布，带来 arithmetic tree 与 Verilog 前端更新",
       "summaryZh": "Yosys 0.65 新增 arith_tree pass，可将 add/sub/macc 链转换为 carry-save adder tree；同时移除 share -force option，并改进 read_verilog 对 unpacked array positional assignment pattern 的支持。"
     },
@@ -627,6 +654,7 @@
     }
   ],
   "sources": [
+    "Ainekko / GlobeNewswire",
     "Antmicro Blog",
     "CHIPS Alliance",
     "CHIPS Alliance / Caliptra (GitHub)",

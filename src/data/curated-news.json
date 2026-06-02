@@ -3,6 +3,29 @@
   "_usage": "每次更新添加 3-7 条即可。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "Ainekko's CORE-ET edge AI silicon platform becomes an OpenHW Foundation project",
+      "titleZh": "Ainekko 的 CORE-ET 边缘 AI 硅平台成为 OpenHW Foundation 开源项目",
+      "url": "https://www.globenewswire.com/news-release/2026/06/02/3305225/0/en/ainekko-s-edge-ai-silicon-platform-is-now-an-openhw-foundation-open-source-project.html",
+      "source": "Ainekko / GlobeNewswire",
+      "addedAt": "2026-06-02T13:00:00Z",
+      "summary": "Ainekko announced that its CORE-ET Silicon Platform has been accepted as an OpenHW Foundation project. The platform combines many-core 64-bit RISC-V compute, MRAM-based memory, a scalable NoC, an architecture emulator, and open tooling for low-power edge AI inference.",
+      "summaryZh": "Ainekko 宣布其 CORE-ET Silicon Platform 已被 OpenHW Foundation 接收为开源项目。该平台结合 many-core 64-bit RISC-V compute、MRAM-based memory、可扩展 NoC、architecture emulator 与开放工具链，面向低功耗边缘 AI 推理。",
+      "tags": [
+        "OpenHW",
+        "Ainekko",
+        "CORE-ET",
+        "RISC-V",
+        "Edge AI",
+        "MRAM",
+        "Open Silicon",
+        "Solderpad"
+      ],
+      "sourceTier": "trusted",
+      "language": "en",
+      "editorPick": true,
+      "highlightRank": 1
+    },
+    {
       "title": "Fraunhofer AISEC joins OpenHW Foundation to advance secure CVA6/OpenTitan platforms",
       "titleZh": "Fraunhofer AISEC 加入 OpenHW Foundation，推进基于 CVA6 与 OpenTitan 的安全平台",
       "url": "https://www.aisec.fraunhofer.de/en/media/press-releases/2026/FraunhoferAISEC-joins-OpenHW-Foundation.html",
@@ -22,7 +45,7 @@
       "sourceTier": "trusted",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 1
+      "highlightRank": 2
     },
     {
       "title": "Chisel v7.13.0 released with ChiselTest compatibility and FIRRTL 7 backend updates",
@@ -36,7 +59,7 @@
       "sourceTier": "official",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 2
+      "highlightRank": 3
     },
     {
       "title": "Yosys 0.66 released with Lattice Nexus DSP inference and GateMate synthesis updates",
@@ -50,7 +73,7 @@
       "sourceTier": "trusted",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 3
+      "highlightRank": 4
     },
     {
       "title": "Antmicro brings IEEE-compliant force/release statement support to Verilator",
@@ -72,7 +95,7 @@
       "sourceTier": "trusted",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 4
+      "highlightRank": 5
     },
     {
       "title": "Real Intent joins OpenTitan as tools partner for static sign-off and verification",
@@ -94,7 +117,7 @@
       "sourceTier": "official",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 5
+      "highlightRank": 6
     },
     {
       "title": "Cadence joins OpenTitan as a tools partner for open-source silicon security",
@@ -108,7 +131,7 @@
       "sourceTier": "official",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 6
+      "highlightRank": 7
     },
     {
       "title": "RISC-V International launches a single library for ratified specifications",
@@ -122,7 +145,7 @@
       "sourceTier": "official",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 7
+      "highlightRank": 8
     },
     {
       "title": "RISC-V International highlights a performance-model-driven superscalar CVA6 effort",
@@ -136,7 +159,7 @@
       "sourceTier": "official",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 8
+      "highlightRank": 9
     },
     {
       "title": "Yosys 0.65 released with arithmetic tree and Verilog frontend updates",
@@ -150,7 +173,7 @@
       "sourceTier": "trusted",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 9
+      "highlightRank": 10
     },
     {
       "title": "MLCommons adds GPT-OSS 20B as a sparse MoE pretraining benchmark for MLPerf Training v6.0",
