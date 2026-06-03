@@ -26,6 +26,34 @@
       "highlightRank": 1
     },
     {
+      "title": "Chisel v7.13.0 released with ChiselTest compatibility and FIRRTL 7 backend updates",
+      "titleZh": "Chisel v7.13.0 发布，带来 ChiselTest 兼容层与 FIRRTL 7 后端更新",
+      "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.13.0",
+      "source": "CHIPS Alliance / Chisel (GitHub)",
+      "addedAt": "2026-06-01T20:37:33Z",
+      "summary": "Chisel v7.13.0 adds a ChiselTest compatibility layer for Chisel 7, debug intrinsics for Chisel type metadata, and bumps the FIRRTL backend to 7.0.0 while carrying several core fixes and documentation updates.",
+      "summaryZh": "Chisel v7.13.0 新增面向 Chisel 7 的 ChiselTest compatibility layer、用于 Chisel type metadata 的 debug intrinsic，并将 FIRRTL backend 升级到 7.0.0，同时包含多项 core fix 与文档更新。",
+      "tags": ["CHIPS Alliance", "Chisel", "FIRRTL", "CIRCT", "Hardware Construction", "SoC"],
+      "sourceTier": "official",
+      "language": "en",
+      "editorPick": true,
+      "highlightRank": 2
+    },
+    {
+      "title": "Yosys 0.66 released with Lattice Nexus DSP inference and GateMate synthesis updates",
+      "titleZh": "Yosys 0.66 发布，加入 Lattice Nexus DSP inference 与 GateMate 综合更新",
+      "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.66",
+      "source": "YosysHQ / Yosys (GitHub)",
+      "addedAt": "2026-06-01T16:22:15Z",
+      "summary": "Yosys 0.66 adds the lattice_dsp_nexus pass for Lattice Nexus DSP inference, extends synth_gatemate with a scopename option propagated to flatten, and moves the project baseline toward C++20 with a future CMake migration planned.",
+      "summaryZh": "Yosys 0.66 新增 lattice_dsp_nexus pass，用于 Lattice Nexus DSP inference；同时为 synth_gatemate 增加可传递到 flatten 的 scopename option，并将项目基线推进到 C++20，后续计划迁移到 CMake。",
+      "tags": ["Yosys", "EDA", "Synthesis", "FPGA", "Lattice Nexus", "GateMate"],
+      "sourceTier": "trusted",
+      "language": "en",
+      "editorPick": true,
+      "highlightRank": 3
+    },
+    {
       "title": "Fraunhofer AISEC joins OpenHW Foundation to advance secure CVA6/OpenTitan platforms",
       "titleZh": "Fraunhofer AISEC 加入 OpenHW Foundation，推进基于 CVA6 与 OpenTitan 的安全平台",
       "url": "https://www.aisec.fraunhofer.de/en/media/press-releases/2026/FraunhoferAISEC-joins-OpenHW-Foundation.html",
@@ -45,35 +73,29 @@
       "sourceTier": "trusted",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 2
+      "highlightRank": 4
     },
     {
-      "title": "Chisel v7.13.0 released with ChiselTest compatibility and FIRRTL 7 backend updates",
-      "titleZh": "Chisel v7.13.0 发布，带来 ChiselTest 兼容层与 FIRRTL 7 后端更新",
-      "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.13.0",
-      "source": "CHIPS Alliance / Chisel (GitHub)",
-      "addedAt": "2026-06-01T20:37:33Z",
-      "summary": "Chisel v7.13.0 adds a ChiselTest compatibility layer for Chisel 7, debug intrinsics for Chisel type metadata, and bumps the FIRRTL backend to 7.0.0 while carrying several core fixes and documentation updates.",
-      "summaryZh": "Chisel v7.13.0 新增面向 Chisel 7 的 ChiselTest compatibility layer、用于 Chisel type metadata 的 debug intrinsic，并将 FIRRTL backend 升级到 7.0.0，同时包含多项 core fix 与文档更新。",
-      "tags": ["CHIPS Alliance", "Chisel", "FIRRTL", "CIRCT", "Hardware Construction", "SoC"],
+      "title": "OpenTitan details its pre-silicon security simulation and verification flow",
+      "titleZh": "OpenTitan 详解其 pre-silicon 安全仿真与验证流程",
+      "url": "https://lowrisc.org/news/opentitans-pre-silicon-security-simulation-and-verification/",
+      "source": "lowRISC Newsroom",
+      "addedAt": "2026-05-27T00:00:00Z",
+      "summary": "lowRISC outlined how OpenTitan validates side-channel and fault-injection countermeasures before tape-out, combining open-source tooling such as CocoAlma and PROLEAD with formal and simulation-based flows to catch vulnerabilities earlier in the security lifecycle.",
+      "summaryZh": "lowRISC 介绍了 OpenTitan 在 tape-out 前如何验证 side-channel 与 fault-injection countermeasure：将 CocoAlma、PROLEAD 等开源工具与 formal、simulation-based flow 结合，在安全开发生命周期更早阶段发现漏洞。",
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "Security",
+        "Verification",
+        "Formal",
+        "Side-Channel",
+        "Fault Injection"
+      ],
       "sourceTier": "official",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 3
-    },
-    {
-      "title": "Yosys 0.66 released with Lattice Nexus DSP inference and GateMate synthesis updates",
-      "titleZh": "Yosys 0.66 发布，加入 Lattice Nexus DSP inference 与 GateMate 综合更新",
-      "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.66",
-      "source": "YosysHQ / Yosys (GitHub)",
-      "addedAt": "2026-06-01T16:22:15Z",
-      "summary": "Yosys 0.66 adds the lattice_dsp_nexus pass for Lattice Nexus DSP inference, extends synth_gatemate with a scopename option propagated to flatten, and moves the project baseline toward C++20 with a future CMake migration planned.",
-      "summaryZh": "Yosys 0.66 新增 lattice_dsp_nexus pass，用于 Lattice Nexus DSP inference；同时为 synth_gatemate 增加可传递到 flatten 的 scopename option，并将项目基线推进到 C++20，后续计划迁移到 CMake。",
-      "tags": ["Yosys", "EDA", "Synthesis", "FPGA", "Lattice Nexus", "GateMate"],
-      "sourceTier": "trusted",
-      "language": "en",
-      "editorPick": true,
-      "highlightRank": 4
+      "highlightRank": 5
     },
     {
       "title": "Antmicro brings IEEE-compliant force/release statement support to Verilator",
@@ -95,7 +117,7 @@
       "sourceTier": "trusted",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 5
+      "highlightRank": 6
     },
     {
       "title": "Real Intent joins OpenTitan as tools partner for static sign-off and verification",
@@ -117,7 +139,7 @@
       "sourceTier": "official",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 6
+      "highlightRank": 7
     },
     {
       "title": "Cadence joins OpenTitan as a tools partner for open-source silicon security",
@@ -131,7 +153,7 @@
       "sourceTier": "official",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 7
+      "highlightRank": 8
     },
     {
       "title": "RISC-V International launches a single library for ratified specifications",
@@ -145,7 +167,7 @@
       "sourceTier": "official",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 8
+      "highlightRank": 9
     },
     {
       "title": "RISC-V International highlights a performance-model-driven superscalar CVA6 effort",
@@ -159,7 +181,7 @@
       "sourceTier": "official",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 9
+      "highlightRank": 10
     },
     {
       "title": "Yosys 0.65 released with arithmetic tree and Verilog frontend updates",
@@ -173,7 +195,45 @@
       "sourceTier": "trusted",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 10
+      "highlightRank": 11
+    },
+    {
+      "title": "MLCommons Chakra expands its standardized trace ecosystem for AI systems co-design",
+      "titleZh": "MLCommons Chakra 扩展面向 AI 系统协同设计的标准化 trace 生态",
+      "url": "https://mlcommons.org/2026/06/chakra-comes-of-age/",
+      "source": "MLCommons",
+      "addedAt": "2026-06-02T00:00:00Z",
+      "summary": "MLCommons reported that Chakra has grown into a 40-plus-member effort with execution-trace support in PyTorch, NVIDIA NeMo, vLLM, ASTRA-sim, and commercial simulators, giving AI hardware and infrastructure teams a more portable way to benchmark and co-design training and inference systems.",
+      "summaryZh": "MLCommons 表示 Chakra 已发展成拥有 40 多家成员的协作项目，execution trace 已支持 PyTorch、NVIDIA NeMo、vLLM、ASTRA-sim 以及商业模拟器，为 AI 硬件与基础设施团队提供更可移植的 benchmark 与协同设计方法。",
+      "tags": [
+        "MLCommons",
+        "Chakra",
+        "AI Infrastructure",
+        "Benchmarking",
+        "Co-design",
+        "Simulation"
+      ],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
+      "title": "Apache TVM v0.24.0 ships compiler, runtime, and CI modernization updates",
+      "titleZh": "Apache TVM v0.24.0 发布，带来编译器、运行时与 CI 现代化更新",
+      "url": "https://github.com/apache/tvm/releases/tag/v0.24.0",
+      "source": "Apache TVM (GitHub)",
+      "addedAt": "2026-05-09T01:20:00Z",
+      "summary": "Apache TVM v0.24.0 bundles broad fixes across code generation and runtime backends while adding fresh architecture documentation and modernizing developer workflows with uv-based Python dependency management and a GitHub Actions lint path.",
+      "summaryZh": "Apache TVM v0.24.0 汇总了 code generation 与 runtime backend 的多项修复，同时补充新的架构文档，并通过基于 uv 的 Python 依赖管理和 GitHub Actions lint 流程推进开发工作流现代化。",
+      "tags": [
+        "Apache TVM",
+        "AI Compiler",
+        "Runtime",
+        "Inference",
+        "Relax",
+        "Developer Tooling"
+      ],
+      "sourceTier": "trusted",
+      "language": "en"
     },
     {
       "title": "MLCommons adds GPT-OSS 20B as a sparse MoE pretraining benchmark for MLPerf Training v6.0",
