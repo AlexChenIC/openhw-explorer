@@ -49,6 +49,7 @@ import unit02Checkpoint from "./published-classrooms/openhw-cva6-u02-l06-checkpo
 import variantFamily from "./published-classrooms/openhw-cva6-u02-l01-cv32-cv64-family-en.json";
 import variantComparison from "./published-classrooms/openhw-cva6-u02-l05-variant-comparison-en.json";
 import whatIsCva6 from "./published-classrooms/openhw-cva6-u01-l01-what-is-cva6-en.json";
+import openhwIndustrialAdoption from "./published-classrooms/openhw-overview-industrial-adoption-en.json";
 
 export type PublishedClassroomAction = {
   id: string;
@@ -156,6 +157,7 @@ const publishedClassrooms = {
   [finalProjectBrief.id]: finalProjectBrief,
   [finalCheckpoint.id]: finalCheckpoint,
   [slidekitPrototype.id]: slidekitPrototype,
+  [openhwIndustrialAdoption.id]: openhwIndustrialAdoption,
 } as Record<string, PublishedClassroom>;
 
 export function getPublishedClassroom(classroomId: string) {
