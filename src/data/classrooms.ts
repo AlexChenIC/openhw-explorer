@@ -72,6 +72,23 @@ export interface ClassroomSeries {
 
 export const classroomTracks: ClassroomTrack[] = [
   {
+    id: "openhw-foundations",
+    status: "open",
+    title: {
+      en: "OpenHW Foundations",
+      zh: "OpenHW 基础与产业背景",
+    },
+    description: {
+      en: "Understand OpenHW as an industrial open-source RISC-V IP ecosystem before entering individual core deep dives.",
+      zh: "在进入具体处理器核心深度课前，先理解 OpenHW 作为工业级开源 RISC-V IP 生态的定位。",
+    },
+    audience: {
+      en: "Learners, engineers, and partners who want the business, licensing, verification, and ecosystem context behind OpenHW.",
+      zh: "适合希望理解 OpenHW 背后的商业采用、许可、验证和生态背景的学习者、工程师与合作伙伴。",
+    },
+    seriesIds: ["openhw-foundations"],
+  },
+  {
     id: "processor-cores",
     status: "open",
     title: {
@@ -2361,6 +2378,102 @@ export const classroomSeries: ClassroomSeries[] = [
         },
         tags: ["prototype", "SlideKit", "visual QA"],
         sourceRefs: ["OpenHW Classroom prototype"],
+      },
+    ],
+  },
+  {
+    id: "openhw-foundations",
+    trackId: "openhw-foundations",
+    projectId: "openhw",
+    status: "pilot",
+    title: {
+      en: "OpenHW Foundations",
+      zh: "OpenHW Foundations",
+    },
+    subtitle: {
+      en: "A practical introduction to OpenHW as an industrial open-source RISC-V IP ecosystem.",
+      zh: "从产业采用角度理解 OpenHW 作为工业级开源 RISC-V IP 生态的入门课。",
+    },
+    description: {
+      en: "This series explains why OpenHW matters, how it complements the RISC-V ISA, what CORE-V deliverables include, and why licensing, verification, tooling, roadmap, and ecosystem support are central to commercial open-source hardware adoption.",
+      zh: "这个系列解释 OpenHW 为什么重要、它如何补足 RISC-V ISA、CORE-V deliverables 包含什么，以及为什么许可、验证、工具、路线图和生态支持是商业采用开源硬件的核心。",
+    },
+    audience: {
+      en: "Engineers, students, researchers, and industry partners who want to understand OpenHW before choosing a specific core such as CVA6.",
+      zh: "适合在选择 CVA6 等具体核心前，想先理解 OpenHW 背景的工程师、学生、研究者和产业伙伴。",
+    },
+    level: {
+      en: "Starter",
+      zh: "入门",
+    },
+    estimatedHours: 0.4,
+    lessonsPlanned: 1,
+    lessonsReady: 1,
+    featuredLessonId: "openhw-u01-l01-industrial-adoption",
+    units: [
+      {
+        id: "u01-openhw-industrial-context",
+        order: 1,
+        title: {
+          en: "Unit 01 · OpenHW industrial context",
+          zh: "Unit 01 · OpenHW 产业背景",
+        },
+        goal: {
+          en: "Build the mental model for OpenHW, CORE-V deliverables, commercial adoption gates, and the learning path into CVA6.",
+          zh: "建立 OpenHW、CORE-V deliverables、商业采用门槛，以及进入 CVA6 深度学习路径的整体认知。",
+        },
+        skillIds: ["u01-s01-openhw-adoption"],
+      },
+    ],
+    skills: [
+      {
+        id: "u01-s01-openhw-adoption",
+        title: {
+          en: "Read OpenHW as an adoption ecosystem",
+          zh: "从采用生态角度阅读 OpenHW",
+        },
+        description: {
+          en: "Connect RISC-V, CORE-V, licensing, verification, tooling, roadmap, and ecosystem support into one practical OpenHW story.",
+          zh: "把 RISC-V、CORE-V、许可、验证、工具、路线图和生态支持串成一个可实践的 OpenHW 故事。",
+        },
+        lessonIds: ["openhw-u01-l01-industrial-adoption"],
+      },
+    ],
+    lessons: [
+      {
+        id: "openhw-u01-l01-industrial-adoption",
+        classroomId: "openhw-overview-industrial-adoption-en",
+        projectId: "openhw",
+        seriesId: "openhw-foundations",
+        status: "featured",
+        order: 1,
+        unitId: "u01-openhw-industrial-context",
+        skillId: "u01-s01-openhw-adoption",
+        language: "en",
+        durationMinutes: 22,
+        slideCount: 14,
+        quizCount: 0,
+        level: {
+          en: "Starter",
+          zh: "入门",
+        },
+        title: {
+          en: "OpenHW foundations: industrial open-source RISC-V IP",
+          zh: "OpenHW foundations: industrial open-source RISC-V IP",
+        },
+        summary: {
+          en: "Use OpenHW Group public slide decks to understand OpenHW's role, CORE-V deliverables, permissive licensing, verification quality, ecosystem readiness, and digital sovereignty.",
+          zh: "基于 OpenHW Group 公开演示材料，理解 OpenHW 的角色、CORE-V deliverables、宽松许可、验证质量、生态准备度和数字主权意义。",
+        },
+        outcome: {
+          en: "Explain why OpenHW is more than a set of repositories, and identify the adoption gates that matter before entering CVA6 deep dives.",
+          zh: "解释为什么 OpenHW 不只是仓库集合，并识别进入 CVA6 深度课前需要理解的采用门槛。",
+        },
+        tags: ["OpenHW", "CORE-V", "RISC-V", "commercial adoption", "open-source hardware"],
+        sourceRefs: [
+          "Lessons Learned: Open Source RISC-V Cores Commercial Adoption, Nov 2023",
+          "HiPEAC 2024: RISC-V Cores in industrial quality and Open Source",
+        ],
       },
     ],
   },
