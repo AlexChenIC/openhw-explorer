@@ -1,9 +1,9 @@
 {
-  "weekOf": "2026-06-03",
-  "generatedAt": "2026-06-03T01:36:25.080Z",
+  "weekOf": "2026-06-05",
+  "generatedAt": "2026-06-05T01:34:56.729Z",
   "stats": {
-    "totalRelevant": 27,
-    "totalSources": 16,
+    "totalRelevant": 29,
+    "totalSources": 17,
     "topTags": [
       {
         "tag": "RISC-V",
@@ -11,15 +11,15 @@
       },
       {
         "tag": "EDA",
-        "count": 7
+        "count": 8
       },
       {
         "tag": "Security",
-        "count": 6
+        "count": 7
       },
       {
         "tag": "Verification",
-        "count": 6
+        "count": 7
       },
       {
         "tag": "OpenHW",
@@ -35,7 +35,7 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 6,
+      "count": 7,
       "items": [
         {
           "title": "Chisel v7.13.0 released with ChiselTest compatibility and FIRRTL 7 backend updates",
@@ -74,16 +74,16 @@
           "publishedAt": "2026-05-12T10:30:49.000Z"
         },
         {
-          "title": "Apache TVM v0.24.0 ships compiler, runtime, and CI modernization updates",
-          "titleZh": "Apache TVM v0.24.0 发布，带来编译器、运行时与 CI 现代化更新",
-          "url": "https://github.com/apache/tvm/releases/tag/v0.24.0",
-          "source": "Apache TVM (GitHub)",
+          "title": "CIRCT firtool-1.149.0 adds lower-to-core FIRRTL printing, SimToSV fixes, and broader ESI runtime support",
+          "titleZh": "CIRCT firtool-1.149.0 发布，带来 lower-to-core FIRRTL 打印、SimToSV 修复与更广泛的 ESI runtime 支持",
+          "url": "https://github.com/llvm/circt/releases/tag/firtool-1.149.0",
+          "source": "LLVM / CIRCT (GitHub)",
           "tags": [
-            "Apache TVM",
-            "AI Compiler",
-            "Runtime"
+            "CIRCT",
+            "MLIR",
+            "FIRRTL"
           ],
-          "publishedAt": "2026-05-09T01:20:00.000Z"
+          "publishedAt": "2026-05-30T02:17:10.000Z"
         }
       ]
     },
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 12,
+      "count": 13,
       "items": [
         {
           "title": "Ainekko's CORE-ET edge AI silicon platform becomes an OpenHW Foundation project",
@@ -581,6 +581,53 @@
       "summaryZh": "MLCommons 介绍 GPT-OSS 20B，这是面向 MLPerf Training v6.0 的 sparse Mixture-of-Experts 预训练 benchmark，目标是在单个 8-GPU 节点上测试 MoE routing、稀疏计算以及硬件/软件训练效率。"
     },
     {
+      "title": "CIRCT firtool-1.149.0 adds lower-to-core FIRRTL printing, SimToSV fixes, and broader ESI runtime support",
+      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.149.0",
+      "source": "LLVM / CIRCT (GitHub)",
+      "publishedAt": "2026-05-30T02:17:10.000Z",
+      "summary": "The latest CIRCT firtool release adds lower-to-core support for firrtl.fprintf, several SimToSV lowering fixes, larger-than-64-bit integral support in the ESI r...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CIRCT",
+        "MLIR",
+        "FIRRTL",
+        "Hardware Compiler",
+        "EDA",
+        "Simulation"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "CIRCT firtool-1.149.0 发布，带来 lower-to-core FIRRTL 打印、SimToSV 修复与更广泛的 ESI runtime 支持",
+      "summaryZh": "最新 CIRCT firtool 版本加入 firrtl.fprintf 的 lower-to-core 支持，修复多项 SimToSV lowering 问题，为 ESI runtime 增加大于 64 位整数支持，改进 Windows cosim，并带来新的综合与等价检查更新。"
+    },
+    {
+      "title": "OpenTitan publishes its physical security testing framework for pre- and post-silicon validation",
+      "url": "https://lowrisc.org/news/opentitans-physical-security-testing-framework/",
+      "source": "lowRISC Newsroom",
+      "publishedAt": "2026-04-23T00:00:00.000Z",
+      "summary": "lowRISC detailed OpenTitan's open physical security testing framework, which coordinates side-channel and fault-injection evaluation from FPGA-based pre-silicon...",
+      "author": "",
+      "relevanceScore": 8,
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "Security",
+        "Verification",
+        "Side-Channel",
+        "Fault Injection",
+        "CI"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "OpenTitan 发布其物理安全测试框架，覆盖 pre-silicon 与 post-silicon 验证",
+      "summaryZh": "lowRISC 详细介绍了 OpenTitan 的开放式物理安全测试框架：它将 side-channel 与 fault-injection 评估从基于 FPGA 的 pre-silicon 分析延伸到 post-silicon 认证，并接入 CI 以发现安全验证流程中的回归问题。"
+    },
+    {
       "title": "MLCommons Chakra expands its standardized trace ecosystem for AI systems co-design",
       "url": "https://mlcommons.org/2026/06/chakra-comes-of-age/",
       "source": "MLCommons",
@@ -926,6 +973,7 @@
     "CHIPS Alliance / Chisel (GitHub)",
     "FOSSi Foundation / Latch-Up 2026",
     "Fraunhofer AISEC",
+    "LLVM / CIRCT (GitHub)",
     "MLCommons",
     "Open Compute Project",
     "OpenHW Foundation / Eclipse Foundation Canada",

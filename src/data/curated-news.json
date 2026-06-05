@@ -198,6 +198,74 @@
       "highlightRank": 11
     },
     {
+      "title": "CIRCT firtool-1.149.0 adds lower-to-core FIRRTL printing, SimToSV fixes, and broader ESI runtime support",
+      "titleZh": "CIRCT firtool-1.149.0 发布，带来 lower-to-core FIRRTL 打印、SimToSV 修复与更广泛的 ESI runtime 支持",
+      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.149.0",
+      "source": "LLVM / CIRCT (GitHub)",
+      "addedAt": "2026-05-30T02:17:10Z",
+      "summary": "The latest CIRCT firtool release adds lower-to-core support for firrtl.fprintf, several SimToSV lowering fixes, larger-than-64-bit integral support in the ESI runtime, Windows cosim improvements, and new synthesis and equivalence-checking updates.",
+      "summaryZh": "最新 CIRCT firtool 版本加入 firrtl.fprintf 的 lower-to-core 支持，修复多项 SimToSV lowering 问题，为 ESI runtime 增加大于 64 位整数支持，改进 Windows cosim，并带来新的综合与等价检查更新。",
+      "tags": ["CIRCT", "MLIR", "FIRRTL", "Hardware Compiler", "EDA", "Simulation"],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
+      "title": "OpenTitan publishes its physical security testing framework for pre- and post-silicon validation",
+      "titleZh": "OpenTitan 发布其物理安全测试框架，覆盖 pre-silicon 与 post-silicon 验证",
+      "url": "https://lowrisc.org/news/opentitans-physical-security-testing-framework/",
+      "source": "lowRISC Newsroom",
+      "addedAt": "2026-04-23T00:00:00Z",
+      "summary": "lowRISC detailed OpenTitan's open physical security testing framework, which coordinates side-channel and fault-injection evaluation from FPGA-based pre-silicon analysis through post-silicon certification and is wired into CI to catch regressions in the security validation flow.",
+      "summaryZh": "lowRISC 详细介绍了 OpenTitan 的开放式物理安全测试框架：它将 side-channel 与 fault-injection 评估从基于 FPGA 的 pre-silicon 分析延伸到 post-silicon 认证，并接入 CI 以发现安全验证流程中的回归问题。",
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "Security",
+        "Verification",
+        "Side-Channel",
+        "Fault Injection",
+        "CI"
+      ],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
+      "title": "Antmicro adds a genetic-algorithm resynthesis path to OpenROAD",
+      "titleZh": "Antmicro 为 OpenROAD 增加基于 genetic algorithm 的重综合路径",
+      "url": "https://antmicro.com/blog/2026/05/genetic-algorithm-in-openroad",
+      "source": "Antmicro Blog",
+      "addedAt": "2026-05-07T00:00:00Z",
+      "summary": "Antmicro described a genetic-algorithm-based local resynthesis strategy for OpenROAD that complements simulated annealing, exposing tunable search parameters and showing cases where targeted tuning improves timing and power on selected OpenROAD-flow-scripts designs.",
+      "summaryZh": "Antmicro 介绍了面向 OpenROAD 的 genetic algorithm 本地重综合策略，作为 simulated annealing 的补充；该方法开放可调搜索参数，并展示了在部分 OpenROAD-flow-scripts 设计上通过定向调参改善时序与功耗的案例。",
+      "tags": ["Antmicro", "OpenROAD", "EDA", "Physical Design", "Synthesis", "Optimization"],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
+      "title": "Antmicro reaches an initial four-state logic milestone in Verilator",
+      "titleZh": "Antmicro 推进 Verilator 四值逻辑支持，达到初始里程碑",
+      "url": "https://antmicro.com/blog/2026/04/initial-support-for-four-state-logic-in-verilator",
+      "source": "Antmicro Blog",
+      "addedAt": "2026-04-30T00:00:00Z",
+      "summary": "Antmicro outlined an experimental four-state logic implementation for Verilator under a --fourstate flag, using paired two-state variables internally so open-source ASIC and FPGA teams can debug X and Z behavior with fewer blind spots.",
+      "summaryZh": "Antmicro 介绍了 Verilator 中实验性的四值逻辑实现：通过 `--fourstate` 开关启用，并在内部使用成对的二值变量表示，从而帮助开源 ASIC 与 FPGA 团队更好地调试 X、Z 行为。",
+      "tags": ["Antmicro", "Verilator", "SystemVerilog", "Verification", "Simulation", "EDA"],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
+      "title": "OCP expands its open data center ecosystem for AI with new cluster, networking, and chiplet contributions",
+      "titleZh": "OCP 通过新的集群、网络与 chiplet 贡献扩展开源 AI 数据中心生态",
+      "url": "https://www.opencompute.org/blog/delivering-an-open-data-center-ecosystem-for-ai",
+      "source": "Open Compute Project",
+      "addedAt": "2026-04-29T00:00:00Z",
+      "summary": "OCP announced newly approved AI infrastructure contributions spanning Open Rack Wide, Ethernet-based AI cluster reference architectures, facility power and telemetry work, and the Foundation Chiplet System Architecture, extending its open 'chip to grid' roadmap for AI deployments.",
+      "summaryZh": "OCP 宣布多项面向 AI 基础设施的新批准贡献，覆盖 Open Rack Wide、基于以太网的 AI 集群参考架构、机房电力与遥测工作以及 Foundation Chiplet System Architecture，进一步扩展其面向 AI 部署的开放“从 chip 到 grid”路线图。",
+      "tags": ["OCP", "AI Infrastructure", "Chiplets", "Open Rack", "Networking", "Open Compute Project"],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
       "title": "MLCommons Chakra expands its standardized trace ecosystem for AI systems co-design",
       "titleZh": "MLCommons Chakra 扩展面向 AI 系统协同设计的标准化 trace 生态",
       "url": "https://mlcommons.org/2026/06/chakra-comes-of-age/",
