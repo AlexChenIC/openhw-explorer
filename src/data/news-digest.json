@@ -1,12 +1,16 @@
 {
-  "weekOf": "2026-06-05",
-  "generatedAt": "2026-06-05T01:34:56.729Z",
+  "weekOf": "2026-06-08",
+  "generatedAt": "2026-06-08T09:40:08.153Z",
   "stats": {
-    "totalRelevant": 29,
-    "totalSources": 17,
+    "totalRelevant": 32,
+    "totalSources": 19,
     "topTags": [
       {
         "tag": "RISC-V",
+        "count": 12
+      },
+      {
+        "tag": "Verification",
         "count": 9
       },
       {
@@ -18,12 +22,8 @@
         "count": 7
       },
       {
-        "tag": "Verification",
-        "count": 7
-      },
-      {
         "tag": "OpenHW",
-        "count": 5
+        "count": 6
       }
     ]
   },
@@ -35,7 +35,7 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 7,
+      "count": 9,
       "items": [
         {
           "title": "Chisel v7.13.0 released with ChiselTest compatibility and FIRRTL 7 backend updates",
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 13,
+      "count": 14,
       "items": [
         {
           "title": "Ainekko's CORE-ET edge AI silicon platform becomes an OpenHW Foundation project",
@@ -168,6 +168,18 @@
           "publishedAt": "2026-05-07T13:23:00.000Z"
         },
         {
+          "title": "OCP expands its open data center ecosystem for AI with new cluster, networking, and chiplet contributions",
+          "titleZh": "OCP 通过新的集群、网络与 chiplet 贡献扩展开源 AI 数据中心生态",
+          "url": "https://www.opencompute.org/blog/delivering-an-open-data-center-ecosystem-for-ai",
+          "source": "Open Compute Project",
+          "tags": [
+            "OCP",
+            "AI Infrastructure",
+            "Chiplets"
+          ],
+          "publishedAt": "2026-04-29T00:00:00.000Z"
+        },
+        {
           "title": "MLCommons Chakra expands its standardized trace ecosystem for AI systems co-design",
           "titleZh": "MLCommons Chakra 扩展面向 AI 系统协同设计的标准化 trace 生态",
           "url": "https://mlcommons.org/2026/06/chakra-comes-of-age/",
@@ -178,18 +190,6 @@
             "AI Infrastructure"
           ],
           "publishedAt": "2026-06-02T00:00:00.000Z"
-        },
-        {
-          "title": "OCP outlines an open data center ecosystem for AI",
-          "titleZh": "OCP 公布面向 AI 的开放数据中心生态进展",
-          "url": "https://www.opencompute.org/blog/delivering-an-open-data-center-ecosystem-for-ai",
-          "source": "Open Compute Project",
-          "tags": [
-            "OCP",
-            "Open Hardware",
-            "AI"
-          ],
-          "publishedAt": "2026-04-29T00:00:00.000Z"
         },
         {
           "title": "MLPerf Inference v6.0 expands GPT-OSS and DeepSeek-R1 LLM benchmarks",
@@ -227,8 +227,8 @@
           "publishedAt": "2026-05-20T00:00:00.000Z"
         },
         {
-          "title": "Antmicro implements a genetic algorithm strategy in OpenROAD resynthesis",
-          "titleZh": "Antmicro 在 OpenROAD resynthesis 中实现 genetic algorithm 策略",
+          "title": "Antmicro adds a genetic-algorithm resynthesis path to OpenROAD",
+          "titleZh": "Antmicro 为 OpenROAD 增加基于 genetic algorithm 的重综合路径",
           "url": "https://antmicro.com/blog/2026/05/genetic-algorithm-in-openroad",
           "source": "Antmicro Blog",
           "tags": [
@@ -239,8 +239,8 @@
           "publishedAt": "2026-05-07T00:00:00.000Z"
         },
         {
-          "title": "Antmicro reaches an initial four-state logic milestone for Verilator",
-          "titleZh": "Antmicro 推进 Verilator four-state logic 的初始实现里程碑",
+          "title": "Antmicro reaches an initial four-state logic milestone in Verilator",
+          "titleZh": "Antmicro 推进 Verilator 四值逻辑支持，达到初始里程碑",
           "url": "https://antmicro.com/blog/2026/04/initial-support-for-four-state-logic-in-verilator",
           "source": "Antmicro Blog",
           "tags": [
@@ -628,6 +628,75 @@
       "summaryZh": "lowRISC 详细介绍了 OpenTitan 的开放式物理安全测试框架：它将 side-channel 与 fault-injection 评估从基于 FPGA 的 pre-silicon 分析延伸到 post-silicon 认证，并接入 CI 以发现安全验证流程中的回归问题。"
     },
     {
+      "title": "Antmicro adds a genetic-algorithm resynthesis path to OpenROAD",
+      "url": "https://antmicro.com/blog/2026/05/genetic-algorithm-in-openroad",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-05-07T00:00:00.000Z",
+      "summary": "Antmicro described a genetic-algorithm-based local resynthesis strategy for OpenROAD that complements simulated annealing, exposing tunable search parameters an...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Antmicro",
+        "OpenROAD",
+        "EDA",
+        "Physical Design",
+        "Synthesis",
+        "Optimization"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Antmicro 为 OpenROAD 增加基于 genetic algorithm 的重综合路径",
+      "summaryZh": "Antmicro 介绍了面向 OpenROAD 的 genetic algorithm 本地重综合策略，作为 simulated annealing 的补充；该方法开放可调搜索参数，并展示了在部分 OpenROAD-flow-scripts 设计上通过定向调参改善时序与功耗的案例。"
+    },
+    {
+      "title": "Antmicro reaches an initial four-state logic milestone in Verilator",
+      "url": "https://antmicro.com/blog/2026/04/initial-support-for-four-state-logic-in-verilator",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-04-30T00:00:00.000Z",
+      "summary": "Antmicro outlined an experimental four-state logic implementation for Verilator under a --fourstate flag, using paired two-state variables internally so open-so...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Antmicro",
+        "Verilator",
+        "SystemVerilog",
+        "Verification",
+        "Simulation",
+        "EDA"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Antmicro 推进 Verilator 四值逻辑支持，达到初始里程碑",
+      "summaryZh": "Antmicro 介绍了 Verilator 中实验性的四值逻辑实现：通过 `--fourstate` 开关启用，并在内部使用成对的二值变量表示，从而帮助开源 ASIC 与 FPGA 团队更好地调试 X、Z 行为。"
+    },
+    {
+      "title": "OCP expands its open data center ecosystem for AI with new cluster, networking, and chiplet contributions",
+      "url": "https://www.opencompute.org/blog/delivering-an-open-data-center-ecosystem-for-ai",
+      "source": "Open Compute Project",
+      "publishedAt": "2026-04-29T00:00:00.000Z",
+      "summary": "OCP announced newly approved AI infrastructure contributions spanning Open Rack Wide, Ethernet-based AI cluster reference architectures, facility power and tele...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "OCP",
+        "AI Infrastructure",
+        "Chiplets",
+        "Open Rack",
+        "Networking",
+        "Open Compute Project"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "OCP 通过新的集群、网络与 chiplet 贡献扩展开源 AI 数据中心生态",
+      "summaryZh": "OCP 宣布多项面向 AI 基础设施的新批准贡献，覆盖 Open Rack Wide、基于以太网的 AI 集群参考架构、机房电力与遥测工作以及 Foundation Chiplet System Architecture，进一步扩展其面向 AI 部署的开放“从 chip 到 grid”路线图。"
+    },
+    {
       "title": "MLCommons Chakra expands its standardized trace ecosystem for AI systems co-design",
       "url": "https://mlcommons.org/2026/06/chakra-comes-of-age/",
       "source": "MLCommons",
@@ -672,28 +741,6 @@
       "curated": true,
       "titleZh": "Apache TVM v0.24.0 发布，带来编译器、运行时与 CI 现代化更新",
       "summaryZh": "Apache TVM v0.24.0 汇总了 code generation 与 runtime backend 的多项修复，同时补充新的架构文档，并通过基于 uv 的 Python 依赖管理和 GitHub Actions lint 流程推进开发工作流现代化。"
-    },
-    {
-      "title": "Antmicro implements a genetic algorithm strategy in OpenROAD resynthesis",
-      "url": "https://antmicro.com/blog/2026/05/genetic-algorithm-in-openroad",
-      "source": "Antmicro Blog",
-      "publishedAt": "2026-05-07T00:00:00.000Z",
-      "summary": "Antmicro described a genetic-algorithm-based local resynthesis strategy in OpenROAD, giving users another optimization path alongside simulated annealing for im...",
-      "author": "",
-      "relevanceScore": 5,
-      "tags": [
-        "Antmicro",
-        "OpenROAD",
-        "EDA",
-        "ASIC",
-        "Synthesis"
-      ],
-      "language": "en",
-      "sourceTier": "trusted",
-      "reviewStatus": "curated",
-      "curated": true,
-      "titleZh": "Antmicro 在 OpenROAD resynthesis 中实现 genetic algorithm 策略",
-      "summaryZh": "Antmicro 介绍了 OpenROAD 中基于 genetic algorithm 的 local resynthesis 策略，让用户在 simulated annealing 之外多一个优化 ASIC timing path 的选择。"
     },
     {
       "title": "Antmicro adds Renode support for RISC-V Andes D25F-based ChromiumOS FPMCU testing",
@@ -742,27 +789,73 @@
       "summaryZh": "FOSSi 发布了 Mike Thompson 在 Latch-Up 2026 的演讲 “RISC-V in Space (The Canadian version)”。该演讲介绍加拿大团队与 University of Saskatchewan 等合作伙伴从开源 RISC-V core 出发完成 silicon、进行抗辐照加固，并推进 space-ready chip；其中 MCU 基于 OpenHW Foundation 的 CV32E40P。"
     },
     {
-      "title": "OCP outlines an open data center ecosystem for AI",
-      "url": "https://www.opencompute.org/blog/delivering-an-open-data-center-ecosystem-for-ai",
-      "source": "Open Compute Project",
-      "publishedAt": "2026-04-29T00:00:00.000Z",
-      "summary": "OCP announced newly approved contributions, projects, and alliances for its Open Data Center Ecosystem for AI, covering open AI data center facilities, power di...",
+      "title": "Gemmini v0.7.1 adds rectangular convolutions and new Timeloop configurations",
+      "url": "https://github.com/ucb-bar/gemmini/releases/tag/v0.7.1",
+      "source": "UC Berkeley / Gemmini (GitHub)",
+      "publishedAt": "2026-05-22T23:35:00.000Z",
+      "summary": "Gemmini v0.7.1 is an incremental accelerator release that adds rectangular convolution support, ships new Timeloop configurations, improves area for runtime-con...",
       "author": "",
       "relevanceScore": 5,
       "tags": [
-        "OCP",
-        "Open Hardware",
-        "AI",
-        "AI Infrastructure",
-        "Open Rack",
-        "Chiplet"
+        "Gemmini",
+        "RISC-V",
+        "AI Accelerator",
+        "Chisel",
+        "Timeloop",
+        "Hardware"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Gemmini v0.7.1 加入矩形卷积支持与新的 Timeloop 配置",
+      "summaryZh": "Gemmini v0.7.1 是一次增量版本更新，加入对矩形卷积的支持，提供新的 Timeloop 配置，改善运行时可配置数据流的面积表现，并缩短构建与 elaboration 时间。"
+    },
+    {
+      "title": "Docker on RISC-V reaches near-release parity in six days with native RISC-V64 builds",
+      "url": "https://riscv.org/blog/docker-on-risc-v-from-release-to-production-in-6-days/",
+      "source": "RISC-V International",
+      "publishedAt": "2026-04-28T00:00:00.000Z",
+      "summary": "RISC-V International highlighted a community pipeline that brought Docker v29 to RISC-V64 within six days of release using native RISC-V hardware builds for Doc...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "RISC-V",
+        "Docker",
+        "RISC-V64",
+        "Linux",
+        "Developer Tooling",
+        "Software Ecosystem"
       ],
       "language": "en",
       "sourceTier": "official",
       "reviewStatus": "curated",
       "curated": true,
-      "titleZh": "OCP 公布面向 AI 的开放数据中心生态进展",
-      "summaryZh": "OCP 宣布面向 Open Data Center Ecosystem for AI 的新贡献、项目与合作，覆盖 AI 数据中心设施、电源分配、遥测、scale-up Ethernet、Open Rack Wide、AI cluster 参考架构，以及 chiplet 生态工作。"
+      "titleZh": "Docker on RISC-V 在六天内实现接近正式版本的原生 RISC-V64 交付",
+      "summaryZh": "RISC-V International 介绍了一个社区维护的交付流水线：在 Docker v29 发布后六天内，利用原生 RISC-V 硬件完成 Docker Engine、CLI、Compose 与 Buildx 的 RISC-V64 构建与发布。"
+    },
+    {
+      "title": "OpenHW publishes CV32A60X 6.0.0 configuration release for TRL5 work",
+      "url": "https://github.com/openhwgroup/cva6/releases/tag/cv32a60x-v6.0.0",
+      "source": "OpenHW / CVA6 (GitHub)",
+      "publishedAt": "2026-04-23T13:49:00.000Z",
+      "summary": "The OpenHW CVA6 repository published CV32A60X 6.0.0 as a dedicated configuration release, adding an OBI-based pipeline hierarchy, removing caches and PMP entrie...",
+      "author": "",
+      "relevanceScore": 8,
+      "tags": [
+        "OpenHW",
+        "CVA6",
+        "CV32A60X",
+        "RISC-V",
+        "RTL",
+        "Verification"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "OpenHW 发布面向 TRL5 工作的 CV32A60X 6.0.0 配置版本",
+      "summaryZh": "OpenHW 在 CVA6 仓库发布了面向特定配置的 CV32A60X 6.0.0 版本，引入基于 OBI 的 pipeline hierarchy，移除 caches 与 PMP entries，并改进 coverage、lint 结果与配置文档。"
     },
     {
       "title": "RISC-V Architecture Tests 4.0.0 released",
@@ -830,28 +923,6 @@
       "curated": true,
       "titleZh": "Antmicro 为 CHIPS Alliance VeeR EL2 实现 dual-core lockstep 支持",
       "summaryZh": "Antmicro 介绍了 VeeR EL2 的可选 dual-core lockstep 功能，包括 shadow core 行为、多 bit 控制编码、错误报告，以及基于 cocotb/PyUVM 的验证方式。"
-    },
-    {
-      "title": "Antmicro reaches an initial four-state logic milestone for Verilator",
-      "url": "https://antmicro.com/blog/2026/04/initial-support-for-four-state-logic-in-verilator",
-      "source": "Antmicro Blog",
-      "publishedAt": "2026-04-30T00:00:00.000Z",
-      "summary": "Antmicro reported an initial Verilator four-state logic implementation behind an experimental --fourstate flag, aimed at more accurate SystemVerilog simulation ...",
-      "author": "",
-      "relevanceScore": 5,
-      "tags": [
-        "Antmicro",
-        "Verilator",
-        "SystemVerilog",
-        "Simulation",
-        "EDA"
-      ],
-      "language": "en",
-      "sourceTier": "trusted",
-      "reviewStatus": "curated",
-      "curated": true,
-      "titleZh": "Antmicro 推进 Verilator four-state logic 的初始实现里程碑",
-      "summaryZh": "Antmicro 报告了 Verilator four-state logic 的初始实现，通过实验性的 --fourstate flag 提供支持，目标是更准确地模拟和调试 SystemVerilog 中的 x/z 状态。"
     },
     {
       "title": "OCP introduces Foundation Chiplet System Architecture for open chiplet interoperability",
@@ -976,9 +1047,11 @@
     "LLVM / CIRCT (GitHub)",
     "MLCommons",
     "Open Compute Project",
+    "OpenHW / CVA6 (GitHub)",
     "OpenHW Foundation / Eclipse Foundation Canada",
     "RISC-V Architecture Tests (GitHub)",
     "RISC-V International",
+    "UC Berkeley / Gemmini (GitHub)",
     "YosysHQ (GitHub)",
     "YosysHQ / Yosys (GitHub)",
     "lowRISC Newsroom"

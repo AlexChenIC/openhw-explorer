@@ -318,18 +318,6 @@
       "placement": "featured"
     },
     {
-      "title": "Antmicro implements a genetic algorithm strategy in OpenROAD resynthesis",
-      "titleZh": "Antmicro 在 OpenROAD resynthesis 中实现 genetic algorithm 策略",
-      "url": "https://antmicro.com/blog/2026/05/genetic-algorithm-in-openroad",
-      "source": "Antmicro Blog",
-      "addedAt": "2026-05-07T00:00:00Z",
-      "summary": "Antmicro described a genetic-algorithm-based local resynthesis strategy in OpenROAD, giving users another optimization path alongside simulated annealing for improving timing paths in ASIC designs.",
-      "summaryZh": "Antmicro 介绍了 OpenROAD 中基于 genetic algorithm 的 local resynthesis 策略，让用户在 simulated annealing 之外多一个优化 ASIC timing path 的选择。",
-      "tags": ["Antmicro", "OpenROAD", "EDA", "ASIC", "Synthesis"],
-      "sourceTier": "trusted",
-      "language": "en"
-    },
-    {
       "title": "Antmicro adds Renode support for RISC-V Andes D25F-based ChromiumOS FPMCU testing",
       "titleZh": "Antmicro 为基于 RISC-V Andes D25F 的 ChromiumOS FPMCU 测试加入 Renode 支持",
       "url": "https://antmicro.com/blog/2026/05/andes-d25f-based-egis-et171-in-renode",
@@ -354,14 +342,38 @@
       "language": "en"
     },
     {
-      "title": "OCP outlines an open data center ecosystem for AI",
-      "titleZh": "OCP 公布面向 AI 的开放数据中心生态进展",
-      "url": "https://www.opencompute.org/blog/delivering-an-open-data-center-ecosystem-for-ai",
-      "source": "Open Compute Project",
-      "addedAt": "2026-04-29T00:00:00Z",
-      "summary": "OCP announced newly approved contributions, projects, and alliances for its Open Data Center Ecosystem for AI, covering open AI data center facilities, power distribution, telemetry, scale-up Ethernet, Open Rack Wide, AI cluster references, and chiplet ecosystem work.",
-      "summaryZh": "OCP 宣布面向 Open Data Center Ecosystem for AI 的新贡献、项目与合作，覆盖 AI 数据中心设施、电源分配、遥测、scale-up Ethernet、Open Rack Wide、AI cluster 参考架构，以及 chiplet 生态工作。",
-      "tags": ["OCP", "Open Hardware", "AI", "AI Infrastructure", "Open Rack", "Chiplet"],
+      "title": "Gemmini v0.7.1 adds rectangular convolutions and new Timeloop configurations",
+      "titleZh": "Gemmini v0.7.1 加入矩形卷积支持与新的 Timeloop 配置",
+      "url": "https://github.com/ucb-bar/gemmini/releases/tag/v0.7.1",
+      "source": "UC Berkeley / Gemmini (GitHub)",
+      "addedAt": "2026-05-22T23:35:00Z",
+      "summary": "Gemmini v0.7.1 is an incremental accelerator release that adds rectangular convolution support, ships new Timeloop configurations, improves area for runtime-configurable dataflows, and speeds up build and elaboration time.",
+      "summaryZh": "Gemmini v0.7.1 是一次增量版本更新，加入对矩形卷积的支持，提供新的 Timeloop 配置，改善运行时可配置数据流的面积表现，并缩短构建与 elaboration 时间。",
+      "tags": ["Gemmini", "RISC-V", "AI Accelerator", "Chisel", "Timeloop", "Hardware"],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
+      "title": "Docker on RISC-V reaches near-release parity in six days with native RISC-V64 builds",
+      "titleZh": "Docker on RISC-V 在六天内实现接近正式版本的原生 RISC-V64 交付",
+      "url": "https://riscv.org/blog/docker-on-risc-v-from-release-to-production-in-6-days/",
+      "source": "RISC-V International",
+      "addedAt": "2026-04-28T00:00:00Z",
+      "summary": "RISC-V International highlighted a community pipeline that brought Docker v29 to RISC-V64 within six days of release using native RISC-V hardware builds for Docker Engine, CLI, Compose, and Buildx.",
+      "summaryZh": "RISC-V International 介绍了一个社区维护的交付流水线：在 Docker v29 发布后六天内，利用原生 RISC-V 硬件完成 Docker Engine、CLI、Compose 与 Buildx 的 RISC-V64 构建与发布。",
+      "tags": ["RISC-V", "Docker", "RISC-V64", "Linux", "Developer Tooling", "Software Ecosystem"],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
+      "title": "OpenHW publishes CV32A60X 6.0.0 configuration release for TRL5 work",
+      "titleZh": "OpenHW 发布面向 TRL5 工作的 CV32A60X 6.0.0 配置版本",
+      "url": "https://github.com/openhwgroup/cva6/releases/tag/cv32a60x-v6.0.0",
+      "source": "OpenHW / CVA6 (GitHub)",
+      "addedAt": "2026-04-23T13:49:00Z",
+      "summary": "The OpenHW CVA6 repository published CV32A60X 6.0.0 as a dedicated configuration release, adding an OBI-based pipeline hierarchy, removing caches and PMP entries, and improving coverage, lint results, and configuration documentation.",
+      "summaryZh": "OpenHW 在 CVA6 仓库发布了面向特定配置的 CV32A60X 6.0.0 版本，引入基于 OBI 的 pipeline hierarchy，移除 caches 与 PMP entries，并改进 coverage、lint 结果与配置文档。",
+      "tags": ["OpenHW", "CVA6", "CV32A60X", "RISC-V", "RTL", "Verification"],
       "sourceTier": "official",
       "language": "en"
     },
@@ -398,18 +410,6 @@
       "summary": "Antmicro described an optional dual-core lockstep feature for VeeR EL2, including shadow-core behavior, multibit control encoding, error reporting, and cocotb/PyUVM-based verification.",
       "summaryZh": "Antmicro 介绍了 VeeR EL2 的可选 dual-core lockstep 功能，包括 shadow core 行为、多 bit 控制编码、错误报告，以及基于 cocotb/PyUVM 的验证方式。",
       "tags": ["Antmicro", "CHIPS Alliance", "VeeR", "RISC-V", "Security", "Verification"],
-      "sourceTier": "trusted",
-      "language": "en"
-    },
-    {
-      "title": "Antmicro reaches an initial four-state logic milestone for Verilator",
-      "titleZh": "Antmicro 推进 Verilator four-state logic 的初始实现里程碑",
-      "url": "https://antmicro.com/blog/2026/04/initial-support-for-four-state-logic-in-verilator",
-      "source": "Antmicro Blog",
-      "addedAt": "2026-04-30T00:00:00Z",
-      "summary": "Antmicro reported an initial Verilator four-state logic implementation behind an experimental --fourstate flag, aimed at more accurate SystemVerilog simulation and debugging of x/z states.",
-      "summaryZh": "Antmicro 报告了 Verilator four-state logic 的初始实现，通过实验性的 --fourstate flag 提供支持，目标是更准确地模拟和调试 SystemVerilog 中的 x/z 状态。",
-      "tags": ["Antmicro", "Verilator", "SystemVerilog", "Simulation", "EDA"],
       "sourceTier": "trusted",
       "language": "en"
     },
