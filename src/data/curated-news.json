@@ -3,6 +3,28 @@
   "_usage": "每次更新添加 3-7 条即可。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "Realtek joins the OpenTitan coalition to build discrete hardware root-of-trust devices",
+      "titleZh": "Realtek 加入 OpenTitan 联盟，推进离散式硬件 root-of-trust 器件开发",
+      "url": "https://lowrisc.org/news/realtek-joins-opentitan-coalition-to-develop-discrete-hardware-root-of-trust-devices/",
+      "source": "lowRISC Newsroom",
+      "addedAt": "2026-06-08T00:00:00Z",
+      "summary": "lowRISC and Realtek announced that Realtek has joined the OpenTitan project as a coalition partner and plans to use OpenTitan's platform-agnostic IP, firmware, and verification collateral to develop discrete hardware root-of-trust devices for networking, telecom, and IoT products.",
+      "summaryZh": "lowRISC 与 Realtek 宣布，Realtek 已作为联盟伙伴加入 OpenTitan 项目，并计划基于 OpenTitan 平台无关的 IP、firmware 与 verification collateral，面向网络、通信和 IoT 产品开发离散式硬件 root-of-trust 器件。",
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "Realtek",
+        "Security",
+        "Root of Trust",
+        "Verification",
+        "IoT"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "editorPick": true,
+      "highlightRank": 4
+    },
+    {
       "title": "Ainekko's CORE-ET edge AI silicon platform becomes an OpenHW Foundation project",
       "titleZh": "Ainekko 的 CORE-ET 边缘 AI 硅平台成为 OpenHW Foundation 开源项目",
       "url": "https://www.globenewswire.com/news-release/2026/06/02/3305225/0/en/ainekko-s-edge-ai-silicon-platform-is-now-an-openhw-foundation-open-source-project.html",
@@ -73,7 +95,7 @@
       "sourceTier": "trusted",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 4
+      "highlightRank": 5
     },
     {
       "title": "OpenTitan details its pre-silicon security simulation and verification flow",
@@ -95,7 +117,7 @@
       "sourceTier": "official",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 5
+      "highlightRank": 6
     },
     {
       "title": "Antmicro brings IEEE-compliant force/release statement support to Verilator",
@@ -117,7 +139,7 @@
       "sourceTier": "trusted",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 6
+      "highlightRank": 7
     },
     {
       "title": "Real Intent joins OpenTitan as tools partner for static sign-off and verification",
@@ -139,7 +161,7 @@
       "sourceTier": "official",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 7
+      "highlightRank": 8
     },
     {
       "title": "Cadence joins OpenTitan as a tools partner for open-source silicon security",
@@ -153,7 +175,7 @@
       "sourceTier": "official",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 8
+      "highlightRank": 9
     },
     {
       "title": "RISC-V International launches a single library for ratified specifications",
@@ -167,7 +189,7 @@
       "sourceTier": "official",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 9
+      "highlightRank": 10
     },
     {
       "title": "RISC-V International highlights a performance-model-driven superscalar CVA6 effort",
@@ -181,7 +203,7 @@
       "sourceTier": "official",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 10
+      "highlightRank": 11
     },
     {
       "title": "Yosys 0.65 released with arithmetic tree and Verilog frontend updates",
@@ -195,7 +217,7 @@
       "sourceTier": "trusted",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 11
+      "highlightRank": 12
     },
     {
       "title": "CIRCT firtool-1.149.0 adds lower-to-core FIRRTL printing, SimToSV fixes, and broader ESI runtime support",
