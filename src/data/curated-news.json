@@ -3,6 +3,90 @@
   "_usage": "每次更新添加 3-7 条即可。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "FOSSi opens ORConf 2026 registration for its European open silicon conference",
+      "titleZh": "FOSSi 开放 ORConf 2026 注册，聚焦欧洲 open silicon 社区",
+      "url": "https://fossi-foundation.org/orconf/2026",
+      "source": "FOSSi Foundation",
+      "addedAt": "2026-06-13T00:00:00Z",
+      "summary": "FOSSi Foundation opened registration for ORConf 2026, scheduled for September 11-13 in Valencia, Spain. The community event remains a useful signal for open silicon, FPGA, EDA, verification, and hardware-software co-design work that may not surface through product release feeds.",
+      "summaryZh": "FOSSi Foundation 已开放 ORConf 2026 注册；会议计划于 9 月 11-13 日在西班牙 Valencia 举行。该社区活动仍是跟踪 open silicon、FPGA、EDA、verification 与软硬件协同设计动态的重要信号源。",
+      "tags": [
+        "FOSSi",
+        "ORConf",
+        "Open Silicon",
+        "Open Hardware",
+        "EDA",
+        "Verification",
+        "FPGA"
+      ],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
+      "title": "CHIPS Alliance recaps OCP EMEA work across Caliptra, OpenPRoT, and VeeR",
+      "titleZh": "CHIPS Alliance 回顾 OCP EMEA 上的 Caliptra、OpenPRoT 与 VeeR 协作",
+      "url": "https://www.chipsalliance.org/news/ocp-recap-2026/",
+      "source": "CHIPS Alliance Blog",
+      "addedAt": "2026-06-10T22:00:00Z",
+      "summary": "CHIPS Alliance's OCP EMEA Summit recap highlights collaboration with the Open Compute Project around Caliptra, OpenPRoT, and Guineveer/VeeR EL2, including root-of-trust and open-source silicon infrastructure themes relevant to data-center security hardware.",
+      "summaryZh": "CHIPS Alliance 的 OCP EMEA Summit 回顾强调其与 Open Compute Project 围绕 Caliptra、OpenPRoT 以及 Guineveer/VeeR EL2 的协作，重点覆盖 root-of-trust 与开源硅基础设施，对数据中心安全硬件方向具有参考价值。",
+      "tags": [
+        "CHIPS Alliance",
+        "OCP",
+        "Caliptra",
+        "OpenPRoT",
+        "VeeR",
+        "Root of Trust",
+        "Open Silicon",
+        "Security"
+      ],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
+      "title": "Fraunhofer AISEC becomes an official OpenTitan security testing partner",
+      "titleZh": "Fraunhofer AISEC 成为 OpenTitan 官方安全测试伙伴",
+      "url": "https://lowrisc.org/news/fraunhofer-aisec-joins-opentitan-coalition-as-an-official-security-testing-partner-to-further-enhance-its-security-credentials/",
+      "source": "lowRISC Newsroom",
+      "addedAt": "2026-06-09T08:00:00Z",
+      "summary": "lowRISC announced that Fraunhofer AISEC joined the OpenTitan coalition as an official security testing partner, adding independent physical attack evaluation, side-channel and fault-injection expertise, and assurance work around the Earl Grey secure microcontroller.",
+      "summaryZh": "lowRISC 宣布 Fraunhofer AISEC 作为官方安全测试伙伴加入 OpenTitan 联盟，将为 Earl Grey 安全微控制器带来独立的物理攻击评估、side-channel 与 fault-injection 专业能力，以及更系统的安全 assurance 工作。",
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "Fraunhofer AISEC",
+        "Security",
+        "Root of Trust",
+        "Side-Channel",
+        "Fault Injection",
+        "Verification"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "editorPick": true,
+      "highlightRank": 1
+    },
+    {
+      "title": "Antmicro makes its open hardware Jetson Orin baseboard directly available through System Designer",
+      "titleZh": "Antmicro 通过 System Designer 直接提供开源硬件 Jetson Orin baseboard",
+      "url": "https://antmicro.com/blog/2026/06/antmicro-baseboard-for-jetson-orin-on-system-designer/",
+      "source": "Antmicro Blog",
+      "addedAt": "2026-06-05T00:00:00Z",
+      "summary": "Antmicro announced that its open hardware baseboard for the NVIDIA Jetson Orin family is available for direct purchase through System Designer, with schematics, assets, customization paths, and AI edge-development use cases presented as part of the platform.",
+      "summaryZh": "Antmicro 宣布，其面向 NVIDIA Jetson Orin 系列的开源硬件 baseboard 已可通过 System Designer 直接购买，并提供 schematics、设计资产、定制路径以及面向边缘 AI 开发的使用场景。",
+      "tags": [
+        "Antmicro",
+        "Open Hardware",
+        "Jetson Orin",
+        "System Designer",
+        "Carrier Board",
+        "Edge AI",
+        "Infrastructure"
+      ],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
       "title": "Realtek joins the OpenTitan coalition to build discrete hardware root-of-trust devices",
       "titleZh": "Realtek 加入 OpenTitan 联盟，推进离散式硬件 root-of-trust 器件开发",
       "url": "https://lowrisc.org/news/realtek-joins-opentitan-coalition-to-develop-discrete-hardware-root-of-trust-devices/",

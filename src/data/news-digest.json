@@ -1,29 +1,29 @@
 {
-  "weekOf": "2026-06-09",
-  "generatedAt": "2026-06-09T09:58:31.840Z",
+  "weekOf": "2026-06-14",
+  "generatedAt": "2026-06-14T08:52:52.513Z",
   "stats": {
-    "totalRelevant": 33,
-    "totalSources": 19,
+    "totalRelevant": 37,
+    "totalSources": 21,
     "topTags": [
+      {
+        "tag": "Verification",
+        "count": 12
+      },
       {
         "tag": "RISC-V",
         "count": 12
       },
       {
-        "tag": "Verification",
+        "tag": "Security",
         "count": 10
       },
       {
         "tag": "EDA",
-        "count": 8
+        "count": 9
       },
       {
-        "tag": "Security",
-        "count": 8
-      },
-      {
-        "tag": "OpenHW",
-        "count": 6
+        "tag": "OpenTitan",
+        "count": 7
       }
     ]
   },
@@ -94,8 +94,20 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 15,
+      "count": 16,
       "items": [
+        {
+          "title": "Fraunhofer AISEC becomes an official OpenTitan security testing partner",
+          "titleZh": "Fraunhofer AISEC 成为 OpenTitan 官方安全测试伙伴",
+          "url": "https://lowrisc.org/news/fraunhofer-aisec-joins-opentitan-coalition-as-an-official-security-testing-partner-to-further-enhance-its-security-credentials/",
+          "source": "lowRISC Newsroom",
+          "tags": [
+            "lowRISC",
+            "OpenTitan",
+            "Fraunhofer AISEC"
+          ],
+          "publishedAt": "2026-06-09T08:00:00.000Z"
+        },
         {
           "title": "Ainekko's CORE-ET edge AI silicon platform becomes an OpenHW Foundation project",
           "titleZh": "Ainekko 的 CORE-ET 边缘 AI 硅平台成为 OpenHW Foundation 开源项目",
@@ -131,18 +143,6 @@
             "CVA6"
           ],
           "publishedAt": "2026-06-01T21:30:00.000Z"
-        },
-        {
-          "title": "OpenTitan details its pre-silicon security simulation and verification flow",
-          "titleZh": "OpenTitan 详解其 pre-silicon 安全仿真与验证流程",
-          "url": "https://lowrisc.org/news/opentitans-pre-silicon-security-simulation-and-verification/",
-          "source": "lowRISC Newsroom",
-          "tags": [
-            "lowRISC",
-            "OpenTitan",
-            "Security"
-          ],
-          "publishedAt": "2026-05-27T00:00:00.000Z"
         }
       ]
     },
@@ -153,7 +153,7 @@
         "zh": "AI 与加速器"
       },
       "icon": "brain",
-      "count": 5,
+      "count": 6,
       "items": [
         {
           "title": "MLCommons adds GPT-OSS 20B as a sparse MoE pretraining benchmark for MLPerf Training v6.0",
@@ -166,6 +166,18 @@
             "AI"
           ],
           "publishedAt": "2026-05-07T13:23:00.000Z"
+        },
+        {
+          "title": "Antmicro makes its open hardware Jetson Orin baseboard directly available through System Designer",
+          "titleZh": "Antmicro 通过 System Designer 直接提供开源硬件 Jetson Orin baseboard",
+          "url": "https://antmicro.com/blog/2026/06/antmicro-baseboard-for-jetson-orin-on-system-designer/",
+          "source": "Antmicro Blog",
+          "tags": [
+            "Antmicro",
+            "Open Hardware",
+            "Jetson Orin"
+          ],
+          "publishedAt": "2026-06-05T00:00:00.000Z"
         },
         {
           "title": "OCP expands its open data center ecosystem for AI with new cluster, networking, and chiplet contributions",
@@ -190,18 +202,41 @@
             "AI Infrastructure"
           ],
           "publishedAt": "2026-06-02T00:00:00.000Z"
+        }
+      ]
+    },
+    {
+      "id": "industry",
+      "name": {
+        "en": "Industry & Market",
+        "zh": "产业动态"
+      },
+      "icon": "trending",
+      "count": 2,
+      "items": [
+        {
+          "title": "FOSSi opens ORConf 2026 registration for its European open silicon conference",
+          "titleZh": "FOSSi 开放 ORConf 2026 注册，聚焦欧洲 open silicon 社区",
+          "url": "https://fossi-foundation.org/orconf/2026",
+          "source": "FOSSi Foundation",
+          "tags": [
+            "FOSSi",
+            "ORConf",
+            "Open Silicon"
+          ],
+          "publishedAt": "2026-06-13T00:00:00.000Z"
         },
         {
-          "title": "MLPerf Inference v6.0 expands GPT-OSS and DeepSeek-R1 LLM benchmarks",
-          "titleZh": "MLPerf Inference v6.0 扩展 GPT-OSS 与 DeepSeek-R1 LLM benchmark",
-          "url": "https://mlcommons.org/2026/03/mlperf-inference-gpt-oss/",
-          "source": "MLCommons",
+          "title": "CHIPS Alliance recaps OCP EMEA work across Caliptra, OpenPRoT, and VeeR",
+          "titleZh": "CHIPS Alliance 回顾 OCP EMEA 上的 Caliptra、OpenPRoT 与 VeeR 协作",
+          "url": "https://www.chipsalliance.org/news/ocp-recap-2026/",
+          "source": "CHIPS Alliance Blog",
           "tags": [
-            "MLCommons",
-            "MLPerf",
-            "AI"
+            "CHIPS Alliance",
+            "OCP",
+            "Caliptra"
           ],
-          "publishedAt": "2026-03-24T00:00:00.000Z"
+          "publishedAt": "2026-06-10T22:00:00.000Z"
         }
       ]
     },
@@ -277,6 +312,33 @@
     }
   ],
   "items": [
+    {
+      "title": "Fraunhofer AISEC becomes an official OpenTitan security testing partner",
+      "url": "https://lowrisc.org/news/fraunhofer-aisec-joins-opentitan-coalition-as-an-official-security-testing-partner-to-further-enhance-its-security-credentials/",
+      "source": "lowRISC Newsroom",
+      "publishedAt": "2026-06-09T08:00:00.000Z",
+      "summary": "lowRISC announced that Fraunhofer AISEC joined the OpenTitan coalition as an official security testing partner, adding independent physical attack evaluation, s...",
+      "author": "",
+      "relevanceScore": 6,
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "Fraunhofer AISEC",
+        "Security",
+        "Root of Trust",
+        "Side-Channel",
+        "Fault Injection",
+        "Verification"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "editorPick": true,
+      "highlightRank": 1,
+      "titleZh": "Fraunhofer AISEC 成为 OpenTitan 官方安全测试伙伴",
+      "summaryZh": "lowRISC 宣布 Fraunhofer AISEC 作为官方安全测试伙伴加入 OpenTitan 联盟，将为 Earl Grey 安全微控制器带来独立的物理攻击评估、side-channel 与 fault-injection 专业能力，以及更系统的安全 assurance 工作。"
+    },
     {
       "title": "Ainekko's CORE-ET edge AI silicon platform becomes an OpenHW Foundation project",
       "url": "https://www.globenewswire.com/news-release/2026/06/02/3305225/0/en/ainekko-s-edge-ai-silicon-platform-is-now-an-openhw-foundation-open-source-project.html",
@@ -605,6 +667,79 @@
       "placement": "featured",
       "titleZh": "MLCommons 为 MLPerf Training v6.0 增加 GPT-OSS 20B sparse MoE 预训练 benchmark",
       "summaryZh": "MLCommons 介绍 GPT-OSS 20B，这是面向 MLPerf Training v6.0 的 sparse Mixture-of-Experts 预训练 benchmark，目标是在单个 8-GPU 节点上测试 MoE routing、稀疏计算以及硬件/软件训练效率。"
+    },
+    {
+      "title": "FOSSi opens ORConf 2026 registration for its European open silicon conference",
+      "url": "https://fossi-foundation.org/orconf/2026",
+      "source": "FOSSi Foundation",
+      "publishedAt": "2026-06-13T00:00:00.000Z",
+      "summary": "FOSSi Foundation opened registration for ORConf 2026, scheduled for September 11-13 in Valencia, Spain. The community event remains a useful signal for open sil...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "FOSSi",
+        "ORConf",
+        "Open Silicon",
+        "Open Hardware",
+        "EDA",
+        "Verification",
+        "FPGA"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "FOSSi 开放 ORConf 2026 注册，聚焦欧洲 open silicon 社区",
+      "summaryZh": "FOSSi Foundation 已开放 ORConf 2026 注册；会议计划于 9 月 11-13 日在西班牙 Valencia 举行。该社区活动仍是跟踪 open silicon、FPGA、EDA、verification 与软硬件协同设计动态的重要信号源。"
+    },
+    {
+      "title": "CHIPS Alliance recaps OCP EMEA work across Caliptra, OpenPRoT, and VeeR",
+      "url": "https://www.chipsalliance.org/news/ocp-recap-2026/",
+      "source": "CHIPS Alliance Blog",
+      "publishedAt": "2026-06-10T22:00:00.000Z",
+      "summary": "CHIPS Alliance's OCP EMEA Summit recap highlights collaboration with the Open Compute Project around Caliptra, OpenPRoT, and Guineveer/VeeR EL2, including root-...",
+      "author": "",
+      "relevanceScore": 7,
+      "tags": [
+        "CHIPS Alliance",
+        "OCP",
+        "Caliptra",
+        "OpenPRoT",
+        "VeeR",
+        "Root of Trust",
+        "Open Silicon",
+        "Security"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "CHIPS Alliance 回顾 OCP EMEA 上的 Caliptra、OpenPRoT 与 VeeR 协作",
+      "summaryZh": "CHIPS Alliance 的 OCP EMEA Summit 回顾强调其与 Open Compute Project 围绕 Caliptra、OpenPRoT 以及 Guineveer/VeeR EL2 的协作，重点覆盖 root-of-trust 与开源硅基础设施，对数据中心安全硬件方向具有参考价值。"
+    },
+    {
+      "title": "Antmicro makes its open hardware Jetson Orin baseboard directly available through System Designer",
+      "url": "https://antmicro.com/blog/2026/06/antmicro-baseboard-for-jetson-orin-on-system-designer/",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-06-05T00:00:00.000Z",
+      "summary": "Antmicro announced that its open hardware baseboard for the NVIDIA Jetson Orin family is available for direct purchase through System Designer, with schematics,...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Antmicro",
+        "Open Hardware",
+        "Jetson Orin",
+        "System Designer",
+        "Carrier Board",
+        "Edge AI",
+        "Infrastructure"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Antmicro 通过 System Designer 直接提供开源硬件 Jetson Orin baseboard",
+      "summaryZh": "Antmicro 宣布，其面向 NVIDIA Jetson Orin 系列的开源硬件 baseboard 已可通过 System Designer 直接购买，并提供 schematics、设计资产、定制路径以及面向边缘 AI 开发的使用场景。"
     },
     {
       "title": "CIRCT firtool-1.149.0 adds lower-to-core FIRRTL printing, SimToSV fixes, and broader ESI runtime support",
@@ -1068,6 +1203,8 @@
     "CHIPS Alliance",
     "CHIPS Alliance / Caliptra (GitHub)",
     "CHIPS Alliance / Chisel (GitHub)",
+    "CHIPS Alliance Blog",
+    "FOSSi Foundation",
     "FOSSi Foundation / Latch-Up 2026",
     "Fraunhofer AISEC",
     "LLVM / CIRCT (GitHub)",
