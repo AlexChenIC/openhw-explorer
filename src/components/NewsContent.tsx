@@ -208,6 +208,7 @@ function formatDate(dateStr: string, locale: string): string {
   return new Intl.DateTimeFormat(locale, {
     month: "short",
     day: "numeric",
+    timeZone: "UTC",
   }).format(date);
 }
 
@@ -220,6 +221,7 @@ function formatFullDate(dateStr: string, locale: string): string {
     year: "numeric",
     month: "short",
     day: "numeric",
+    timeZone: "UTC",
   }).format(date);
 }
 
@@ -272,10 +274,16 @@ function getValidDate(dateStr: string) {
   return Number.isNaN(date.getTime()) ? null : date;
 }
 
+function getReferenceTimeMs() {
+  return (
+    getValidDate(digest.generatedAt)?.getTime() ?? getValidDate(digest.weekOf)?.getTime() ?? 0
+  );
+}
+
 function daysSince(dateStr: string) {
   const date = getValidDate(dateStr);
   if (!date) return null;
-  const diff = Date.now() - date.getTime();
+  const diff = getReferenceTimeMs() - date.getTime();
   return Math.max(0, Math.floor(diff / (24 * 60 * 60 * 1000)));
 }
 
@@ -288,7 +296,7 @@ function getFreshnessKey(days: number | null) {
 
 function getItemsWithinDays(items: NewsItem[], days: number) {
   const maxAge = days * 24 * 60 * 60 * 1000;
-  const now = Date.now();
+  const now = getReferenceTimeMs();
   return items.filter((item) => {
     const date = getValidDate(item.publishedAt);
     if (!date) return false;
