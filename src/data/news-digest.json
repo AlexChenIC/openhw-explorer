@@ -1,12 +1,16 @@
 {
   "weekOf": "2026-06-16",
-  "generatedAt": "2026-06-16T07:48:07.139Z",
+  "generatedAt": "2026-06-16T12:42:34.193Z",
   "stats": {
-    "totalRelevant": 40,
-    "totalSources": 22,
+    "totalRelevant": 43,
+    "totalSources": 24,
     "topTags": [
       {
         "tag": "Verification",
+        "count": 13
+      },
+      {
+        "tag": "Security",
         "count": 12
       },
       {
@@ -14,15 +18,11 @@
         "count": 12
       },
       {
-        "tag": "Security",
-        "count": 11
-      },
-      {
         "tag": "EDA",
         "count": 10
       },
       {
-        "tag": "OpenTitan",
+        "tag": "OpenHW",
         "count": 8
       }
     ]
@@ -94,8 +94,20 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 16,
+      "count": 19,
       "items": [
+        {
+          "title": "OpenHW uses RISC-V Summit Europe 2026 to showcase CVA6, CORE-ET, UAP, and Eclipse collaboration",
+          "titleZh": "OpenHW 在 RISC-V Summit Europe 2026 展示 CVA6、CORE-ET、UAP 与 Eclipse 协作",
+          "url": "https://openhwfoundation.org/openhw-foundation-at-risc-v-summit-europe-2026-driving-innovation-in-bologna/",
+          "source": "OpenHW Foundation News",
+          "tags": [
+            "OpenHW",
+            "RISC-V Summit Europe",
+            "CVA6"
+          ],
+          "publishedAt": "2026-06-08T10:23:40.000Z"
+        },
         {
           "title": "Fraunhofer AISEC becomes an official OpenTitan security testing partner",
           "titleZh": "Fraunhofer AISEC 成为 OpenTitan 官方安全测试伙伴",
@@ -131,18 +143,6 @@
             "Realtek"
           ],
           "publishedAt": "2026-06-08T00:00:00.000Z"
-        },
-        {
-          "title": "Fraunhofer AISEC joins OpenHW Foundation to advance secure CVA6/OpenTitan platforms",
-          "titleZh": "Fraunhofer AISEC 加入 OpenHW Foundation，推进基于 CVA6 与 OpenTitan 的安全平台",
-          "url": "https://www.aisec.fraunhofer.de/en/media/press-releases/2026/FraunhoferAISEC-joins-OpenHW-Foundation.html",
-          "source": "Fraunhofer AISEC",
-          "tags": [
-            "OpenHW",
-            "Fraunhofer AISEC",
-            "CVA6"
-          ],
-          "publishedAt": "2026-06-01T21:30:00.000Z"
         }
       ]
     },
@@ -312,6 +312,33 @@
     }
   ],
   "items": [
+    {
+      "title": "OpenHW uses RISC-V Summit Europe 2026 to showcase CVA6, CORE-ET, UAP, and Eclipse collaboration",
+      "url": "https://openhwfoundation.org/openhw-foundation-at-risc-v-summit-europe-2026-driving-innovation-in-bologna/",
+      "source": "OpenHW Foundation News",
+      "publishedAt": "2026-06-08T10:23:40.000Z",
+      "summary": "OpenHW Foundation joined RISC-V Summit Europe 2026 in Bologna as a Silver Sponsor, highlighting CVE2, CVE4, and CVA6 roadmap discussions, a CVA6 tech meetup cov...",
+      "author": "",
+      "relevanceScore": 12,
+      "tags": [
+        "OpenHW",
+        "RISC-V Summit Europe",
+        "CVA6",
+        "CORE-V",
+        "CORE-ET",
+        "UAP",
+        "Verification",
+        "Eclipse Foundation"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "editorPick": true,
+      "highlightRank": 1,
+      "titleZh": "OpenHW 在 RISC-V Summit Europe 2026 展示 CVA6、CORE-ET、UAP 与 Eclipse 协作",
+      "summaryZh": "OpenHW Foundation 以 Silver Sponsor 身份参加 Bologna 的 RISC-V Summit Europe 2026，集中展示 CVE2、CVE4 与 CVA6 路线讨论，围绕 Rigoletto 和 Tristan verification 的 CVA6 tech meetup，面向欧盟 RISC-V artifact 的 Unified Access Platform，以及新近宣布的 CORE-ET 硅平台。"
+    },
     {
       "title": "Fraunhofer AISEC becomes an official OpenTitan security testing partner",
       "url": "https://lowrisc.org/news/fraunhofer-aisec-joins-opentitan-coalition-as-an-official-security-testing-partner-to-further-enhance-its-security-credentials/",
@@ -691,6 +718,55 @@
       "curated": true,
       "titleZh": "MLCommons 发布 MLPerf Mobile v6.0，加入端侧 LLM benchmark",
       "summaryZh": "MLCommons 发布 MLPerf Mobile v6.0，为 Android 设备加入基于 Llama 3.2 1B/3B 与 Llama 3.1 8B 的生成式 AI 测试，并增加 Snapdragon 8 Elite Gen 5 上的 Llama 3.1 8B NPU 加速支持，同时更新 MediaTek Dimensity 9500 与 Samsung Exynos 2600 覆盖。"
+    },
+    {
+      "title": "RISC-V Summit Europe posters show CVA6 momentum in CFI, secure boot, safety, and real-time designs",
+      "url": "https://riscv-europe.org/summit/2026/posters#Tue",
+      "source": "RISC-V Summit Europe 2026",
+      "publishedAt": "2026-06-09T09:00:00.000Z",
+      "summary": "The Summit Europe 2026 poster program includes multiple CVA6-focused results: CVA6-CFI integrates the RISC-V Zicfiss and Zicfilp CFI extensions with 1.0% 22 nm ...",
+      "author": "",
+      "relevanceScore": 7,
+      "tags": [
+        "CVA6",
+        "RISC-V Summit Europe",
+        "Security",
+        "CFI",
+        "Secure Boot",
+        "Functional Safety",
+        "Real-Time",
+        "Open Silicon"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "RISC-V Summit Europe poster 显示 CVA6 在 CFI、安全启动、功能安全与实时设计上的进展",
+      "summaryZh": "Summit Europe 2026 的 poster program 包含多项 CVA6 相关成果：CVA6-CFI 将 RISC-V Zicfiss 与 Zicfilp CFI 扩展集成到 CVA6，并给出 22 nm FDX 下 1.0% 面积开销；其他 poster 还覆盖基于 CVA6 的 secure boot、DICE 与 post-quantum cryptography、CAGE-V confidential computing、fault-tolerant CVA6，以及 CVA6-RT 实时扩展。"
+    },
+    {
+      "title": "OpenHW points to Eclipse ThreadX poster work for first-class RISC-V RTOS support",
+      "url": "https://openhwfoundation.org/beyond-the-basics-elevating-eclipse-threadx-to-a-first-class-rtos-for-risc-v/",
+      "source": "OpenHW Foundation News",
+      "publishedAt": "2026-06-10T10:19:03.000Z",
+      "summary": "OpenHW highlighted the RISC-V Summit Europe poster by Eclipse Foundation's Frederic Desbiens and 10xEngineers' Akif Ejaz on elevating Eclipse ThreadX into a fir...",
+      "author": "",
+      "relevanceScore": 7,
+      "tags": [
+        "OpenHW",
+        "Eclipse ThreadX",
+        "RISC-V Summit Europe",
+        "RTOS",
+        "Embedded",
+        "Eclipse Foundation",
+        "Software Stack"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "OpenHW 关注 Eclipse ThreadX poster，推动 RISC-V 上的一流 RTOS 支持",
+      "summaryZh": "OpenHW 转发了 Eclipse Foundation 的 Frederic Desbiens 与 10xEngineers 的 Akif Ejaz 在 RISC-V Summit Europe 的 poster，主题是将 Eclipse ThreadX 提升为 RISC-V 上的一流 RTOS，体现 OpenHW 硬件生态与 Eclipse 嵌入式软件栈之间的连接。"
     },
     {
       "title": "OpenTitan publishes first Earl Grey 1.0.0 development bundle",
@@ -1286,8 +1362,10 @@
     "Open Compute Project",
     "OpenHW / CVA6 (GitHub)",
     "OpenHW Foundation / Eclipse Foundation Canada",
+    "OpenHW Foundation News",
     "RISC-V Architecture Tests (GitHub)",
     "RISC-V International",
+    "RISC-V Summit Europe 2026",
     "UC Berkeley / Gemmini (GitHub)",
     "YosysHQ (GitHub)",
     "YosysHQ / Yosys (GitHub)",
