@@ -1,9 +1,9 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-14T07:46:00.272Z",
+    "generatedAt": "2026-06-16T07:34:14.083Z",
     "lookbackDays": 45,
     "openHwActivityDays": 14,
-    "totalCandidates": 29,
+    "totalCandidates": 30,
     "sourceCount": 11,
     "reviewWorkflow": "Review candidates, verify source facts, copy selected items into src/data/curated-news.json, then run npm run build-news."
   },
@@ -38,7 +38,7 @@
     },
     {
       "source": "MLCommons",
-      "count": 4
+      "count": 5
     },
     {
       "source": "RISC-V International news",
@@ -74,6 +74,30 @@
       "suggestedAudience": [
         "eda-tools",
         "security"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "MLCommons Releases MLPerf Mobile v6.0 with New Generative AI Benchmarks for On-Device LLMs",
+      "url": "https://mlcommons.org/2026/06/mlperf-mobile-v6/",
+      "source": "MLCommons",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-06-15T14:40:00.000Z",
+      "summary": "Test LLM inference natively on mobile devices with new standardized benchmarks and expanded NPU acceleration. The post MLCommons Releases MLPerf Mobile v6.0 with New Generative AI Benchmarks for On-Device LLMs appeared f...",
+      "author": "MLCommons",
+      "relevanceScore": 9,
+      "tags": [
+        "MLCommons",
+        "Benchmarking",
+        "AI",
+        "MLPerf",
+        "LLM",
+        "Accelerator"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -293,12 +317,12 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "tenstorrent/tt-metal release: v0.72.0-rc8",
-      "url": "https://github.com/tenstorrent/tt-metal/releases/tag/v0.72.0-rc8",
+      "title": "tenstorrent/tt-metal release: v0.72.0-rc9",
+      "url": "https://github.com/tenstorrent/tt-metal/releases/tag/v0.72.0-rc9",
       "source": "Tenstorrent / TT-Metalium (GitHub)",
       "sourceType": "github-release",
       "sourceTier": "trusted",
-      "publishedAt": "2026-06-14T05:15:58.000Z",
+      "publishedAt": "2026-06-15T05:34:46.000Z",
       "summary": "> [!NOTE] > > If you are installing from a release, please refer to the README, INSTALLATION instructions, and any other documentation packaged with the release, not on the main branch. There may be differences between t...",
       "author": "github-actions[bot]",
       "relevanceScore": 5,
@@ -317,12 +341,12 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "tenstorrent/tt-metal release: v0.72.0-rc7",
-      "url": "https://github.com/tenstorrent/tt-metal/releases/tag/v0.72.0-rc7",
+      "title": "tenstorrent/tt-metal release: v0.72.0-rc8",
+      "url": "https://github.com/tenstorrent/tt-metal/releases/tag/v0.72.0-rc8",
       "source": "Tenstorrent / TT-Metalium (GitHub)",
       "sourceType": "github-release",
       "sourceTier": "trusted",
-      "publishedAt": "2026-06-13T17:10:24.000Z",
+      "publishedAt": "2026-06-14T05:15:58.000Z",
       "summary": "> [!NOTE] > > If you are installing from a release, please refer to the README, INSTALLATION instructions, and any other documentation packaged with the release, not on the main branch. There may be differences between t...",
       "author": "github-actions[bot]",
       "relevanceScore": 5,
