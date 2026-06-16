@@ -87,6 +87,14 @@ const RSS_SOURCES = [
 
 const HTML_SOURCES = [
   {
+    name: "OpenHW Foundation News",
+    url: "https://openhwfoundation.org/events/",
+    parser: "openhw",
+    sourceTier: "official",
+    defaultTags: ["OpenHW", "Eclipse Foundation", "RISC-V"],
+    defaultScore: 4,
+  },
+  {
     name: "Open Compute Project Blog",
     url: "https://www.opencompute.org/blog",
     parser: "ocp",
@@ -528,6 +536,43 @@ function parseFeed(xml, source) {
     .filter(Boolean);
 }
 
+function parseOpenHwNews(html, source) {
+  const blocks = html.match(/<article class="elementor-post[\s\S]*?<\/article>/gi) || [];
+  return blocks
+    .map((block) => {
+      const titleMatch = block.match(
+        /elementor-post__title[\s\S]*?<a href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i,
+      );
+      const summaryMatch = block.match(/elementor-post__excerpt">\s*<p>([\s\S]*?)<\/p>/i);
+      const dateMatch = block.match(/elementor-post-date">\s*([\s\S]*?)\s*<\/span>/i);
+      const tagMatches = [...block.matchAll(/\bcategory-([a-z0-9-]+)/gi)]
+        .map((match) => match[1].replace(/-/g, " "))
+        .filter((tag) => !/^(blog|tech announcement|openhw tv|new member announcement)$/i.test(tag));
+
+      if (!titleMatch) return null;
+
+      const publishedAt = dateMatch ? `${stripHtml(dateMatch[1])} UTC` : "";
+
+      return candidateFromRaw(
+        {
+          title: titleMatch[2],
+          url: titleMatch[1],
+          publishedAt,
+          summary: summaryMatch ? summaryMatch[1] : "",
+          tags: tagMatches,
+        },
+        {
+          source: source.name,
+          sourceType: "web-page",
+          sourceTier: source.sourceTier,
+          tags: source.defaultTags,
+          defaultScore: source.defaultScore,
+        },
+      );
+    })
+    .filter(Boolean);
+}
+
 function parseChipsBlog(html, source) {
   const blocks = html.match(/<article class=blog-post>[\s\S]*?<\/article>/gi) || [];
   return blocks
@@ -663,7 +708,9 @@ async function collectHtmlCandidates() {
   for (const source of HTML_SOURCES) {
     try {
       const html = await fetchText(source.url);
-      if (source.parser === "chips") {
+      if (source.parser === "openhw") {
+        all.push(...parseOpenHwNews(html, source));
+      } else if (source.parser === "chips") {
         all.push(...parseChipsBlog(html, source));
       } else if (source.parser === "lowrisc") {
         all.push(...parseLowriscNews(html, source));

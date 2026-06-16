@@ -23,6 +23,70 @@
       "language": "en"
     },
     {
+      "title": "OpenHW uses RISC-V Summit Europe 2026 to showcase CVA6, CORE-ET, UAP, and Eclipse collaboration",
+      "titleZh": "OpenHW 在 RISC-V Summit Europe 2026 展示 CVA6、CORE-ET、UAP 与 Eclipse 协作",
+      "url": "https://openhwfoundation.org/openhw-foundation-at-risc-v-summit-europe-2026-driving-innovation-in-bologna/",
+      "source": "OpenHW Foundation News",
+      "addedAt": "2026-06-08T10:23:40Z",
+      "summary": "OpenHW Foundation joined RISC-V Summit Europe 2026 in Bologna as a Silver Sponsor, highlighting CVE2, CVE4, and CVA6 roadmap discussions, a CVA6 tech meetup covering Rigoletto and Tristan verification, the Unified Access Platform for EU RISC-V artifacts, and the newly announced CORE-ET silicon platform.",
+      "summaryZh": "OpenHW Foundation 以 Silver Sponsor 身份参加 Bologna 的 RISC-V Summit Europe 2026，集中展示 CVE2、CVE4 与 CVA6 路线讨论，围绕 Rigoletto 和 Tristan verification 的 CVA6 tech meetup，面向欧盟 RISC-V artifact 的 Unified Access Platform，以及新近宣布的 CORE-ET 硅平台。",
+      "tags": [
+        "OpenHW",
+        "RISC-V Summit Europe",
+        "CVA6",
+        "CORE-V",
+        "CORE-ET",
+        "UAP",
+        "Verification",
+        "Eclipse Foundation"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "editorPick": true,
+      "highlightRank": 1
+    },
+    {
+      "title": "RISC-V Summit Europe posters show CVA6 momentum in CFI, secure boot, safety, and real-time designs",
+      "titleZh": "RISC-V Summit Europe poster 显示 CVA6 在 CFI、安全启动、功能安全与实时设计上的进展",
+      "url": "https://riscv-europe.org/summit/2026/posters#Tue",
+      "source": "RISC-V Summit Europe 2026",
+      "addedAt": "2026-06-09T09:00:00Z",
+      "summary": "The Summit Europe 2026 poster program includes multiple CVA6-focused results: CVA6-CFI integrates the RISC-V Zicfiss and Zicfilp CFI extensions with 1.0% 22 nm FDX area overhead, while other posters cover CVA6-based secure boot with DICE and post-quantum cryptography, CAGE-V confidential computing, fault-tolerant CVA6, and CVA6-RT real-time extensions.",
+      "summaryZh": "Summit Europe 2026 的 poster program 包含多项 CVA6 相关成果：CVA6-CFI 将 RISC-V Zicfiss 与 Zicfilp CFI 扩展集成到 CVA6，并给出 22 nm FDX 下 1.0% 面积开销；其他 poster 还覆盖基于 CVA6 的 secure boot、DICE 与 post-quantum cryptography、CAGE-V confidential computing、fault-tolerant CVA6，以及 CVA6-RT 实时扩展。",
+      "tags": [
+        "CVA6",
+        "RISC-V Summit Europe",
+        "Security",
+        "CFI",
+        "Secure Boot",
+        "Functional Safety",
+        "Real-Time",
+        "Open Silicon"
+      ],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
+      "title": "OpenHW points to Eclipse ThreadX poster work for first-class RISC-V RTOS support",
+      "titleZh": "OpenHW 关注 Eclipse ThreadX poster，推动 RISC-V 上的一流 RTOS 支持",
+      "url": "https://openhwfoundation.org/beyond-the-basics-elevating-eclipse-threadx-to-a-first-class-rtos-for-risc-v/",
+      "source": "OpenHW Foundation News",
+      "addedAt": "2026-06-10T10:19:03Z",
+      "summary": "OpenHW highlighted the RISC-V Summit Europe poster by Eclipse Foundation's Frederic Desbiens and 10xEngineers' Akif Ejaz on elevating Eclipse ThreadX into a first-class RTOS for RISC-V, connecting OpenHW's hardware focus with Eclipse's embedded software stack.",
+      "summaryZh": "OpenHW 转发了 Eclipse Foundation 的 Frederic Desbiens 与 10xEngineers 的 Akif Ejaz 在 RISC-V Summit Europe 的 poster，主题是将 Eclipse ThreadX 提升为 RISC-V 上的一流 RTOS，体现 OpenHW 硬件生态与 Eclipse 嵌入式软件栈之间的连接。",
+      "tags": [
+        "OpenHW",
+        "Eclipse ThreadX",
+        "RISC-V Summit Europe",
+        "RTOS",
+        "Embedded",
+        "Eclipse Foundation",
+        "Software Stack"
+      ],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
       "title": "OpenTitan publishes first Earl Grey 1.0.0 development bundle",
       "titleZh": "OpenTitan 发布首个 Earl Grey 1.0.0 development bundle",
       "url": "https://github.com/lowRISC/opentitan/releases/tag/devbundle-2026-06-02-1",

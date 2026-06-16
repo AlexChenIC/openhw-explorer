@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-16T07:34:14.083Z",
+    "generatedAt": "2026-06-16T12:42:10.914Z",
     "lookbackDays": 45,
     "openHwActivityDays": 14,
-    "totalCandidates": 30,
-    "sourceCount": 11,
+    "totalCandidates": 38,
+    "sourceCount": 12,
     "reviewWorkflow": "Review candidates, verify source facts, copy selected items into src/data/curated-news.json, then run npm run build-news."
   },
   "sources": [
@@ -41,6 +41,10 @@
       "count": 5
     },
     {
+      "source": "OpenHW Foundation News",
+      "count": 8
+    },
+    {
       "source": "RISC-V International news",
       "count": 2
     },
@@ -54,6 +58,78 @@
     }
   ],
   "items": [
+    {
+      "title": "OpenHW Foundation at RISC-V Summit Europe 2026: Driving Innovation in Bologna",
+      "url": "https://openhwfoundation.org/openhw-foundation-at-risc-v-summit-europe-2026-driving-innovation-in-bologna/",
+      "source": "OpenHW Foundation News",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-06-08T00:00:00.000Z",
+      "summary": "The open-source hardware revolution is descending upon Bologna, Italy, and the OpenHW Foundation is proud to be at the heart of the action. From June 8–12, 2026, the RISC-V Summit Europe will serve as the premier gatheri...",
+      "author": "",
+      "relevanceScore": 15,
+      "tags": [
+        "OpenHW",
+        "Eclipse Foundation",
+        "RISC-V",
+        "Open Hardware"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv",
+        "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "Ainekko’s Open Edge AI Silicon Joins OpenHW Foundation",
+      "url": "https://openhwfoundation.org/ainekkos-open-edge-ai-silicon-joins-openhw-foundation/",
+      "source": "OpenHW Foundation News",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-06-04T00:00:00.000Z",
+      "summary": "Ainekko, a startup focused on open AI infrastructure, has contributed its CORE-ET Silicon Platform (ETSP) to the OpenHW Foundation, a RISC-V-centric open hardware initiative hosted under the Eclipse Foundation. The platf...",
+      "author": "",
+      "relevanceScore": 14,
+      "tags": [
+        "OpenHW",
+        "Eclipse Foundation",
+        "RISC-V",
+        "AI"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv",
+        "ai-accelerators",
+        "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "Ainekko’s CORE-ET Silicon Platform is now an OpenHW Foundation project",
+      "url": "https://openhwfoundation.org/ainekkos-core-et-silicon-platform-is-now-an-openhw-foundation-project/",
+      "source": "OpenHW Foundation News",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-06-02T00:00:00.000Z",
+      "summary": "A new open source project has joined the OpenHW Foundation ecosystem! Ainekko’s CORE-ET Silicon Platform is now an OpenHW Foundation project, bringing an open platform for low-power AI inference at the edge.",
+      "author": "",
+      "relevanceScore": 13,
+      "tags": [
+        "OpenHW",
+        "Eclipse Foundation",
+        "RISC-V",
+        "AI",
+        "LLM"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv",
+        "ai-accelerators",
+        "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
     {
       "title": "lowRISC/opentitan release: devbundle-2026-06-02-1",
       "url": "https://github.com/lowRISC/opentitan/releases/tag/devbundle-2026-06-02-1",
@@ -74,6 +150,53 @@
       "suggestedAudience": [
         "eda-tools",
         "security"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "Fraunhofer AISEC Joins the OpenHW Foundation – Open Hardware as the Foundation for Digital Sovereignty",
+      "url": "https://openhwfoundation.org/fraunhofer-aisec-joins-the-openhw-foundation-open-hardware-as-the-foundation-for-digital-sovereignty/",
+      "source": "OpenHW Foundation News",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-06-01T00:00:00.000Z",
+      "summary": "The Fraunhofer Institute for Applied and Integrated Security (AISEC) has joined the OpenHW Foundation. The goal of this collaboration is to advance open, trustworthy, and highly secure hardware platforms, thereby strengt...",
+      "author": "",
+      "relevanceScore": 11,
+      "tags": [
+        "OpenHW",
+        "Eclipse Foundation",
+        "RISC-V",
+        "Security"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv",
+        "security",
+        "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "Unlocking the open-source hardware ecosystem at RISC-V Ottawa (RVO)",
+      "url": "https://openhwfoundation.org/unlocking-the-open-source-hardware-ecosystem-at-risc-v-ottawa-rvo/",
+      "source": "OpenHW Foundation News",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-06-13T00:00:00.000Z",
+      "summary": "As we count down to our Inaugural Launch Meeting, we are thrilled to introduce the leaders stepping up to guide and anchor the Ottawa tech community. Our featured speakers are coming to help you navigate the open-source...",
+      "author": "",
+      "relevanceScore": 10,
+      "tags": [
+        "OpenHW",
+        "Eclipse Foundation",
+        "RISC-V",
+        "Open Hardware"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv",
+        "soc-ip"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -128,6 +251,28 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
+      "title": "Beyond the Basics: Elevating Eclipse ThreadX to a First-Class RTOS for RISC-V",
+      "url": "https://openhwfoundation.org/beyond-the-basics-elevating-eclipse-threadx-to-a-first-class-rtos-for-risc-v/",
+      "source": "OpenHW Foundation News",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-06-10T00:00:00.000Z",
+      "summary": "Did you miss the poster session by Eclipse Foundation's Frédéric Desbiens and Akif Ejaz from 10xEngineers at the RISCV Europe Summit? We've got you covered!",
+      "author": "",
+      "relevanceScore": 8,
+      "tags": [
+        "OpenHW",
+        "Eclipse Foundation",
+        "RISC-V"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv",
+        "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
       "title": "Fraunhofer AISEC Joins OpenTitan Coalition as an Official Security Testing Partner to further enhance its security credentials",
       "url": "https://lowrisc.org/news/fraunhofer-aisec-joins-opentitan-coalition-as-an-official-security-testing-partner-to-further-enhance-its-security-credentials/",
       "source": "lowRISC Newsroom",
@@ -165,6 +310,28 @@
       ],
       "suggestedAudience": [
         "security"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "Eclipse ThreadX and RISC-V Advance the Open Embedded Stack",
+      "url": "https://openhwfoundation.org/eclipse-threadx-and-risc-v-advance-the-open-embedded-stack/",
+      "source": "OpenHW Foundation News",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-05-15T00:00:00.000Z",
+      "summary": "At OCX 2026, the Eclipse Foundation highlighted the growing role of open source in embedded and IoT development, with Eclipse ThreadX and RISC-V at the center of the conversation.",
+      "author": "",
+      "relevanceScore": 8,
+      "tags": [
+        "OpenHW",
+        "Eclipse Foundation",
+        "RISC-V"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv",
+        "soc-ip"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -209,6 +376,29 @@
       ],
       "suggestedAudience": [
         "ai-accelerators"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "Open Source Hardware Ecosystem: A Holistic View of the Community",
+      "url": "https://openhwfoundation.org/open-source-hardware-ecosystem-a-holistic-view-of-the-community/",
+      "source": "OpenHW Foundation News",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-06-12T00:00:00.000Z",
+      "summary": "On 16 June 2026 (16:00–17:00 CEST), the European Open Source Academy (EOSA) will host the webinar \"Open Source Hardware Ecosystem: A Holistic View of the Community\", bringing together leading voices from the European ope...",
+      "author": "",
+      "relevanceScore": 6,
+      "tags": [
+        "OpenHW",
+        "Eclipse Foundation",
+        "RISC-V",
+        "Open Hardware"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv",
+        "soc-ip"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
