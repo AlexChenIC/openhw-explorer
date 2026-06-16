@@ -1,16 +1,20 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-02T13:11:47.726Z",
-    "lookbackDays": 60,
+    "generatedAt": "2026-06-16T07:34:14.083Z",
+    "lookbackDays": 45,
     "openHwActivityDays": 14,
-    "totalCandidates": 27,
-    "sourceCount": 10,
+    "totalCandidates": 30,
+    "sourceCount": 11,
     "reviewWorkflow": "Review candidates, verify source facts, copy selected items into src/data/curated-news.json, then run npm run build-news."
   },
   "sources": [
     {
       "source": "Antmicro Blog",
-      "count": 6
+      "count": 4
+    },
+    {
+      "source": "Apache TVM (GitHub)",
+      "count": 1
     },
     {
       "source": "CHIPS Alliance / Chisel (GitHub)",
@@ -18,31 +22,31 @@
     },
     {
       "source": "CHIPS Alliance Blog",
-      "count": 1
+      "count": 2
     },
     {
       "source": "FOSSi Foundation",
-      "count": 3
+      "count": 4
     },
     {
       "source": "lowRISC / OpenTitan (GitHub)",
-      "count": 2
+      "count": 1
     },
     {
       "source": "lowRISC Newsroom",
-      "count": 3
+      "count": 5
     },
     {
       "source": "MLCommons",
-      "count": 3
-    },
-    {
-      "source": "Open Compute Project Blog",
-      "count": 2
+      "count": 5
     },
     {
       "source": "RISC-V International news",
-      "count": 3
+      "count": 2
+    },
+    {
+      "source": "Tenstorrent / TT-Metalium (GitHub)",
+      "count": 2
     },
     {
       "source": "YosysHQ / Yosys (GitHub)",
@@ -51,47 +55,50 @@
   ],
   "items": [
     {
-      "title": "Implementing Dual-core Lockstep in the CHIPS Alliance VeeR EL2 RISC-V core for safety-critical applications",
-      "url": "https://antmicro.com/blog/2026/04/dual-core-lockstep-in-veer-el2",
-      "source": "Antmicro Blog",
+      "title": "lowRISC/opentitan release: devbundle-2026-06-02-1",
+      "url": "https://github.com/lowRISC/opentitan/releases/tag/devbundle-2026-06-02-1",
+      "source": "lowRISC / OpenTitan (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "official",
+      "publishedAt": "2026-06-02T13:33:29.000Z",
+      "summary": "This is the first release of the development bundle for Earl Grey 1.0.0. It currently contains: * FPGA bitstreams * a Verilated simulation binary * an OpenTitanTool binary * a HSMTool binary * a test ROM binary * an FPGA...",
+      "author": "github-actions[bot]",
+      "relevanceScore": 11,
+      "tags": [
+        "OpenTitan",
+        "Root of Trust",
+        "Security",
+        "lowRISC",
+        "EDA"
+      ],
+      "suggestedAudience": [
+        "eda-tools",
+        "security"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "MLCommons Releases MLPerf Mobile v6.0 with New Generative AI Benchmarks for On-Device LLMs",
+      "url": "https://mlcommons.org/2026/06/mlperf-mobile-v6/",
+      "source": "MLCommons",
       "sourceType": "rss",
       "sourceTier": "trusted",
-      "publishedAt": "2026-04-13T00:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 11,
-      "tags": ["Antmicro", "Open Hardware", "RISC-V", "CHIPS Alliance", "VeeR"],
-      "suggestedAudience": ["openhw-riscv", "soc-ip"],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "lowRISC/opentitan release: 2026-06-01-test",
-      "url": "https://github.com/lowRISC/opentitan/releases/tag/2026-06-01-test",
-      "source": "lowRISC / OpenTitan (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "official",
-      "publishedAt": "2026-06-01T16:01:56.000Z",
-      "summary": "",
-      "author": "github-actions[bot]",
+      "publishedAt": "2026-06-15T14:40:00.000Z",
+      "summary": "Test LLM inference natively on mobile devices with new standardized benchmarks and expanded NPU acceleration. The post MLCommons Releases MLPerf Mobile v6.0 with New Generative AI Benchmarks for On-Device LLMs appeared f...",
+      "author": "MLCommons",
       "relevanceScore": 9,
-      "tags": ["OpenTitan", "Root of Trust", "Security", "lowRISC"],
-      "suggestedAudience": ["security"],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "lowRISC/opentitan release: 2026-05-21-test",
-      "url": "https://github.com/lowRISC/opentitan/releases/tag/2026-05-21-test",
-      "source": "lowRISC / OpenTitan (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "official",
-      "publishedAt": "2026-05-21T14:02:44.000Z",
-      "summary": "",
-      "author": "github-actions[bot]",
-      "relevanceScore": 9,
-      "tags": ["OpenTitan", "Root of Trust", "Security", "lowRISC"],
-      "suggestedAudience": ["security"],
+      "tags": [
+        "MLCommons",
+        "Benchmarking",
+        "AI",
+        "MLPerf",
+        "LLM",
+        "Accelerator"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -105,8 +112,60 @@
       "summary": "",
       "author": "",
       "relevanceScore": 9,
-      "tags": ["Antmicro", "Open Hardware", "RISC-V", "EDA", "SoC/IP"],
-      "suggestedAudience": ["openhw-riscv", "eda-tools", "soc-ip"],
+      "tags": [
+        "Antmicro",
+        "Open Hardware",
+        "RISC-V",
+        "EDA",
+        "SoC/IP"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv",
+        "eda-tools",
+        "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "Fraunhofer AISEC Joins OpenTitan Coalition as an Official Security Testing Partner to further enhance its security credentials",
+      "url": "https://lowrisc.org/news/fraunhofer-aisec-joins-opentitan-coalition-as-an-official-security-testing-partner-to-further-enhance-its-security-credentials/",
+      "source": "lowRISC Newsroom",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-06-09T08:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 8,
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "Security"
+      ],
+      "suggestedAudience": [
+        "security"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "Realtek Joins OpenTitan Coalition to Develop Discrete Hardware Root of Trust Devices",
+      "url": "https://lowrisc.org/news/realtek-joins-opentitan-coalition-to-develop-discrete-hardware-root-of-trust-devices/",
+      "source": "lowRISC Newsroom",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-06-08T06:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 8,
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "Security"
+      ],
+      "suggestedAudience": [
+        "security"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -120,8 +179,14 @@
       "summary": "",
       "author": "",
       "relevanceScore": 8,
-      "tags": ["lowRISC", "OpenTitan", "Security"],
-      "suggestedAudience": ["security"],
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "Security"
+      ],
+      "suggestedAudience": [
+        "security"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -135,8 +200,16 @@
       "summary": "How MLCommons engineered a stable, accessible Mixture-of-Experts (MoE) pretraining benchmark for MLPerf Training v6.0 that runs on a single 8-GPU node. The post GPT-OSS 20B: A Sparse MoE Pretraining Benchmark for MLPerf...",
       "author": "lori@mlcommons.org",
       "relevanceScore": 8,
-      "tags": ["MLCommons", "Benchmarking", "MLPerf", "LLM", "Accelerator"],
-      "suggestedAudience": ["ai-accelerators"],
+      "tags": [
+        "MLCommons",
+        "Benchmarking",
+        "MLPerf",
+        "LLM",
+        "Accelerator"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -150,8 +223,14 @@
       "summary": "",
       "author": "",
       "relevanceScore": 6,
-      "tags": ["lowRISC", "OpenTitan"],
-      "suggestedAudience": ["verification", "security"],
+      "tags": [
+        "lowRISC",
+        "OpenTitan"
+      ],
+      "suggestedAudience": [
+        "verification",
+        "security"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -165,8 +244,12 @@
       "summary": "Voting is now open for RISC-V International's Board of Directors. Learn how to nominate, understand board member responsibilities, and discover key election dates. The post Call for Candidates: Help Us Build a Board That...",
       "author": "Andrea Gallo",
       "relevanceScore": 6,
-      "tags": ["RISC-V"],
-      "suggestedAudience": ["openhw-riscv"],
+      "tags": [
+        "RISC-V"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -180,8 +263,12 @@
       "summary": "The RISC-V Ratified Specifications Library consolidates all of the available RISC-V specifications into one single, accessible repository. The post We Created a Single Source for All RISC-V Specifications appeared first...",
       "author": "Bill Traynor",
       "relevanceScore": 6,
-      "tags": ["RISC-V"],
-      "suggestedAudience": ["openhw-riscv"],
+      "tags": [
+        "RISC-V"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -195,8 +282,15 @@
       "summary": "",
       "author": "",
       "relevanceScore": 6,
-      "tags": ["Antmicro", "Open Hardware", "OpenROAD", "EDA"],
-      "suggestedAudience": ["eda-tools"],
+      "tags": [
+        "Antmicro",
+        "Open Hardware",
+        "OpenROAD",
+        "EDA"
+      ],
+      "suggestedAudience": [
+        "eda-tools"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -210,38 +304,86 @@
       "summary": "How MLCommons is bringing large-scale Mixture-of-Experts (MoE) pretraining to the MLPerf Training v6.0 suite. The post DeepSeek-V3: A Large-Scale MoE Pretraining Benchmark for MLPerf Training v6.0 appeared first on MLCom...",
       "author": "lori@mlcommons.org",
       "relevanceScore": 6,
-      "tags": ["MLCommons", "Benchmarking", "MLPerf", "LLM"],
-      "suggestedAudience": ["ai-accelerators"],
+      "tags": [
+        "MLCommons",
+        "Benchmarking",
+        "MLPerf",
+        "LLM"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "Initial implementation of four-state logic in the open source Verilator RTL simulator",
-      "url": "https://antmicro.com/blog/2026/04/initial-support-for-four-state-logic-in-verilator",
-      "source": "Antmicro Blog",
-      "sourceType": "rss",
+      "title": "tenstorrent/tt-metal release: v0.72.0-rc9",
+      "url": "https://github.com/tenstorrent/tt-metal/releases/tag/v0.72.0-rc9",
+      "source": "Tenstorrent / TT-Metalium (GitHub)",
+      "sourceType": "github-release",
       "sourceTier": "trusted",
-      "publishedAt": "2026-04-30T00:00:00.000Z",
+      "publishedAt": "2026-06-15T05:34:46.000Z",
+      "summary": "> [!NOTE] > > If you are installing from a release, please refer to the README, INSTALLATION instructions, and any other documentation packaged with the release, not on the main branch. There may be differences between t...",
+      "author": "github-actions[bot]",
+      "relevanceScore": 5,
+      "tags": [
+        "Tenstorrent",
+        "AI",
+        "LLM",
+        "Accelerator",
+        "RISC-V"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv",
+        "ai-accelerators"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "tenstorrent/tt-metal release: v0.72.0-rc8",
+      "url": "https://github.com/tenstorrent/tt-metal/releases/tag/v0.72.0-rc8",
+      "source": "Tenstorrent / TT-Metalium (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-06-14T05:15:58.000Z",
+      "summary": "> [!NOTE] > > If you are installing from a release, please refer to the README, INSTALLATION instructions, and any other documentation packaged with the release, not on the main branch. There may be differences between t...",
+      "author": "github-actions[bot]",
+      "relevanceScore": 5,
+      "tags": [
+        "Tenstorrent",
+        "AI",
+        "LLM",
+        "Accelerator",
+        "RISC-V"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv",
+        "ai-accelerators"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "CHIPS Alliance at 2026 OCP EMEA Summit",
+      "url": "https://www.chipsalliance.org/news/ocp-recap-2026/",
+      "source": "CHIPS Alliance Blog",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-06-10T22:00:00.000Z",
       "summary": "",
       "author": "",
-      "relevanceScore": 6,
-      "tags": ["Antmicro", "Open Hardware", "Verilator", "SoC/IP"],
-      "suggestedAudience": ["eda-tools", "soc-ip"],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "Docker on RISC-V: From Release to Production in 6 Days",
-      "url": "https://riscv.org/blog/docker-on-risc-v-from-release-to-production-in-6-days/",
-      "source": "RISC-V International news",
-      "sourceType": "rss",
-      "sourceTier": "official",
-      "publishedAt": "2026-04-28T10:08:37.000Z",
-      "summary": "The post Docker on RISC-V: From Release to Production in 6 Days appeared first on RISC-V International .",
-      "author": "RISC-V International Staff",
-      "relevanceScore": 6,
-      "tags": ["RISC-V"],
-      "suggestedAudience": ["openhw-riscv"],
+      "relevanceScore": 5,
+      "tags": [
+        "CHIPS Alliance",
+        "Open Silicon",
+        "caliptra",
+        "openprot"
+      ],
+      "suggestedAudience": [
+        "security",
+        "soc-ip"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -255,8 +397,14 @@
       "summary": "",
       "author": "",
       "relevanceScore": 5,
-      "tags": ["CHIPS Alliance", "Open Silicon", "sv-tools"],
-      "suggestedAudience": ["soc-ip"],
+      "tags": [
+        "CHIPS Alliance",
+        "Open Silicon",
+        "sv-tools"
+      ],
+      "suggestedAudience": [
+        "soc-ip"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -270,8 +418,13 @@
       "summary": "",
       "author": "",
       "relevanceScore": 5,
-      "tags": ["lowRISC", "OpenTitan"],
-      "suggestedAudience": ["security"],
+      "tags": [
+        "lowRISC",
+        "OpenTitan"
+      ],
+      "suggestedAudience": [
+        "security"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -285,8 +438,35 @@
       "summary": "A report from Latch-Up 2026, the FOSSi Foundation's North American conference on free and open source silicon, held in Waterloo, Ontario, Canada from May 1-3, 2026.",
       "author": "",
       "relevanceScore": 5,
-      "tags": ["FOSSi", "Open Silicon"],
-      "suggestedAudience": ["general"],
+      "tags": [
+        "FOSSi",
+        "Open Silicon"
+      ],
+      "suggestedAudience": [
+        "general"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "The patch model is breaking. AI evaluation needs a new way to disclose what it finds.",
+      "url": "https://mlcommons.org/2026/06/responsible-disclosure/",
+      "source": "MLCommons",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-06-09T14:50:28.000Z",
+      "summary": "- Why traditional vulnerability disclosure fails for open-weight models—and how we are building a new standard for AI evaluation. The post The patch model is breaking. AI evaluation needs a new way to disclose what it fi...",
+      "author": "MLCommons",
+      "relevanceScore": 4,
+      "tags": [
+        "MLCommons",
+        "Benchmarking",
+        "AI",
+        "LLM"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -300,13 +480,19 @@
       "summary": "Yosys 0.65 .. Yosys 0.66 -------------------------- * Various - C++ compiler with C++20 support is required. - Please be aware that next release will also migrate to CMake build system. * New commands and options - Added...",
       "author": "mmicko",
       "relevanceScore": 4,
-      "tags": ["Yosys", "EDA", "Synthesis"],
-      "suggestedAudience": ["eda-tools"],
+      "tags": [
+        "Yosys",
+        "EDA",
+        "Synthesis"
+      ],
+      "suggestedAudience": [
+        "eda-tools"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "Antmicro supports NVIDIA Jetson Yocto launch with open source hardware and tools for OTA, fleet management, factory testing, AI",
+      "title": "Antmicro supports NVIDIA-Yocto Project on Jetson launch with open source hardware and tools for OTA, fleet management, factory testing, AI",
       "url": "https://antmicro.com/blog/2026/06/antmicro-support-for-yocto-on-nvidia-jetson",
       "source": "Antmicro Blog",
       "sourceType": "rss",
@@ -315,8 +501,14 @@
       "summary": "",
       "author": "",
       "relevanceScore": 4,
-      "tags": ["Antmicro", "Open Hardware", "AI"],
-      "suggestedAudience": ["ai-accelerators"],
+      "tags": [
+        "Antmicro",
+        "Open Hardware",
+        "AI"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -330,8 +522,14 @@
       "summary": "",
       "author": "",
       "relevanceScore": 4,
-      "tags": ["Antmicro", "Open Hardware", "Verilator"],
-      "suggestedAudience": ["eda-tools"],
+      "tags": [
+        "Antmicro",
+        "Open Hardware",
+        "Verilator"
+      ],
+      "suggestedAudience": [
+        "eda-tools"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -345,53 +543,99 @@
       "summary": "Yosys 0.64 .. Yosys 0.65 -------------------------- * New commands and options - Added \"arith_tree\" pass to convert add/sub/macc chains to carry-save adder trees. - Removed \"-force\" option from \"share\" pass. * Various -...",
       "author": "mmicko",
       "relevanceScore": 4,
-      "tags": ["Yosys", "EDA", "Synthesis"],
-      "suggestedAudience": ["eda-tools"],
+      "tags": [
+        "Yosys",
+        "EDA",
+        "Synthesis"
+      ],
+      "suggestedAudience": [
+        "eda-tools"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "Delivering an Open Data Center Ecosystem for AI",
-      "url": "https://www.opencompute.org/blog/delivering-an-open-data-center-ecosystem-for-ai",
-      "source": "Open Compute Project Blog",
-      "sourceType": "web-page",
-      "sourceTier": "official",
-      "publishedAt": "2026-04-28T22:00:00.000Z",
-      "summary": "Driving Innovations from Chip to Grid Across Hyperscale and Local Data Centers April 29th, 2026 &ndash; The Open Compute Project Foundation (OCP), the nonprofit international organization bringing at-scale innovations an...",
-      "author": "",
-      "relevanceScore": 4,
-      "tags": ["OCP", "Open Compute Project", "AI", "OCP AI Infrastructure"],
-      "suggestedAudience": ["ai-accelerators"],
+      "title": "apache/tvm release: v0.25.0.rc0",
+      "url": "https://github.com/apache/tvm/releases/tag/v0.25.0.rc0",
+      "source": "Apache TVM (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-06-08T20:11:00.000Z",
+      "summary": "## What's Changed * [release][Dont Squash] Update version to 0.24.0 and 0.25.0.dev on main branch by @ysh329 in https://github.com/apache/tvm/pull/19446 * [Relax][Frontend] Add ParameterList and ParameterDict containers...",
+      "author": "MasterJH5574",
+      "relevanceScore": 3,
+      "tags": [
+        "Apache TVM",
+        "AI Compiler",
+        "ML",
+        "Accelerator"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "Building the Foundation for an Open Chiplet Future: Foundation Chiplet System Architecture (FCSA)",
-      "url": "https://www.opencompute.org/blog/building-the-foundation-for-an-open-chiplet-future-foundation-chiplet-system-architecture-fcsa",
-      "source": "Open Compute Project Blog",
-      "sourceType": "web-page",
-      "sourceTier": "official",
-      "publishedAt": "2026-04-07T22:00:00.000Z",
-      "summary": "&ldquo;The future of Silicon is Modular, Scalable, and Standardized Chiplets&rdquo; The rapid acceleration of the AI economy is reshaping global compute infrastructure. From hyperscale data centers training trillion-para...",
-      "author": "",
-      "relevanceScore": 4,
-      "tags": ["OCP", "Open Compute Project", "AI", "OCP AI Infrastructure"],
-      "suggestedAudience": ["ai-accelerators", "soc-ip"],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "MLCommons Releases MLPerf Client v1.6 with Performance Optimizations and Enhanced User Experience",
-      "url": "https://mlcommons.org/2026/04/mlperf-client-v1-6/",
+      "title": "Chakra Comes of Age: A Standardized Trace Ecosystem for AI Systems Benchmarking and Co-design",
+      "url": "https://mlcommons.org/2026/06/chakra-comes-of-age/",
       "source": "MLCommons",
       "sourceType": "rss",
       "sourceTier": "trusted",
-      "publishedAt": "2026-04-06T14:57:00.000Z",
-      "summary": "Updated AI runtimes for Windows and Apple platforms, plus usability improvements that make iterative benchmarking faster and more reliable The post MLCommons Releases MLPerf Client v1.6 with Performance Optimizations and...",
-      "author": "MLCommons",
-      "relevanceScore": 4,
-      "tags": ["MLCommons", "Benchmarking", "AI", "MLPerf"],
-      "suggestedAudience": ["ai-accelerators"],
+      "publishedAt": "2026-06-02T14:27:00.000Z",
+      "summary": "From a working group proposal in 2023 to a 40+ member industry effort with native support in PyTorch, NVIDIA NeMo, ASTRA-sim, and commercial simulation and emulation tools — MLCommons Chakra is reshaping how the AI syste...",
+      "author": "lori@mlcommons.org",
+      "relevanceScore": 3,
+      "tags": [
+        "MLCommons",
+        "Benchmarking",
+        "AI",
+        "EDA"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators",
+        "eda-tools"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "ORConf 2026 Registration is Open!",
+      "url": "https://main--fossi-foundation.netlify.app/blog/2026-06-13-orconf-2026-registration-open",
+      "source": "FOSSi Foundation",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-06-13T00:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 2,
+      "tags": [
+        "FOSSi",
+        "Open Silicon"
+      ],
+      "suggestedAudience": [
+        "general"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "El Correo Libre Issue 98",
+      "url": "https://main--fossi-foundation.netlify.app/blog/2026-06-09-ecl98",
+      "source": "FOSSi Foundation",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-06-09T00:00:00.000Z",
+      "summary": "El Correo Libre Newsletter, Issue 98",
+      "author": "",
+      "relevanceScore": 2,
+      "tags": [
+        "FOSSi",
+        "Open Silicon"
+      ],
+      "suggestedAudience": [
+        "general"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -405,8 +649,14 @@
       "summary": "## Features - ChiselTest Compatibility Layer for Chisel 7 (by @EhsanKhodadad in https://github.com/chipsalliance/chisel/pull/5221) - [debug] Add circt_debug_* intrinsics for Chisel type metadata (by @fkhaidari in https:/...",
       "author": "jackkoenig",
       "relevanceScore": 2,
-      "tags": ["Chisel", "Hardware Construction", "SoC"],
-      "suggestedAudience": ["soc-ip"],
+      "tags": [
+        "Chisel",
+        "Hardware Construction",
+        "SoC"
+      ],
+      "suggestedAudience": [
+        "soc-ip"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -420,8 +670,14 @@
       "summary": "## Features - [core] Synchronous, Rational Clock Domains (by @seldridge in https://github.com/chipsalliance/chisel/pull/5270) - API to set extmodule defname separately from desiredName (by @trmckay in https://github.com/...",
       "author": "jackkoenig",
       "relevanceScore": 2,
-      "tags": ["Chisel", "Hardware Construction", "SoC"],
-      "suggestedAudience": ["soc-ip"],
+      "tags": [
+        "Chisel",
+        "Hardware Construction",
+        "SoC"
+      ],
+      "suggestedAudience": [
+        "soc-ip"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
@@ -435,23 +691,13 @@
       "summary": "El Correo Libre Newsletter, Issue 97",
       "author": "",
       "relevanceScore": 2,
-      "tags": ["FOSSi", "Open Silicon"],
-      "suggestedAudience": ["general"],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "El Correo Libre Issue 96",
-      "url": "https://main--fossi-foundation.netlify.app/blog/2026-04-14-ecl96",
-      "source": "FOSSi Foundation",
-      "sourceType": "rss",
-      "sourceTier": "official",
-      "publishedAt": "2026-04-14T00:00:00.000Z",
-      "summary": "El Correo Libre Newsletter, Issue 96",
-      "author": "",
-      "relevanceScore": 2,
-      "tags": ["FOSSi", "Open Silicon"],
-      "suggestedAudience": ["general"],
+      "tags": [
+        "FOSSi",
+        "Open Silicon"
+      ],
+      "suggestedAudience": [
+        "general"
+      ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     }
