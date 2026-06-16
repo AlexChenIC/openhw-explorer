@@ -13,6 +13,7 @@ const OUTPUT_FILE = join(ROOT, "src/data/github-stats.json");
 
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 const ORG = "openhwgroup";
+const RECENT_COMMIT_WINDOW_DAYS = 28;
 
 // All repos tracked in projects.ts (extracted from github URLs)
 const REPOS = [
@@ -56,8 +57,38 @@ if (GITHUB_TOKEN) {
   headers.Authorization = `token ${GITHUB_TOKEN}`;
 }
 
+const fetchWarnings = [];
+
+function fallbackNumber(fallback, field) {
+  const value = fallback?.[field];
+  return typeof value === "number" && Number.isFinite(value) && value >= 0 ? value : 0;
+}
+
+function recordFieldWarning(repoName, field, error) {
+  fetchWarnings.push(`${repoName}.${field}: ${error.message}`);
+}
+
+function delay(ms) {
+  return new Promise((resolve) => setTimeout(resolve, ms));
+}
+
+async function fetchWithRetry(url, options = {}, attempts = 3) {
+  let lastError;
+  for (let attempt = 1; attempt <= attempts; attempt += 1) {
+    try {
+      return await fetch(url, options);
+    } catch (error) {
+      lastError = error;
+      if (attempt < attempts) {
+        await delay(500 * attempt);
+      }
+    }
+  }
+  throw lastError;
+}
+
 async function fetchJSON(url) {
-  const res = await fetch(url, { headers });
+  const res = await fetchWithRetry(url, { headers });
   if (!res.ok) {
     const remaining = res.headers.get("x-ratelimit-remaining");
     if (remaining === "0") {
@@ -69,13 +100,39 @@ async function fetchJSON(url) {
   return res.json();
 }
 
-async function fetchSearchIssueCount(query) {
-  const url = `https://api.github.com/search/issues?q=${encodeURIComponent(query)}&per_page=1`;
-  const result = await fetchJSON(url);
-  return result.total_count || 0;
+async function fetchOpenIssueLabelCount(repoUrl, label) {
+  let count = 0;
+  let page = 1;
+
+  while (true) {
+    const url = `${repoUrl}/issues?state=open&labels=${encodeURIComponent(label)}&per_page=100&page=${page}`;
+    const issues = await fetchJSON(url);
+    if (!Array.isArray(issues)) return count;
+
+    count += issues.filter((issue) => !issue.pull_request).length;
+    if (issues.length < 100) return count;
+    page += 1;
+  }
 }
 
-async function fetchRepoData(repoName) {
+async function fetchPaginatedCount(url) {
+  const separator = url.includes("?") ? "&" : "?";
+  const res = await fetchWithRetry(`${url}${separator}per_page=1`, { headers });
+  if (!res.ok) {
+    throw new Error(`GitHub API error ${res.status}: ${url}`);
+  }
+
+  const linkHeader = res.headers.get("link");
+  if (linkHeader) {
+    const match = linkHeader.match(/[?&]page=(\d+)>;\s*rel="last"/);
+    if (match) return parseInt(match[1], 10);
+  }
+
+  const data = await res.json();
+  return Array.isArray(data) ? data.length : 0;
+}
+
+async function fetchRepoData(repoName, fallback = {}) {
   const repoUrl = `https://api.github.com/repos/${ORG}/${repoName}`;
 
   try {
@@ -83,58 +140,55 @@ async function fetchRepoData(repoName) {
     const repo = await fetchJSON(repoUrl);
 
     // Fetch contributors count (first page, check Link header for total)
-    let contributorsCount = 0;
+    let contributorsCount = fallbackNumber(fallback, "contributorsCount");
     try {
-      const contribRes = await fetch(`${repoUrl}/contributors?per_page=1&anon=false`, { headers });
-      if (contribRes.ok) {
-        const linkHeader = contribRes.headers.get("link");
-        if (linkHeader) {
-          const match = linkHeader.match(/page=(\d+)>; rel="last"/);
-          contributorsCount = match ? parseInt(match[1]) : 1;
-        } else {
-          const data = await contribRes.json();
-          contributorsCount = Array.isArray(data) ? data.length : 0;
-        }
-      }
-    } catch {
-      // Ignore contributor count errors
+      contributorsCount = await fetchPaginatedCount(`${repoUrl}/contributors?anon=false`);
+    } catch (error) {
+      recordFieldWarning(repoName, "contributorsCount", error);
     }
 
-    // Fetch good-first-issue count
-    let goodFirstIssueCount = 0;
+    // GitHub repo.open_issues_count includes both Issues and Pull Requests.
+    let openPRsCount = fallbackNumber(fallback, "openPRsCount");
     try {
-      const primaryCount = await fetchSearchIssueCount(
-        `repo:${ORG}/${repoName} label:"good first issue" is:issue is:open`,
-      );
+      openPRsCount = await fetchPaginatedCount(`${repoUrl}/pulls?state=open`);
+    } catch (error) {
+      recordFieldWarning(repoName, "openPRsCount", error);
+    }
+    const openIssues = Math.max((repo.open_issues_count || 0) - openPRsCount, 0);
+
+    // Fetch good-first-issue count
+    let goodFirstIssueCount = fallbackNumber(fallback, "goodFirstIssueCount");
+    try {
+      const primaryCount = await fetchOpenIssueLabelCount(repoUrl, "good first issue");
 
       if (primaryCount > 0) {
         goodFirstIssueCount = primaryCount;
       } else {
-        goodFirstIssueCount = await fetchSearchIssueCount(
-          `repo:${ORG}/${repoName} label:"good-first-issue" is:issue is:open`,
-        );
+        goodFirstIssueCount = await fetchOpenIssueLabelCount(repoUrl, "good-first-issue");
       }
-    } catch {
-      // Ignore search errors
+    } catch (error) {
+      recordFieldWarning(repoName, "goodFirstIssueCount", error);
     }
 
     // Fetch recent commit activity (last 4 weeks)
-    let recentCommits = 0;
+    let recentCommits = fallbackNumber(fallback, "recentCommits");
     try {
-      const participation = await fetchJSON(`${repoUrl}/stats/participation`);
-      if (participation.all) {
-        // Last 4 weeks of commits
-        recentCommits = participation.all.slice(-4).reduce((a, b) => a + b, 0);
-      }
-    } catch {
-      // Ignore participation errors
+      const since = new Date(
+        Date.now() - RECENT_COMMIT_WINDOW_DAYS * 24 * 60 * 60 * 1000,
+      ).toISOString();
+      recentCommits = await fetchPaginatedCount(
+        `${repoUrl}/commits?sha=${encodeURIComponent(repo.default_branch)}&since=${encodeURIComponent(since)}`,
+      );
+    } catch (error) {
+      recordFieldWarning(repoName, "recentCommits", error);
     }
 
     return {
       name: repoName,
       stars: repo.stargazers_count,
       forks: repo.forks_count,
-      openIssues: repo.open_issues_count,
+      openIssues,
+      openPRsCount,
       language: repo.language,
       updatedAt: repo.updated_at,
       pushedAt: repo.pushed_at,
@@ -185,7 +239,7 @@ async function main() {
 
   // Check rate limit first
   try {
-    const rateRes = await fetch("https://api.github.com/rate_limit", {
+    const rateRes = await fetchWithRetry("https://api.github.com/rate_limit", {
       headers,
     });
     const rate = await rateRes.json();
@@ -203,10 +257,20 @@ async function main() {
   let succeeded = 0;
   let failed = 0;
 
+  // Load existing data before fetching so single-field API errors can retain prior values.
+  let existingData = {};
+  try {
+    existingData = JSON.parse(readFileSync(OUTPUT_FILE, "utf-8"));
+  } catch {
+    // No existing data
+  }
+
+  const existingRepos = normalizeExistingRepos(existingData);
+
   // Process repos sequentially to respect rate limits
   for (const repo of REPOS) {
     process.stdout.write(`  Fetching ${repo}...`);
-    const data = await fetchRepoData(repo);
+    const data = await fetchRepoData(repo, existingRepos[repo]);
     if (data) {
       results[repo] = data;
       succeeded++;
@@ -219,18 +283,15 @@ async function main() {
     }
 
     // Small delay to be respectful to the API
-    await new Promise((r) => setTimeout(r, 200));
+    await delay(200);
   }
 
-  // Load existing data to preserve it as fallback
-  let existingData = {};
-  try {
-    existingData = JSON.parse(readFileSync(OUTPUT_FILE, "utf-8"));
-  } catch {
-    // No existing data
+  if (fetchWarnings.length) {
+    console.warn("\nField fetch warnings; retained previous values where available:");
+    for (const warning of fetchWarnings) {
+      console.warn(`  - ${warning}`);
+    }
   }
-
-  const existingRepos = normalizeExistingRepos(existingData);
 
   // Merge: new data takes priority, existing data as fallback for failed fetches
   const merged = { ...existingRepos };
@@ -245,6 +306,8 @@ async function main() {
       totalRepos: REPOS.length,
       succeeded,
       failed,
+      auditNote:
+        "Stars, forks, open issues, open pull requests, pushedAt, contributorsCount, and recentCommits refreshed via GitHub API for homepage ranking audit.",
     },
     repos: merged,
   };
