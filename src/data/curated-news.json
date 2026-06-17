@@ -3,6 +3,67 @@
   "_usage": "每次更新添加 3-7 条即可。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "MLCommons publishes MLPerf Training v6.0 results for sparse MoE workloads",
+      "titleZh": "MLCommons 发布 MLPerf Training v6.0 结果，聚焦 sparse MoE workload",
+      "url": "https://mlcommons.org/2026/06/mlperf-training-v6-0-results/",
+      "source": "MLCommons",
+      "addedAt": "2026-06-16T14:56:24Z",
+      "summary": "MLCommons released MLPerf Training v6.0 results with new DeepSeek V3 and GPT-OSS 20B sparse MoE benchmarks, reporting 95 unique systems across thirteen hardware accelerators and broader cloud/on-premise training submissions.",
+      "summaryZh": "MLCommons 发布 MLPerf Training v6.0 结果，新增 DeepSeek V3 与 GPT-OSS 20B sparse MoE benchmark，并报告 95 个独立系统、13 类硬件加速器，以及更广泛的云端与本地训练系统提交。",
+      "tags": [
+        "MLCommons",
+        "MLPerf",
+        "Training",
+        "LLM",
+        "MoE",
+        "Accelerator",
+        "Benchmarking"
+      ],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
+      "title": "OpenHW spotlights the inaugural RISC-V Ottawa community launch",
+      "titleZh": "OpenHW 关注 RISC-V Ottawa 首次社区启动会议",
+      "url": "https://openhwfoundation.org/unlocking-the-open-source-hardware-ecosystem-at-risc-v-ottawa-rvo/",
+      "source": "OpenHW Foundation News",
+      "addedAt": "2026-06-13T10:01:43Z",
+      "summary": "OpenHW highlighted the inaugural RISC-V Ottawa launch meeting, with Mike Thompson covering the open-source RISC-V ecosystem, Frederic Desbiens covering open-source RTOSes, and attendees shaping local project directions.",
+      "summaryZh": "OpenHW 介绍 RISC-V Ottawa 首次启动会议：Mike Thompson 将分享开源 RISC-V 生态，Frederic Desbiens 将介绍开源 RTOS，参与者还将共同讨论本地项目方向。",
+      "tags": [
+        "OpenHW",
+        "RISC-V",
+        "Community",
+        "Eclipse Foundation",
+        "RTOS",
+        "Open Hardware"
+      ],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
+      "title": "CHIPS Alliance Latch-Up recap connects SV Tools, Verilator, VeeR, and open PDK work",
+      "titleZh": "CHIPS Alliance Latch-Up 回顾串联 SV Tools、Verilator、VeeR 与开放 PDK 工作",
+      "url": "https://www.chipsalliance.org/news/latch-up2026/",
+      "source": "CHIPS Alliance Blog",
+      "addedAt": "2026-06-01T00:00:00Z",
+      "summary": "CHIPS Alliance's Latch-Up 2026 recap packages technical updates on SV Tools, UVM and four-state logic work in Verilator, VeeR/Guineveer open-source SoC flows, and IHP open PDK and MPW progress.",
+      "summaryZh": "CHIPS Alliance 的 Latch-Up 2026 回顾集中呈现 SV Tools、Verilator 中的 UVM 与四态逻辑进展、VeeR/Guineveer 开源 SoC 流程，以及 IHP 开放 PDK 与 MPW 进展。",
+      "tags": [
+        "CHIPS Alliance",
+        "FOSSi",
+        "Latch-Up",
+        "SV Tools",
+        "Verilator",
+        "VeeR",
+        "Open PDK",
+        "Verification",
+        "EDA"
+      ],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
       "title": "MLCommons releases MLPerf Mobile v6.0 with on-device LLM benchmarks",
       "titleZh": "MLCommons 发布 MLPerf Mobile v6.0，加入端侧 LLM benchmark",
       "url": "https://mlcommons.org/2026/06/mlperf-mobile-v6/",
