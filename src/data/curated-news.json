@@ -23,6 +23,68 @@
       "language": "en"
     },
     {
+      "title": "Qualcomm reportedly weighs a Tenstorrent acquisition for RISC-V AI silicon",
+      "titleZh": "报道称 Qualcomm 正评估收购 Tenstorrent，以强化 RISC-V AI silicon 布局",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/qualcomm-mulls-taking-over-jim-kellers-tenstorrent-report-claims-deal-for-ai-chipmaker-would-value-the-company-at-between-usd8-billion-and-usd10-billion",
+      "source": "Tom's Hardware / The Information",
+      "addedAt": "2026-06-16T12:48:21Z",
+      "summary": "Tom's Hardware, citing The Information, reported that Qualcomm has discussed acquiring Tenstorrent at an $8 billion to $10 billion valuation. The report is unconfirmed, but it is relevant to the open hardware brief because Tenstorrent's RISC-V-based AI accelerators and data-center CPU IP sit at the center of the rumored rationale.",
+      "summaryZh": "Tom's Hardware 援引 The Information 报道称，Qualcomm 曾讨论以 80 亿至 100 亿美元估值收购 Tenstorrent。该交易尚未确认，但对开源硬件简报有参考价值，因为报道中的核心理由正是 Tenstorrent 基于 RISC-V 的 AI accelerator 与数据中心 CPU IP。",
+      "tags": [
+        "Tenstorrent",
+        "Qualcomm",
+        "RISC-V",
+        "AI Accelerator",
+        "Data Center CPU",
+        "Industry",
+        "Semiconductor"
+      ],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
+      "title": "Antmicro adds host-controller support to the CHIPS Alliance open-source I3C Core",
+      "titleZh": "Antmicro 为 CHIPS Alliance 开源 I3C Core 加入 host-controller 支持",
+      "url": "https://antmicro.com/blog/2026/06/i3c-core-host-controller-support",
+      "source": "Antmicro Blog",
+      "addedAt": "2026-06-16T00:00:00Z",
+      "summary": "Antmicro described Host Controller support for the CHIPS Alliance open-source I3C Core, connecting the IP to Caliptra, Guineveer, the VeeR EL2 RISC-V core, and AXI-based SoC building blocks for more reusable open peripheral fabrics.",
+      "summaryZh": "Antmicro 介绍了为 CHIPS Alliance 开源 I3C Core 实现 Host Controller 支持的工作，并将该 IP 与 Caliptra、Guineveer、VeeR EL2 RISC-V core 以及基于 AXI 的 SoC building block 串联起来，增强开放外设互连与复用能力。",
+      "tags": [
+        "Antmicro",
+        "CHIPS Alliance",
+        "I3C",
+        "Caliptra",
+        "Guineveer",
+        "VeeR",
+        "FPGA",
+        "SoC/IP",
+        "Hardware IP"
+      ],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
+      "title": "OpenHW highlights EOSA webinar on Europe's open-source hardware ecosystem",
+      "titleZh": "OpenHW 关注 EOSA 欧洲开源硬件生态 webinar",
+      "url": "https://openhwfoundation.org/open-source-hardware-ecosystem-a-holistic-view-of-the-community/",
+      "source": "OpenHW Foundation News",
+      "addedAt": "2026-06-12T10:14:21Z",
+      "summary": "OpenHW promoted the European Open Source Academy webinar on the open-source hardware ecosystem, featuring OpenHW Group, RISC-V International, CERN, and Barcelona Supercomputing Center voices on European open hardware collaboration and adoption.",
+      "summaryZh": "OpenHW 介绍了 European Open Source Academy 关于开源硬件生态的 webinar，参与方包括 OpenHW Group、RISC-V International、CERN 与 Barcelona Supercomputing Center，主题聚焦欧洲开源硬件协作与采用。",
+      "tags": [
+        "OpenHW",
+        "RISC-V",
+        "European Open Source Academy",
+        "CERN",
+        "Open Hardware",
+        "Community",
+        "Eclipse Foundation"
+      ],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
       "title": "OpenHW spotlights the inaugural RISC-V Ottawa community launch",
       "titleZh": "OpenHW 关注 RISC-V Ottawa 首次社区启动会议",
       "url": "https://openhwfoundation.org/unlocking-the-open-source-hardware-ecosystem-at-risc-v-ottawa-rvo/",
