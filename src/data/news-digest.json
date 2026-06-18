@@ -1,17 +1,17 @@
 {
-  "weekOf": "2026-06-17",
-  "generatedAt": "2026-06-17T07:52:07.286Z",
+  "weekOf": "2026-06-18",
+  "generatedAt": "2026-06-18T11:26:12.500Z",
   "stats": {
-    "totalRelevant": 46,
-    "totalSources": 24,
+    "totalRelevant": 49,
+    "totalSources": 25,
     "topTags": [
+      {
+        "tag": "RISC-V",
+        "count": 15
+      },
       {
         "tag": "Verification",
         "count": 14
-      },
-      {
-        "tag": "RISC-V",
-        "count": 13
       },
       {
         "tag": "Security",
@@ -23,7 +23,7 @@
       },
       {
         "tag": "OpenHW",
-        "count": 9
+        "count": 10
       }
     ]
   },
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 20,
+      "count": 22,
       "items": [
         {
           "title": "OpenHW uses RISC-V Summit Europe 2026 to showcase CVA6, CORE-ET, UAP, and Eclipse collaboration",
@@ -247,7 +247,7 @@
         "zh": "硬件与嵌入式"
       },
       "icon": "circuit",
-      "count": 4,
+      "count": 5,
       "items": [
         {
           "title": "Antmicro brings IEEE-compliant force/release statement support to Verilator",
@@ -260,6 +260,18 @@
             "SystemVerilog"
           ],
           "publishedAt": "2026-05-20T00:00:00.000Z"
+        },
+        {
+          "title": "Antmicro adds host-controller support to the CHIPS Alliance open-source I3C Core",
+          "titleZh": "Antmicro 为 CHIPS Alliance 开源 I3C Core 加入 host-controller 支持",
+          "url": "https://antmicro.com/blog/2026/06/i3c-core-host-controller-support",
+          "source": "Antmicro Blog",
+          "tags": [
+            "Antmicro",
+            "CHIPS Alliance",
+            "I3C"
+          ],
+          "publishedAt": "2026-06-16T00:00:00.000Z"
         },
         {
           "title": "CHIPS Alliance Latch-Up recap connects SV Tools, Verilator, VeeR, and open PDK work",
@@ -284,18 +296,6 @@
             "EDA"
           ],
           "publishedAt": "2026-05-07T00:00:00.000Z"
-        },
-        {
-          "title": "Antmicro reaches an initial four-state logic milestone in Verilator",
-          "titleZh": "Antmicro 推进 Verilator 四值逻辑支持，达到初始里程碑",
-          "url": "https://antmicro.com/blog/2026/04/initial-support-for-four-state-logic-in-verilator",
-          "source": "Antmicro Blog",
-          "tags": [
-            "Antmicro",
-            "Verilator",
-            "SystemVerilog"
-          ],
-          "publishedAt": "2026-04-30T00:00:00.000Z"
         }
       ]
     },
@@ -730,6 +730,80 @@
       "curated": true,
       "titleZh": "MLCommons 发布 MLPerf Training v6.0 结果，聚焦 sparse MoE workload",
       "summaryZh": "MLCommons 发布 MLPerf Training v6.0 结果，新增 DeepSeek V3 与 GPT-OSS 20B sparse MoE benchmark，并报告 95 个独立系统、13 类硬件加速器，以及更广泛的云端与本地训练系统提交。"
+    },
+    {
+      "title": "Qualcomm reportedly weighs a Tenstorrent acquisition for RISC-V AI silicon",
+      "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/qualcomm-mulls-taking-over-jim-kellers-tenstorrent-report-claims-deal-for-ai-chipmaker-would-value-the-company-at-between-usd8-billion-and-usd10-billion",
+      "source": "Tom's Hardware / The Information",
+      "publishedAt": "2026-06-16T12:48:21.000Z",
+      "summary": "Tom's Hardware, citing The Information, reported that Qualcomm has discussed acquiring Tenstorrent at an $8 billion to $10 billion valuation. The report is unco...",
+      "author": "",
+      "relevanceScore": 9,
+      "tags": [
+        "Tenstorrent",
+        "Qualcomm",
+        "RISC-V",
+        "AI Accelerator",
+        "Data Center CPU",
+        "Industry",
+        "Semiconductor"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "报道称 Qualcomm 正评估收购 Tenstorrent，以强化 RISC-V AI silicon 布局",
+      "summaryZh": "Tom's Hardware 援引 The Information 报道称，Qualcomm 曾讨论以 80 亿至 100 亿美元估值收购 Tenstorrent。该交易尚未确认，但对开源硬件简报有参考价值，因为报道中的核心理由正是 Tenstorrent 基于 RISC-V 的 AI accelerator 与数据中心 CPU IP。"
+    },
+    {
+      "title": "Antmicro adds host-controller support to the CHIPS Alliance open-source I3C Core",
+      "url": "https://antmicro.com/blog/2026/06/i3c-core-host-controller-support",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-06-16T00:00:00.000Z",
+      "summary": "Antmicro described Host Controller support for the CHIPS Alliance open-source I3C Core, connecting the IP to Caliptra, Guineveer, the VeeR EL2 RISC-V core, and ...",
+      "author": "",
+      "relevanceScore": 8,
+      "tags": [
+        "Antmicro",
+        "CHIPS Alliance",
+        "I3C",
+        "Caliptra",
+        "Guineveer",
+        "VeeR",
+        "FPGA",
+        "SoC/IP",
+        "Hardware IP"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Antmicro 为 CHIPS Alliance 开源 I3C Core 加入 host-controller 支持",
+      "summaryZh": "Antmicro 介绍了为 CHIPS Alliance 开源 I3C Core 实现 Host Controller 支持的工作，并将该 IP 与 Caliptra、Guineveer、VeeR EL2 RISC-V core 以及基于 AXI 的 SoC building block 串联起来，增强开放外设互连与复用能力。"
+    },
+    {
+      "title": "OpenHW highlights EOSA webinar on Europe's open-source hardware ecosystem",
+      "url": "https://openhwfoundation.org/open-source-hardware-ecosystem-a-holistic-view-of-the-community/",
+      "source": "OpenHW Foundation News",
+      "publishedAt": "2026-06-12T10:14:21.000Z",
+      "summary": "OpenHW promoted the European Open Source Academy webinar on the open-source hardware ecosystem, featuring OpenHW Group, RISC-V International, CERN, and Barcelon...",
+      "author": "",
+      "relevanceScore": 9,
+      "tags": [
+        "OpenHW",
+        "RISC-V",
+        "European Open Source Academy",
+        "CERN",
+        "Open Hardware",
+        "Community",
+        "Eclipse Foundation"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "OpenHW 关注 EOSA 欧洲开源硬件生态 webinar",
+      "summaryZh": "OpenHW 介绍了 European Open Source Academy 关于开源硬件生态的 webinar，参与方包括 OpenHW Group、RISC-V International、CERN 与 Barcelona Supercomputing Center，主题聚焦欧洲开源硬件协作与采用。"
     },
     {
       "title": "OpenHW spotlights the inaugural RISC-V Ottawa community launch",
@@ -1451,6 +1525,7 @@
     "RISC-V Architecture Tests (GitHub)",
     "RISC-V International",
     "RISC-V Summit Europe 2026",
+    "Tom's Hardware / The Information",
     "UC Berkeley / Gemmini (GitHub)",
     "YosysHQ (GitHub)",
     "YosysHQ / Yosys (GitHub)",
