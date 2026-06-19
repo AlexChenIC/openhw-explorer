@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-18T11:19:14.668Z",
+    "generatedAt": "2026-06-19T07:32:59.829Z",
     "lookbackDays": 45,
     "openHwActivityDays": 14,
     "totalCandidates": 39,
@@ -221,31 +221,6 @@
       ],
       "suggestedAudience": [
         "ai-accelerators"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "Improved simulation-based testing of Google's ChromiumOS FPMCU with Renode support for the RISC-V Andes D25F core and the related Egis ET171 SoC",
-      "url": "https://antmicro.com/blog/2026/05/andes-d25f-based-egis-et171-in-renode",
-      "source": "Antmicro Blog",
-      "sourceType": "rss",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-05-05T00:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 9,
-      "tags": [
-        "Antmicro",
-        "Open Hardware",
-        "RISC-V",
-        "EDA",
-        "SoC/IP"
-      ],
-      "suggestedAudience": [
-        "openhw-riscv",
-        "eda-tools",
-        "soc-ip"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -507,12 +482,12 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "tenstorrent/tt-metal release: v0.73.0-rc2",
-      "url": "https://github.com/tenstorrent/tt-metal/releases/tag/v0.73.0-rc2",
+      "title": "tenstorrent/tt-metal release: v0.73.0-rc4",
+      "url": "https://github.com/tenstorrent/tt-metal/releases/tag/v0.73.0-rc4",
       "source": "Tenstorrent / TT-Metalium (GitHub)",
       "sourceType": "github-release",
       "sourceTier": "trusted",
-      "publishedAt": "2026-06-16T23:06:01.000Z",
+      "publishedAt": "2026-06-19T02:00:39.000Z",
       "summary": "> [!NOTE] > > If you are installing from a release, please refer to the README, INSTALLATION instructions, and any other documentation packaged with the release, not on the main branch. There may be differences between t...",
       "author": "github-actions[bot]",
       "relevanceScore": 5,
@@ -738,6 +713,27 @@
       ],
       "suggestedAudience": [
         "eda-tools"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "Open source-driven Gemma 4 integration and deployment with the Antmicro Baseboard for NVIDIA Jetson AGX Thor and Kenning",
+      "url": "https://antmicro.com/blog/2026/06/open-source-driven-gemma-4-integration-and-deployment",
+      "source": "Antmicro Blog",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-06-18T00:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 3,
+      "tags": [
+        "Antmicro",
+        "Open Hardware",
+        "Kenning"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"

@@ -1,17 +1,17 @@
 {
-  "weekOf": "2026-06-18",
-  "generatedAt": "2026-06-18T11:26:12.500Z",
+  "weekOf": "2026-06-19",
+  "generatedAt": "2026-06-19T07:37:44.478Z",
   "stats": {
-    "totalRelevant": 49,
-    "totalSources": 25,
+    "totalRelevant": 52,
+    "totalSources": 26,
     "topTags": [
       {
         "tag": "RISC-V",
-        "count": 15
+        "count": 16
       },
       {
         "tag": "Verification",
-        "count": 14
+        "count": 15
       },
       {
         "tag": "Security",
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 22,
+      "count": 23,
       "items": [
         {
           "title": "OpenHW uses RISC-V Summit Europe 2026 to showcase CVA6, CORE-ET, UAP, and Eclipse collaboration",
@@ -153,7 +153,7 @@
         "zh": "AI 与加速器"
       },
       "icon": "brain",
-      "count": 9,
+      "count": 10,
       "items": [
         {
           "title": "MLCommons adds GPT-OSS 20B as a sparse MoE pretraining benchmark for MLPerf Training v6.0",
@@ -166,6 +166,18 @@
             "AI"
           ],
           "publishedAt": "2026-05-07T13:23:00.000Z"
+        },
+        {
+          "title": "Antmicro runs Gemma 4 on its open hardware Jetson AGX Thor baseboard with Kenning",
+          "titleZh": "Antmicro 在开源 Jetson AGX Thor baseboard 上用 Kenning 运行 Gemma 4",
+          "url": "https://antmicro.com/blog/2026/06/open-source-driven-gemma-4-integration-and-deployment",
+          "source": "Antmicro Blog",
+          "tags": [
+            "Antmicro",
+            "Open Hardware",
+            "Jetson AGX Thor"
+          ],
+          "publishedAt": "2026-06-18T00:00:00.000Z"
         },
         {
           "title": "MLCommons publishes MLPerf Training v6.0 results for sparse MoE workloads",
@@ -190,18 +202,6 @@
             "Mobile AI"
           ],
           "publishedAt": "2026-06-15T14:40:00.000Z"
-        },
-        {
-          "title": "Antmicro outlines Yocto-based open hardware stack for NVIDIA Jetson edge AI",
-          "titleZh": "Antmicro 介绍面向 NVIDIA Jetson 边缘 AI 的 Yocto 与开源硬件栈",
-          "url": "https://antmicro.com/blog/2026/06/antmicro-support-for-yocto-on-nvidia-jetson",
-          "source": "Antmicro Blog",
-          "tags": [
-            "Antmicro",
-            "Open Hardware",
-            "Yocto"
-          ],
-          "publishedAt": "2026-06-01T00:00:00.000Z"
         }
       ]
     },
@@ -212,8 +212,20 @@
         "zh": "产业动态"
       },
       "icon": "trending",
-      "count": 2,
+      "count": 3,
       "items": [
+        {
+          "title": "FOSSi highlights ODE4EC's three-year push for open-source European chip design",
+          "titleZh": "FOSSi 关注 ODE4EC 三年开放欧洲芯片设计计划",
+          "url": "https://fossi-foundation.org/blog/2026-06-09-ecl98",
+          "source": "FOSSi Foundation",
+          "tags": [
+            "FOSSi",
+            "ODE4EC",
+            "Open EDA"
+          ],
+          "publishedAt": "2026-06-09T00:00:00.000Z"
+        },
         {
           "title": "FOSSi opens ORConf 2026 registration for its European open silicon conference",
           "titleZh": "FOSSi 开放 ORConf 2026 注册，聚焦欧洲 open silicon 社区",
@@ -706,6 +718,80 @@
       "placement": "featured",
       "titleZh": "MLCommons 为 MLPerf Training v6.0 增加 GPT-OSS 20B sparse MoE 预训练 benchmark",
       "summaryZh": "MLCommons 介绍 GPT-OSS 20B，这是面向 MLPerf Training v6.0 的 sparse Mixture-of-Experts 预训练 benchmark，目标是在单个 8-GPU 节点上测试 MoE routing、稀疏计算以及硬件/软件训练效率。"
+    },
+    {
+      "title": "Antmicro runs Gemma 4 on its open hardware Jetson AGX Thor baseboard with Kenning",
+      "url": "https://antmicro.com/blog/2026/06/open-source-driven-gemma-4-integration-and-deployment",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-06-18T00:00:00.000Z",
+      "summary": "Antmicro benchmarked Gemma 4 variants on its open hardware NVIDIA Jetson AGX Thor baseboard, using the open-source Kenning framework with llama.cpp to generate ...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Antmicro",
+        "Open Hardware",
+        "Jetson AGX Thor",
+        "Kenning",
+        "Gemma",
+        "LLM",
+        "Edge AI",
+        "Benchmarking"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Antmicro 在开源 Jetson AGX Thor baseboard 上用 Kenning 运行 Gemma 4",
+      "summaryZh": "Antmicro 在其开源 NVIDIA Jetson AGX Thor baseboard 上测试 Gemma 4 多个模型，并使用开源 Kenning 框架与 llama.cpp 生成性能报告，展示面向嵌入式 edge-AI 部署的开放硬件与软件栈。"
+    },
+    {
+      "title": "FOSSi highlights ODE4EC's three-year push for open-source European chip design",
+      "url": "https://fossi-foundation.org/blog/2026-06-09-ecl98",
+      "source": "FOSSi Foundation",
+      "publishedAt": "2026-06-09T00:00:00.000Z",
+      "summary": "FOSSi's El Correo Libre Issue 98 says ODE4EC has begun as a three-year effort to strengthen Europe's open chip-design environment, with AMS, digital EDA, and pr...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "FOSSi",
+        "ODE4EC",
+        "Open EDA",
+        "Open Silicon",
+        "Open PDK",
+        "Verification",
+        "Europe"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "FOSSi 关注 ODE4EC 三年开放欧洲芯片设计计划",
+      "summaryZh": "FOSSi 的 El Correo Libre 第 98 期介绍 ODE4EC 已启动：这是一个为期三年的欧洲开放芯片设计环境计划，覆盖 AMS、数字 EDA，以及生产力与验证工具项目，目标是推动开放 EDA、开放 IP 与开放 PDK 流程。"
+    },
+    {
+      "title": "RVV study compares GCC 15 and Clang 21 on portable RISC-V vector performance",
+      "url": "https://arxiv.org/html/2605.10860v2",
+      "source": "arXiv / KTH, LLNL, BSC",
+      "publishedAt": "2026-06-09T00:00:00.000Z",
+      "summary": "A KTH, Lawrence Livermore, and Barcelona Supercomputing Center paper uses RVV 1.0 microbenchmarks on BananaPi-F3 and other RISC-V vector hardware to compare GCC...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "RISC-V",
+        "RVV",
+        "GCC",
+        "LLVM",
+        "Compiler",
+        "Performance",
+        "AI",
+        "Toolchain"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "RVV 研究比较 GCC 15 与 Clang 21 的 RISC-V vector 可移植性能",
+      "summaryZh": "KTH、Lawrence Livermore 与 Barcelona Supercomputing Center 的论文使用 BananaPi-F3 等 RISC-V vector 硬件上的 RVV 1.0 microbenchmark 比较 GCC 15 与 Clang 21，发现 GCC 在多数科学计算与 ML proxy workload 上更稳定，同时暴露出编译器与性能分析工具仍需改进。"
     },
     {
       "title": "MLCommons publishes MLPerf Training v6.0 results for sparse MoE workloads",
@@ -1529,6 +1615,7 @@
     "UC Berkeley / Gemmini (GitHub)",
     "YosysHQ (GitHub)",
     "YosysHQ / Yosys (GitHub)",
+    "arXiv / KTH, LLNL, BSC",
     "lowRISC / OpenTitan (GitHub)",
     "lowRISC Newsroom"
   ]
