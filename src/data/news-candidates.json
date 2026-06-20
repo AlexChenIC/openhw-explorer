@@ -1,9 +1,9 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-19T07:32:59.829Z",
+    "generatedAt": "2026-06-20T10:00:09.686Z",
     "lookbackDays": 45,
     "openHwActivityDays": 14,
-    "totalCandidates": 39,
+    "totalCandidates": 40,
     "sourceCount": 12,
     "reviewWorkflow": "Review candidates, verify source facts, copy selected items into src/data/curated-news.json, then run npm run build-news."
   },
@@ -38,7 +38,7 @@
     },
     {
       "source": "MLCommons",
-      "count": 6
+      "count": 5
     },
     {
       "source": "OpenHW Foundation News",
@@ -46,11 +46,11 @@
     },
     {
       "source": "RISC-V International news",
-      "count": 2
+      "count": 3
     },
     {
       "source": "Tenstorrent / TT-Metalium (GitHub)",
-      "count": 1
+      "count": 2
     },
     {
       "source": "YosysHQ / Yosys (GitHub)",
@@ -356,6 +356,25 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
+      "title": "Behind The Scenes of SHD Group's 2026 RISC-V Market Forecast",
+      "url": "https://riscv.org/blog/shd-forecast-2026/",
+      "source": "RISC-V International news",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-06-19T19:46:36.000Z",
+      "summary": "The post Behind The Scenes of SHD Group's 2026 RISC-V Market Forecast appeared first on RISC-V International .",
+      "author": "James De Vile",
+      "relevanceScore": 6,
+      "tags": [
+        "RISC-V"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
       "title": "Open Source Hardware Ecosystem: A Holistic View of the Community",
       "url": "https://openhwfoundation.org/open-source-hardware-ecosystem-a-holistic-view-of-the-community/",
       "source": "OpenHW Foundation News",
@@ -460,22 +479,24 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "DeepSeek-V3: A Large-Scale MoE Pretraining Benchmark for MLPerf Training v6.0",
-      "url": "https://mlcommons.org/2026/05/deepseek-v3-training-v6-0/",
-      "source": "MLCommons",
-      "sourceType": "rss",
+      "title": "tenstorrent/tt-metal release: v0.73.0-rc6",
+      "url": "https://github.com/tenstorrent/tt-metal/releases/tag/v0.73.0-rc6",
+      "source": "Tenstorrent / TT-Metalium (GitHub)",
+      "sourceType": "github-release",
       "sourceTier": "trusted",
-      "publishedAt": "2026-05-05T13:37:00.000Z",
-      "summary": "How MLCommons is bringing large-scale Mixture-of-Experts (MoE) pretraining to the MLPerf Training v6.0 suite. The post DeepSeek-V3: A Large-Scale MoE Pretraining Benchmark for MLPerf Training v6.0 appeared first on MLCom...",
-      "author": "lori@mlcommons.org",
-      "relevanceScore": 6,
+      "publishedAt": "2026-06-20T02:48:20.000Z",
+      "summary": "> [!NOTE] > > If you are installing from a release, please refer to the README, INSTALLATION instructions, and any other documentation packaged with the release, not on the main branch. There may be differences between t...",
+      "author": "github-actions[bot]",
+      "relevanceScore": 5,
       "tags": [
-        "MLCommons",
-        "Benchmarking",
-        "MLPerf",
-        "LLM"
+        "Tenstorrent",
+        "AI",
+        "LLM",
+        "Accelerator",
+        "RISC-V"
       ],
       "suggestedAudience": [
+        "openhw-riscv",
         "ai-accelerators"
       ],
       "reviewStatus": "candidate",
@@ -718,6 +739,28 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
+      "title": "apache/tvm release: v0.25.0",
+      "url": "https://github.com/apache/tvm/releases/tag/v0.25.0",
+      "source": "Apache TVM (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-06-19T17:49:46.000Z",
+      "summary": "# Introduction The TVM community has worked since the last release to deliver the following new exciting improvements! The main tags are below (**bold text is with lots of progress**): **Relax**, **Frontend**, **TIR**, R...",
+      "author": "MasterJH5574",
+      "relevanceScore": 3,
+      "tags": [
+        "Apache TVM",
+        "AI Compiler",
+        "ML",
+        "Accelerator"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
       "title": "Open source-driven Gemma 4 integration and deployment with the Antmicro Baseboard for NVIDIA Jetson AGX Thor and Kenning",
       "url": "https://antmicro.com/blog/2026/06/open-source-driven-gemma-4-integration-and-deployment",
       "source": "Antmicro Blog",
@@ -746,28 +789,6 @@
       "sourceTier": "trusted",
       "publishedAt": "2026-06-16T22:55:43.000Z",
       "summary": "## What's Changed * [CI] Merge PR against its target branch instead of main (#19712) by @MasterJH5574 in https://github.com/apache/tvm/pull/19775 * [RELEASE] Backport main to prepare v0.25.0.rc1 by @MasterJH5574 in https...",
-      "author": "MasterJH5574",
-      "relevanceScore": 3,
-      "tags": [
-        "Apache TVM",
-        "AI Compiler",
-        "ML",
-        "Accelerator"
-      ],
-      "suggestedAudience": [
-        "ai-accelerators"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "apache/tvm release: v0.25.0.rc0",
-      "url": "https://github.com/apache/tvm/releases/tag/v0.25.0.rc0",
-      "source": "Apache TVM (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-06-08T20:11:00.000Z",
-      "summary": "## What's Changed * [release][Dont Squash] Update version to 0.24.0 and 0.25.0.dev on main branch by @ysh329 in https://github.com/apache/tvm/pull/19446 * [Relax][Frontend] Add ParameterList and ParameterDict containers...",
       "author": "MasterJH5574",
       "relevanceScore": 3,
       "tags": [

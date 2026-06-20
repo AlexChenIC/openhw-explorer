@@ -3,6 +3,63 @@
   "_usage": "每次更新添加 3-7 条即可。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "RISC-V International unpacks SHD Group's 2026 market forecast methodology",
+      "titleZh": "RISC-V International 解读 SHD Group 2026 市场预测方法",
+      "url": "https://riscv.org/blog/shd-forecast-2026/",
+      "source": "RISC-V International",
+      "addedAt": "2026-06-19T19:46:36Z",
+      "summary": "RISC-V International interviewed SHD Group on its 2026 RISC-V Market Analysis, explaining a top-down/bottom-up model across nearly 60 applications, 12 device types per system, and more than 70 ecosystem interviews, with headline 2031 forecasts of 35.9 billion RISC-V SoC units and $318 billion in associated revenue.",
+      "summaryZh": "RISC-V International 采访 SHD Group，解释其 2026 RISC-V Market Analysis 的方法：覆盖近 60 个应用、每个系统 12 类器件的 top-down/bottom-up 模型，并结合 70 多次生态访谈；报告给出的 2031 年 headline forecast 为 359 亿颗 RISC-V SoC 出货量和 3180 亿美元相关收入。",
+      "tags": [
+        "RISC-V",
+        "Market Forecast",
+        "AI Accelerator",
+        "SoC",
+        "EDA",
+        "Ecosystem"
+      ],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
+      "title": "Apache TVM v0.25.0 lands Relax, frontend, TIR, runtime, and CI updates",
+      "titleZh": "Apache TVM v0.25.0 发布，更新 Relax、frontend、TIR、runtime 与 CI",
+      "url": "https://github.com/apache/tvm/releases/tag/v0.25.0",
+      "source": "Apache TVM (GitHub)",
+      "addedAt": "2026-06-19T17:49:46Z",
+      "summary": "Apache TVM v0.25.0 is a final release, not an RC, with broad compiler/runtime maintenance across Relax, frontend importers, TIR analysis and scheduling, runtime backends, and developer workflow updates since v0.24.0.",
+      "summaryZh": "Apache TVM v0.25.0 是 final release（不是 RC），汇总了自 v0.24.0 以来在 Relax、frontend importer、TIR 分析与调度、runtime backend，以及开发流程方面的大量编译器和运行时维护更新。",
+      "tags": [
+        "Apache TVM",
+        "AI Compiler",
+        "Relax",
+        "TIR",
+        "Runtime",
+        "Accelerator"
+      ],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
+      "title": "Apache TVM FFI v0.1.12 advances its open ABI for ML systems",
+      "titleZh": "Apache TVM FFI v0.1.12 推进面向 ML systems 的开放 ABI",
+      "url": "https://github.com/apache/tvm-ffi/releases/tag/v0.1.12",
+      "source": "Apache TVM FFI (GitHub)",
+      "addedAt": "2026-06-06T01:57:23Z",
+      "summary": "Apache TVM FFI v0.1.12 adds reflection, Rust macro fixes, C-ABI-oriented AnyView changes, tensor API alignment, and ROCm/PyTorch DLPack loader fixes for the project's open ABI and framework-agnostic FFI layer for ML systems.",
+      "summaryZh": "Apache TVM FFI v0.1.12 为面向 ML systems 的开放 ABI 与跨框架 FFI 层加入 reflection、Rust macro 修复、面向 C ABI 的 AnyView 改动、tensor API 对齐，以及 ROCm/PyTorch DLPack loader 修复。",
+      "tags": [
+        "Apache TVM",
+        "TVM FFI",
+        "AI Compiler",
+        "ML Infrastructure",
+        "C ABI",
+        "DLPack"
+      ],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
       "title": "Antmicro runs Gemma 4 on its open hardware Jetson AGX Thor baseboard with Kenning",
       "titleZh": "Antmicro 在开源 Jetson AGX Thor baseboard 上用 Kenning 运行 Gemma 4",
       "url": "https://antmicro.com/blog/2026/06/open-source-driven-gemma-4-integration-and-deployment",

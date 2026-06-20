@@ -1,13 +1,13 @@
 {
-  "weekOf": "2026-06-19",
-  "generatedAt": "2026-06-19T07:37:44.478Z",
+  "weekOf": "2026-06-20",
+  "generatedAt": "2026-06-20T10:25:53.500Z",
   "stats": {
-    "totalRelevant": 52,
-    "totalSources": 26,
+    "totalRelevant": 55,
+    "totalSources": 27,
     "topTags": [
       {
         "tag": "RISC-V",
-        "count": 16
+        "count": 17
       },
       {
         "tag": "Verification",
@@ -19,7 +19,7 @@
       },
       {
         "tag": "EDA",
-        "count": 11
+        "count": 12
       },
       {
         "tag": "OpenHW",
@@ -35,7 +35,7 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 10,
+      "count": 12,
       "items": [
         {
           "title": "Chisel v7.13.0 released with ChiselTest compatibility and FIRRTL 7 backend updates",
@@ -74,16 +74,16 @@
           "publishedAt": "2026-05-12T10:30:49.000Z"
         },
         {
-          "title": "OpenTitan publishes first Earl Grey 1.0.0 development bundle",
-          "titleZh": "OpenTitan 发布首个 Earl Grey 1.0.0 development bundle",
-          "url": "https://github.com/lowRISC/opentitan/releases/tag/devbundle-2026-06-02-1",
-          "source": "lowRISC / OpenTitan (GitHub)",
+          "title": "Apache TVM v0.25.0 lands Relax, frontend, TIR, runtime, and CI updates",
+          "titleZh": "Apache TVM v0.25.0 发布，更新 Relax、frontend、TIR、runtime 与 CI",
+          "url": "https://github.com/apache/tvm/releases/tag/v0.25.0",
+          "source": "Apache TVM (GitHub)",
           "tags": [
-            "lowRISC",
-            "OpenTitan",
-            "Earl Grey"
+            "Apache TVM",
+            "AI Compiler",
+            "Relax"
           ],
-          "publishedAt": "2026-06-02T13:33:29.000Z"
+          "publishedAt": "2026-06-19T17:49:46.000Z"
         }
       ]
     },
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 23,
+      "count": 24,
       "items": [
         {
           "title": "OpenHW uses RISC-V Summit Europe 2026 to showcase CVA6, CORE-ET, UAP, and Eclipse collaboration",
@@ -718,6 +718,75 @@
       "placement": "featured",
       "titleZh": "MLCommons 为 MLPerf Training v6.0 增加 GPT-OSS 20B sparse MoE 预训练 benchmark",
       "summaryZh": "MLCommons 介绍 GPT-OSS 20B，这是面向 MLPerf Training v6.0 的 sparse Mixture-of-Experts 预训练 benchmark，目标是在单个 8-GPU 节点上测试 MoE routing、稀疏计算以及硬件/软件训练效率。"
+    },
+    {
+      "title": "RISC-V International unpacks SHD Group's 2026 market forecast methodology",
+      "url": "https://riscv.org/blog/shd-forecast-2026/",
+      "source": "RISC-V International",
+      "publishedAt": "2026-06-19T19:46:36.000Z",
+      "summary": "RISC-V International interviewed SHD Group on its 2026 RISC-V Market Analysis, explaining a top-down/bottom-up model across nearly 60 applications, 12 device ty...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "RISC-V",
+        "Market Forecast",
+        "AI Accelerator",
+        "SoC",
+        "EDA",
+        "Ecosystem"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "RISC-V International 解读 SHD Group 2026 市场预测方法",
+      "summaryZh": "RISC-V International 采访 SHD Group，解释其 2026 RISC-V Market Analysis 的方法：覆盖近 60 个应用、每个系统 12 类器件的 top-down/bottom-up 模型，并结合 70 多次生态访谈；报告给出的 2031 年 headline forecast 为 359 亿颗 RISC-V SoC 出货量和 3180 亿美元相关收入。"
+    },
+    {
+      "title": "Apache TVM v0.25.0 lands Relax, frontend, TIR, runtime, and CI updates",
+      "url": "https://github.com/apache/tvm/releases/tag/v0.25.0",
+      "source": "Apache TVM (GitHub)",
+      "publishedAt": "2026-06-19T17:49:46.000Z",
+      "summary": "Apache TVM v0.25.0 is a final release, not an RC, with broad compiler/runtime maintenance across Relax, frontend importers, TIR analysis and scheduling, runtime...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Apache TVM",
+        "AI Compiler",
+        "Relax",
+        "TIR",
+        "Runtime",
+        "Accelerator"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Apache TVM v0.25.0 发布，更新 Relax、frontend、TIR、runtime 与 CI",
+      "summaryZh": "Apache TVM v0.25.0 是 final release（不是 RC），汇总了自 v0.24.0 以来在 Relax、frontend importer、TIR 分析与调度、runtime backend，以及开发流程方面的大量编译器和运行时维护更新。"
+    },
+    {
+      "title": "Apache TVM FFI v0.1.12 advances its open ABI for ML systems",
+      "url": "https://github.com/apache/tvm-ffi/releases/tag/v0.1.12",
+      "source": "Apache TVM FFI (GitHub)",
+      "publishedAt": "2026-06-06T01:57:23.000Z",
+      "summary": "Apache TVM FFI v0.1.12 adds reflection, Rust macro fixes, C-ABI-oriented AnyView changes, tensor API alignment, and ROCm/PyTorch DLPack loader fixes for the pro...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Apache TVM",
+        "TVM FFI",
+        "AI Compiler",
+        "ML Infrastructure",
+        "C ABI",
+        "DLPack"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Apache TVM FFI v0.1.12 推进面向 ML systems 的开放 ABI",
+      "summaryZh": "Apache TVM FFI v0.1.12 为面向 ML systems 的开放 ABI 与跨框架 FFI 层加入 reflection、Rust macro 修复、面向 C ABI 的 AnyView 改动、tensor API 对齐，以及 ROCm/PyTorch DLPack loader 修复。"
     },
     {
       "title": "Antmicro runs Gemma 4 on its open hardware Jetson AGX Thor baseboard with Kenning",
@@ -1595,6 +1664,7 @@
     "Ainekko / GlobeNewswire",
     "Antmicro Blog",
     "Apache TVM (GitHub)",
+    "Apache TVM FFI (GitHub)",
     "CHIPS Alliance",
     "CHIPS Alliance / Caliptra (GitHub)",
     "CHIPS Alliance / Chisel (GitHub)",
