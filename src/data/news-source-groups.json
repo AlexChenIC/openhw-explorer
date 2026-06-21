@@ -54,7 +54,14 @@
         "en": "Blog and GitHub",
         "zh": "Blog 与 GitHub"
       },
-      "sources": ["CHIPS Alliance Blog", "Caliptra RTL", "VeeR EL2"],
+      "sources": [
+        "CHIPS Alliance Blog",
+        "Caliptra RTL",
+        "Caliptra SW",
+        "Caliptra Subsystem",
+        "I3C Core",
+        "VeeR EL2"
+      ],
       "tags": ["CHIPS Alliance", "Caliptra", "VeeR", "SystemVerilog"]
     },
     {
@@ -125,7 +132,14 @@
         "en": "Official and GitHub",
         "zh": "官方与 GitHub"
       },
-      "sources": ["lowRISC Newsroom", "OpenTitan", "Caliptra", "Keystone"],
+      "sources": [
+        "lowRISC Newsroom",
+        "OpenTitan",
+        "Caliptra",
+        "Caliptra SW",
+        "Caliptra Subsystem",
+        "Keystone"
+      ],
       "tags": ["OpenTitan", "Caliptra", "Keystone", "Security", "SoC/IP"]
     }
   ]
