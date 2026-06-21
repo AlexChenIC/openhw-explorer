@@ -1,19 +1,27 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-20T10:00:09.686Z",
+    "generatedAt": "2026-06-21T07:38:50.903Z",
     "lookbackDays": 45,
     "openHwActivityDays": 14,
     "totalCandidates": 40,
-    "sourceCount": 12,
+    "sourceCount": 13,
     "reviewWorkflow": "Review candidates, verify source facts, copy selected items into src/data/curated-news.json, then run npm run build-news."
   },
   "sources": [
     {
       "source": "Antmicro Blog",
-      "count": 4
+      "count": 3
     },
     {
       "source": "Apache TVM (GitHub)",
+      "count": 1
+    },
+    {
+      "source": "CHIPS Alliance / Caliptra Subsystem (GitHub)",
+      "count": 2
+    },
+    {
+      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
       "count": 2
     },
     {
@@ -47,10 +55,6 @@
     {
       "source": "RISC-V International news",
       "count": 3
-    },
-    {
-      "source": "Tenstorrent / TT-Metalium (GitHub)",
-      "count": 2
     },
     {
       "source": "YosysHQ / Yosys (GitHub)",
@@ -226,6 +230,30 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
+      "title": "chipsalliance/caliptra-ss release: Caliptra Subsystem Gen 2.0.2 Release [1.doc]",
+      "url": "https://github.com/chipsalliance/caliptra-ss/releases/tag/css-v2.0.2%2B1.doc",
+      "source": "CHIPS Alliance / Caliptra Subsystem (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "official",
+      "publishedAt": "2026-06-17T18:46:12.000Z",
+      "summary": "## Overview Apply updates to release 2.0.2 for documentation that does not modify the underlying RTL design. Follows the release conventions in [CaliptraSSReleaseChecklist.md](https://github.com/chipsalliance/caliptra-ss...",
+      "author": "calebofearth",
+      "relevanceScore": 8,
+      "tags": [
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "SoC/IP",
+        "Subsystem"
+      ],
+      "suggestedAudience": [
+        "security",
+        "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
       "title": "Beyond the Basics: Elevating Eclipse ThreadX to a First-Class RTOS for RISC-V",
       "url": "https://openhwfoundation.org/beyond-the-basics-elevating-eclipse-threadx-to-a-first-class-rtos-for-risc-v/",
       "source": "OpenHW Foundation News",
@@ -285,6 +313,30 @@
       ],
       "suggestedAudience": [
         "security"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "chipsalliance/caliptra-ss release: Caliptra Subsystem Gen 2.1.2 Release [1.val.doc]",
+      "url": "https://github.com/chipsalliance/caliptra-ss/releases/tag/css-v2.1.2%2B1.val.doc",
+      "source": "CHIPS Alliance / Caliptra Subsystem (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "official",
+      "publishedAt": "2026-05-20T23:23:15.000Z",
+      "summary": "## Overview Apply updates to release 2.1.2 for validation and documentation that do not modify the underlying RTL design. Follows the release conventions in [CaliptraSSReleaseChecklist.md](https://github.com/chipsallianc...",
+      "author": "calebofearth",
+      "relevanceScore": 8,
+      "tags": [
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "SoC/IP",
+        "Subsystem"
+      ],
+      "suggestedAudience": [
+        "security",
+        "soc-ip"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -375,6 +427,54 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
+      "title": "chipsalliance/caliptra-sw release: rom-2.0.3",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rom-2.0.3-1",
+      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "official",
+      "publishedAt": "2026-06-18T18:10:48.000Z",
+      "summary": "## Caliptra ROM 2.0.3 Release Notes Release notes for changes introduced since ROM 2.0.2 (`473ae255`) through `c1e3ff2e` on the `caliptra-2.0` branch. ### Features - Use SS_STRAP_GENERIC[2] to configure entropy_src singl...",
+      "author": "github-actions[bot]",
+      "relevanceScore": 6,
+      "tags": [
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "Firmware",
+        "ROM"
+      ],
+      "suggestedAudience": [
+        "security",
+        "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "chipsalliance/caliptra-sw release: rom-2.1.2",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rom-2.1.2",
+      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "official",
+      "publishedAt": "2026-06-17T13:13:38.000Z",
+      "summary": "## Caliptra ROM 2.1.2 Release Notes Release notes for changes introduced since ROM 2.1.1 through `45de392f` on the `main` branch. ### Features - Add Stable Owner Key derivation from HEK seed (#3625) - Gate fatal error re...",
+      "author": "github-actions[bot]",
+      "relevanceScore": 6,
+      "tags": [
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "Firmware",
+        "ROM"
+      ],
+      "suggestedAudience": [
+        "security",
+        "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
       "title": "Open Source Hardware Ecosystem: A Holistic View of the Community",
       "url": "https://openhwfoundation.org/open-source-hardware-ecosystem-a-holistic-view-of-the-community/",
       "source": "OpenHW Foundation News",
@@ -452,76 +552,6 @@
       ],
       "suggestedAudience": [
         "openhw-riscv"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "Implementing a genetic algorithm in OpenROAD for improved resynthesis",
-      "url": "https://antmicro.com/blog/2026/05/genetic-algorithm-in-openroad",
-      "source": "Antmicro Blog",
-      "sourceType": "rss",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-05-07T00:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 6,
-      "tags": [
-        "Antmicro",
-        "Open Hardware",
-        "OpenROAD",
-        "EDA"
-      ],
-      "suggestedAudience": [
-        "eda-tools"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "tenstorrent/tt-metal release: v0.73.0-rc6",
-      "url": "https://github.com/tenstorrent/tt-metal/releases/tag/v0.73.0-rc6",
-      "source": "Tenstorrent / TT-Metalium (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-06-20T02:48:20.000Z",
-      "summary": "> [!NOTE] > > If you are installing from a release, please refer to the README, INSTALLATION instructions, and any other documentation packaged with the release, not on the main branch. There may be differences between t...",
-      "author": "github-actions[bot]",
-      "relevanceScore": 5,
-      "tags": [
-        "Tenstorrent",
-        "AI",
-        "LLM",
-        "Accelerator",
-        "RISC-V"
-      ],
-      "suggestedAudience": [
-        "openhw-riscv",
-        "ai-accelerators"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "tenstorrent/tt-metal release: v0.73.0-rc4",
-      "url": "https://github.com/tenstorrent/tt-metal/releases/tag/v0.73.0-rc4",
-      "source": "Tenstorrent / TT-Metalium (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-06-19T02:00:39.000Z",
-      "summary": "> [!NOTE] > > If you are installing from a release, please refer to the README, INSTALLATION instructions, and any other documentation packaged with the release, not on the main branch. There may be differences between t...",
-      "author": "github-actions[bot]",
-      "relevanceScore": 5,
-      "tags": [
-        "Tenstorrent",
-        "AI",
-        "LLM",
-        "Accelerator",
-        "RISC-V"
-      ],
-      "suggestedAudience": [
-        "openhw-riscv",
-        "ai-accelerators"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -774,28 +804,6 @@
         "Antmicro",
         "Open Hardware",
         "Kenning"
-      ],
-      "suggestedAudience": [
-        "ai-accelerators"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "apache/tvm release: v0.25.0.rc1",
-      "url": "https://github.com/apache/tvm/releases/tag/v0.25.0.rc1",
-      "source": "Apache TVM (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-06-16T22:55:43.000Z",
-      "summary": "## What's Changed * [CI] Merge PR against its target branch instead of main (#19712) by @MasterJH5574 in https://github.com/apache/tvm/pull/19775 * [RELEASE] Backport main to prepare v0.25.0.rc1 by @MasterJH5574 in https...",
-      "author": "MasterJH5574",
-      "relevanceScore": 3,
-      "tags": [
-        "Apache TVM",
-        "AI Compiler",
-        "ML",
-        "Accelerator"
       ],
       "suggestedAudience": [
         "ai-accelerators"

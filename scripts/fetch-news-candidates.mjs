@@ -176,6 +176,30 @@ const RELEASE_REPOS = [
     tier: "official",
   },
   {
+    repo: "chipsalliance/caliptra-sw",
+    source: "CHIPS Alliance / Caliptra SW (GitHub)",
+    tags: ["Caliptra", "Root of Trust", "Security", "Firmware", "ROM"],
+    tier: "official",
+  },
+  {
+    repo: "chipsalliance/caliptra-ss",
+    source: "CHIPS Alliance / Caliptra Subsystem (GitHub)",
+    tags: ["Caliptra", "Root of Trust", "Security", "SoC/IP", "Subsystem"],
+    tier: "official",
+  },
+  {
+    repo: "chipsalliance/caliptra-mcu-sw",
+    source: "CHIPS Alliance / Caliptra MCU SW (GitHub)",
+    tags: ["Caliptra", "Root of Trust", "Security", "Firmware", "MCU", "RISC-V"],
+    tier: "official",
+  },
+  {
+    repo: "chipsalliance/i3c-core",
+    source: "CHIPS Alliance / I3C Core (GitHub)",
+    tags: ["CHIPS Alliance", "I3C", "Caliptra", "Hardware IP", "SoC/IP"],
+    tier: "official",
+  },
+  {
     repo: "chipsalliance/Cores-VeeR-EL2",
     source: "CHIPS Alliance / VeeR EL2 (GitHub)",
     tags: ["VeeR", "RISC-V", "Core"],
@@ -384,6 +408,7 @@ function isWithinLookback(value, since = SINCE) {
 
 function isLowSignalRelease(release) {
   if (release.draft) return true;
+  if (release.prerelease) return true;
 
   const name = `${release.name || ""}`.trim();
   const tag = `${release.tag_name || ""}`.trim();
@@ -395,6 +420,9 @@ function isLowSignalRelease(release) {
   if (/^cert-docs-\d{4}/i.test(tag)) return true;
   if (/automated release of the certification documents/i.test(combined)) return true;
   if (/(nightly|dev20\d{6}|rc20\d{6}|candidate.*20\d{6})/i.test(combined)) return true;
+  if (/(^|[-_.\s])rc\d*(?:[-_.\s]|$)/i.test(combined)) return true;
+  if (/\d+rc\d+/i.test(combined)) return true;
+  if (/\brelease candidate\b/i.test(combined)) return true;
 
   return false;
 }

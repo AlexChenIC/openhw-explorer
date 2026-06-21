@@ -3,6 +3,68 @@
   "_usage": "每次更新添加 3-7 条即可。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "Caliptra ROM 2.0.3 hardens shutdown, entropy, and debug-unlock handling",
+      "titleZh": "Caliptra ROM 2.0.3 强化 shutdown、entropy 与 debug unlock 处理",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rom-2.0.3-1",
+      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
+      "addedAt": "2026-06-18T18:10:48Z",
+      "summary": "CHIPS Alliance published Caliptra ROM 2.0.3 for the 2.0 branch, adding SS_STRAP_GENERIC[2] entropy-source configuration and CTR_DRBG-AES-256 plus MLDSA-87 KAT coverage, while fixing ROM shutdown zeroization, CSRNG health-test behavior, production debug unlock binding, boot-failure reporting, and FIPS marking around hash-based ECDSA/LMS verification.",
+      "summaryZh": "CHIPS Alliance 发布 Caliptra ROM 2.0.3（2.0 branch），新增 SS_STRAP_GENERIC[2] entropy source 配置以及 CTR_DRBG-AES-256、MLDSA-87 KAT 覆盖；同时修复 ROM shutdown zeroization、CSRNG health-test 行为、production debug unlock 绑定、boot failure 上报，以及 hash-based ECDSA/LMS verification 的 FIPS 标记。",
+      "tags": [
+        "CHIPS Alliance",
+        "Caliptra",
+        "Root of Trust",
+        "Firmware",
+        "ROM",
+        "Security",
+        "CSRNG",
+        "MLDSA"
+      ],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
+      "title": "Caliptra ROM 2.1.2 updates owner-key, ICCM verification, and recovery controls",
+      "titleZh": "Caliptra ROM 2.1.2 更新 owner key、ICCM verification 与 recovery 控制",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rom-2.1.2",
+      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
+      "addedAt": "2026-06-17T13:13:38Z",
+      "summary": "Caliptra ROM 2.1.2 adds Stable Owner Key derivation from the HEK seed and gates fatal-error reporting on the recovery reset strap, with fixes for firmware verification after ICCM load, entropy and CSRNG setup, production debug unlock rejection, ROM shutdown zeroization, OCP LOCK key-ladder use of DOE, and identity root-key write locks.",
+      "summaryZh": "Caliptra ROM 2.1.2 新增从 HEK seed 派生 Stable Owner Key，并通过 recovery reset strap gate fatal error reporting；修复内容覆盖 ICCM load 后固件验证、entropy 与 CSRNG 配置、production debug unlock 拒绝条件、ROM shutdown zeroization、OCP LOCK key ladder 使用 DOE，以及 identity root key write-lock。",
+      "tags": [
+        "CHIPS Alliance",
+        "Caliptra",
+        "Root of Trust",
+        "Firmware",
+        "ROM",
+        "Security",
+        "ICCM",
+        "OCP LOCK"
+      ],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
+      "title": "Caliptra Subsystem 2.0.2 doc release clarifies collateral without RTL changes",
+      "titleZh": "Caliptra Subsystem 2.0.2 文档发布澄清配套资料且不改 RTL",
+      "url": "https://github.com/chipsalliance/caliptra-ss/releases/tag/css-v2.0.2%2B1.doc",
+      "source": "CHIPS Alliance / Caliptra Subsystem (GitHub)",
+      "addedAt": "2026-06-17T18:46:12Z",
+      "summary": "CHIPS Alliance released a documentation-only Caliptra Subsystem 2.0.2 collateral update that explicitly leaves the RTL design unchanged, follows the Caliptra subsystem release checklist, drops the volatile PK hash lock from the spec, and cherry-picks documentation clarifications from main.",
+      "summaryZh": "CHIPS Alliance 发布 Caliptra Subsystem 2.0.2 的 documentation-only collateral update，明确不修改底层 RTL 设计；该发布遵循 Caliptra subsystem release checklist，移除 spec 中的 volatile PK hash lock，并从 main cherry-pick 多项文档澄清。",
+      "tags": [
+        "CHIPS Alliance",
+        "Caliptra",
+        "Caliptra Subsystem",
+        "Root of Trust",
+        "SoC/IP",
+        "Documentation",
+        "Security"
+      ],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
       "title": "RISC-V International unpacks SHD Group's 2026 market forecast methodology",
       "titleZh": "RISC-V International 解读 SHD Group 2026 市场预测方法",
       "url": "https://riscv.org/blog/shd-forecast-2026/",

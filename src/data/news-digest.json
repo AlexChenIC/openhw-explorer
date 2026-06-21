@@ -1,9 +1,9 @@
 {
-  "weekOf": "2026-06-20",
-  "generatedAt": "2026-06-20T10:25:53.500Z",
+  "weekOf": "2026-06-21",
+  "generatedAt": "2026-06-21T07:39:43.302Z",
   "stats": {
-    "totalRelevant": 55,
-    "totalSources": 27,
+    "totalRelevant": 58,
+    "totalSources": 29,
     "topTags": [
       {
         "tag": "RISC-V",
@@ -15,7 +15,7 @@
       },
       {
         "tag": "Security",
-        "count": 12
+        "count": 15
       },
       {
         "tag": "EDA",
@@ -35,7 +35,7 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 12,
+      "count": 15,
       "items": [
         {
           "title": "Chisel v7.13.0 released with ChiselTest compatibility and FIRRTL 7 backend updates",
@@ -74,16 +74,16 @@
           "publishedAt": "2026-05-12T10:30:49.000Z"
         },
         {
-          "title": "Apache TVM v0.25.0 lands Relax, frontend, TIR, runtime, and CI updates",
-          "titleZh": "Apache TVM v0.25.0 发布，更新 Relax、frontend、TIR、runtime 与 CI",
-          "url": "https://github.com/apache/tvm/releases/tag/v0.25.0",
-          "source": "Apache TVM (GitHub)",
+          "title": "Caliptra ROM 2.0.3 hardens shutdown, entropy, and debug-unlock handling",
+          "titleZh": "Caliptra ROM 2.0.3 强化 shutdown、entropy 与 debug unlock 处理",
+          "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rom-2.0.3-1",
+          "source": "CHIPS Alliance / Caliptra SW (GitHub)",
           "tags": [
-            "Apache TVM",
-            "AI Compiler",
-            "Relax"
+            "CHIPS Alliance",
+            "Caliptra",
+            "Root of Trust"
           ],
-          "publishedAt": "2026-06-19T17:49:46.000Z"
+          "publishedAt": "2026-06-18T18:10:48.000Z"
         }
       ]
     },
@@ -718,6 +718,80 @@
       "placement": "featured",
       "titleZh": "MLCommons 为 MLPerf Training v6.0 增加 GPT-OSS 20B sparse MoE 预训练 benchmark",
       "summaryZh": "MLCommons 介绍 GPT-OSS 20B，这是面向 MLPerf Training v6.0 的 sparse Mixture-of-Experts 预训练 benchmark，目标是在单个 8-GPU 节点上测试 MoE routing、稀疏计算以及硬件/软件训练效率。"
+    },
+    {
+      "title": "Caliptra ROM 2.0.3 hardens shutdown, entropy, and debug-unlock handling",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rom-2.0.3-1",
+      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
+      "publishedAt": "2026-06-18T18:10:48.000Z",
+      "summary": "CHIPS Alliance published Caliptra ROM 2.0.3 for the 2.0 branch, adding SS_STRAP_GENERIC[2] entropy-source configuration and CTR_DRBG-AES-256 plus MLDSA-87 KAT c...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CHIPS Alliance",
+        "Caliptra",
+        "Root of Trust",
+        "Firmware",
+        "ROM",
+        "Security",
+        "CSRNG",
+        "MLDSA"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Caliptra ROM 2.0.3 强化 shutdown、entropy 与 debug unlock 处理",
+      "summaryZh": "CHIPS Alliance 发布 Caliptra ROM 2.0.3（2.0 branch），新增 SS_STRAP_GENERIC[2] entropy source 配置以及 CTR_DRBG-AES-256、MLDSA-87 KAT 覆盖；同时修复 ROM shutdown zeroization、CSRNG health-test 行为、production debug unlock 绑定、boot failure 上报，以及 hash-based ECDSA/LMS verification 的 FIPS 标记。"
+    },
+    {
+      "title": "Caliptra ROM 2.1.2 updates owner-key, ICCM verification, and recovery controls",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rom-2.1.2",
+      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
+      "publishedAt": "2026-06-17T13:13:38.000Z",
+      "summary": "Caliptra ROM 2.1.2 adds Stable Owner Key derivation from the HEK seed and gates fatal-error reporting on the recovery reset strap, with fixes for firmware verif...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CHIPS Alliance",
+        "Caliptra",
+        "Root of Trust",
+        "Firmware",
+        "ROM",
+        "Security",
+        "ICCM",
+        "OCP LOCK"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Caliptra ROM 2.1.2 更新 owner key、ICCM verification 与 recovery 控制",
+      "summaryZh": "Caliptra ROM 2.1.2 新增从 HEK seed 派生 Stable Owner Key，并通过 recovery reset strap gate fatal error reporting；修复内容覆盖 ICCM load 后固件验证、entropy 与 CSRNG 配置、production debug unlock 拒绝条件、ROM shutdown zeroization、OCP LOCK key ladder 使用 DOE，以及 identity root key write-lock。"
+    },
+    {
+      "title": "Caliptra Subsystem 2.0.2 doc release clarifies collateral without RTL changes",
+      "url": "https://github.com/chipsalliance/caliptra-ss/releases/tag/css-v2.0.2%2B1.doc",
+      "source": "CHIPS Alliance / Caliptra Subsystem (GitHub)",
+      "publishedAt": "2026-06-17T18:46:12.000Z",
+      "summary": "CHIPS Alliance released a documentation-only Caliptra Subsystem 2.0.2 collateral update that explicitly leaves the RTL design unchanged, follows the Caliptra su...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CHIPS Alliance",
+        "Caliptra",
+        "Caliptra Subsystem",
+        "Root of Trust",
+        "SoC/IP",
+        "Documentation",
+        "Security"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Caliptra Subsystem 2.0.2 文档发布澄清配套资料且不改 RTL",
+      "summaryZh": "CHIPS Alliance 发布 Caliptra Subsystem 2.0.2 的 documentation-only collateral update，明确不修改底层 RTL 设计；该发布遵循 Caliptra subsystem release checklist，移除 spec 中的 volatile PK hash lock，并从 main cherry-pick 多项文档澄清。"
     },
     {
       "title": "RISC-V International unpacks SHD Group's 2026 market forecast methodology",
@@ -1667,6 +1741,8 @@
     "Apache TVM FFI (GitHub)",
     "CHIPS Alliance",
     "CHIPS Alliance / Caliptra (GitHub)",
+    "CHIPS Alliance / Caliptra SW (GitHub)",
+    "CHIPS Alliance / Caliptra Subsystem (GitHub)",
     "CHIPS Alliance / Chisel (GitHub)",
     "CHIPS Alliance Blog",
     "FOSSi Foundation",
