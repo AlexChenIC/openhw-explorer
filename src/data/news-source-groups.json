@@ -103,7 +103,8 @@
         "Tenstorrent TT-Metalium",
         "OpenXLA / IREE",
         "PULP Platform",
-        "Gemmini"
+        "Gemmini",
+        "Chipyard"
       ],
       "tags": [
         "AI",
@@ -114,6 +115,7 @@
         "TVM",
         "PULP",
         "Gemmini",
+        "Chipyard",
         "Tenstorrent",
         "Open Compute"
       ]
