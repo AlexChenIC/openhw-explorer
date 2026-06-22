@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-21T07:38:50.903Z",
+    "generatedAt": "2026-06-22T08:21:10.172Z",
     "lookbackDays": 45,
     "openHwActivityDays": 14,
     "totalCandidates": 40,
-    "sourceCount": 13,
+    "sourceCount": 15,
     "reviewWorkflow": "Review candidates, verify source facts, copy selected items into src/data/curated-news.json, then run npm run build-news."
   },
   "sources": [
@@ -14,6 +14,10 @@
     },
     {
       "source": "Apache TVM (GitHub)",
+      "count": 1
+    },
+    {
+      "source": "Apache TVM Blog",
       "count": 1
     },
     {
@@ -33,6 +37,10 @@
       "count": 2
     },
     {
+      "source": "Chipyard (GitHub)",
+      "count": 1
+    },
+    {
       "source": "FOSSi Foundation",
       "count": 4
     },
@@ -46,7 +54,7 @@
     },
     {
       "source": "MLCommons",
-      "count": 5
+      "count": 4
     },
     {
       "source": "OpenHW Foundation News",
@@ -54,7 +62,7 @@
     },
     {
       "source": "RISC-V International news",
-      "count": 3
+      "count": 2
     },
     {
       "source": "YosysHQ / Yosys (GitHub)",
@@ -385,29 +393,6 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "GPT-OSS 20B: A Sparse MoE Pretraining Benchmark for MLPerf Training v6.0",
-      "url": "https://mlcommons.org/2026/05/gpt-oss-moe-training6/",
-      "source": "MLCommons",
-      "sourceType": "rss",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-05-07T13:23:00.000Z",
-      "summary": "How MLCommons engineered a stable, accessible Mixture-of-Experts (MoE) pretraining benchmark for MLPerf Training v6.0 that runs on a single 8-GPU node. The post GPT-OSS 20B: A Sparse MoE Pretraining Benchmark for MLPerf...",
-      "author": "lori@mlcommons.org",
-      "relevanceScore": 8,
-      "tags": [
-        "MLCommons",
-        "Benchmarking",
-        "MLPerf",
-        "LLM",
-        "Accelerator"
-      ],
-      "suggestedAudience": [
-        "ai-accelerators"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
       "title": "Behind The Scenes of SHD Group's 2026 RISC-V Market Forecast",
       "url": "https://riscv.org/blog/shd-forecast-2026/",
       "source": "RISC-V International news",
@@ -538,20 +523,27 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "We Created a Single Source for All RISC-V Specifications",
-      "url": "https://riscv.org/blog/ratified-specifications-library/",
-      "source": "RISC-V International news",
-      "sourceType": "rss",
-      "sourceTier": "official",
-      "publishedAt": "2026-05-07T16:22:00.000Z",
-      "summary": "The RISC-V Ratified Specifications Library consolidates all of the available RISC-V specifications into one single, accessible repository. The post We Created a Single Source for All RISC-V Specifications appeared first...",
-      "author": "Bill Traynor",
-      "relevanceScore": 6,
+      "title": "ucb-bar/chipyard release: Chipyard Release 1.14.0",
+      "url": "https://github.com/ucb-bar/chipyard/releases/tag/1.14.0",
+      "source": "Chipyard (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-06-22T01:24:34.000Z",
+      "summary": "Chipyard 1.14.0 contains numerous new RTL, simulation, FPGA, toolchain, and documentation updates. Chipyard is now returning to regular releases at a 3-4 month pace! ## Major Features - AWS F2 support for FireSim, includ...",
+      "author": "jimfangx",
+      "relevanceScore": 5,
       "tags": [
-        "RISC-V"
+        "Chipyard",
+        "RISC-V",
+        "SoC",
+        "Chisel",
+        "EDA",
+        "SoC/IP"
       ],
       "suggestedAudience": [
-        "openhw-riscv"
+        "openhw-riscv",
+        "eda-tools",
+        "soc-ip"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -636,6 +628,27 @@
       ],
       "suggestedAudience": [
         "general"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "TIRx: An Open Compiler Stack for Evolving Frontier ML Kernels",
+      "url": "/2026/06/22/tirx",
+      "source": "Apache TVM Blog",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-06-22T00:00:00.000Z",
+      "summary": "Today we are introducing TIRx , an open-source, hardware-native DSL and compiler for ML kernels, built on Apache TVM. It targets the part of the AI software stack where fast-moving kernels meet fast-moving hardware: TIRx...",
+      "author": "Apache TVM Community",
+      "relevanceScore": 4,
+      "tags": [
+        "Apache TVM",
+        "AI Compiler",
+        "AI"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"

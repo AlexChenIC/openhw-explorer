@@ -1,13 +1,13 @@
 {
-  "weekOf": "2026-06-21",
-  "generatedAt": "2026-06-21T07:39:43.302Z",
+  "weekOf": "2026-06-22",
+  "generatedAt": "2026-06-22T08:25:34.553Z",
   "stats": {
-    "totalRelevant": 58,
-    "totalSources": 29,
+    "totalRelevant": 61,
+    "totalSources": 31,
     "topTags": [
       {
         "tag": "RISC-V",
-        "count": 17
+        "count": 18
       },
       {
         "tag": "Verification",
@@ -19,7 +19,7 @@
       },
       {
         "tag": "EDA",
-        "count": 12
+        "count": 14
       },
       {
         "tag": "OpenHW",
@@ -35,7 +35,7 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 15,
+      "count": 17,
       "items": [
         {
           "title": "Chisel v7.13.0 released with ChiselTest compatibility and FIRRTL 7 backend updates",
@@ -74,16 +74,16 @@
           "publishedAt": "2026-05-12T10:30:49.000Z"
         },
         {
-          "title": "Caliptra ROM 2.0.3 hardens shutdown, entropy, and debug-unlock handling",
-          "titleZh": "Caliptra ROM 2.0.3 强化 shutdown、entropy 与 debug unlock 处理",
-          "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rom-2.0.3-1",
-          "source": "CHIPS Alliance / Caliptra SW (GitHub)",
+          "title": "Chipyard 1.14.0 adds FireSim F2 support, Chisel 7 trials, and modular SoC builds",
+          "titleZh": "Chipyard 1.14.0 加入 FireSim F2 支持、Chisel 7 试用与模块化 SoC 构建",
+          "url": "https://github.com/ucb-bar/chipyard/releases/tag/1.14.0",
+          "source": "Chipyard (GitHub)",
           "tags": [
-            "CHIPS Alliance",
-            "Caliptra",
-            "Root of Trust"
+            "Chipyard",
+            "RISC-V",
+            "SoC"
           ],
-          "publishedAt": "2026-06-18T18:10:48.000Z"
+          "publishedAt": "2026-06-22T01:24:34.000Z"
         }
       ]
     },
@@ -153,7 +153,7 @@
         "zh": "AI 与加速器"
       },
       "icon": "brain",
-      "count": 10,
+      "count": 11,
       "items": [
         {
           "title": "MLCommons adds GPT-OSS 20B as a sparse MoE pretraining benchmark for MLPerf Training v6.0",
@@ -166,6 +166,18 @@
             "AI"
           ],
           "publishedAt": "2026-05-07T13:23:00.000Z"
+        },
+        {
+          "title": "Apache TVM introduces TIRx as an open hardware-native DSL for frontier ML kernels",
+          "titleZh": "Apache TVM 推出 TIRx：面向前沿 ML kernel 的开放硬件原生 DSL",
+          "url": "https://tvm.apache.org/2026/06/22/tirx",
+          "source": "Apache TVM Blog",
+          "tags": [
+            "Apache TVM",
+            "TIRx",
+            "AI Compiler"
+          ],
+          "publishedAt": "2026-06-22T00:00:00.000Z"
         },
         {
           "title": "Antmicro runs Gemma 4 on its open hardware Jetson AGX Thor baseboard with Kenning",
@@ -190,18 +202,6 @@
             "Training"
           ],
           "publishedAt": "2026-06-16T14:56:24.000Z"
-        },
-        {
-          "title": "MLCommons releases MLPerf Mobile v6.0 with on-device LLM benchmarks",
-          "titleZh": "MLCommons 发布 MLPerf Mobile v6.0，加入端侧 LLM benchmark",
-          "url": "https://mlcommons.org/2026/06/mlperf-mobile-v6/",
-          "source": "MLCommons",
-          "tags": [
-            "MLCommons",
-            "MLPerf",
-            "Mobile AI"
-          ],
-          "publishedAt": "2026-06-15T14:40:00.000Z"
         }
       ]
     },
@@ -718,6 +718,84 @@
       "placement": "featured",
       "titleZh": "MLCommons 为 MLPerf Training v6.0 增加 GPT-OSS 20B sparse MoE 预训练 benchmark",
       "summaryZh": "MLCommons 介绍 GPT-OSS 20B，这是面向 MLPerf Training v6.0 的 sparse Mixture-of-Experts 预训练 benchmark，目标是在单个 8-GPU 节点上测试 MoE routing、稀疏计算以及硬件/软件训练效率。"
+    },
+    {
+      "title": "Chipyard 1.14.0 adds FireSim F2 support, Chisel 7 trials, and modular SoC builds",
+      "url": "https://github.com/ucb-bar/chipyard/releases/tag/1.14.0",
+      "source": "Chipyard (GitHub)",
+      "publishedAt": "2026-06-22T01:24:34.000Z",
+      "summary": "Chipyard 1.14.0 is a broad RISC-V SoC generator release with AWS F2 support for FireSim, limited Chisel 7.13.0 support, modular lite builds, multichip and CTC i...",
+      "author": "",
+      "relevanceScore": 17,
+      "tags": [
+        "Chipyard",
+        "RISC-V",
+        "SoC",
+        "Chisel",
+        "FireSim",
+        "FPGA",
+        "Zephyr",
+        "Gemmini",
+        "EDA",
+        "SoC/IP"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Chipyard 1.14.0 加入 FireSim F2 支持、Chisel 7 试用与模块化 SoC 构建",
+      "summaryZh": "Chipyard 1.14.0 是一次覆盖面很广的 RISC-V SoC generator 发布，加入面向 FireSim 的 AWS F2 支持、有限的 Chisel 7.13.0 支持、模块化 lite build、多芯片与 CTC 改进、Zephyr RTOS 支持、早期 Radiance/GPU 集成、新 FPGA/config 示例，并更新 Rocket Chip、BOOM、Shuttle、Saturn、Spike、Gemmini 等子模块。"
+    },
+    {
+      "title": "Apache TVM introduces TIRx as an open hardware-native DSL for frontier ML kernels",
+      "url": "https://tvm.apache.org/2026/06/22/tirx",
+      "source": "Apache TVM Blog",
+      "publishedAt": "2026-06-22T00:00:00.000Z",
+      "summary": "Apache TVM introduced TIRx, an open-source hardware-native DSL and compiler stack for ML kernels, shipping with the Apache TVM 0.25.0 Python package, documentat...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Apache TVM",
+        "TIRx",
+        "AI Compiler",
+        "ML Kernel",
+        "Accelerator",
+        "DSL",
+        "GPU",
+        "Open Source"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Apache TVM 推出 TIRx：面向前沿 ML kernel 的开放硬件原生 DSL",
+      "summaryZh": "Apache TVM 推出 TIRx，这是面向 ML kernel 的开源硬件原生 DSL 与编译器栈；它随 Apache TVM 0.25.0 Python package、文档、社区 kernel library、benchmark 与课程材料一起发布，服务 expert-written、agent-generated 与 megakernel 风格的加速器代码。"
+    },
+    {
+      "title": "CIRCT firtool 1.150.0 expands ImportVerilog, FIRRTL, Synth, ESI, and Arc flows",
+      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.150.0",
+      "source": "LLVM / CIRCT (GitHub)",
+      "publishedAt": "2026-06-22T03:42:26.000Z",
+      "summary": "CIRCT published firtool 1.150.0 with substantial open EDA compiler updates, including ImportVerilog support for use-before-declare, builtins, DPI export declara...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CIRCT",
+        "firtool",
+        "MLIR",
+        "FIRRTL",
+        "Verilog",
+        "EDA",
+        "Compiler",
+        "Chisel",
+        "Synthesis"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "CIRCT firtool 1.150.0 扩展 ImportVerilog、FIRRTL、Synth、ESI 与 Arc 流程",
+      "summaryZh": "CIRCT 发布 firtool 1.150.0，包含一批开源 EDA 编译器更新：ImportVerilog 支持 use-before-declare、builtins、DPI export declaration、plusargs、assertion 与声明处理；同时改进 FIRRTL lowering/domain、Synth 与 comb lowering、ESI runtime，以及 Arc coroutine lowering。"
     },
     {
       "title": "Caliptra ROM 2.0.3 hardens shutdown, entropy, and debug-unlock handling",
@@ -1738,6 +1816,7 @@
     "Ainekko / GlobeNewswire",
     "Antmicro Blog",
     "Apache TVM (GitHub)",
+    "Apache TVM Blog",
     "Apache TVM FFI (GitHub)",
     "CHIPS Alliance",
     "CHIPS Alliance / Caliptra (GitHub)",
@@ -1745,6 +1824,7 @@
     "CHIPS Alliance / Caliptra Subsystem (GitHub)",
     "CHIPS Alliance / Chisel (GitHub)",
     "CHIPS Alliance Blog",
+    "Chipyard (GitHub)",
     "FOSSi Foundation",
     "FOSSi Foundation / Latch-Up 2026",
     "Fraunhofer AISEC",

@@ -3,6 +3,72 @@
   "_usage": "每次更新添加 3-7 条即可。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "Chipyard 1.14.0 adds FireSim F2 support, Chisel 7 trials, and modular SoC builds",
+      "titleZh": "Chipyard 1.14.0 加入 FireSim F2 支持、Chisel 7 试用与模块化 SoC 构建",
+      "url": "https://github.com/ucb-bar/chipyard/releases/tag/1.14.0",
+      "source": "Chipyard (GitHub)",
+      "addedAt": "2026-06-22T01:24:34Z",
+      "summary": "Chipyard 1.14.0 is a broad RISC-V SoC generator release with AWS F2 support for FireSim, limited Chisel 7.13.0 support, modular lite builds, multichip and CTC improvements, Zephyr RTOS support, early Radiance/GPU integration, new FPGA/config examples, and updated Rocket Chip, BOOM, Shuttle, Saturn, Spike, Gemmini, and related submodules.",
+      "summaryZh": "Chipyard 1.14.0 是一次覆盖面很广的 RISC-V SoC generator 发布，加入面向 FireSim 的 AWS F2 支持、有限的 Chisel 7.13.0 支持、模块化 lite build、多芯片与 CTC 改进、Zephyr RTOS 支持、早期 Radiance/GPU 集成、新 FPGA/config 示例，并更新 Rocket Chip、BOOM、Shuttle、Saturn、Spike、Gemmini 等子模块。",
+      "tags": [
+        "Chipyard",
+        "RISC-V",
+        "SoC",
+        "Chisel",
+        "FireSim",
+        "FPGA",
+        "Zephyr",
+        "Gemmini",
+        "EDA",
+        "SoC/IP"
+      ],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
+      "title": "Apache TVM introduces TIRx as an open hardware-native DSL for frontier ML kernels",
+      "titleZh": "Apache TVM 推出 TIRx：面向前沿 ML kernel 的开放硬件原生 DSL",
+      "url": "https://tvm.apache.org/2026/06/22/tirx",
+      "source": "Apache TVM Blog",
+      "addedAt": "2026-06-22T00:00:00Z",
+      "summary": "Apache TVM introduced TIRx, an open-source hardware-native DSL and compiler stack for ML kernels, shipping with the Apache TVM 0.25.0 Python package, documentation, a community kernel library, benchmarks, and course material for expert-written, agent-generated, and megakernel-style accelerator code.",
+      "summaryZh": "Apache TVM 推出 TIRx，这是面向 ML kernel 的开源硬件原生 DSL 与编译器栈；它随 Apache TVM 0.25.0 Python package、文档、社区 kernel library、benchmark 与课程材料一起发布，服务 expert-written、agent-generated 与 megakernel 风格的加速器代码。",
+      "tags": [
+        "Apache TVM",
+        "TIRx",
+        "AI Compiler",
+        "ML Kernel",
+        "Accelerator",
+        "DSL",
+        "GPU",
+        "Open Source"
+      ],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
+      "title": "CIRCT firtool 1.150.0 expands ImportVerilog, FIRRTL, Synth, ESI, and Arc flows",
+      "titleZh": "CIRCT firtool 1.150.0 扩展 ImportVerilog、FIRRTL、Synth、ESI 与 Arc 流程",
+      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.150.0",
+      "source": "LLVM / CIRCT (GitHub)",
+      "addedAt": "2026-06-22T03:42:26Z",
+      "summary": "CIRCT published firtool 1.150.0 with substantial open EDA compiler updates, including ImportVerilog support for use-before-declare, builtins, DPI export declarations, plusargs, assertions, and declaration handling; FIRRTL lowering and domain fixes; Synth and comb lowering work; ESI runtime improvements; and Arc coroutine lowering.",
+      "summaryZh": "CIRCT 发布 firtool 1.150.0，包含一批开源 EDA 编译器更新：ImportVerilog 支持 use-before-declare、builtins、DPI export declaration、plusargs、assertion 与声明处理；同时改进 FIRRTL lowering/domain、Synth 与 comb lowering、ESI runtime，以及 Arc coroutine lowering。",
+      "tags": [
+        "CIRCT",
+        "firtool",
+        "MLIR",
+        "FIRRTL",
+        "Verilog",
+        "EDA",
+        "Compiler",
+        "Chisel",
+        "Synthesis"
+      ],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
       "title": "Caliptra ROM 2.0.3 hardens shutdown, entropy, and debug-unlock handling",
       "titleZh": "Caliptra ROM 2.0.3 强化 shutdown、entropy 与 debug unlock 处理",
       "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rom-2.0.3-1",
