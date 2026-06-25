@@ -1,20 +1,20 @@
 {
-  "weekOf": "2026-06-22",
-  "generatedAt": "2026-06-22T08:25:34.553Z",
+  "weekOf": "2026-06-25",
+  "generatedAt": "2026-06-25T07:36:50.796Z",
   "stats": {
-    "totalRelevant": 61,
-    "totalSources": 31,
+    "totalRelevant": 64,
+    "totalSources": 32,
     "topTags": [
       {
         "tag": "RISC-V",
-        "count": 18
-      },
-      {
-        "tag": "Verification",
-        "count": 15
+        "count": 19
       },
       {
         "tag": "Security",
+        "count": 17
+      },
+      {
+        "tag": "Verification",
         "count": 15
       },
       {
@@ -22,8 +22,8 @@
         "count": 14
       },
       {
-        "tag": "OpenHW",
-        "count": 10
+        "tag": "CHIPS Alliance",
+        "count": 12
       }
     ]
   },
@@ -35,7 +35,7 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 17,
+      "count": 20,
       "items": [
         {
           "title": "Chisel v7.13.0 released with ChiselTest compatibility and FIRRTL 7 backend updates",
@@ -74,16 +74,16 @@
           "publishedAt": "2026-05-12T10:30:49.000Z"
         },
         {
-          "title": "Chipyard 1.14.0 adds FireSim F2 support, Chisel 7 trials, and modular SoC builds",
-          "titleZh": "Chipyard 1.14.0 加入 FireSim F2 支持、Chisel 7 试用与模块化 SoC 构建",
-          "url": "https://github.com/ucb-bar/chipyard/releases/tag/1.14.0",
-          "source": "Chipyard (GitHub)",
+          "title": "RISC-V ISA Manual snapshot fixes Zca c.jal scope and Zvkt constant-time wording",
+          "titleZh": "RISC-V ISA Manual 快照修正 Zca c.jal 范围与 Zvkt constant-time 表述",
+          "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-cc30642-2026-06-23",
+          "source": "RISC-V ISA Manual (GitHub)",
           "tags": [
-            "Chipyard",
             "RISC-V",
-            "SoC"
+            "ISA Manual",
+            "Zca"
           ],
-          "publishedAt": "2026-06-22T01:24:34.000Z"
+          "publishedAt": "2026-06-23T02:08:50.000Z"
         }
       ]
     },
@@ -718,6 +718,79 @@
       "placement": "featured",
       "titleZh": "MLCommons 为 MLPerf Training v6.0 增加 GPT-OSS 20B sparse MoE 预训练 benchmark",
       "summaryZh": "MLCommons 介绍 GPT-OSS 20B，这是面向 MLPerf Training v6.0 的 sparse Mixture-of-Experts 预训练 benchmark，目标是在单个 8-GPU 节点上测试 MoE routing、稀疏计算以及硬件/软件训练效率。"
+    },
+    {
+      "title": "RISC-V ISA Manual snapshot fixes Zca c.jal scope and Zvkt constant-time wording",
+      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-cc30642-2026-06-23",
+      "source": "RISC-V ISA Manual (GitHub)",
+      "publishedAt": "2026-06-23T02:08:50.000Z",
+      "summary": "RISC-V published a new ISA Manual snapshot from commit cc30642. The release clarifies that c.jal is only in XLEN=32 Zca, connects unprivileged and privileged cr...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "RISC-V",
+        "ISA Manual",
+        "Zca",
+        "Zvkt",
+        "Specification",
+        "Cryptography"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "RISC-V ISA Manual 快照修正 Zca c.jal 范围与 Zvkt constant-time 表述",
+      "summaryZh": "RISC-V 发布基于 commit cc30642 的 ISA Manual 新快照，明确 c.jal 只属于 XLEN=32 Zca，补上 unprivileged 与 privileged 章节交叉引用，并修正 Zvkt DIEL constant-time 指令列表中 vmslt[u].vv 与 vrsub.vi 的表述。"
+    },
+    {
+      "title": "Caliptra FW 2.0.2 adds DPE upgrades, attested CSR, and FIPS hardening",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/fw-2.0.2",
+      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
+      "publishedAt": "2026-06-22T18:10:40.000Z",
+      "summary": "CHIPS Alliance published Caliptra FW 2.0.2 as a combined runtime and FMC release for the 2.0 branch. It adds DPE SVN and crypto API work, DPE ML-DSA hybrid mode...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CHIPS Alliance",
+        "Caliptra",
+        "Firmware",
+        "Root of Trust",
+        "Security",
+        "DPE",
+        "FIPS",
+        "SoC/IP"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Caliptra FW 2.0.2 加入 DPE 升级、attested CSR 与 FIPS 强化",
+      "summaryZh": "CHIPS Alliance 发布 Caliptra FW 2.0.2，这是面向 2.0 branch 的 runtime 与 FMC 组合发布；它加入 DPE SVN 与 crypto API 工作、DPE ML-DSA hybrid mode、attested CSR mailbox command、ML-DSA/ECDH pairwise test、更完整的 firmware verification 信息与 recovery capability 更新，并修复 production debug unlock、mailbox validation、AES-GCM GHASH 状态、FIPS 标记和 shutdown zeroization 相关问题。"
+    },
+    {
+      "title": "Caliptra FW 2.1.1 updates certification, activation, debug unlock, and crypto tests",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/fw-2.1.1",
+      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
+      "publishedAt": "2026-06-22T18:03:32.000Z",
+      "summary": "CHIPS Alliance published Caliptra FW 2.1.1 as the latest combined runtime and FMC release. The 2.1 branch update adds SIGN_WITH_EXPORTED_MLDSA, chunked DPE cert...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CHIPS Alliance",
+        "Caliptra",
+        "Firmware",
+        "Root of Trust",
+        "Security",
+        "DPE",
+        "FIPS",
+        "SoC/IP"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Caliptra FW 2.1.1 更新 certification、activation、debug unlock 与 crypto tests",
+      "summaryZh": "CHIPS Alliance 发布 Caliptra FW 2.1.1，这是最新的 runtime 与 FMC 组合发布；2.1 branch 更新加入 SIGN_WITH_EXPORTED_MLDSA、chunked DPE certificate、initial activation 处理和更多 fw_info telemetry，并修复 debug-unlock mailbox 行为、ActivateFirmware authorization 与 bitmap 处理、manifest metadata 边界、AES-GCM streaming GHASH 状态、runtime startup KAT 覆盖、ML-KEM/ML-DSA/ECDH pairwise test、FIPS shutdown zeroization 与 mailbox PAUSER 检查。"
     },
     {
       "title": "Chipyard 1.14.0 adds FireSim F2 support, Chisel 7 trials, and modular SoC builds",
@@ -1835,6 +1908,7 @@
     "OpenHW Foundation / Eclipse Foundation Canada",
     "OpenHW Foundation News",
     "RISC-V Architecture Tests (GitHub)",
+    "RISC-V ISA Manual (GitHub)",
     "RISC-V International",
     "RISC-V Summit Europe 2026",
     "Tom's Hardware / The Information",
