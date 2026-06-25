@@ -30,15 +30,15 @@
         "zh": "RISC-V 与开源硅基金会"
       },
       "description": {
-        "en": "Official updates from RISC-V International and FOSSi Foundation.",
-        "zh": "跟踪 RISC-V International 与 FOSSi Foundation 的官方动态。"
+        "en": "Official updates from RISC-V International, RISC-V ISA Manual snapshots, and FOSSi Foundation.",
+        "zh": "跟踪 RISC-V International、RISC-V ISA Manual 快照与 FOSSi Foundation 的官方动态。"
       },
       "cadence": {
-        "en": "RSS monitored",
-        "zh": "RSS 监控"
+        "en": "RSS and GitHub",
+        "zh": "RSS 与 GitHub"
       },
-      "sources": ["RISC-V International news", "FOSSi Foundation"],
-      "tags": ["RISC-V", "FOSSi", "Open Silicon"]
+      "sources": ["RISC-V International news", "RISC-V ISA Manual (GitHub)", "FOSSi Foundation"],
+      "tags": ["RISC-V", "ISA Manual", "Specification", "FOSSi", "Open Silicon"]
     },
     {
       "id": "chips",

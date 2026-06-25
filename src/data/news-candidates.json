@@ -1,9 +1,9 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-22T08:21:10.172Z",
+    "generatedAt": "2026-06-25T07:34:03.517Z",
     "lookbackDays": 45,
     "openHwActivityDays": 14,
-    "totalCandidates": 40,
+    "totalCandidates": 38,
     "sourceCount": 15,
     "reviewWorkflow": "Review candidates, verify source facts, copy selected items into src/data/curated-news.json, then run npm run build-news."
   },
@@ -42,7 +42,7 @@
     },
     {
       "source": "FOSSi Foundation",
-      "count": 4
+      "count": 3
     },
     {
       "source": "lowRISC / OpenTitan (GitHub)",
@@ -62,7 +62,7 @@
     },
     {
       "source": "RISC-V International news",
-      "count": 2
+      "count": 1
     },
     {
       "source": "YosysHQ / Yosys (GitHub)",
@@ -393,6 +393,54 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
+      "title": "chipsalliance/caliptra-sw release: fw-2.0.2",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/fw-2.0.2",
+      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "official",
+      "publishedAt": "2026-06-22T18:10:40.000Z",
+      "summary": "This is a combined runtime and FMC release. ## Caliptra FW 2.0.2 Release Notes Release notes for changes introduced since FW 2.0.1. ### Features - **DPE Upgrades**: - DPE core upgrades including support for SVN in `Deriv...",
+      "author": "github-actions[bot]",
+      "relevanceScore": 6,
+      "tags": [
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "Firmware",
+        "ROM"
+      ],
+      "suggestedAudience": [
+        "security",
+        "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "chipsalliance/caliptra-sw release: fw-2.1.1",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/fw-2.1.1",
+      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "official",
+      "publishedAt": "2026-06-22T18:03:32.000Z",
+      "summary": "This is a combined runtime and FMC release. ## Caliptra Firmware 2.1.1 Release Notes Release notes for changes introduced since Firmware 2.1.0. ### Features - **DPE & Certification**: - Add support for `SIGN_WITH_EXPORTE...",
+      "author": "github-actions[bot]",
+      "relevanceScore": 6,
+      "tags": [
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "Firmware",
+        "ROM"
+      ],
+      "suggestedAudience": [
+        "security",
+        "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
       "title": "Behind The Scenes of SHD Group's 2026 RISC-V Market Forecast",
       "url": "https://riscv.org/blog/shd-forecast-2026/",
       "source": "RISC-V International news",
@@ -407,54 +455,6 @@
       ],
       "suggestedAudience": [
         "openhw-riscv"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "chipsalliance/caliptra-sw release: rom-2.0.3",
-      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rom-2.0.3-1",
-      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "official",
-      "publishedAt": "2026-06-18T18:10:48.000Z",
-      "summary": "## Caliptra ROM 2.0.3 Release Notes Release notes for changes introduced since ROM 2.0.2 (`473ae255`) through `c1e3ff2e` on the `caliptra-2.0` branch. ### Features - Use SS_STRAP_GENERIC[2] to configure entropy_src singl...",
-      "author": "github-actions[bot]",
-      "relevanceScore": 6,
-      "tags": [
-        "Caliptra",
-        "Root of Trust",
-        "Security",
-        "Firmware",
-        "ROM"
-      ],
-      "suggestedAudience": [
-        "security",
-        "soc-ip"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "chipsalliance/caliptra-sw release: rom-2.1.2",
-      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rom-2.1.2",
-      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "official",
-      "publishedAt": "2026-06-17T13:13:38.000Z",
-      "summary": "## Caliptra ROM 2.1.2 Release Notes Release notes for changes introduced since ROM 2.1.1 through `45de392f` on the `main` branch. ### Features - Add Stable Owner Key derivation from HEK seed (#3625) - Gate fatal error re...",
-      "author": "github-actions[bot]",
-      "relevanceScore": 6,
-      "tags": [
-        "Caliptra",
-        "Root of Trust",
-        "Security",
-        "Firmware",
-        "ROM"
-      ],
-      "suggestedAudience": [
-        "security",
-        "soc-ip"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -499,25 +499,6 @@
       "suggestedAudience": [
         "verification",
         "security"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "Call for Candidates: Help Us Build a Board That Represents Our Entire Ecosystem",
-      "url": "https://riscv.org/blog/2026-elections/",
-      "source": "RISC-V International news",
-      "sourceType": "rss",
-      "sourceTier": "official",
-      "publishedAt": "2026-05-08T19:10:06.000Z",
-      "summary": "Voting is now open for RISC-V International's Board of Directors. Learn how to nominate, understand board member responsibilities, and discover key election dates. The post Call for Candidates: Help Us Build a Board That...",
-      "author": "Andrea Gallo",
-      "relevanceScore": 6,
-      "tags": [
-        "RISC-V"
-      ],
-      "suggestedAudience": [
-        "openhw-riscv"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -608,26 +589,6 @@
       ],
       "suggestedAudience": [
         "security"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "Reflecting on Latch-Up 2026",
-      "url": "https://main--fossi-foundation.netlify.app/blog/2026-05-11-latchup-reflection",
-      "source": "FOSSi Foundation",
-      "sourceType": "rss",
-      "sourceTier": "official",
-      "publishedAt": "2026-05-11T00:00:00.000Z",
-      "summary": "A report from Latch-Up 2026, the FOSSi Foundation's North American conference on free and open source silicon, held in Waterloo, Ontario, Canada from May 1-3, 2026.",
-      "author": "",
-      "relevanceScore": 5,
-      "tags": [
-        "FOSSi",
-        "Open Silicon"
-      ],
-      "suggestedAudience": [
-        "general"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
