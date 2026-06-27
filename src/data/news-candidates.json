@@ -1,9 +1,9 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-25T07:34:03.517Z",
+    "generatedAt": "2026-06-27T07:32:45.023Z",
     "lookbackDays": 45,
     "openHwActivityDays": 14,
-    "totalCandidates": 38,
+    "totalCandidates": 36,
     "sourceCount": 15,
     "reviewWorkflow": "Review candidates, verify source facts, copy selected items into src/data/curated-news.json, then run npm run build-news."
   },
@@ -42,7 +42,7 @@
     },
     {
       "source": "FOSSi Foundation",
-      "count": 3
+      "count": 2
     },
     {
       "source": "lowRISC / OpenTitan (GitHub)",
@@ -66,7 +66,7 @@
     },
     {
       "source": "YosysHQ / Yosys (GitHub)",
-      "count": 2
+      "count": 1
     }
   ],
   "items": [
@@ -722,27 +722,6 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "YosysHQ/yosys release: Yosys 0.65",
-      "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.65",
-      "source": "YosysHQ / Yosys (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-05-12T10:30:49.000Z",
-      "summary": "Yosys 0.64 .. Yosys 0.65 -------------------------- * New commands and options - Added \"arith_tree\" pass to convert add/sub/macc chains to carry-save adder trees. - Removed \"-force\" option from \"share\" pass. * Various -...",
-      "author": "mmicko",
-      "relevanceScore": 4,
-      "tags": [
-        "Yosys",
-        "EDA",
-        "Synthesis"
-      ],
-      "suggestedAudience": [
-        "eda-tools"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
       "title": "apache/tvm release: v0.25.0",
       "url": "https://github.com/apache/tvm/releases/tag/v0.25.0",
       "source": "Apache TVM (GitHub)",
@@ -886,26 +865,6 @@
       ],
       "suggestedAudience": [
         "soc-ip"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "El Correo Libre Issue 97",
-      "url": "https://main--fossi-foundation.netlify.app/blog/2026-05-12-ecl97",
-      "source": "FOSSi Foundation",
-      "sourceType": "rss",
-      "sourceTier": "official",
-      "publishedAt": "2026-05-12T00:00:00.000Z",
-      "summary": "El Correo Libre Newsletter, Issue 97",
-      "author": "",
-      "relevanceScore": 2,
-      "tags": [
-        "FOSSi",
-        "Open Silicon"
-      ],
-      "suggestedAudience": [
-        "general"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"

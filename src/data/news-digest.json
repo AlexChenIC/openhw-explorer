@@ -1,13 +1,13 @@
 {
-  "weekOf": "2026-06-25",
-  "generatedAt": "2026-06-25T07:36:50.796Z",
+  "weekOf": "2026-06-27",
+  "generatedAt": "2026-06-27T07:35:37.248Z",
   "stats": {
-    "totalRelevant": 64,
-    "totalSources": 32,
+    "totalRelevant": 67,
+    "totalSources": 33,
     "topTags": [
       {
         "tag": "RISC-V",
-        "count": 19
+        "count": 20
       },
       {
         "tag": "Security",
@@ -19,7 +19,7 @@
       },
       {
         "tag": "EDA",
-        "count": 14
+        "count": 15
       },
       {
         "tag": "CHIPS Alliance",
@@ -35,7 +35,7 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 20,
+      "count": 23,
       "items": [
         {
           "title": "Chisel v7.13.0 released with ChiselTest compatibility and FIRRTL 7 backend updates",
@@ -74,16 +74,16 @@
           "publishedAt": "2026-05-12T10:30:49.000Z"
         },
         {
-          "title": "RISC-V ISA Manual snapshot fixes Zca c.jal scope and Zvkt constant-time wording",
-          "titleZh": "RISC-V ISA Manual 快照修正 Zca c.jal 范围与 Zvkt constant-time 表述",
-          "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-cc30642-2026-06-23",
+          "title": "RISC-V ISA Manual snapshot refreshes the Zkr example",
+          "titleZh": "RISC-V ISA Manual 快照更新 Zkr 示例",
+          "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-dc8bf2a-2026-06-26",
           "source": "RISC-V ISA Manual (GitHub)",
           "tags": [
             "RISC-V",
             "ISA Manual",
-            "Zca"
+            "Zkr"
           ],
-          "publishedAt": "2026-06-23T02:08:50.000Z"
+          "publishedAt": "2026-06-26T06:11:09.000Z"
         }
       ]
     },
@@ -718,6 +718,80 @@
       "placement": "featured",
       "titleZh": "MLCommons 为 MLPerf Training v6.0 增加 GPT-OSS 20B sparse MoE 预训练 benchmark",
       "summaryZh": "MLCommons 介绍 GPT-OSS 20B，这是面向 MLPerf Training v6.0 的 sparse Mixture-of-Experts 预训练 benchmark，目标是在单个 8-GPU 节点上测试 MoE routing、稀疏计算以及硬件/软件训练效率。"
+    },
+    {
+      "title": "RISC-V ISA Manual snapshot refreshes the Zkr example",
+      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-dc8bf2a-2026-06-26",
+      "source": "RISC-V ISA Manual (GitHub)",
+      "publishedAt": "2026-06-26T06:11:09.000Z",
+      "summary": "RISC-V published a new ISA Manual snapshot built from commit dc8bf2a. The release follows the June 23 snapshot and updates the Zkr example through RISC-V ISA Ma...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "RISC-V",
+        "ISA Manual",
+        "Zkr",
+        "Specification",
+        "Cryptography"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "RISC-V ISA Manual 快照更新 Zkr 示例",
+      "summaryZh": "RISC-V 发布基于 commit dc8bf2a 的 ISA Manual 新快照；该版本延续 6 月 23 日快照，并通过 RISC-V ISA Manual pull request 3227 更新 Zkr 示例。"
+    },
+    {
+      "title": "CIRCT firtool 1.151.0 fixes FIRRTL, ESI, Arc, SV, and Comb flows",
+      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.151.0",
+      "source": "LLVM / CIRCT (GitHub)",
+      "publishedAt": "2026-06-26T20:21:09.000Z",
+      "summary": "LLVM CIRCT published firtool 1.151.0. The release fixes invalid ESI connections from Unpack(pack()), addresses a FIRRTL inliner N-squared crash, lowers non-doma...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CIRCT",
+        "firtool",
+        "MLIR",
+        "FIRRTL",
+        "SystemVerilog",
+        "EDA",
+        "Compiler",
+        "Chisel",
+        "Simulation"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "CIRCT firtool 1.151.0 修复 FIRRTL、ESI、Arc、SV 与 Comb 流程",
+      "summaryZh": "LLVM CIRCT 发布 firtool 1.151.0；该版本修复 Unpack(pack()) 产生的无效 ESI connection、FIRRTL inliner 的 N 平方级崩溃、non-domain.define domain operand lowering，加入 Arc simulation-driver 生成，扩展 SV dialect 的 sv.fclose 与 sv.concat_str，支持 SimToSV 打印 sim.fmt.string，并修复 Comb extract-of-concat 的 O(NM) 路径。"
+    },
+    {
+      "title": "Tenstorrent TT-Metalium v0.73.1 lands MoE, Gemma 4, DeepSeek, Quasar, and Metal 2.0 work",
+      "url": "https://github.com/tenstorrent/tt-metal/releases/tag/v0.73.1",
+      "source": "Tenstorrent / TT-Metalium (GitHub)",
+      "publishedAt": "2026-06-26T10:19:12.000Z",
+      "summary": "Tenstorrent published TT-Metalium v0.73.1 as a final release for its open-source AI accelerator stack. The changelog includes MoE helper migration into C++ TT-N...",
+      "author": "",
+      "relevanceScore": 8,
+      "tags": [
+        "Tenstorrent",
+        "TT-Metalium",
+        "AI Accelerator",
+        "LLM",
+        "MoE",
+        "Gemma",
+        "DeepSeek",
+        "Runtime",
+        "Open Source"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Tenstorrent TT-Metalium v0.73.1 推进 MoE、Gemma 4、DeepSeek、Quasar 与 Metal 2.0",
+      "summaryZh": "Tenstorrent 发布 TT-Metalium v0.73.1，这是其开源 AI accelerator stack 的正式版本；变更包括将 MoE helper 迁移到 C++ TT-NN、Gemma 4 性能与 prefill/decode 工作、DeepSeek prefill 与 decode 修复、SDPA 和 KV-cache 更新、Quasar LLK 与 firmware 改动、Device 2.0 API 迁移、fabric/dispatch 改进，以及 FW/KMD/SMI 文档刷新。"
     },
     {
       "title": "RISC-V ISA Manual snapshot fixes Zca c.jal scope and Zvkt constant-time wording",
@@ -1911,6 +1985,7 @@
     "RISC-V ISA Manual (GitHub)",
     "RISC-V International",
     "RISC-V Summit Europe 2026",
+    "Tenstorrent / TT-Metalium (GitHub)",
     "Tom's Hardware / The Information",
     "UC Berkeley / Gemmini (GitHub)",
     "YosysHQ (GitHub)",
