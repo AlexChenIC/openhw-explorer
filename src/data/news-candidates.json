@@ -1,9 +1,9 @@
 {
   "_meta": {
-    "generatedAt": "2026-06-27T07:32:45.023Z",
+    "generatedAt": "2026-06-29T06:08:36.726Z",
     "lookbackDays": 45,
     "openHwActivityDays": 14,
-    "totalCandidates": 36,
+    "totalCandidates": 34,
     "sourceCount": 15,
     "reviewWorkflow": "Review candidates, verify source facts, copy selected items into src/data/curated-news.json, then run npm run build-news."
   },
@@ -50,7 +50,7 @@
     },
     {
       "source": "lowRISC Newsroom",
-      "count": 5
+      "count": 4
     },
     {
       "source": "MLCommons",
@@ -58,7 +58,7 @@
     },
     {
       "source": "OpenHW Foundation News",
-      "count": 8
+      "count": 7
     },
     {
       "source": "RISC-V International news",
@@ -350,49 +350,6 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "Eclipse ThreadX and RISC-V Advance the Open Embedded Stack",
-      "url": "https://openhwfoundation.org/eclipse-threadx-and-risc-v-advance-the-open-embedded-stack/",
-      "source": "OpenHW Foundation News",
-      "sourceType": "web-page",
-      "sourceTier": "official",
-      "publishedAt": "2026-05-15T00:00:00.000Z",
-      "summary": "At OCX 2026, the Eclipse Foundation highlighted the growing role of open source in embedded and IoT development, with Eclipse ThreadX and RISC-V at the center of the conversation.",
-      "author": "",
-      "relevanceScore": 8,
-      "tags": [
-        "OpenHW",
-        "Eclipse Foundation",
-        "RISC-V"
-      ],
-      "suggestedAudience": [
-        "openhw-riscv",
-        "soc-ip"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "Cadence Joins OpenTitan as a Tools Partner to Accelerate Open-Source Silicon Security",
-      "url": "https://lowrisc.org/news/cadence-joins-opentitan-as-a-tools-partner-to-accelerate-open-source-silicon-security/",
-      "source": "lowRISC Newsroom",
-      "sourceType": "web-page",
-      "sourceTier": "official",
-      "publishedAt": "2026-05-14T08:50:25.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 8,
-      "tags": [
-        "lowRISC",
-        "OpenTitan",
-        "Security"
-      ],
-      "suggestedAudience": [
-        "security"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
       "title": "chipsalliance/caliptra-sw release: fw-2.0.2",
       "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/fw-2.0.2",
       "source": "CHIPS Alliance / Caliptra SW (GitHub)",
@@ -535,7 +492,7 @@
       "source": "CHIPS Alliance Blog",
       "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-06-10T22:00:00.000Z",
+      "publishedAt": "2026-06-11T00:00:00.000Z",
       "summary": "",
       "author": "",
       "relevanceScore": 5,
@@ -558,7 +515,7 @@
       "source": "CHIPS Alliance Blog",
       "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-05-31T22:00:00.000Z",
+      "publishedAt": "2026-06-01T00:00:00.000Z",
       "summary": "",
       "author": "",
       "relevanceScore": 5,
