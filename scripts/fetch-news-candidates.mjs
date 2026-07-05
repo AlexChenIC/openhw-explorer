@@ -122,6 +122,12 @@ const HTML_SOURCES = [
 
 const RELEASE_REPOS = [
   {
+    repo: "riscv/riscv-isa-manual",
+    source: "RISC-V ISA Manual (GitHub)",
+    tags: ["RISC-V", "ISA Manual", "Specification"],
+    tier: "official",
+  },
+  {
     repo: "riscv/riscv-arch-test",
     source: "RISC-V Architecture Tests (GitHub)",
     tags: ["RISC-V", "Architecture Tests", "Verification"],
@@ -348,6 +354,11 @@ const KEYWORDS = [
   { pattern: /\bVerilator\b/i, score: 3, tag: "Verilator" },
   { pattern: /\bOpenROAD\b/i, score: 3, tag: "OpenROAD" },
   { pattern: /\bOpenLane\b/i, score: 3, tag: "OpenLane" },
+  {
+    pattern: /\bCIRCT\b|\bfirtool\b|\bFIRRTL\b|\bImportVerilog\b|\bMoore\b/i,
+    score: 3,
+    tag: "CIRCT",
+  },
   { pattern: /\bcocotb\b/i, score: 3, tag: "cocotb" },
   { pattern: /\bSystemVerilog\b|\bUVM\b|\bRISCV-DV\b/i, score: 2, tag: "Verification" },
   { pattern: /\bEDA\b|synthesis|simulation|physical design|formal/i, score: 2, tag: "EDA" },
