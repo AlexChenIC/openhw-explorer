@@ -3,6 +3,112 @@
   "_usage": "每次更新添加 3-7 条即可。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "CIRCT firtool 1.152.0 expands ImportVerilog, Moore simulation, Arc, and FIRRTL fixes",
+      "titleZh": "CIRCT firtool 1.152.0 扩展 ImportVerilog、Moore 仿真、Arc 与 FIRRTL 修复",
+      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.152.0",
+      "source": "LLVM / CIRCT (GitHub)",
+      "addedAt": "2026-07-04T04:21:10Z",
+      "summary": "LLVM CIRCT released firtool 1.152.0 with ImportVerilog and Moore simulation updates including fscanf/sscanf, timeformat, library-binding format specifiers, string-comparison lowering, Arc LowerProcesses work, and several FIRRTL inliner and dedup fixes.",
+      "summaryZh": "LLVM CIRCT 发布 firtool 1.152.0，带来 ImportVerilog 与 Moore 仿真更新，包括 fscanf/sscanf、timeformat、library-binding 格式符、string-comparison lowering、Arc LowerProcesses，以及多项 FIRRTL inliner 与 dedup 修复。",
+      "tags": [
+        "CIRCT",
+        "firtool",
+        "FIRRTL",
+        "ImportVerilog",
+        "Moore",
+        "SystemVerilog",
+        "MLIR",
+        "EDA",
+        "Hardware Compiler"
+      ],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
+      "title": "RISC-V ISA Manual snapshot fixes bit-manipulation reference pseudocode",
+      "titleZh": "RISC-V ISA Manual 快照修正 bit-manipulation 参考伪代码",
+      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-f89d503-2026-07-02",
+      "source": "RISC-V ISA Manual (GitHub)",
+      "addedAt": "2026-07-02T11:28:25Z",
+      "summary": "RISC-V published a new ISA Manual snapshot built from commit f89d503. The official release notes call out a fix to the bit-manipulation reference pseudocode and link the full diff from the June 26 snapshot.",
+      "summaryZh": "RISC-V 发布基于 commit f89d503 的 ISA Manual 新快照；官方 release note 标出 bit-manipulation 参考伪代码修正，并链接了相对 6 月 26 日快照的完整差异。",
+      "tags": [
+        "RISC-V",
+        "ISA Manual",
+        "Specification",
+        "Bitmanip",
+        "Reference Model"
+      ],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
+      "title": "lowRISC releases CHERI Mocha MVP-2 with CHERI-Linux boot and secure-enclave IP",
+      "titleZh": "lowRISC 发布 CHERI Mocha MVP-2，支持 CHERI-Linux 启动与 secure-enclave IP",
+      "url": "https://lowrisc.org/news/cosmic-cheri-mocha-mvp-2-release/",
+      "source": "lowRISC Newsroom",
+      "addedAt": "2026-07-02T08:53:33Z",
+      "summary": "lowRISC announced the second MVP release of the CHERI Mocha Secure Enclave reference design. The subsystem SoC can boot CHERI Linux, adds secure-enclave IP blocks such as entropy, KMAC, ROM controller, SPI host, and debug support, and includes Genesys 2 board synthesis collateral.",
+      "summaryZh": "lowRISC 宣布 CHERI Mocha Secure Enclave 参考设计的第二个 MVP 版本；该 subsystem SoC 可启动 CHERI Linux，加入 entropy、KMAC、ROM controller、SPI host 与 debug support 等 secure-enclave IP，并提供 Genesys 2 板卡综合 collateral。",
+      "tags": [
+        "lowRISC",
+        "COSMIC",
+        "CHERI",
+        "CHERI-Linux",
+        "RISC-V",
+        "Secure Enclave",
+        "Security",
+        "SoC/IP"
+      ],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
+      "title": "Antmicro runs Coral NPU SoC simulations with Renode and Verilator",
+      "titleZh": "Antmicro 用 Renode 与 Verilator 运行 Coral NPU SoC 仿真",
+      "url": "https://antmicro.com/blog/2026/07/renode-and-verilator-for-coral-npu",
+      "source": "Antmicro Blog",
+      "addedAt": "2026-07-01T00:00:00Z",
+      "summary": "Antmicro detailed a simulation-driven Coral NPU flow that embeds a RISC-V-based Coral NPU block into an NXP i.MX 8M Plus Renode Linux demo, uses RVV example payloads, and runs UVM-based Coral NPU DV under Verilator through upstreamed flow changes.",
+      "summaryZh": "Antmicro 介绍了面向 Coral NPU 的仿真驱动流程：把基于 RISC-V 的 Coral NPU block 嵌入 NXP i.MX 8M Plus 的 Renode Linux demo，使用 RVV 示例 payload，并通过已上游的流程改动在 Verilator 下运行基于 UVM 的 Coral NPU DV。",
+      "tags": [
+        "Antmicro",
+        "Coral NPU",
+        "RISC-V",
+        "RVV",
+        "Renode",
+        "Verilator",
+        "UVM",
+        "Accelerator",
+        "Edge AI",
+        "Verification"
+      ],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
+      "title": "Antmicro adds mockturtle extended technology mapping to OpenROAD resynthesis",
+      "titleZh": "Antmicro 为 OpenROAD resynthesis 加入 mockturtle extended technology mapping",
+      "url": "https://antmicro.com/blog/2026/06/multi-output-techmapping-in-openroad",
+      "source": "Antmicro Blog",
+      "addedAt": "2026-06-30T00:00:00Z",
+      "summary": "Antmicro described an OpenROAD resynthesis update that integrates mockturtle's extended mapper through a new resynth_emap command. In the published SKY130 jpeg_encoder example, multi-output mapping reduced area by roughly 10% after timing repair.",
+      "summaryZh": "Antmicro 介绍了 OpenROAD resynthesis 更新：通过新的 resynth_emap 命令集成 mockturtle extended mapper；在文章给出的 SKY130 jpeg_encoder 示例中，multi-output mapping 在 timing repair 后仍带来约 10% 面积下降。",
+      "tags": [
+        "Antmicro",
+        "OpenROAD",
+        "mockturtle",
+        "EDA",
+        "Resynthesis",
+        "Technology Mapping",
+        "ASIC",
+        "SKY130",
+        "Open Hardware"
+      ],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
       "title": "RISC-V ISA Manual snapshot refreshes the Zkr example",
       "titleZh": "RISC-V ISA Manual 快照更新 Zkr 示例",
       "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-dc8bf2a-2026-06-26",

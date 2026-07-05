@@ -71,8 +71,8 @@
         "zh": "开放 EDA 与验证工具"
       },
       "description": {
-        "en": "Release candidates from Yosys, Verilator, OpenROAD, OpenLane, and cocotb.",
-        "zh": "跟踪 Yosys、Verilator、OpenROAD、OpenLane 与 cocotb 的发布候选。"
+        "en": "Formal releases and technical updates from Yosys, Verilator, OpenROAD, OpenLane, cocotb, CIRCT, and Chisel.",
+        "zh": "跟踪 Yosys、Verilator、OpenROAD、OpenLane、cocotb、CIRCT 与 Chisel 的正式发布和技术更新。"
       },
       "cadence": {
         "en": "Release monitored",
