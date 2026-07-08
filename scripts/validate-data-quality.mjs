@@ -84,6 +84,55 @@ function extractProjectIds() {
   return [...new Set(ids)];
 }
 
+const STALE_ACTIVE_MONTHS = 18;
+
+function extractProjectStatusEntries() {
+  const content = readFileSync(PROJECTS_FILE, "utf-8");
+  const startMarker = "export const projects: Project[] = [";
+  const start = content.indexOf(startMarker);
+  const end = content.indexOf("\n];", start);
+  const section = start >= 0 && end > start ? content.slice(start, end) : content;
+
+  const indices = [];
+  const idPattern = /id:\s*"([^"]+)"/g;
+  let match;
+  while ((match = idPattern.exec(section)) !== null) {
+    indices.push({ id: match[1], index: match.index });
+  }
+
+  return indices.map((item, i) => {
+    const chunk = section.slice(item.index, indices[i + 1]?.index);
+    const status = chunk.match(/status:\s*"([^"]+)"/)?.[1] || null;
+    const repo = chunk.match(/github:\s*"https:\/\/github\.com\/[^/]+\/([^"/]+)"/)?.[1] || null;
+    return { id: item.id, status, repo };
+  });
+}
+
+// Warn when a project is marked active but its repo has had no pushes for a long time,
+// so hand-maintained statuses cannot silently drift away from reality again. "stable"
+// is exempt: it explicitly means mature-but-not-actively-developed.
+function validateProjectStatusFreshness() {
+  const warnings = [];
+  const data = readJson(GITHUB_STATS_FILE);
+  const repos = isPlainObject(data.repos) ? data.repos : {};
+  const thresholdMs = STALE_ACTIVE_MONTHS * 30 * 24 * 60 * 60 * 1000;
+  const now = Date.now();
+
+  for (const entry of extractProjectStatusEntries()) {
+    if (entry.status !== "active") continue;
+    const stats = entry.repo ? repos[entry.repo] : null;
+    const pushedAt = stats?.pushedAt ? toDate(stats.pushedAt) : null;
+    if (!pushedAt) continue;
+    if (now - pushedAt.getTime() > thresholdMs) {
+      warnings.push(
+        `project '${entry.id}' is marked '${entry.status}' but repo '${entry.repo}' was last pushed ${String(stats.pushedAt).slice(0, 10)} (more than ${STALE_ACTIVE_MONTHS} months ago)`,
+      );
+    }
+  }
+
+  return warnings;
+}
+
 function validateGithubStats() {
   const errors = [];
   const data = readJson(GITHUB_STATS_FILE);
@@ -340,6 +389,16 @@ function main() {
       }
     } else {
       console.log("[project-profile-meta] validation passed");
+    }
+
+    const freshnessWarnings = validateProjectStatusFreshness();
+    if (freshnessWarnings.length) {
+      console.warn("[project-status] warnings:");
+      for (const warning of freshnessWarnings) {
+        console.warn(`  - ${warning}`);
+      }
+    } else {
+      console.log("[project-status] freshness check passed");
     }
   } catch (error) {
     hasErrors = true;

@@ -2,7 +2,7 @@
 
 > CV32E40P 是 OpenHW CORE-V 家族中成熟度最高、资料最完整的 32-bit embedded-class 核心之一；需要区分 completed CV32E40P 与仍在发展的 CV32E40PV2。
 
-数据核对日期: 2026-05-07
+数据核对日期: 2026-07-08
 
 ## Public summary
 

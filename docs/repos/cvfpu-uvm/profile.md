@@ -2,7 +2,7 @@
 
 > cvfpu-uvm 是 CVFPU 在 CVA6 wrapper 场景下的 UVM 验证环境，使用 C++ reference model 和 SystemVerilog DPI。
 
-数据核对日期: 2026-05-07
+数据核对日期: 2026-07-08
 
 ## Public summary
 

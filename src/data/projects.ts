@@ -72,36 +72,41 @@ interface VerifiedClassification {
 }
 
 const verifiedClassification: Record<string, VerifiedClassification> = {
-  cva6: { category: ["core"], coreType: ["linux-application", "high-performance"] },
+  cva6: { category: ["core"], coreType: ["linux-application"] },
   cv32e40p: { category: ["core"], coreType: ["embedded-mcu", "low-power"] },
   cvw: { category: ["core", "learning"], coreType: ["linux-application", "embedded-mcu"] },
-  cv32e40x: { category: ["core"], coreType: ["embedded-mcu", "high-performance"] },
+  cv32e40x: { category: ["core"], coreType: ["embedded-mcu"] },
   cv32e40s: { category: ["core"], coreType: ["embedded-mcu", "safety-critical"] },
-  cva5: { category: ["core"], coreType: ["high-performance"] },
+  cva5: { category: ["core"], coreType: ["linux-application"] },
   cve2: { category: ["core"], coreType: ["embedded-mcu", "low-power"] },
   cv32e41p: { category: ["core"], coreType: ["embedded-mcu", "safety-critical"] },
 
   "core-v-verif": {
     category: ["verification"],
-    verificationType: ["uvm-testbench", "industrial-grade"],
+    verificationType: ["uvm-testbench"],
   },
-  "force-riscv": { category: ["verification", "tools"], verificationType: ["force-riscv"] },
+  "force-riscv": { category: ["verification", "tools"], verificationType: ["test-generation"] },
   "core-v-mcu-uvm": { category: ["verification"], verificationType: ["uvm-testbench"] },
   "cv-hpdcache-verif": { category: ["verification"], verificationType: ["uvm-testbench"] },
   "cvw-arch-verif": { category: ["verification"], verificationType: ["arch-compliance"] },
   "cvfpu-uvm": { category: ["verification"], verificationType: ["uvm-testbench"] },
   "cv32e20-dv": { category: ["verification"], verificationType: ["uvm-testbench"] },
-  "cv32e40s-dv": { category: ["verification"], verificationType: ["uvm-testbench"] },
+  "cv32e40s-dv": { category: ["verification"], verificationType: ["uvm-testbench", "formal-verification"] },
+  "cv32e40x-dv": { category: ["verification"], verificationType: ["uvm-testbench", "formal-verification"] },
 
   "core-v-mcu": { category: ["soc"] },
   "core-v-mcu-devkit": { category: ["soc", "tools"] },
   "cva6-safe": { category: ["soc"] },
   "core-v-polara-apu": { category: ["soc"] },
+  "core-et": { category: ["soc", "ip"] },
+  "cva6-platform": { category: ["soc"] },
+  "cva6-dcls": { category: ["soc"] },
 
   cvfpu: { category: ["ip"] },
   "cv-hpdcache": { category: ["ip"] },
   "core-v-xif": { category: ["ip"] },
   "cv-mesh": { category: ["ip"] },
+  obi: { category: ["ip"] },
 
   "corev-gcc": { category: ["tools"] },
   "corev-binutils-gdb": { category: ["tools"] },
@@ -109,18 +114,24 @@ const verifiedClassification: Record<string, VerifiedClassification> = {
   "core-v-sdk": { category: ["tools", "sdk"] },
   "core-v-freertos": { category: ["tools", "sdk"] },
   "core-v-freertos-kernel": { category: ["tools", "sdk"] },
+  "cva6-sdk": { category: ["tools", "sdk"] },
+  "meta-cva6-yocto": { category: ["tools", "sdk"] },
+
+  "core-v-cores": { category: ["docs"] },
+  programs: { category: ["docs"] },
+  uap: { category: ["docs"] },
 };
 
 const repoTagHints: Record<string, string[]> = {
   cva6: ["RV64", "Linux", "Application Core"],
   cv32e40p: ["RV32", "Embedded MCU", "PULP"],
   cvw: ["Education", "Textbook", "Configurable"],
-  cv32e40x: ["Compute Extensions", "DSP", "SIMD"],
+  cv32e40x: ["Compute Extensions", "X-Interface", "Coprocessor"],
   cv32e40s: ["Security", "PMP", "IoT"],
   cva5: ["FPGA", "Application Core"],
   cve2: ["Ultra-Compact", "Low Power"],
   cv32e41p: ["Archived", "Prototype"],
-  "core-v-verif": ["UVM", "Coverage", "Regression"],
+  "core-v-verif": ["UVM", "Coverage", "Regression", "Industrial-Grade"],
   "force-riscv": ["Constrained Random", "Test Generation"],
   "core-v-mcu-uvm": ["SoC Verification", "UVM"],
   "cv-hpdcache-verif": ["Cache Verification", "UVM"],
@@ -142,6 +153,16 @@ const repoTagHints: Record<string, string[]> = {
   "core-v-sdk": ["SDK", "Integrated Tooling"],
   "core-v-freertos": ["RTOS", "BSP"],
   "core-v-freertos-kernel": ["RTOS Kernel", "Scheduler"],
+  "cv32e40x-dv": ["Core DV", "Formal"],
+  "core-et": ["Silicon Platform", "Agentic", "IP Catalog"],
+  "cva6-platform": ["Multi-Core", "CV-MESH", "OpenPiton"],
+  "cva6-dcls": ["Lockstep", "Safety"],
+  obi: ["Bus Interface", "Specification"],
+  "cva6-sdk": ["Linux Image", "Buildroot", "OpenSBI"],
+  "meta-cva6-yocto": ["Yocto", "Embedded Linux", "BitBake"],
+  "core-v-cores": ["CORE-V Family", "Roadmap"],
+  programs: ["Governance", "Dashboard", "Meeting Minutes"],
+  uap: ["EU Projects", "IP Catalogue", "TRISTAN"],
 };
 
 const categoryTagLabel: Record<ProjectCategory, string> = {
@@ -156,9 +177,8 @@ const categoryTagLabel: Record<ProjectCategory, string> = {
 };
 
 const coreTypeTagLabel: Record<CoreType, string> = {
-  "embedded-mcu": "Embedded MCU",
-  "linux-application": "Linux Application",
-  "high-performance": "Application / Performance",
+  "embedded-mcu": "Embedded-class",
+  "linux-application": "Application-class",
   "low-power": "Low Power",
   "safety-critical": "Security / Safety",
 };
@@ -167,8 +187,7 @@ const verificationTypeTagLabel: Record<VerificationType, string> = {
   "uvm-testbench": "UVM Testbench",
   "formal-verification": "Formal Verification",
   "arch-compliance": "Architecture Tests",
-  "force-riscv": "FORCE-RISCV",
-  "industrial-grade": "Industrial Grade",
+  "test-generation": "Test Generation",
 };
 
 function normalizeTopic(topic: string): string {
@@ -252,7 +271,7 @@ export const projects: Project[] = [
     description:
       "CVA6 is a configurable 6-stage CORE-V RISC-V core family for application-class and embedded-class use. The cva6 repository README describes the current baseline CPU as 6-stage, single-issue, and in-order, while the OpenHW CORE-V cores roadmap describes the broader CVA6 family as single- or dual-issue; application-class configurations are Linux-capable.",
     category: ["core"],
-    coreType: ["linux-application", "high-performance"],
+    coreType: ["linux-application"],
     tags: ["RISC-V", "SystemVerilog", "RV64", "Linux", "Application-Class"],
     status: "active",
     featured: true,
@@ -270,6 +289,7 @@ export const projects: Project[] = [
       "cv-mesh",
       "cva6-safe",
       "core-v-polara-apu",
+      "cva6-sdk",
     ],
   },
   {
@@ -313,15 +333,15 @@ export const projects: Project[] = [
     description:
       "CV32E40X is a 32-bit, 4-stage in-order RISC-V core forked from CV32E40P, designed for compute-intensive applications with support for the CORE-V eXtension Interface (XIF) for custom instruction and coprocessor integration. It implements RV32[I|E] with optional M/Zmmul, A, compressed, and bit manipulation extensions.",
     category: ["core"],
-    coreType: ["embedded-mcu", "high-performance"],
-    tags: ["RISC-V", "SystemVerilog", "Custom Extensions", "DSP", "SIMD"],
+    coreType: ["embedded-mcu"],
+    tags: ["RISC-V", "SystemVerilog", "Custom Extensions", "X-Interface"],
     status: "inactive",
     github: "https://github.com/openhwgroup/cv32e40x",
     stars: 258,
     forks: 55,
     language: "SystemVerilog",
     suitableFor: ["engineer", "researcher"],
-    relatedProjects: ["cv32e40p", "cv32e40s", "core-v-verif"],
+    relatedProjects: ["cv32e40p", "cv32e40s", "cv32e40x-dv", "core-v-verif"],
   },
   {
     id: "cv32e40s",
@@ -345,7 +365,7 @@ export const projects: Project[] = [
     description:
       "CVA5 is a 32-bit RISC-V processor (RV32IMAFD) designed specifically for FPGA deployment, featuring a pipeline built around parallel, variable-latency execution units and a highly configurable, extensible architecture. It can be packaged as an IP block and supports Vivado-based prototyping flows.",
     category: ["core"],
-    coreType: ["high-performance"],
+    coreType: ["linux-application"],
     tags: ["RISC-V", "SystemVerilog", "FPGA", "Application-Class", "Pipeline"],
     status: "completed",
     github: "https://github.com/openhwgroup/cva5",
@@ -388,14 +408,14 @@ export const projects: Project[] = [
     relatedProjects: ["cv32e40p", "cv32e40s"],
   },
 
-  // VERIFICATION (8)
+  // VERIFICATION (9)
   {
     id: "core-v-verif",
     name: "CORE-V Verification",
     description:
       "CORE-V Verification is the shared functional verification project for the CORE-V family of RISC-V cores, providing a unified UVM-based environment covering CV32E40P, CV32E40X, CV32E40S, and CVA6. It provides reusable verification infrastructure, DV plans, coverage reports, and regression flows using Bender for hardware IP dependency management.",
     category: ["verification"],
-    verificationType: ["uvm-testbench", "industrial-grade"],
+    verificationType: ["uvm-testbench"],
     tags: ["UVM", "SystemVerilog", "Verification", "Testbench", "Coverage"],
     status: "active",
     featured: true,
@@ -412,10 +432,9 @@ export const projects: Project[] = [
     description:
       "FORCE-RISCV is an instruction sequence generator (ISG) for RISC-V processor design verification, supporting RV64G, RV32G, and Vector Extension 1.0 across U, S, and M privilege modes with comprehensive virtual memory coverage (Sv48/39/32). It generates constrained-random and directed test programs as ELF binaries via a C++ core with Python API control, with multiprocess/multithread capabilities and a built-in RISC-V instruction simulator (Handcar, based on Spike).",
     category: ["verification", "tools"],
-    verificationType: ["force-riscv"],
+    verificationType: ["test-generation"],
     tags: ["RISC-V", "Python", "C++", "Test Generation", "Constrained Random"],
-    status: "active",
-    featured: true,
+    status: "inactive",
     github: "https://github.com/openhwgroup/force-riscv",
     stars: 305,
     forks: 75,
@@ -431,7 +450,7 @@ export const projects: Project[] = [
     category: ["verification"],
     verificationType: ["uvm-testbench"],
     tags: ["UVM", "SystemVerilog", "SoC Verification", "MCU"],
-    status: "active",
+    status: "inactive",
     github: "https://github.com/openhwgroup/core-v-mcu-uvm",
     stars: 26,
     forks: 8,
@@ -463,7 +482,7 @@ export const projects: Project[] = [
     category: ["verification"],
     verificationType: ["arch-compliance"],
     tags: ["Verification", "SystemVerilog", "ISA Compliance", "Wally"],
-    status: "active",
+    status: "completed",
     github: "https://github.com/openhwgroup/cvw-arch-verif",
     stars: 17,
     forks: 39,
@@ -509,7 +528,7 @@ export const projects: Project[] = [
     description:
       "CV32E40S-DV is the design verification environment for the CV32E40S security-oriented core, providing both simulation-based UVM testbenches and formal verification capabilities. It includes a board support package (BSP) for test program compilation and a modular architecture with UVM environment classes, testbench modules, and comprehensive per-component documentation.",
     category: ["verification"],
-    verificationType: ["uvm-testbench"],
+    verificationType: ["uvm-testbench", "formal-verification"],
     tags: ["Verification", "Assembly", "Security", "DV"],
     status: "active",
     github: "https://github.com/openhwgroup/cv32e40s-dv",
@@ -519,8 +538,24 @@ export const projects: Project[] = [
     suitableFor: ["engineer"],
     relatedProjects: ["cv32e40s", "core-v-verif"],
   },
+  {
+    id: "cv32e40x-dv",
+    name: "CV32E40X Design Verification",
+    description:
+      "cv32e40x-dv is the design-verification environment for the CV32E40X CORE-V processor core. Its README lists a board support package (BSP) for compiling test programs, the UVM environment class and associated infrastructure, simulation and testbench directories, the test-case tree, and an `fv` directory where formal verification is run.",
+    category: ["verification"],
+    verificationType: ["uvm-testbench", "formal-verification"],
+    tags: ["Verification", "Assembly", "Formal", "DV"],
+    status: "active",
+    github: "https://github.com/openhwgroup/cv32e40x-dv",
+    stars: 16,
+    forks: 10,
+    language: "Assembly",
+    suitableFor: ["engineer"],
+    relatedProjects: ["cv32e40x", "core-v-verif"],
+  },
 
-  // SoC & SUBSYSTEM (4)
+  // SoC & SUBSYSTEM (7)
   {
     id: "core-v-mcu",
     name: "CORE-V MCU",
@@ -545,7 +580,7 @@ export const projects: Project[] = [
       "The CORE-V MCU DevKit is an evaluation platform for the CV32E40P RISC-V core (v1.0.0), combining the processor with a Quicklogic ArcticPro2 Embedded FPGA, 4MB flash, and an onboard Ashling Opella LD JTAG debugger with serial console. It provides mikroBUS connectivity, AWS IoT ExpressLink for cloud integration, and level shifters for 3.3V I/O compatibility, supporting hardware bring-up and embedded software development.",
     category: ["soc", "tools"],
     tags: ["DevKit", "Hardware", "Board", "SDK", "Getting Started"],
-    status: "active",
+    status: "completed",
     github: "https://github.com/openhwgroup/core-v-mcu-devkit",
     stars: 18,
     forks: 8,
@@ -567,7 +602,7 @@ export const projects: Project[] = [
     forks: 1,
     language: "SystemVerilog",
     suitableFor: ["engineer", "researcher"],
-    relatedProjects: ["cva6", "cv32e40s"],
+    relatedProjects: ["cva6", "cva6-dcls", "cv32e40s"],
   },
   {
     id: "core-v-polara-apu",
@@ -575,7 +610,6 @@ export const projects: Project[] = [
     description:
       "CORE-V Polara APU is a multicore RISC-V vector research platform originating from the Ara vector processor and OpenPiton projects. The README describes four Ara vector cores connected through OpenPiton, low-precision computation support for DNN inference, and simulation flows that require RISC-V LLVM with vector extension support.",
     category: ["soc"],
-    coreType: ["high-performance"],
     tags: ["APU", "Multi-Core", "OpenPiton", "HPC", "Research"],
     status: "experimental",
     github: "https://github.com/openhwgroup/core-v-polara-apu",
@@ -585,8 +619,51 @@ export const projects: Project[] = [
     suitableFor: ["researcher"],
     relatedProjects: ["cva6", "cv-mesh"],
   },
+  {
+    id: "core-et",
+    name: "CORE-ET (ETASP)",
+    description:
+      "CORE-ET hosts the CORE-ET Agentic Silicon Platform (ETASP), an Ainekko project that collects hardware IP in a form that can be translated, verified, documented, and integrated by agentic hardware-development workflows. The original CORE-ET many-core RTL and its documentation are preserved on the erbium branch.",
+    category: ["soc", "ip"],
+    tags: ["Silicon Platform", "Agentic", "IP Catalog", "SystemVerilog"],
+    status: "active",
+    github: "https://github.com/openhwgroup/core-et",
+    stars: 76,
+    forks: 14,
+    language: "SystemVerilog",
+    suitableFor: ["researcher", "engineer"],
+    relatedProjects: ["cve2"],
+  },
+  {
+    id: "cva6-platform",
+    name: "CVA6 Platform",
+    description:
+      "CVA6 Platform is a multi-core CVA6 system with CV-MESH intended for software testing and regression, built on the OpenPiton platform with pre-built Genesys II bitstreams and Linux/Fedora images.",
+    category: ["soc"],
+    tags: ["Multi-Core", "CV-MESH", "OpenPiton", "FPGA"],
+    status: "inactive",
+    github: "https://github.com/openhwgroup/cva6-platform",
+    stars: 13,
+    forks: 5,
+    suitableFor: ["researcher", "engineer"],
+    relatedProjects: ["cva6", "cv-mesh", "core-v-polara-apu"],
+  },
+  {
+    id: "cva6-dcls",
+    name: "CVA6 DCLS",
+    description:
+      "cva6-dcls is a dual-core lock-step (DCLS) platform for the CVA6 RISC-V processor core. Its README is currently a placeholder marked under construction, so it is treated as an early-stage experimental project.",
+    category: ["soc"],
+    tags: ["Lockstep", "DCLS", "Safety", "CVA6"],
+    status: "experimental",
+    github: "https://github.com/openhwgroup/cva6-dcls",
+    stars: 2,
+    forks: 2,
+    suitableFor: ["engineer", "researcher"],
+    relatedProjects: ["cva6", "cva6-safe"],
+  },
 
-  // IP COMPONENTS (4)
+  // IP COMPONENTS (5)
   {
     id: "cvfpu",
     name: "CVFPU",
@@ -648,8 +725,22 @@ export const projects: Project[] = [
     suitableFor: ["researcher"],
     relatedProjects: ["core-v-polara-apu", "cva6"],
   },
+  {
+    id: "obi",
+    name: "OBI (OpenBus Interface)",
+    description:
+      "obi is the repository that maintains the OpenBus Interface (OBI) specification. OBI is the bus protocol used by CORE-V cores such as CV32E40P and CV32E20 for their instruction and data memory interfaces.",
+    category: ["ip"],
+    tags: ["Bus Interface", "Specification", "OBI"],
+    status: "stable",
+    github: "https://github.com/openhwgroup/obi",
+    stars: 17,
+    forks: 2,
+    suitableFor: ["engineer"],
+    relatedProjects: ["cv32e40p", "cve2", "cv32e20-dv"],
+  },
 
-  // SOFTWARE & TOOLS (6)
+  // SOFTWARE & TOOLS (8)
   {
     id: "corev-gcc",
     name: "CORE-V GCC",
@@ -657,7 +748,7 @@ export const projects: Project[] = [
       "CORE-V GCC is OpenHW Group's fork of the GNU Compiler Collection (GCC), maintained as a staging ground for CORE-V-specific compiler features and extensions before or during upstream contribution. It supports the full CORE-V toolchain development cycle and is tracked against upstream GCC with CORE-V modifications applied.",
     category: ["tools"],
     tags: ["GCC", "Compiler", "Toolchain", "CORE-V Extensions"],
-    status: "active",
+    status: "inactive",
     github: "https://github.com/openhwgroup/corev-gcc",
     stars: 26,
     forks: 23,
@@ -672,7 +763,7 @@ export const projects: Project[] = [
       "CORE-V Binutils & GDB is OpenHW Group's staging fork of GNU Binutils and GDB for CORE-V-specific modifications, maintained with a single active development branch that tracks upstream Binutils while incorporating CORE-V changes. It is not the official Binutils repository but serves as the pre-upstream integration point for assembler, linker, and debugger support for CORE-V architectures.",
     category: ["tools"],
     tags: ["Binutils", "GDB", "Debugger", "Assembler", "Linker"],
-    status: "active",
+    status: "inactive",
     github: "https://github.com/openhwgroup/corev-binutils-gdb",
     stars: 9,
     forks: 28,
@@ -687,7 +778,7 @@ export const projects: Project[] = [
       "CORE-V LLVM is a specialized fork of the LLVM/Clang toolchain for CORE-V architecture development, serving as a staging ground for CORE-V-specific compiler enhancements before upstream contribution. It is not the standard LLVM Foundation distribution; it maintains a development branch tracking upstream LLVM with CORE-V modifications and an occasional stable branch representing thoroughly tested snapshots.",
     category: ["tools"],
     tags: ["LLVM", "Clang", "Compiler", "Toolchain"],
-    status: "active",
+    status: "inactive",
     github: "https://github.com/openhwgroup/corev-llvm-project",
     stars: 18,
     forks: 17,
@@ -702,7 +793,7 @@ export const projects: Project[] = [
       "CORE-V SDK is a development toolkit for getting started with CORE-V architecture projects, providing an integrated environment for compilation, debugging, and code analysis on Windows 10/11 and Linux (Red Hat 7.9/8.4, Ubuntu 18.04/20.04) for x86 systems. It includes CSR register inspection, peripheral register views, and FreeRTOS task monitoring capabilities.",
     category: ["tools", "sdk"],
     tags: ["SDK", "Toolchain", "IDE", "Software", "Development"],
-    status: "active",
+    status: "inactive",
     github: "https://github.com/openhwgroup/core-v-sdk",
     stars: 14,
     forks: 10,
@@ -717,7 +808,7 @@ export const projects: Project[] = [
       "CORE-V FreeRTOS provides the FreeRTOS runtime environment and associated drivers for real-time application development on the CORE-V MCU. It supports both RTL simulation for hardware-accurate testing and gvsoc, a software-based virtual platform, enabling development and validation before hardware availability.",
     category: ["tools", "sdk"],
     tags: ["FreeRTOS", "RTOS", "Embedded", "BSP", "Real-Time"],
-    status: "active",
+    status: "inactive",
     github: "https://github.com/openhwgroup/core-v-freertos",
     stars: 4,
     forks: 3,
@@ -732,13 +823,89 @@ export const projects: Project[] = [
       "CORE-V FreeRTOS Kernel contains the FreeRTOS kernel source files and ports for CORE-V targets, with core functionality shared across all ports in list.c, queue.c, and tasks.c, and a portable directory for microcontroller and compiler-specific implementations. It serves as the foundational kernel layer for the CORE-V FreeRTOS ecosystem, following standard FreeRTOS kernel structure and conventions.",
     category: ["tools", "sdk"],
     tags: ["FreeRTOS", "Kernel", "RTOS", "Scheduler"],
-    status: "active",
+    status: "inactive",
     github: "https://github.com/openhwgroup/core-v-freertos-kernel",
     stars: 1,
     forks: 0,
     language: "C",
     suitableFor: ["engineer"],
     relatedProjects: ["core-v-freertos", "core-v-mcu"],
+  },
+  {
+    id: "cva6-sdk",
+    name: "CVA6 SDK",
+    description:
+      "CVA6 SDK houses the RISC-V tools used to build a bootable Linux image for the CVA6 core: a RISC-V toolchain, OpenSBI, U-Boot with a corresponding device tree, the Linux kernel, and an initramfs including the rootfs. It produces ready-to-flash SD card images for the Digilent Genesys 2 and Altera Agilex 7 FPGA boards.",
+    category: ["tools", "sdk"],
+    tags: ["Linux Image", "Buildroot", "OpenSBI", "Toolchain"],
+    status: "active",
+    github: "https://github.com/openhwgroup/cva6-sdk",
+    stars: 81,
+    forks: 99,
+    language: "Makefile",
+    suitableFor: ["engineer", "student"],
+    relatedProjects: ["cva6", "meta-cva6-yocto"],
+  },
+  {
+    id: "meta-cva6-yocto",
+    name: "meta-cva6-yocto",
+    description:
+      "meta-cva6-yocto is a Yocto layer for building embedded Linux images for the CVA6 core. It depends on openembedded-core, BitBake, and meta-riscv, and provides machine definitions for CVA6 targets on the Digilent Genesys 2 and Altera Agilex 7 FPGA boards.",
+    category: ["tools", "sdk"],
+    tags: ["Yocto", "Embedded Linux", "BitBake", "CVA6"],
+    status: "active",
+    github: "https://github.com/openhwgroup/meta-cva6-yocto",
+    stars: 6,
+    forks: 3,
+    language: "BitBake",
+    suitableFor: ["engineer"],
+    relatedProjects: ["cva6", "cva6-sdk"],
+  },
+
+  // DOCUMENTATION (3)
+  {
+    id: "core-v-cores",
+    name: "CORE-V Cores (Family Landing)",
+    description:
+      "core-v-cores is the landing repository for the CORE-V family of open-source RISC-V cores curated by the OpenHW Foundation. It describes each family member with links to their dedicated repositories, and documents CORE-V device naming, release and RTL-freeze rules, and the assigned marchid/mimpid values for released cores.",
+    category: ["docs"],
+    tags: ["CORE-V Family", "Roadmap", "Documentation"],
+    status: "active",
+    github: "https://github.com/openhwgroup/core-v-cores",
+    stars: 360,
+    forks: 25,
+    suitableFor: ["student", "engineer", "researcher"],
+    relatedProjects: ["cva6", "cvw", "cv32e40p", "cve2", "cva5"],
+  },
+  {
+    id: "programs",
+    name: "OpenHW Programs",
+    description:
+      "programs hosts program- and project-level documentation for all OpenHW projects, including Technical Working Group and Task Group meeting minutes, per-project gate materials (Project Concept, Project Launch, Plan Approve, and Project Freeze), the OpenHW project dashboard, and process and template documents.",
+    category: ["docs"],
+    tags: ["Governance", "Dashboard", "Documentation"],
+    status: "active",
+    github: "https://github.com/openhwgroup/programs",
+    stars: 227,
+    forks: 98,
+    language: "HTML",
+    suitableFor: ["researcher", "contributor"],
+    relatedProjects: ["core-v-cores"],
+  },
+  {
+    id: "uap",
+    name: "UAP (Unified Access Platform)",
+    description:
+      "UAP is the European Unified RISC-V IP Access Platform, a structured entry point that catalogues, documents, and promotes RISC-V IP assets initially developed in European research projects such as TRISTAN and ISOLDE. It acts as a static unified access page pointing to repositories hosted on the OpenHW Foundation GitHub.",
+    category: ["docs"],
+    tags: ["EU Projects", "IP Catalogue", "TRISTAN", "ISOLDE"],
+    status: "active",
+    github: "https://github.com/openhwgroup/uap",
+    stars: 27,
+    forks: 52,
+    language: "JavaScript",
+    suitableFor: ["engineer", "researcher"],
+    relatedProjects: ["core-v-cores"],
   },
 ];
 

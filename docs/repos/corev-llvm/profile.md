@@ -2,7 +2,7 @@
 
 > corev-llvm-project 是 CORE-V Clang/LLVM development fork，不是标准 LLVM Foundation distribution。
 
-数据核对日期: 2026-05-07
+数据核对日期: 2026-07-08
 
 ## Public summary
 

@@ -90,6 +90,7 @@
     "soc": "SoC",
     "ip": "IP 组件",
     "tools": "工具",
+    "docs": "文档",
     "learning": "学习友好",
     "sdk": "SDK/软件",
     "roles": {
@@ -115,9 +116,8 @@
       "sdk": "SDK/软件"
     },
     "coreTypes": {
-      "embedded-mcu": "嵌入式 MCU",
-      "linux-application": "Linux 应用",
-      "high-performance": "应用级/性能",
+      "embedded-mcu": "嵌入式级（MCU）",
+      "linux-application": "应用级（可跑 Linux）",
       "low-power": "低功耗",
       "safety-critical": "安全/功能安全"
     },
@@ -125,8 +125,7 @@
       "uvm-testbench": "UVM 测试平台",
       "formal-verification": "形式验证",
       "arch-compliance": "架构测试",
-      "force-riscv": "FORCE-RISCV",
-      "industrial-grade": "工业级"
+      "test-generation": "测试生成"
     }
   },
   "resources": {

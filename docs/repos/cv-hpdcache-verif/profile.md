@@ -2,7 +2,7 @@
 
 > cv-hpdcache-verif 是 HPDcache subsystem 的验证环境，覆盖 HPDcache DUT 与 prefetcher DUT。
 
-数据核对日期: 2026-05-07
+数据核对日期: 2026-07-08
 
 ## Public summary
 

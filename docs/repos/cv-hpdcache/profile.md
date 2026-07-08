@@ -2,7 +2,7 @@
 
 > CV-HPDCache 是 OpenHW 的 high-performance multi-requester out-of-order L1 data cache IP，并已集成到 CVA6 配置中。
 
-数据核对日期: 2026-05-07
+数据核对日期: 2026-07-08
 
 ## Public summary
 

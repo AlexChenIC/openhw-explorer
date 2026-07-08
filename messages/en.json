@@ -90,6 +90,7 @@
     "soc": "SoC",
     "ip": "IP",
     "tools": "Tools",
+    "docs": "Docs",
     "learning": "Learning-friendly",
     "sdk": "SDK/Software",
     "roles": {
@@ -115,9 +116,8 @@
       "sdk": "SDK/Software"
     },
     "coreTypes": {
-      "embedded-mcu": "Embedded MCU",
-      "linux-application": "Linux Application",
-      "high-performance": "Application / Performance",
+      "embedded-mcu": "Embedded-class (MCU)",
+      "linux-application": "Application-class (Linux)",
       "low-power": "Low Power",
       "safety-critical": "Security / Safety"
     },
@@ -125,8 +125,7 @@
       "uvm-testbench": "UVM Testbench",
       "formal-verification": "Formal Verification",
       "arch-compliance": "Architecture Tests",
-      "force-riscv": "FORCE-RISCV",
-      "industrial-grade": "Industrial Grade"
+      "test-generation": "Test Generation"
     }
   },
   "resources": {

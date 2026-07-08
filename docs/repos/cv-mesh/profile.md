@@ -2,15 +2,15 @@
 
 > CV-MESH 是与 OpenPiton coherency framework 相关的早期 interconnect/NoC 资料仓库，公开顶层文档较少。
 
-数据核对日期: 2026-05-07
+数据核对日期: 2026-07-08
 
 ## Public summary
 
-CV-MESH is an early-stage OpenHW interconnect repository associated with a CV-MESH coherency framework based on OpenPiton. The public repository currently exposes Verilog/RTL-oriented directories for bridges, L1/L2 cache interfaces, and NoC-related blocks, but it has limited top-level public documentation.
+CV-MESH is an early-stage OpenHW interconnect repository related to the CV-MESH coherency framework, which OpenHW's official project table describes as a coherency framework based on OpenPiton. The public repository has no top-level README and currently exposes RTL directories for bridges, an L1.5 cache, an L2 cache, and NoC components.
 
 ## 项目概述
 
-OpenHW 官方项目表把 CV-MESH 描述为 coherency framework based on Open Piton。当前 `cv-mesh` GitHub repo 的顶层目录包括 `bridges`、`include`、`l15`、`l2` 与 `noc`，但没有与 CVA6/CVW 类似的 README 级说明。
+OpenHW 官方项目表把 CV-MESH 描述为 "Coherency framework based on Open Piton"（且注明 repo TBD，尚未正式挂链）。当前 `cv-mesh` GitHub repo 的顶层目录为 `bridges`、`include`、`l15`、`l2`、`noc`——即 OpenPiton 风格的 L1.5/L2 缓存层次与 NoC 组件，仓库没有顶层 README（2026-07-08 实查 API 返回 404）。
 
 ## 事实核查要点
 

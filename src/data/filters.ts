@@ -44,14 +44,15 @@ export const filterConfig: FilterConfig = {
     { id: "soc", label: "SoC & Subsystem", icon: "CircuitBoard" },
     { id: "ip", label: "IP Components", icon: "Puzzle" },
     { id: "tools", label: "Tools & SDKs", icon: "Wrench" },
+    { id: "docs", label: "Documentation", icon: "FileText" },
     { id: "learning", label: "Learning-friendly", icon: "BookOpen" },
   ],
 
-  // Core types - when "Processor Cores" is selected
+  // Core types - when "Processor Cores" is selected.
+  // Aligned with OpenHW's official embedded-class / application-class terminology.
   coreTypes: [
-    { id: "embedded-mcu", label: "Embedded MCU" },
-    { id: "linux-application", label: "Linux Application" },
-    { id: "high-performance", label: "Application / Performance" },
+    { id: "embedded-mcu", label: "Embedded-class (MCU)" },
+    { id: "linux-application", label: "Application-class (Linux)" },
     { id: "low-power", label: "Low Power" },
     { id: "safety-critical", label: "Security / Safety" },
   ],
@@ -61,8 +62,7 @@ export const filterConfig: FilterConfig = {
     { id: "uvm-testbench", label: "UVM Testbench" },
     { id: "formal-verification", label: "Formal Verification" },
     { id: "arch-compliance", label: "Architecture Tests" },
-    { id: "force-riscv", label: "FORCE-RISCV" },
-    { id: "industrial-grade", label: "Industrial Grade" },
+    { id: "test-generation", label: "Test Generation" },
   ],
 };
 
@@ -74,6 +74,7 @@ export const quickFilterTags = [
   { id: "soc", label: "SoC", icon: "CircuitBoard" },
   { id: "ip", label: "IP", icon: "Puzzle" },
   { id: "tools", label: "Tools", icon: "Wrench" },
+  { id: "docs", label: "Docs", icon: "FileText" },
   { id: "learning", label: "Learning-friendly", icon: "BookOpen" },
 ] as const satisfies ReadonlyArray<{
   id: ProjectCategory | "all";

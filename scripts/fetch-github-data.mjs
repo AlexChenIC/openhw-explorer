@@ -47,6 +47,16 @@ const REPOS = [
   "core-v-sdk",
   "core-v-freertos",
   "core-v-freertos-kernel",
+  "cv32e40x-dv",
+  "core-et",
+  "cva6-platform",
+  "cva6-dcls",
+  "obi",
+  "cva6-sdk",
+  "meta-cva6-yocto",
+  "core-v-cores",
+  "programs",
+  "uap",
 ];
 
 const headers = {

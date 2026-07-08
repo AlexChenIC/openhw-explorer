@@ -1,9 +1,9 @@
 {
   "_meta": {
-    "generatedAt": "2026-05-07T09:39:51.732Z",
+    "generatedAt": "2026-07-08T14:27:53.520Z",
     "source": "docs/repos/*/profile.md",
-    "totalProjects": 30,
-    "reviewedCount": 30,
+    "totalProjects": 40,
+    "reviewedCount": 40,
     "needsReviewCount": 0,
     "missingProfileCount": 0
   },
@@ -13,7 +13,7 @@
       "summary": "CVA6 is a configurable 6-stage CORE-V RISC-V core family for application-class and embedded-class use. The cva6 repository README describes the current baseline CPU as 6-stage, single-issue, and in-order, while the OpenHW CORE-V cores roadmap describes the broader CVA6 family as single- or dual-issue; application-class configurations are Linux-capable.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/cva6",
         "https://github.com/openhwgroup/core-v-cores",
@@ -28,7 +28,7 @@
       "summary": "CV32E40P is a small, efficient 32-bit, 4-stage in-order CORE-V RISC-V core implementing RV32IM[F|Zfinx]C with PULP custom extensions. It originated from the RI5CY/PULP line and was contributed to OpenHW in 2020; OpenHW lists CV32E40P as completed while CV32E40PV2 remains an active-development line.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/cv32e40p",
         "https://docs.openhwgroup.org/projects/cv32e40p-user-manual/",
@@ -45,7 +45,7 @@
       "summary": "CVW, also known as CORE-V Wally, is a configurable 5-stage RISC-V processor associated with the RISC-V System-on-Chip Design textbook. It supports a broad range of RV32/RV64 configurations and optional extensions, passes RISC-V architecture tests, and boots Linux on FPGA according to its README.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/cvw",
         "https://github.com/openhwgroup/cvw/blob/main/docs/testplans/testplan.md",
@@ -60,7 +60,7 @@
       "summary": "CV32E40X is a 32-bit, 4-stage in-order CORE-V RISC-V core based on CV32E40P, aimed at compute-intensive embedded applications and custom instruction integration through CORE-V-XIF. OpenHW's official project table lists CV32E40X as inactive.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/cv32e40x",
         "https://docs.openhwgroup.org/projects/cv32e40x-user-manual/en/latest/",
@@ -75,7 +75,7 @@
       "summary": "CV32E40S is a small, efficient 32-bit, 4-stage in-order CORE-V RISC-V core based on CV32E40P and aimed at security-oriented embedded applications. Its README highlights Machine/User modes, enhanced PMP, and anti-tampering features.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/cv32e40s",
         "https://docs.openhwgroup.org/projects/cv32e40s-user-manual/en/latest/",
@@ -87,10 +87,10 @@
     },
     "cva5": {
       "tagline": "CVA5 是面向 FPGA 的 5-stage application-class RISC-V soft processor，官方项目表将其列为 completed。",
-      "summary": "CVA5 is a 32-bit RISC-V processor designed for FPGA implementations, supporting RV32IMAFD according to its README. It is derived from the Taiga project and uses a configurable 5-stage-style architecture with parallel, variable-latency execution units; OpenHW lists CVA5 as completed.",
+      "summary": "CVA5 is a 32-bit RISC-V processor designed for FPGAs, supporting the Multiply/Divide, Atomic, and Floating-Point extensions (RV32IMAFD) according to its README. It is derived from the Taiga project from Simon Fraser University, with a highly configurable pipeline built around parallel, variable-latency execution units; OpenHW's core family documentation classifies it as a 5-stage, FPGA-optimized application-class core, and the official project table lists CVA5 as completed.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/cva5",
         "https://github.com/openhwgroup/.github/blob/main/profile/README.md",
@@ -107,7 +107,7 @@
       "summary": "CVE2 currently centers on CV32E20, a production-quality open-source 32-bit RISC-V CPU core with a 2-stage pipeline for embedded control applications. It is based on Ibex/Zero-riscy work and supports RV32I or RV32E plus M and C extensions.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/cve2",
         "https://github.com/openhwgroup/.github/blob/main/profile/README.md",
@@ -122,7 +122,7 @@
       "summary": "CV32E41P is an archived 32-bit, 4-stage in-order CORE-V RISC-V prototype derived from CV32E40P to explore Zfinx and Zce extension work alongside Xpulp custom extensions. OpenHW lists it as a completed project and GitHub marks the repository as archived.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/cv32e41p",
         "https://github.com/openhwgroup/.github/blob/main/profile/README.md",
@@ -136,7 +136,7 @@
       "summary": "core-v-verif is the shared functional verification project for the CORE-V family of RISC-V cores. It provides common verification infrastructure, core-specific directories for CV32E40P/CV32E40X/CV32E40S/CVA6, documentation for verification strategy and DV plans, and Bender-based hardware dependency management.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/core-v-verif",
         "https://docs.openhwgroup.org/projects/core-v-verif/en/latest/",
@@ -151,7 +151,7 @@
       "summary": "FORCE-RISCV is an instruction sequence generator for RISC-V processor design verification. Its README describes constrained-random and API-controlled test generation, Python test templates, ELF/S output, and integration with the Handcar simulator based on Spike.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/force-riscv",
         "https://github.com/openhwgroup/.github/blob/main/profile/README.md"
@@ -164,7 +164,7 @@
       "summary": "core-v-mcu-uvm is an advanced UVM verification environment for the CORE-V MCU project. Its README says the project aims to bring CORE-V MCU to TRL-5 and beyond, with chip-level and subsystem-level UVM environments and Moore.io/Datum-related infrastructure.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/core-v-mcu-uvm",
         "https://docs.openhwgroup.org/projects/core-v-mcu/index.html",
@@ -178,7 +178,7 @@
       "summary": "cv-hpdcache-verif is the verification environment for OpenHW's CORE-V High Performance Data Cache controller. Its README describes an HPDcache subsystem verification environment that targets the HPDcache DUT and prefetcher DUT, using Python-driven compile, simulation, and regression scripts.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/cv-hpdcache-verif",
         "https://github.com/openhwgroup/cv-hpdcache"
@@ -191,7 +191,7 @@
       "summary": "cvw-arch-verif is a deprecated architectural verification repository for CORE-V Wally. The README states that tests, coverage, and the updated framework have migrated to the RISC-V architecture test repository, so OpenHW Explorer classifies it as architecture tests rather than formal verification.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/cvw-arch-verif",
         "https://github.com/riscv-non-isa/riscv-arch-test",
@@ -205,7 +205,7 @@
       "summary": "cvfpu-uvm provides a UVM verification environment for CVFPU, with the DUT described as the CVA6 wrapper of the floating-point unit. The repository includes test plans, UVM environment components, a C++ reference model exposed through SystemVerilog DPI, and simulator-specific regression flows.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/cvfpu-uvm",
         "https://github.com/openhwgroup/cvfpu",
@@ -219,7 +219,7 @@
       "summary": "cv32e20-dv hosts the CV32E20-specific design verification environment. Its README says it contains CV32E20-specific SystemVerilog sources plus C and assembly test-program sources, while non-core-specific verification components live under vendor libraries from core-v-verif.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/cv32e20-dv",
         "https://github.com/openhwgroup/cve2",
@@ -233,11 +233,25 @@
       "summary": "cv32e40s-dv is the design-verification environment for the CV32E40S core. Its README lists BSP, UVM environment, simulation, testbench, tests, and an `fv` directory for formal verification work.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/cv32e40s-dv",
         "https://github.com/openhwgroup/cv32e40s",
         "https://docs.openhwgroup.org/projects/cv32e40s-user-manual/en/latest/"
+      ],
+      "sourceCount": 3,
+      "confidence": 0.95
+    },
+    "cv32e40x-dv": {
+      "tagline": "cv32e40x-dv 是 CV32E40X 的专用设计验证环境，目录结构同时包含 UVM 仿真环境与 `fv` 形式验证目录。",
+      "summary": "cv32e40x-dv is the design-verification environment for the CV32E40X CORE-V processor core. Its README lists a board support package (BSP) for compiling test programs, the UVM environment class and associated infrastructure, simulation and testbench directories, the test-case tree, and an `fv` directory where formal verification is run.",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-07-08",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cv32e40x-dv",
+        "https://github.com/openhwgroup/cv32e40x",
+        "https://docs.openhwgroup.org/projects/cv32e40x-user-manual/en/latest/"
       ],
       "sourceCount": 3,
       "confidence": 0.95
@@ -247,7 +261,7 @@
       "summary": "CORE-V MCU is OpenHW's standalone MCU/SoC platform based around CORE-V embedded-class cores, originating from PULPissimo and targeting ASIC and FPGA implementations of CV32E40P. The README points to pre-built FPGA bitstreams, Nexys A7 and Genesys2 flows, and JTAG/debug infrastructure.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/core-v-mcu",
         "https://core-v-mcu.readthedocs.io/en/latest/",
@@ -263,7 +277,7 @@
       "summary": "CORE-V MCU DevKit hosts the open-source artifacts for the CORE-V MCU development kit. The README describes an evaluation platform for the OpenHW CV32E40P core with CORE-V MCU, QuickLogic ArcticPro2 embedded FPGA, 4 MB flash, onboard Ashling Opella LD JTAG/debugger, mikroBUS, camera, LEDs, and AWS IoT ExpressLink connectivity.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/core-v-mcu-devkit",
         "https://github.com/openhwgroup/core-v-mcu",
@@ -278,7 +292,7 @@
       "summary": "CVA6-Safe is a CVA6-based dual-core lockstep subsystem with cache error detection/correction and a split-mode capability for dual-core asymmetric multiprocessing. Its README notes that more detailed design documentation is still TODO, so OpenHW Explorer treats it as experimental.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/cva6-safe",
         "https://github.com/openhwgroup/cva6"
@@ -291,7 +305,7 @@
       "summary": "CORE-V Polara APU is a multicore RISC-V vector research platform originating from Ara and OpenPiton. Its README describes four RISC-V vector cores connected using the OpenPiton platform, with simulation flows that require a RISC-V LLVM compiler with vector extension support.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/core-v-polara-apu",
         "https://github.com/pulp-platform/ara",
@@ -302,12 +316,56 @@
       "sourceCount": 5,
       "confidence": 0.95
     },
+    "core-et": {
+      "tagline": "CORE-ET 现以 ETASP（Agentic Silicon Platform）形式推进：由 Ainekko 发起，用 agentic 工作流把原 CORE-ET many-core RTL 翻译为干净的 SystemVerilog IP 目录；原始 RTL 与文档保留在 erbium 分支。",
+      "summary": "CORE-ET hosts the CORE-ET Agentic Silicon Platform (ETASP), an Ainekko project that collects hardware IP in a form that can be translated, verified, documented, and integrated by agentic hardware-development workflows. It is currently seeded by an active translation of the original CORE-ET modules into lowRISC-style SystemVerilog with per-IP documentation, technology primitives for FPGA and ASIC targets, and Verilator-based unit tests plus co-simulation against the original source tree; the original CORE-ET RTL and its microarchitecture documentation are preserved on the erbium branch.",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-07-08",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/core-et",
+        "https://github.com/openhwgroup/core-et/tree/erbium",
+        "https://github.com/openhwgroup/core-et-erbium",
+        "https://openhwfoundation.org/our-work/projects/"
+      ],
+      "sourceCount": 4,
+      "confidence": 0.95
+    },
+    "cva6-platform": {
+      "tagline": "cva6-platform 是\"多核 CVA6 + CV-MESH\"的软件测试/回归平台，基于 OpenPiton 构建，提供 Genesys II 预编译 bitstream 与 Fedora 镜像快速上手。",
+      "summary": "CVA6 Platform is a multi-core CVA6 system with CV-MESH intended for software testing and regression. Its README provides pre-built Genesys II bitstreams and a Fedora image for a quick start, plus OpenPiton-based build instructions covering bitstream compilation, OpenSBI firmware payload generation, and Linux image builds.",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-07-08",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cva6-platform",
+        "https://github.com/openhwgroup/cva6",
+        "https://github.com/openhwgroup/cv-mesh",
+        "https://parallel.princeton.edu/openpiton/"
+      ],
+      "sourceCount": 4,
+      "confidence": 0.95
+    },
+    "cva6-dcls": {
+      "tagline": "cva6-dcls 是 CVA6 的 Dual-Core Lock-Step 平台仓库；README 目前只有 \"Under construction...\"，站内按早期实验项目处理。",
+      "summary": "cva6-dcls is a dual-core lock-step (DCLS) platform for the CVA6 RISC-V processor core. Its README is currently a placeholder marked \"Under construction...\", so OpenHW Explorer treats it as an early-stage experimental project alongside the related CVA6-Safe lockstep subsystem.",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-07-08",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cva6-dcls",
+        "https://github.com/openhwgroup/cva6-safe",
+        "https://github.com/openhwgroup/cva6"
+      ],
+      "sourceCount": 3,
+      "confidence": 0.95
+    },
     "cvfpu": {
       "tagline": "CVFPU/FPnew 是可参数化 floating-point unit；README 写的是 aims to be IEEE 754-2008 compliant，不能直接写成完全符合。",
       "summary": "CVFPU, also known as FPnew, is a parametric SystemVerilog floating-point unit supporting standard RISC-V formats and transprecision formats. Its README says the design aims to be IEEE 754-2008 compliant and explicitly notes known compliance caveats for the PULP DivSqrt unit.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/cvfpu",
         "https://github.com/openhwgroup/cvfpu/blob/develop/CITATION.cff",
@@ -322,7 +380,7 @@
       "summary": "CV-HPDCache is an open-source high-performance, multi-requester, out-of-order L1 data cache for RISC-V cores and accelerators. Its README describes support for multiple outstanding memory requests, write-through/write-back policies, RISC-V CMOs, AMOs, standalone testbenches, and CVA6 integration.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/cv-hpdcache",
         "https://openhw-group-cv-hpdcache.readthedocs-hosted.com/",
@@ -335,10 +393,10 @@
     },
     "core-v-xif": {
       "tagline": "CV-X-IF 是 OpenHW 的 RISC-V extension interface specification，用于自定义协处理器/ISA 扩展接入。",
-      "summary": "CV-X-IF, the CORE-V eXtension Interface, is a RISC-V extension interface specification for integrating custom coprocessors and ISA extensions with existing RISC-V processors. The repository contains the specification sources and SystemVerilog-oriented interface material.",
+      "summary": "CV-X-IF, the CORE-V eXtension Interface, is a RISC-V eXtension interface specification that provides a generalized framework for implementing custom coprocessors and ISA extensions for existing RISC-V processors, featuring independent channels for accelerator-agnostic instruction offloading and result writeback. The repository contains the specification sources, versioned through git tags using semantic versioning.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/core-v-xif",
         "https://docs.openhwgroup.org/projects/openhw-group-core-v-xif/",
@@ -349,14 +407,28 @@
     },
     "cv-mesh": {
       "tagline": "CV-MESH 是与 OpenPiton coherency framework 相关的早期 interconnect/NoC 资料仓库，公开顶层文档较少。",
-      "summary": "CV-MESH is an early-stage OpenHW interconnect repository associated with a CV-MESH coherency framework based on OpenPiton. The public repository currently exposes Verilog/RTL-oriented directories for bridges, L1/L2 cache interfaces, and NoC-related blocks, but it has limited top-level public documentation.",
+      "summary": "CV-MESH is an early-stage OpenHW interconnect repository related to the CV-MESH coherency framework, which OpenHW's official project table describes as a coherency framework based on OpenPiton. The public repository has no top-level README and currently exposes RTL directories for bridges, an L1.5 cache, an L2 cache, and NoC components.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/cv-mesh",
         "https://github.com/openhwgroup/.github/blob/main/profile/README.md",
         "https://parallel.princeton.edu/openpiton/"
+      ],
+      "sourceCount": 3,
+      "confidence": 0.95
+    },
+    "obi": {
+      "tagline": "obi 是 OpenBus Interface (OBI) 规范的维护仓库；OBI 是 CORE-V 核心（如 CV32E40P/CVE2）指令与数据接口使用的总线协议。",
+      "summary": "obi is the repository that maintains the OpenBus Interface (OBI) specification. OBI is the bus protocol used by CORE-V cores such as CV32E40P and CV32E20 for their instruction and data memory interfaces, and OBI agents appear throughout the CORE-V verification environments.",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-07-08",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/obi",
+        "https://docs.openhwgroup.org/projects/cv32e40p-user-manual/",
+        "https://github.com/openhwgroup/cv32e20-dv"
       ],
       "sourceCount": 3,
       "confidence": 0.95
@@ -366,7 +438,7 @@
       "summary": "corev-gcc is OpenHW's GCC fork for CORE-V GNU toolchain development. The repository default branch is `development`, and OpenHW's project table groups it under CORE-V GNU Tools for embedded-class CORE-V cores; it should be presented as a staging/development fork rather than the upstream GCC project.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/corev-gcc",
         "https://github.com/openhwgroup/.github/blob/main/profile/README.md",
@@ -380,7 +452,7 @@
       "summary": "corev-binutils-gdb is OpenHW's CORE-V Binutils/GDB development repository before upstream submission. Its README explicitly says it is not the official Binutils repository and that the `development` branch tracks upstream Binutils while incorporating CORE-V changes.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/corev-binutils-gdb",
         "https://github.com/openhwgroup/.github/blob/main/profile/README.md",
@@ -394,7 +466,7 @@
       "summary": "corev-llvm-project is OpenHW's CORE-V Clang/LLVM development fork before upstream submission. Its README states that it is not the standard LLVM Foundation distribution and describes a `development` branch tracking upstream LLVM with CORE-V changes plus an optional tested `stable` branch.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/corev-llvm-project",
         "https://github.com/openhwgroup/.github/blob/main/profile/README.md",
@@ -408,7 +480,7 @@
       "summary": "CORE-V SDK is a quick-start SDK and IDE package for CORE-V development. Its README supports Windows 10/11 and x86 Linux distributions such as Red Hat 7.9/8.4 and Ubuntu 18.04/20.04, and includes sample import, build, debug, CSR/register views, and FreeRTOS task-monitoring workflows.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/core-v-sdk",
         "https://github.com/openhwgroup/.github/blob/main/profile/README.md"
@@ -421,7 +493,7 @@
       "summary": "core-v-freertos provides FreeRTOS and drivers for real-time application development on CORE-V MCU. Its README includes demos, environment files, kernel code with PULP-specific patches, no-RTOS examples, templates, tests, and flows for RTL simulation and virtual platform simulation.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/core-v-freertos",
         "https://github.com/openhwgroup/core-v-mcu",
@@ -433,15 +505,82 @@
     },
     "core-v-freertos-kernel": {
       "tagline": "core-v-freertos-kernel 是 FreeRTOS kernel source/header 和 ports 层，作为 CORE-V FreeRTOS 生态的内核基础。",
-      "summary": "core-v-freertos-kernel contains FreeRTOS kernel source and header files plus kernel ports. Its README follows the FreeRTOS Kernel structure, with common files such as list.c, queue.c, and tasks.c, and points users to the FreeRTOS Kernel Quick Start Guide for application development.",
+      "summary": "core-v-freertos-kernel contains the FreeRTOS kernel source for CORE-V targets. Its README describes the standard FreeRTOS kernel layout: the core kernel contained in list.c, queue.c, and tasks.c, optional co-routine support in croutine.c, a Portable directory for microcontroller- and compiler-specific port files, and an include directory for the kernel headers.",
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-05-07",
+      "verifiedAt": "2026-07-08",
       "sourceUrls": [
         "https://github.com/openhwgroup/core-v-freertos-kernel",
-        "https://www.freertos.org/FreeRTOS-quick-start-guide.html",
         "https://www.freertos.org/",
         "https://github.com/openhwgroup/.github/blob/main/profile/README.md"
+      ],
+      "sourceCount": 3,
+      "confidence": 0.95
+    },
+    "cva6-sdk": {
+      "tagline": "cva6-sdk 是为 CVA6 构建可启动 Linux 镜像的工具集合：RISC-V toolchain、OpenSBI、U-Boot、Linux kernel 与 Buildroot rootfs，输出可直接烧录的 SD 卡镜像。",
+      "summary": "CVA6 SDK houses the RISC-V tools used to build a bootable Linux image for the CVA6 core: a RISC-V toolchain, OpenSBI, U-Boot with a corresponding device tree, the Linux kernel, and an initramfs including the rootfs. It produces ready-to-flash SD card images, supports both 32-bit and 64-bit builds via an XLEN switch, and has been designed and tested for the Digilent Genesys 2 and Altera Agilex 7 FPGA boards.",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-07-08",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/cva6-sdk",
+        "https://github.com/openhwgroup/cva6"
+      ],
+      "sourceCount": 2,
+      "confidence": 0.9
+    },
+    "meta-cva6-yocto": {
+      "tagline": "meta-cva6-yocto 是为 CVA6 构建嵌入式 Linux 镜像的 Yocto layer，提供 Genesys 2 与 Agilex 7 板卡上 32/64-bit CVA6 的 machine 定义。",
+      "summary": "meta-cva6-yocto is a Yocto layer for building embedded Linux images for the CVA6 core. It depends on openembedded-core, BitBake, and the meta-riscv layer, and provides machine definitions for CVA6 targets on the Digilent Genesys 2 and Altera Agilex 7 FPGA boards in both 32-bit (cv32a6) and 64-bit (cv64a6) configurations.",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-07-08",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/meta-cva6-yocto",
+        "https://github.com/openhwgroup/cva6",
+        "https://github.com/riscv/meta-riscv"
+      ],
+      "sourceCount": 3,
+      "confidence": 0.95
+    },
+    "core-v-cores": {
+      "tagline": "core-v-cores 是 CORE-V 家族的总览/路线仓库：介绍各家族成员并链接到各自仓库，维护 CORE-V 命名规则、发布（RTL Freeze）规则与 mvendorid/marchid/mimpid 分配表。",
+      "summary": "core-v-cores is the landing repository for the CORE-V family of open-source RISC-V cores curated by the OpenHW Foundation. It describes each family member (CVA6, CVW/Wally, the CVE4 family, CVE2, and CVA5) with links to their dedicated repositories, and documents CORE-V device naming, release and RTL-freeze rules, and the assigned mvendorid/marchid/mimpid CSR values for released cores.",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-07-08",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/core-v-cores",
+        "https://github.com/openhwgroup/.github/blob/main/profile/README.md"
+      ],
+      "sourceCount": 2,
+      "confidence": 0.9
+    },
+    "programs": {
+      "tagline": "programs 是 OpenHW 全部项目的项目级/治理文档仓库：TWG 与各 Task Group 会议纪要、每个项目的 gate 材料、项目 dashboard 与流程模板。",
+      "summary": "programs hosts program- and project-level documentation for all OpenHW projects, including the CORE-V RISC-V cores. It contains Technical Working Group and Task Group meeting minutes and reports, per-project gate materials (Project Concept, Project Launch, Plan Approve, and Project Freeze), the OpenHW project dashboard linked from the OpenHW website, and process and template documents such as gate and RTL Freeze templates.",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-07-08",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/programs",
+        "https://github.com/openhwgroup/core-v-sw"
+      ],
+      "sourceCount": 2,
+      "confidence": 0.9
+    },
+    "uap": {
+      "tagline": "UAP 是 European Unified RISC-V IP Access Platform：把 TRISTAN、ISOLDE 等欧洲研究项目产出的 RISC-V IP 统一编目、文档化的静态入口平台，EPL-2.0 许可。",
+      "summary": "UAP is the European Unified RISC-V IP Access Platform, a structured and expandable entry point that catalogues, documents, and promotes RISC-V IP assets initially developed in European research projects such as TRISTAN and ISOLDE. It acts as a static unified access page pointing to repositories hosted on the OpenHW Foundation GitHub, with automatic mirroring to a European-hosted GitLab instance, and is published under the Eclipse Public License 2.0.",
+      "reviewStatus": "reviewed",
+      "sourceTier": "official",
+      "verifiedAt": "2026-07-08",
+      "sourceUrls": [
+        "https://github.com/openhwgroup/uap",
+        "https://openhwgroup.github.io/uap/unified-access.html",
+        "https://openhwfoundation.org/our-work/projects/",
+        "https://tristan-project.eu/"
       ],
       "sourceCount": 4,
       "confidence": 0.95

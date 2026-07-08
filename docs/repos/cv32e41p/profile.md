@@ -2,7 +2,7 @@
 
 > CV32E41P 是基于 CV32E40P 的 Zfinx/Zce 原型核心，GitHub 仓库已归档，OpenHW 官方项目表列为 completed。
 
-数据核对日期: 2026-05-07
+数据核对日期: 2026-07-08
 
 ## Public summary
 

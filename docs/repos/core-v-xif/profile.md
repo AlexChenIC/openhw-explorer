@@ -2,11 +2,11 @@
 
 > CV-X-IF 是 OpenHW 的 RISC-V extension interface specification，用于自定义协处理器/ISA 扩展接入。
 
-数据核对日期: 2026-05-07
+数据核对日期: 2026-07-08
 
 ## Public summary
 
-CV-X-IF, the CORE-V eXtension Interface, is a RISC-V extension interface specification for integrating custom coprocessors and ISA extensions with existing RISC-V processors. The repository contains the specification sources and SystemVerilog-oriented interface material.
+CV-X-IF, the CORE-V eXtension Interface, is a RISC-V eXtension interface specification that provides a generalized framework for implementing custom coprocessors and ISA extensions for existing RISC-V processors, featuring independent channels for accelerator-agnostic instruction offloading and result writeback. The repository contains the specification sources, versioned through git tags using semantic versioning.
 
 ## 项目概述
 

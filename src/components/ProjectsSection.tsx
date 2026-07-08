@@ -28,7 +28,6 @@ const userRoles: UserRole[] = ["browsing", "student", "engineer", "researcher", 
 const coreTypes: CoreType[] = [
   "embedded-mcu",
   "linux-application",
-  "high-performance",
   "low-power",
   "safety-critical",
 ];
@@ -36,8 +35,7 @@ const verificationTypes: VerificationType[] = [
   "uvm-testbench",
   "formal-verification",
   "arch-compliance",
-  "force-riscv",
-  "industrial-grade",
+  "test-generation",
 ];
 
 function toCategory(value: string | null): ProjectCategory | "all" {

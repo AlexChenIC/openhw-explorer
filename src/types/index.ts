@@ -14,21 +14,16 @@ export type ProjectCategory =
   | "soc"
   | "ip";
 
-// Core types for detailed filtering
-export type CoreType =
-  | "embedded-mcu"
-  | "linux-application"
-  | "high-performance"
-  | "low-power"
-  | "safety-critical";
+// Core types for detailed filtering.
+// Aligned with OpenHW's official embedded-class / application-class terminology.
+export type CoreType = "embedded-mcu" | "linux-application" | "low-power" | "safety-critical";
 
 // Verification types
 export type VerificationType =
   | "uvm-testbench"
   | "formal-verification"
   | "arch-compliance"
-  | "force-riscv"
-  | "industrial-grade";
+  | "test-generation";
 
 // Project status
 export type ProjectStatus =

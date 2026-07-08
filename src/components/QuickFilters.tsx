@@ -127,6 +127,8 @@ export function QuickFilters({
         return tf("ip");
       case "tools":
         return tf("tools");
+      case "docs":
+        return tf("docs");
       case "learning":
         return tf("learning");
       case "sdk":
@@ -176,8 +178,6 @@ export function QuickFilters({
         return tf("coreTypes.embedded-mcu");
       case "linux-application":
         return tf("coreTypes.linux-application");
-      case "high-performance":
-        return tf("coreTypes.high-performance");
       case "low-power":
         return tf("coreTypes.low-power");
       case "safety-critical":
@@ -193,10 +193,8 @@ export function QuickFilters({
         return tf("verificationTypes.formal-verification");
       case "arch-compliance":
         return tf("verificationTypes.arch-compliance");
-      case "force-riscv":
-        return tf("verificationTypes.force-riscv");
-      case "industrial-grade":
-        return tf("verificationTypes.industrial-grade");
+      case "test-generation":
+        return tf("verificationTypes.test-generation");
     }
   };
 

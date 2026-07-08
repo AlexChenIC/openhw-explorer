@@ -2,7 +2,7 @@
 
 > CV32E40S 是基于 CV32E40P 演进的 4-stage security-focused embedded-class CORE-V 核心。
 
-数据核对日期: 2026-05-07
+数据核对日期: 2026-07-08
 
 ## Public summary
 
