@@ -442,6 +442,10 @@ export function PublishedClassroomPlayer({
 
   if (!scene) return null;
 
+  const reviewNotice = zh
+    ? "社区教学内容，未经 OpenHW Foundation 官方审校；技术细节以官方文档为准。"
+    : "Community teaching content, not reviewed by the OpenHW Foundation; refer to official docs for authoritative details.";
+
   return (
     <div
       ref={playerRef}
@@ -453,6 +457,9 @@ export function PublishedClassroomPlayer({
           : ""
       }`}
     >
+      <p className="border-b border-amber-300/40 bg-amber-500/10 px-4 py-1.5 text-[11px] leading-relaxed text-amber-700 dark:text-amber-300">
+        {reviewNotice}
+      </p>
       <div className="flex flex-col gap-3 border-b border-[var(--border)] bg-[var(--bg-subtle)] px-4 py-3 lg:flex-row lg:items-center lg:justify-between">
         <div className="flex flex-wrap items-center gap-3 text-sm text-[var(--text-secondary)]">
           <span className="inline-flex items-center gap-2 font-semibold text-[var(--text-primary)]">

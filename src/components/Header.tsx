@@ -1,10 +1,11 @@
 "use client";
 
 import { useState } from "react";
-import { Github, Menu, X, Sun, Moon } from "lucide-react";
+import { Github, Menu, X, Sun, Moon, PawPrint } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, useRouter, usePathname } from "@/lib/routing";
 import { useTheme } from "@/lib/theme";
+import { useFunMode } from "@/lib/fun-mode";
 import { features } from "@/lib/features";
 import { BrandLockup } from "@/components/BrandMark";
 
@@ -14,6 +15,7 @@ export function Header() {
   const router = useRouter();
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
+  const { funMode, toggleFunMode } = useFunMode();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const switchLocale = (newLocale: "en" | "zh") => {
@@ -108,6 +110,23 @@ export function Header() {
             ) : (
               <Moon className="w-4 h-4 text-[var(--text-primary)]" />
             )}
+          </button>
+
+          {/* Fun mode toggle */}
+          <button
+            onClick={toggleFunMode}
+            aria-pressed={funMode}
+            aria-label={funMode ? t("aria.disableFunMode") : t("aria.enableFunMode")}
+            title={funMode ? t("aria.disableFunMode") : t("aria.enableFunMode")}
+            className={`rounded-lg border p-1.5 transition-all sm:p-2 ${
+              funMode
+                ? "border-[var(--primary)] bg-[var(--primary)]/10"
+                : "border-[var(--border)] bg-[var(--bg-card)] hover:bg-[var(--bg-card-hover)] hover:border-[var(--text-tertiary)]"
+            }`}
+          >
+            <PawPrint
+              className={`w-4 h-4 ${funMode ? "text-[var(--primary)]" : "text-[var(--text-primary)]"}`}
+            />
           </button>
 
           {/* GitHub button - desktop */}

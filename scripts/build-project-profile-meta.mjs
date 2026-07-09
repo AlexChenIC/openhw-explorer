@@ -126,6 +126,31 @@ function computeConfidence(reviewStatus, sourceTier, urlCount) {
   return 0.75;
 }
 
+function extractBullets(section) {
+  return section
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => line.startsWith("- ") || line.startsWith("* "))
+    .map((line) => line.replace(/^[-*]\s+/, "").trim())
+    .filter(Boolean);
+}
+
+// Parse "- [Label](url) — optional note" bullets into structured links.
+function extractResourceLinks(section) {
+  const links = [];
+  for (const bullet of extractBullets(section)) {
+    const match = bullet.match(/^\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)\s*(?:[—-]\s*(.*))?$/);
+    if (match) {
+      links.push({
+        label: match[1].trim(),
+        url: match[2].trim(),
+        note: match[3]?.trim() || undefined,
+      });
+    }
+  }
+  return links;
+}
+
 function parseProfile(content) {
   const isTodo = /TODO: 从模板/.test(content);
   const lines = content.split(/\r?\n/);
@@ -140,6 +165,8 @@ function parseProfile(content) {
   const summary = cleanMarkdownText(
     extractSection(content, "Public summary") || extractSection(content, "站内摘要"),
   );
+  const keyFacts = extractBullets(extractSection(content, "Key facts"));
+  const furtherResources = extractResourceLinks(extractSection(content, "Further resources"));
 
   let reviewStatus = "auto";
   if (isTodo || !hasOverview) {
@@ -154,6 +181,8 @@ function parseProfile(content) {
   return {
     tagline,
     summary,
+    keyFacts,
+    furtherResources,
     reviewStatus,
     sourceTier,
     verifiedAt,
@@ -178,6 +207,8 @@ function main() {
       profiles[id] = {
         tagline: "",
         summary: "",
+        keyFacts: [],
+        furtherResources: [],
         reviewStatus: "needs-review",
         sourceTier: "community",
         verifiedAt: null,

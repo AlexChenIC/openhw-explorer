@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import {
   ArrowRight,
   BookOpen,
@@ -41,7 +41,10 @@ export async function generateMetadata({ params }: AboutPageProps): Promise<Meta
   };
 }
 
-export default function AboutPage() {
+export default async function AboutPage({ params }: AboutPageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   return (
     <div className="page-wrapper">
       <main className="relative z-10 min-h-full">
@@ -80,6 +83,22 @@ async function AboutContent() {
           </h2>
           <p className="text-[var(--text-secondary)] leading-relaxed mb-4">{t("whatIsThis.p1")}</p>
           <p className="text-[var(--text-secondary)] leading-relaxed">{t("whatIsThis.p2")}</p>
+        </section>
+
+        {/* Disclaimer */}
+        <section className="border border-amber-400/30 bg-amber-500/5 rounded-xl p-6 sm:p-8 mb-5">
+          <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-3">
+            {t("disclaimer.title")}
+          </h2>
+          <p className="text-[var(--text-secondary)] leading-relaxed">{t("disclaimer.content")}</p>
+        </section>
+
+        {/* Privacy */}
+        <section className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 sm:p-8 mb-5">
+          <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-3">
+            {t("privacy.title")}
+          </h2>
+          <p className="text-[var(--text-secondary)] leading-relaxed">{t("privacy.content")}</p>
         </section>
 
         {/* Features */}

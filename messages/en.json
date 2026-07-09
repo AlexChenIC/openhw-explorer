@@ -30,10 +30,12 @@
       "switchToEnglish": "Switch to English",
       "switchToLight": "Switch to light mode",
       "switchToDark": "Switch to dark mode",
-      "openGithub": "Open OpenHW Group GitHub",
+      "openGithub": "Open OpenHW Foundation GitHub",
       "openMenu": "Open menu",
       "closeMenu": "Close menu",
-      "mobileNavigation": "Mobile navigation"
+      "mobileNavigation": "Mobile navigation",
+      "enableFunMode": "Enable fun mode (project mascots)",
+      "disableFunMode": "Disable fun mode"
     }
   },
   "hero": {
@@ -47,11 +49,9 @@
   "projects": {
     "title": "All Projects",
     "curatedTitle": "Launch Picks",
-    "hotTitle": "Hot Projects",
     "titleByCategory": "{category} Projects",
     "found": "{count} project(s) found",
     "curatedSummary": "Picked {shown} / {total}",
-    "hotSummary": "Top {shown} / {total}",
     "noResults": "No projects found",
     "noResultsHint": "Try adjusting your filters or clearing some selections to see more projects.",
     "featured": "Featured",
@@ -70,17 +70,14 @@
     "filtersApplyInstantly": "Filters apply instantly",
     "viewModeLabel": "View",
     "viewModeCurated": "Launch picks",
-    "viewModeHot": "Hot projects",
     "viewModeAll": "All projects",
     "curatedModeHint": "Showing the manually curated launch set with stronger quality guarantees. Use filters or switch to all projects to explore every repo.",
-    "hotModeHint": "Showing the hottest projects by popularity and activity. Use filters or switch to all projects to explore everything.",
     "baseline": "Baseline",
     "baselineCardHint": "This repo profile is currently baseline-level. Details will be expanded after manual review.",
     "activeFiltersLabel": "Active filters",
     "searchChip": "Search: \"{query}\"",
     "resultsAnnouncement": "{count} project(s) match current filters",
     "curatedResultsAnnouncement": "Showing {shown} curated launch projects out of {total} total projects",
-    "hotResultsAnnouncement": "Showing top {shown} hottest projects out of {total} total projects",
     "noResultsAnnouncement": "No projects match current filters"
   },
   "filters": {
@@ -117,7 +114,7 @@
     },
     "coreTypes": {
       "embedded-mcu": "Embedded-class (MCU)",
-      "linux-application": "Application-class (Linux)",
+      "linux-application": "Application-class",
       "low-power": "Low Power",
       "safety-critical": "Security / Safety"
     },
@@ -165,7 +162,8 @@
     "madeWith": "Made with {heart} for the RISC-V community",
     "by": "AlexChen",
     "personalTagline": "OpenHW community builder · Growing the RISC-V ecosystem together",
-    "connectLinkedIn": "Say hi on LinkedIn"
+    "connectLinkedIn": "Say hi on LinkedIn",
+    "contribute": "Contribute"
   },
   "projectDetail": {
     "home": "Home",
@@ -258,20 +256,29 @@
       "noticeBody": "To protect overall launch quality, this repo currently shows a baseline summary only. We will gradually add verified deep-dive content after manual review.",
       "knowledgeLimitedTitle": "Knowledge and activity panels are staged",
       "knowledgeLimitedHint": "We will publish full research/activity details after manual validation for this repo."
+    },
+    "reportIssue": "Report an issue with this page",
+    "reportIssueTitle": "Content issue: {project}",
+    "reportIssueBody": "Project: {project}\nPage: {url}\n\nWhat looks wrong or outdated?\n\nSource for the correction (link):",
+    "atAGlance": {
+      "title": "At a glance"
+    },
+    "furtherResources": {
+      "title": "Further resources"
     }
   },
   "about": {
     "badge": "About This Project",
     "title": "About OpenHW Explorer",
-    "subtitle": "A community-built navigator for the OpenHW Group open-source hardware ecosystem.",
+    "subtitle": "A community-built navigator for the OpenHW Foundation open-source hardware ecosystem.",
     "whatIsThis": {
       "title": "What is OpenHW Explorer?",
-      "p1": "OpenHW Explorer is a community project that helps developers, students, and researchers discover and navigate OpenHW Group open-source RISC-V hardware IP projects. It provides a friendly, searchable interface across processor cores, verification tools, SoC platforms, and more.",
+      "p1": "OpenHW Explorer is a community project that helps developers, students, and researchers discover and navigate OpenHW Foundation open-source RISC-V hardware IP projects. It provides a friendly, searchable interface across processor cores, verification tools, SoC platforms, and more.",
       "p2": "Whether you're a student learning about RISC-V, an engineer evaluating cores for production, or a researcher exploring the ecosystem — this tool helps you find the right starting point."
     },
     "disclaimer": {
       "title": "Disclaimer",
-      "content": "OpenHW Explorer is an independent community project and is NOT officially affiliated with, endorsed by, or sponsored by the OpenHW Group or any of its member organizations. The original implementation and initial curation were created by AlexChen. All project data, descriptions, and statistics are collected from publicly available sources (primarily GitHub) and may not reflect the most current state. For official information, please visit openhwgroup.org."
+      "content": "OpenHW Explorer is an independent community project and is NOT officially affiliated with, endorsed by, or sponsored by the OpenHW Foundation or any of its member organizations. The original implementation and initial curation were created by AlexChen. All project data, descriptions, and statistics are collected from publicly available sources (primarily GitHub) and may not reflect the most current state. For official information, please visit openhwfoundation.org."
     },
     "features": {
       "title": "Features",
@@ -323,6 +330,10 @@
       "resourcesDesc": "If you want to learn, start with the learning center. If you are ready to contribute, read the official OpenHW docs and the target repository's rules.",
       "classroomCta": "Open Learning Hub",
       "docsCta": "Open Official Docs"
+    },
+    "privacy": {
+      "title": "Privacy",
+      "content": "OpenHW Explorer has no user accounts and collects no personal data. It uses Vercel Analytics for anonymous, aggregate page-view and error statistics, and your browser's localStorage only to remember display preferences such as the theme. No tracking cookies are set by this site, and feedback is handled entirely through GitHub Issues."
     }
   },
   "contributePage": {

@@ -5,6 +5,7 @@ import { ProjectsSection } from "@/components/ProjectsSection";
 import { ProjectRankingsSection } from "@/components/ProjectRankingsSection";
 import { ResourcesSection } from "@/components/ResourcesSection";
 import { Footer } from "@/components/Footer";
+import { setRequestLocale } from "next-intl/server";
 import { serializeJsonLd } from "@/lib/seo";
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://openhw-explorer.vercel.app";
@@ -19,7 +20,7 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
   return {
     title: "OpenHW Explorer - Navigate Open-Source RISC-V Hardware Projects",
     description:
-      "Explore OpenHW Group open-source RISC-V projects. Browse processor cores, verification tools, SoC platforms, IP components, and learning resources with smart filtering.",
+      "Explore OpenHW Foundation open-source RISC-V projects. Browse processor cores, verification tools, SoC platforms, IP components, and learning resources with smart filtering.",
     alternates: {
       canonical: `${SITE_URL}/${locale}`,
       languages: {
@@ -30,14 +31,17 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
   };
 }
 
-export default function Home() {
+export default async function Home({ params }: HomePageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebSite",
     name: "OpenHW Explorer",
     url: SITE_URL,
     description:
-      "A community-friendly navigator to explore OpenHW Group's open-source RISC-V hardware IP projects.",
+      "A community-friendly navigator to explore the OpenHW Foundation's open-source RISC-V hardware IP projects.",
     author: {
       "@type": "Person",
       name: "Alex Chen",

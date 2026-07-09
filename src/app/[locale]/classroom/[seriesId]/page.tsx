@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -48,6 +49,7 @@ export async function generateMetadata({ params }: SeriesPageProps): Promise<Met
 
 export default async function ClassroomSeriesPage({ params }: SeriesPageProps) {
   const { locale, seriesId } = await params;
+  setRequestLocale(locale);
   const series = getSeriesById(seriesId);
 
   if (!series) {

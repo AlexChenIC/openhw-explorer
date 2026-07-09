@@ -44,6 +44,7 @@ export const filterConfig: FilterConfig = {
     { id: "soc", label: "SoC & Subsystem", icon: "CircuitBoard" },
     { id: "ip", label: "IP Components", icon: "Puzzle" },
     { id: "tools", label: "Tools & SDKs", icon: "Wrench" },
+    { id: "sdk", label: "SDK/Software", icon: "Package" },
     { id: "docs", label: "Documentation", icon: "FileText" },
     { id: "learning", label: "Learning-friendly", icon: "BookOpen" },
   ],
@@ -52,7 +53,7 @@ export const filterConfig: FilterConfig = {
   // Aligned with OpenHW's official embedded-class / application-class terminology.
   coreTypes: [
     { id: "embedded-mcu", label: "Embedded-class (MCU)" },
-    { id: "linux-application", label: "Application-class (Linux)" },
+    { id: "linux-application", label: "Application-class" },
     { id: "low-power", label: "Low Power" },
     { id: "safety-critical", label: "Security / Safety" },
   ],

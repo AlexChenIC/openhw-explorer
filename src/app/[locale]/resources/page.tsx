@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ResourceDirectoryContent } from "@/components/ResourceDirectoryContent";
@@ -42,6 +43,7 @@ export async function generateMetadata({ params }: ResourcesPageProps): Promise<
 
 export default async function ResourcesPage({ params }: ResourcesPageProps) {
   const { locale } = await params;
+  setRequestLocale(locale);
 
   return (
     <div className="page-wrapper">

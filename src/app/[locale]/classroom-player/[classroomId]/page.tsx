@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
@@ -61,6 +62,7 @@ export async function generateMetadata({ params }: ClassroomPlayerPageProps): Pr
 
 export default async function ClassroomPlayerPage({ params }: ClassroomPlayerPageProps) {
   const { locale, classroomId } = await params;
+  setRequestLocale(locale);
   const resolvedLocale = locale === "zh" ? "zh" : "en";
   const classroom = getPublishedClassroom(classroomId);
 

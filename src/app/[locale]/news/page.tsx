@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { getTranslations } from "next-intl/server";
+import { getTranslations, setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -59,7 +59,10 @@ export async function generateMetadata({ params }: NewsPageProps): Promise<Metad
   };
 }
 
-export default function NewsPage() {
+export default async function NewsPage({ params }: NewsPageProps) {
+  const { locale } = await params;
+  setRequestLocale(locale);
+
   if (!features.newsEnabled) {
     notFound();
   }

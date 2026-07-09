@@ -22,4 +22,3 @@ README 明确写到该项目 aims to bring OpenHW Group's CORE-V MCU Project to 
 
 - https://github.com/openhwgroup/core-v-mcu-uvm
 - https://docs.openhwgroup.org/projects/core-v-mcu/index.html
-- https://mio-cli.readthedocs.io/en/latest/

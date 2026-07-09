@@ -275,9 +275,7 @@ function getValidDate(dateStr: string) {
 }
 
 function getReferenceTimeMs() {
-  return (
-    getValidDate(digest.generatedAt)?.getTime() ?? getValidDate(digest.weekOf)?.getTime() ?? 0
-  );
+  return getValidDate(digest.generatedAt)?.getTime() ?? getValidDate(digest.weekOf)?.getTime() ?? 0;
 }
 
 function daysSince(dateStr: string) {

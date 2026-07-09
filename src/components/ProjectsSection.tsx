@@ -25,12 +25,7 @@ const projectCategories: ProjectCategory[] = [
 ];
 
 const userRoles: UserRole[] = ["browsing", "student", "engineer", "researcher", "contributor"];
-const coreTypes: CoreType[] = [
-  "embedded-mcu",
-  "linux-application",
-  "low-power",
-  "safety-critical",
-];
+const coreTypes: CoreType[] = ["embedded-mcu", "linux-application", "low-power", "safety-critical"];
 const verificationTypes: VerificationType[] = [
   "uvm-testbench",
   "formal-verification",

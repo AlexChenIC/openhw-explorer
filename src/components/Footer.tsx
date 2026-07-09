@@ -1,8 +1,9 @@
 "use client";
 
-import { Github, ExternalLink, Heart, Linkedin } from "lucide-react";
+import { Github, ExternalLink, Heart, Linkedin, GitPullRequest } from "lucide-react";
 import { useTranslations } from "next-intl";
-import { externalLinks } from "@/data/resources";
+import { Link } from "@/lib/routing";
+import { externalLinks } from "@/data/external-links";
 import { BrandLockup } from "@/components/BrandMark";
 
 export function Footer() {
@@ -22,6 +23,13 @@ export function Footer() {
 
             {/* Links */}
             <div className="flex flex-wrap items-center gap-4 sm:gap-6">
+              <Link
+                href="/contribute"
+                className="flex items-center gap-1.5 text-[13px] text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors"
+              >
+                <GitPullRequest className="w-4 h-4" />
+                <span>{t("contribute")}</span>
+              </Link>
               <a
                 href={externalLinks.github}
                 target="_blank"

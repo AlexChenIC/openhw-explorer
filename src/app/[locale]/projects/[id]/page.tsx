@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
 import { projects, getProjectById, getRelatedProjects, getGitHubStats } from "@/data/projects";
 import { ProjectDetail } from "@/components/ProjectDetail";
@@ -53,6 +54,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
 
 export default async function ProjectPage({ params }: Props) {
   const { id, locale } = await params;
+  setRequestLocale(locale);
 
   const project = getProjectById(id);
   if (!project) notFound();
@@ -83,8 +85,8 @@ export default async function ProjectPage({ params }: Props) {
     },
     about: {
       "@type": "Organization",
-      name: "OpenHW Group",
-      url: "https://www.openhwgroup.org/",
+      name: "OpenHW Foundation",
+      url: "https://openhwfoundation.org/",
     },
     isBasedOn: project.github || undefined,
   };

@@ -46,22 +46,14 @@ export const resources: Resource[] = [
     title: "Community Links",
     description: "Forums, mailing lists, and community resources for OpenHW developers.",
     category: "community",
-    url: "https://www.openhwgroup.org/",
+    url: "https://openhwfoundation.org/",
     icon: "Users",
     featured: true,
   },
 ];
 
-// External links
-export const externalLinks = {
-  projectGithub: "https://github.com/AlexChenIC/openhw-explorer",
-  feedbackIssues: "https://github.com/AlexChenIC/openhw-explorer/issues/new",
-  github: "https://github.com/openhwgroup",
-  website: "https://www.openhwgroup.org/",
-  docs: "https://docs.openhwgroup.org/",
-  linkedin: "https://www.linkedin.com/in/junchaocheneu/",
-  riscv: "https://riscv.org/",
-};
+// External links (moved to a lightweight module; re-exported for compatibility)
+export { externalLinks } from "./external-links";
 
 export type LocalizedText = {
   en: string;
@@ -343,7 +335,7 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
   {
     id: "riscv-green-card",
     title: "RISC-V Green Card",
-    url: "https://www.riscvbook.com/",
+    url: "https://web.archive.org/web/2024/http://riscvbook.com/greencard-20181213.pdf",
     category: "specifications",
     kind: "learning",
     summary: {
@@ -488,7 +480,7 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
   {
     id: "riscv-reader",
     title: "The RISC-V Reader",
-    url: "http://riscvbook.com/",
+    url: "https://www.amazon.com/RISC-V-Reader-Open-Architecture-Atlas/dp/0999249118",
     category: "learning",
     kind: "learning",
     summary: {
@@ -922,7 +914,7 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
   {
     id: "gtkwave",
     title: "GTKWave",
-    url: "https://gtkwave.sourceforge.net/",
+    url: "https://gtkwave.github.io/gtkwave/",
     category: "verification-tools",
     kind: "tool",
     summary: {

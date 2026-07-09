@@ -23,9 +23,9 @@ const copy = {
     minutes: "min",
     slides: "slides",
     quiz: "quiz",
-    notesTitle: "Before public release",
+    notesTitle: "Community teaching content",
     notes:
-      "This page validates the final publishing shape. Production lessons should be reviewed from the editable lesson package before being marked as public.",
+      "This lesson is community-curated from publicly available OpenHW materials and has not been reviewed or endorsed by the OpenHW Foundation. For authoritative technical details, always refer to the official documentation at docs.openhwgroup.org.",
   },
   zh: {
     back: "返回课程系列",
@@ -36,9 +36,9 @@ const copy = {
     minutes: "分钟",
     slides: "页 slide",
     quiz: "题 quiz",
-    notesTitle: "正式发布前",
+    notesTitle: "社区教学内容",
     notes:
-      "这个页面用于验证最终发布形态。正式课程应该先从可编辑 lesson package 完成审稿，再标记为公开发布。",
+      "本课程由社区基于 OpenHW 公开资料整理，尚未经 OpenHW Foundation 官方审校或背书。技术细节请以 docs.openhwgroup.org 官方文档为准。",
   },
 } as const;
 

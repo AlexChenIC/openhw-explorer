@@ -35,6 +35,8 @@ const githubStats: Record<string, GitHubRepoStats> = rawData.repos || {};
 interface ProjectProfileMeta {
   tagline: string;
   summary?: string;
+  keyFacts?: string[];
+  furtherResources?: { label: string; url: string; note?: string }[];
   reviewStatus: ReviewStatus;
   sourceTier: SourceTier;
   verifiedAt: string | null;
@@ -79,7 +81,10 @@ const verifiedClassification: Record<string, VerifiedClassification> = {
   cv32e40s: { category: ["core"], coreType: ["embedded-mcu", "safety-critical"] },
   cva5: { category: ["core"], coreType: ["linux-application"] },
   cve2: { category: ["core"], coreType: ["embedded-mcu", "low-power"] },
-  cv32e41p: { category: ["core"], coreType: ["embedded-mcu", "safety-critical"] },
+  // Note: the GitHub repo description says "secure" but that is an upstream
+  // copy-paste error from cv32e40s; README and the official project table
+  // describe CV32E41P purely as a Zfinx/Zce prototype with no security features.
+  cv32e41p: { category: ["core"], coreType: ["embedded-mcu"] },
 
   "core-v-verif": {
     category: ["verification"],
@@ -91,8 +96,14 @@ const verifiedClassification: Record<string, VerifiedClassification> = {
   "cvw-arch-verif": { category: ["verification"], verificationType: ["arch-compliance"] },
   "cvfpu-uvm": { category: ["verification"], verificationType: ["uvm-testbench"] },
   "cv32e20-dv": { category: ["verification"], verificationType: ["uvm-testbench"] },
-  "cv32e40s-dv": { category: ["verification"], verificationType: ["uvm-testbench", "formal-verification"] },
-  "cv32e40x-dv": { category: ["verification"], verificationType: ["uvm-testbench", "formal-verification"] },
+  "cv32e40s-dv": {
+    category: ["verification"],
+    verificationType: ["uvm-testbench", "formal-verification"],
+  },
+  "cv32e40x-dv": {
+    category: ["verification"],
+    verificationType: ["uvm-testbench", "formal-verification"],
+  },
 
   "core-v-mcu": { category: ["soc"] },
   "core-v-mcu-devkit": { category: ["soc", "tools"] },
@@ -119,7 +130,9 @@ const verifiedClassification: Record<string, VerifiedClassification> = {
 
   "core-v-cores": { category: ["docs"] },
   programs: { category: ["docs"] },
-  uap: { category: ["docs"] },
+  // UAP is a catalogue platform, but users looking for IP should discover it,
+  // so it is classified by user task (ip) first, nature (docs) second.
+  uap: { category: ["ip", "docs"] },
 };
 
 const repoTagHints: Record<string, string[]> = {
@@ -176,6 +189,8 @@ const categoryTagLabel: Record<ProjectCategory, string> = {
   ip: "IP",
 };
 
+// "linux-application" keeps its id for URL stability, but the label avoids
+// promising Linux for every application-class core (CVA5 has no MMU story).
 const coreTypeTagLabel: Record<CoreType, string> = {
   "embedded-mcu": "Embedded-class",
   "linux-application": "Application-class",
@@ -397,7 +412,7 @@ export const projects: Project[] = [
     description:
       "CV32E41P is an archived 32-bit, 4-stage in-order embedded-class CORE-V prototype derived from CV32E40P to evaluate RISC-V Zfinx and Zce extension work together with Xpulp custom extensions.",
     category: ["core"],
-    coreType: ["embedded-mcu", "safety-critical"],
+    coreType: ["embedded-mcu"],
     tags: ["RISC-V", "SystemVerilog", "Zfinx", "Zce", "Prototype"],
     status: "archived",
     github: "https://github.com/openhwgroup/cv32e41p",
@@ -510,7 +525,7 @@ export const projects: Project[] = [
     id: "cv32e20-dv",
     name: "CV32E20 Design Verification",
     description:
-      "CV32E20-DV is the dedicated verification environment for the CV32E20 (CVE2) processor core, providing UVM-based testbenches, a board support package (BSP), OBI agent, and C and assembly test programs. Non-core-specific components such as the OBI Agent are maintained separately in vendor libraries, and the environment integrates with OpenHW Group's shared verification infrastructure.",
+      "CV32E20-DV is the dedicated verification environment for the CV32E20 (CVE2) processor core, providing UVM-based testbenches, a board support package (BSP), OBI agent, and C and assembly test programs. Non-core-specific components such as the OBI Agent are maintained separately in vendor libraries, and the environment integrates with the OpenHW Foundation's shared verification infrastructure.",
     category: ["verification"],
     verificationType: ["uvm-testbench"],
     tags: ["Verification", "Assembly", "CVE2", "DV"],
@@ -745,7 +760,7 @@ export const projects: Project[] = [
     id: "corev-gcc",
     name: "CORE-V GCC",
     description:
-      "CORE-V GCC is OpenHW Group's fork of the GNU Compiler Collection (GCC), maintained as a staging ground for CORE-V-specific compiler features and extensions before or during upstream contribution. It supports the full CORE-V toolchain development cycle and is tracked against upstream GCC with CORE-V modifications applied.",
+      "CORE-V GCC is the OpenHW Foundation's fork of the GNU Compiler Collection (GCC), maintained as a staging ground for CORE-V-specific compiler features and extensions before or during upstream contribution. It supports the full CORE-V toolchain development cycle and is tracked against upstream GCC with CORE-V modifications applied.",
     category: ["tools"],
     tags: ["GCC", "Compiler", "Toolchain", "CORE-V Extensions"],
     status: "inactive",
@@ -760,7 +775,7 @@ export const projects: Project[] = [
     id: "corev-binutils-gdb",
     name: "CORE-V Binutils & GDB",
     description:
-      "CORE-V Binutils & GDB is OpenHW Group's staging fork of GNU Binutils and GDB for CORE-V-specific modifications, maintained with a single active development branch that tracks upstream Binutils while incorporating CORE-V changes. It is not the official Binutils repository but serves as the pre-upstream integration point for assembler, linker, and debugger support for CORE-V architectures.",
+      "CORE-V Binutils & GDB is the OpenHW Foundation's staging fork of GNU Binutils and GDB for CORE-V-specific modifications, maintained with a single active development branch that tracks upstream Binutils while incorporating CORE-V changes. It is not the official Binutils repository but serves as the pre-upstream integration point for assembler, linker, and debugger support for CORE-V architectures.",
     category: ["tools"],
     tags: ["Binutils", "GDB", "Debugger", "Assembler", "Linker"],
     status: "inactive",
@@ -897,7 +912,7 @@ export const projects: Project[] = [
     name: "UAP (Unified Access Platform)",
     description:
       "UAP is the European Unified RISC-V IP Access Platform, a structured entry point that catalogues, documents, and promotes RISC-V IP assets initially developed in European research projects such as TRISTAN and ISOLDE. It acts as a static unified access page pointing to repositories hosted on the OpenHW Foundation GitHub.",
-    category: ["docs"],
+    category: ["ip", "docs"],
     tags: ["EU Projects", "IP Catalogue", "TRISTAN", "ISOLDE"],
     status: "active",
     github: "https://github.com/openhwgroup/uap",
@@ -971,6 +986,12 @@ for (const project of projects) {
     project.descriptionSourceUrls = profileMeta.sourceUrls;
     project.descriptionSourceCount = profileMeta.sourceCount;
     project.descriptionConfidence = profileMeta.confidence;
+    if (profileMeta.keyFacts?.length) {
+      project.keyFacts = profileMeta.keyFacts;
+    }
+    if (profileMeta.furtherResources?.length) {
+      project.furtherResources = profileMeta.furtherResources;
+    }
   }
 
   project.launchStage = profileMeta?.reviewStatus === "reviewed" ? "curated" : "baseline";

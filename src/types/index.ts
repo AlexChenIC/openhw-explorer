@@ -79,8 +79,19 @@ export interface Project {
   launchStage?: "curated" | "baseline";
   baselineSummary?: string;
 
+  // Verified at-a-glance facts and curated external links (from profile.md)
+  keyFacts?: string[];
+  furtherResources?: ProjectResourceLink[];
+
   // Knowledge base data (populated from src/data/knowledge/)
   knowledge?: ProjectKnowledge;
+}
+
+/** Curated external resource link attached to a project profile */
+export interface ProjectResourceLink {
+  label: string;
+  url: string;
+  note?: string;
 }
 
 // Knowledge Base Types

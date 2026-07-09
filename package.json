@@ -1,12 +1,15 @@
 {
   "name": "openhw-explorer",
   "version": "1.0.0",
+  "engines": {
+    "node": ">=20.9.0"
+  },
   "license": "Apache-2.0",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint",
+    "lint": "eslint .",
     "check:data-quality": "node scripts/validate-data-quality.mjs",
     "build:profile-meta": "node scripts/build-project-profile-meta.mjs",
     "format": "prettier --write \"src/**/*.{ts,tsx,css}\"",
@@ -14,28 +17,30 @@
     "fetch-data": "node scripts/fetch-github-data.mjs",
     "fetch-news-candidates": "node scripts/fetch-news-candidates.mjs",
     "build-news": "node scripts/build-news-digest.mjs",
-    "prebuild": "node scripts/prebuild-fetch-github-data.mjs"
+    "prebuild": "node scripts/prebuild-fetch-github-data.mjs",
+    "test": "vitest run"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
     "fuse.js": "^7.1.0",
     "lucide-react": "^0.400.0",
-    "next": "^14.2.0",
-    "next-intl": "^4.8.2",
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "next": "^16.2.10",
+    "next-intl": "^4.13.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
     "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^20.0.0",
-    "@types/react": "^18.2.0",
-    "@types/react-dom": "^18.2.0",
+    "@types/react": "^19.2.17",
+    "@types/react-dom": "^19.2.3",
     "better-sqlite3": "^12.6.2",
-    "eslint": "^8.57.1",
-    "eslint-config-next": "^14.2.35",
+    "eslint": "^9.39.4",
+    "eslint-config-next": "^16.2.10",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.8.1",
     "tailwindcss": "^4.0.0",
-    "typescript": "^5.0.0"
+    "typescript": "^5.0.0",
+    "vitest": "^4.1.10"
   }
 }

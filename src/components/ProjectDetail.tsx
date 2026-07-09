@@ -9,6 +9,7 @@ import {
   BookOpen,
   ChevronRight,
   Home,
+  Flag,
 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
@@ -17,8 +18,9 @@ import { Link } from "@/lib/routing";
 import { Project, ProjectKnowledge } from "@/types";
 import { getCategoryStyle, statusConfig } from "@/lib/category-styles";
 import { ProjectKnowledgeSection } from "./ProjectKnowledgeSection";
-import { RepoMascot, getRepoMascot } from "./RepoMascotMetroZoo";
+import { ProjectGlyph } from "./ProjectGlyph";
 import type { GitHubRepoStats } from "@/data/projects";
+import { externalLinks } from "@/data/external-links";
 import { trackEvent } from "@/lib/observability";
 
 interface ProjectKnowledgeSummary {
@@ -97,8 +99,7 @@ export function ProjectDetail({
     returnQuery ? `/projects/${projectId}?${returnQuery}` : `/projects/${projectId}`;
   const status = statusConfig[project.status];
   const primaryCategory = project.category[0];
-  const { color, emoji } = getCategoryStyle(primaryCategory);
-  const mascot = getRepoMascot(project.id, primaryCategory);
+  const { color } = getCategoryStyle(primaryCategory);
   const reviewMeta = getReviewMeta(project.descriptionReviewStatus);
   const sourceTierMeta = getSourceTierMeta(project.descriptionSourceTier);
   const sourceUrls = project.descriptionSourceUrls || [];
@@ -119,6 +120,20 @@ export function ProjectDetail({
         ? t("quickStart.startWithWebsite")
         : null;
   const isBaseline = project.launchStage === "baseline";
+
+  const handleReportIssue = () => {
+    const url =
+      typeof window === "undefined"
+        ? "unknown"
+        : `${window.location.origin}${window.location.pathname}`;
+    trackEvent("project_issue_report_opened", { projectId: project.id });
+    const params = new URLSearchParams({
+      title: t("reportIssueTitle", { project: project.name }),
+      body: t("reportIssueBody", { project: project.name, url }),
+      labels: "content",
+    });
+    window.open(`${externalLinks.feedbackIssues}?${params.toString()}`, "_blank", "noopener");
+  };
 
   useEffect(() => {
     trackEvent("project_detail_view", {
@@ -165,26 +180,11 @@ export function ProjectDetail({
         <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 sm:p-8 mb-6">
           {/* Top: Icon + Title + Status */}
           <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
-            <div
-              className="flex items-center justify-center w-16 h-16 rounded-xl flex-shrink-0 border"
-              style={{
-                backgroundColor: mascot ? `${mascot.palette.accent}63` : `${color}15`,
-                borderColor: mascot ? `${mascot.palette.shell}aa` : `${color}40`,
-              }}
-            >
-              {mascot ? (
-                <RepoMascot
-                  projectId={project.id}
-                  primaryCategory={primaryCategory}
-                  size={48}
-                  className="drop-shadow-sm saturate-125"
-                />
-              ) : (
-                <span className="text-2xl" style={{ color }}>
-                  {emoji}
-                </span>
-              )}
-            </div>
+            <ProjectGlyph
+              projectId={project.id}
+              primaryCategory={primaryCategory}
+              variant="detail"
+            />
             <div className="flex-1 min-w-0">
               <div className="flex flex-wrap items-center gap-2.5 mb-2">
                 <h1 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)]">
@@ -311,6 +311,58 @@ export function ProjectDetail({
             </div>
           </div>
 
+          {/* At a glance: verified key facts from the reviewed profile */}
+          {project.keyFacts && project.keyFacts.length > 0 && (
+            <div className="mb-4 rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-4 sm:p-5">
+              <p className="mb-3 text-xs font-semibold tracking-wide text-[var(--text-tertiary)] uppercase">
+                {t("atAGlance.title")}
+              </p>
+              <ul className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
+                {project.keyFacts.map((fact) => (
+                  <li
+                    key={fact}
+                    className="flex items-start gap-2 text-[13px] leading-relaxed text-[var(--text-secondary)]"
+                  >
+                    <span className="mt-[7px] h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[var(--primary)]/60" />
+                    {fact}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
+
+          {/* Further resources: curated, verified external links */}
+          {project.furtherResources && project.furtherResources.length > 0 && (
+            <div className="mb-4 rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-4 sm:p-5">
+              <p className="mb-3 text-xs font-semibold tracking-wide text-[var(--text-tertiary)] uppercase">
+                {t("furtherResources.title")}
+              </p>
+              <div className="grid gap-2 sm:grid-cols-2">
+                {project.furtherResources.map((resource) => (
+                  <a
+                    key={resource.url}
+                    href={resource.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex items-start gap-2 rounded-lg border border-[var(--border)] bg-[var(--bg-card)] px-3 py-2.5 transition-all hover:border-[var(--primary)]/40"
+                  >
+                    <ExternalLink className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-[var(--text-tertiary)] transition-colors group-hover:text-[var(--primary)]" />
+                    <span className="min-w-0">
+                      <span className="block text-[13px] font-medium text-[var(--text-primary)] group-hover:text-[var(--primary)] transition-colors">
+                        {resource.label}
+                      </span>
+                      {resource.note && (
+                        <span className="block text-[11px] leading-relaxed text-[var(--text-tertiary)]">
+                          {resource.note}
+                        </span>
+                      )}
+                    </span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Stats row */}
           <div className="flex flex-wrap items-center gap-4 sm:gap-6 py-4 border-t border-[var(--border)]">
             {project.stars !== undefined && (
@@ -370,6 +422,14 @@ export function ProjectDetail({
                 {t("website")}
               </a>
             )}
+            <button
+              type="button"
+              onClick={handleReportIssue}
+              className="ml-auto flex items-center gap-1.5 text-xs text-[var(--text-tertiary)] hover:text-[var(--primary)] transition-colors"
+            >
+              <Flag className="w-3.5 h-3.5" />
+              {t("reportIssue")}
+            </button>
           </div>
         </div>
 
@@ -493,38 +553,17 @@ export function ProjectDetail({
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {relatedProjects.map((related) => {
                 const relatedPrimaryCategory = related.category[0];
-                const relStyle = getCategoryStyle(relatedPrimaryCategory);
-                const relatedMascot = getRepoMascot(related.id, relatedPrimaryCategory);
                 return (
                   <Link
                     key={related.id}
                     href={getProjectDetailHref(related.id)}
                     className="card-glow flex items-center gap-3 p-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border)] hover:border-[var(--text-tertiary)] transition-all group"
                   >
-                    <div
-                      className="flex items-center justify-center w-11 h-11 rounded-xl flex-shrink-0 border"
-                      style={{
-                        backgroundColor: relatedMascot
-                          ? `${relatedMascot.palette.accent}63`
-                          : `${relStyle.color}15`,
-                        borderColor: relatedMascot
-                          ? `${relatedMascot.palette.shell}aa`
-                          : `${relStyle.color}40`,
-                      }}
-                    >
-                      {relatedMascot ? (
-                        <RepoMascot
-                          projectId={related.id}
-                          primaryCategory={relatedPrimaryCategory}
-                          size={30}
-                          className="drop-shadow-sm saturate-125 transition-transform duration-300 group-hover:scale-110"
-                        />
-                      ) : (
-                        <span className="text-base" style={{ color: relStyle.color }}>
-                          {relStyle.emoji}
-                        </span>
-                      )}
-                    </div>
+                    <ProjectGlyph
+                      projectId={related.id}
+                      primaryCategory={relatedPrimaryCategory}
+                      variant="card"
+                    />
                     <div className="flex-1 min-w-0">
                       <h4 className="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--primary)] transition-colors truncate">
                         {related.name}

@@ -295,6 +295,23 @@ type ResourceCardProps = {
 
 function ResourceCard({ link, locale, cta, featured = false }: ResourceCardProps) {
   const category = resourceDirectoryCategories.find((item) => item.id === link.category);
+
+  // Badge de-duplication: inside a category section the section header already
+  // names the category, so cards only show the kind badge — and only when it
+  // adds information beyond the category itself. Featured cards (shown outside
+  // any section) show the category badge instead.
+  const kindMatchesCategory = link.kind === link.category;
+  const showKindBadge = !featured && !kindMatchesCategory;
+  const showCategoryBadge = featured && Boolean(category);
+
+  // Drop tags that just repeat the visible badges or the category name.
+  const badgeWords = new Set(
+    [link.kind, link.category, kindLabels[link.kind].en, category?.shortTitle.en ?? ""].map(
+      (value) => value.toLowerCase(),
+    ),
+  );
+  const visibleTags = link.tags.filter((tag) => !badgeWords.has(tag.toLowerCase())).slice(0, 4);
+
   return (
     <a
       href={link.url}
@@ -308,16 +325,20 @@ function ResourceCard({ link, locale, cta, featured = false }: ResourceCardProps
     >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          <div className="mb-2 flex flex-wrap gap-2">
-            <span className="rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/10 px-2 py-0.5 text-[11px] font-semibold text-[var(--primary)]">
-              {kindLabels[link.kind][locale]}
-            </span>
-            {category && (
-              <span className="rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] px-2 py-0.5 text-[11px] font-semibold text-[var(--text-tertiary)]">
-                {localized(category.shortTitle, locale)}
-              </span>
-            )}
-          </div>
+          {(showKindBadge || showCategoryBadge) && (
+            <div className="mb-2 flex flex-wrap gap-2">
+              {showKindBadge && (
+                <span className="rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/10 px-2 py-0.5 text-[11px] font-semibold text-[var(--primary)]">
+                  {kindLabels[link.kind][locale]}
+                </span>
+              )}
+              {showCategoryBadge && category && (
+                <span className="rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/10 px-2 py-0.5 text-[11px] font-semibold text-[var(--primary)]">
+                  {localized(category.shortTitle, locale)}
+                </span>
+              )}
+            </div>
+          )}
           <h3 className="text-base font-semibold leading-snug text-[var(--text-primary)]">
             {link.title}
           </h3>
@@ -330,7 +351,7 @@ function ResourceCard({ link, locale, cta, featured = false }: ResourceCardProps
       </p>
 
       <div className="mt-4 flex flex-wrap gap-2">
-        {link.tags.slice(0, 4).map((tag) => (
+        {visibleTags.map((tag) => (
           <span
             key={tag}
             className="rounded-md bg-[var(--bg-subtle)] px-2 py-1 text-[11px] font-medium text-[var(--text-tertiary)]"

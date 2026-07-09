@@ -6,7 +6,7 @@ import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/lib/routing";
 import { Project } from "@/types";
 import { getCategoryStyle, statusConfig } from "@/lib/category-styles";
-import { RepoMascot, getRepoMascot } from "./RepoMascotMetroZoo";
+import { ProjectGlyph } from "./ProjectGlyph";
 
 interface ProjectCardProps {
   project: Project;
@@ -24,8 +24,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
     : `/projects/${project.id}`;
 
   const primaryCategory = project.category[0];
-  const { color, emoji } = getCategoryStyle(primaryCategory);
-  const mascot = getRepoMascot(project.id, primaryCategory);
+  const { color } = getCategoryStyle(primaryCategory);
   const status = statusConfig[project.status];
 
   return (
@@ -35,32 +34,12 @@ export function ProjectCard({ project }: ProjectCardProps) {
     >
       {/* Header */}
       <div className="flex items-start justify-between gap-2">
-        <div
-          className="relative flex items-center justify-center w-11 h-11 rounded-xl flex-shrink-0 border"
-          style={{
-            backgroundColor: mascot ? `${mascot.palette.accent}63` : `${color}15`,
-            borderColor: mascot ? `${mascot.palette.shell}aa` : `${color}40`,
-          }}
-        >
-          {mascot ? (
-            <RepoMascot
-              projectId={project.id}
-              primaryCategory={primaryCategory}
-              size={34}
-              className="drop-shadow-sm saturate-125 transition-transform duration-300 group-hover:scale-110"
-            />
-          ) : (
-            <span className="text-lg" style={{ color }}>
-              {emoji}
-            </span>
-          )}
-
-          {mascot && (
-            <span className="pointer-events-none absolute -bottom-6 left-1/2 z-10 -translate-x-1/2 rounded-md border border-[var(--border)] bg-[var(--bg-card)] px-2 py-0.5 text-[10px] font-medium whitespace-nowrap text-[var(--text-secondary)] opacity-0 transition-opacity duration-200 group-hover:opacity-100">
-              {mascot.name}
-            </span>
-          )}
-        </div>
+        <ProjectGlyph
+          projectId={project.id}
+          primaryCategory={primaryCategory}
+          variant="card"
+          showHoverName
+        />
         <div className="flex items-center gap-1.5">
           {/* Status indicator */}
           <span

@@ -2,7 +2,7 @@
 
 import { MessageSquare } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
-import { externalLinks } from "@/data/resources";
+import { externalLinks } from "@/data/external-links";
 import { trackEvent } from "@/lib/observability";
 
 function getCurrentUrl() {
