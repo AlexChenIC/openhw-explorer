@@ -73,4 +73,14 @@ domain setup, third-party attribution, and future paid-course flexibility.
 
 ---
 
-Apache 2.0 — free to use and adapt.
+## License
+
+- **Software code** — [Apache License 2.0](LICENSE): free to use and adapt.
+- **Course content, knowledge base, news editorial, and brand assets** —
+  Copyright © Alex Chen (开源老陈), all rights reserved. Free to view for
+  personal learning; republishing or commercial use requires permission.
+
+See [LICENSE-CONTENT.md](LICENSE-CONTENT.md) for the exact scope of each.
+
+OpenHW Explorer is an independent project and is not an official OpenHW
+Foundation site.

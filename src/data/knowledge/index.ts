@@ -1,6 +1,11 @@
 import { ProjectKnowledge } from "@/types";
 
 // OpenHW project knowledge base: academic papers, industry adoption, education, talks, and ecosystem links
+//
+// The curation and editorial text in this file are Copyright © 2026 Alex Chen
+// (开源老陈), all rights reserved — NOT covered by the repository's Apache-2.0
+// license. Referenced papers, talks, and articles remain the property of their
+// respective owners. See LICENSE-CONTENT.md at the repository root.
 
 export const knowledgeBase: Record<string, ProjectKnowledge> = {
   // CVA6 (Ariane) - Most cited OpenHW core

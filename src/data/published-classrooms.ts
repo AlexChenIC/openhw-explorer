@@ -1,3 +1,7 @@
+// Published course content (including the imported JSON lessons) is
+// Copyright © 2026 Alex Chen (开源老陈), all rights reserved — NOT covered by
+// the repository's Apache-2.0 license. See LICENSE-CONTENT.md.
+
 import architectureMap from "./published-classrooms/openhw-cva6-architecture-map-en.json";
 import cv32a60xProfile from "./published-classrooms/openhw-cva6-u02-l02-cv32a60x-profile-en.json";
 import commit from "./published-classrooms/openhw-cva6-u03-l05-commit-en.json";

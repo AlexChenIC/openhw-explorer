@@ -1,3 +1,7 @@
+// Course content in this file is Copyright © 2026 Alex Chen (开源老陈),
+// all rights reserved — NOT covered by the repository's Apache-2.0 license.
+// See LICENSE-CONTENT.md at the repository root.
+
 export type ClassroomLocale = "en" | "zh";
 
 export type LocalizedText = Record<ClassroomLocale, string>;

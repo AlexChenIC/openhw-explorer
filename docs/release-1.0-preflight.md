@@ -32,19 +32,22 @@ The 1.0 release must keep the open-source spirit while preserving room for:
   - Prefer a memorable domain that can support both the Explorer website and
     future learning products.
 
-- [ ] Clarify the license scope.
-  - Confirm whether Apache-2.0 applies only to the software code.
-  - Explicitly exclude, if desired, course content, slide decks, narration,
-    generated audio, logo files, brand assets, and paid materials.
-  - Add the final scope to `README.md`, `NOTICE`, or a dedicated license-scope
-    document before 1.0.
+- [x] Clarify the license scope. (Done 2026-07-10)
+  - Apache-2.0 now applies to software code only; course content, knowledge
+    base, news editorial, docs, and brand assets are excluded.
+  - Scope documented in `LICENSE-CONTENT.md`, referenced from `README.md`,
+    `NOTICE`, and `CONTRIBUTING.md`, with copyright headers in
+    `src/data/classrooms.ts`, `src/data/published-classrooms.ts`, and
+    `src/data/knowledge/index.ts`.
 
-- [ ] Decide the course content license.
-  - Do not use a broad open license for courses until the long-term business
-    model is clear.
-  - Recommended default for 1.0: public viewing is allowed, but course text,
-    slides, audio, and downloadable assets remain copyright Alex Chen unless
-    separately stated.
+- [x] Decide the course content license. (Done 2026-07-10)
+  - Adopted the recommended default: public viewing allowed; course text,
+    slides, audio, and downloadable assets remain copyright Alex Chen, all
+    rights reserved. No broad open license for courses until the long-term
+    business model is clear.
+  - Note: content published before 2026-07-10 was distributed under
+    Apache-2.0 in git history; that grant is irrevocable for those versions.
+    The reserved-rights terms protect all content added after this date.
 
 - [ ] Review trademark strategy.
   - Search likely conflicts for the selected name and logo.

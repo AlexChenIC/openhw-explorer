@@ -45,4 +45,14 @@ When adding a project:
 
 ## License
 
-By contributing, you agree that your contributions will be licensed under the Apache License 2.0.
+This repository uses a split license — see [LICENSE-CONTENT.md](LICENSE-CONTENT.md):
+
+- Contributions to **software code and navigator data** (e.g. `src/`, `scripts/`,
+  `src/data/projects.ts`, `messages/`) are licensed under the Apache License 2.0.
+- Contributions to **content areas** (`src/data/knowledge/`, classroom and news
+  editorial files) are accepted under the repository's content terms: you keep
+  copyright in your contribution and grant Alex Chen a perpetual, worldwide,
+  royalty-free license to use, modify, publish, and sublicense it as part of
+  OpenHW Explorer and derived learning materials.
+
+By submitting a pull request, you agree to the terms above for the files you touch.
