@@ -8,8 +8,6 @@ import {
   ChevronRight,
   CircuitBoard,
   Code2,
-  Compass,
-  Cpu,
   ExternalLink,
   FileText,
   GraduationCap,
@@ -37,19 +35,16 @@ import {
 
 const copy = {
   en: {
-    eyebrow: "OpenHW Explorer · Ecosystem",
+    eyebrow: "OpenHW Explorer · Resources",
     title: "Open Hardware Ecosystem & Resources",
     subtitle:
-      "Find the organizations shaping open silicon, then move into the specifications, tools, and learning material needed to build with it.",
+      "Use task-focused technical references for design work, or map the organizations and initiatives shaping open silicon.",
     statsEcosystem: "ecosystem hubs",
     statsResources: "technical resources",
     statsCategories: "resource areas",
-    explorerLabel: "Resource explorer",
-    explorerTitle: "Find the right starting point",
-    explorerSubtitle:
-      "Move directly into technical references or browse the organizations and initiatives behind the open hardware ecosystem.",
+    resourceViews: "Resource views",
     technicalMode: "Technical library",
-    technicalModeDescription: "Specifications, tools, learning, and implementation references",
+    technicalModeDescription: "Standards, documentation, tools, and learning references",
     ecosystemMode: "Ecosystem directory",
     ecosystemModeDescription: "Foundations, projects, research initiatives, and participation",
     ecosystemLabel: "Ecosystem map",
@@ -67,23 +62,21 @@ const copy = {
     showing: "Showing",
     linkCount: "links",
     openResource: "Open resource",
-    attributionTitle: "Directory sources",
+    attributionTitle: "Sources & attribution",
     attribution:
-      "The technical library began with RISC-V Ottawa's open resource list and has been rewritten, checked, and expanded for OpenHW Explorer.",
+      "Technical links were seeded from RISC-V Ottawa and independently reorganized; ecosystem entries are checked against their official sites.",
     license:
       "External sites, names, and marks remain the property of their respective owners and follow their own terms.",
     sourceRepository: "Source repository",
   },
   zh: {
-    eyebrow: "OpenHW Explorer · 生态导航",
+    eyebrow: "OpenHW Explorer · 资源导航",
     title: "开源硬件生态与资源导航",
-    subtitle: "先找到推动开源芯片发展的组织与项目，再进入真正用于学习和开发的规范、工具与资料。",
+    subtitle: "按任务查找设计与验证资料，或浏览推动开源芯片发展的组织、项目与区域计划。",
     statsEcosystem: "个生态入口",
     statsResources: "个技术资源",
     statsCategories: "个资源方向",
-    explorerLabel: "资源浏览器",
-    explorerTitle: "找到合适的起点",
-    explorerSubtitle: "直接进入技术资料，或浏览推动开源硬件发展的组织、项目与区域计划。",
+    resourceViews: "资源视图",
     technicalMode: "技术资料库",
     technicalModeDescription: "规范、工具、学习资料与实现参考",
     ecosystemMode: "生态导航",
@@ -101,25 +94,21 @@ const copy = {
     showing: "当前显示",
     linkCount: "个链接",
     openResource: "打开资源",
-    attributionTitle: "目录来源",
-    attribution:
-      "技术资料库最初参考 RISC-V Ottawa 的开放资源清单，并已按 OpenHW Explorer 的定位重新编写、核对和扩展。",
+    attributionTitle: "来源与归属",
+    attribution: "技术链接以 RISC-V Ottawa 为初始参考并重新整理；生态入口均依据各自官方网站核对。",
     license: "外部网站、名称与标识归各自权利人所有，并遵循各自的使用条款。",
     sourceRepository: "来源仓库",
   },
 } as const;
 
 const categoryIcons: Record<ResourceCategoryId, typeof FileText> = {
-  specifications: FileText,
-  official: Compass,
-  openhw: Cpu,
+  "standards-docs": FileText,
   learning: GraduationCap,
   hdls: Code2,
   toolchains: Wrench,
   simulation: CircuitBoard,
   "design-tools": Layers3,
   "verification-tools": ShieldCheck,
-  community: Network,
   commercial: Building2,
 };
 
@@ -128,8 +117,6 @@ const kindLabels: Record<ResourceKind, { en: string; zh: string }> = {
   standard: { en: "standard", zh: "规范" },
   learning: { en: "learning", zh: "学习" },
   tool: { en: "tool", zh: "工具" },
-  project: { en: "project", zh: "项目" },
-  community: { en: "community", zh: "社区" },
   commercial: { en: "commercial", zh: "商业" },
 };
 
@@ -146,7 +133,7 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
   const t = copy[resolvedLocale];
   const [resourceMode, setResourceMode] = useState<"technical" | "ecosystem">("technical");
   const [ecosystemFilter, setEcosystemFilter] = useState<"all" | EcosystemCategoryId>("all");
-  const [resourceCategory, setResourceCategory] = useState<ResourceCategoryId>("specifications");
+  const [resourceCategory, setResourceCategory] = useState<ResourceCategoryId>("standards-docs");
 
   const visibleEcosystemEntries =
     ecosystemFilter === "all"
@@ -162,7 +149,7 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
 
   return (
     <div className="page-shell">
-      <div className="relative z-10 mx-auto flex max-w-7xl flex-col gap-14 px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:gap-12 sm:px-6 lg:px-8">
         <section className="grid gap-8 py-4 lg:grid-cols-[minmax(0,1fr)_400px] lg:items-end lg:py-8">
           <div className="max-w-4xl">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/10 px-3 py-1 text-xs font-semibold text-[var(--primary)]">
@@ -184,54 +171,32 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
           </aside>
         </section>
 
-        <section
-          id="resource-explorer"
-          aria-labelledby="resource-explorer-heading"
-          className="scroll-mt-28 border-t border-[var(--border)] pt-10"
-        >
-          <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-3xl">
-              <div className="mb-2 flex items-center gap-2 text-xs font-semibold text-[var(--primary)]">
-                <Compass className="h-4 w-4" />
-                {t.explorerLabel}
-              </div>
-              <h2
-                id="resource-explorer-heading"
-                className="text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl"
-              >
-                {t.explorerTitle}
-              </h2>
-              <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)] sm:text-base">
-                {t.explorerSubtitle}
-              </p>
-            </div>
-
-            <div
-              role="tablist"
-              aria-label={t.explorerLabel}
-              className="grid w-full gap-1 rounded-lg border border-[var(--border)] bg-[var(--bg-subtle)] p-1 sm:grid-cols-2 lg:w-[580px]"
-            >
-              <ResourceModeButton
-                id="technical-mode-tab"
-                panelId="technical-library"
-                icon={Boxes}
-                label={t.technicalMode}
-                description={t.technicalModeDescription}
-                count={resourceDirectoryLinks.length}
-                active={resourceMode === "technical"}
-                onClick={() => setResourceMode("technical")}
-              />
-              <ResourceModeButton
-                id="ecosystem-mode-tab"
-                panelId="ecosystem"
-                icon={Network}
-                label={t.ecosystemMode}
-                description={t.ecosystemModeDescription}
-                count={ecosystemEntries.length}
-                active={resourceMode === "ecosystem"}
-                onClick={() => setResourceMode("ecosystem")}
-              />
-            </div>
+        <section id="resource-explorer" aria-label={t.resourceViews} className="scroll-mt-28">
+          <div
+            role="tablist"
+            aria-label={t.resourceViews}
+            className="grid w-full gap-1.5 rounded-lg border border-[var(--border)] bg-[var(--bg-subtle)] p-1.5 sm:grid-cols-2"
+          >
+            <ResourceModeButton
+              id="technical-mode-tab"
+              panelId="technical-library"
+              icon={Boxes}
+              label={t.technicalMode}
+              description={t.technicalModeDescription}
+              count={resourceDirectoryLinks.length}
+              active={resourceMode === "technical"}
+              onClick={() => setResourceMode("technical")}
+            />
+            <ResourceModeButton
+              id="ecosystem-mode-tab"
+              panelId="ecosystem"
+              icon={Network}
+              label={t.ecosystemMode}
+              description={t.ecosystemModeDescription}
+              count={ecosystemEntries.length}
+              active={resourceMode === "ecosystem"}
+              onClick={() => setResourceMode("ecosystem")}
+            />
           </div>
 
           <div
@@ -506,7 +471,7 @@ function ResourceModeButton({
       aria-selected={active}
       aria-controls={panelId}
       onClick={onClick}
-      className={`flex min-h-20 items-center gap-3 rounded-md px-4 py-3 text-left transition ${
+      className={`flex min-h-24 items-center gap-4 rounded-md px-4 py-4 text-left transition ${
         active
           ? "bg-[var(--primary)] text-white shadow-sm"
           : "text-[var(--text-primary)] hover:bg-[var(--bg-card-hover)]"
@@ -520,7 +485,7 @@ function ResourceModeButton({
         <Icon className="h-5 w-5" />
       </span>
       <span className="min-w-0 flex-1">
-        <span className="flex items-center justify-between gap-3 text-sm font-semibold">
+        <span className="flex items-center justify-between gap-3 text-base font-semibold">
           <span>{label}</span>
           <span className={active ? "text-white/75" : "text-[var(--text-tertiary)]"}>{count}</span>
         </span>

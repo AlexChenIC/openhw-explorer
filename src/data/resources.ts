@@ -61,26 +61,16 @@ export type LocalizedText = {
 };
 
 export type ResourceCategoryId =
-  | "specifications"
-  | "official"
-  | "openhw"
+  | "standards-docs"
   | "learning"
   | "hdls"
   | "toolchains"
   | "simulation"
   | "design-tools"
   | "verification-tools"
-  | "community"
   | "commercial";
 
-export type ResourceKind =
-  | "official"
-  | "standard"
-  | "learning"
-  | "tool"
-  | "project"
-  | "community"
-  | "commercial";
+export type ResourceKind = "official" | "standard" | "learning" | "tool" | "commercial";
 
 export interface ResourceDirectoryLink {
   id: string;
@@ -111,48 +101,18 @@ export const resourceDirectoryAttribution = {
 
 export const resourceDirectoryCategories: ResourceDirectoryCategory[] = [
   {
-    id: "specifications",
+    id: "standards-docs",
     title: {
-      en: "RISC-V Specifications",
-      zh: "RISC-V 规范",
+      en: "Standards & Documentation",
+      zh: "标准与官方文档",
     },
     shortTitle: {
-      en: "Specifications",
-      zh: "规范",
+      en: "Standards & Docs",
+      zh: "标准与文档",
     },
     description: {
-      en: "Authoritative ISA, platform, ABI, and formal specification entry points.",
-      zh: "ISA、平台、ABI 和形式化规范的权威入口。",
-    },
-  },
-  {
-    id: "official",
-    title: {
-      en: "Official Resources",
-      zh: "官方资源",
-    },
-    shortTitle: {
-      en: "Official",
-      zh: "官方",
-    },
-    description: {
-      en: "RISC-V International and ecosystem-maintained learning, events, and working-group resources.",
-      zh: "RISC-V International 及生态维护的学习、会议和工作组资源。",
-    },
-  },
-  {
-    id: "openhw",
-    title: {
-      en: "OpenHW / CORE-V Projects",
-      zh: "OpenHW / CORE-V 项目",
-    },
-    shortTitle: {
-      en: "OpenHW",
-      zh: "OpenHW",
-    },
-    description: {
-      en: "Core OpenHW and adjacent open-silicon projects worth connecting to lessons and project pages.",
-      zh: "适合与课程和项目页联动的 OpenHW 及相邻开源硅项目。",
+      en: "Authoritative RISC-V specifications, working documentation, formal models, and OpenHW project documentation.",
+      zh: "RISC-V 权威规范、工作文档、形式化模型，以及 OpenHW 项目官方文档。",
     },
   },
   {
@@ -246,29 +206,14 @@ export const resourceDirectoryCategories: ResourceDirectoryCategory[] = [
     },
   },
   {
-    id: "community",
-    title: {
-      en: "Community",
-      zh: "社区",
-    },
-    shortTitle: {
-      en: "Community",
-      zh: "社区",
-    },
-    description: {
-      en: "Organizations, events, and community programs around RISC-V and open silicon.",
-      zh: "围绕 RISC-V 和开源硅的组织、活动与社区项目。",
-    },
-  },
-  {
     id: "commercial",
     title: {
-      en: "Commercial EDA Reference",
-      zh: "商业 EDA 参考",
+      en: "Industry EDA Reference",
+      zh: "工业 EDA 参考",
     },
     shortTitle: {
-      en: "Commercial EDA",
-      zh: "商业 EDA",
+      en: "Industry EDA",
+      zh: "工业 EDA",
     },
     description: {
       en: "Commercial tool vendors often encountered in production silicon design and verification flows.",
@@ -282,7 +227,7 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     id: "riscv-ratified-specifications",
     title: "RISC-V Ratified Specifications Library",
     url: "https://docs.riscv.org/reference/home/index.html",
-    category: "specifications",
+    category: "standards-docs",
     kind: "standard",
     summary: {
       en: "Browsable index for ratified RISC-V ISA, platform, and ABI specifications.",
@@ -296,7 +241,7 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     id: "riscv-spec-dashboard",
     title: "RISC-V Specification Development Dashboard",
     url: "https://riscv.github.io/adm-spec-dashboard",
-    category: "specifications",
+    category: "standards-docs",
     kind: "standard",
     summary: {
       en: "Status tracker for in-progress RISC-V specifications and ratification stages.",
@@ -309,7 +254,7 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     id: "sail-riscv",
     title: "Formal Specification of the RISC-V ISA (Sail)",
     url: "https://github.com/riscv/sail-riscv",
-    category: "specifications",
+    category: "standards-docs",
     kind: "standard",
     summary: {
       en: "Executable ISA model used for conformance, testing, and formal reasoning.",
@@ -323,7 +268,7 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     id: "riscv-isa-manual",
     title: "RISC-V ISA Manuals (GitHub)",
     url: "https://github.com/riscv/riscv-isa-manual",
-    category: "specifications",
+    category: "standards-docs",
     kind: "standard",
     summary: {
       en: "Source repository for privileged and unprivileged ISA manuals, including drafts.",
@@ -336,7 +281,7 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     id: "riscv-green-card",
     title: "RISC-V Green Card",
     url: "https://web.archive.org/web/2024/http://riscvbook.com/greencard-20181213.pdf",
-    category: "specifications",
+    category: "learning",
     kind: "learning",
     summary: {
       en: "The RISC-V Reader site includes the compact Green Card reference sheet for registers, base instructions, and common extensions.",
@@ -346,36 +291,10 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     upstreamSource: "riscv-ottawa",
   },
   {
-    id: "riscv-exchange",
-    title: "RISC-V Exchange",
-    url: "https://riscv.org/exchange/",
-    category: "official",
-    kind: "official",
-    summary: {
-      en: "RISC-V ecosystem directory for cores, SoCs, software, boards, and services.",
-      zh: "RISC-V 生态中的核心、SoC、软件、开发板和服务目录。",
-    },
-    tags: ["RISC-V", "Directory", "Ecosystem"],
-    upstreamSource: "riscv-ottawa",
-  },
-  {
-    id: "riscv-summit",
-    title: "RISC-V Summit",
-    url: "https://riscv.org/community/risc-v-summits/",
-    category: "official",
-    kind: "official",
-    summary: {
-      en: "Flagship RISC-V conference hub for ecosystem talks and announcements.",
-      zh: "RISC-V 旗舰会议入口，汇集生态演讲和重要发布。",
-    },
-    tags: ["RISC-V", "Conference", "Community"],
-    upstreamSource: "riscv-ottawa",
-  },
-  {
     id: "learn-riscv",
     title: "Learn RISC-V",
     url: "https://github.com/riscv/learn",
-    category: "official",
+    category: "learning",
     kind: "learning",
     summary: {
       en: "Community-maintained collection of RISC-V tutorials, courses, and reading lists.",
@@ -389,7 +308,7 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     id: "riscv-technical-wiki",
     title: "RISC-V Technical Wiki",
     url: "https://riscv.atlassian.net/wiki/spaces/HOME/overview",
-    category: "official",
+    category: "standards-docs",
     kind: "official",
     summary: {
       en: "Working documentation for technical groups, task groups, and specification process.",
@@ -402,7 +321,7 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     id: "openhw-docs",
     title: "OpenHW Documentation",
     url: "https://docs.openhwgroup.org/en/latest/index.html",
-    category: "openhw",
+    category: "standards-docs",
     kind: "official",
     summary: {
       en: "Official documentation entry for OpenHW projects, including CORE-V cores and verification.",
@@ -410,71 +329,6 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     },
     tags: ["OpenHW", "CORE-V", "Docs", "CVA6"],
     featured: true,
-    upstreamSource: "riscv-ottawa",
-  },
-  {
-    id: "openhw-cva6",
-    title: "CVA6",
-    url: "https://github.com/openhwgroup/cva6",
-    category: "openhw",
-    kind: "project",
-    summary: {
-      en: "Configurable application-class CORE-V RISC-V processor and current pilot course subject.",
-      zh: "可配置的应用级 CORE-V RISC-V 处理器，也是当前课程主线样板。",
-    },
-    tags: ["OpenHW", "CVA6", "CORE-V", "Processor"],
-    featured: true,
-  },
-  {
-    id: "opentitan",
-    title: "OpenTitan",
-    url: "https://opentitan.org/",
-    category: "openhw",
-    kind: "project",
-    summary: {
-      en: "Open-source silicon root of trust project built around the Ibex RISC-V core.",
-      zh: "围绕 Ibex RISC-V 核心构建的开源 silicon root of trust 项目。",
-    },
-    tags: ["OpenTitan", "Security", "Ibex", "RoT"],
-    upstreamSource: "riscv-ottawa",
-  },
-  {
-    id: "ibex-cpu",
-    title: "Ibex CPU",
-    url: "https://lowrisc.org/ibex/",
-    category: "openhw",
-    kind: "project",
-    summary: {
-      en: "Small open-source 32-bit RISC-V core used in research, education, and SoC projects.",
-      zh: "广泛用于研究、教学和 SoC 项目的小型 32 位开源 RISC-V 核心。",
-    },
-    tags: ["Ibex", "lowRISC", "Processor"],
-    upstreamSource: "riscv-ottawa",
-  },
-  {
-    id: "cheriot-ibex",
-    title: "CHERIoT-Ibex",
-    url: "https://github.com/microsoft/cheriot-ibex",
-    category: "openhw",
-    kind: "project",
-    summary: {
-      en: "CHERI-extended Ibex variant for capability-based memory safety research and systems.",
-      zh: "加入 CHERI capability 的 Ibex 变体，用于内存安全研究和系统构建。",
-    },
-    tags: ["CHERI", "Ibex", "Security"],
-    upstreamSource: "riscv-ottawa",
-  },
-  {
-    id: "hazard3",
-    title: "Hazard3",
-    url: "https://github.com/Wren6991/Hazard3",
-    category: "openhw",
-    kind: "project",
-    summary: {
-      en: "Compact RV32 core useful for studying small pipeline design and embedded integration.",
-      zh: "紧凑 RV32 核心，适合理解小型流水线设计和嵌入式集成。",
-    },
-    tags: ["RISC-V", "Core", "Embedded"],
     upstreamSource: "riscv-ottawa",
   },
   {
@@ -961,86 +815,6 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
       zh: "像调软件 trace 一样逐步查看波形状态的调试器式界面。",
     },
     tags: ["Waveform", "Debug"],
-    upstreamSource: "riscv-ottawa",
-  },
-  {
-    id: "riscv-international",
-    title: "RISC-V International",
-    url: "https://riscv.org",
-    category: "community",
-    kind: "community",
-    summary: {
-      en: "Non-profit steward of the RISC-V ISA and coordinator of technical groups.",
-      zh: "RISC-V ISA 的非营利管理组织，也是技术组协作入口。",
-    },
-    tags: ["RISC-V", "Community", "Standards"],
-    featured: true,
-    upstreamSource: "riscv-ottawa",
-  },
-  {
-    id: "openhw-foundation",
-    title: "OpenHW Foundation",
-    url: "https://openhwfoundation.org",
-    category: "community",
-    kind: "community",
-    summary: {
-      en: "Industry consortium developing verified open-source RISC-V cores and CORE-V IP.",
-      zh: "开发经过验证的开源 RISC-V 核心和 CORE-V IP 的产业联盟。",
-    },
-    tags: ["OpenHW", "CORE-V", "Community"],
-    featured: true,
-    upstreamSource: "riscv-ottawa",
-  },
-  {
-    id: "chips-alliance",
-    title: "CHIPS Alliance",
-    url: "https://chipsalliance.org/",
-    category: "community",
-    kind: "community",
-    summary: {
-      en: "Linux Foundation project for open hardware IP, EDA tooling, and collaboration.",
-      zh: "Linux Foundation 下的开放硬件 IP、EDA 工具和协作项目。",
-    },
-    tags: ["CHIPS Alliance", "Open Hardware", "EDA"],
-    upstreamSource: "riscv-ottawa",
-  },
-  {
-    id: "fossi-foundation",
-    title: "The FOSSi Foundation",
-    url: "https://fossi-foundation.org",
-    category: "community",
-    kind: "community",
-    summary: {
-      en: "Free and open-source silicon advocacy group behind LibreCores, Latch-Up, and ORConf.",
-      zh: "推动自由与开源硅生态的组织，关联 LibreCores、Latch-Up 和 ORConf。",
-    },
-    tags: ["FOSSi", "Open Silicon", "Community"],
-    upstreamSource: "riscv-ottawa",
-  },
-  {
-    id: "tiny-tapeout",
-    title: "Tiny Tapeout",
-    url: "https://tinytapeout.com",
-    category: "community",
-    kind: "community",
-    summary: {
-      en: "Educational shuttle program that helps learners submit small open silicon designs.",
-      zh: "帮助学习者提交小型开源芯片设计的教学型 shuttle 项目。",
-    },
-    tags: ["Education", "Tapeout", "Open Silicon"],
-    upstreamSource: "riscv-ottawa",
-  },
-  {
-    id: "chipfoundry",
-    title: "ChipFoundry",
-    url: "https://chipfoundry.io/",
-    category: "community",
-    kind: "community",
-    summary: {
-      en: "Open-silicon shuttle service for shared tape-outs on production PDKs.",
-      zh: "面向生产 PDK 的共享 tape-out 开源硅 shuttle 服务。",
-    },
-    tags: ["Tapeout", "PDK", "Open Silicon"],
     upstreamSource: "riscv-ottawa",
   },
   {

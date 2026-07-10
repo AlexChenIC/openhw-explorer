@@ -33,3 +33,7 @@ Official asset sources:
 - Tiny Tapeout: https://tinytapeout.com/
 - Open Source Hardware Association: https://oshwa.org/
 - Open Hardware Repository: https://ohwr.org/
+- Open-Source FPGA Foundation: https://github.com/os-fpga
+- SHAKTI: https://shakti.org.in/
+- RIOS Lab: https://www.rioslab.org/
+- ChipFoundry: https://chipfoundry.io/

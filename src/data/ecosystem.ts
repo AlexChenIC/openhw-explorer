@@ -49,8 +49,8 @@ export const ecosystemCategories: EcosystemCategory[] = [
     title: { en: "Research & Regional Initiatives", zh: "科研与区域计划" },
     shortTitle: { en: "Research", zh: "科研计划" },
     description: {
-      en: "Research platforms and regional programs connecting open silicon work across Europe and China.",
-      zh: "连接欧洲、中国及全球开源芯片研究与产业协作的平台和区域计划。",
+      en: "Research platforms and regional programs connecting open silicon work across Europe, Asia, and beyond.",
+      zh: "连接欧洲、亚洲及全球开源芯片研究与产业协作的平台和区域计划。",
     },
   },
   {
@@ -129,6 +129,19 @@ export const ecosystemEntries: EcosystemEntry[] = [
     region: { en: "Global", zh: "全球" },
     focus: ["Certification", "Community", "Education"],
     logo: "/ecosystem/oshwa.png",
+  },
+  {
+    id: "osfpga-foundation",
+    name: "Open-Source FPGA Foundation",
+    url: "https://github.com/os-fpga",
+    category: "foundations",
+    summary: {
+      en: "Open FPGA organization maintaining design resources, educational material, a virtual lab, and open EDA projects.",
+      zh: "维护开源 FPGA 设计资源、教学资料、虚拟实验室与开放 EDA 项目的组织。",
+    },
+    region: { en: "Global", zh: "全球" },
+    focus: ["FPGA", "Open EDA", "Education"],
+    logo: "/ecosystem/osfpga.png",
   },
   {
     id: "lowrisc",
@@ -235,6 +248,32 @@ export const ecosystemEntries: EcosystemEntry[] = [
     logo: "/ecosystem/xiangshan.png",
   },
   {
+    id: "shakti",
+    name: "SHAKTI",
+    url: "https://shakti.org.in/",
+    category: "regional",
+    summary: {
+      en: "IIT Madras RISE initiative building an open-source ecosystem of RISC-V processors, SoCs, peripheral IP, and software.",
+      zh: "由 IIT Madras RISE 团队推动，建设开源 RISC-V 处理器、SoC、外设 IP 与软件生态。",
+    },
+    region: { en: "India", zh: "印度" },
+    focus: ["RISC-V", "Processors", "SoC"],
+    logo: "/ecosystem/shakti.png",
+  },
+  {
+    id: "rios-lab",
+    name: "RIOS Lab",
+    url: "https://www.rioslab.org/",
+    category: "regional",
+    summary: {
+      en: "Shenzhen-based open-source systems research lab working on RISC-V chips, OpenEDA, OpenPDK, and reusable hardware IP.",
+      zh: "位于深圳的开源系统研究实验室，研究 RISC-V 芯片、OpenEDA、OpenPDK 与可复用硬件 IP。",
+    },
+    region: { en: "China", zh: "中国" },
+    focus: ["RISC-V", "Open EDA", "Research"],
+    logo: "/ecosystem/rios.png",
+  },
+  {
     id: "openchip",
     name: "Openchip",
     url: "https://openchip.com/",
@@ -259,6 +298,19 @@ export const ecosystemEntries: EcosystemEntry[] = [
     region: { en: "Global", zh: "全球" },
     focus: ["Tapeout", "Education", "ASIC"],
     logo: "/ecosystem/tinytapeout.png",
+  },
+  {
+    id: "chipfoundry",
+    name: "ChipFoundry",
+    url: "https://chipfoundry.io/",
+    category: "participate",
+    summary: {
+      en: "Accessible chip prototyping and MPW shuttle platform using open-source tools, reference designs, and open PDKs.",
+      zh: "利用开源工具、参考设计与开放 PDK 提供芯片原型和 MPW 共享流片入口的平台。",
+    },
+    region: { en: "Global", zh: "全球" },
+    focus: ["Tapeout", "Open PDK", "Prototyping"],
+    logo: "/ecosystem/chipfoundry.png",
   },
   {
     id: "open-hardware-repository",
