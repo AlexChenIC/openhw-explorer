@@ -3,8 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ClassroomContent } from "@/components/ClassroomContent";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://openhw-explorer.vercel.app";
+import { SITE_URL } from "@/lib/site-url";
 
 type ClassroomPageProps = {
   params: Promise<{ locale: string }>;

@@ -7,8 +7,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { getProjectKnowledge, getKnowledgeSummary } from "@/data/knowledge";
 import { serializeJsonLd } from "@/lib/seo";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://openhw-explorer.vercel.app";
+import { SITE_URL } from "@/lib/site-url";
 
 type Props = {
   params: Promise<{ locale: string; id: string }>;

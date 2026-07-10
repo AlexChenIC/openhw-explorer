@@ -11,8 +11,7 @@ import {
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { Link } from "@/lib/routing";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://openhw-explorer.vercel.app";
+import { SITE_URL } from "@/lib/site-url";
 
 type AboutPageProps = {
   params: Promise<{ locale: string }>;

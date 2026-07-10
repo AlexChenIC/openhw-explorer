@@ -6,8 +6,7 @@ import { Header } from "@/components/Header";
 import { PublishedClassroomPlayer } from "@/components/PublishedClassroomPlayer";
 import { classroomSeries, getLocalizedText } from "@/data/classrooms";
 import { getPublishedClassroom, getPublishedClassroomIds } from "@/data/published-classrooms";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://openhw-explorer.vercel.app";
+import { SITE_URL } from "@/lib/site-url";
 
 type ClassroomPlayerPageProps = {
   params: Promise<{ locale: string; classroomId: string }>;

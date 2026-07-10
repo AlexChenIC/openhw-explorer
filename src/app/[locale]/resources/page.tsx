@@ -3,8 +3,7 @@ import { setRequestLocale } from "next-intl/server";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { ResourceDirectoryContent } from "@/components/ResourceDirectoryContent";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://openhw-explorer.vercel.app";
+import { SITE_URL } from "@/lib/site-url";
 
 const metadataCopy = {
   en: {

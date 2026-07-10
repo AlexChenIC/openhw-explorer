@@ -7,8 +7,7 @@ import { ResourcesSection } from "@/components/ResourcesSection";
 import { Footer } from "@/components/Footer";
 import { setRequestLocale } from "next-intl/server";
 import { serializeJsonLd } from "@/lib/seo";
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://openhw-explorer.vercel.app";
+import { SITE_URL } from "@/lib/site-url";
 
 type HomePageProps = {
   params: Promise<{ locale: string }>;

@@ -7,6 +7,7 @@ import { routing } from "@/lib/routing";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider, ThemeScript } from "@/lib/theme";
 import { FunModeProvider } from "@/lib/fun-mode";
+import { SITE_URL } from "@/lib/site-url";
 import { ClientObservability } from "@/components/ClientObservability";
 import { FeedbackButton } from "@/components/FeedbackButton";
 import "../globals.css";
@@ -17,21 +18,6 @@ const inter = Inter({
   display: "swap",
   variable: "--font-inter",
 });
-
-const DEFAULT_SITE_URL = "https://openhw-explorer.vercel.app";
-
-function resolveSiteUrl(value: string | undefined): string {
-  const normalized = value?.trim();
-  if (!normalized) return DEFAULT_SITE_URL;
-
-  try {
-    return new URL(normalized).toString().replace(/\/$/, "");
-  } catch {
-    return DEFAULT_SITE_URL;
-  }
-}
-
-const SITE_URL = resolveSiteUrl(process.env.NEXT_PUBLIC_SITE_URL);
 
 const SITE_DESCRIPTION = {
   en: "A community-friendly navigator to explore the OpenHW Foundation's open-source RISC-V hardware IP projects, documentation, and tools.",

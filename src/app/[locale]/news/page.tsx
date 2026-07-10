@@ -5,22 +5,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { NewsContent } from "@/components/NewsContent";
 import { features } from "@/lib/features";
-
-const FALLBACK_SITE_URL = "https://openhw-explorer.vercel.app";
-
-function getSiteUrl() {
-  const configuredUrl = process.env.NEXT_PUBLIC_SITE_URL;
-  if (!configuredUrl || configuredUrl.includes("<") || configuredUrl.includes("%3C")) {
-    return FALLBACK_SITE_URL;
-  }
-
-  try {
-    const url = new URL(configuredUrl);
-    return `${url.protocol}//${url.host}`;
-  } catch {
-    return FALLBACK_SITE_URL;
-  }
-}
+import { SITE_URL } from "@/lib/site-url";
 
 type NewsPageProps = {
   params: Promise<{ locale: string }>;
@@ -40,8 +25,6 @@ export async function generateMetadata({ params }: NewsPageProps): Promise<Metad
   const t = await getTranslations("news");
   const title = t("title");
   const description = t("subtitle");
-  const siteUrl = getSiteUrl();
-
   return {
     title,
     description,
@@ -50,10 +33,10 @@ export async function generateMetadata({ params }: NewsPageProps): Promise<Metad
       description,
     },
     alternates: {
-      canonical: `${siteUrl}/${locale}/news`,
+      canonical: `${SITE_URL}/${locale}/news`,
       languages: {
-        en: `${siteUrl}/en/news`,
-        zh: `${siteUrl}/zh/news`,
+        en: `${SITE_URL}/en/news`,
+        zh: `${SITE_URL}/zh/news`,
       },
     },
   };
