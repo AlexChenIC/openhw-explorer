@@ -1,28 +1,28 @@
 {
-  "weekOf": "2026-07-05",
-  "generatedAt": "2026-07-05T10:18:29.349Z",
+  "weekOf": "2026-07-10",
+  "generatedAt": "2026-07-10T07:40:20.541Z",
   "stats": {
-    "totalRelevant": 72,
+    "totalRelevant": 78,
     "totalSources": 33,
     "topTags": [
       {
         "tag": "RISC-V",
-        "count": 23
+        "count": 25
       },
       {
         "tag": "Security",
-        "count": 18
+        "count": 19
       },
       {
         "tag": "EDA",
-        "count": 17
+        "count": 19
       },
       {
         "tag": "Verification",
         "count": 16
       },
       {
-        "tag": "CHIPS Alliance",
+        "tag": "Root of Trust",
         "count": 12
       }
     ]
@@ -35,7 +35,7 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 25,
+      "count": 26,
       "items": [
         {
           "title": "Chisel v7.13.0 released with ChiselTest compatibility and FIRRTL 7 backend updates",
@@ -74,16 +74,16 @@
           "publishedAt": "2026-05-12T10:30:49.000Z"
         },
         {
-          "title": "CIRCT firtool 1.152.0 expands ImportVerilog, Moore simulation, Arc, and FIRRTL fixes",
-          "titleZh": "CIRCT firtool 1.152.0 扩展 ImportVerilog、Moore 仿真、Arc 与 FIRRTL 修复",
-          "url": "https://github.com/llvm/circt/releases/tag/firtool-1.152.0",
-          "source": "LLVM / CIRCT (GitHub)",
+          "title": "Yosys 0.67 lands sv-elab SystemVerilog flow and build-system updates",
+          "titleZh": "Yosys 0.67 引入 sv-elab SystemVerilog 流程与构建系统更新",
+          "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.67",
+          "source": "YosysHQ / Yosys (GitHub)",
           "tags": [
-            "CIRCT",
-            "firtool",
-            "FIRRTL"
+            "Yosys",
+            "EDA",
+            "Synthesis"
           ],
-          "publishedAt": "2026-07-04T04:21:10.000Z"
+          "publishedAt": "2026-07-09T09:12:38.000Z"
         }
       ]
     },
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 26,
+      "count": 29,
       "items": [
         {
           "title": "OpenHW uses RISC-V Summit Europe 2026 to showcase CVA6, CORE-ET, UAP, and Eclipse collaboration",
@@ -153,7 +153,7 @@
         "zh": "AI 与加速器"
       },
       "icon": "brain",
-      "count": 11,
+      "count": 12,
       "items": [
         {
           "title": "MLCommons adds GPT-OSS 20B as a sparse MoE pretraining benchmark for MLPerf Training v6.0",
@@ -166,6 +166,18 @@
             "AI"
           ],
           "publishedAt": "2026-05-07T13:23:00.000Z"
+        },
+        {
+          "title": "MLCommons opens Edge Agentic Inference submissions for MLPerf Inference v6.1",
+          "titleZh": "MLCommons 为 MLPerf Inference v6.1 开放 Edge Agentic Inference 提交",
+          "url": "https://mlcommons.org/2026/07/mlperf-inference-v61-edge-agentic/",
+          "source": "MLCommons",
+          "tags": [
+            "MLCommons",
+            "MLPerf",
+            "Agentic AI"
+          ],
+          "publishedAt": "2026-07-09T14:45:00.000Z"
         },
         {
           "title": "Apache TVM introduces TIRx as an open hardware-native DSL for frontier ML kernels",
@@ -190,18 +202,6 @@
             "Jetson AGX Thor"
           ],
           "publishedAt": "2026-06-18T00:00:00.000Z"
-        },
-        {
-          "title": "MLCommons publishes MLPerf Training v6.0 results for sparse MoE workloads",
-          "titleZh": "MLCommons 发布 MLPerf Training v6.0 结果，聚焦 sparse MoE workload",
-          "url": "https://mlcommons.org/2026/06/mlperf-training-v6-0-results/",
-          "source": "MLCommons",
-          "tags": [
-            "MLCommons",
-            "MLPerf",
-            "Training"
-          ],
-          "publishedAt": "2026-06-16T14:56:24.000Z"
         }
       ]
     },
@@ -259,7 +259,7 @@
         "zh": "硬件与嵌入式"
       },
       "icon": "circuit",
-      "count": 6,
+      "count": 7,
       "items": [
         {
           "title": "Antmicro brings IEEE-compliant force/release statement support to Verilator",
@@ -272,6 +272,18 @@
             "SystemVerilog"
           ],
           "publishedAt": "2026-05-20T00:00:00.000Z"
+        },
+        {
+          "title": "Antmicro releases Topwrap 0.7.0 with cleaner SoC YAML and deeper SystemVerilog parsing",
+          "titleZh": "Antmicro 发布 Topwrap 0.7.0，改进 SoC YAML 与 SystemVerilog 解析",
+          "url": "https://antmicro.com/blog/2026/07/topwrap-0-7-0-release",
+          "source": "Antmicro Blog",
+          "tags": [
+            "Antmicro",
+            "Topwrap",
+            "SoC/IP"
+          ],
+          "publishedAt": "2026-07-07T00:00:00.000Z"
         },
         {
           "title": "Antmicro adds mockturtle extended technology mapping to OpenROAD resynthesis",
@@ -296,18 +308,6 @@
             "I3C"
           ],
           "publishedAt": "2026-06-16T00:00:00.000Z"
-        },
-        {
-          "title": "CHIPS Alliance Latch-Up recap connects SV Tools, Verilator, VeeR, and open PDK work",
-          "titleZh": "CHIPS Alliance Latch-Up 回顾串联 SV Tools、Verilator、VeeR 与开放 PDK 工作",
-          "url": "https://www.chipsalliance.org/news/latch-up2026/",
-          "source": "CHIPS Alliance Blog",
-          "tags": [
-            "CHIPS Alliance",
-            "FOSSi",
-            "Latch-Up"
-          ],
-          "publishedAt": "2026-06-01T00:00:00.000Z"
         }
       ]
     },
@@ -718,6 +718,151 @@
       "placement": "featured",
       "titleZh": "MLCommons 为 MLPerf Training v6.0 增加 GPT-OSS 20B sparse MoE 预训练 benchmark",
       "summaryZh": "MLCommons 介绍 GPT-OSS 20B，这是面向 MLPerf Training v6.0 的 sparse Mixture-of-Experts 预训练 benchmark，目标是在单个 8-GPU 节点上测试 MoE routing、稀疏计算以及硬件/软件训练效率。"
+    },
+    {
+      "title": "MLCommons opens Edge Agentic Inference submissions for MLPerf Inference v6.1",
+      "url": "https://mlcommons.org/2026/07/mlperf-inference-v61-edge-agentic/",
+      "source": "MLCommons",
+      "publishedAt": "2026-07-09T14:45:00.000Z",
+      "summary": "MLCommons introduced an Edge Agentic Inference benchmark for MLPerf Inference v6.1, targeting on-device multi-turn LLM workloads on a single edge accelerator wi...",
+      "author": "",
+      "relevanceScore": 6,
+      "tags": [
+        "MLCommons",
+        "MLPerf",
+        "Agentic AI",
+        "LLM",
+        "Edge AI",
+        "Accelerator",
+        "Benchmarking"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "MLCommons 为 MLPerf Inference v6.1 开放 Edge Agentic Inference 提交",
+      "summaryZh": "MLCommons 为 MLPerf Inference v6.1 推出 Edge Agentic Inference benchmark，面向单颗 edge accelerator 上的端侧多轮 LLM workload，使用 Qwen3.6-27B、BFCL v4 accuracy gate、recorded coding replay，并将提交截止日定为 7 月 31 日。"
+    },
+    {
+      "title": "Yosys 0.67 lands sv-elab SystemVerilog flow and build-system updates",
+      "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.67",
+      "source": "YosysHQ / Yosys (GitHub)",
+      "publishedAt": "2026-07-09T09:12:38.000Z",
+      "summary": "Yosys 0.67 now requires CMake 3.28, Clang 16 or GCC 13, moves SystemVerilog support to sv-elab on top of slang, adds working Microsoft Visual Studio builds incl...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Yosys",
+        "EDA",
+        "Synthesis",
+        "SystemVerilog",
+        "sv-elab",
+        "slang",
+        "Formal"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Yosys 0.67 引入 sv-elab SystemVerilog 流程与构建系统更新",
+      "summaryZh": "Yosys 0.67 现在要求 CMake 3.28、Clang 16 或 GCC 13，将 SystemVerilog 支持迁移到基于 slang 的 sv-elab，并加入可工作的 Microsoft Visual Studio/ABC 构建，以及 check_mem、arith_tree、equiv_opt、sim、proc 和 latch handling 等 pass 更新。"
+    },
+    {
+      "title": "MLPerf Tiny v1.4 reports edge-AI results across RISC-V cores, NPUs, and microcontrollers",
+      "url": "https://mlcommons.org/2026/07/mlperf-tiny-v1-4-results/",
+      "source": "MLCommons",
+      "publishedAt": "2026-07-07T14:39:00.000Z",
+      "summary": "MLCommons described MLPerf Tiny v1.4 as an architecture-neutral benchmark for ultra-low-power AI, measuring accuracy, latency, and energy per inference across 2...",
+      "author": "",
+      "relevanceScore": 6,
+      "tags": [
+        "MLCommons",
+        "MLPerf Tiny",
+        "TinyML",
+        "Edge AI",
+        "RISC-V",
+        "Energy",
+        "Benchmarking",
+        "Accelerator"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "MLPerf Tiny v1.4 发布覆盖 RISC-V core、NPU 与 MCU 的 edge-AI 结果",
+      "summaryZh": "MLCommons 将 MLPerf Tiny v1.4 描述为面向超低功耗 AI 的架构中立 benchmark，围绕 accuracy、latency 与每次 inference 能耗进行比较；本轮包含 9 家组织的 25 个系统配置，包括 Andes RISC-V 配置和加速器方案。"
+    },
+    {
+      "title": "RISC-V International showcases GAPses smart glasses running always-on edge inference",
+      "url": "https://riscv.org/blog/risc-v-edge-inference-for-real-time-eye-movement-control-on-gapses-smart-glasses/",
+      "source": "RISC-V International",
+      "publishedAt": "2026-07-07T10:25:40.000Z",
+      "summary": "RISC-V International highlighted GAPses, an open wearable research platform using the GAP9 ultra-low-power RISC-V multicore processor for on-device EOG/EEG sign...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "RISC-V",
+        "GAP9",
+        "Edge AI",
+        "Wearables",
+        "Embedded ML",
+        "Low Power",
+        "Research Platform"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "RISC-V International 展示 GAPses 智能眼镜上的 always-on edge inference",
+      "summaryZh": "RISC-V International 介绍 GAPses 这一开放可穿戴研究平台：它使用 GAP9 超低功耗 RISC-V multicore processor，在端侧完成 EOG/EEG 信号处理和 CNN inference，将眼动信号转成 BLE 事件，无需云端计算。"
+    },
+    {
+      "title": "AMI joins the OpenTitan coalition to connect firmware security with open secure silicon",
+      "url": "https://lowrisc.org/news/ami-joins-opentitan-coalition-to-enable-new-use-cases-and-applications/",
+      "source": "lowRISC Newsroom",
+      "publishedAt": "2026-07-07T08:00:00.000Z",
+      "summary": "lowRISC announced that AMI joined the OpenTitan project, adding firmware-security and manageability expertise to a coalition that already includes Fraunhofer, G...",
+      "author": "",
+      "relevanceScore": 7,
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "AMI",
+        "Root of Trust",
+        "Security",
+        "Firmware",
+        "Open Silicon"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "AMI 加入 OpenTitan coalition，连接固件安全与开放安全硅",
+      "summaryZh": "lowRISC 宣布 AMI 加入 OpenTitan 项目，为 OpenTitan coalition 带来固件安全和管理能力；该 coalition 已包括 Fraunhofer、Google、Nuvoton 与 Realtek，重点推进透明、可验证的开源安全硅。"
+    },
+    {
+      "title": "Antmicro releases Topwrap 0.7.0 with cleaner SoC YAML and deeper SystemVerilog parsing",
+      "url": "https://antmicro.com/blog/2026/07/topwrap-0-7-0-release",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-07-07T00:00:00.000Z",
+      "summary": "Antmicro's Topwrap 0.7.0 update adds optimized component-based YAML syntax, initial clock/reset domain support with sanity checks, hierarchical SystemVerilog pa...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Antmicro",
+        "Topwrap",
+        "SoC/IP",
+        "SystemVerilog",
+        "ASIC/FPGA",
+        "EDA",
+        "Open Hardware"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Antmicro 发布 Topwrap 0.7.0，改进 SoC YAML 与 SystemVerilog 解析",
+      "summaryZh": "Antmicro 的 Topwrap 0.7.0 更新加入更清晰的 component-based YAML 语法、带 sanity check 的初始 clock/reset domain 支持、可生成图示的层级 SystemVerilog 解析、GUI 改进，以及后续 Renode 和 IP-XACT 集成规划。"
     },
     {
       "title": "CIRCT firtool 1.152.0 expands ImportVerilog, Moore simulation, Arc, and FIRRTL fixes",

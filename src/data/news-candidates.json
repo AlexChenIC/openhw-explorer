@@ -1,16 +1,16 @@
 {
   "_meta": {
-    "generatedAt": "2026-07-05T09:08:27.805Z",
+    "generatedAt": "2026-07-10T07:34:35.908Z",
     "lookbackDays": 45,
     "openHwActivityDays": 14,
-    "totalCandidates": 38,
+    "totalCandidates": 45,
     "sourceCount": 17,
     "reviewWorkflow": "Review candidates, verify source facts, copy selected items into src/data/curated-news.json, then run npm run build-news."
   },
   "sources": [
     {
       "source": "Antmicro Blog",
-      "count": 4
+      "count": 5
     },
     {
       "source": "Apache TVM (GitHub)",
@@ -54,11 +54,11 @@
     },
     {
       "source": "lowRISC Newsroom",
-      "count": 3
+      "count": 4
     },
     {
       "source": "MLCommons",
-      "count": 4
+      "count": 7
     },
     {
       "source": "OpenHW Foundation News",
@@ -66,7 +66,7 @@
     },
     {
       "source": "RISC-V International news",
-      "count": 1
+      "count": 2
     },
     {
       "source": "RISC-V ISA Manual (GitHub)",
@@ -74,7 +74,7 @@
     },
     {
       "source": "YosysHQ / Yosys (GitHub)",
-      "count": 1
+      "count": 2
     }
   ],
   "items": [
@@ -250,6 +250,27 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
+      "title": "RISC-V Edge Inference for Real-Time Eye-Movement Control on GAPses Smart Glasses",
+      "url": "https://riscv.org/blog/risc-v-edge-inference-for-real-time-eye-movement-control-on-gapses-smart-glasses/",
+      "source": "RISC-V International news",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-07-07T10:25:40.000Z",
+      "summary": "The post RISC-V Edge Inference for Real-Time Eye-Movement Control on GAPses Smart Glasses appeared first on RISC-V International .",
+      "author": "RISC-V International Staff",
+      "relevanceScore": 9,
+      "tags": [
+        "RISC-V",
+        "LLM"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv",
+        "ai-accelerators"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
       "title": "MLCommons Releases MLPerf Mobile v6.0 with New Generative AI Benchmarks for On-Device LLMs",
       "url": "https://mlcommons.org/2026/06/mlperf-mobile-v6/",
       "source": "MLCommons",
@@ -263,6 +284,29 @@
         "MLCommons",
         "Benchmarking",
         "AI",
+        "MLPerf",
+        "LLM",
+        "Accelerator"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "Call for Submission: Edge Agentic Inference Benchmark for MLPerf Inference v6.1",
+      "url": "https://mlcommons.org/2026/07/mlperf-inference-v61-edge-agentic/",
+      "source": "MLCommons",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-07-09T14:45:00.000Z",
+      "summary": "Benchmarking Multi-Turn Agentic LLMs on a Single Edge Accelerator The post Call for Submission: Edge Agentic Inference Benchmark for MLPerf Inference v6.1 appeared first on MLCommons .",
+      "author": "MLCommons",
+      "relevanceScore": 8,
+      "tags": [
+        "MLCommons",
+        "Benchmarking",
         "MLPerf",
         "LLM",
         "Accelerator"
@@ -410,13 +454,13 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "riscv/riscv-isa-manual release: Release riscv-isa-release-f89d503-2026-07-02",
-      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-f89d503-2026-07-02",
+      "title": "riscv/riscv-isa-manual release: Release riscv-isa-release-fbae3b4-2026-07-09",
+      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-fbae3b4-2026-07-09",
       "source": "RISC-V ISA Manual (GitHub)",
       "sourceType": "github-release",
       "sourceTier": "official",
-      "publishedAt": "2026-07-02T11:28:25.000Z",
-      "summary": "This release was created by: aswaterman Release of RISC-V ISA, built from commit f89d503, is now available. ## What's Changed * Fix bit-manipulation reference pseudocode by @abhinavagarwal07 in https://github.com/riscv/r...",
+      "publishedAt": "2026-07-09T22:55:54.000Z",
+      "summary": "This release was created by: aswaterman Release of RISC-V ISA, built from commit fbae3b4, is now available. ## What's Changed * Improve HTML rendering a bit by @aswaterman in https://github.com/riscv/riscv-isa-manual/pul...",
       "author": "github-actions[bot]",
       "relevanceScore": 6,
       "tags": [
@@ -431,13 +475,55 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "riscv/riscv-isa-manual release: Release riscv-isa-release-dc8bf2a-2026-06-26",
-      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-dc8bf2a-2026-06-26",
+      "title": "Agentic Inference for MLPerf Inference",
+      "url": "https://mlcommons.org/2026/07/agentic-inference-for-mlperf-inference/",
+      "source": "MLCommons",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-07-08T14:40:00.000Z",
+      "summary": "A new multi-turn benchmark for measuring LLM serving systems under growing context, and closed-loop agent workflows. The post Agentic Inference for MLPerf Inference appeared first on MLCommons .",
+      "author": "MLCommons",
+      "relevanceScore": 6,
+      "tags": [
+        "MLCommons",
+        "Benchmarking",
+        "MLPerf",
+        "LLM"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "AMI Joins OpenTitan Coalition to Enable New Use Cases and Applications",
+      "url": "https://lowrisc.org/news/ami-joins-opentitan-coalition-to-enable-new-use-cases-and-applications/",
+      "source": "lowRISC Newsroom",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-07-07T08:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 6,
+      "tags": [
+        "lowRISC",
+        "OpenTitan"
+      ],
+      "suggestedAudience": [
+        "security"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "riscv/riscv-isa-manual release: Release riscv-isa-release-60d323c-2026-07-06",
+      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-60d323c-2026-07-06",
       "source": "RISC-V ISA Manual (GitHub)",
       "sourceType": "github-release",
       "sourceTier": "official",
-      "publishedAt": "2026-06-26T06:11:09.000Z",
-      "summary": "This release was created by: aswaterman Release of RISC-V ISA, built from commit dc8bf2a, is now available. ## What's Changed * Improve Zkr example by @aswaterman in https://github.com/riscv/riscv-isa-manual/pull/3227 **...",
+      "publishedAt": "2026-07-06T23:36:07.000Z",
+      "summary": "This release was created by: aswaterman Release of RISC-V ISA, built from commit 60d323c, is now available. ## What's Changed * Add missing AIA CSRs to priv/csrs.adoc by @topperc in https://github.com/riscv/riscv-isa-man...",
       "author": "github-actions[bot]",
       "relevanceScore": 6,
       "tags": [
@@ -633,6 +719,49 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
+      "title": "YosysHQ/yosys release: Yosys 0.67",
+      "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.67",
+      "source": "YosysHQ / Yosys (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-07-09T09:12:38.000Z",
+      "summary": "Yosys 0.66 .. Yosys 0.67 -------------------------- * Various - Project is now requiring CMake 3.28 or later as build system. - At least Clang-16 or GCC-13 are required, but we recommend using later versions. - Microsoft...",
+      "author": "mmicko",
+      "relevanceScore": 4,
+      "tags": [
+        "Yosys",
+        "EDA",
+        "Synthesis"
+      ],
+      "suggestedAudience": [
+        "eda-tools"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "The Benchmark Behind the Next Wave of Ultra-Low-Power AI",
+      "url": "https://mlcommons.org/2026/07/mlperf-tiny-v1-4-results/",
+      "source": "MLCommons",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-07-07T14:39:00.000Z",
+      "summary": "MLPerf Tiny: Benchmarking AI at the Edge The post The Benchmark Behind the Next Wave of Ultra-Low-Power AI appeared first on MLCommons .",
+      "author": "MLCommons",
+      "relevanceScore": 4,
+      "tags": [
+        "MLCommons",
+        "Benchmarking",
+        "AI",
+        "MLPerf"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
       "title": "llvm/circt release: firtool-1.152.0",
       "url": "https://github.com/llvm/circt/releases/tag/firtool-1.152.0",
       "source": "LLVM / CIRCT (GitHub)",
@@ -803,6 +932,28 @@
       ],
       "suggestedAudience": [
         "ai-accelerators"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "\"Topwrap 0.7.0: improved YAML syntax with initial clock and reset support, extended SystemVerilog parsing, and more\"",
+      "url": "https://antmicro.com/blog/2026/07/topwrap-0-7-0-release",
+      "source": "Antmicro Blog",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-07-07T00:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 3,
+      "tags": [
+        "Antmicro",
+        "Open Hardware",
+        "Verification"
+      ],
+      "suggestedAudience": [
+        "verification",
+        "soc-ip"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
