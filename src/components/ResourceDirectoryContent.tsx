@@ -668,7 +668,7 @@ function ResourceCard({ link, locale, cta }: ResourceCardProps) {
           <span
             className={`grid shrink-0 place-items-center overflow-hidden rounded-md border ${
               link.logo
-                ? "h-12 w-16 border-[var(--border)] bg-white p-2"
+                ? "h-12 w-16 border-[var(--border)] bg-white"
                 : "h-12 w-12 border-[var(--primary)]/15 bg-[var(--primary)]/10 text-[var(--primary)]"
             }`}
           >
@@ -678,7 +678,7 @@ function ResourceCard({ link, locale, cta }: ResourceCardProps) {
                 alt=""
                 width={128}
                 height={80}
-                className="h-full w-full object-contain"
+                className="h-8 w-12 object-contain"
               />
             ) : (
               <ResourceIcon className="h-5 w-5" />
