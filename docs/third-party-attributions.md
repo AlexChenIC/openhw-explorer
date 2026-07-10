@@ -46,3 +46,40 @@ Official asset sources:
 - One Student One Chip: https://ysyx.oscc.cc/
 
 The Technical Library reuses a small subset of these official marks where a stable project identity is useful. Other technical links use category icons rather than third-party commercial marks.
+
+## Open PDK Directory
+
+The Open PDK category distinguishes foundry-linked open releases from predictive or academic research kits. Inclusion does not imply production qualification; each card records the maturity or manufacturability stated by its official source.
+
+Official project sources:
+
+- SkyWater SKY130: https://github.com/google/skywater-pdk
+- GlobalFoundries GF180MCU: https://github.com/google/gf180mcu-pdk
+- IHP SG13G2: https://github.com/IHP-GmbH/IHP-Open-PDK
+- ICsprout55: https://github.com/openecos-projects/icsprout55-pdk
+- NCSU FreePDK45: https://eda.ncsu.edu/freepdk/freepdk45/
+- ASAP7: https://github.com/The-OpenROAD-Project/asap7
+- PKP3: https://pkp.pkueda.org.cn/
+- OpenRPDK28: https://github.com/RIOSMPW/OpenRPDK28
+
+## RISC-V Industry Landscape
+
+The `/resources/industry` page uses official company pages to verify publicly documented RISC-V offerings. It uses text monograms rather than reproducing commercial company logos.
+
+Official company sources:
+
+- SiFive: https://www.sifive.com/risc-v-core-ip
+- Andes Technology: https://www.andestech.com/en/products-solutions/andescore-processors/
+- Codasip: https://codasip.com/products/codasip-risc-v-processors/
+- MIPS: https://mips.com/products/hardware/
+- Akeana: https://www.akeana.com/
+- Semidynamics: https://semidynamics.com/ip-cores
+- Nuclei System Technology: https://www.nucleisys.com/
+- Tenstorrent: https://tenstorrent.com/ip
+- Ventana Micro Systems: https://www.ventanamicro.com/
+- StarFive: https://www.starfivetech.com/en/
+- SpacemiT: https://www.spacemit.com/en/
+- Openchip: https://openchip.com/
+- Synopsys: https://www.synopsys.com/risc-v.html
+- Cadence: https://www.cadence.com/en_US/home/tools/silicon-solutions/compute-ip/tensilica-swerv-cpus.html
+- Siemens EDA: https://eda.sw.siemens.com/en-US/ic/questa/formal-verification/

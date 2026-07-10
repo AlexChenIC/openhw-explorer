@@ -41,7 +41,7 @@ describe("technical resource directory", () => {
       expect(link.summary.en, link.id).toBeTruthy();
       expect(link.summary.zh, link.id).toBeTruthy();
       if (link.logo) {
-        expect(link.logo, link.id).toMatch(/^\/ecosystem\/.+\.png$/);
+        expect(link.logo, link.id).toMatch(/^\/.+\.png$/);
         expect(existsSync(join(process.cwd(), "public", link.logo.slice(1))), link.id).toBe(true);
       }
     }

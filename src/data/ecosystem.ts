@@ -3,7 +3,7 @@ export type LocalizedEcosystemText = {
   zh: string;
 };
 
-export type EcosystemCategoryId = "foundations" | "projects" | "regional" | "participate";
+export type EcosystemCategoryId = "foundations" | "projects" | "pdk" | "regional" | "participate";
 
 export interface EcosystemCategory {
   id: EcosystemCategoryId;
@@ -22,7 +22,11 @@ export interface EcosystemEntry {
   summary: LocalizedEcosystemText;
   region: LocalizedEcosystemText;
   focus: string[];
-  logo: string;
+  logo?: string;
+  mark?: {
+    label: string;
+    node: string;
+  };
 }
 
 export const ecosystemVerifiedAt = "2026-07-10";
@@ -44,6 +48,15 @@ export const ecosystemCategories: EcosystemCategory[] = [
     description: {
       en: "Major open silicon programs, reusable IP, security projects, and design automation initiatives.",
       zh: "重要的开源芯片计划、可复用 IP、安全项目与设计自动化项目。",
+    },
+  },
+  {
+    id: "pdk",
+    title: { en: "Open Process Design Kits", zh: "开放工艺设计套件" },
+    shortTitle: { en: "Open PDKs", zh: "开放 PDK" },
+    description: {
+      en: "Foundry-linked open process kits and predictive research PDKs, with their manufacturing status made explicit.",
+      zh: "开放的晶圆厂关联工艺套件与预测型研究 PDK，并明确标注其可制造性与成熟度。",
     },
   },
   {
@@ -282,20 +295,6 @@ export const ecosystemEntries: EcosystemEntry[] = [
     logo: "/ecosystem/shakti.png",
   },
   {
-    id: "openchip",
-    name: "Openchip",
-    url: "https://openchip.com/",
-    category: "projects",
-    entityType: { en: "Semiconductor company", zh: "半导体公司" },
-    summary: {
-      en: "European company developing RISC-V-based SoCs, accelerators, and full-stack systems for AI and HPC.",
-      zh: "面向 AI 与 HPC 开发 RISC-V SoC、加速器及全栈系统的欧洲企业。",
-    },
-    region: { en: "Europe", zh: "欧洲" },
-    focus: ["RISC-V", "AI", "HPC"],
-    logo: "/ecosystem/openchip.png",
-  },
-  {
     id: "chipyard",
     name: "Chipyard",
     url: "https://chipyard.readthedocs.io/en/stable/",
@@ -336,6 +335,150 @@ export const ecosystemEntries: EcosystemEntry[] = [
     region: { en: "China", zh: "中国" },
     focus: ["Open EDA", "Physical Design", "Research"],
     logo: "/ecosystem/ieda.png",
+  },
+  {
+    id: "skywater-sky130",
+    name: "SkyWater SKY130",
+    url: "https://github.com/google/skywater-pdk",
+    category: "pdk",
+    entityType: { en: "Foundry-linked open PDK", zh: "晶圆厂关联开放 PDK" },
+    relationship: {
+      en: "Experimental open release",
+      zh: "实验性开放版本",
+    },
+    summary: {
+      en: "Open PDK for SkyWater's 130 nm CMOS process. It supports manufacturable designs, while the public release remains an experimental preview rather than a production-qualified kit.",
+      zh: "面向 SkyWater 130 nm CMOS 工艺的开放 PDK，可用于可制造设计；其公开版本仍属于实验性预览，并非生产认证套件。",
+    },
+    region: { en: "United States", zh: "美国" },
+    focus: ["130 nm", "Foundry-linked", "CMOS"],
+    mark: { label: "SKY", node: "130 nm" },
+  },
+  {
+    id: "globalfoundries-gf180mcu",
+    name: "GlobalFoundries GF180MCU",
+    url: "https://github.com/google/gf180mcu-pdk",
+    category: "pdk",
+    entityType: { en: "Foundry-linked open PDK", zh: "晶圆厂关联开放 PDK" },
+    relationship: {
+      en: "Experimental open release",
+      zh: "实验性开放版本",
+    },
+    summary: {
+      en: "Open PDK for GlobalFoundries' 180 nm MCU process. It targets manufacturable designs at GF, but the public release remains an experimental preview not intended for production use.",
+      zh: "面向 GlobalFoundries 180 nm MCU 工艺的开放 PDK，可用于面向 GF 的可制造设计；但其公开版本仍为实验性预览，不用于生产环境。",
+    },
+    region: { en: "Global", zh: "全球" },
+    focus: ["180 nm", "Foundry-linked", "Mixed Signal"],
+    mark: { label: "GF", node: "180 nm" },
+  },
+  {
+    id: "ihp-sg13g2",
+    name: "IHP SG13G2",
+    url: "https://github.com/IHP-GmbH/IHP-Open-PDK",
+    category: "pdk",
+    entityType: { en: "Foundry-linked open PDK", zh: "晶圆厂关联开放 PDK" },
+    relationship: {
+      en: "Preview release",
+      zh: "预览版本",
+    },
+    summary: {
+      en: "Open PDK for IHP's 130 nm SiGe BiCMOS process, aimed at analog, mixed-signal, and RF design. The public release is a preview rather than a production-qualified kit.",
+      zh: "面向 IHP 130 nm SiGe BiCMOS 工艺的开放 PDK，适用于模拟、混合信号与射频设计；公开版本仍是预览版，并非生产认证套件。",
+    },
+    region: { en: "Germany", zh: "德国" },
+    focus: ["130 nm", "SiGe BiCMOS", "RF"],
+    mark: { label: "IHP", node: "130 nm" },
+  },
+  {
+    id: "icsprout55",
+    name: "ICsprout55",
+    url: "https://github.com/openecos-projects/icsprout55-pdk",
+    category: "pdk",
+    entityType: { en: "Foundry-linked preview PDK", zh: "晶圆厂关联预览 PDK" },
+    relationship: {
+      en: "Research and small-batch use",
+      zh: "面向科研与小批量验证",
+    },
+    summary: {
+      en: "Open 55 nm CMOS PDK from Zhejiang ICsprout. Its current preview targets research, education, and small-batch validation, and is not qualified for commercial mass production.",
+      zh: "ICsprout（开芯院）开放的 55 nm CMOS PDK；当前预览版面向科研、教学与小批量验证，尚不适用于商业大规模量产。",
+    },
+    region: { en: "China", zh: "中国" },
+    focus: ["55 nm", "Preview", "CMOS"],
+    mark: { label: "ICS", node: "55 nm" },
+  },
+  {
+    id: "freepdk45",
+    name: "NCSU FreePDK45",
+    url: "https://eda.ncsu.edu/freepdk/freepdk45/",
+    category: "pdk",
+    entityType: { en: "Predictive research PDK", zh: "预测型研究 PDK" },
+    relationship: {
+      en: "Not manufacturable",
+      zh: "不可用于制造",
+    },
+    summary: {
+      en: "Generic predictive 45 nm CMOS process kit from NC State for teaching and design research. It is not tied to a foundry process and cannot be used to fabricate chips.",
+      zh: "由北卡罗来纳州立大学提供的通用预测型 45 nm CMOS 工艺套件，用于教学和设计研究；不对应具体晶圆厂，不能用于芯片制造。",
+    },
+    region: { en: "United States", zh: "美国" },
+    focus: ["45 nm", "Predictive", "Education"],
+    mark: { label: "FPDK", node: "45 nm" },
+  },
+  {
+    id: "asap7",
+    name: "ASAP7",
+    url: "https://github.com/The-OpenROAD-Project/asap7",
+    category: "pdk",
+    entityType: { en: "Predictive research PDK", zh: "预测型研究 PDK" },
+    relationship: {
+      en: "Not manufacturable",
+      zh: "不可用于制造",
+    },
+    summary: {
+      en: "Predictive 7 nm FinFET PDK distributed for academic physical-design research and benchmarking. It models an advanced node but is not a foundry-qualified manufacturing kit.",
+      zh: "面向学术物理设计研究与基准测试的预测型 7 nm FinFET PDK；它用于模拟先进节点，并非晶圆厂认证的制造套件。",
+    },
+    region: { en: "United States", zh: "美国" },
+    focus: ["7 nm", "FinFET", "Predictive"],
+    mark: { label: "ASAP", node: "7 nm" },
+  },
+  {
+    id: "pkp3",
+    name: "PKP3",
+    url: "https://pkp.pkueda.org.cn/",
+    category: "pdk",
+    entityType: { en: "Predictive GAA research PDK", zh: "预测型 GAA 研究 PDK" },
+    relationship: {
+      en: "Not manufacturable",
+      zh: "不可用于制造",
+    },
+    summary: {
+      en: "Open predictive 3 nm gate-all-around PDK from Peking University for advanced-node EDA and circuit research. It is an academic model, not a manufacturable foundry kit.",
+      zh: "北京大学面向先进节点 EDA 与电路研究开放的预测型 3 nm 环栅 PDK；属于学术模型，不能作为晶圆厂制造套件。",
+    },
+    region: { en: "China", zh: "中国" },
+    focus: ["3 nm", "GAA", "Predictive"],
+    mark: { label: "PKP", node: "3 nm" },
+  },
+  {
+    id: "openrpdk28",
+    name: "OpenRPDK28",
+    url: "https://github.com/RIOSMPW/OpenRPDK28",
+    category: "pdk",
+    entityType: { en: "Academic PDK template", zh: "学术 PDK 模板" },
+    relationship: {
+      en: "Under construction",
+      zh: "仍在建设中",
+    },
+    summary: {
+      en: "Early open 28 nm reference PDK project from RIOS Lab. The repository describes preliminary academic material rather than a complete, foundry-qualified production kit.",
+      zh: "RIOS Lab 推动的早期开放 28 nm 参考 PDK 项目；仓库目前提供初步学术材料，并非完整、经晶圆厂认证的生产套件。",
+    },
+    region: { en: "China", zh: "中国" },
+    focus: ["28 nm", "Academic", "Preliminary"],
+    mark: { label: "RPDK", node: "28 nm" },
   },
   {
     id: "ode4ec",

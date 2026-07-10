@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import Link from "next/link";
 import { useState } from "react";
 import {
   Boxes,
@@ -39,18 +40,21 @@ const copy = {
     title: "Open Hardware Ecosystem & Resources",
     subtitle:
       "Use task-focused technical references for design work, or map the organizations and initiatives shaping open silicon.",
-    statsEcosystem: "ecosystem hubs",
+    statsEcosystem: "ecosystem entries",
     statsResources: "technical resources",
     statsCategories: "resource areas",
     resourceViews: "Resource views",
     technicalMode: "Technical library",
     technicalModeDescription: "Standards, documentation, tools, and learning references",
     ecosystemMode: "Ecosystem directory",
-    ecosystemModeDescription: "Foundations, open silicon, research institutions, and participation",
+    ecosystemModeDescription:
+      "Foundations, open silicon, process design kits, research, and participation",
     ecosystemLabel: "Ecosystem map",
     ecosystemTitle: "Explore the open hardware landscape",
     ecosystemSubtitle:
-      "A source-checked set of foundations, open silicon projects, research institutions, and practical ways to participate.",
+      "A source-checked set of foundations, open silicon projects, process design kits, research institutions, and practical ways to participate.",
+    industryLink: "RISC-V industry landscape",
+    industryLinkDescription: "Commercial IP, silicon, platforms, and design enablement",
     allOrganizations: "All",
     organizations: "entries",
     verified: `Source-checked ${ecosystemVerifiedAt}`,
@@ -80,10 +84,12 @@ const copy = {
     technicalMode: "技术资料库",
     technicalModeDescription: "规范、工具、学习资料与实现参考",
     ecosystemMode: "生态导航",
-    ecosystemModeDescription: "基金会、开源芯片、科研机构与参与入口",
+    ecosystemModeDescription: "基金会、开源芯片、开放 PDK、科研机构与参与入口",
     ecosystemLabel: "生态地图",
     ecosystemTitle: "浏览开源硬件生态",
-    ecosystemSubtitle: "经过官网核对的基金会、开源芯片项目、科研机构与实践参与入口。",
+    ecosystemSubtitle: "经过官网核对的基金会、开源芯片项目、开放 PDK、科研机构与实践参与入口。",
+    industryLink: "RISC-V 产业版图",
+    industryLinkDescription: "商业 IP、芯片、计算平台与设计支撑",
     allOrganizations: "全部",
     organizations: "个入口",
     verified: `官网核对于 ${ecosystemVerifiedAt}`,
@@ -222,9 +228,28 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
                   {t.ecosystemSubtitle}
                 </p>
               </div>
-              <div className="inline-flex w-fit items-center gap-2 text-xs font-medium text-[var(--text-tertiary)]">
-                <ShieldCheck className="h-4 w-4 text-[var(--green)]" />
-                {t.verified}
+              <div className="flex flex-col items-start gap-3 lg:items-end">
+                <Link
+                  href={`/${resolvedLocale}/resources/industry`}
+                  className="group flex w-full max-w-sm items-center gap-3 rounded-lg border border-[var(--border)] bg-[var(--bg-card)] px-3.5 py-3 transition hover:border-[var(--primary)]/50 hover:bg-[var(--bg-card-hover)] sm:w-auto"
+                >
+                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-md bg-[var(--primary)]/10 text-[var(--primary)]">
+                    <Building2 className="h-4.5 w-4.5" />
+                  </span>
+                  <span className="min-w-0 flex-1">
+                    <span className="block text-sm font-semibold text-[var(--text-primary)]">
+                      {t.industryLink}
+                    </span>
+                    <span className="mt-0.5 block text-xs leading-5 text-[var(--text-tertiary)]">
+                      {t.industryLinkDescription}
+                    </span>
+                  </span>
+                  <ChevronRight className="h-4 w-4 shrink-0 text-[var(--text-tertiary)] transition group-hover:translate-x-0.5 group-hover:text-[var(--primary)]" />
+                </Link>
+                <div className="inline-flex w-fit items-center gap-2 text-xs font-medium text-[var(--text-tertiary)]">
+                  <ShieldCheck className="h-4 w-4 text-[var(--green)]" />
+                  {t.verified}
+                </div>
               </div>
             </div>
 
@@ -544,13 +569,22 @@ function EcosystemCard({ entry, locale, cta }: EcosystemCardProps) {
         className="group flex h-full min-h-[330px] flex-col overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--bg-card)] transition hover:-translate-y-0.5 hover:border-[var(--primary)]/50 hover:shadow-[var(--card-shadow)]"
       >
         <div className="flex h-24 items-center justify-center border-b border-[var(--border)] bg-white px-5">
-          <Image
-            src={entry.logo}
-            alt={`${entry.name} logo`}
-            width={320}
-            height={144}
-            className="h-full w-full object-contain"
-          />
+          {entry.logo ? (
+            <Image
+              src={entry.logo}
+              alt={`${entry.name} logo`}
+              width={320}
+              height={144}
+              className="h-full w-full object-contain"
+            />
+          ) : entry.mark ? (
+            <div className="flex items-center gap-3" aria-hidden="true">
+              <span className="text-xl font-bold text-slate-800">{entry.mark.label}</span>
+              <span className="rounded-md border border-blue-200 bg-blue-50 px-2.5 py-1 text-xs font-semibold text-blue-700">
+                {entry.mark.node}
+              </span>
+            </div>
+          ) : null}
         </div>
         <div className="flex flex-1 flex-col p-4">
           <div className="flex items-center justify-between gap-3 text-[11px] font-semibold text-[var(--text-tertiary)]">
@@ -624,17 +658,17 @@ function ResourceCard({ link, locale, cta }: ResourceCardProps) {
       <div className="flex items-start justify-between gap-3">
         <div className="flex min-w-0 items-start gap-3">
           <span
-            className={`grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-md border ${
+            className={`grid shrink-0 place-items-center overflow-hidden rounded-md border ${
               link.logo
-                ? "border-[var(--border)] bg-white p-1.5"
-                : "border-[var(--primary)]/15 bg-[var(--primary)]/10 text-[var(--primary)]"
+                ? "h-14 w-20 border-[var(--border)] bg-white p-1"
+                : "h-12 w-12 border-[var(--primary)]/15 bg-[var(--primary)]/10 text-[var(--primary)]"
             }`}
           >
             {link.logo ? (
               <Image
                 src={link.logo}
                 alt=""
-                width={96}
+                width={160}
                 height={96}
                 className="h-full w-full object-contain"
               />
