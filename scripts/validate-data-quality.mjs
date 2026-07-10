@@ -14,7 +14,7 @@ const PROJECTS_FILE = join(ROOT, "src/data/projects.ts");
 const PROJECT_PROFILE_META_FILE = join(ROOT, "src/data/project-profile-meta.json");
 const REPO_DOCS_DIR = join(ROOT, "docs/repos");
 const DAYS_TO_INCLUDE = 7;
-const NEWS_ENABLED = process.env.NEXT_PUBLIC_ENABLE_NEWS === "true";
+const NEWS_ENABLED = process.env.NEXT_PUBLIC_ENABLE_NEWS !== "false";
 const HAS_REPO_DOCS_DIR = existsSync(REPO_DOCS_DIR);
 
 function readJson(filePath) {
@@ -371,7 +371,7 @@ function main() {
         console.log("[news-digest] validation passed");
       }
     } else {
-      console.log("[news-digest] validation skipped (NEXT_PUBLIC_ENABLE_NEWS is not true)");
+      console.log("[news-digest] validation skipped (NEXT_PUBLIC_ENABLE_NEWS=false)");
     }
 
     const { errors: profileErrors, warnings: profileWarnings } = validateProjectProfileMeta();

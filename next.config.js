@@ -4,9 +4,16 @@ const withNextIntl = createNextIntlPlugin("./src/lib/i18n.ts");
 
 // 'unsafe-inline' script-src is required by the inline ThemeScript and JSON-LD blocks;
 // va.vercel-scripts.com serves the Vercel Analytics debug script outside production.
+const scriptSources = [
+  "'self'",
+  "'unsafe-inline'",
+  ...(process.env.NODE_ENV === "development" ? ["'unsafe-eval'"] : []),
+  "https://va.vercel-scripts.com",
+].join(" ");
+
 const contentSecurityPolicy = [
   "default-src 'self'",
-  "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com",
+  `script-src ${scriptSources}`,
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https:",
   "font-src 'self' data:",

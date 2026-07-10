@@ -1,6 +1,5 @@
 "use client";
 
-import { useEffect } from "react";
 import { Compass, GraduationCap, Search } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/lib/routing";
@@ -61,19 +60,8 @@ function HeroBackground() {
 export function Hero() {
   const t = useTranslations("hero");
 
-  useEffect(() => {
-    if (window.location.hash !== "#projects") return;
-
-    window.requestAnimationFrame(() => {
-      document.getElementById("projects")?.scrollIntoView({ block: "start" });
-    });
-  }, []);
-
   return (
-    <section
-      id="projects"
-      className="relative flex flex-col items-center gap-6 overflow-hidden px-4 py-16 scroll-mt-20 sm:gap-8 sm:px-6 sm:py-20 md:px-20 lg:py-24"
-    >
+    <section className="relative flex flex-col items-center gap-6 overflow-hidden px-4 py-16 scroll-mt-20 sm:gap-8 sm:px-6 sm:py-20 md:px-20 lg:py-24">
       {/* 动态背景 */}
       <HeroBackground />
 
@@ -99,7 +87,7 @@ export function Hero() {
         {/* CTA Buttons */}
         <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
           <a
-            href="#project-list"
+            href="#projects"
             onClick={() => trackEvent("hero_cta_clicked", { target: "projects" })}
             className="flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3.5 rounded-lg bg-[var(--primary)] hover:bg-[var(--primary-dark)] transition-all shadow-lg shadow-[var(--primary)]/20 hover:shadow-xl hover:shadow-[var(--primary)]/30"
           >

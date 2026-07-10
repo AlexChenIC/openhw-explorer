@@ -51,15 +51,6 @@ const rawProfileMeta = projectProfileMetaData as unknown as {
 };
 const projectProfileMeta: Record<string, ProjectProfileMeta> = rawProfileMeta.profiles || {};
 
-export const launchCuratedProjectIds = [
-  "cva6",
-  "cv32e40p",
-  "core-v-verif",
-  "cvw",
-  "cvfpu",
-  "cv32e20-dv",
-] as const;
-
 /** Get the repo name from a GitHub URL */
 function repoNameFromUrl(url?: string): string | null {
   if (!url) return null;

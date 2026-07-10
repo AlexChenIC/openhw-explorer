@@ -285,13 +285,6 @@ function daysSince(dateStr: string) {
   return Math.max(0, Math.floor(diff / (24 * 60 * 60 * 1000)));
 }
 
-function getFreshnessKey(days: number | null) {
-  if (days == null) return "freshnessUnknown";
-  if (days <= 2) return "freshnessFresh";
-  if (days <= 7) return "freshnessWatch";
-  return "freshnessStale";
-}
-
 function getItemsWithinDays(items: NewsItem[], days: number) {
   const maxAge = days * 24 * 60 * 60 * 1000;
   const now = getReferenceTimeMs();
@@ -342,7 +335,6 @@ function EmptyState() {
 function PageHeader({ latestItem }: { latestItem?: NewsItem } = {}) {
   const t = useTranslations("news");
   const locale = useLocale();
-  const latestDays = daysSince(latestItem?.publishedAt || digest.generatedAt || digest.weekOf);
   const latestDate = latestItem?.publishedAt || digest.generatedAt || digest.weekOf;
 
   return (
@@ -354,10 +346,6 @@ function PageHeader({ latestItem }: { latestItem?: NewsItem } = {}) {
         <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] px-3 py-1 text-xs text-[var(--text-tertiary)]">
           <CalendarDays className="h-3.5 w-3.5" />
           {t("updatedAt", { date: formatFullDate(digest.generatedAt || digest.weekOf, locale) })}
-        </span>
-        <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] px-3 py-1 text-xs text-[var(--text-tertiary)]">
-          <Radio className="h-3.5 w-3.5" />
-          {t(getFreshnessKey(latestDays), { count: latestDays ?? 0 })}
         </span>
       </div>
       <h1 className="max-w-3xl text-4xl font-bold leading-tight text-[var(--text-primary)] sm:text-5xl">

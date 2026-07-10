@@ -94,7 +94,7 @@ export function ProjectDetail({
   const numberFormatter = new Intl.NumberFormat(locale);
   const formatNumber = (value: number) => numberFormatter.format(value);
   const returnQuery = searchParams.toString();
-  const projectListHref = returnQuery ? `/?${returnQuery}#project-list` : "/#project-list";
+  const projectListHref = returnQuery ? `/?${returnQuery}#projects` : "/#projects";
   const getProjectDetailHref = (projectId: string) =>
     returnQuery ? `/projects/${projectId}?${returnQuery}` : `/projects/${projectId}`;
   const status = statusConfig[project.status];
@@ -106,10 +106,6 @@ export function ProjectDetail({
   const sourceCount = project.descriptionSourceCount ?? sourceUrls.length;
   const primarySourceUrl = sourceUrls[0];
   const additionalSourceUrls = sourceUrls.slice(1);
-  const confidencePercent =
-    typeof project.descriptionConfidence === "number"
-      ? Math.max(0, Math.min(100, Math.round(project.descriptionConfidence * 100)))
-      : null;
   const primaryRole = project.suitableFor?.[0] || null;
   const quickStartUrl = project.docs || project.github || project.website || null;
   const quickStartLabel = project.docs
@@ -222,9 +218,6 @@ export function ProjectDetail({
                       <span>
                         {t("profile.verifiedAt", { date: project.descriptionVerifiedAt })}
                       </span>
-                    )}
-                    {confidencePercent !== null && (
-                      <span>{t("profile.confidence", { value: confidencePercent })}</span>
                     )}
                     {sourceCount > 0 && <span>{t("profile.sources", { count: sourceCount })}</span>}
                     {primarySourceUrl && (

@@ -29,16 +29,16 @@ import {
 const copy = {
   en: {
     eyebrow: "OpenHW Classroom · Learning Hub",
-    title: "Choose a learning path before opening individual lessons",
+    title: "OpenHW Classroom",
     subtitle:
-      "A curated course center for OpenHW and RISC-V hardware learning. Start from a complete path, review its syllabus, then enter focused micro-lessons only when you are ready to learn.",
+      "Structured learning paths for OpenHW and RISC-V hardware. Review a course syllabus first, then move through focused, source-grounded micro-lessons.",
     primaryCta: "Start CVA6 From Zero",
     secondaryCta: "Browse learning areas",
     completePath: "Complete pilot path",
     productionNote:
       "Use this hub as a map: choose a path, inspect its syllabus, then open focused lessons when you are ready to learn.",
     stats: {
-      paths: "published path",
+      paths: "published paths",
       lessons: "published lessons",
       units: "structured units",
       hours: "estimated hours",
@@ -111,9 +111,9 @@ const copy = {
   },
   zh: {
     eyebrow: "OpenHW Classroom · 学习中心",
-    title: "先选择学习路径，再进入具体课程",
+    title: "OpenHW 交互式课堂",
     subtitle:
-      "这是面向 OpenHW 与 RISC-V 硬件学习的课程中心。用户先选择完整课程线，查看课程大纲，再进入一节节聚焦的微课程，而不是一上来面对一整墙课程清单。",
+      "面向 OpenHW 与 RISC-V 硬件学习的结构化课程路径。先查看完整大纲，再进入基于公开资料制作的聚焦微课程。",
     primaryCta: "开始 CVA6 From Zero",
     secondaryCta: "浏览学习方向",
     completePath: "完整试发布路径",

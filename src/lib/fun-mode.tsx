@@ -2,9 +2,8 @@
 
 import { createContext, useContext, useEffect, useState } from "react";
 
-// Fun mode shows the playful project mascots (the site's default look);
-// switching it off swaps in professional category icons instead.
-// Persisted like the theme preference.
+// Fun mode shows the playful project mascots by default. Users can switch to
+// professional category icons, and the preference is persisted like the theme.
 interface FunModeContextValue {
   funMode: boolean;
   toggleFunMode: () => void;

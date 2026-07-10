@@ -24,9 +24,9 @@ export function Header() {
 
   return (
     <header className="sticky top-0 z-50 bg-[var(--bg-dark)]/80 backdrop-blur-xl border-b border-[var(--border)]">
-      <div className="max-w-7xl mx-auto flex items-center justify-between h-20 px-4 sm:px-6 lg:px-8">
-        <Link href="/" className="flex items-center gap-2.5 hover:opacity-90 transition-opacity">
-          <BrandLockup size="lg" />
+      <div className="max-w-7xl mx-auto flex items-center justify-between h-16 px-4 sm:h-20 sm:px-6 lg:px-8">
+        <Link href="/" className="flex shrink-0 items-center hover:opacity-90 transition-opacity">
+          <BrandLockup size="sm" className="sm:h-12 sm:w-[150px] lg:h-[60px] lg:w-[186px]" />
         </Link>
 
         {/* Desktop Navigation */}
@@ -118,7 +118,7 @@ export function Header() {
             aria-pressed={funMode}
             aria-label={funMode ? t("aria.disableFunMode") : t("aria.enableFunMode")}
             title={funMode ? t("aria.disableFunMode") : t("aria.enableFunMode")}
-            className={`rounded-lg border p-1.5 transition-all sm:p-2 ${
+            className={`hidden rounded-lg border p-1.5 transition-all sm:inline-flex sm:p-2 ${
               funMode
                 ? "border-[var(--primary)] bg-[var(--primary)]/10"
                 : "border-[var(--border)] bg-[var(--bg-card)] hover:bg-[var(--bg-card-hover)] hover:border-[var(--text-tertiary)]"
@@ -197,6 +197,15 @@ export function Header() {
             >
               {t("about")}
             </Link>
+            <button
+              type="button"
+              onClick={toggleFunMode}
+              aria-pressed={funMode}
+              className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-left text-sm font-medium text-[var(--text-secondary)] transition-all hover:bg-[var(--bg-subtle-hover)] hover:text-[var(--text-primary)] sm:hidden"
+            >
+              <PawPrint className="h-4 w-4" />
+              {funMode ? t("aria.disableFunMode") : t("aria.enableFunMode")}
+            </button>
             <a
               href="https://github.com/openhwgroup"
               target="_blank"

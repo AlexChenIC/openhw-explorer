@@ -109,7 +109,12 @@ export default async function LocaleLayout({ children, params }: Props) {
   const messages = await getMessages();
 
   return (
-    <html lang={locale} className={`h-full ${inter.variable}`} suppressHydrationWarning>
+    <html
+      lang={locale}
+      className={`h-full ${inter.variable}`}
+      data-scroll-behavior="smooth"
+      suppressHydrationWarning
+    >
       <head>
         <ThemeScript />
       </head>

@@ -3,15 +3,14 @@
 import { useEffect, useMemo, useState } from "react";
 import { useSearchParams } from "next/navigation";
 import { useTranslations } from "next-intl";
+import { ChevronDown, SearchX } from "lucide-react";
 import { ProjectCard } from "./ProjectCard";
 import { QuickFilters } from "./QuickFilters";
-import { filterProjects, launchCuratedProjectIds } from "@/data/projects";
+import { filterProjects } from "@/data/projects";
 import { ProjectCategory, CoreType, VerificationType, UserRole } from "@/types";
 import { trackEvent } from "@/lib/observability";
 
-type ProjectDisplayMode = "curated" | "all";
-
-const launchCuratedProjectSet = new Set<string>(launchCuratedProjectIds);
+const PROJECTS_PAGE_SIZE = 12;
 
 const projectCategories: ProjectCategory[] = [
   "core",
@@ -53,20 +52,16 @@ function toVerificationType(value: string | null): VerificationType | null {
   return verificationTypes.includes(value as VerificationType) ? (value as VerificationType) : null;
 }
 
-function toDisplayMode(value: string | null): ProjectDisplayMode {
-  return value === "all" ? "all" : "curated";
-}
-
 export function ProjectsSection() {
   const t = useTranslations("projects");
   const tf = useTranslations("filters");
   const searchParams = useSearchParams();
 
   useEffect(() => {
-    if (window.location.hash !== "#project-list") return;
+    if (window.location.hash !== "#projects") return;
 
     window.requestAnimationFrame(() => {
-      document.getElementById("project-list")?.scrollIntoView({ block: "start" });
+      document.getElementById("projects")?.scrollIntoView({ block: "start" });
     });
   }, []);
 
@@ -75,7 +70,6 @@ export function ProjectsSection() {
   const initialCoreType = toCoreType(searchParams.get("core"));
   const initialVerificationType = toVerificationType(searchParams.get("verify"));
   const initialSearch = searchParams.get("q") || "";
-  const initialDisplayMode = toDisplayMode(searchParams.get("view"));
 
   // Filter states
   const [activeCategory, setActiveCategory] = useState<ProjectCategory | "all">(initialCategory);
@@ -87,14 +81,7 @@ export function ProjectsSection() {
     initialCategory === "verification" ? initialVerificationType : null,
   );
   const [searchQuery, setSearchQuery] = useState(initialSearch);
-  const [displayMode, setDisplayMode] = useState<ProjectDisplayMode>(initialDisplayMode);
-
-  const hasActiveFilters =
-    activeCategory !== "all" ||
-    activeRole !== null ||
-    activeCoreType !== null ||
-    activeVerificationType !== null ||
-    searchQuery.length > 0;
+  const [visibleLimit, setVisibleLimit] = useState(PROJECTS_PAGE_SIZE);
 
   // Filter projects based on current selections
   const filteredProjects = useMemo(() => {
@@ -114,6 +101,7 @@ export function ProjectsSection() {
     coreType: CoreType | null;
     verificationType: VerificationType | null;
   }) => {
+    setVisibleLimit(PROJECTS_PAGE_SIZE);
     setActiveCategory(filters.category);
     setActiveRole(filters.role);
     setActiveCoreType(filters.coreType);
@@ -140,15 +128,8 @@ export function ProjectsSection() {
       trackEvent("project_search_cleared");
     }
 
+    setVisibleLimit(PROJECTS_PAGE_SIZE);
     setSearchQuery(nextQuery);
-  };
-
-  const handleDisplayModeChange = (nextMode: ProjectDisplayMode) => {
-    if (nextMode === displayMode) return;
-    setDisplayMode(nextMode);
-    trackEvent("project_view_mode_changed", {
-      mode: nextMode,
-    });
   };
 
   const handleClearAllFilters = () => {
@@ -157,7 +138,7 @@ export function ProjectsSection() {
     setActiveCoreType(null);
     setActiveVerificationType(null);
     setSearchQuery("");
-    setDisplayMode("curated");
+    setVisibleLimit(PROJECTS_PAGE_SIZE);
 
     trackEvent("project_filters_cleared");
   };
@@ -172,10 +153,6 @@ export function ProjectsSection() {
     if (activeCoreType) params.set("core", activeCoreType);
     if (activeVerificationType) params.set("verify", activeVerificationType);
 
-    if (!hasActiveFilters && displayMode === "all") {
-      params.set("view", "all");
-    }
-
     const trimmedSearch = searchQuery.trim();
     if (trimmedSearch) params.set("q", trimmedSearch);
 
@@ -187,52 +164,28 @@ export function ProjectsSection() {
     if (currentSearch === nextSearch) return;
 
     const nextUrl = nextSearch
-      ? `${window.location.pathname}?${nextSearch}`
+      ? `${window.location.pathname}?${nextSearch}#projects`
       : window.location.pathname;
     window.history.replaceState(window.history.state, "", nextUrl);
-  }, [
-    activeCategory,
-    activeCoreType,
-    activeRole,
-    activeVerificationType,
-    displayMode,
-    hasActiveFilters,
-    searchQuery,
-  ]);
+  }, [activeCategory, activeCoreType, activeRole, activeVerificationType, searchQuery]);
 
-  const visibleProjects = useMemo(() => {
-    if (hasActiveFilters || displayMode === "all") {
-      return filteredProjects;
-    }
-
-    return filteredProjects.filter((project) => launchCuratedProjectSet.has(project.id));
-  }, [displayMode, filteredProjects, hasActiveFilters]);
+  const shownProjects = filteredProjects.slice(0, visibleLimit);
+  const remainingProjectCount = Math.max(0, filteredProjects.length - shownProjects.length);
+  const nextBatchSize = Math.min(PROJECTS_PAGE_SIZE, remainingProjectCount);
 
   // Get translated category name for header
   const getCategoryTitle = () => {
-    if (!hasActiveFilters && displayMode === "curated") return t("curatedTitle");
     if (activeCategory === "all") return t("title");
     const categoryName = tf(`categories.${activeCategory}`);
     return t("titleByCategory", { category: categoryName });
   };
 
-  const resultSummaryLabel =
-    !hasActiveFilters && displayMode === "curated"
-      ? t("curatedSummary", {
-          shown: visibleProjects.length,
-          total: filteredProjects.length,
-        })
-      : t("found", { count: visibleProjects.length });
+  const resultSummaryLabel = t("found", { count: filteredProjects.length });
 
   const screenReaderAnnouncement =
-    visibleProjects.length === 0
+    filteredProjects.length === 0
       ? t("noResultsAnnouncement")
-      : !hasActiveFilters && displayMode === "curated"
-        ? t("curatedResultsAnnouncement", {
-            shown: visibleProjects.length,
-            total: filteredProjects.length,
-          })
-        : t("resultsAnnouncement", { count: visibleProjects.length });
+      : t("resultsAnnouncement", { count: filteredProjects.length });
 
   const activeFilterChips = useMemo(() => {
     const chips: string[] = [];
@@ -258,10 +211,33 @@ export function ProjectsSection() {
     return chips;
   }, [activeCategory, activeCoreType, activeRole, activeVerificationType, searchQuery, t, tf]);
 
+  const handleLoadMore = () => {
+    const nextLimit = Math.min(visibleLimit + PROJECTS_PAGE_SIZE, filteredProjects.length);
+    setVisibleLimit(nextLimit);
+    trackEvent("project_results_expanded", {
+      shown: nextLimit,
+      total: filteredProjects.length,
+    });
+  };
+
   return (
-    <section id="project-list" className="section-projects py-12 scroll-mt-24 sm:py-16">
+    <section id="projects" className="section-projects py-12 scroll-mt-24 sm:py-16">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        {/* Quick Filters */}
+        {/* Section Header */}
+        <div className="mb-6 flex flex-col gap-2 sm:mb-8 sm:flex-row sm:items-end sm:justify-between">
+          <div>
+            <h2 className="text-xl sm:text-2xl font-semibold text-[var(--text-primary)]">
+              {getCategoryTitle()}
+            </h2>
+            <p className="mt-1 max-w-2xl text-sm leading-relaxed text-[var(--text-secondary)]">
+              {t("directoryIntro")}
+            </p>
+          </div>
+          <span className="text-sm font-medium tabular-nums text-[var(--text-secondary)]">
+            {resultSummaryLabel}
+          </span>
+        </div>
+
         <QuickFilters
           activeCategory={activeCategory}
           activeRole={activeRole}
@@ -272,51 +248,9 @@ export function ProjectsSection() {
           onFilterChange={handleFilterChange}
         />
 
-        {/* Section Header */}
-        <div className="flex items-center justify-between mb-6 sm:mb-8">
-          <div className="flex items-center gap-3">
-            <h2 className="text-xl sm:text-2xl font-semibold text-[var(--text-primary)]">
-              {getCategoryTitle()}
-            </h2>
-            {(hasActiveFilters || displayMode === "curated") && (
-              <span className="hidden sm:inline-flex px-2 py-0.5 rounded-md bg-[var(--primary)]/10 text-[var(--primary)] text-xs font-medium">
-                {resultSummaryLabel}
-              </span>
-            )}
-          </div>
-
-          <div className="flex items-center gap-3">
-            {!hasActiveFilters && (
-              <label className="flex items-center gap-2 text-xs sm:text-sm text-[var(--text-secondary)]">
-                <span className="hidden sm:inline">{t("viewModeLabel")}</span>
-                <select
-                  value={displayMode}
-                  onChange={(event) =>
-                    handleDisplayModeChange(event.target.value as ProjectDisplayMode)
-                  }
-                  className="px-2.5 py-1.5 rounded-md border border-[var(--border)] bg-[var(--bg-card)] text-[var(--text-secondary)] text-xs sm:text-sm focus:outline-none focus:border-[var(--primary)]"
-                >
-                  <option value="curated">{t("viewModeCurated")}</option>
-                  <option value="all">{t("viewModeAll")}</option>
-                </select>
-              </label>
-            )}
-
-            <span className="text-xs sm:text-sm text-[var(--text-secondary)]">
-              {resultSummaryLabel}
-            </span>
-          </div>
-        </div>
-
         <p className="sr-only" aria-live="polite" aria-atomic="true">
           {screenReaderAnnouncement}
         </p>
-
-        {!hasActiveFilters && displayMode === "curated" && (
-          <p className="mb-6 text-xs sm:text-sm text-[var(--text-tertiary)]">
-            {t("curatedModeHint")}
-          </p>
-        )}
 
         {activeFilterChips.length > 0 && (
           <div className="mb-6 flex flex-wrap items-center gap-2">
@@ -340,16 +274,37 @@ export function ProjectsSection() {
         )}
 
         {/* Projects Grid */}
-        {visibleProjects.length > 0 ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
-            {visibleProjects.map((project) => (
-              <ProjectCard key={project.id} project={project} />
-            ))}
-          </div>
+        {filteredProjects.length > 0 ? (
+          <>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-5">
+              {shownProjects.map((project) => (
+                <ProjectCard key={project.id} project={project} />
+              ))}
+            </div>
+
+            {remainingProjectCount > 0 && (
+              <div className="mt-8 flex flex-col items-center gap-2">
+                <p className="text-xs tabular-nums text-[var(--text-tertiary)]">
+                  {t("showing", {
+                    shown: shownProjects.length,
+                    total: filteredProjects.length,
+                  })}
+                </p>
+                <button
+                  type="button"
+                  onClick={handleLoadMore}
+                  className="inline-flex items-center gap-2 rounded-md border border-[var(--border)] bg-[var(--bg-card)] px-4 py-2.5 text-sm font-medium text-[var(--text-primary)] transition-colors hover:border-[var(--text-tertiary)] hover:bg-[var(--bg-card-hover)]"
+                >
+                  {t("loadMore", { count: nextBatchSize })}
+                  <ChevronDown className="h-4 w-4" />
+                </button>
+              </div>
+            )}
+          </>
         ) : (
           <div className="flex flex-col items-center justify-center py-20 text-center">
-            <div className="w-16 h-16 rounded-2xl bg-[var(--bg-card)] border border-[var(--border)] flex items-center justify-center mb-5">
-              <span className="text-2xl">🔍</span>
+            <div className="w-16 h-16 rounded-lg bg-[var(--bg-card)] border border-[var(--border)] flex items-center justify-center mb-5">
+              <SearchX className="h-7 w-7 text-[var(--text-tertiary)]" />
             </div>
             <h3 className="text-lg font-semibold text-[var(--text-primary)] mb-2">
               {t("noResults")}

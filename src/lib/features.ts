@@ -1,5 +1,5 @@
 const envNewsEnabled = process.env.NEXT_PUBLIC_ENABLE_NEWS;
 
 export const features = {
-  newsEnabled: envNewsEnabled === "true",
+  newsEnabled: envNewsEnabled !== "false",
 } as const;

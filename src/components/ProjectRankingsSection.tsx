@@ -5,7 +5,6 @@ import { Activity, Star, Users } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import { Link } from "@/lib/routing";
 import { projects, getGitHubStats, getGitHubStatsMeta } from "@/data/projects";
-import { getCategoryStyle } from "@/lib/category-styles";
 import type { GitHubRepoStats } from "@/data/projects";
 
 type RankingTab = "stars" | "activity" | "contributors";
@@ -13,7 +12,6 @@ type RankingTab = "stars" | "activity" | "contributors";
 interface RankedProject {
   id: string;
   name: string;
-  category: string;
   stats: GitHubRepoStats;
 }
 
@@ -27,7 +25,6 @@ function getRankedProjects(): RankedProject[] {
     result.push({
       id: project.id,
       name: project.name,
-      category: project.category[0],
       stats,
     });
   }
@@ -66,7 +63,7 @@ export function ProjectRankingsSection() {
   return (
     <section id="rankings" className="section-projects py-12 sm:py-16 scroll-mt-24">
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 sm:p-8">
+        <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-lg p-6 sm:p-8">
           <h2 className="text-lg sm:text-xl font-semibold text-[var(--text-primary)] mb-1">
             {t("rankings.title")}
           </h2>
@@ -85,6 +82,7 @@ export function ProjectRankingsSection() {
                 key={tab}
                 type="button"
                 onClick={() => setRankingTab(tab)}
+                aria-pressed={rankingTab === tab}
                 className={`flex-1 px-3 py-2 rounded-md text-xs font-medium transition-all ${
                   rankingTab === tab
                     ? "bg-[var(--primary)] text-white shadow-sm"
@@ -106,7 +104,6 @@ export function ProjectRankingsSection() {
 
           <div className="space-y-1">
             {top10.map((project, index) => {
-              const style = getCategoryStyle(project.category);
               const value =
                 rankingTab === "stars"
                   ? project.stats.stars
@@ -129,9 +126,6 @@ export function ProjectRankingsSection() {
                     }`}
                   >
                     {index + 1}
-                  </span>
-                  <span className="text-sm" style={{ color: style.color }}>
-                    {style.emoji}
                   </span>
                   <span className="flex-1 text-sm font-medium text-[var(--text-primary)] group-hover:text-[var(--primary)] transition-colors truncate">
                     {project.name}

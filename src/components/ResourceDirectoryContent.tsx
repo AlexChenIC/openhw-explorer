@@ -26,7 +26,7 @@ import {
 const copy = {
   en: {
     eyebrow: "OpenHW Explorer · Resources",
-    title: "A curated map for RISC-V and open hardware learning",
+    title: "Open Hardware Resource Directory",
     subtitle:
       "Use this page as a reliable starting point for specifications, official docs, open-source design tools, verification tools, simulators, communities, and selected commercial references.",
     statsResources: "resources",
@@ -46,7 +46,7 @@ const copy = {
   },
   zh: {
     eyebrow: "OpenHW Explorer · 资源库",
-    title: "面向 RISC-V 与开源硬件学习的精选资源地图",
+    title: "开源硬件资源目录",
     subtitle:
       "这里整理规范、官方资料、开源设计工具、验证工具、模拟器、社区和少量商业工具参考，作为学习 OpenHW 和 RISC-V 的可靠入口。",
     statsResources: "个资源",
