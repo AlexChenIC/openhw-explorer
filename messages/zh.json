@@ -157,9 +157,16 @@
     "madeWithSuffix": "打造",
     "madeWith": "为 RISC-V 社区用 {heart} 打造",
     "by": "开源老陈",
-    "personalTagline": "和 OpenHW 社区一起，把 RISC-V 做得更好",
-    "connectLinkedIn": "来 LinkedIn 打个招呼",
-    "contribute": "参与贡献"
+    "personalTagline": "关注开源硬件学习、验证与工程协作的 OpenHW 社区建设者。",
+    "connectLinkedIn": "在 LinkedIn 联系",
+    "contribute": "参与贡献",
+    "projectNote": "面向 OpenHW、RISC-V 与开源硬件学习的独立导航平台。",
+    "linksLabel": "项目与 OpenHW 链接",
+    "creatorLabel": "创建与持续策展",
+    "creatorName": "Alex Chen",
+    "aboutCreator": "关于作者",
+    "independentNote": "OpenHW Explorer 是独立的社区项目。",
+    "communityNote": "服务工程师、学习者与 RISC-V 社区。"
   },
   "projectDetail": {
     "home": "首页",
@@ -295,9 +302,9 @@
       }
     },
     "author": {
-      "title": "关于作者",
-      "bio": "你好，我是开源老陈（AlexChen）。我做 OpenHW Explorer 的初衷很简单：把分散的信息整理清楚，让工程师、学生和研究者都能更快找到适合自己的 OpenHW 起点。平时主要关注开源硬件、RISC-V 和社区协作，欢迎来 LinkedIn 找我聊聊。",
-      "connectLinkedIn": "来 LinkedIn 打个招呼"
+      "title": "关于创建者与策展者",
+      "bio": "OpenHW Explorer 由 Alex Chen 创建并持续策展。他长期参与 OpenHW 社区，关注开源硬件验证、RISC-V 学习与工程协作，致力于把分散的项目资料整理成面向工程师、学生和研究人员的可核查资源。",
+      "connectLinkedIn": "在 LinkedIn 联系"
     },
     "contribute": {
       "badge": "从学习到贡献",

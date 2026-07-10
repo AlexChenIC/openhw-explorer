@@ -157,9 +157,16 @@
     "madeWithSuffix": "for the RISC-V community",
     "madeWith": "Made with {heart} for the RISC-V community",
     "by": "AlexChen",
-    "personalTagline": "OpenHW community builder · Growing the RISC-V ecosystem together",
-    "connectLinkedIn": "Say hi on LinkedIn",
-    "contribute": "Contribute"
+    "personalTagline": "OpenHW community builder focused on open hardware learning, verification, and practical collaboration.",
+    "connectLinkedIn": "Connect on LinkedIn",
+    "contribute": "Contribute",
+    "projectNote": "An independent navigator for OpenHW, RISC-V, and open hardware learning.",
+    "linksLabel": "Project and OpenHW links",
+    "creatorLabel": "Created and curated by",
+    "creatorName": "Alex Chen",
+    "aboutCreator": "About the curator",
+    "independentNote": "OpenHW Explorer is an independent community project.",
+    "communityNote": "Built for engineers, learners, and the RISC-V community."
   },
   "projectDetail": {
     "home": "Home",
@@ -295,9 +302,9 @@
       }
     },
     "author": {
-      "title": "About the Author",
-      "bio": "Hi, I'm AlexChen (开源老陈). I built OpenHW Explorer for the community, hoping engineers, students, and researchers can find the right OpenHW starting point faster. I care about open hardware, RISC-V, and practical collaboration - feel free to say hi on LinkedIn.",
-      "connectLinkedIn": "Say hi on LinkedIn"
+      "title": "About the Creator and Curator",
+      "bio": "OpenHW Explorer is created and curated by Alex Chen, an OpenHW community contributor focused on open hardware verification, RISC-V learning, and practical collaboration. He turns fragmented project documentation into navigable, source-checked resources for engineers, students, and researchers.",
+      "connectLinkedIn": "Connect on LinkedIn"
     },
     "contribute": {
       "badge": "From learning to contribution",

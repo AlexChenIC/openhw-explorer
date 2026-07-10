@@ -352,7 +352,7 @@ export const ecosystemEntries: EcosystemEntry[] = [
     },
     region: { en: "United States", zh: "美国" },
     focus: ["130 nm", "Foundry-linked", "CMOS"],
-    mark: { label: "SKY", node: "130 nm" },
+    logo: "/ecosystem/pdk-sky130.png",
   },
   {
     id: "globalfoundries-gf180mcu",
@@ -370,7 +370,7 @@ export const ecosystemEntries: EcosystemEntry[] = [
     },
     region: { en: "Global", zh: "全球" },
     focus: ["180 nm", "Foundry-linked", "Mixed Signal"],
-    mark: { label: "GF", node: "180 nm" },
+    logo: "/ecosystem/pdk-gf180mcu.png",
   },
   {
     id: "ihp-sg13g2",
@@ -388,7 +388,7 @@ export const ecosystemEntries: EcosystemEntry[] = [
     },
     region: { en: "Germany", zh: "德国" },
     focus: ["130 nm", "SiGe BiCMOS", "RF"],
-    mark: { label: "IHP", node: "130 nm" },
+    logo: "/ecosystem/pdk-ihp.png",
   },
   {
     id: "icsprout55",
@@ -406,7 +406,7 @@ export const ecosystemEntries: EcosystemEntry[] = [
     },
     region: { en: "China", zh: "中国" },
     focus: ["55 nm", "Preview", "CMOS"],
-    mark: { label: "ICS", node: "55 nm" },
+    logo: "/ecosystem/pdk-icsprout55.png",
   },
   {
     id: "freepdk45",
@@ -424,7 +424,7 @@ export const ecosystemEntries: EcosystemEntry[] = [
     },
     region: { en: "United States", zh: "美国" },
     focus: ["45 nm", "Predictive", "Education"],
-    mark: { label: "FPDK", node: "45 nm" },
+    logo: "/ecosystem/pdk-freepdk45.png",
   },
   {
     id: "asap7",
@@ -442,7 +442,7 @@ export const ecosystemEntries: EcosystemEntry[] = [
     },
     region: { en: "United States", zh: "美国" },
     focus: ["7 nm", "FinFET", "Predictive"],
-    mark: { label: "ASAP", node: "7 nm" },
+    logo: "/ecosystem/pdk-asap7.png",
   },
   {
     id: "pkp3",
@@ -460,7 +460,7 @@ export const ecosystemEntries: EcosystemEntry[] = [
     },
     region: { en: "China", zh: "中国" },
     focus: ["3 nm", "GAA", "Predictive"],
-    mark: { label: "PKP", node: "3 nm" },
+    logo: "/ecosystem/pdk-pkp3.png",
   },
   {
     id: "openrpdk28",
@@ -478,7 +478,7 @@ export const ecosystemEntries: EcosystemEntry[] = [
     },
     region: { en: "China", zh: "中国" },
     focus: ["28 nm", "Academic", "Preliminary"],
-    mark: { label: "RPDK", node: "28 nm" },
+    logo: "/ecosystem/rios-lab.png",
   },
   {
     id: "ode4ec",

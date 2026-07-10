@@ -59,7 +59,8 @@ describe("ecosystem directory", () => {
     const byId = new Map(pdks.map((entry) => [entry.id, entry]));
 
     expect(pdks).toHaveLength(8);
-    expect(byId.get("icsprout55")?.mark?.node).toBe("55 nm");
+    expect(pdks.every((entry) => Boolean(entry.logo))).toBe(true);
+    expect(byId.get("icsprout55")?.focus).toContain("55 nm");
     expect(byId.get("freepdk45")?.relationship?.en).toBe("Not manufacturable");
     expect(byId.get("asap7")?.relationship?.en).toBe("Not manufacturable");
     expect(byId.get("pkp3")?.relationship?.en).toBe("Not manufacturable");

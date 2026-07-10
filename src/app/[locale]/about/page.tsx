@@ -76,7 +76,10 @@ async function AboutContent() {
         </div>
 
         {/* What is this */}
-        <section className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 sm:p-8 mb-5">
+        <section
+          id="author"
+          className="scroll-mt-24 bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 sm:p-8 mb-5"
+        >
           <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-3">
             {t("whatIsThis.title")}
           </h2>

@@ -62,6 +62,15 @@ Official project sources:
 - PKP3: https://pkp.pkueda.org.cn/
 - OpenRPDK28: https://github.com/RIOSMPW/OpenRPDK28
 
+The PDK cards use locally cached marks from these official project or steward sources:
+
+- SKY130 and GF180MCU documentation assets in their official GitHub repositories.
+- IHP SG13G2 asset in the official IHP Open PDK repository.
+- ICsprout55 and PKP3 steward profile marks from the ECOS Team and PHIMO Group GitHub profiles.
+- FreePDK45's NC State EDA mark from the official FreePDK45 page.
+- ASAP7's Arizona State University mark from the official ASAP site.
+- OpenRPDK28's RIOS Lab mark from the official RIOS Lab site.
+
 ## RISC-V Industry Landscape
 
 The `/resources/industry` page uses official company pages to verify publicly documented RISC-V offerings. It uses text monograms rather than reproducing commercial company logos.

@@ -570,13 +570,21 @@ function EcosystemCard({ entry, locale, cta }: EcosystemCardProps) {
       >
         <div className="flex h-24 items-center justify-center border-b border-[var(--border)] bg-white px-5">
           {entry.logo ? (
-            <Image
-              src={entry.logo}
-              alt={`${entry.name} logo`}
-              width={320}
-              height={144}
-              className="h-full w-full object-contain"
-            />
+            <div
+              className={
+                entry.category === "pdk"
+                  ? "h-16 w-[72%] max-w-[210px]"
+                  : "h-full w-full"
+              }
+            >
+              <Image
+                src={entry.logo}
+                alt={`${entry.name} logo`}
+                width={320}
+                height={144}
+                className="h-full w-full object-contain"
+              />
+            </div>
           ) : entry.mark ? (
             <div className="flex items-center gap-3" aria-hidden="true">
               <span className="text-xl font-bold text-slate-800">{entry.mark.label}</span>
@@ -660,7 +668,7 @@ function ResourceCard({ link, locale, cta }: ResourceCardProps) {
           <span
             className={`grid shrink-0 place-items-center overflow-hidden rounded-md border ${
               link.logo
-                ? "h-14 w-20 border-[var(--border)] bg-white p-1"
+                ? "h-12 w-16 border-[var(--border)] bg-white p-2"
                 : "h-12 w-12 border-[var(--primary)]/15 bg-[var(--primary)]/10 text-[var(--primary)]"
             }`}
           >
@@ -668,8 +676,8 @@ function ResourceCard({ link, locale, cta }: ResourceCardProps) {
               <Image
                 src={link.logo}
                 alt=""
-                width={160}
-                height={96}
+                width={128}
+                height={80}
                 className="h-full w-full object-contain"
               />
             ) : (
