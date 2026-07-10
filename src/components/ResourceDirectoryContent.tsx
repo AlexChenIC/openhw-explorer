@@ -44,6 +44,14 @@ const copy = {
     statsEcosystem: "ecosystem hubs",
     statsResources: "technical resources",
     statsCategories: "resource areas",
+    explorerLabel: "Resource explorer",
+    explorerTitle: "Find the right starting point",
+    explorerSubtitle:
+      "Move directly into technical references or browse the organizations and initiatives behind the open hardware ecosystem.",
+    technicalMode: "Technical library",
+    technicalModeDescription: "Specifications, tools, learning, and implementation references",
+    ecosystemMode: "Ecosystem directory",
+    ecosystemModeDescription: "Foundations, projects, research initiatives, and participation",
     ecosystemLabel: "Ecosystem map",
     ecosystemTitle: "Explore the open hardware landscape",
     ecosystemSubtitle:
@@ -73,6 +81,13 @@ const copy = {
     statsEcosystem: "个生态入口",
     statsResources: "个技术资源",
     statsCategories: "个资源方向",
+    explorerLabel: "资源浏览器",
+    explorerTitle: "找到合适的起点",
+    explorerSubtitle: "直接进入技术资料，或浏览推动开源硬件发展的组织、项目与区域计划。",
+    technicalMode: "技术资料库",
+    technicalModeDescription: "规范、工具、学习资料与实现参考",
+    ecosystemMode: "生态导航",
+    ecosystemModeDescription: "基金会、项目、科研计划与参与入口",
     ecosystemLabel: "生态地图",
     ecosystemTitle: "浏览开源硬件生态",
     ecosystemSubtitle: "经过官网核对的基金会、项目维护组织、科研计划与实践参与入口。",
@@ -129,6 +144,7 @@ function localized<T extends { en: string; zh: string }>(value: T, locale: "en" 
 export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentProps) {
   const resolvedLocale = locale === "zh" ? "zh" : "en";
   const t = copy[resolvedLocale];
+  const [resourceMode, setResourceMode] = useState<"technical" | "ecosystem">("technical");
   const [ecosystemFilter, setEcosystemFilter] = useState<"all" | EcosystemCategoryId>("all");
   const [resourceCategory, setResourceCategory] = useState<ResourceCategoryId>("specifications");
 
@@ -168,187 +184,246 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
           </aside>
         </section>
 
-        <section id="ecosystem" aria-labelledby="ecosystem-heading" className="scroll-mt-28">
-          <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+        <section
+          id="resource-explorer"
+          aria-labelledby="resource-explorer-heading"
+          className="scroll-mt-28 border-t border-[var(--border)] pt-10"
+        >
+          <div className="flex flex-col gap-5 lg:flex-row lg:items-end lg:justify-between">
             <div className="max-w-3xl">
               <div className="mb-2 flex items-center gap-2 text-xs font-semibold text-[var(--primary)]">
-                <Network className="h-4 w-4" />
-                {t.ecosystemLabel}
+                <Compass className="h-4 w-4" />
+                {t.explorerLabel}
               </div>
               <h2
-                id="ecosystem-heading"
+                id="resource-explorer-heading"
                 className="text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl"
               >
-                {t.ecosystemTitle}
+                {t.explorerTitle}
               </h2>
               <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)] sm:text-base">
-                {t.ecosystemSubtitle}
+                {t.explorerSubtitle}
               </p>
             </div>
-            <div className="inline-flex w-fit items-center gap-2 text-xs font-medium text-[var(--text-tertiary)]">
-              <ShieldCheck className="h-4 w-4 text-[var(--green)]" />
-              {t.verified}
-            </div>
-          </div>
 
-          <div
-            role="group"
-            aria-label={t.ecosystemLabel}
-            className="mb-6 flex w-full flex-wrap gap-1 rounded-lg border border-[var(--border)] bg-[var(--bg-subtle)] p-1 sm:w-fit"
-          >
-            <FilterButton
-              active={ecosystemFilter === "all"}
-              label={t.allOrganizations}
-              count={ecosystemEntries.length}
-              onClick={() => setEcosystemFilter("all")}
-            />
-            {ecosystemCategories.map((category) => {
-              const count = ecosystemEntries.filter(
-                (entry) => entry.category === category.id,
-              ).length;
-              return (
-                <FilterButton
-                  key={category.id}
-                  active={ecosystemFilter === category.id}
-                  label={localized(category.shortTitle, resolvedLocale)}
-                  count={count}
-                  onClick={() => setEcosystemFilter(category.id)}
-                />
-              );
-            })}
-          </div>
-
-          <div className="mb-4 flex items-center justify-between gap-4">
-            <p className="text-sm text-[var(--text-tertiary)]">
-              {visibleEcosystemEntries.length} {t.organizations}
-            </p>
-            {ecosystemFilter !== "all" && (
-              <p className="hidden max-w-2xl text-right text-sm text-[var(--text-tertiary)] md:block">
-                {localized(
-                  ecosystemCategories.find((category) => category.id === ecosystemFilter)!
-                    .description,
-                  resolvedLocale,
-                )}
-              </p>
-            )}
-          </div>
-
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
-            {visibleEcosystemEntries.map((entry) => (
-              <EcosystemCard
-                key={entry.id}
-                entry={entry}
-                locale={resolvedLocale}
-                cta={t.openWebsite}
-              />
-            ))}
-          </div>
-        </section>
-
-        <section
-          id="technical-library"
-          aria-labelledby="technical-library-heading"
-          className="scroll-mt-28 border-t border-[var(--border)] pt-12"
-        >
-          <div className="mb-6 max-w-3xl">
-            <div className="mb-2 flex items-center gap-2 text-xs font-semibold text-[var(--primary)]">
-              <Boxes className="h-4 w-4" />
-              {t.libraryLabel}
-            </div>
-            <h2
-              id="technical-library-heading"
-              className="text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl"
+            <div
+              role="tablist"
+              aria-label={t.explorerLabel}
+              className="grid w-full gap-1 rounded-lg border border-[var(--border)] bg-[var(--bg-subtle)] p-1 sm:grid-cols-2 lg:w-[580px]"
             >
-              {t.libraryTitle}
-            </h2>
-            <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)] sm:text-base">
-              {t.librarySubtitle}
-            </p>
+              <ResourceModeButton
+                id="technical-mode-tab"
+                panelId="technical-library"
+                icon={Boxes}
+                label={t.technicalMode}
+                description={t.technicalModeDescription}
+                count={resourceDirectoryLinks.length}
+                active={resourceMode === "technical"}
+                onClick={() => setResourceMode("technical")}
+              />
+              <ResourceModeButton
+                id="ecosystem-mode-tab"
+                panelId="ecosystem"
+                icon={Network}
+                label={t.ecosystemMode}
+                description={t.ecosystemModeDescription}
+                count={ecosystemEntries.length}
+                active={resourceMode === "ecosystem"}
+                onClick={() => setResourceMode("ecosystem")}
+              />
+            </div>
           </div>
 
           <div
-            role="group"
-            aria-label={t.libraryTitle}
-            className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            id="ecosystem"
+            role="tabpanel"
+            aria-labelledby="ecosystem-mode-tab"
+            hidden={resourceMode !== "ecosystem"}
+            className="mt-9"
           >
-            {resourceDirectoryCategories.map((category) => {
-              const Icon = categoryIcons[category.id];
-              const count = resourceDirectoryLinks.filter(
-                (link) => link.category === category.id,
-              ).length;
-              const active = resourceCategory === category.id;
-
-              return (
-                <button
-                  key={category.id}
-                  type="button"
-                  aria-pressed={active}
-                  onClick={() => setResourceCategory(category.id)}
-                  className={`group flex min-h-16 items-center gap-3 rounded-lg border px-3 py-3 text-left transition ${
-                    active
-                      ? "border-[var(--primary)] bg-[var(--primary)] text-white shadow-sm"
-                      : "border-[var(--border)] bg-[var(--bg-card)] text-[var(--text-primary)] hover:border-[var(--primary)]/45 hover:bg-[var(--bg-card-hover)]"
-                  }`}
-                >
-                  <span
-                    className={`grid h-9 w-9 shrink-0 place-items-center rounded-md ${
-                      active
-                        ? "bg-white/15 text-white"
-                        : "bg-[var(--primary)]/10 text-[var(--primary)]"
-                    }`}
-                  >
-                    <Icon className="h-4.5 w-4.5" />
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block truncate text-sm font-semibold">
-                      {localized(category.shortTitle, resolvedLocale)}
-                    </span>
-                    <span
-                      className={`mt-0.5 block text-xs ${
-                        active ? "text-white/75" : "text-[var(--text-tertiary)]"
-                      }`}
-                    >
-                      {count} {t.linkCount}
-                    </span>
-                  </span>
-                  <ChevronRight
-                    className={`h-4 w-4 shrink-0 ${
-                      active ? "text-white/80" : "text-[var(--text-tertiary)]"
-                    }`}
-                  />
-                </button>
-              );
-            })}
-          </div>
-
-          <div className="mt-8">
-            <div className="mb-5 flex flex-col gap-3 border-b border-[var(--border)] pb-5 sm:flex-row sm:items-end sm:justify-between">
+            <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
               <div className="max-w-3xl">
-                <div className="mb-2 flex items-center gap-2 text-xs font-semibold text-[var(--text-tertiary)]">
-                  <ActiveResourceIcon className="h-4 w-4 text-[var(--primary)]" />
-                  {t.showing}
+                <div className="mb-2 flex items-center gap-2 text-xs font-semibold text-[var(--primary)]">
+                  <Network className="h-4 w-4" />
+                  {t.ecosystemLabel}
                 </div>
-                <h3 className="text-xl font-semibold text-[var(--text-primary)] sm:text-2xl">
-                  {localized(activeResourceCategory.title, resolvedLocale)}
+                <h3
+                  id="ecosystem-heading"
+                  className="text-xl font-semibold text-[var(--text-primary)] sm:text-2xl"
+                >
+                  {t.ecosystemTitle}
                 </h3>
-                <p className="mt-2 text-sm leading-7 text-[var(--text-secondary)]">
-                  {localized(activeResourceCategory.description, resolvedLocale)}
+                <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)] sm:text-base">
+                  {t.ecosystemSubtitle}
                 </p>
               </div>
-              <span className="w-fit text-sm font-semibold text-[var(--text-tertiary)]">
-                {activeResourceLinks.length} {t.linkCount}
-              </span>
+              <div className="inline-flex w-fit items-center gap-2 text-xs font-medium text-[var(--text-tertiary)]">
+                <ShieldCheck className="h-4 w-4 text-[var(--green)]" />
+                {t.verified}
+              </div>
             </div>
 
-            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-              {activeResourceLinks.map((link) => (
-                <ResourceCard
-                  key={link.id}
-                  link={link}
+            <div
+              role="group"
+              aria-label={t.ecosystemLabel}
+              className="mb-6 flex w-full flex-wrap gap-1 rounded-lg border border-[var(--border)] bg-[var(--bg-subtle)] p-1 sm:w-fit"
+            >
+              <FilterButton
+                active={ecosystemFilter === "all"}
+                label={t.allOrganizations}
+                count={ecosystemEntries.length}
+                onClick={() => setEcosystemFilter("all")}
+              />
+              {ecosystemCategories.map((category) => {
+                const count = ecosystemEntries.filter(
+                  (entry) => entry.category === category.id,
+                ).length;
+                return (
+                  <FilterButton
+                    key={category.id}
+                    active={ecosystemFilter === category.id}
+                    label={localized(category.shortTitle, resolvedLocale)}
+                    count={count}
+                    onClick={() => setEcosystemFilter(category.id)}
+                  />
+                );
+              })}
+            </div>
+
+            <div className="mb-4 flex items-center justify-between gap-4">
+              <p className="text-sm text-[var(--text-tertiary)]">
+                {visibleEcosystemEntries.length} {t.organizations}
+              </p>
+              {ecosystemFilter !== "all" && (
+                <p className="hidden max-w-2xl text-right text-sm text-[var(--text-tertiary)] md:block">
+                  {localized(
+                    ecosystemCategories.find((category) => category.id === ecosystemFilter)!
+                      .description,
+                    resolvedLocale,
+                  )}
+                </p>
+              )}
+            </div>
+
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+              {visibleEcosystemEntries.map((entry) => (
+                <EcosystemCard
+                  key={entry.id}
+                  entry={entry}
                   locale={resolvedLocale}
-                  cta={t.openResource}
+                  cta={t.openWebsite}
                 />
               ))}
+            </div>
+          </div>
+
+          <div
+            id="technical-library"
+            role="tabpanel"
+            aria-labelledby="technical-mode-tab"
+            hidden={resourceMode !== "technical"}
+            className="mt-9"
+          >
+            <div className="mb-6 max-w-3xl">
+              <div className="mb-2 flex items-center gap-2 text-xs font-semibold text-[var(--primary)]">
+                <Boxes className="h-4 w-4" />
+                {t.libraryLabel}
+              </div>
+              <h3
+                id="technical-library-heading"
+                className="text-xl font-semibold text-[var(--text-primary)] sm:text-2xl"
+              >
+                {t.libraryTitle}
+              </h3>
+              <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)] sm:text-base">
+                {t.librarySubtitle}
+              </p>
+            </div>
+
+            <div
+              role="group"
+              aria-label={t.libraryTitle}
+              className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+            >
+              {resourceDirectoryCategories.map((category) => {
+                const Icon = categoryIcons[category.id];
+                const count = resourceDirectoryLinks.filter(
+                  (link) => link.category === category.id,
+                ).length;
+                const active = resourceCategory === category.id;
+
+                return (
+                  <button
+                    key={category.id}
+                    type="button"
+                    aria-pressed={active}
+                    onClick={() => setResourceCategory(category.id)}
+                    className={`group flex min-h-16 items-center gap-3 rounded-lg border px-3 py-3 text-left transition ${
+                      active
+                        ? "border-[var(--primary)] bg-[var(--primary)] text-white shadow-sm"
+                        : "border-[var(--border)] bg-[var(--bg-card)] text-[var(--text-primary)] hover:border-[var(--primary)]/45 hover:bg-[var(--bg-card-hover)]"
+                    }`}
+                  >
+                    <span
+                      className={`grid h-9 w-9 shrink-0 place-items-center rounded-md ${
+                        active
+                          ? "bg-white/15 text-white"
+                          : "bg-[var(--primary)]/10 text-[var(--primary)]"
+                      }`}
+                    >
+                      <Icon className="h-4.5 w-4.5" />
+                    </span>
+                    <span className="min-w-0 flex-1">
+                      <span className="block truncate text-sm font-semibold">
+                        {localized(category.shortTitle, resolvedLocale)}
+                      </span>
+                      <span
+                        className={`mt-0.5 block text-xs ${
+                          active ? "text-white/75" : "text-[var(--text-tertiary)]"
+                        }`}
+                      >
+                        {count} {t.linkCount}
+                      </span>
+                    </span>
+                    <ChevronRight
+                      className={`h-4 w-4 shrink-0 ${
+                        active ? "text-white/80" : "text-[var(--text-tertiary)]"
+                      }`}
+                    />
+                  </button>
+                );
+              })}
+            </div>
+
+            <div className="mt-8">
+              <div className="mb-5 flex flex-col gap-3 border-b border-[var(--border)] pb-5 sm:flex-row sm:items-end sm:justify-between">
+                <div className="max-w-3xl">
+                  <div className="mb-2 flex items-center gap-2 text-xs font-semibold text-[var(--text-tertiary)]">
+                    <ActiveResourceIcon className="h-4 w-4 text-[var(--primary)]" />
+                    {t.showing}
+                  </div>
+                  <h4 className="text-xl font-semibold text-[var(--text-primary)] sm:text-2xl">
+                    {localized(activeResourceCategory.title, resolvedLocale)}
+                  </h4>
+                  <p className="mt-2 text-sm leading-7 text-[var(--text-secondary)]">
+                    {localized(activeResourceCategory.description, resolvedLocale)}
+                  </p>
+                </div>
+                <span className="w-fit text-sm font-semibold text-[var(--text-tertiary)]">
+                  {activeResourceLinks.length} {t.linkCount}
+                </span>
+              </div>
+
+              <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+                {activeResourceLinks.map((link) => (
+                  <ResourceCard
+                    key={link.id}
+                    link={link}
+                    locale={resolvedLocale}
+                    cta={t.openResource}
+                  />
+                ))}
+              </div>
             </div>
           </div>
         </section>
@@ -399,6 +474,65 @@ function Stat({ value, label, bordered = false }: StatProps) {
       <div className="text-2xl font-bold text-[var(--text-primary)] sm:text-3xl">{value}</div>
       <div className="mt-1 text-[11px] leading-4 text-[var(--text-tertiary)]">{label}</div>
     </div>
+  );
+}
+
+type ResourceModeButtonProps = {
+  id: string;
+  panelId: string;
+  icon: typeof Boxes;
+  label: string;
+  description: string;
+  count: number;
+  active: boolean;
+  onClick: () => void;
+};
+
+function ResourceModeButton({
+  id,
+  panelId,
+  icon: Icon,
+  label,
+  description,
+  count,
+  active,
+  onClick,
+}: ResourceModeButtonProps) {
+  return (
+    <button
+      id={id}
+      type="button"
+      role="tab"
+      aria-selected={active}
+      aria-controls={panelId}
+      onClick={onClick}
+      className={`flex min-h-20 items-center gap-3 rounded-md px-4 py-3 text-left transition ${
+        active
+          ? "bg-[var(--primary)] text-white shadow-sm"
+          : "text-[var(--text-primary)] hover:bg-[var(--bg-card-hover)]"
+      }`}
+    >
+      <span
+        className={`grid h-10 w-10 shrink-0 place-items-center rounded-md ${
+          active ? "bg-white/15 text-white" : "bg-[var(--primary)]/10 text-[var(--primary)]"
+        }`}
+      >
+        <Icon className="h-5 w-5" />
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="flex items-center justify-between gap-3 text-sm font-semibold">
+          <span>{label}</span>
+          <span className={active ? "text-white/75" : "text-[var(--text-tertiary)]"}>{count}</span>
+        </span>
+        <span
+          className={`mt-1 block text-xs leading-5 ${
+            active ? "text-white/75" : "text-[var(--text-tertiary)]"
+          }`}
+        >
+          {description}
+        </span>
+      </span>
+    </button>
   );
 }
 
@@ -463,9 +597,9 @@ function EcosystemCard({ entry, locale, cta }: EcosystemCardProps) {
               {localized(entry.region, locale)}
             </span>
           </div>
-          <h3 className="mt-3 text-base font-semibold leading-snug text-[var(--text-primary)]">
+          <h4 className="mt-3 text-base font-semibold leading-snug text-[var(--text-primary)]">
             {entry.name}
-          </h3>
+          </h4>
           <p className="mt-2 flex-1 text-sm leading-6 text-[var(--text-secondary)]">
             {localized(entry.summary, locale)}
           </p>
@@ -519,9 +653,9 @@ function ResourceCard({ link, locale, cta }: ResourceCardProps) {
               {kindLabels[link.kind][locale]}
             </span>
           )}
-          <h3 className="text-base font-semibold leading-snug text-[var(--text-primary)]">
+          <h4 className="text-base font-semibold leading-snug text-[var(--text-primary)]">
             {link.title}
-          </h3>
+          </h4>
         </div>
         <ExternalLink className="h-4 w-4 shrink-0 text-[var(--text-tertiary)] transition group-hover:text-[var(--primary)]" />
       </div>
