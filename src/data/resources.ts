@@ -78,6 +78,7 @@ export interface ResourceDirectoryLink {
   url: string;
   category: ResourceCategoryId;
   kind: ResourceKind;
+  logo?: string;
   summary: LocalizedText;
   tags: string[];
   featured?: boolean;
@@ -229,6 +230,7 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     url: "https://docs.riscv.org/reference/home/index.html",
     category: "standards-docs",
     kind: "standard",
+    logo: "/ecosystem/riscv.png",
     summary: {
       en: "Browsable index for ratified RISC-V ISA, platform, and ABI specifications.",
       zh: "可浏览的 RISC-V ISA、平台和 ABI 已批准规范索引。",
@@ -256,6 +258,7 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     url: "https://github.com/riscv/sail-riscv",
     category: "standards-docs",
     kind: "standard",
+    logo: "/ecosystem/riscv.png",
     summary: {
       en: "Executable ISA model used for conformance, testing, and formal reasoning.",
       zh: "用于一致性测试、参考执行和形式化推理的可执行 ISA 模型。",
@@ -296,6 +299,7 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     url: "https://github.com/riscv/learn",
     category: "learning",
     kind: "learning",
+    logo: "/ecosystem/riscv.png",
     summary: {
       en: "Community-maintained collection of RISC-V tutorials, courses, and reading lists.",
       zh: "社区维护的 RISC-V 教程、课程和阅读清单集合。",
@@ -323,6 +327,7 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     url: "https://docs.openhwgroup.org/en/latest/index.html",
     category: "standards-docs",
     kind: "official",
+    logo: "/ecosystem/openhw.png",
     summary: {
       en: "Official documentation entry for OpenHW projects, including CORE-V cores and verification.",
       zh: "OpenHW 项目的官方文档入口，覆盖 CORE-V 核心和验证相关内容。",
@@ -481,6 +486,7 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     url: "https://github.com/riscv-collab/riscv-gnu-toolchain",
     category: "toolchains",
     kind: "tool",
+    logo: "/ecosystem/riscv.png",
     summary: {
       en: "Meta-repository for building GCC, Binutils, glibc, and newlib for RISC-V.",
       zh: "用于构建 RISC-V GCC、Binutils、glibc 和 newlib 的元仓库。",
@@ -533,6 +539,7 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     url: "https://github.com/riscv-software-src/riscv-isa-sim",
     category: "simulation",
     kind: "tool",
+    logo: "/ecosystem/riscv.png",
     summary: {
       en: "Reference RISC-V ISA simulator maintained near the official specification ecosystem.",
       zh: "RISC-V ISA 参考模拟器，靠近官方规范生态维护。",
@@ -547,6 +554,7 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     url: "https://github.com/riscv/sail-riscv",
     category: "simulation",
     kind: "tool",
+    logo: "/ecosystem/riscv.png",
     summary: {
       en: "Executable formal ISA model that can build sail_riscv_sim for ELF execution, testing, and reference-model workflows.",
       zh: "可执行的形式化 ISA 模型，可构建 sail_riscv_sim，用于 ELF 执行、测试和参考模型流程。",
@@ -599,6 +607,7 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     url: "https://yosyshq.net/yosys/",
     category: "design-tools",
     kind: "tool",
+    logo: "/ecosystem/yosyshq.png",
     summary: {
       en: "Open synthesis suite for Verilog and multiple FPGA-oriented backends.",
       zh: "面向 Verilog 和多种 FPGA 后端的开源综合工具。",
@@ -652,6 +661,7 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     url: "https://openroad.readthedocs.io/en/latest/index.html",
     category: "design-tools",
     kind: "tool",
+    logo: "/ecosystem/openroad.png",
     summary: {
       en: "Automated physical design flow for floorplanning, placement, clocking, and routing.",
       zh: "覆盖 floorplan、placement、clock tree 和 routing 的自动化物理设计流程。",

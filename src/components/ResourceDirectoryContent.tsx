@@ -46,11 +46,11 @@ const copy = {
     technicalMode: "Technical library",
     technicalModeDescription: "Standards, documentation, tools, and learning references",
     ecosystemMode: "Ecosystem directory",
-    ecosystemModeDescription: "Foundations, projects, research initiatives, and participation",
+    ecosystemModeDescription: "Foundations, open silicon, research institutions, and participation",
     ecosystemLabel: "Ecosystem map",
     ecosystemTitle: "Explore the open hardware landscape",
     ecosystemSubtitle:
-      "A source-checked set of foundations, project stewards, research initiatives, and practical ways to participate.",
+      "A source-checked set of foundations, open silicon projects, research institutions, and practical ways to participate.",
     allOrganizations: "All",
     organizations: "entries",
     verified: `Source-checked ${ecosystemVerifiedAt}`,
@@ -80,10 +80,10 @@ const copy = {
     technicalMode: "技术资料库",
     technicalModeDescription: "规范、工具、学习资料与实现参考",
     ecosystemMode: "生态导航",
-    ecosystemModeDescription: "基金会、项目、科研计划与参与入口",
+    ecosystemModeDescription: "基金会、开源芯片、科研机构与参与入口",
     ecosystemLabel: "生态地图",
     ecosystemTitle: "浏览开源硬件生态",
-    ecosystemSubtitle: "经过官网核对的基金会、项目维护组织、科研计划与实践参与入口。",
+    ecosystemSubtitle: "经过官网核对的基金会、开源芯片项目、科研机构与实践参与入口。",
     allOrganizations: "全部",
     organizations: "个入口",
     verified: `官网核对于 ${ecosystemVerifiedAt}`,
@@ -541,7 +541,7 @@ function EcosystemCard({ entry, locale, cta }: EcosystemCardProps) {
         href={entry.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex h-full min-h-[300px] flex-col overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--bg-card)] transition hover:-translate-y-0.5 hover:border-[var(--primary)]/50 hover:shadow-[var(--card-shadow)]"
+        className="group flex h-full min-h-[330px] flex-col overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--bg-card)] transition hover:-translate-y-0.5 hover:border-[var(--primary)]/50 hover:shadow-[var(--card-shadow)]"
       >
         <div className="flex h-24 items-center justify-center border-b border-[var(--border)] bg-white px-5">
           <Image
@@ -565,7 +565,16 @@ function EcosystemCard({ entry, locale, cta }: EcosystemCardProps) {
           <h4 className="mt-3 text-base font-semibold leading-snug text-[var(--text-primary)]">
             {entry.name}
           </h4>
-          <p className="mt-2 flex-1 text-sm leading-6 text-[var(--text-secondary)]">
+          <p className="mt-1 text-xs font-medium text-[var(--text-tertiary)]">
+            {localized(entry.entityType, locale)}
+          </p>
+          {entry.relationship && (
+            <p className="mt-2 inline-flex items-center gap-1.5 text-xs font-medium text-[var(--primary)]">
+              <Network className="h-3.5 w-3.5 shrink-0" />
+              {localized(entry.relationship, locale)}
+            </p>
+          )}
+          <p className="mt-2.5 flex-1 text-sm leading-6 text-[var(--text-secondary)]">
             {localized(entry.summary, locale)}
           </p>
           <div className="mt-4 flex flex-wrap gap-1.5">
@@ -596,6 +605,7 @@ type ResourceCardProps = {
 
 function ResourceCard({ link, locale, cta }: ResourceCardProps) {
   const category = resourceDirectoryCategories.find((item) => item.id === link.category);
+  const ResourceIcon = categoryIcons[link.category];
   const kindMatchesCategory = link.kind === link.category;
   const badgeWords = new Set(
     [link.kind, link.category, kindLabels[link.kind].en, category?.shortTitle.en ?? ""].map(
@@ -609,18 +619,39 @@ function ResourceCard({ link, locale, cta }: ResourceCardProps) {
       href={link.url}
       target="_blank"
       rel="noopener noreferrer"
-      className="group flex min-h-[190px] flex-col rounded-lg border border-[var(--border)] bg-[var(--bg-card)] p-4 transition hover:-translate-y-0.5 hover:border-[var(--primary)]/50 hover:bg-[var(--bg-card-hover)]"
+      className="group flex min-h-[215px] flex-col rounded-lg border border-[var(--border)] bg-[var(--bg-card)] p-4 transition hover:-translate-y-0.5 hover:border-[var(--primary)]/50 hover:bg-[var(--bg-card-hover)]"
     >
       <div className="flex items-start justify-between gap-3">
-        <div className="min-w-0">
-          {!kindMatchesCategory && (
-            <span className="mb-2 inline-flex rounded-md bg-[var(--primary)]/10 px-2 py-0.5 text-[11px] font-semibold text-[var(--primary)]">
-              {kindLabels[link.kind][locale]}
-            </span>
-          )}
-          <h4 className="text-base font-semibold leading-snug text-[var(--text-primary)]">
-            {link.title}
-          </h4>
+        <div className="flex min-w-0 items-start gap-3">
+          <span
+            className={`grid h-12 w-12 shrink-0 place-items-center overflow-hidden rounded-md border ${
+              link.logo
+                ? "border-[var(--border)] bg-white p-1.5"
+                : "border-[var(--primary)]/15 bg-[var(--primary)]/10 text-[var(--primary)]"
+            }`}
+          >
+            {link.logo ? (
+              <Image
+                src={link.logo}
+                alt=""
+                width={96}
+                height={96}
+                className="h-full w-full object-contain"
+              />
+            ) : (
+              <ResourceIcon className="h-5 w-5" />
+            )}
+          </span>
+          <div className="min-w-0 pt-0.5">
+            {!kindMatchesCategory && (
+              <span className="mb-1.5 inline-flex rounded-md bg-[var(--primary)]/10 px-2 py-0.5 text-[11px] font-semibold text-[var(--primary)]">
+                {kindLabels[link.kind][locale]}
+              </span>
+            )}
+            <h4 className="text-base font-semibold leading-snug text-[var(--text-primary)]">
+              {link.title}
+            </h4>
+          </div>
         </div>
         <ExternalLink className="h-4 w-4 shrink-0 text-[var(--text-tertiary)] transition group-hover:text-[var(--primary)]" />
       </div>

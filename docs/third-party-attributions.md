@@ -21,14 +21,17 @@ Official asset sources:
 
 - OpenHW Foundation: https://openhwfoundation.org/
 - RISC-V International: https://riscv.org/
+- RISE Project: https://riseproject.dev/
 - CHIPS Alliance and Caliptra: https://www.chipsalliance.org/ and https://caliptra.io/
 - FOSSi Foundation: https://fossi-foundation.org/
 - lowRISC and OpenTitan: https://lowrisc.org/ and https://opentitan.org/
 - PULP Platform: https://pulp-platform.org/
 - The OpenROAD Project: https://theopenroadproject.org/
 - ODE4EC: https://ode4ec.eu/
+- Fondazione Chips-IT: https://www.chips.it/
 - Beijing Institute of Open Source Chip: https://www.bosc.ac.cn/
 - XiangShan: https://docs.xiangshan.cc/
+- OpenXuantie: https://github.com/XUANTIE-RV
 - Openchip: https://openchip.com/
 - Tiny Tapeout: https://tinytapeout.com/
 - Open Source Hardware Association: https://oshwa.org/
@@ -37,3 +40,9 @@ Official asset sources:
 - SHAKTI: https://shakti.org.in/
 - RIOS Lab: https://www.rioslab.org/
 - ChipFoundry: https://chipfoundry.io/
+- Chipyard: https://chipyard.readthedocs.io/
+- YosysHQ: https://github.com/YosysHQ
+- iEDA: https://ieda.oscc.cc/
+- One Student One Chip: https://ysyx.oscc.cc/
+
+The Technical Library reuses a small subset of these official marks where a stable project identity is useful. Other technical links use category icons rather than third-party commercial marks.

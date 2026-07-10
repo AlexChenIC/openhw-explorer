@@ -1,3 +1,5 @@
+import { existsSync } from "node:fs";
+import { join } from "node:path";
 import { describe, expect, it } from "vitest";
 import { resourceDirectoryCategories, resourceDirectoryLinks } from "@/data/resources";
 
@@ -38,6 +40,10 @@ describe("technical resource directory", () => {
       expect(link.url, link.id).toMatch(/^https:\/\//);
       expect(link.summary.en, link.id).toBeTruthy();
       expect(link.summary.zh, link.id).toBeTruthy();
+      if (link.logo) {
+        expect(link.logo, link.id).toMatch(/^\/ecosystem\/.+\.png$/);
+        expect(existsSync(join(process.cwd(), "public", link.logo.slice(1))), link.id).toBe(true);
+      }
     }
   });
 
