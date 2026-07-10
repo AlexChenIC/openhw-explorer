@@ -7,14 +7,14 @@ import { SITE_URL } from "@/lib/site-url";
 
 const metadataCopy = {
   en: {
-    title: "Resources",
+    title: "Open Hardware Ecosystem & Resources",
     description:
-      "Curated RISC-V and open hardware resources: specifications, OpenHW projects, HDLs, toolchains, simulators, design tools, verification tools, and communities.",
+      "Source-checked open hardware ecosystem links plus curated RISC-V specifications, OpenHW projects, design tools, verification tools, and learning resources.",
   },
   zh: {
-    title: "资源库",
+    title: "开源硬件生态与资源导航",
     description:
-      "精选 RISC-V 与开源硬件资源：规范、OpenHW 项目、HDL、工具链、模拟器、设计工具、验证工具和社区。",
+      "经过官网核对的开源硬件生态入口，以及精选的 RISC-V 规范、OpenHW 项目、设计工具、验证工具和学习资料。",
   },
 } as const;
 

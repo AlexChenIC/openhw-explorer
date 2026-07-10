@@ -1,7 +1,11 @@
+"use client";
+
+import Image from "next/image";
+import { useState } from "react";
 import {
-  BookOpen,
   Boxes,
   Building2,
+  ChevronRight,
   CircuitBoard,
   Code2,
   Compass,
@@ -11,10 +15,18 @@ import {
   GraduationCap,
   Layers3,
   LibraryBig,
+  MapPin,
   Network,
   ShieldCheck,
   Wrench,
 } from "lucide-react";
+import {
+  ecosystemCategories,
+  ecosystemEntries,
+  ecosystemVerifiedAt,
+  type EcosystemCategoryId,
+  type EcosystemEntry,
+} from "@/data/ecosystem";
 import {
   resourceDirectoryAttribution,
   resourceDirectoryCategories,
@@ -25,42 +37,60 @@ import {
 
 const copy = {
   en: {
-    eyebrow: "OpenHW Explorer · Resources",
-    title: "Open Hardware Resource Directory",
+    eyebrow: "OpenHW Explorer · Ecosystem",
+    title: "Open Hardware Ecosystem & Resources",
     subtitle:
-      "Use this page as a reliable starting point for specifications, official docs, open-source design tools, verification tools, simulators, communities, and selected commercial references.",
-    statsResources: "resources",
-    statsCategories: "categories",
-    statsFeatured: "featured picks",
-    browseTitle: "Browse by category",
-    featuredTitle: "Featured starting points",
-    featuredSubtitle:
-      "These entries are the best first stops when you are learning RISC-V, OpenHW, or open-source hardware verification.",
+      "Find the organizations shaping open silicon, then move into the specifications, tools, and learning material needed to build with it.",
+    statsEcosystem: "ecosystem hubs",
+    statsResources: "technical resources",
+    statsCategories: "resource areas",
+    ecosystemLabel: "Ecosystem map",
+    ecosystemTitle: "Explore the open hardware landscape",
+    ecosystemSubtitle:
+      "A source-checked set of foundations, project stewards, research initiatives, and practical ways to participate.",
+    allOrganizations: "All",
+    organizations: "entries",
+    verified: `Source-checked ${ecosystemVerifiedAt}`,
+    openWebsite: "Visit official site",
+    libraryLabel: "Technical library",
+    libraryTitle: "Browse resources by task",
+    librarySubtitle:
+      "Choose one area to see a focused set of authoritative documentation, tools, and references without scanning the entire directory.",
+    showing: "Showing",
     linkCount: "links",
     openResource: "Open resource",
-    attributionTitle: "Source note",
+    attributionTitle: "Directory sources",
     attribution:
-      "This directory uses RISC-V Ottawa's open resources as an initial seed, then rewrites and extends the descriptions for OpenHW Explorer.",
+      "The technical library began with RISC-V Ottawa's open resource list and has been rewritten, checked, and expanded for OpenHW Explorer.",
     license:
-      "RISC-V Ottawa's repository is MIT licensed. External resources keep their own licenses and terms.",
+      "External sites, names, and marks remain the property of their respective owners and follow their own terms.",
+    sourceRepository: "Source repository",
   },
   zh: {
-    eyebrow: "OpenHW Explorer · 资源库",
-    title: "开源硬件资源目录",
-    subtitle:
-      "这里整理规范、官方资料、开源设计工具、验证工具、模拟器、社区和少量商业工具参考，作为学习 OpenHW 和 RISC-V 的可靠入口。",
-    statsResources: "个资源",
-    statsCategories: "个分类",
-    statsFeatured: "个精选入口",
-    browseTitle: "按分类浏览",
-    featuredTitle: "推荐起点",
-    featuredSubtitle: "如果你刚开始学习 RISC-V、OpenHW 或开源硬件验证，可以先从这些入口开始。",
+    eyebrow: "OpenHW Explorer · 生态导航",
+    title: "开源硬件生态与资源导航",
+    subtitle: "先找到推动开源芯片发展的组织与项目，再进入真正用于学习和开发的规范、工具与资料。",
+    statsEcosystem: "个生态入口",
+    statsResources: "个技术资源",
+    statsCategories: "个资源方向",
+    ecosystemLabel: "生态地图",
+    ecosystemTitle: "浏览开源硬件生态",
+    ecosystemSubtitle: "经过官网核对的基金会、项目维护组织、科研计划与实践参与入口。",
+    allOrganizations: "全部",
+    organizations: "个入口",
+    verified: `官网核对于 ${ecosystemVerifiedAt}`,
+    openWebsite: "访问官方网站",
+    libraryLabel: "技术资料库",
+    libraryTitle: "按任务浏览技术资源",
+    librarySubtitle: "选择一个方向，只查看相关的权威文档、工具与参考资料，不必滚动浏览完整目录。",
+    showing: "当前显示",
     linkCount: "个链接",
     openResource: "打开资源",
-    attributionTitle: "来源说明",
+    attributionTitle: "目录来源",
     attribution:
-      "本资源库以 RISC-V Ottawa 的公开 resources 作为第一批 seed，并结合 OpenHW Explorer 的定位重新改写和扩展描述。",
-    license: "RISC-V Ottawa 仓库采用 MIT 许可证。外部资源仍遵循各自的许可证和使用条款。",
+      "技术资料库最初参考 RISC-V Ottawa 的开放资源清单，并已按 OpenHW Explorer 的定位重新编写、核对和扩展。",
+    license: "外部网站、名称与标识归各自权利人所有，并遵循各自的使用条款。",
+    sourceRepository: "来源仓库",
   },
 } as const;
 
@@ -92,19 +122,32 @@ type ResourceDirectoryContentProps = {
   locale: string;
 };
 
-function localized<T extends { en: string; zh: string }>(value: T, locale: string) {
+function localized<T extends { en: string; zh: string }>(value: T, locale: "en" | "zh") {
   return locale === "zh" ? value.zh : value.en;
 }
 
 export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentProps) {
   const resolvedLocale = locale === "zh" ? "zh" : "en";
   const t = copy[resolvedLocale];
-  const featuredLinks = resourceDirectoryLinks.filter((link) => link.featured);
+  const [ecosystemFilter, setEcosystemFilter] = useState<"all" | EcosystemCategoryId>("all");
+  const [resourceCategory, setResourceCategory] = useState<ResourceCategoryId>("specifications");
+
+  const visibleEcosystemEntries =
+    ecosystemFilter === "all"
+      ? ecosystemEntries
+      : ecosystemEntries.filter((entry) => entry.category === ecosystemFilter);
+  const activeResourceCategory =
+    resourceDirectoryCategories.find((category) => category.id === resourceCategory) ??
+    resourceDirectoryCategories[0];
+  const activeResourceLinks = resourceDirectoryLinks.filter(
+    (link) => link.category === activeResourceCategory.id,
+  );
+  const ActiveResourceIcon = categoryIcons[activeResourceCategory.id];
 
   return (
     <div className="page-shell">
-      <div className="relative z-10 mx-auto flex max-w-7xl flex-col gap-10 px-4 sm:px-6 lg:px-8">
-        <section className="grid gap-8 py-4 lg:grid-cols-[1fr_360px] lg:items-end lg:py-8">
+      <div className="relative z-10 mx-auto flex max-w-7xl flex-col gap-14 px-4 sm:px-6 lg:px-8">
+        <section className="grid gap-8 py-4 lg:grid-cols-[minmax(0,1fr)_400px] lg:items-end lg:py-8">
           <div className="max-w-4xl">
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/10 px-3 py-1 text-xs font-semibold text-[var(--primary)]">
               <LibraryBig className="h-3.5 w-3.5" />
@@ -118,167 +161,225 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
             </p>
           </div>
 
-          <aside className="grid grid-cols-3 gap-2 rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-4 shadow-[var(--card-shadow)]">
-            <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-3">
-              <div className="text-2xl font-bold text-[var(--text-primary)]">
-                {resourceDirectoryLinks.length}
-              </div>
-              <div className="mt-1 text-[11px] leading-4 text-[var(--text-tertiary)]">
-                {t.statsResources}
-              </div>
-            </div>
-            <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-3">
-              <div className="text-2xl font-bold text-[var(--text-primary)]">
-                {resourceDirectoryCategories.length}
-              </div>
-              <div className="mt-1 text-[11px] leading-4 text-[var(--text-tertiary)]">
-                {t.statsCategories}
-              </div>
-            </div>
-            <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-3">
-              <div className="text-2xl font-bold text-[var(--text-primary)]">
-                {featuredLinks.length}
-              </div>
-              <div className="mt-1 text-[11px] leading-4 text-[var(--text-tertiary)]">
-                {t.statsFeatured}
-              </div>
-            </div>
+          <aside className="grid grid-cols-3 border-y border-[var(--border)] py-5 lg:border-y-0 lg:border-l lg:py-1 lg:pl-8">
+            <Stat value={ecosystemEntries.length} label={t.statsEcosystem} />
+            <Stat value={resourceDirectoryLinks.length} label={t.statsResources} bordered />
+            <Stat value={resourceDirectoryCategories.length} label={t.statsCategories} bordered />
           </aside>
         </section>
 
-        <section aria-labelledby="resource-categories" className="scroll-mt-24">
-          <div className="mb-4 flex items-center gap-2">
-            <Boxes className="h-5 w-5 text-[var(--primary)]" />
-            <h2
-              id="resource-categories"
-              className="text-xl font-semibold text-[var(--text-primary)]"
-            >
-              {t.browseTitle}
-            </h2>
+        <section id="ecosystem" aria-labelledby="ecosystem-heading" className="scroll-mt-28">
+          <div className="mb-6 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
+            <div className="max-w-3xl">
+              <div className="mb-2 flex items-center gap-2 text-xs font-semibold text-[var(--primary)]">
+                <Network className="h-4 w-4" />
+                {t.ecosystemLabel}
+              </div>
+              <h2
+                id="ecosystem-heading"
+                className="text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl"
+              >
+                {t.ecosystemTitle}
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)] sm:text-base">
+                {t.ecosystemSubtitle}
+              </p>
+            </div>
+            <div className="inline-flex w-fit items-center gap-2 text-xs font-medium text-[var(--text-tertiary)]">
+              <ShieldCheck className="h-4 w-4 text-[var(--green)]" />
+              {t.verified}
+            </div>
           </div>
-          <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {resourceDirectoryCategories.map((category) => {
-              const Icon = categoryIcons[category.id];
-              const count = resourceDirectoryLinks.filter(
-                (link) => link.category === category.id,
+
+          <div
+            role="group"
+            aria-label={t.ecosystemLabel}
+            className="mb-6 flex w-full flex-wrap gap-1 rounded-lg border border-[var(--border)] bg-[var(--bg-subtle)] p-1 sm:w-fit"
+          >
+            <FilterButton
+              active={ecosystemFilter === "all"}
+              label={t.allOrganizations}
+              count={ecosystemEntries.length}
+              onClick={() => setEcosystemFilter("all")}
+            />
+            {ecosystemCategories.map((category) => {
+              const count = ecosystemEntries.filter(
+                (entry) => entry.category === category.id,
               ).length;
               return (
-                <a
+                <FilterButton
                   key={category.id}
-                  href={`#${category.id}`}
-                  className="group rounded-xl border border-[var(--border)] bg-[var(--bg-card)] p-4 transition hover:-translate-y-0.5 hover:border-[var(--primary)]/40 hover:bg-[var(--bg-card-hover)]"
-                >
-                  <div className="flex items-start justify-between gap-3">
-                    <div className="flex min-w-0 items-center gap-3">
-                      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-lg bg-[var(--primary)]/10 text-[var(--primary)]">
-                        <Icon className="h-5 w-5" />
-                      </span>
-                      <div className="min-w-0">
-                        <h3 className="truncate text-sm font-semibold text-[var(--text-primary)]">
-                          {localized(category.shortTitle, resolvedLocale)}
-                        </h3>
-                        <p className="mt-1 text-xs text-[var(--text-tertiary)]">
-                          {count} {t.linkCount}
-                        </p>
-                      </div>
-                    </div>
-                    <ExternalLink className="mt-1 h-3.5 w-3.5 shrink-0 text-[var(--text-tertiary)] transition group-hover:text-[var(--primary)]" />
-                  </div>
-                </a>
+                  active={ecosystemFilter === category.id}
+                  label={localized(category.shortTitle, resolvedLocale)}
+                  count={count}
+                  onClick={() => setEcosystemFilter(category.id)}
+                />
               );
             })}
           </div>
-        </section>
 
-        <section aria-labelledby="featured-resources" className="scroll-mt-24">
-          <div className="mb-5 flex flex-col gap-2">
-            <div className="inline-flex w-fit items-center gap-2 rounded-full border border-[var(--green)]/25 bg-[var(--green)]/10 px-3 py-1 text-xs font-semibold text-[var(--green)]">
-              <BookOpen className="h-3.5 w-3.5" />
-              {t.featuredTitle}
-            </div>
-            <p className="max-w-3xl text-sm leading-7 text-[var(--text-secondary)]">
-              {t.featuredSubtitle}
+          <div className="mb-4 flex items-center justify-between gap-4">
+            <p className="text-sm text-[var(--text-tertiary)]">
+              {visibleEcosystemEntries.length} {t.organizations}
             </p>
+            {ecosystemFilter !== "all" && (
+              <p className="hidden max-w-2xl text-right text-sm text-[var(--text-tertiary)] md:block">
+                {localized(
+                  ecosystemCategories.find((category) => category.id === ecosystemFilter)!
+                    .description,
+                  resolvedLocale,
+                )}
+              </p>
+            )}
           </div>
-          <div className="grid gap-4 lg:grid-cols-3">
-            {featuredLinks.map((link) => (
-              <ResourceCard
-                key={link.id}
-                link={link}
+
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+            {visibleEcosystemEntries.map((entry) => (
+              <EcosystemCard
+                key={entry.id}
+                entry={entry}
                 locale={resolvedLocale}
-                cta={t.openResource}
-                featured
+                cta={t.openWebsite}
               />
             ))}
           </div>
         </section>
 
-        <div className="flex flex-col gap-8">
-          {resourceDirectoryCategories.map((category) => {
-            const links = resourceDirectoryLinks.filter((link) => link.category === category.id);
-            if (links.length === 0) return null;
-            const Icon = categoryIcons[category.id];
+        <section
+          id="technical-library"
+          aria-labelledby="technical-library-heading"
+          className="scroll-mt-28 border-t border-[var(--border)] pt-12"
+        >
+          <div className="mb-6 max-w-3xl">
+            <div className="mb-2 flex items-center gap-2 text-xs font-semibold text-[var(--primary)]">
+              <Boxes className="h-4 w-4" />
+              {t.libraryLabel}
+            </div>
+            <h2
+              id="technical-library-heading"
+              className="text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl"
+            >
+              {t.libraryTitle}
+            </h2>
+            <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)] sm:text-base">
+              {t.librarySubtitle}
+            </p>
+          </div>
 
-            return (
-              <section key={category.id} id={category.id} className="scroll-mt-28">
-                <div className="mb-4 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
-                  <div className="max-w-3xl">
-                    <div className="mb-2 inline-flex items-center gap-2 text-xs font-semibold uppercase tracking-[0.16em] text-[var(--text-tertiary)]">
-                      <Icon className="h-4 w-4 text-[var(--primary)]" />
-                      {localized(category.shortTitle, resolvedLocale)}
-                    </div>
-                    <h2 className="text-2xl font-semibold text-[var(--text-primary)]">
-                      {localized(category.title, resolvedLocale)}
-                    </h2>
-                    <p className="mt-2 text-sm leading-7 text-[var(--text-secondary)]">
-                      {localized(category.description, resolvedLocale)}
-                    </p>
-                  </div>
-                  <span className="w-fit rounded-full border border-[var(--border)] bg-[var(--bg-card)] px-3 py-1 text-xs font-semibold text-[var(--text-tertiary)]">
-                    {links.length} {t.linkCount}
+          <div
+            role="group"
+            aria-label={t.libraryTitle}
+            className="grid gap-2 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+          >
+            {resourceDirectoryCategories.map((category) => {
+              const Icon = categoryIcons[category.id];
+              const count = resourceDirectoryLinks.filter(
+                (link) => link.category === category.id,
+              ).length;
+              const active = resourceCategory === category.id;
+
+              return (
+                <button
+                  key={category.id}
+                  type="button"
+                  aria-pressed={active}
+                  onClick={() => setResourceCategory(category.id)}
+                  className={`group flex min-h-16 items-center gap-3 rounded-lg border px-3 py-3 text-left transition ${
+                    active
+                      ? "border-[var(--primary)] bg-[var(--primary)] text-white shadow-sm"
+                      : "border-[var(--border)] bg-[var(--bg-card)] text-[var(--text-primary)] hover:border-[var(--primary)]/45 hover:bg-[var(--bg-card-hover)]"
+                  }`}
+                >
+                  <span
+                    className={`grid h-9 w-9 shrink-0 place-items-center rounded-md ${
+                      active
+                        ? "bg-white/15 text-white"
+                        : "bg-[var(--primary)]/10 text-[var(--primary)]"
+                    }`}
+                  >
+                    <Icon className="h-4.5 w-4.5" />
                   </span>
-                </div>
+                  <span className="min-w-0 flex-1">
+                    <span className="block truncate text-sm font-semibold">
+                      {localized(category.shortTitle, resolvedLocale)}
+                    </span>
+                    <span
+                      className={`mt-0.5 block text-xs ${
+                        active ? "text-white/75" : "text-[var(--text-tertiary)]"
+                      }`}
+                    >
+                      {count} {t.linkCount}
+                    </span>
+                  </span>
+                  <ChevronRight
+                    className={`h-4 w-4 shrink-0 ${
+                      active ? "text-white/80" : "text-[var(--text-tertiary)]"
+                    }`}
+                  />
+                </button>
+              );
+            })}
+          </div>
 
-                <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
-                  {links.map((link) => (
-                    <ResourceCard
-                      key={link.id}
-                      link={link}
-                      locale={resolvedLocale}
-                      cta={t.openResource}
-                    />
-                  ))}
+          <div className="mt-8">
+            <div className="mb-5 flex flex-col gap-3 border-b border-[var(--border)] pb-5 sm:flex-row sm:items-end sm:justify-between">
+              <div className="max-w-3xl">
+                <div className="mb-2 flex items-center gap-2 text-xs font-semibold text-[var(--text-tertiary)]">
+                  <ActiveResourceIcon className="h-4 w-4 text-[var(--primary)]" />
+                  {t.showing}
                 </div>
-              </section>
-            );
-          })}
-        </div>
+                <h3 className="text-xl font-semibold text-[var(--text-primary)] sm:text-2xl">
+                  {localized(activeResourceCategory.title, resolvedLocale)}
+                </h3>
+                <p className="mt-2 text-sm leading-7 text-[var(--text-secondary)]">
+                  {localized(activeResourceCategory.description, resolvedLocale)}
+                </p>
+              </div>
+              <span className="w-fit text-sm font-semibold text-[var(--text-tertiary)]">
+                {activeResourceLinks.length} {t.linkCount}
+              </span>
+            </div>
 
-        <section className="rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-5 shadow-[var(--card-shadow)]">
-          <h2 className="text-base font-semibold text-[var(--text-primary)]">
-            {t.attributionTitle}
-          </h2>
-          <p className="mt-2 text-sm leading-7 text-[var(--text-secondary)]">{t.attribution}</p>
-          <p className="mt-2 text-sm leading-7 text-[var(--text-secondary)]">{t.license}</p>
-          <div className="mt-4 flex flex-wrap gap-3">
-            <a
-              href={resourceDirectoryAttribution.sourceUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--bg-subtle)] px-3 py-2 text-sm font-semibold text-[var(--text-primary)] transition hover:border-[var(--primary)]/40 hover:text-[var(--primary)]"
-            >
-              {resourceDirectoryAttribution.sourceName}
-              <ExternalLink className="h-4 w-4" />
-            </a>
-            <a
-              href={resourceDirectoryAttribution.repositoryUrl}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--bg-subtle)] px-3 py-2 text-sm font-semibold text-[var(--text-primary)] transition hover:border-[var(--primary)]/40 hover:text-[var(--primary)]"
-            >
-              riscv-ottawa/riscvottawa
-              <ExternalLink className="h-4 w-4" />
-            </a>
+            <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+              {activeResourceLinks.map((link) => (
+                <ResourceCard
+                  key={link.id}
+                  link={link}
+                  locale={resolvedLocale}
+                  cta={t.openResource}
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="border-t border-[var(--border)] py-2">
+          <h2 className="text-sm font-semibold text-[var(--text-primary)]">{t.attributionTitle}</h2>
+          <div className="mt-2 grid gap-1 text-xs leading-6 text-[var(--text-tertiary)] lg:grid-cols-[1fr_auto] lg:items-end lg:gap-8">
+            <div>
+              <p>{t.attribution}</p>
+              <p>{t.license}</p>
+            </div>
+            <div className="flex flex-wrap gap-x-4 gap-y-1">
+              <a
+                href={resourceDirectoryAttribution.sourceUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-semibold text-[var(--text-secondary)] hover:text-[var(--primary)]"
+              >
+                {resourceDirectoryAttribution.sourceName}
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+              <a
+                href={resourceDirectoryAttribution.repositoryUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 font-semibold text-[var(--text-secondary)] hover:text-[var(--primary)]"
+              >
+                {t.sourceRepository}
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            </div>
           </div>
         </section>
       </div>
@@ -286,58 +387,137 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
   );
 }
 
+type StatProps = {
+  value: number;
+  label: string;
+  bordered?: boolean;
+};
+
+function Stat({ value, label, bordered = false }: StatProps) {
+  return (
+    <div className={bordered ? "border-l border-[var(--border)] pl-4 sm:pl-5" : "pr-4 sm:pr-5"}>
+      <div className="text-2xl font-bold text-[var(--text-primary)] sm:text-3xl">{value}</div>
+      <div className="mt-1 text-[11px] leading-4 text-[var(--text-tertiary)]">{label}</div>
+    </div>
+  );
+}
+
+type FilterButtonProps = {
+  active: boolean;
+  label: string;
+  count: number;
+  onClick: () => void;
+};
+
+function FilterButton({ active, label, count, onClick }: FilterButtonProps) {
+  return (
+    <button
+      type="button"
+      aria-pressed={active}
+      onClick={onClick}
+      className={`flex shrink-0 items-center gap-2 rounded-md px-3 py-2 text-sm font-semibold transition ${
+        active
+          ? "bg-[var(--primary)] text-white shadow-sm"
+          : "text-[var(--text-secondary)] hover:bg-[var(--bg-card-hover)] hover:text-[var(--text-primary)]"
+      }`}
+    >
+      {label}
+      <span className={active ? "text-white/70" : "text-[var(--text-tertiary)]"}>{count}</span>
+    </button>
+  );
+}
+
+type EcosystemCardProps = {
+  entry: EcosystemEntry;
+  locale: "en" | "zh";
+  cta: string;
+};
+
+function EcosystemCard({ entry, locale, cta }: EcosystemCardProps) {
+  const category = ecosystemCategories.find((item) => item.id === entry.category)!;
+
+  return (
+    <article className="h-full">
+      <a
+        href={entry.url}
+        target="_blank"
+        rel="noopener noreferrer"
+        className="group flex h-full min-h-[300px] flex-col overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--bg-card)] transition hover:-translate-y-0.5 hover:border-[var(--primary)]/50 hover:shadow-[var(--card-shadow)]"
+      >
+        <div className="flex h-24 items-center justify-center border-b border-[var(--border)] bg-white px-5">
+          <Image
+            src={entry.logo}
+            alt={`${entry.name} logo`}
+            width={320}
+            height={144}
+            className="h-full w-full object-contain"
+          />
+        </div>
+        <div className="flex flex-1 flex-col p-4">
+          <div className="flex items-center justify-between gap-3 text-[11px] font-semibold text-[var(--text-tertiary)]">
+            <span className="truncate text-[var(--primary)]">
+              {localized(category.shortTitle, locale)}
+            </span>
+            <span className="inline-flex shrink-0 items-center gap-1">
+              <MapPin className="h-3 w-3" />
+              {localized(entry.region, locale)}
+            </span>
+          </div>
+          <h3 className="mt-3 text-base font-semibold leading-snug text-[var(--text-primary)]">
+            {entry.name}
+          </h3>
+          <p className="mt-2 flex-1 text-sm leading-6 text-[var(--text-secondary)]">
+            {localized(entry.summary, locale)}
+          </p>
+          <div className="mt-4 flex flex-wrap gap-1.5">
+            {entry.focus.slice(0, 3).map((focus) => (
+              <span
+                key={focus}
+                className="rounded-md bg-[var(--bg-subtle)] px-2 py-1 text-[11px] font-medium text-[var(--text-tertiary)]"
+              >
+                {focus}
+              </span>
+            ))}
+          </div>
+          <div className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--primary)]">
+            {cta}
+            <ExternalLink className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
+          </div>
+        </div>
+      </a>
+    </article>
+  );
+}
+
 type ResourceCardProps = {
   link: (typeof resourceDirectoryLinks)[number];
   locale: "en" | "zh";
   cta: string;
-  featured?: boolean;
 };
 
-function ResourceCard({ link, locale, cta, featured = false }: ResourceCardProps) {
+function ResourceCard({ link, locale, cta }: ResourceCardProps) {
   const category = resourceDirectoryCategories.find((item) => item.id === link.category);
-
-  // Badge de-duplication: inside a category section the section header already
-  // names the category, so cards only show the kind badge — and only when it
-  // adds information beyond the category itself. Featured cards (shown outside
-  // any section) show the category badge instead.
   const kindMatchesCategory = link.kind === link.category;
-  const showKindBadge = !featured && !kindMatchesCategory;
-  const showCategoryBadge = featured && Boolean(category);
-
-  // Drop tags that just repeat the visible badges or the category name.
   const badgeWords = new Set(
     [link.kind, link.category, kindLabels[link.kind].en, category?.shortTitle.en ?? ""].map(
       (value) => value.toLowerCase(),
     ),
   );
-  const visibleTags = link.tags.filter((tag) => !badgeWords.has(tag.toLowerCase())).slice(0, 4);
+  const visibleTags = link.tags.filter((tag) => !badgeWords.has(tag.toLowerCase())).slice(0, 3);
 
   return (
     <a
       href={link.url}
       target="_blank"
       rel="noopener noreferrer"
-      className={`group flex min-h-[190px] flex-col rounded-xl border p-4 transition hover:-translate-y-0.5 hover:border-[var(--primary)]/50 hover:bg-[var(--bg-card-hover)] ${
-        featured
-          ? "border-[var(--primary)]/25 bg-[var(--primary)]/8"
-          : "border-[var(--border)] bg-[var(--bg-card)]"
-      }`}
+      className="group flex min-h-[190px] flex-col rounded-lg border border-[var(--border)] bg-[var(--bg-card)] p-4 transition hover:-translate-y-0.5 hover:border-[var(--primary)]/50 hover:bg-[var(--bg-card-hover)]"
     >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0">
-          {(showKindBadge || showCategoryBadge) && (
-            <div className="mb-2 flex flex-wrap gap-2">
-              {showKindBadge && (
-                <span className="rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/10 px-2 py-0.5 text-[11px] font-semibold text-[var(--primary)]">
-                  {kindLabels[link.kind][locale]}
-                </span>
-              )}
-              {showCategoryBadge && category && (
-                <span className="rounded-full border border-[var(--primary)]/20 bg-[var(--primary)]/10 px-2 py-0.5 text-[11px] font-semibold text-[var(--primary)]">
-                  {localized(category.shortTitle, locale)}
-                </span>
-              )}
-            </div>
+          {!kindMatchesCategory && (
+            <span className="mb-2 inline-flex rounded-md bg-[var(--primary)]/10 px-2 py-0.5 text-[11px] font-semibold text-[var(--primary)]">
+              {kindLabels[link.kind][locale]}
+            </span>
           )}
           <h3 className="text-base font-semibold leading-snug text-[var(--text-primary)]">
             {link.title}
@@ -346,11 +526,11 @@ function ResourceCard({ link, locale, cta, featured = false }: ResourceCardProps
         <ExternalLink className="h-4 w-4 shrink-0 text-[var(--text-tertiary)] transition group-hover:text-[var(--primary)]" />
       </div>
 
-      <p className="mt-3 flex-1 text-sm leading-7 text-[var(--text-secondary)]">
+      <p className="mt-3 flex-1 text-sm leading-6 text-[var(--text-secondary)]">
         {localized(link.summary, locale)}
       </p>
 
-      <div className="mt-4 flex flex-wrap gap-2">
+      <div className="mt-4 flex flex-wrap gap-1.5">
         {visibleTags.map((tag) => (
           <span
             key={tag}
@@ -363,7 +543,7 @@ function ResourceCard({ link, locale, cta, featured = false }: ResourceCardProps
 
       <div className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--primary)]">
         {cta}
-        <ExternalLink className="h-3.5 w-3.5" />
+        <ChevronRight className="h-3.5 w-3.5 transition group-hover:translate-x-0.5" />
       </div>
     </a>
   );
