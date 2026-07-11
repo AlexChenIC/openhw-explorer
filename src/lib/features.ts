@@ -3,5 +3,5 @@ const envClassroomCoursesEnabled = process.env.NEXT_PUBLIC_ENABLE_CLASSROOM_COUR
 
 export const features = {
   newsEnabled: envNewsEnabled !== "false",
-  classroomCoursesEnabled: envClassroomCoursesEnabled === "true",
+  classroomCoursesEnabled: envClassroomCoursesEnabled !== "false",
 } as const;

@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { PublishedClassroomPlayer } from "@/components/PublishedClassroomPlayer";
-import { classroomSeries, getLocalizedText } from "@/data/classrooms";
+import { classroomSeries, getLocalizedText, lessonUsesClassroomId } from "@/data/classrooms";
 import { getPublishedClassroom, getPublishedClassroomIds } from "@/data/published-classrooms";
 import { SITE_URL } from "@/lib/site-url";
 
@@ -14,7 +14,7 @@ type ClassroomPlayerPageProps = {
 
 function getLessonByClassroomId(classroomId: string) {
   for (const series of classroomSeries) {
-    const lesson = series.lessons.find((item) => item.classroomId === classroomId);
+    const lesson = series.lessons.find((item) => lessonUsesClassroomId(item, classroomId));
     if (lesson) return { lesson, series };
   }
 

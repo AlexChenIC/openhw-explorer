@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { classroomSeries } from "@/data/classrooms";
+import { classroomSeries, hasPublishedLesson } from "@/data/classrooms";
 import { projects } from "@/data/projects";
 import { features } from "@/lib/features";
 import { SITE_URL } from "@/lib/site-url";
@@ -66,7 +66,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
       },
       ...series.lessons
-        .filter((lesson) => lesson.classroomId)
+        .filter(hasPublishedLesson)
         .map((lesson) => ({
           url: `${SITE_URL}/${locale}/classroom/${series.id}/${lesson.id}`,
           lastModified: new Date(),

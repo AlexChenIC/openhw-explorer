@@ -7,6 +7,7 @@ import { ClassroomLessonContent } from "@/components/ClassroomLessonContent";
 import {
   classroomSeries,
   getClassroomBaseUrl,
+  hasPublishedLesson,
   getLessonById,
   getLocalizedText,
   getSeriesById,
@@ -20,7 +21,7 @@ type LessonPageProps = {
 export function generateStaticParams() {
   return classroomSeries.flatMap((series) =>
     series.lessons
-      .filter((lesson) => lesson.classroomId)
+      .filter(hasPublishedLesson)
       .flatMap((lesson) =>
         ["en", "zh"].map((locale) => ({
           locale,
@@ -63,7 +64,7 @@ export default async function ClassroomLessonPage({ params }: LessonPageProps) {
   const series = getSeriesById(seriesId);
   const lesson = getLessonById(seriesId, lessonId);
 
-  if (!series || !lesson?.classroomId) {
+  if (!series || !lesson || !hasPublishedLesson(lesson)) {
     redirect(`/${locale === "zh" ? "zh" : "en"}/classroom`);
   }
 

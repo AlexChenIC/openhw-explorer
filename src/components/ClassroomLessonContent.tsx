@@ -9,36 +9,43 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { Link } from "@/lib/routing";
-import { getLocalizedText, type ClassroomLesson, type ClassroomSeries } from "@/data/classrooms";
+import {
+  getClassroomIdForLocale,
+  getLocalizedText,
+  type ClassroomLesson,
+  type ClassroomSeries,
+} from "@/data/classrooms";
 import { getPublishedClassroom } from "@/data/published-classrooms";
 import { PublishedClassroomPlayer } from "@/components/PublishedClassroomPlayer";
 
 const copy = {
   en: {
     back: "Back to series",
-    preview: "Published classroom",
+    preview: "Prototype classroom",
+    fallbackLanguage: "This preview is currently available in English only.",
     openStandalone: "Open standalone classroom",
     outcome: "Learning outcome",
     sources: "Source anchors",
     minutes: "min",
     slides: "slides",
     quiz: "quiz",
-    notesTitle: "Community teaching content",
+    notesTitle: "Prototype status",
     notes:
-      "This lesson is community-curated from publicly available OpenHW materials and has not been reviewed or endorsed by the OpenHW Foundation. For authoritative technical details, always refer to the official documentation at docs.openhwgroup.org.",
+      "This AI-assisted prototype is retained to demonstrate the classroom format. It is not a completed, fully human-reviewed course and is not reviewed or endorsed by OpenHW Foundation. Use the cited official sources for authoritative technical details.",
   },
   zh: {
     back: "返回课程系列",
-    preview: "已发布课堂",
+    preview: "原型课堂",
+    fallbackLanguage: "这节原型样课目前只有英文版本。",
     openStandalone: "打开独立课堂",
     outcome: "学习目标",
     sources: "资料锚点",
     minutes: "分钟",
     slides: "页 slide",
     quiz: "题 quiz",
-    notesTitle: "社区教学内容",
+    notesTitle: "原型状态说明",
     notes:
-      "本课程由社区基于 OpenHW 公开资料整理，尚未经 OpenHW Foundation 官方审校或背书。技术细节请以 docs.openhwgroup.org 官方文档为准。",
+      "这节 AI 辅助生成的原型样课被保留下来用于展示课堂形式，并不代表课程已经完成或通过完整人工审核，也未经 OpenHW Foundation 官方审校或背书。权威技术细节请以课程列出的一手资料为准。",
   },
 } as const;
 
@@ -57,9 +64,13 @@ export function ClassroomLessonContent({
 }: ClassroomLessonContentProps) {
   const resolvedLocale = locale === "zh" ? "zh" : "en";
   const t = copy[resolvedLocale];
-  const publishedClassroom = lesson.classroomId ? getPublishedClassroom(lesson.classroomId) : null;
-  const lessonUrl = lesson.classroomId
-    ? `/${resolvedLocale}/classroom-player/${lesson.classroomId}`
+  const classroomId = getClassroomIdForLocale(lesson, resolvedLocale);
+  const publishedClassroom = classroomId ? getPublishedClassroom(classroomId) : null;
+  const usesFallbackLanguage = Boolean(
+    classroomId && lesson.classroomIds && !lesson.classroomIds[resolvedLocale],
+  );
+  const lessonUrl = classroomId
+    ? `/${resolvedLocale}/classroom-player/${classroomId}`
     : classroomBaseUrl;
 
   return (
@@ -90,6 +101,11 @@ export function ClassroomLessonContent({
             <p className="mt-4 max-w-3xl text-base leading-8 text-[var(--text-secondary)]">
               {getLocalizedText(lesson.summary, resolvedLocale)}
             </p>
+            {usesFallbackLanguage && (
+              <p className="mt-3 inline-flex rounded-md border border-[var(--orange)]/25 bg-[var(--orange)]/10 px-3 py-2 text-sm font-medium text-[var(--orange)]">
+                {t.fallbackLanguage}
+              </p>
+            )}
           </div>
 
           <aside className="rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-5 shadow-[var(--card-shadow)]">

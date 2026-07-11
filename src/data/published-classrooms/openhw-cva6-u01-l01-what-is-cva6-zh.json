@@ -1,0 +1,588 @@
+{
+  "id": "openhw-cva6-u01-l01-what-is-cva6-zh",
+  "createdAt": 1778721720000,
+  "stage": {
+    "id": "openhw-cva6-u01-l01-what-is-cva6-zh",
+    "name": "CVA6 是什么：先别急着打开 RTL",
+    "description": "A source-grounded OpenHW SlideKit microcourse that teaches the official engineering positioning of CVA6 before reading RTL.",
+    "createdAt": 1778721720000,
+    "updatedAt": 1778723180372,
+    "language": "zh-CN",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-technical-deep-dive",
+    "courseTemplateName": "专业技术深潜 · Evidence-Grounded SlideKit",
+    "agentIds": [
+      "default-1"
+    ]
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-l01-title",
+      "stageId": "openhw-cva6-u01-l01-what-is-cva6-zh",
+      "type": "html-slide",
+      "title": "CVA6 是什么：先别急着打开 RTL",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "dark",
+        "content": {
+          "kicker": "CVA6 · ORIENTATION",
+          "title": "CVA6 是什么：先别急着打开 RTL",
+          "subtitle": "第一节课只回答一个问题：CVA6 的官方工程定位到底是什么？",
+          "chips": [
+            "RISC-V application core",
+            "configurable family",
+            "not a full SoC"
+          ],
+          "thesis": "读开源处理器项目，最怕一上来就扎进随机 RTL 文件。先把对象定义清楚，后面的源码阅读才不会跑偏。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-readme-architecture-claim",
+            "title": "CVA6 README architecture claim",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/README.md",
+            "locator": "github-openhwgroup-cva6/README.md overview",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/github-openhwgroup-cva6/README.md",
+            "claimSupported": "CVA6 is positioned as a configurable 6-stage, single-issue, in-order RISC-V CPU with separate TLBs, hardware PTW, and branch prediction."
+          },
+          {
+            "id": "cva6-introduction-overview-family",
+            "title": "CVA6 overview and configurable family",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html",
+            "locator": "Introduction.md CVA6 Overview and Configurations",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "CVA6 is a RISC-V compatible application processor core configurable as CV32A6 or CV64A6, with optional MMU, PMP, FPU, cache organization and size, and many parameters."
+          }
+        ],
+        "speakerNotes": "我们从一个很朴素的问题开始：CVA6 到底是什么？很多人第一次打开开源处理器项目，会直接冲进 RTL 目录，看到几十个模块名之后开始怀疑人生。我的建议是先别急，先把对象定义清楚。官方资料给出的关键词是 RISC-V compatible application processor core、configurable、six-stage、single-issue、in-order。注意，这些词不是宣传语，而是后面读源码、读配置、读验证环境时的坐标系。"
+      },
+      "sourceAnchors": [
+        "cva6-readme-architecture-claim",
+        "cva6-introduction-overview-family"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-l01-title-speech",
+          "type": "speech",
+          "text": "我们从一个很朴素的问题开始：CVA6 到底是什么？很多人第一次打开开源处理器项目，会直接冲进 RTL 目录，看到几十个模块名之后开始怀疑人生。我的建议是先别急，先把对象定义清楚。官方资料给出的关键词是 RISC-V compatible application processor core、configurable、six-stage、single-issue、in-order。注意，这些词不是宣传语，而是后面读源码、读配置、读验证环境时的坐标系。",
+          "voice": "alexchen-zh",
+          "speed": 0.84,
+          "audioId": "tts_scene-cva6-l01-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u01-l01-what-is-cva6-zh/audio/tts_scene-cva6-l01-title-speech.mp3"
+        }
+      ],
+      "createdAt": 1778721720000,
+      "updatedAt": 1778721720000
+    },
+    {
+      "id": "scene-cva6-l01-source-map",
+      "stageId": "openhw-cva6-u01-l01-what-is-cva6-zh",
+      "type": "html-slide",
+      "title": "先看三类资料，不要随机开文件",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "content": {
+          "kicker": "SOURCE MAP",
+          "title": "先看三类资料，不要随机开文件",
+          "subtitle": "这一节只建立最小证据地图：README 给高层定位，User Manual 给使用者视角，Design Doc 给具体配置的内部结构。",
+          "cards": [
+            {
+              "label": "README",
+              "title": "项目的一句话定位",
+              "body": "它告诉你 CVA6 不是一个任意 RTL 集合，而是一个有明确微架构标签的 RISC-V core。",
+              "tone": "teal"
+            },
+            {
+              "label": "User Manual",
+              "title": "谁会使用这份 IP",
+              "body": "软件、硬件集成、协处理器、实现和验证工程师都会读它，但关注问题不同。",
+              "tone": "blue"
+            },
+            {
+              "label": "Design Doc",
+              "title": "具体配置才谈内部结构",
+              "body": "设计文档通常绑定某个配置。入门时要避免把一个 variant 的事实泛化成所有 CVA6。",
+              "tone": "gold"
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-readme-architecture-claim",
+            "title": "CVA6 README architecture claim",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/README.md",
+            "locator": "github-openhwgroup-cva6/README.md overview",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/github-openhwgroup-cva6/README.md",
+            "claimSupported": "CVA6 is positioned as a configurable 6-stage, single-issue, in-order RISC-V CPU with separate TLBs, hardware PTW, and branch prediction."
+          },
+          {
+            "id": "cva6-introduction-target-audience",
+            "title": "User Manual target audience",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html",
+            "locator": "Introduction.md Target Audience",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The user manual targets software programmers, hardware integrators, coprocessor architects, implementation engineers, and verification engineers."
+          },
+          {
+            "id": "cva6-docs-design-role",
+            "title": "Configuration-specific design documentation",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/README.html",
+            "locator": "overview/README.md Design documentation",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/README.md",
+            "claimSupported": "Configuration-specific design documentation describes internal architecture and helps avoid mixing general CVA6 statements with a specific variant."
+          }
+        ],
+        "speakerNotes": "这一页是读资料的顺序。README 适合拿来确定项目的工程定位，比如它强调 six-stage、single-issue、in-order。User Manual 更像使用说明，告诉不同角色怎么理解这份 IP。Design Doc 则更具体，它会进入某个配置的内部结构。这里有个小坑：配置文档讲的是某个 variant，不一定等于所有 CVA6 的唯一事实。以后我们会经常回到这个提醒。"
+      },
+      "sourceAnchors": [
+        "cva6-readme-architecture-claim",
+        "cva6-introduction-target-audience",
+        "cva6-docs-design-role"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-l01-source-map-speech",
+          "type": "speech",
+          "text": "这一页是读资料的顺序。README 适合拿来确定项目的工程定位，比如它强调 six-stage、single-issue、in-order。User Manual 更像使用说明，告诉不同角色怎么理解这份 IP。Design Doc 则更具体，它会进入某个配置的内部结构。这里有个小坑：配置文档讲的是某个 variant，不一定等于所有 CVA6 的唯一事实。以后我们会经常回到这个提醒。",
+          "voice": "alexchen-zh",
+          "speed": 0.84,
+          "audioId": "tts_scene-cva6-l01-source-map-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u01-l01-what-is-cva6-zh/audio/tts_scene-cva6-l01-source-map-speech.mp3"
+        }
+      ],
+      "createdAt": 1778721720000,
+      "updatedAt": 1778721720000
+    },
+    {
+      "id": "scene-cva6-l01-positioning",
+      "stageId": "openhw-cva6-u01-l01-what-is-cva6-zh",
+      "type": "html-slide",
+      "title": "一句话定位：一个可配置的 RISC-V 应用处理器 core",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "content": {
+          "kicker": "OFFICIAL POSITIONING",
+          "title": "一句话定位：一个可配置的 RISC-V 应用处理器 core",
+          "subtitle": "把定位说清楚，后面才知道哪些问题属于 architecture，哪些属于 integration。",
+          "columns": [
+            {
+              "label": "Core identity",
+              "title": "它首先是 processor core",
+              "bullets": [
+                "RISC-V compatible application processor core",
+                "six-stage pipeline 是高层微架构线索",
+                "single-issue / in-order 是后续读 Issue 和 Commit 的入口",
+                "TLB、PTW、branch prediction 提醒我们它不是教学玩具"
+              ]
+            },
+            {
+              "label": "Configurable family",
+              "title": "它不是单一固定实例",
+              "bullets": [
+                "CV32A6 与 CV64A6 代表不同家族方向",
+                "MMU、PMP、FPU、cache 都可能受配置影响",
+                "超过几十个参数意味着读资料时要问：这是哪个配置？",
+                "配置先定，结论再下"
+              ]
+            }
+          ],
+          "anchor": {
+            "label": "Engineering sentence",
+            "text": "CVA6 是一个可配置的 RISC-V application processor core，而不是一个完整 SoC。"
+          }
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-readme-architecture-claim",
+            "title": "CVA6 README architecture claim",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/README.md",
+            "locator": "github-openhwgroup-cva6/README.md overview",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/github-openhwgroup-cva6/README.md",
+            "claimSupported": "CVA6 is positioned as a configurable 6-stage, single-issue, in-order RISC-V CPU with separate TLBs, hardware PTW, and branch prediction."
+          },
+          {
+            "id": "cva6-introduction-overview-family",
+            "title": "CVA6 overview and configurable family",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html",
+            "locator": "Introduction.md CVA6 Overview and Configurations",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "CVA6 is a RISC-V compatible application processor core configurable as CV32A6 or CV64A6, with optional MMU, PMP, FPU, cache organization and size, and many parameters."
+          }
+        ],
+        "speakerNotes": "我会把 CVA6 的入门定义压缩成一句话：它是一个可配置的 RISC-V application processor core，而不是完整 SoC。这里面每个词都有用。application processor core 表示它面向比小型 MCU 更复杂的使用场景；configurable 表示你不能脱离配置谈结论；core 表示还有很多系统级东西并不在这个 IP 内。读懂这句话，后面再看 scope 图、流水线图、配置文件，就不容易把边界搞混。"
+      },
+      "sourceAnchors": [
+        "cva6-readme-architecture-claim",
+        "cva6-introduction-overview-family"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-l01-positioning-speech",
+          "type": "speech",
+          "text": "我会把 CVA6 的入门定义压缩成一句话：它是一个可配置的 RISC-V application processor core，而不是完整 SoC。这里面每个词都有用。application processor core 表示它面向比小型 MCU 更复杂的使用场景；configurable 表示你不能脱离配置谈结论；core 表示还有很多系统级东西并不在这个 IP 内。读懂这句话，后面再看 scope 图、流水线图、配置文件，就不容易把边界搞混。",
+          "voice": "alexchen-zh",
+          "speed": 0.84,
+          "audioId": "tts_scene-cva6-l01-positioning-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u01-l01-what-is-cva6-zh/audio/tts_scene-cva6-l01-positioning-speech.mp3"
+        }
+      ],
+      "createdAt": 1778721720000,
+      "updatedAt": 1778721720000
+    },
+    {
+      "id": "scene-cva6-l01-not-soc",
+      "stageId": "openhw-cva6-u01-l01-what-is-cva6-zh",
+      "type": "html-slide",
+      "title": "不要把 CVA6 误读成完整 SoC",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "content": {
+          "kicker": "BOUNDARY CHECK",
+          "title": "不要把 CVA6 误读成完整 SoC",
+          "subtitle": "User Manual 的 scope 资料会把 IP 内外分开。第一节只先建立边界感。",
+          "items": [
+            {
+              "title": "属于 core 视角",
+              "body": "pipeline、CSR、可选 MMU/PMP/FPU、performance counters 等是后续课程会持续展开的核心对象。"
+            },
+            {
+              "title": "属于接口视角",
+              "body": "AXI、P-Mesh、CV-X-IF 让 core 可以被系统集成，但它们不等于完整 SoC。"
+            },
+            {
+              "title": "属于系统外部",
+              "body": "CLINT、PLIC、debug module 等系统块不能随手塞进 CVA6 core 的内部解释。"
+            },
+            {
+              "title": "属于配置问题",
+              "body": "MMU、PMP、FPU、cache 组织可能受配置影响，必须带着配置去读文档。"
+            }
+          ],
+          "takeaway": "第一课先记住：CVA6 有清晰 IP 边界，边界不清，后面的源码阅读会越来越乱。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-introduction-scope-ip",
+            "title": "Scope of the CVA6 IP",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#scope-of-the-ip",
+            "locator": "Introduction.md Scope of the IP",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The documented IP includes the CVA6 core, L1 write-through cache, optional FPU/MMU/PMP, CSR, performance counters, AXI interface, P-Mesh interface, and CV-X-IF, while several system-level blocks are outside the IP."
+          }
+        ],
+        "speakerNotes": "第二个关键点是边界。CVA6 不是一个板级系统，也不是从 boot ROM 到外设全包的 SoC。User Manual 的 scope 会把哪些东西在 IP 内、哪些东西在 IP 外说清楚。对学习者来说，这个边界非常重要。比如 AXI 是接口，说明 core 怎么接向系统；CLINT、PLIC、debug module 则不能直接当作 CVA6 core 内部模块来讲。边界清楚之后，你才知道下一节为什么要专门读 scope 图。"
+      },
+      "sourceAnchors": [
+        "cva6-introduction-scope-ip"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-l01-not-soc-speech",
+          "type": "speech",
+          "text": "第二个关键点是边界。CVA6 不是一个板级系统，也不是从 boot ROM 到外设全包的 SoC。User Manual 的 scope 会把哪些东西在 IP 内、哪些东西在 IP 外说清楚。对学习者来说，这个边界非常重要。比如 AXI 是接口，说明 core 怎么接向系统；CLINT、PLIC、debug module 则不能直接当作 CVA6 core 内部模块来讲。边界清楚之后，你才知道下一节为什么要专门读 scope 图。",
+          "voice": "alexchen-zh",
+          "speed": 0.84,
+          "audioId": "tts_scene-cva6-l01-not-soc-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u01-l01-what-is-cva6-zh/audio/tts_scene-cva6-l01-not-soc-speech.mp3"
+        }
+      ],
+      "createdAt": 1778721720000,
+      "updatedAt": 1778721720000
+    },
+    {
+      "id": "scene-cva6-l01-reading-flow",
+      "stageId": "openhw-cva6-u01-l01-what-is-cva6-zh",
+      "type": "html-slide",
+      "title": "入门阅读流：定位、边界、配置、微架构",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "dark",
+        "content": {
+          "kicker": "READING FLOW",
+          "title": "入门阅读流：定位、边界、配置、微架构",
+          "subtitle": "这套课程会按小步前进，而不是一节课把所有模块都塞满。",
+          "steps": [
+            {
+              "badge": "01",
+              "title": "定位",
+              "body": "先回答 CVA6 是什么。"
+            },
+            {
+              "badge": "02",
+              "title": "边界",
+              "body": "再用 scope 图分清 IP 内外。"
+            },
+            {
+              "badge": "03",
+              "title": "配置",
+              "body": "确认正在读的是哪个 variant。"
+            },
+            {
+              "badge": "04",
+              "title": "微架构",
+              "body": "最后进入 pipeline、frontend、issue、memory。"
+            }
+          ],
+          "takeaway": "先把阅读顺序排好，比马上打开十几个 RTL 文件更省时间。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-readme-architecture-claim",
+            "title": "CVA6 README architecture claim",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/README.md",
+            "locator": "github-openhwgroup-cva6/README.md overview",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/github-openhwgroup-cva6/README.md",
+            "claimSupported": "CVA6 is positioned as a configurable 6-stage, single-issue, in-order RISC-V CPU with separate TLBs, hardware PTW, and branch prediction."
+          },
+          {
+            "id": "cva6-introduction-scope-ip",
+            "title": "Scope of the CVA6 IP",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#scope-of-the-ip",
+            "locator": "Introduction.md Scope of the IP",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The documented IP includes the CVA6 core, L1 write-through cache, optional FPU/MMU/PMP, CSR, performance counters, AXI interface, P-Mesh interface, and CV-X-IF, while several system-level blocks are outside the IP."
+          },
+          {
+            "id": "cva6-docs-design-role",
+            "title": "Configuration-specific design documentation",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/README.html",
+            "locator": "overview/README.md Design documentation",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/overview/README.md",
+            "claimSupported": "Configuration-specific design documentation describes internal architecture and helps avoid mixing general CVA6 statements with a specific variant."
+          }
+        ],
+        "speakerNotes": "这里给出后续课程的阅读流。第一步就是这节课：定位。第二步是边界，也就是下一节会讲的 IP、core、cache、SoC 的分界。第三步是配置，因为 CVA6 是 configurable family，配置不清楚，很多技术判断都会变形。第四步才是微架构细节，比如 frontend、Issue、Scoreboard、memory system。这个顺序看起来慢，其实是最快的路。"
+      },
+      "sourceAnchors": [
+        "cva6-readme-architecture-claim",
+        "cva6-introduction-scope-ip",
+        "cva6-docs-design-role"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-l01-reading-flow-speech",
+          "type": "speech",
+          "text": "这里给出后续课程的阅读流。第一步就是这节课：定位。第二步是边界，也就是下一节会讲的 IP、core、cache、SoC 的分界。第三步是配置，因为 CVA6 是 configurable family，配置不清楚，很多技术判断都会变形。第四步才是微架构细节，比如 frontend、Issue、Scoreboard、memory system。这个顺序看起来慢，其实是最快的路。",
+          "voice": "alexchen-zh",
+          "speed": 0.84,
+          "audioId": "tts_scene-cva6-l01-reading-flow-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u01-l01-what-is-cva6-zh/audio/tts_scene-cva6-l01-reading-flow-speech.mp3"
+        }
+      ],
+      "createdAt": 1778721720000,
+      "updatedAt": 1778721720000
+    },
+    {
+      "id": "scene-cva6-l01-quiz",
+      "stageId": "openhw-cva6-u01-l01-what-is-cva6-zh",
+      "type": "quiz",
+      "title": "Checkpoint：CVA6 的官方定位",
+      "order": 5,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "cva6-l01-q1",
+            "type": "single",
+            "question": "下面哪一句最适合作为 CVA6 的入门工程定位？",
+            "options": [
+              {
+                "label": "一个可配置的 RISC-V application processor core",
+                "value": "A"
+              },
+              {
+                "label": "一个包含所有外设和调试模块的完整 SoC",
+                "value": "B"
+              },
+              {
+                "label": "一个只用于教学的不可配置单周期 CPU",
+                "value": "C"
+              },
+              {
+                "label": "一组和 RISC-V 无关的通用 SystemVerilog 模板",
+                "value": "D"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "analysis": "README 和 User Manual 都把 CVA6 定位为 RISC-V compatible application processor core，并强调 configurable family。",
+            "hasAnswer": true,
+            "points": 1
+          },
+          {
+            "id": "cva6-l01-q2",
+            "type": "multiple",
+            "question": "为什么读 CVA6 前要先关心配置？",
+            "options": [
+              {
+                "label": "因为 CVA6 可以有 CV32A6、CV64A6 等不同方向",
+                "value": "A"
+              },
+              {
+                "label": "因为 MMU、PMP、FPU、cache 等能力可能受配置影响",
+                "value": "B"
+              },
+              {
+                "label": "因为任何配置下所有内部行为都完全一样",
+                "value": "C"
+              },
+              {
+                "label": "因为 design document 往往会绑定具体配置来讲内部结构",
+                "value": "D"
+              }
+            ],
+            "answer": [
+              "A",
+              "B",
+              "D"
+            ],
+            "analysis": "配置影响 family、可选单元和具体设计文档的解释范围。C 反而违背 configurable family 的基本事实。",
+            "hasAnswer": true,
+            "points": 2
+          },
+          {
+            "id": "cva6-l01-q3",
+            "type": "single",
+            "question": "如果你第一天读 CVA6，最稳的入口是什么？",
+            "options": [
+              {
+                "label": "先随机打开一个 RTL 文件，看不懂再说",
+                "value": "A"
+              },
+              {
+                "label": "先读 README 和 User Manual 的定位、scope、configuration 相关内容",
+                "value": "B"
+              },
+              {
+                "label": "先假设 CVA6 已经包含完整 SoC，然后找外设",
+                "value": "C"
+              },
+              {
+                "label": "先忽略官方文档，只看文件名猜架构",
+                "value": "D"
+              }
+            ],
+            "answer": [
+              "B"
+            ],
+            "analysis": "本系列课采用 source-grounded 方法，先从官方定位和边界开始，避免被随机文件名带偏。",
+            "hasAnswer": true,
+            "points": 1
+          }
+        ]
+      },
+      "sourceAnchors": [
+        "cva6-readme-architecture-claim",
+        "cva6-introduction-overview-family",
+        "cva6-introduction-scope-ip"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-l01-quiz-speech",
+          "type": "speech",
+          "text": "来做一个很短的检查点。这里不考你背名词，而是检查三件更重要的工程判断。第一，CVA6 的入门定位是不是一个可配置的 RISC-V application processor core，而不是完整 SoC。第二，配置为什么会影响你读代码时的判断，比如 MMU、PMP、FPU、cache 这些能力是否启用。第三，为什么我们要先画清楚 IP 边界，再去追 RTL 细节。答题时不用紧张，把它当成一次阅读路线校准。能答对这些题，说明你已经准备好进入下一节 scope 图精读了。",
+          "voice": "alexchen-zh",
+          "speed": 0.84,
+          "audioId": "tts_scene-cva6-l01-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u01-l01-what-is-cva6-zh/audio/tts_scene-cva6-l01-quiz-speech.mp3"
+        }
+      ],
+      "createdAt": 1778721720000,
+      "updatedAt": 1778721720000
+    },
+    {
+      "id": "scene-cva6-l01-summary",
+      "stageId": "openhw-cva6-u01-l01-what-is-cva6-zh",
+      "type": "html-slide",
+      "title": "总结：先定义对象，再读源码",
+      "order": 6,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "dark",
+        "content": {
+          "kicker": "SUMMARY",
+          "title": "先定义对象，再读源码",
+          "takeaways": [
+            "CVA6 的入门定位是 configurable RISC-V application processor core。",
+            "不要把 core IP、接口、系统外设和完整 SoC 混成一团。",
+            "配置意识很重要：先问自己正在读哪个 variant。",
+            "README、User Manual、Design Doc 分工不同，后续课程会逐步拆开。"
+          ],
+          "nextStep": "下一节拆 CVA6 不是什么：IP、core、cache、SoC 的边界。",
+          "closing": "这节课如果只记一句话：别急着打开 RTL，先把 CVA6 这个对象定义清楚。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-readme-architecture-claim",
+            "title": "CVA6 README architecture claim",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/README.md",
+            "locator": "github-openhwgroup-cva6/README.md overview",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/github-openhwgroup-cva6/README.md",
+            "claimSupported": "CVA6 is positioned as a configurable 6-stage, single-issue, in-order RISC-V CPU with separate TLBs, hardware PTW, and branch prediction."
+          },
+          {
+            "id": "cva6-introduction-overview-family",
+            "title": "CVA6 overview and configurable family",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html",
+            "locator": "Introduction.md CVA6 Overview and Configurations",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "CVA6 is a RISC-V compatible application processor core configurable as CV32A6 or CV64A6, with optional MMU, PMP, FPU, cache organization and size, and many parameters."
+          },
+          {
+            "id": "cva6-introduction-scope-ip",
+            "title": "Scope of the CVA6 IP",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html#scope-of-the-ip",
+            "locator": "Introduction.md Scope of the IP",
+            "localPath": "openhw_knowledge/raw/public-ready/cva6/docs-openhwgroup-cva6-user-manual/markdown/cva6-user-manual/Introduction.md",
+            "claimSupported": "The documented IP includes the CVA6 core, L1 write-through cache, optional FPU/MMU/PMP, CSR, performance counters, AXI interface, P-Mesh interface, and CV-X-IF, while several system-level blocks are outside the IP."
+          }
+        ],
+        "speakerNotes": "总结一下。CVA6 的入门定义不是一句空话，而是后续所有阅读的起点：它是一个可配置的 RISC-V application processor core。它不是完整 SoC，也不是一个没有边界的代码仓库。下一节我们会继续往前走，专门拆 CVA6 不是什么，也就是 IP、core、cache、SoC 的边界。你先把对象定义清楚，后面读源码就会少走很多弯路。"
+      },
+      "sourceAnchors": [
+        "cva6-readme-architecture-claim",
+        "cva6-introduction-overview-family",
+        "cva6-introduction-scope-ip"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-l01-summary-speech",
+          "type": "speech",
+          "text": "总结一下。CVA6 的入门定义不是一句空话，而是后续所有阅读的起点：它是一个可配置的 RISC-V application processor core。它不是完整 SoC，也不是一个没有边界的代码仓库。下一节我们会继续往前走，专门拆 CVA6 不是什么，也就是 IP、core、cache、SoC 的边界。你先把对象定义清楚，后面读源码就会少走很多弯路。",
+          "voice": "alexchen-zh",
+          "speed": 0.84,
+          "audioId": "tts_scene-cva6-l01-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-cva6-u01-l01-what-is-cva6-zh/audio/tts_scene-cva6-l01-summary-speech.mp3"
+        }
+      ],
+      "createdAt": 1778721720000,
+      "updatedAt": 1778721720000
+    }
+  ]
+}
