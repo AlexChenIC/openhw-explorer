@@ -73,22 +73,48 @@ The PDK cards use locally cached marks from these official project or steward so
 
 ## RISC-V Industry Landscape
 
-The `/resources/industry` page uses official company pages to verify publicly documented RISC-V offerings. It uses text monograms rather than reproducing commercial company logos.
+The `/resources/industry` page uses official company pages to verify publicly documented RISC-V offerings. The supplier coverage is cross-checked against the abridged 2026 RISC-V Market Analysis supplied for editorial review; inclusion remains a curated directory decision rather than a ranking or endorsement.
+
+Locally cached company logos are used solely to identify and link to the companies' official websites. Names, logos, and trademarks remain the property of their respective owners. Assets are taken from official company sites where a stable source is available. The Cadence and Qualcomm marks are cached from Wikimedia Commons copies of their official wordmarks.
 
 Official company sources:
 
 - SiFive: https://www.sifive.com/risc-v-core-ip
 - Andes Technology: https://www.andestech.com/en/products-solutions/andescore-processors/
 - Codasip: https://codasip.com/products/codasip-risc-v-processors/
-- MIPS: https://mips.com/products/hardware/
+- MIPS, a GlobalFoundries company: https://mips.com/
 - Akeana: https://www.akeana.com/
 - Semidynamics: https://semidynamics.com/ip-cores
 - Nuclei System Technology: https://www.nucleisys.com/
 - Tenstorrent: https://tenstorrent.com/ip
-- Ventana Micro Systems: https://www.ventanamicro.com/
+- AheadComputing: https://www.aheadcomputing.com/
+- XuanTie: https://www.xrvm.com/
+- Cortus: https://cortus.com/
+- InCore Semiconductors: https://incoresemi.com/
+- Quintauris: https://www.quintauris.com/
+- Syntacore: https://syntacore.com/products
+- OXMIQ Labs: https://oxmiq.ai/
+- Bluespec: https://bluespec.com/products/
+- Ventana Micro Systems acquisition by Qualcomm: https://www.qualcomm.com/news/releases/2025/12/qualcomm-acquires-ventana-micro-systems--deepening-risc-v-cpu-ex
 - StarFive: https://www.starfivetech.com/en/
 - SpacemiT: https://www.spacemit.com/en/
 - Openchip: https://openchip.com/
+- Ainekko: https://www.ainekko.io/
+- Renesas: https://www.renesas.com/en/products/microcontrollers-microprocessors/risc-v
+- Microchip Technology: https://www.microchip.com/en-us/products/fpgas-and-plds/system-on-chip-fpgas/polarfire-soc-fpgas
+- ESWIN Computing: https://www.eswincomputing.com/en/
+- DeepComputing: https://deepcomputing.io/
+- Allwinner Technology: https://www.allwinnertech.com/
 - Synopsys: https://www.synopsys.com/risc-v.html
 - Cadence: https://www.cadence.com/en_US/home/tools/silicon-solutions/compute-ip/tensilica-swerv-cpus.html
 - Siemens EDA: https://eda.sw.siemens.com/en-US/ic/questa/formal-verification/
+- Arteris: https://www.arteris.com/solutions/risc-v/
+- Breker Verification Systems: https://brekersystems.com/products/riscv-socready/
+- Ashling: https://ashling.com/support-riscv/
+- Silvaco: https://silvaco.com/
+- S2C: https://www.s2ceda.com/
+
+Fallback logo sources:
+
+- Cadence: https://commons.wikimedia.org/wiki/File:Cadence-Logo.svg
+- Qualcomm: https://commons.wikimedia.org/wiki/File:Qualcomm-Logo.svg

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import {
   ArrowLeft,
@@ -51,7 +52,7 @@ const copy = {
     signalThreeTitle: "Verification and productization",
     signalThree:
       "Mature models, toolchains, formal verification, emulation, and software readiness are becoming as important as the CPU RTL itself.",
-    note: "Descriptions are based on official company materials and identify publicly documented RISC-V offerings. This is a curated map, not a ranking or endorsement.",
+    note: "Coverage was cross-checked against the abridged RISC-V Market Report: Market Adoption Accelerates 2026 and then verified against current official company materials. Acquired businesses are shown with their current parent-company status. This is a curated supplier map, not a ranking.",
   },
   zh: {
     back: "返回资源导航",
@@ -78,7 +79,7 @@ const copy = {
     signalThreeTitle: "验证与产品化",
     signalThree:
       "成熟的模型、工具链、形式验证、硬件仿真与软件就绪度，正变得与 CPU RTL 本身同样重要。",
-    note: "介绍依据企业官方资料，聚焦其公开说明的 RISC-V 业务。本页面是精选产业地图，不构成排名或背书。",
+    note: "覆盖范围参考了《RISC-V Market Report: Market Adoption Accelerates 2026》简版报告，并进一步按照企业当前官网资料逐项核对。已被收购的业务按现有母公司关系标注。本页面是精选供应商地图，不构成排名。",
   },
 } as const;
 
@@ -86,12 +87,6 @@ const segmentIcons: Record<IndustrySegmentId, typeof Cpu> = {
   "processor-ip": Cpu,
   "silicon-platforms": CircuitBoard,
   "design-enablement": Blocks,
-};
-
-const markStyles: Record<IndustrySegmentId, string> = {
-  "processor-ip": "border-blue-200 bg-blue-50 text-blue-700",
-  "silicon-platforms": "border-emerald-200 bg-emerald-50 text-emerald-700",
-  "design-enablement": "border-amber-200 bg-amber-50 text-amber-800",
 };
 
 function localized<T extends { en: string; zh: string }>(value: T, locale: "en" | "zh") {
@@ -334,10 +329,18 @@ function CompanyCard({
       >
         <div className="flex items-start justify-between gap-4">
           <span
-            aria-hidden="true"
-            className={`grid h-12 w-12 shrink-0 place-items-center rounded-md border text-sm font-bold ${markStyles[company.segment]}`}
+            className={`flex h-14 w-36 shrink-0 items-center rounded-md border border-[var(--border)] px-3 py-2 ${
+              company.logoSurface === "dark" ? "bg-[#101820]" : "bg-white"
+            }`}
           >
-            {company.mark}
+            <Image
+              src={company.logo}
+              alt={`${company.name} logo`}
+              width={144}
+              height={56}
+              unoptimized
+              className="max-h-10 w-auto max-w-full object-contain object-left"
+            />
           </span>
           <ExternalLink className="h-4 w-4 shrink-0 text-[var(--text-tertiary)] transition group-hover:text-[var(--primary)]" />
         </div>
