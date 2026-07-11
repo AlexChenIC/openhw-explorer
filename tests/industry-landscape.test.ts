@@ -7,7 +7,7 @@ import { ecosystemEntries } from "@/data/ecosystem";
 describe("industry landscape", () => {
   it("keeps a focused, source-checkable company map", () => {
     expect(industryCompanies.length).toBeGreaterThanOrEqual(30);
-    expect(industryCompanies.length).toBeLessThanOrEqual(40);
+    expect(industryCompanies.length).toBeLessThanOrEqual(50);
     expect(new Set(industryCompanies.map((company) => company.id)).size).toBe(
       industryCompanies.length,
     );
@@ -74,9 +74,22 @@ describe("industry landscape", () => {
       "starfive",
       "spacemit",
       "openchip",
+      "frontgrade-gaisler",
+      "infineon",
+      "rivos",
+      "espressif",
+      "gigadevice",
+      "wch",
+      "sophgo",
+      "canaan-kendryte",
+      "amd",
+      "altera",
       "synopsys",
       "cadence",
       "siemens-eda",
+      "lauterbach",
+      "segger",
+      "antmicro",
     ];
 
     for (const id of commercialOnlyIds) {

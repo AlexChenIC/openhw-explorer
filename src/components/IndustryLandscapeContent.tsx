@@ -60,7 +60,7 @@ const copy = {
     signalThreeTitle: "Verification and productization",
     signalThree:
       "Mature models, toolchains, formal verification, emulation, and software readiness are becoming as important as the CPU RTL itself.",
-    note: "Coverage was cross-checked against the abridged RISC-V Market Report: Market Adoption Accelerates 2026 and then verified against current official company materials. Acquired businesses are shown with their current parent-company status. This is a curated supplier map, not a ranking.",
+    note: "Coverage was cross-checked against the abridged RISC-V Market Report: Market Adoption Accelerates 2026, RISC-V International and OpenHW membership lists, and current official company materials. Membership is used only as a discovery signal: inclusion requires a publicly documented RISC-V product, IP, platform, or design-enablement offering. Announced products and acquired businesses are labelled explicitly. This is a curated supplier map, not a ranking.",
   },
   zh: {
     back: "返回资源导航",
@@ -92,7 +92,7 @@ const copy = {
     signalThreeTitle: "验证与产品化",
     signalThree:
       "成熟的模型、工具链、形式验证、硬件仿真与软件就绪度，正变得与 CPU RTL 本身同样重要。",
-    note: "覆盖范围参考了《RISC-V Market Report: Market Adoption Accelerates 2026》简版报告，并进一步按照企业当前官网资料逐项核对。已被收购的业务按现有母公司关系标注。本页面是精选供应商地图，不构成排名。",
+    note: "覆盖范围参考了《RISC-V Market Report: Market Adoption Accelerates 2026》简版报告、RISC-V International 与 OpenHW 会员名单，并按照企业当前官网资料逐项核对。会员身份仅用于发现候选企业；入选仍须有公开的 RISC-V 产品、IP、平台或设计支撑方案。已宣布但尚未量产的产品与已被收购的业务均明确标注。本页面是精选供应商地图，不构成排名。",
   },
 } as const;
 

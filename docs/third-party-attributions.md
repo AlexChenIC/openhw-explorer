@@ -75,6 +75,8 @@ The PDK cards use locally cached marks from these official project or steward so
 
 The `/resources/industry` page uses official company pages to verify publicly documented RISC-V offerings. The supplier coverage is cross-checked against the abridged 2026 RISC-V Market Analysis supplied for editorial review; inclusion remains a curated directory decision rather than a ranking or endorsement.
 
+The inclusion criteria, status rules, and 2026-07-11 review decisions are recorded in `docs/industry-landscape-methodology.md`.
+
 Locally cached company logos are used solely to identify and link to the companies' official websites. Names, logos, and trademarks remain the property of their respective owners. Assets are taken from official company sites where a stable source is available. The Cadence and Qualcomm marks are cached from Wikimedia Commons copies of their official wordmarks.
 
 Official company sources:
@@ -95,6 +97,9 @@ Official company sources:
 - Syntacore: https://syntacore.com/products
 - OXMIQ Labs: https://oxmiq.ai/
 - Bluespec: https://bluespec.com/products/
+- Frontgrade Gaisler: https://www.gaisler.com/products/noel-v
+- Infineon Technologies: https://www.infineon.com/press-release/2025/infatv202503-067
+- Rivos: https://www.rivosinc.com/
 - Ventana Micro Systems acquisition by Qualcomm: https://www.qualcomm.com/news/releases/2025/12/qualcomm-acquires-ventana-micro-systems--deepening-risc-v-cpu-ex
 - StarFive: https://www.starfivetech.com/en/
 - SpacemiT: https://www.spacemit.com/en/
@@ -105,16 +110,29 @@ Official company sources:
 - ESWIN Computing: https://www.eswincomputing.com/en/
 - DeepComputing: https://deepcomputing.io/
 - Allwinner Technology: https://www.allwinnertech.com/
+- Espressif Systems: https://www.espressif.com/en/products/socs/esp32-c6
+- GigaDevice: https://www.gigadevice.com/product/mcu/main-stream-mcus/gd32vf103-series
+- WCH / Nanjing Qinheng: https://www.wch-ic.com/products/productsCenter/mcuInterface?categoryId=70
+- SOPHGO: https://en.sophgo.com/
+- Canaan / Kendryte: https://www.kendryte.com/en/products
+- AMD MicroBlaze V: https://www.amd.com/en/products/software/adaptive-socs-and-fpgas/microblaze-v.html
+- Altera Nios V: https://www.altera.com/products/ip/po-3098/nios-v-processors
 - Synopsys: https://www.synopsys.com/risc-v.html
 - Cadence: https://www.cadence.com/en_US/home/tools/silicon-solutions/compute-ip/tensilica-swerv-cpus.html
 - Siemens EDA: https://eda.sw.siemens.com/en-US/ic/questa/formal-verification/
 - Arteris: https://www.arteris.com/solutions/risc-v/
 - Breker Verification Systems: https://brekersystems.com/products/riscv-socready/
 - Ashling: https://ashling.com/support-riscv/
-- Silvaco: https://silvaco.com/
+- Lauterbach: https://www.lauterbach.com/supported-platforms/architectures/risc-v
+- SEGGER: https://www.segger.com/products/development-tools/embedded-studio/technology/cpu-support/
+- Antmicro: https://antmicro.com/technologies/risc-v/
 - S2C: https://www.s2ceda.com/
 
 Fallback logo sources:
 
 - Cadence: https://commons.wikimedia.org/wiki/File:Cadence-Logo.svg
 - Qualcomm: https://commons.wikimedia.org/wiki/File:Qualcomm-Logo.svg
+- Infineon: https://commons.wikimedia.org/wiki/File:Infineon-Logo.svg
+- Altera: https://commons.wikimedia.org/wiki/Category:Altera_logos
+
+Espressif's logo is a trademark of Espressif Systems (Shanghai) Co., Ltd. The cached mark follows the official primary-logo guidance at https://www.espressif.com/en/about-espressif/logo-guidelines.
