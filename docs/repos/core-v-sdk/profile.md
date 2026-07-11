@@ -2,11 +2,26 @@
 
 > CORE-V SDK 是面向 CORE-V 的 SDK/IDE 快速上手工具包，支持 Windows 与 x86 Linux，但仓库活动较少。
 
-数据核对日期: 2026-07-08
+数据核对日期: 2026-07-11
 
 ## Public summary
 
 CORE-V SDK is a quick-start SDK and IDE package for CORE-V development. Its README supports Windows 10/11 and x86 Linux distributions such as Red Hat 7.9/8.4 and Ubuntu 18.04/20.04, and includes sample import, build, debug, CSR/register views, and FreeRTOS task-monitoring workflows.
+
+## Key facts
+
+- Purpose: packaged SDK/IDE intended to get CORE-V users running quickly
+- Supported hosts named by the README: Windows 10/11 and x86 Linux on Red Hat 7.9/8.4 or Ubuntu 18.04/20.04
+- Architecture limitation: Arm hosts are explicitly not supported
+- Development workflow includes sample import, build, GDB/OpenOCD or QEMU debug configurations, and an integrated terminal
+- Debug views include CSR registers, peripheral registers, and FreeRTOS task/queue awareness
+
+## Further resources
+
+- [CORE-V SDK quick-start guide](https://github.com/openhwgroup/core-v-sdk#core-v-sdk-quick-start-guide) — supported hosts, installation, samples, and debugging
+- [CORE-V MCU](https://github.com/openhwgroup/core-v-mcu) — hardware platform used by SDK examples and register descriptions
+- [CORE-V GCC](https://github.com/openhwgroup/corev-gcc) — compiler-development repository in the toolchain family
+- [CORE-V Binutils/GDB](https://github.com/openhwgroup/corev-binutils-gdb) — debugger and binary-tool development repository
 
 ## 项目概述
 

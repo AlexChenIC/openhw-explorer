@@ -2,7 +2,7 @@
 
 > CVA6 是 OpenHW 的 6-stage 应用级/嵌入式 CORE-V RISC-V 核心家族；官方资料同时存在“当前基线 single-issue”和“家族 single or dual-issue”的表述，需要在站内明确区分。
 
-数据核对日期: 2026-07-08
+数据核对日期: 2026-07-11
 
 ## Public summary
 
@@ -13,7 +13,7 @@ CVA6 is a configurable 6-stage CORE-V RISC-V core family for application-class a
 - ISA: 64-bit RISC-V with full I, M, A, and C extensions (User-Level ISA V 2.3), per the repository README
 - Pipeline: 6-stage, single-issue, in-order baseline; the CORE-V family roadmap describes single- or dual-issue family configurations
 - Privilege levels: M, S, and U — sufficient to run a Unix-like operating system
-- Memory system: configurable size, separate TLBs, hardware page-table walker, branch prediction (BTB + branch history table)
+- Memory system: configurable size, separate TLBs, hardware page-table walker, and branch prediction (BTB, branch history table, and return-address stack)
 - Family configurations include CV32A60AX, CV32A60X, and CV64A60AX; CV32A60X v5.3 has achieved TRL-5 per the official CORE-V table
 - Origin: started as Ariane at ETH Zürich (PULP platform), contributed to OpenHW
 - A performance model lives in the repository's perf-model/ folder for micro-architecture studies

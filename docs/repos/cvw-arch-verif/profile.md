@@ -2,11 +2,25 @@
 
 > cvw-arch-verif 是 CVW/Wally 的架构测试与覆盖资料仓库，官方 README 已声明迁移到 riscv-arch-test，不应标为 formal verification。
 
-数据核对日期: 2026-07-08
+数据核对日期: 2026-07-11
 
 ## Public summary
 
 cvw-arch-verif is a deprecated architectural verification repository for CORE-V Wally. The README states that tests, coverage, and the updated framework have migrated to the RISC-V architecture test repository, so OpenHW Explorer classifies it as architecture tests rather than formal verification.
+
+## Key facts
+
+- Repository status: the README explicitly marks cvw-arch-verif as deprecated
+- Migration: tests, coverage, and the updated framework moved to riscv-non-isa/riscv-arch-test
+- Original scope: architecture functional verification for CORE-V Wally
+- Repository contents include test plans, covergroups, and directed tests for RVA22S64 and corresponding RV32 extensions
+- Classification: architecture tests and functional coverage, not a formal-verification framework
+
+## Further resources
+
+- [RISC-V architecture tests](https://github.com/riscv-non-isa/riscv-arch-test) — current home for the migrated work
+- [CORE-V Wally](https://github.com/openhwgroup/cvw) — processor repository targeted by the original verification project
+- [CVW test plan](https://github.com/openhwgroup/cvw/blob/main/docs/testplans/testplan.md) — current core-level verification planning material
 
 ## 项目概述
 

@@ -2,11 +2,26 @@
 
 > corev-gcc 是 OpenHW 的 CORE-V GCC 开发/集成 fork；它不是 GCC 上游主仓库。
 
-数据核对日期: 2026-07-08
+数据核对日期: 2026-07-11
 
 ## Public summary
 
 corev-gcc is OpenHW's GCC fork for CORE-V GNU toolchain development. The repository default branch is `development`, and OpenHW's project table groups it under CORE-V GNU Tools for embedded-class CORE-V cores; it should be presented as a staging/development fork rather than the upstream GCC project.
+
+## Key facts
+
+- Repository role: OpenHW fork used for CORE-V GNU toolchain development, not the upstream GCC repository
+- Default branch: GitHub reports `development`
+- Scope: the repository contains a full GCC source tree, so its top-level README is the generic GNU Compiler Collection README
+- OpenHW context: the official project table groups CORE-V GNU Tools with software support for embedded-class CORE-V cores
+- Companion repositories: corev-binutils-gdb supplies the matching Binutils/GDB development tree
+
+## Further resources
+
+- [Upstream GCC documentation](https://gcc.gnu.org/onlinedocs/) — authoritative documentation for standard GCC behavior
+- [CORE-V Binutils/GDB](https://github.com/openhwgroup/corev-binutils-gdb) — companion assembler, linker, and debugger fork
+- [CORE-V LLVM](https://github.com/openhwgroup/corev-llvm-project) — alternative CORE-V compiler-development fork
+- [OpenHW project catalogue](https://github.com/openhwgroup/.github/blob/main/profile/README.md) — official positioning under CORE-V GNU Tools
 
 ## 项目概述
 

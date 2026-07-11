@@ -2,11 +2,25 @@
 
 > CVA6-Safe 是基于 CVA6 的 dual-core lockstep 子系统，也支持 split/AMP 模式；公开文档仍有 TODO，站内应保持谨慎。
 
-数据核对日期: 2026-07-08
+数据核对日期: 2026-07-11
 
 ## Public summary
 
 CVA6-Safe is a CVA6-based dual-core lockstep subsystem with cache error detection/correction and a split-mode capability for dual-core asymmetric multiprocessing. Its README notes that more detailed design documentation is still TODO, so OpenHW Explorer treats it as experimental.
+
+## Key facts
+
+- Architecture: dual-core lockstep module built from CVA6 cores with cache error detection and correction
+- Modes: lockstep or split/regular dual-core operation can be selected at design time or power-on
+- Cache protection: the README says cache EDAC is active in lockstep mode and deactivated in split mode
+- Demonstrated target: a 32-bit CVA6 configuration with IMAC, Zicsr, and Sv32 support
+- Documentation caution: the README still marks the detailed design description as TODO
+
+## Further resources
+
+- [CVA6 repository](https://github.com/openhwgroup/cva6) — processor core used by the subsystem
+- [CVA6 User Manual](https://docs.openhwgroup.org/projects/cva6-user-manual/) — official CVA6 architecture documentation
+- [CVA6 DCLS](https://github.com/openhwgroup/cva6-dcls) — related, separately maintained lockstep platform under construction
 
 ## 项目概述
 

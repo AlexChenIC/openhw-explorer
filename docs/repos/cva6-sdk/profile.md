@@ -2,11 +2,26 @@
 
 > cva6-sdk 是为 CVA6 构建可启动 Linux 镜像的工具集合：RISC-V toolchain、OpenSBI、U-Boot、Linux kernel 与 Buildroot rootfs，输出可直接烧录的 SD 卡镜像。
 
-数据核对日期: 2026-07-08
+数据核对日期: 2026-07-11
 
 ## Public summary
 
 CVA6 SDK houses the RISC-V tools used to build a bootable Linux image for the CVA6 core: a RISC-V toolchain, OpenSBI, U-Boot with a corresponding device tree, the Linux kernel, and an initramfs including the rootfs. It produces ready-to-flash SD card images, supports both 32-bit and 64-bit builds via an XLEN switch, and has been designed and tested for the Digilent Genesys 2 and Altera Agilex 7 FPGA boards.
+
+## Key facts
+
+- Output: ready-to-flash `sdcard.img` containing the CVA6 boot and Linux payloads
+- Build stack: RISC-V toolchain, OpenSBI, U-Boot/device tree, Linux kernel, Buildroot, initramfs, and root filesystem
+- Architecture selection: 64-bit by default, with 32-bit builds selected through `XLEN`
+- Tested FPGA boards named by the README: Digilent Genesys 2 and Altera Agilex 7
+- Explicit boundary: the SDK does not contain OpenOCD; optional installation guidance points to the separate RISC-V OpenOCD project
+
+## Further resources
+
+- [CVA6 SDK quick start](https://github.com/openhwgroup/cva6-sdk#quickstart) — image build, board selection, and flashing workflow
+- [CVA6 repository](https://github.com/openhwgroup/cva6) — processor and FPGA targets used by the SDK
+- [Buildroot manual](https://buildroot.org/downloads/manual/manual.html) — upstream build-system documentation
+- [meta-cva6-yocto](https://github.com/openhwgroup/meta-cva6-yocto) — alternative Yocto-based Linux image path for the same boards
 
 ## 项目概述
 

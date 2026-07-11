@@ -2,11 +2,26 @@
 
 > corev-llvm-project 是 CORE-V Clang/LLVM development fork，不是标准 LLVM Foundation distribution。
 
-数据核对日期: 2026-07-08
+数据核对日期: 2026-07-11
 
 ## Public summary
 
 corev-llvm-project is OpenHW's CORE-V Clang/LLVM development fork before upstream submission. Its README states that it is not the standard LLVM Foundation distribution and describes a `development` branch tracking upstream LLVM with CORE-V changes plus an optional tested `stable` branch.
+
+## Key facts
+
+- Repository role: CORE-V Clang/LLVM development before proposed upstream inclusion
+- Upstream boundary: the README states that this is not the standard LLVM Foundation distribution
+- Development branch: tracks upstream LLVM while incorporating CORE-V changes
+- Stable branch: may exist as an occasional, thoroughly tested snapshot at significant feature points
+- Source tree: after the CORE-V preface, the README continues with the standard LLVM project documentation
+
+## Further resources
+
+- [Upstream LLVM documentation](https://llvm.org/docs/) — authoritative documentation for standard LLVM and Clang
+- [Upstream LLVM repository](https://github.com/llvm/llvm-project) — standard distribution named by the CORE-V README
+- [CORE-V GCC](https://github.com/openhwgroup/corev-gcc) — GNU compiler companion project
+- [CORE-V Binutils/GDB](https://github.com/openhwgroup/corev-binutils-gdb) — assembler, linker, and debugger companion project
 
 ## 项目概述
 

@@ -2,11 +2,26 @@
 
 > corev-binutils-gdb 是 CORE-V Binutils/GDB 的 development fork；README 明确说它不是 official Binutils repository。
 
-数据核对日期: 2026-07-08
+数据核对日期: 2026-07-11
 
 ## Public summary
 
 corev-binutils-gdb is OpenHW's CORE-V Binutils/GDB development repository before upstream submission. Its README explicitly says it is not the official Binutils repository and that the `development` branch tracks upstream Binutils while incorporating CORE-V changes.
+
+## Key facts
+
+- Repository role: CORE-V Binutils/GDB development before proposed upstream inclusion
+- Upstream boundary: the README explicitly states that this is not the official Binutils repository
+- Branch model: `development` is the single active branch described by the README
+- Synchronization: the development branch tracks upstream Binutils and adds CORE-V changes
+- Quality expectation: the README says the development branch should compile and pass tests, but this is a project policy rather than an independent certification
+
+## Further resources
+
+- [CORE-V GNU tools reports](https://github.com/openhwgroup/core-v-sw/tree/master/projects/gnu-tools/2023) — project reports linked by the repository README
+- [Upstream GNU Binutils](https://sourceware.org/binutils/) — official upstream project
+- [CORE-V GCC](https://github.com/openhwgroup/corev-gcc) — companion compiler fork
+- [CORE-V LLVM](https://github.com/openhwgroup/corev-llvm-project) — alternative CORE-V compiler-development fork
 
 ## 项目概述
 

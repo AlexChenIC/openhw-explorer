@@ -16,6 +16,10 @@ const REPO_DOCS_DIR = join(ROOT, "docs/repos");
 const DAYS_TO_INCLUDE = 7;
 const NEWS_ENABLED = process.env.NEXT_PUBLIC_ENABLE_NEWS !== "false";
 const HAS_REPO_DOCS_DIR = existsSync(REPO_DOCS_DIR);
+const OFFICIAL_ACTIVITY_STATUS_EXCEPTIONS = new Set([
+  // OpenHW's official project catalogue still lists CV32E40S under active development.
+  "cv32e40s",
+]);
 
 function readJson(filePath) {
   const raw = readFileSync(filePath, "utf-8");
@@ -34,6 +38,16 @@ function toDate(value) {
   const date = new Date(value);
   if (Number.isNaN(date.getTime())) return null;
   return date;
+}
+
+function isHttpUrl(value) {
+  if (typeof value !== "string") return false;
+  try {
+    const url = new URL(value);
+    return url.protocol === "http:" || url.protocol === "https:";
+  } catch {
+    return false;
+  }
 }
 
 function getNewsSearchText(item) {
@@ -120,6 +134,7 @@ function validateProjectStatusFreshness() {
 
   for (const entry of extractProjectStatusEntries()) {
     if (entry.status !== "active") continue;
+    if (OFFICIAL_ACTIVITY_STATUS_EXCEPTIONS.has(entry.id)) continue;
     const stats = entry.repo ? repos[entry.repo] : null;
     const pushedAt = stats?.pushedAt ? toDate(stats.pushedAt) : null;
     if (!pushedAt) continue;
@@ -296,6 +311,44 @@ function validateProjectProfileMeta() {
       errors.push(`project '${id}' sourceUrls must be an array`);
     } else if (profile.sourceUrls.length === 0) {
       warnings.push(`project '${id}' has no sourceUrls`);
+    }
+
+    if (!Array.isArray(profile.keyFacts)) {
+      errors.push(`project '${id}' keyFacts must be an array`);
+    } else {
+      if (profile.reviewStatus === "reviewed" && profile.keyFacts.length < 3) {
+        errors.push(`project '${id}' is reviewed but has fewer than 3 key facts`);
+      }
+      profile.keyFacts.forEach((fact, index) => {
+        if (typeof fact !== "string" || !fact.trim()) {
+          errors.push(`project '${id}' keyFacts[${index}] must be a non-empty string`);
+        }
+      });
+    }
+
+    if (!Array.isArray(profile.furtherResources)) {
+      errors.push(`project '${id}' furtherResources must be an array`);
+    } else {
+      if (profile.reviewStatus === "reviewed" && profile.furtherResources.length < 2) {
+        errors.push(`project '${id}' is reviewed but has fewer than 2 further resources`);
+      }
+      const resourceUrls = new Set();
+      profile.furtherResources.forEach((resource, index) => {
+        if (!isPlainObject(resource)) {
+          errors.push(`project '${id}' furtherResources[${index}] must be an object`);
+          return;
+        }
+        if (typeof resource.label !== "string" || !resource.label.trim()) {
+          errors.push(`project '${id}' furtherResources[${index}] is missing a label`);
+        }
+        if (!isHttpUrl(resource.url)) {
+          errors.push(`project '${id}' furtherResources[${index}] has an invalid URL`);
+        } else if (resourceUrls.has(resource.url)) {
+          errors.push(`project '${id}' has duplicate further resource URL '${resource.url}'`);
+        } else {
+          resourceUrls.add(resource.url);
+        }
+      });
     }
 
     if (profile.reviewStatus === "reviewed") {

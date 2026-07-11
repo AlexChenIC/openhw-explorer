@@ -2,11 +2,26 @@
 
 > UAP 是 European Unified RISC-V IP Access Platform：把 TRISTAN、ISOLDE 等欧洲研究项目产出的 RISC-V IP 统一编目、文档化的静态入口平台，EPL-2.0 许可。
 
-数据核对日期: 2026-07-08
+数据核对日期: 2026-07-11
 
 ## Public summary
 
 UAP is the European Unified RISC-V IP Access Platform, a structured and expandable entry point that catalogues, documents, and promotes RISC-V IP assets initially developed in European research projects such as TRISTAN and ISOLDE. It acts as a static unified access page pointing to repositories hosted on the OpenHW Foundation GitHub, with automatic mirroring to a European-hosted GitLab instance, and is published under the Eclipse Public License 2.0.
+
+## Key facts
+
+- Artifact type: catalogue and documentation platform, not a single RTL implementation
+- Scope: hardware and software RISC-V IP originating in European research projects including TRISTAN and ISOLDE
+- Information model: maturity, usability, licensing, and integration-workflow context for listed assets
+- Delivery: static unified access page pointing to OpenHW GitHub repositories with European GitLab mirroring where applicable
+- Maturity caveat: the README explicitly says not all planned elements are implemented and describes a progressive roadmap
+
+## Further resources
+
+- [Unified Access Platform](https://openhwgroup.github.io/uap/unified-access.html) — published catalogue interface
+- [OpenHW projects](https://openhwfoundation.org/our-work/projects/) — official project context
+- [TRISTAN project](https://tristan-project.eu/) — one of the European source initiatives named by UAP
+- [ISOLDE project](https://isolde-project.eu/) — another source initiative named by UAP
 
 ## 项目概述
 

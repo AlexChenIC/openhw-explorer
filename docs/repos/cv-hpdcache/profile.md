@@ -2,11 +2,26 @@
 
 > CV-HPDCache 是 OpenHW 的 high-performance multi-requester out-of-order L1 data cache IP，并已集成到 CVA6 配置中。
 
-数据核对日期: 2026-07-08
+数据核对日期: 2026-07-11
 
 ## Public summary
 
 CV-HPDCache is an open-source high-performance, multi-requester, out-of-order L1 data cache for RISC-V cores and accelerators. Its README describes support for multiple outstanding memory requests, write-through/write-back policies, RISC-V CMOs, AMOs, standalone testbenches, and CVA6 integration.
+
+## Key facts
+
+- Role: SystemVerilog L1 data-cache IP for RISC-V cores and accelerators
+- Request model: multiple requesters and multiple outstanding read/write transactions
+- Ordering: address-overlapping requests commit in consumption order; non-overlapping requests may execute out of order
+- Policies and ISA support: non-allocate write-through and allocate write-back options, RISC-V cache-management operations, AMOs, and RVWMO
+- Integration: CVA6 can select HPDcache as its L1 data cache through the documented `DCacheType` configuration
+
+## Further resources
+
+- [CV-HPDCache User Guide](https://openhw-group-cv-hpdcache.readthedocs-hosted.com/) — official architecture and integration documentation
+- [CV-HPDCache verification](https://github.com/openhwgroup/cv-hpdcache-verif) — dedicated UVM subsystem environment
+- [CVA6 integration example](https://github.com/openhwgroup/cva6/blob/master/core/cache_subsystem/cva6_hpdcache_subsystem.sv) — concrete integration referenced by the README
+- [Original HPDcache publication](https://doi.org/10.1145/3587135.3591413) — publication listed by the project
 
 ## 项目概述
 

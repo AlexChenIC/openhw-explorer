@@ -2,11 +2,26 @@
 
 > CORE-ET 现以 ETASP（Agentic Silicon Platform）形式推进：由 Ainekko 发起，用 agentic 工作流把原 CORE-ET many-core RTL 翻译为干净的 SystemVerilog IP 目录；原始 RTL 与文档保留在 erbium 分支。
 
-数据核对日期: 2026-07-08
+数据核对日期: 2026-07-11
 
 ## Public summary
 
 CORE-ET hosts the CORE-ET Agentic Silicon Platform (ETASP), an Ainekko project that collects hardware IP in a form that can be translated, verified, documented, and integrated by agentic hardware-development workflows. It is currently seeded by an active translation of the original CORE-ET modules into lowRISC-style SystemVerilog with per-IP documentation, technology primitives for FPGA and ASIC targets, and Verilator-based unit tests plus co-simulation against the original source tree; the original CORE-ET RTL and its microarchitecture documentation are preserved on the erbium branch.
+
+## Key facts
+
+- Current repository identity: CORE-ET Agentic Silicon Platform (ETASP), described by the README as an Ainekko project
+- Current work translates original CORE-ET modules into documented, lowRISC-style SystemVerilog IP directories
+- Verification uses Verilator unit tests and side-by-side RTL co-simulation against the original source tree
+- Technology abstraction currently covers generic simulation plus iCE40, ECP5, and Xilinx FPGA implementations; ASIC support is described as future work
+- Historical boundary: the original CORE-ET RTL and microarchitecture documentation remain on the `erbium` branch
+
+## Further resources
+
+- [Current translation status](https://github.com/openhwgroup/core-et/blob/main/STATUS.md) — module, unit-test, and co-simulation progress
+- [ETASP onboarding guide](https://github.com/openhwgroup/core-et/blob/main/docs/onboarding.md) — repository navigation and workflow
+- [Translation reference](https://github.com/openhwgroup/core-et/blob/main/docs/translation.md) — maintained rules for the CORE-ET-to-ETASP work
+- [Original CORE-ET documentation](https://github.com/openhwgroup/core-et/tree/erbium/docs) — microarchitecture material preserved on the historical branch
 
 ## 项目概述
 

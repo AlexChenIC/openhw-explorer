@@ -2,11 +2,26 @@
 
 > meta-cva6-yocto 是为 CVA6 构建嵌入式 Linux 镜像的 Yocto layer，提供 Genesys 2 与 Agilex 7 板卡上 32/64-bit CVA6 的 machine 定义。
 
-数据核对日期: 2026-07-08
+数据核对日期: 2026-07-11
 
 ## Public summary
 
 meta-cva6-yocto is a Yocto layer for building embedded Linux images for the CVA6 core. It depends on openembedded-core, BitBake, and the meta-riscv layer, and provides machine definitions for CVA6 targets on the Digilent Genesys 2 and Altera Agilex 7 FPGA boards in both 32-bit (cv32a6) and 64-bit (cv64a6) configurations.
+
+## Key facts
+
+- Artifact type: Yocto/OpenEmbedded layer for CVA6 embedded Linux images
+- Declared compatibility: the README names the Yocto `honister` release
+- Dependencies: openembedded-core, BitBake, and riscv/meta-riscv
+- Machine definitions: 32-bit and 64-bit CVA6 targets for both Genesys 2 and Agilex 7
+- Tested image: the README records `core-image-minimal` testing against a specific CVA6 commit for both 32-bit and 64-bit configurations
+
+## Further resources
+
+- [Yocto 3.4 documentation](https://docs.yoctoproject.org/3.4/) — documentation corresponding to the Honister release named by the layer
+- [meta-riscv](https://github.com/riscv/meta-riscv) — RISC-V Yocto layer dependency
+- [CVA6 repository](https://github.com/openhwgroup/cva6) — processor and FPGA bitstream targets
+- [CVA6 SDK](https://github.com/openhwgroup/cva6-sdk) — complementary Buildroot-based image workflow
 
 ## 项目概述
 

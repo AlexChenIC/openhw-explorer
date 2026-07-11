@@ -2,11 +2,25 @@
 
 > CV32E41P 是基于 CV32E40P 的 Zfinx/Zce 原型核心，GitHub 仓库已归档，OpenHW 官方项目表列为 completed。
 
-数据核对日期: 2026-07-08
+数据核对日期: 2026-07-11
 
 ## Public summary
 
 CV32E41P is an archived 32-bit, 4-stage in-order CORE-V RISC-V prototype derived from CV32E40P to explore Zfinx and Zce extension work alongside Xpulp custom extensions. OpenHW lists it as a completed project and GitHub marks the repository as archived.
+
+## Key facts
+
+- Architecture: small 32-bit, 4-stage, in-order RISC-V core
+- ISA: RV32IM with optional F or Zfinx, compressed/Zce work, and Xpulp custom extensions
+- Origin: forked from CV32E40P to prototype the RISC-V Zfinx and Zce extensions
+- Maturity: the official CORE-V table records TRL-3 and describes the project as a proof of concept not intended for a production device
+- Repository status: GitHub marks the repository as archived
+
+## Further resources
+
+- [CV32E41P documentation sources](https://github.com/openhwgroup/cv32e41p/tree/master/docs) — Sphinx/user-manual sources preserved in the archived repository
+- [CORE-V family and release table](https://github.com/openhwgroup/core-v-cores) — proof-of-concept and TRL context
+- [CORE-V verification environment](https://github.com/openhwgroup/core-v-verif) — verification repository referenced by the core README
 
 ## 项目概述
 

@@ -2,11 +2,26 @@
 
 > cvfpu-uvm 是 CVFPU 在 CVA6 wrapper 场景下的 UVM 验证环境，使用 C++ reference model 和 SystemVerilog DPI。
 
-数据核对日期: 2026-07-08
+数据核对日期: 2026-07-11
 
 ## Public summary
 
 cvfpu-uvm provides a UVM verification environment for CVFPU, with the DUT described as the CVA6 wrapper of the floating-point unit. The repository includes test plans, UVM environment components, a C++ reference model exposed through SystemVerilog DPI, and simulator-specific regression flows.
+
+## Key facts
+
+- DUT: the README identifies the device under test as the CVA6 wrapper around CVFPU
+- Testbench: UVM environment, agent, scoreboard, tests, top-level testbench, and regression lists
+- Reference model: C++ model compiled into a shared library and connected to SystemVerilog through DPI
+- Dependencies: CVA6 and core-v-verif are included as Git submodules
+- Simulator flows are documented for QuestaSim, Xcelium, and VCS; these are external commercial tools
+
+## Further resources
+
+- [CVFPU RTL repository](https://github.com/openhwgroup/cvfpu) — floating-point unit being verified
+- [CVFPU UVM test plan](https://github.com/openhwgroup/cvfpu-uvm/tree/main/docs/testplan) — verification planning material
+- [CVA6 repository](https://github.com/openhwgroup/cva6) — source of the wrapper used as the DUT
+- [CORE-V verification environment](https://github.com/openhwgroup/core-v-verif) — shared dependency used by the testbench
 
 ## 项目概述
 

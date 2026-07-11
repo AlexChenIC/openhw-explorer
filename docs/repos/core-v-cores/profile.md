@@ -2,11 +2,26 @@
 
 > core-v-cores 是 CORE-V 家族的总览/路线仓库：介绍各家族成员并链接到各自仓库，维护 CORE-V 命名规则、发布（RTL Freeze）规则与 mvendorid/marchid/mimpid 分配表。
 
-数据核对日期: 2026-07-08
+数据核对日期: 2026-07-11
 
 ## Public summary
 
 core-v-cores is the landing repository for the CORE-V family of open-source RISC-V cores curated by the OpenHW Foundation. It describes each family member (CVA6, CVW/Wally, the CVE4 family, CVE2, and CVA5) with links to their dedicated repositories, and documents CORE-V device naming, release and RTL-freeze rules, and the assigned mvendorid/marchid/mimpid CSR values for released cores.
+
+## Key facts
+
+- Artifact type: CORE-V family roadmap and release documentation; each core's RTL lives in a separate repository
+- Families covered: CVA6, CVW/Wally, CVE4, CVE2, and CVA5
+- CVA6 wording: the family is described as 6-stage, single- or dual-issue, in-order, while the cva6 repository README describes its current baseline as single-issue
+- Release rule: reaching the target TRL creates a major release, also called an RTL Freeze
+- Identification: the repository records OpenHW `mvendorid` 0x602 plus assigned `marchid` and `mimpid` values for released cores
+
+## Further resources
+
+- [OpenHW project catalogue](https://github.com/openhwgroup/.github/blob/main/profile/README.md) — official project grouping and status table
+- [OpenHW project dashboard](https://github.com/openhwgroup/programs/blob/master/dashboard/Dashboard_SpreadSheetFriendly.md) — project-level status and gate context
+- [RTL Freeze rules](https://docs.openhwgroup.org/projects/cv32e40p-user-manual/en/latest/core_versions.html) — release and core-version rules referenced by the repository
+- [CVA6 User Manual](https://docs.openhwgroup.org/projects/cva6-user-manual/) — implementation documentation for one family member
 
 ## 项目概述
 

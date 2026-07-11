@@ -2,11 +2,26 @@
 
 > CVFPU/FPnew 是可参数化 floating-point unit；README 写的是 aims to be IEEE 754-2008 compliant，不能直接写成完全符合。
 
-数据核对日期: 2026-07-08
+数据核对日期: 2026-07-11
 
 ## Public summary
 
 CVFPU, also known as FPnew, is a parametric SystemVerilog floating-point unit supporting standard RISC-V formats and transprecision formats. Its README says the design aims to be IEEE 754-2008 compliant and explicitly notes known compliance caveats for the PULP DivSqrt unit.
+
+## Key facts
+
+- Design: parametric SystemVerilog floating-point unit also known as FPnew
+- Formats: configurable IEEE 754-style binary formats, including binary16/32/64/128, plus arbitrary exponent and mantissa widths
+- Operations include arithmetic, fused multiply-add, division, square root, comparisons, conversions, classification, and optional packed SIMD
+- Compliance wording: the README says the design aims to comply with IEEE 754-2008 rather than claiming unconditional compliance
+- Known caveat: the PULP DivSqrt option has documented rounding and inexact-flag issues in some cases
+
+## Further resources
+
+- [FPnew architecture documentation](https://github.com/openhwgroup/cvfpu/blob/develop/docs/README.md) — configuration, interfaces, and architecture
+- [CVFPU UVM environment](https://github.com/openhwgroup/cvfpu-uvm) — dedicated UVM verification project
+- [FPnew publication](https://doi.org/10.1109/TVLSI.2020.3044752) — publication recommended by the repository
+- [CVA6 repository](https://github.com/openhwgroup/cva6) — one OpenHW integration context for CVFPU
 
 ## 项目概述
 

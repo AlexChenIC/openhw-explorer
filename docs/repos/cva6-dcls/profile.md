@@ -2,11 +2,24 @@
 
 > cva6-dcls 是 CVA6 的 Dual-Core Lock-Step 平台仓库；README 目前只有 "Under construction..."，站内按早期实验项目处理。
 
-数据核对日期: 2026-07-08
+数据核对日期: 2026-07-11
 
 ## Public summary
 
 cva6-dcls is a dual-core lock-step (DCLS) platform for the CVA6 RISC-V processor core. Its README is currently a placeholder marked "Under construction...", so OpenHW Explorer treats it as an early-stage experimental project alongside the related CVA6-Safe lockstep subsystem.
+
+## Key facts
+
+- Confirmed scope: a dual-core lockstep module/platform for the CVA6 processor core
+- Documentation state: the public README contains only the title and "Under construction..."
+- Evidence limit: no detailed architecture, safety mechanism, configuration, or verification claim is shown here because the repository does not document it publicly
+- Activity context: GitHub records pushes in 2026, but repository activity alone is not treated as evidence of technical maturity
+
+## Further resources
+
+- [CVA6 repository](https://github.com/openhwgroup/cva6) — processor core named by the project
+- [CVA6-Safe](https://github.com/openhwgroup/cva6-safe) — related repository with publicly documented lockstep and split-mode behavior
+- [CVA6 User Manual](https://docs.openhwgroup.org/projects/cva6-user-manual/) — official documentation for the underlying processor core
 
 ## 项目概述
 

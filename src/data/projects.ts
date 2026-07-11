@@ -536,7 +536,7 @@ export const projects: Project[] = [
     category: ["verification"],
     verificationType: ["uvm-testbench", "formal-verification"],
     tags: ["Verification", "Assembly", "Security", "DV"],
-    status: "active",
+    status: "inactive",
     github: "https://github.com/openhwgroup/cv32e40s-dv",
     stars: 0,
     forks: 1,

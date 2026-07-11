@@ -2,11 +2,26 @@
 
 > CVE2/CV32E20 是低复杂度、低功耗的 2-stage embedded-class RISC-V core，源自 Ibex/Zero-riscy 路线。
 
-数据核对日期: 2026-07-08
+数据核对日期: 2026-07-11
 
 ## Public summary
 
 CVE2 currently centers on CV32E20, a production-quality open-source 32-bit RISC-V CPU core with a 2-stage pipeline for embedded control applications. It is based on Ibex/Zero-riscy work and supports RV32I or RV32E plus M and C extensions.
+
+## Key facts
+
+- Family scope: CVE2 currently contains one core, CV32E20
+- Architecture: heavily parametrizable 32-bit, 2-stage, in-order core for embedded control applications
+- ISA: RV32I or RV32E with multiplication/division and compressed-instruction support
+- Origin: forked from lowRISC Ibex and traces back to the PULP Zero-riscy core
+- Verification boundary: the RTL repository includes only an experimental simple testbench; project verification is maintained through cv32e20-dv and core-v-verif
+
+## Further resources
+
+- [CVE2 User Manual](https://docs.openhwgroup.org/projects/cve2-user-manual/en/latest/) — official core documentation
+- [CV32E20 design-verification repository](https://github.com/openhwgroup/cv32e20-dv) — core-specific verification environment
+- [CORE-V family overview](https://github.com/openhwgroup/core-v-cores) — family positioning and TRL roadmap
+- [Zero-riscy/PATMOS publication](https://doi.org/10.1109/PATMOS.2017.8106976) — origin paper cited by the repository
 
 ## 项目概述
 
