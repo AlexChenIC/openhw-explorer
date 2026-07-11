@@ -33,28 +33,29 @@ import {
   type ResourceCategoryId,
   type ResourceKind,
 } from "@/data/resources";
+import { industryCompanies } from "@/data/industry-landscape";
 
 const copy = {
   en: {
     eyebrow: "OpenHW Explorer · Resources",
     title: "Open Hardware Ecosystem & Resources",
     subtitle:
-      "Use task-focused technical references for design work, or map the organizations and initiatives shaping open silicon.",
+      "Find technical references, map open organizations and projects, or explore the companies productizing RISC-V.",
     statsEcosystem: "ecosystem entries",
     statsResources: "technical resources",
-    statsCategories: "resource areas",
+    statsIndustry: "industry companies",
     resourceViews: "Resource views",
     technicalMode: "Technical library",
     technicalModeDescription: "Standards, documentation, tools, and learning references",
     ecosystemMode: "Ecosystem directory",
     ecosystemModeDescription:
       "Foundations, open silicon, process design kits, research, and participation",
+    industryMode: "Industry landscape",
+    industryModeDescription: "Commercial processor IP, silicon, platforms, and design enablement",
     ecosystemLabel: "Ecosystem map",
     ecosystemTitle: "Explore the open hardware landscape",
     ecosystemSubtitle:
       "A source-checked set of foundations, open silicon projects, process design kits, research institutions, and practical ways to participate.",
-    industryLink: "RISC-V industry landscape",
-    industryLinkDescription: "Commercial IP, silicon, platforms, and design enablement",
     allOrganizations: "All",
     organizations: "entries",
     verified: `Source-checked ${ecosystemVerifiedAt}`,
@@ -76,20 +77,20 @@ const copy = {
   zh: {
     eyebrow: "OpenHW Explorer · 资源导航",
     title: "开源硬件生态与资源导航",
-    subtitle: "按任务查找设计与验证资料，或浏览推动开源芯片发展的组织、项目与区域计划。",
+    subtitle: "查找技术资料、浏览开源组织与项目，或探索推动 RISC-V 产品化的产业企业。",
     statsEcosystem: "个生态入口",
     statsResources: "个技术资源",
-    statsCategories: "个资源方向",
+    statsIndustry: "家产业企业",
     resourceViews: "资源视图",
     technicalMode: "技术资料库",
     technicalModeDescription: "规范、工具、学习资料与实现参考",
     ecosystemMode: "生态导航",
     ecosystemModeDescription: "基金会、开源芯片、开放 PDK、科研机构与参与入口",
+    industryMode: "产业版图",
+    industryModeDescription: "商业处理器 IP、芯片、计算平台与设计支撑",
     ecosystemLabel: "生态地图",
     ecosystemTitle: "浏览开源硬件生态",
     ecosystemSubtitle: "经过官网核对的基金会、开源芯片项目、开放 PDK、科研机构与实践参与入口。",
-    industryLink: "RISC-V 产业版图",
-    industryLinkDescription: "商业 IP、芯片、计算平台与设计支撑",
     allOrganizations: "全部",
     organizations: "个入口",
     verified: `官网核对于 ${ecosystemVerifiedAt}`,
@@ -171,37 +172,42 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
           </div>
 
           <aside className="grid grid-cols-3 border-y border-[var(--border)] py-5 lg:border-y-0 lg:border-l lg:py-1 lg:pl-8">
-            <Stat value={ecosystemEntries.length} label={t.statsEcosystem} />
-            <Stat value={resourceDirectoryLinks.length} label={t.statsResources} bordered />
-            <Stat value={resourceDirectoryCategories.length} label={t.statsCategories} bordered />
+            <Stat value={resourceDirectoryLinks.length} label={t.statsResources} />
+            <Stat value={ecosystemEntries.length} label={t.statsEcosystem} bordered />
+            <Stat value={industryCompanies.length} label={t.statsIndustry} bordered />
           </aside>
         </section>
 
         <section id="resource-explorer" aria-label={t.resourceViews} className="scroll-mt-28">
-          <div
-            role="tablist"
-            aria-label={t.resourceViews}
-            className="grid w-full gap-1.5 rounded-lg border border-[var(--border)] bg-[var(--bg-subtle)] p-1.5 sm:grid-cols-2"
-          >
-            <ResourceModeButton
-              id="technical-mode-tab"
-              panelId="technical-library"
-              icon={Boxes}
-              label={t.technicalMode}
-              description={t.technicalModeDescription}
-              count={resourceDirectoryLinks.length}
-              active={resourceMode === "technical"}
-              onClick={() => setResourceMode("technical")}
-            />
-            <ResourceModeButton
-              id="ecosystem-mode-tab"
-              panelId="ecosystem"
-              icon={Network}
-              label={t.ecosystemMode}
-              description={t.ecosystemModeDescription}
-              count={ecosystemEntries.length}
-              active={resourceMode === "ecosystem"}
-              onClick={() => setResourceMode("ecosystem")}
+          <div className="grid w-full gap-1.5 rounded-lg border border-[var(--border)] bg-[var(--bg-subtle)] p-1.5 sm:grid-cols-3">
+            <div role="tablist" aria-label={t.resourceViews} className="contents">
+              <ResourceModeButton
+                id="technical-mode-tab"
+                panelId="technical-library"
+                icon={Boxes}
+                label={t.technicalMode}
+                description={t.technicalModeDescription}
+                count={resourceDirectoryLinks.length}
+                active={resourceMode === "technical"}
+                onClick={() => setResourceMode("technical")}
+              />
+              <ResourceModeButton
+                id="ecosystem-mode-tab"
+                panelId="ecosystem"
+                icon={Network}
+                label={t.ecosystemMode}
+                description={t.ecosystemModeDescription}
+                count={ecosystemEntries.length}
+                active={resourceMode === "ecosystem"}
+                onClick={() => setResourceMode("ecosystem")}
+              />
+            </div>
+            <ResourceModeLink
+              href={`/${resolvedLocale}/resources/industry`}
+              icon={Building2}
+              label={t.industryMode}
+              description={t.industryModeDescription}
+              count={industryCompanies.length}
             />
           </div>
 
@@ -228,28 +234,9 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
                   {t.ecosystemSubtitle}
                 </p>
               </div>
-              <div className="flex flex-col items-start gap-3 lg:items-end">
-                <Link
-                  href={`/${resolvedLocale}/resources/industry`}
-                  className="group flex w-full max-w-sm items-center gap-3 rounded-lg border border-[var(--border)] bg-[var(--bg-card)] px-3.5 py-3 transition hover:border-[var(--primary)]/50 hover:bg-[var(--bg-card-hover)] sm:w-auto"
-                >
-                  <span className="grid h-9 w-9 shrink-0 place-items-center rounded-md bg-[var(--primary)]/10 text-[var(--primary)]">
-                    <Building2 className="h-4.5 w-4.5" />
-                  </span>
-                  <span className="min-w-0 flex-1">
-                    <span className="block text-sm font-semibold text-[var(--text-primary)]">
-                      {t.industryLink}
-                    </span>
-                    <span className="mt-0.5 block text-xs leading-5 text-[var(--text-tertiary)]">
-                      {t.industryLinkDescription}
-                    </span>
-                  </span>
-                  <ChevronRight className="h-4 w-4 shrink-0 text-[var(--text-tertiary)] transition group-hover:translate-x-0.5 group-hover:text-[var(--primary)]" />
-                </Link>
-                <div className="inline-flex w-fit items-center gap-2 text-xs font-medium text-[var(--text-tertiary)]">
-                  <ShieldCheck className="h-4 w-4 text-[var(--green)]" />
-                  {t.verified}
-                </div>
+              <div className="inline-flex w-fit items-center gap-2 text-xs font-medium text-[var(--text-tertiary)]">
+                <ShieldCheck className="h-4 w-4 text-[var(--green)]" />
+                {t.verified}
               </div>
             </div>
 
@@ -523,6 +510,37 @@ function ResourceModeButton({
         </span>
       </span>
     </button>
+  );
+}
+
+type ResourceModeLinkProps = {
+  href: string;
+  icon: typeof Boxes;
+  label: string;
+  description: string;
+  count: number;
+};
+
+function ResourceModeLink({ href, icon: Icon, label, description, count }: ResourceModeLinkProps) {
+  return (
+    <Link
+      href={href}
+      className="group flex min-h-24 items-center gap-4 rounded-md px-4 py-4 text-left text-[var(--text-primary)] transition hover:bg-[var(--bg-card-hover)]"
+    >
+      <span className="grid h-10 w-10 shrink-0 place-items-center rounded-md bg-[var(--primary)]/10 text-[var(--primary)]">
+        <Icon className="h-5 w-5" />
+      </span>
+      <span className="min-w-0 flex-1">
+        <span className="flex items-center justify-between gap-3 text-base font-semibold">
+          <span>{label}</span>
+          <span className="text-[var(--text-tertiary)]">{count}</span>
+        </span>
+        <span className="mt-1 block text-xs leading-5 text-[var(--text-tertiary)]">
+          {description}
+        </span>
+      </span>
+      <ChevronRight className="h-4 w-4 shrink-0 text-[var(--text-tertiary)] transition group-hover:translate-x-0.5 group-hover:text-[var(--primary)]" />
+    </Link>
   );
 }
 

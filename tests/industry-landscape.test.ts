@@ -1,7 +1,7 @@
 import { existsSync } from "node:fs";
 import { join } from "node:path";
 import { describe, expect, it } from "vitest";
-import { industryCompanies, industrySegments } from "@/data/industry-landscape";
+import { industryCompanies, industryRegions, industrySegments } from "@/data/industry-landscape";
 import { ecosystemEntries } from "@/data/ecosystem";
 
 describe("industry landscape", () => {
@@ -40,6 +40,22 @@ describe("industry landscape", () => {
 
     for (const company of industryCompanies) {
       expect(segmentIds.has(company.segment), company.id).toBe(true);
+    }
+  });
+
+  it("assigns every company to a declared region group", () => {
+    const regionIds = new Set(industryRegions.map((region) => region.id));
+
+    expect(industryRegions).toHaveLength(4);
+    for (const region of industryRegions) {
+      expect(
+        industryCompanies.filter((company) => company.regionGroup === region.id).length,
+        region.id,
+      ).toBeGreaterThanOrEqual(4);
+    }
+
+    for (const company of industryCompanies) {
+      expect(regionIds.has(company.regionGroup), company.id).toBe(true);
     }
   });
 

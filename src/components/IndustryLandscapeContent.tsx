@@ -11,14 +11,18 @@ import {
   CircuitBoard,
   Cpu,
   ExternalLink,
+  Globe2,
   MapPin,
   Network,
+  RotateCcw,
 } from "lucide-react";
 import {
   industryCompanies,
+  industryRegions,
   industrySegments,
   industryVerifiedAt,
   type IndustryCompany,
+  type IndustryRegionId,
   type IndustrySegmentId,
 } from "@/data/industry-landscape";
 
@@ -37,8 +41,13 @@ const copy = {
     mapSubtitle:
       "Use these segments to separate processor technology, product platforms, and the tools needed to design and verify them.",
     all: "All companies",
+    valueChainFilter: "Value chain",
+    regionFilter: "Region",
+    allRegions: "All regions",
     showing: "Showing",
     entries: "entries",
+    noResults: "No companies match this value-chain and region combination.",
+    resetFilters: "Reset filters",
     visit: "Visit company site",
     signalsLabel: "What to watch",
     signalsTitle: "Three forces shaping commercial RISC-V",
@@ -66,8 +75,13 @@ const copy = {
     mapTitle: "按价值链角色浏览",
     mapSubtitle: "区分处理器技术、产品平台，以及支撑设计和验证的商业工具与服务。",
     all: "全部企业",
+    valueChainFilter: "价值链",
+    regionFilter: "区域",
+    allRegions: "全部区域",
     showing: "当前显示",
     entries: "个入口",
+    noResults: "当前价值链与区域组合下暂无企业。",
+    resetFilters: "重置筛选",
     visit: "访问企业官网",
     signalsLabel: "趋势观察",
     signalsTitle: "推动 RISC-V 商业化的三个方向",
@@ -100,10 +114,18 @@ export function IndustryLandscapeContent({ locale }: IndustryLandscapeContentPro
   const resolvedLocale = locale === "zh" ? "zh" : "en";
   const t = copy[resolvedLocale];
   const [segmentFilter, setSegmentFilter] = useState<"all" | IndustrySegmentId>("all");
-  const visibleCompanies =
-    segmentFilter === "all"
-      ? industryCompanies
-      : industryCompanies.filter((company) => company.segment === segmentFilter);
+  const [regionFilter, setRegionFilter] = useState<"all" | IndustryRegionId>("all");
+  const companiesInSelectedRegion = industryCompanies.filter(
+    (company) => regionFilter === "all" || company.regionGroup === regionFilter,
+  );
+  const companiesInSelectedSegment = industryCompanies.filter(
+    (company) => segmentFilter === "all" || company.segment === segmentFilter,
+  );
+  const visibleCompanies = industryCompanies.filter(
+    (company) =>
+      (segmentFilter === "all" || company.segment === segmentFilter) &&
+      (regionFilter === "all" || company.regionGroup === regionFilter),
+  );
 
   return (
     <div className="page-shell">
@@ -191,52 +213,121 @@ export function IndustryLandscapeContent({ locale }: IndustryLandscapeContentPro
             })}
           </div>
 
-          <div
-            role="group"
-            aria-label={t.mapTitle}
-            className="mt-7 flex w-full flex-wrap gap-1 rounded-lg border border-[var(--border)] bg-[var(--bg-subtle)] p-1 sm:w-fit"
-          >
-            <FilterButton
-              active={segmentFilter === "all"}
-              label={t.all}
-              count={industryCompanies.length}
-              onClick={() => setSegmentFilter("all")}
-            />
-            {industrySegments.map((segment) => (
-              <FilterButton
-                key={segment.id}
-                active={segmentFilter === segment.id}
-                label={localized(segment.shortTitle, resolvedLocale)}
-                count={industryCompanies.filter((company) => company.segment === segment.id).length}
-                onClick={() => setSegmentFilter(segment.id)}
-              />
-            ))}
+          <div className="mt-7 grid gap-3">
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+              <div className="inline-flex w-28 shrink-0 items-center gap-2 text-xs font-semibold text-[var(--text-tertiary)]">
+                <Network className="h-4 w-4 text-[var(--primary)]" />
+                {t.valueChainFilter}
+              </div>
+              <div
+                role="group"
+                aria-label={t.valueChainFilter}
+                className="flex w-full flex-wrap gap-1 rounded-lg border border-[var(--border)] bg-[var(--bg-subtle)] p-1 sm:w-fit"
+              >
+                <FilterButton
+                  active={segmentFilter === "all"}
+                  label={t.all}
+                  count={companiesInSelectedRegion.length}
+                  onClick={() => setSegmentFilter("all")}
+                />
+                {industrySegments.map((segment) => (
+                  <FilterButton
+                    key={segment.id}
+                    active={segmentFilter === segment.id}
+                    label={localized(segment.shortTitle, resolvedLocale)}
+                    count={
+                      companiesInSelectedRegion.filter((company) => company.segment === segment.id)
+                        .length
+                    }
+                    onClick={() => setSegmentFilter(segment.id)}
+                  />
+                ))}
+              </div>
+            </div>
+
+            <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+              <div className="inline-flex w-28 shrink-0 items-center gap-2 text-xs font-semibold text-[var(--text-tertiary)]">
+                <Globe2 className="h-4 w-4 text-[var(--primary)]" />
+                {t.regionFilter}
+              </div>
+              <div
+                role="group"
+                aria-label={t.regionFilter}
+                className="flex w-full flex-wrap gap-1 rounded-lg border border-[var(--border)] bg-[var(--bg-subtle)] p-1 sm:w-fit"
+              >
+                <FilterButton
+                  active={regionFilter === "all"}
+                  label={t.allRegions}
+                  count={companiesInSelectedSegment.length}
+                  onClick={() => setRegionFilter("all")}
+                />
+                {industryRegions.map((region) => (
+                  <FilterButton
+                    key={region.id}
+                    active={regionFilter === region.id}
+                    label={localized(region.title, resolvedLocale)}
+                    count={
+                      companiesInSelectedSegment.filter(
+                        (company) => company.regionGroup === region.id,
+                      ).length
+                    }
+                    onClick={() => setRegionFilter(region.id)}
+                  />
+                ))}
+              </div>
+            </div>
           </div>
 
           <div className="mb-4 mt-6 flex items-center justify-between gap-4">
             <p className="text-sm text-[var(--text-tertiary)]">
               {t.showing} {visibleCompanies.length} {t.entries}
             </p>
-            {segmentFilter !== "all" && (
+            {(segmentFilter !== "all" || regionFilter !== "all") && (
               <p className="hidden max-w-2xl text-right text-sm text-[var(--text-tertiary)] md:block">
-                {localized(
-                  industrySegments.find((segment) => segment.id === segmentFilter)!.description,
-                  resolvedLocale,
-                )}
+                {segmentFilter === "all"
+                  ? t.all
+                  : localized(
+                      industrySegments.find((segment) => segment.id === segmentFilter)!.shortTitle,
+                      resolvedLocale,
+                    )}
+                {" · "}
+                {regionFilter === "all"
+                  ? t.allRegions
+                  : localized(
+                      industryRegions.find((region) => region.id === regionFilter)!.title,
+                      resolvedLocale,
+                    )}
               </p>
             )}
           </div>
 
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {visibleCompanies.map((company) => (
-              <CompanyCard
-                key={company.id}
-                company={company}
-                locale={resolvedLocale}
-                cta={t.visit}
-              />
-            ))}
-          </div>
+          {visibleCompanies.length > 0 ? (
+            <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+              {visibleCompanies.map((company) => (
+                <CompanyCard
+                  key={company.id}
+                  company={company}
+                  locale={resolvedLocale}
+                  cta={t.visit}
+                />
+              ))}
+            </div>
+          ) : (
+            <div className="flex flex-col items-center justify-center border-y border-[var(--border)] py-12 text-center">
+              <p className="text-sm text-[var(--text-secondary)]">{t.noResults}</p>
+              <button
+                type="button"
+                onClick={() => {
+                  setSegmentFilter("all");
+                  setRegionFilter("all");
+                }}
+                className="mt-4 inline-flex items-center gap-2 text-sm font-semibold text-[var(--primary)] hover:underline"
+              >
+                <RotateCcw className="h-4 w-4" />
+                {t.resetFilters}
+              </button>
+            </div>
+          )}
         </section>
 
         <section className="border-y border-[var(--border)] py-8" aria-labelledby="signals-heading">

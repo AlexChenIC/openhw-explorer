@@ -4,11 +4,18 @@ export type LocalizedIndustryText = {
 };
 
 export type IndustrySegmentId = "processor-ip" | "silicon-platforms" | "design-enablement";
+export type IndustryRegionId = "europe" | "north-america" | "asia-pacific" | "global";
 
 export interface IndustrySegment {
   id: IndustrySegmentId;
   title: LocalizedIndustryText;
   shortTitle: LocalizedIndustryText;
+  description: LocalizedIndustryText;
+}
+
+export interface IndustryRegion {
+  id: IndustryRegionId;
+  title: LocalizedIndustryText;
   description: LocalizedIndustryText;
 }
 
@@ -23,6 +30,7 @@ export interface IndustryCompany {
   entityType: LocalizedIndustryText;
   summary: LocalizedIndustryText;
   region: LocalizedIndustryText;
+  regionGroup: IndustryRegionId;
   focus: string[];
 }
 
@@ -58,6 +66,41 @@ export const industrySegments: IndustrySegment[] = [
   },
 ];
 
+export const industryRegions: IndustryRegion[] = [
+  {
+    id: "europe",
+    title: { en: "Europe", zh: "欧洲" },
+    description: {
+      en: "Companies primarily identified with European RISC-V product and design ecosystems.",
+      zh: "主要归属于欧洲 RISC-V 产品与设计生态的企业。",
+    },
+  },
+  {
+    id: "north-america",
+    title: { en: "North America", zh: "北美" },
+    description: {
+      en: "Companies primarily identified with the United States and wider North American market.",
+      zh: "主要归属于美国及北美市场的企业。",
+    },
+  },
+  {
+    id: "asia-pacific",
+    title: { en: "Asia-Pacific", zh: "亚太" },
+    description: {
+      en: "Companies primarily identified with RISC-V ecosystems across East, South, and Southeast Asia.",
+      zh: "主要归属于东亚、南亚和东南亚 RISC-V 生态的企业。",
+    },
+  },
+  {
+    id: "global",
+    title: { en: "Global & multi-region", zh: "全球与跨区域" },
+    description: {
+      en: "Companies presented as global suppliers or with operations spanning multiple regions.",
+      zh: "以全球供应商定位，或业务明确跨越多个区域的企业。",
+    },
+  },
+];
+
 export const industryCompanies: IndustryCompany[] = [
   {
     id: "sifive",
@@ -72,6 +115,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "提供覆盖嵌入式、高性能、向量、矩阵与汽车处理器系列的可配置 RISC-V 内核 IP。",
     },
     region: { en: "United States", zh: "美国" },
+    regionGroup: "north-america",
     focus: ["CPU IP", "AI", "Automotive"],
   },
   {
@@ -87,6 +131,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "提供面向紧凑嵌入式、实时、Linux、DSP 与应用负载的 32 位和 64 位商业 RISC-V 处理器系列。",
     },
     region: { en: "Taiwan", zh: "中国台湾" },
+    regionGroup: "asia-pacific",
     focus: ["Embedded", "DSP", "Automotive"],
   },
   {
@@ -102,6 +147,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "将可定制 RISC-V 处理器 IP 与 Codasip Studio 结合，用于架构探索以及 RTL 和 SDK 的同步生成。",
     },
     region: { en: "Europe", zh: "欧洲" },
+    regionGroup: "europe",
     focus: ["Custom Compute", "CodAL", "Security"],
   },
   {
@@ -117,6 +163,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "面向 Physical AI、汽车、工业与嵌入式系统提供 RISC-V 处理器和子系统 IP；MIPS 自 2025 年 8 月起归属 GlobalFoundries。",
     },
     region: { en: "United States", zh: "美国" },
+    regionGroup: "north-america",
     focus: ["Multithreading", "Safety", "Edge AI"],
   },
   {
@@ -132,6 +179,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "提供从嵌入式内核到高性能应用与服务器设计的 RISC-V 处理器、加速器、互连和系统 IP。",
     },
     region: { en: "United States", zh: "美国" },
+    regionGroup: "north-america",
     focus: ["CPU IP", "Interconnect", "Server"],
   },
   {
@@ -147,6 +195,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "面向高带宽数据移动、向量与张量计算及 Linux 系统，提供可定制 RISC-V CPU 和 AI 引擎 IP。",
     },
     region: { en: "Spain", zh: "西班牙" },
+    regionGroup: "europe",
     focus: ["AI", "Vector", "Tensor"],
   },
   {
@@ -163,6 +212,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "提供覆盖低功耗 MCU、实时控制、Linux 应用与安全设计的可配置 RISC-V 处理器和子系统 IP。",
     },
     region: { en: "China", zh: "中国" },
+    regionGroup: "asia-pacific",
     focus: ["Embedded", "Linux", "Safety"],
   },
   {
@@ -179,6 +229,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "提供可授权的 RISC-V CPU、AI 加速器和 Chiplet IP，包括高性能 TT-Ascalon 处理器系列。",
     },
     region: { en: "North America", zh: "北美" },
+    regionGroup: "north-america",
     focus: ["High Performance", "AI", "Chiplets"],
   },
   {
@@ -194,6 +245,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "开发面向 AI、云、客户端、移动与边缘通用计算的高性能 64 位 RISC-V 处理器内核。",
     },
     region: { en: "United States", zh: "美国" },
+    regionGroup: "north-america",
     focus: ["High Performance", "AI", "Data Center"],
   },
   {
@@ -209,6 +261,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "阿里巴巴达摩院旗下 RISC-V 品牌，覆盖嵌入式与应用级 CPU IP、软件工具链、SoC 设计平台和开源处理器项目。",
     },
     region: { en: "China", zh: "中国" },
+    regionGroup: "asia-pacific",
     focus: ["CPU IP", "Open Source", "Software"],
   },
   {
@@ -224,6 +277,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "提供 32 位和 64 位 RISC-V 处理器 IP，以及 SoC 设计、安全、混合信号和实现服务。",
     },
     region: { en: "France", zh: "法国" },
+    regionGroup: "europe",
     focus: ["CPU IP", "SoC Design", "Security"],
   },
   {
@@ -239,6 +293,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "开发可配置 RISC-V 处理器 IP，以及面向专用 CPU、加速器和 SoC 集成的自动化设计平台。",
     },
     region: { en: "India", zh: "印度" },
+    regionGroup: "asia-pacific",
     focus: ["CPU IP", "Customization", "SoC"],
   },
   {
@@ -254,6 +309,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "围绕汽车、工业与 IoT 市场开发参考架构、Profiles 和生态基础组件，推动可互操作的 RISC-V 产品。",
     },
     region: { en: "Europe", zh: "欧洲" },
+    regionGroup: "europe",
     focus: ["Reference Architecture", "Automotive", "Standards"],
   },
   {
@@ -269,6 +325,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "提供从紧凑型 MCU 到支持 Linux 的多核集群等可配置、经过硅验证的 RISC-V 内核，并配套软件与开发工具。",
     },
     region: { en: "Global", zh: "全球" },
+    regionGroup: "global",
     focus: ["CPU IP", "Linux", "Development Tools"],
   },
   {
@@ -284,6 +341,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "开发面向 AI 与图形计算的可授权 GPU 软硬件 IP，结合基于 RISC-V 的计算代理、向量与张量处理及近存计算概念。",
     },
     region: { en: "United States", zh: "美国" },
+    regionGroup: "north-america",
     focus: ["GPU IP", "AI", "RISC-V"],
   },
   {
@@ -299,6 +357,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "提供面向多种 FPGA 平台的可移植 RISC-V 软核 IP，以及硬件辅助验证和软硬件加速工具。",
     },
     region: { en: "United States", zh: "美国" },
+    regionGroup: "north-america",
     focus: ["FPGA", "Soft IP", "Verification"],
   },
   {
@@ -314,6 +373,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "这家高性能 RISC-V CPU 与 Chiplet 企业于 2025 年 12 月被 Qualcomm 收购，团队现为 Qualcomm 提供 RISC-V 专业能力。",
     },
     region: { en: "United States", zh: "美国" },
+    regionGroup: "north-america",
     focus: ["Data Center", "Chiplets", "CPU IP"],
   },
   {
@@ -329,6 +389,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "开发商业 RISC-V CPU IP、一致性子系统 IP、SoC 和开发板，覆盖嵌入式到更高性能应用。",
     },
     region: { en: "China", zh: "中国" },
+    regionGroup: "asia-pacific",
     focus: ["CPU IP", "SoC", "Boards"],
   },
   {
@@ -344,6 +405,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "建设覆盖处理器核、SoC、软件、开发硬件与终端参考系统的 RISC-V AI 计算平台。",
     },
     region: { en: "China", zh: "中国" },
+    regionGroup: "asia-pacific",
     focus: ["AI CPU", "SoC", "Software"],
   },
   {
@@ -359,6 +421,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "面向 AI 与高性能计算开发 RISC-V SoC、加速器及全栈系统的欧洲企业。",
     },
     region: { en: "Europe", zh: "欧洲" },
+    regionGroup: "europe",
     focus: ["RISC-V", "AI", "HPC"],
   },
   {
@@ -374,6 +437,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "建设开放、软件定义的 AI 基础设施平台，并承接 Esperanto 的 RISC-V CPU IP 与工具，以及 Veevx 的存储和边缘 AI 技术。",
     },
     region: { en: "United States", zh: "美国" },
+    regionGroup: "north-america",
     focus: ["Open Silicon", "AI", "RISC-V"],
   },
   {
@@ -389,6 +453,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "提供自主开发的 32 位 RISC-V MCU、64 位 RISC-V MPU，以及面向电机控制、语音界面和边缘系统的专用产品。",
     },
     region: { en: "Japan", zh: "日本" },
+    regionGroup: "asia-pacific",
     focus: ["MCU", "MPU", "Embedded"],
   },
   {
@@ -404,6 +469,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "通过 PolarFire SoC FPGA、确定性多核处理器子系统、开发板以及 Mi-V 软件与 IP 生态推动 RISC-V 产品化。",
     },
     region: { en: "United States", zh: "美国" },
+    regionGroup: "north-america",
     focus: ["SoC FPGA", "Mi-V", "Embedded"],
   },
   {
@@ -419,6 +485,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "面向消费电子、工业、汽车、机器人和智能设备市场开发以 RISC-V 为核心的芯片与 AI 计算方案。",
     },
     region: { en: "China", zh: "中国" },
+    regionGroup: "asia-pacific",
     focus: ["SoC", "AI", "Robotics"],
   },
   {
@@ -434,6 +501,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "开发 RISC-V 笔记本、兼容 Framework 的主板、平板、工作站和开发系统，推动原生 RISC-V 计算平台落地。",
     },
     region: { en: "Hong Kong", zh: "中国香港" },
+    regionGroup: "asia-pacific",
     focus: ["Laptops", "Mainboards", "Developer Systems"],
   },
   {
@@ -449,6 +517,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "围绕玄铁 RISC-V 内核推出 D1 等多媒体 SoC，将支持 Linux 的 RISC-V 芯片带入开发板和嵌入式产品。",
     },
     region: { en: "China", zh: "中国" },
+    regionGroup: "asia-pacific",
     focus: ["SoC", "Multimedia", "Linux"],
   },
   {
@@ -464,6 +533,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "提供覆盖实现、仿真、形式验证、虚拟原型和处理器模型的 RISC-V 设计支撑；ARC Processor IP 业务已于 2026 年 6 月转移至 GlobalFoundries。",
     },
     region: { en: "Global", zh: "全球" },
+    regionGroup: "global",
     focus: ["EDA", "Verification", "Processor IP"],
   },
   {
@@ -479,6 +549,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "提供 Tensilica SweRV RISC-V CPU IP，以及面向处理器的仿真、硬件仿真和形式验证商业流程。",
     },
     region: { en: "Global", zh: "全球" },
+    regionGroup: "global",
     focus: ["EDA", "SweRV", "Formal"],
   },
   {
@@ -494,6 +565,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "提供处理器验证、仿真、硬件仿真、形式分析与追踪方案，包括面向 RISC-V 的 Questa 和 Tessent 能力。",
     },
     region: { en: "Global", zh: "全球" },
+    regionGroup: "global",
     focus: ["Verification", "Formal", "Debug & Trace"],
   },
   {
@@ -509,6 +581,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "为 RISC-V 内核和异构 SoC 提供一致性与非一致性 NoC IP、集成自动化和硬件安全保障工具。",
     },
     region: { en: "Global", zh: "全球" },
+    regionGroup: "global",
     focus: ["NoC", "Chiplets", "SoC Integration"],
   },
   {
@@ -524,6 +597,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "提供 RISC-V CoreAssurance 与 SoCReady SystemVIP，用于自动化内核、系统完整性、缓存一致性和面向认证的验证。",
     },
     region: { en: "United States", zh: "美国" },
+    regionGroup: "north-america",
     focus: ["Verification", "SystemVIP", "Certification"],
   },
   {
@@ -539,6 +613,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "通过 RiscFree IDE、编译器、调试器、Trace 分析和硬件探针支持广泛的商业及开源 RISC-V 内核。",
     },
     region: { en: "Ireland & India", zh: "爱尔兰与印度" },
+    regionGroup: "global",
     focus: ["Debug", "Trace", "SDK"],
   },
   {
@@ -554,6 +629,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "提供 TCAD、模拟与混合信号设计、IP 管理和半导体实现工具，可用于 RISC-V SoC 与新工艺开发。",
     },
     region: { en: "Global", zh: "全球" },
+    regionGroup: "global",
     focus: ["TCAD", "EDA", "Process Design"],
   },
   {
@@ -569,6 +645,7 @@ export const industryCompanies: IndustryCompany[] = [
       zh: "提供面向大型 SoC 验证的 FPGA 原型与硬件加速平台，包括 RISC-V 处理器和子系统开发流程。",
     },
     region: { en: "Global", zh: "全球" },
+    regionGroup: "global",
     focus: ["Prototyping", "FPGA", "Emulation"],
   },
 ];
