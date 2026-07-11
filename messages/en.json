@@ -164,7 +164,7 @@
     "linksLabel": "Project and OpenHW links",
     "creatorLabel": "Created and curated by",
     "creatorName": "Alex Chen",
-    "aboutCreator": "About the curator",
+    "aboutCreator": "About Alex",
     "independentNote": "OpenHW Explorer is an independent community project.",
     "communityNote": "Built for engineers, learners, and the RISC-V community."
   },
@@ -272,66 +272,39 @@
   "about": {
     "badge": "About This Project",
     "title": "About OpenHW Explorer",
-    "subtitle": "A community-built navigator for the OpenHW Foundation open-source hardware ecosystem.",
-    "whatIsThis": {
-      "title": "What is OpenHW Explorer?",
-      "p1": "OpenHW Explorer is a community project that helps developers, students, and researchers discover and navigate OpenHW Foundation open-source RISC-V hardware IP projects. It provides a friendly, searchable interface across processor cores, verification tools, SoC platforms, and more.",
-      "p2": "Whether you're a student learning about RISC-V, an engineer evaluating cores for production, or a researcher exploring the ecosystem — this tool helps you find the right starting point."
+    "subtitle": "An independent, source-checked guide to OpenHW projects, learning materials, and the wider open hardware ecosystem.",
+    "purpose": {
+      "eyebrow": "Purpose",
+      "title": "Why this project exists",
+      "p1": "OpenHW projects, documentation, learning material, and ecosystem links live across many repositories and websites. OpenHW Explorer brings those public sources into one navigable structure.",
+      "p2": "It is designed for engineers, students, and researchers who need to identify the right project, understand its scope, or move from discovery into source-grounded learning."
     },
     "disclaimer": {
-      "title": "Disclaimer",
-      "content": "OpenHW Explorer is an independent community project and is NOT officially affiliated with, endorsed by, or sponsored by the OpenHW Foundation or any of its member organizations. The original implementation and initial curation were created by AlexChen. All project data, descriptions, and statistics are collected from publicly available sources (primarily GitHub) and may not reflect the most current state. For official information, please visit openhwfoundation.org."
+      "title": "Independent project",
+      "content": "OpenHW Explorer is not affiliated with, endorsed by, or sponsored by the OpenHW Foundation or its member organizations. Project information is compiled from public sources and may change after review. For authoritative information, use the official project repositories and OpenHW documentation."
     },
-    "features": {
-      "title": "Features",
-      "browse": {
-        "title": "Browse Projects",
-        "desc": "Explore OpenHW projects with category filtering and smart search."
+    "approach": {
+      "eyebrow": "Editorial approach",
+      "title": "How the site is curated",
+      "intro": "The site favors verifiable sources, practical learning paths, and clear boundaries over exhaustive coverage.",
+      "sources": {
+        "title": "Source-backed profiles",
+        "desc": "Repository profiles record primary links, review dates, and the evidence behind important technical claims."
       },
-      "filter": {
-        "title": "Smart Filtering",
-        "desc": "Filter by role, category, core type, and verification type."
+      "learning": {
+        "title": "Learning tied to real material",
+        "desc": "Lessons anchor explanations to public documentation and code, and clearly identify community teaching content."
       },
-      "detail": {
-        "title": "Project Details",
-        "desc": "Detailed pages with stats, links, tags, and related project recommendations."
-      },
-      "i18n": {
-        "title": "Bilingual Support",
-        "desc": "Full English and Chinese interface for the global RISC-V community."
+      "context": {
+        "title": "Curated ecosystem context",
+        "desc": "Resources and news are selected for relevance, with source, date, and project status kept visible."
       }
     },
     "author": {
-      "title": "About the Creator and Curator",
-      "bio": "OpenHW Explorer is created and curated by Alex Chen, an OpenHW community contributor focused on open hardware verification, RISC-V learning, and practical collaboration. He turns fragmented project documentation into navigable, source-checked resources for engineers, students, and researchers.",
+      "eyebrow": "Maintainer",
+      "title": "Maintained by Alex Chen",
+      "bio": "Alex Chen maintains OpenHW Explorer as an independent project alongside his work in the OpenHW ecosystem. The site grew from a practical need to organize public project information, verify important claims against primary sources, and make OpenHW and RISC-V material easier to navigate.",
       "connectLinkedIn": "Connect on LinkedIn"
-    },
-    "contribute": {
-      "badge": "From learning to contribution",
-      "title": "How to Participate in OpenHW",
-      "content": "Contribution should not be the first pressure point for visitors. A better path is to understand the ecosystem, learn the fundamentals, and then choose a contribution route that matches the reader's role. This section keeps the contribution path, but folds it into About as part of the OpenHW Explorer brand and community story.",
-      "steps": {
-        "learn": {
-          "title": "Build context first",
-          "desc": "Start with the learning center and project profiles to understand the OpenHW ecosystem, CVA6, and other core project boundaries."
-        },
-        "choose": {
-          "title": "Choose a direction",
-          "desc": "Pick a contribution lane that fits your background: processor cores, verification, software tools, documentation, or community content."
-        },
-        "prepare": {
-          "title": "Read official rules",
-          "desc": "Before a pull request, check the project docs, ECA, contribution guide, and repository-specific collaboration habits."
-        },
-        "ship": {
-          "title": "Ship in small steps",
-          "desc": "Start with documentation fixes, issue reproduction, small examples, or course feedback before moving into deeper engineering work."
-        }
-      },
-      "resourcesTitle": "Recommended entry points",
-      "resourcesDesc": "If you want to learn, start with the learning center. If you are ready to contribute, read the official OpenHW docs and the target repository's rules.",
-      "classroomCta": "Open Learning Hub",
-      "docsCta": "Open Official Docs"
     },
     "privacy": {
       "title": "Privacy",

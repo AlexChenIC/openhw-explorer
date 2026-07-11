@@ -1,16 +1,16 @@
 import type { Metadata } from "next";
 import { getTranslations, setRequestLocale } from "next-intl/server";
 import {
-  ArrowRight,
-  BookOpen,
+  BookOpenCheck,
   ExternalLink,
-  GitPullRequest,
-  GraduationCap,
-  Route,
+  FileCheck2,
+  Linkedin,
+  LockKeyhole,
+  Network,
+  ShieldCheck,
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { Link } from "@/lib/routing";
 import { SITE_URL } from "@/lib/site-url";
 
 type AboutPageProps = {
@@ -55,182 +55,104 @@ export default async function AboutPage({ params }: AboutPageProps) {
   );
 }
 
-// Separate client component import not needed - this is a server component page
 async function AboutContent() {
   const t = await getTranslations("about");
-  const contributionSteps = [
-    { key: "learn", Icon: GraduationCap },
-    { key: "choose", Icon: Route },
-    { key: "prepare", Icon: BookOpen },
-    { key: "ship", Icon: GitPullRequest },
+  const curationPrinciples = [
+    { key: "sources", Icon: FileCheck2 },
+    { key: "learning", Icon: BookOpenCheck },
+    { key: "context", Icon: Network },
   ] as const;
 
   return (
     <div className="page-shell">
       <div className="page-container max-w-5xl">
-        {/* Page Title */}
         <div className="page-hero">
           <div className="page-badge page-badge-primary">{t("badge")}</div>
           <h1 className="page-title">{t("title")}</h1>
           <p className="page-subtitle max-w-2xl mx-auto">{t("subtitle")}</p>
         </div>
 
-        {/* What is this */}
-        <section
-          id="author"
-          className="scroll-mt-24 bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 sm:p-8 mb-5"
-        >
-          <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-3">
-            {t("whatIsThis.title")}
-          </h2>
-          <p className="text-[var(--text-secondary)] leading-relaxed mb-4">{t("whatIsThis.p1")}</p>
-          <p className="text-[var(--text-secondary)] leading-relaxed">{t("whatIsThis.p2")}</p>
+        <section className="grid gap-7 border-y border-[var(--border)] py-9 sm:py-11 lg:grid-cols-[240px_minmax(0,1fr)] lg:gap-12">
+          <div>
+            <p className="text-xs font-semibold text-[var(--primary)]">{t("purpose.eyebrow")}</p>
+            <h2 className="mt-2 text-2xl font-semibold text-[var(--text-primary)]">
+              {t("purpose.title")}
+            </h2>
+          </div>
+          <div className="max-w-2xl space-y-4 text-[var(--text-secondary)] leading-7">
+            <p>{t("purpose.p1")}</p>
+            <p>{t("purpose.p2")}</p>
+          </div>
         </section>
 
-        {/* Disclaimer */}
-        <section className="border border-amber-400/30 bg-amber-500/5 rounded-xl p-6 sm:p-8 mb-5">
-          <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-3">
-            {t("disclaimer.title")}
-          </h2>
-          <p className="text-[var(--text-secondary)] leading-relaxed">{t("disclaimer.content")}</p>
-        </section>
-
-        {/* Privacy */}
-        <section className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 sm:p-8 mb-5">
-          <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-3">
-            {t("privacy.title")}
-          </h2>
-          <p className="text-[var(--text-secondary)] leading-relaxed">{t("privacy.content")}</p>
-        </section>
-
-        {/* Features */}
-        <section className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 sm:p-8 mb-5">
-          <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-4">
-            {t("features.title")}
-          </h2>
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-            {(["browse", "filter", "detail", "i18n"] as const).map((key) => (
-              <div
-                key={key}
-                className="flex items-start gap-3 p-3 rounded-lg bg-[var(--bg-subtle)]"
-              >
-                <span className="text-[var(--primary)] text-lg mt-0.5">
-                  {key === "browse" && "📂"}
-                  {key === "filter" && "🔍"}
-                  {key === "detail" && "📄"}
-                  {key === "i18n" && "🌐"}
+        <section className="py-9 sm:py-11">
+          <div className="max-w-2xl">
+            <p className="text-xs font-semibold text-[var(--primary)]">{t("approach.eyebrow")}</p>
+            <h2 className="mt-2 text-2xl font-semibold text-[var(--text-primary)]">
+              {t("approach.title")}
+            </h2>
+            <p className="mt-3 leading-7 text-[var(--text-secondary)]">{t("approach.intro")}</p>
+          </div>
+          <div className="mt-7 grid gap-6 md:grid-cols-3">
+            {curationPrinciples.map(({ key, Icon }) => (
+              <article key={key} className="border-t border-[var(--border)] pt-5">
+                <span className="grid h-9 w-9 place-items-center rounded-md bg-[var(--primary)]/10 text-[var(--primary)]">
+                  <Icon className="h-4.5 w-4.5" />
                 </span>
-                <div>
-                  <h3 className="text-sm font-medium text-[var(--text-primary)] mb-0.5">
-                    {t(`features.${key}.title`)}
-                  </h3>
-                  <p className="text-xs text-[var(--text-tertiary)] leading-relaxed">
-                    {t(`features.${key}.desc`)}
-                  </p>
-                </div>
-              </div>
+                <h3 className="mt-4 text-base font-semibold text-[var(--text-primary)]">
+                  {t(`approach.${key}.title`)}
+                </h3>
+                <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
+                  {t(`approach.${key}.desc`)}
+                </p>
+              </article>
             ))}
           </div>
         </section>
 
-        {/* Author */}
-        <section className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 sm:p-8 mb-5">
-          <h2 className="text-lg font-semibold text-[var(--text-primary)] mb-3">
-            {t("author.title")}
-          </h2>
-          <p className="text-[var(--text-secondary)] leading-relaxed mb-4">{t("author.bio")}</p>
-          <div className="flex flex-wrap gap-3">
-            <a
-              href="https://github.com/AlexChenIC"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-[var(--border)] text-sm text-[var(--text-primary)] font-medium hover:bg-[var(--bg-card-hover)] hover:border-[var(--text-tertiary)] transition-all"
-            >
-              GitHub
-            </a>
+        <section className="grid gap-8 border-y border-[var(--border)] py-9 sm:py-11 md:grid-cols-2 md:gap-12">
+          <article>
+            <ShieldCheck className="h-5 w-5 text-[var(--primary)]" />
+            <h2 className="mt-3 text-lg font-semibold text-[var(--text-primary)]">
+              {t("disclaimer.title")}
+            </h2>
+            <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
+              {t("disclaimer.content")}
+            </p>
+          </article>
+          <article>
+            <LockKeyhole className="h-5 w-5 text-[var(--primary)]" />
+            <h2 className="mt-3 text-lg font-semibold text-[var(--text-primary)]">
+              {t("privacy.title")}
+            </h2>
+            <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
+              {t("privacy.content")}
+            </p>
+          </article>
+        </section>
+
+        <section
+          id="author"
+          className="scroll-mt-24 py-9 sm:py-11"
+        >
+          <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-12">
+            <div className="max-w-2xl">
+              <p className="text-xs font-semibold text-[var(--primary)]">{t("author.eyebrow")}</p>
+              <h2 className="mt-2 text-2xl font-semibold text-[var(--text-primary)]">
+                {t("author.title")}
+              </h2>
+              <p className="mt-3 leading-7 text-[var(--text-secondary)]">{t("author.bio")}</p>
+            </div>
             <a
               href="https://www.linkedin.com/in/junchaocheneu/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 px-4 py-2 rounded-lg border border-[var(--border)] text-sm text-[var(--text-primary)] font-medium hover:bg-[var(--bg-card-hover)] hover:border-[var(--text-tertiary)] transition-all"
+              className="inline-flex min-h-10 w-fit items-center gap-2 rounded-md bg-[#0a66c2] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#084f96]"
             >
+              <Linkedin className="h-4 w-4" />
               {t("author.connectLinkedIn")}
+              <ExternalLink className="h-3.5 w-3.5" />
             </a>
-          </div>
-        </section>
-
-        {/* Contribute */}
-        <section
-          id="contribute"
-          className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 sm:p-8 scroll-mt-24"
-        >
-          <div className="max-w-3xl">
-            <div className="mb-3 inline-flex items-center gap-2 rounded-full border border-[var(--green)]/25 bg-[var(--green)]/10 px-3 py-1 text-xs font-semibold text-[var(--green)]">
-              <GitPullRequest className="h-3.5 w-3.5" />
-              {t("contribute.badge")}
-            </div>
-            <h2 className="text-2xl font-semibold text-[var(--text-primary)] mb-3">
-              {t("contribute.title")}
-            </h2>
-            <p className="text-[var(--text-secondary)] leading-relaxed">
-              {t("contribute.content")}
-            </p>
-          </div>
-
-          <div className="mt-6 grid grid-cols-1 md:grid-cols-4 gap-3">
-            {contributionSteps.map((item, index) => {
-              const Icon = item.Icon;
-              return (
-                <article
-                  key={item.key}
-                  className="rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-4"
-                >
-                  <div className="mb-4 flex items-center justify-between">
-                    <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-[var(--primary)]/10 text-[var(--primary)]">
-                      <Icon className="h-4 w-4" />
-                    </div>
-                    <span className="text-xs font-semibold text-[var(--text-tertiary)]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                  </div>
-                  <h3 className="text-sm font-semibold text-[var(--text-primary)] mb-2">
-                    {t(`contribute.steps.${item.key}.title`)}
-                  </h3>
-                  <p className="text-xs leading-6 text-[var(--text-tertiary)]">
-                    {t(`contribute.steps.${item.key}.desc`)}
-                  </p>
-                </article>
-              );
-            })}
-          </div>
-
-          <div className="mt-6 flex flex-col gap-3 rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-4 sm:flex-row sm:items-center sm:justify-between">
-            <div>
-              <h3 className="text-sm font-semibold text-[var(--text-primary)]">
-                {t("contribute.resourcesTitle")}
-              </h3>
-              <p className="mt-1 text-xs leading-6 text-[var(--text-tertiary)]">
-                {t("contribute.resourcesDesc")}
-              </p>
-            </div>
-            <div className="flex flex-wrap gap-2">
-              <Link
-                href="/classroom"
-                className="inline-flex items-center gap-2 rounded-lg bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-white transition-colors hover:bg-[var(--primary-dark)]"
-              >
-                {t("contribute.classroomCta")}
-                <ArrowRight className="h-4 w-4" />
-              </Link>
-              <a
-                href="https://docs.openhwgroup.org/"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--bg-card)] px-4 py-2 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:border-[var(--text-tertiary)]"
-              >
-                {t("contribute.docsCta")}
-                <ExternalLink className="h-4 w-4" />
-              </a>
-            </div>
           </div>
         </section>
       </div>

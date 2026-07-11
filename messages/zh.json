@@ -164,7 +164,7 @@
     "linksLabel": "项目与 OpenHW 链接",
     "creatorLabel": "创建与持续策展",
     "creatorName": "Alex Chen",
-    "aboutCreator": "关于作者",
+    "aboutCreator": "关于 Alex",
     "independentNote": "OpenHW Explorer 是独立的社区项目。",
     "communityNote": "服务工程师、学习者与 RISC-V 社区。"
   },
@@ -272,66 +272,39 @@
   "about": {
     "badge": "关于本项目",
     "title": "关于 OpenHW Explorer",
-    "subtitle": "一个社区构建的 OpenHW Foundation 开源硬件生态导航工具。",
-    "whatIsThis": {
-      "title": "OpenHW Explorer 是什么？",
-      "p1": "OpenHW Explorer 是一个社区项目，帮助开发者、学生和研究人员发现和浏览 OpenHW Foundation 的开源 RISC-V 硬件 IP 项目。它提供了一个友好、可搜索的界面，涵盖处理器核心、验证工具、SoC 平台等类别。",
-      "p2": "无论你是学习 RISC-V 的学生、评估核心用于生产的工程师，还是探索生态的研究人员——这个工具都能帮你找到合适的起点。"
+    "subtitle": "一个独立、基于来源核查的 OpenHW 项目、学习资料与开源硬件生态导航站。",
+    "purpose": {
+      "eyebrow": "项目目的",
+      "title": "为什么做这个网站",
+      "p1": "OpenHW 的项目、文档、学习资料与生态链接分散在许多仓库和网站中。OpenHW Explorer 将这些公开来源整理成一个更容易浏览的结构。",
+      "p2": "它面向需要选择合适项目、理解项目边界，或从资料发现进入系统学习的工程师、学生和研究人员。"
     },
     "disclaimer": {
-      "title": "免责声明",
-      "content": "OpenHW Explorer 是一个独立的社区项目，与 OpenHW Foundation 及其成员组织没有官方关联、背书或赞助关系。项目最初实现与首轮内容整理由 AlexChen 完成。所有项目数据、描述和统计信息均来自公开来源（主要是 GitHub），可能不反映最新状态。如需官方信息，请访问 openhwfoundation.org。"
+      "title": "独立项目",
+      "content": "OpenHW Explorer 与 OpenHW Foundation 及其成员组织没有官方隶属、背书或赞助关系。站内项目信息依据公开来源整理，在核对后仍可能发生变化；权威信息请以项目官方仓库和 OpenHW 官方文档为准。"
     },
-    "features": {
-      "title": "功能特点",
-      "browse": {
-        "title": "浏览项目",
-        "desc": "按分类筛选和智能搜索，探索 OpenHW 项目。"
+    "approach": {
+      "eyebrow": "整理方式",
+      "title": "本站如何整理内容",
+      "intro": "本站优先保证来源可核查、学习路径可使用、内容边界清楚，而不是追求无差别收录。",
+      "sources": {
+        "title": "基于来源的项目档案",
+        "desc": "项目档案保留一手链接、核对日期，以及重要技术判断所依据的证据。"
       },
-      "filter": {
-        "title": "智能筛选",
-        "desc": "按角色、分类、核心类型和验证类型进行多维筛选。"
+      "learning": {
+        "title": "与真实资料相连的课程",
+        "desc": "课程说明尽量锚定公开文档与代码，并明确标注社区教学内容的性质。"
       },
-      "detail": {
-        "title": "项目详情",
-        "desc": "详细页面包含统计数据、链接、标签和相关项目推荐。"
-      },
-      "i18n": {
-        "title": "双语支持",
-        "desc": "完整的中英文界面，服务全球 RISC-V 社区。"
+      "context": {
+        "title": "经过选择的生态信息",
+        "desc": "资源与新闻按照相关性收录，并尽量清楚显示来源、日期和项目状态。"
       }
     },
     "author": {
-      "title": "关于创建者与策展者",
-      "bio": "OpenHW Explorer 由 Alex Chen 创建并持续策展。他长期参与 OpenHW 社区，关注开源硬件验证、RISC-V 学习与工程协作，致力于把分散的项目资料整理成面向工程师、学生和研究人员的可核查资源。",
+      "eyebrow": "维护者",
+      "title": "由 Alex Chen 维护",
+      "bio": "Alex Chen 在参与 OpenHW 生态相关工作的同时，独立维护 OpenHW Explorer。这个项目源于一个实际需求：把公开的项目信息整理清楚，依据一手来源核对重要判断，并让 OpenHW 与 RISC-V 资料更容易被找到和理解。",
       "connectLinkedIn": "在 LinkedIn 联系"
-    },
-    "contribute": {
-      "badge": "从学习到贡献",
-      "title": "如何参与 OpenHW",
-      "content": "贡献不应该是用户进入网站后的第一个压力点。更好的路径是先理解项目、学习基础内容，再根据自己的角色选择合适的参与方式。这里保留贡献入口，但把它放在 About 里，作为 OpenHW Explorer 品牌与社区连接的一部分。",
-      "steps": {
-        "learn": {
-          "title": "先建立上下文",
-          "desc": "从学习中心和项目档案入手，先理解 OpenHW 生态、CVA6 等核心项目的边界与价值。"
-        },
-        "choose": {
-          "title": "选择合适方向",
-          "desc": "根据自己的背景选择处理器核心、验证、软件工具、文档整理或社区传播等参与方向。"
-        },
-        "prepare": {
-          "title": "阅读官方规则",
-          "desc": "在提交 PR 前，确认项目文档、ECA、贡献指南和每个仓库自己的协作习惯。"
-        },
-        "ship": {
-          "title": "小步提交成果",
-          "desc": "从文档修正、issue 复现、小型示例或课程反馈开始，逐步进入更深入的工程贡献。"
-        }
-      },
-      "resourcesTitle": "推荐入口",
-      "resourcesDesc": "如果你只是想学习，先进入学习中心；如果已经准备贡献，再阅读官方 OpenHW 文档和具体仓库要求。",
-      "classroomCta": "进入学习中心",
-      "docsCta": "查看官方文档"
     },
     "privacy": {
       "title": "隐私说明",
