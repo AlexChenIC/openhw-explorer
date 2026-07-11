@@ -571,11 +571,7 @@ function EcosystemCard({ entry, locale, cta }: EcosystemCardProps) {
         <div className="flex h-24 items-center justify-center border-b border-[var(--border)] bg-white px-5">
           {entry.logo ? (
             <div
-              className={
-                entry.category === "pdk"
-                  ? "h-16 w-[72%] max-w-[210px]"
-                  : "h-full w-full"
-              }
+              className={entry.category === "pdk" ? "h-16 w-[72%] max-w-[210px]" : "h-full w-full"}
             >
               <Image
                 src={entry.logo}

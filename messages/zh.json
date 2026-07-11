@@ -160,6 +160,7 @@
     "personalTagline": "关注开源硬件学习、验证与工程协作的 OpenHW 社区建设者。",
     "connectLinkedIn": "在 LinkedIn 联系",
     "contribute": "参与贡献",
+    "licensing": "许可说明",
     "projectNote": "面向 OpenHW、RISC-V 与开源硬件学习的独立导航平台。",
     "linksLabel": "项目与 OpenHW 链接",
     "creatorLabel": "创建与持续策展",
@@ -293,7 +294,7 @@
       },
       "learning": {
         "title": "与真实资料相连的课程",
-        "desc": "课程说明尽量锚定公开文档与代码，并明确标注社区教学内容的性质。"
+        "desc": "新课程只会在讲解、资料依据和呈现效果经过人工检查后发布。"
       },
       "context": {
         "title": "经过选择的生态信息",

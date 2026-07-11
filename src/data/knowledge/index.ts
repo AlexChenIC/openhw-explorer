@@ -1,6 +1,11 @@
 import { ProjectKnowledge } from "@/types";
 
 // OpenHW project knowledge base: academic papers, industry adoption, education, talks, and ecosystem links
+//
+// New original human-authored or human-edited descriptions, annotations, and
+// creative selection added after 2026-07-10 may be rights reserved where
+// applicable. Historical Apache-2.0 grants, public facts, and referenced
+// third-party works are not affected. See LICENSE-CONTENT.md.
 
 export const knowledgeBase: Record<string, ProjectKnowledge> = {
   // CVA6 (Ariane) - Most cited OpenHW core

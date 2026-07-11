@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { PublishedClassroomPlayer } from "@/components/PublishedClassroomPlayer";
@@ -66,7 +66,7 @@ export default async function ClassroomPlayerPage({ params }: ClassroomPlayerPag
   const classroom = getPublishedClassroom(classroomId);
 
   if (!classroom) {
-    notFound();
+    redirect(`/${resolvedLocale}/classroom`);
   }
 
   return (

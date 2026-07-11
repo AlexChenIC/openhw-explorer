@@ -13,11 +13,11 @@ const metadataCopy = {
   en: {
     title: "OpenHW Classroom",
     description:
-      "Source-grounded technical micro-courses for learning OpenHW projects, starting with a pilot CVA6 course path.",
+      "A learning hub for future source-grounded, human-reviewed OpenHW and RISC-V technical courses.",
   },
   zh: {
-    title: "OpenHW 小课堂",
-    description: "面向 OpenHW 项目的精品技术微课程，当前先以 CVA6 课程线作为试发布样板。",
+    title: "OpenHW 交互式课堂",
+    description: "为未来经过人工核对、基于一手资料的 OpenHW 与 RISC-V 技术课程准备的学习中心。",
   },
 } as const;
 

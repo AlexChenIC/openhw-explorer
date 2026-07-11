@@ -1,10 +1,17 @@
 OpenHW Explorer
-Copyright 2026 Alex Chen
+Copyright 2026 Alex Chen (开源老陈)
 
-This product is licensed under the Apache License, Version 2.0.
-You may obtain a copy of the License at:
+The software code in this repository is licensed under the Apache License,
+Version 2.0. You may obtain a copy of the License at:
 
-    http://www.apache.org/licenses/LICENSE-2.0
+    https://www.apache.org/licenses/LICENSE-2.0
+
+The Apache-2.0 license applies to the software and specifically identified
+navigator data. Original learning, editorial, and brand content may be
+separately reserved to the extent copyright or related rights subsist. No
+ownership is claimed in third-party works or purely machine-generated material
+where copyright does not subsist. See LICENSE-CONTENT.md for the exact scope,
+historical-version boundary, and applicable exceptions.
 
 ---
 

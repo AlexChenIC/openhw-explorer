@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, ExternalLink, Linkedin, GitPullRequest } from "lucide-react";
+import { Github, ExternalLink, Linkedin, Scale } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/lib/routing";
 import { externalLinks } from "@/data/external-links";
@@ -23,11 +23,11 @@ export function Footer() {
               className="mt-6 flex flex-wrap items-center gap-x-5 gap-y-3"
             >
               <Link
-                href="/contribute"
+                href="/license"
                 className="flex items-center gap-1.5 text-[13px] text-[var(--text-secondary)] hover:text-[var(--primary)] transition-colors"
               >
-                <GitPullRequest className="w-4 h-4" />
-                <span>{t("contribute")}</span>
+                <Scale className="w-4 h-4" />
+                <span>{t("licensing")}</span>
               </Link>
               <a
                 href={externalLinks.github}

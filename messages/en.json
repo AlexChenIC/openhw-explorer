@@ -160,6 +160,7 @@
     "personalTagline": "OpenHW community builder focused on open hardware learning, verification, and practical collaboration.",
     "connectLinkedIn": "Connect on LinkedIn",
     "contribute": "Contribute",
+    "licensing": "Licensing",
     "projectNote": "An independent navigator for OpenHW, RISC-V, and open hardware learning.",
     "linksLabel": "Project and OpenHW links",
     "creatorLabel": "Created and curated by",
@@ -293,7 +294,7 @@
       },
       "learning": {
         "title": "Learning tied to real material",
-        "desc": "Lessons anchor explanations to public documentation and code, and clearly identify community teaching content."
+        "desc": "New lessons will be published only after their explanations, sources, and presentation have been reviewed."
       },
       "context": {
         "title": "Curated ecosystem context",

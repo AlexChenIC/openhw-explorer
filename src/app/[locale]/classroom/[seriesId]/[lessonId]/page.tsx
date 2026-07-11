@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
-import { notFound } from "next/navigation";
+import { redirect } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ClassroomLessonContent } from "@/components/ClassroomLessonContent";
@@ -64,7 +64,7 @@ export default async function ClassroomLessonPage({ params }: LessonPageProps) {
   const lesson = getLessonById(seriesId, lessonId);
 
   if (!series || !lesson?.classroomId) {
-    notFound();
+    redirect(`/${locale === "zh" ? "zh" : "en"}/classroom`);
   }
 
   return (

@@ -131,10 +131,7 @@ async function AboutContent() {
           </article>
         </section>
 
-        <section
-          id="author"
-          className="scroll-mt-24 py-9 sm:py-11"
-        >
+        <section id="author" className="scroll-mt-24 py-9 sm:py-11">
           <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_auto] lg:items-end lg:gap-12">
             <div className="max-w-2xl">
               <p className="text-xs font-semibold text-[var(--primary)]">{t("author.eyebrow")}</p>
