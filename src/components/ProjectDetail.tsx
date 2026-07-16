@@ -356,13 +356,18 @@ export function ProjectDetail({
                   const localizedNote =
                     locale !== "zh"
                       ? resource.note
-                      : resource.url.includes("docs.openhwgroup.org")
-                        ? t("furtherResources.sourceType.officialDocs")
-                        : resource.url.includes("github.com")
-                          ? t("furtherResources.sourceType.projectSource")
-                          : resource.url.includes("doi.org") || resource.url.includes("arxiv.org")
-                            ? t("furtherResources.sourceType.publication")
-                            : t("furtherResources.sourceType.relatedSource");
+                      : resource.url.includes("shop.elsevier.com/books/")
+                        ? t("furtherResources.sourceType.officialPurchase")
+                        : resource.url.includes("pages.hmc.edu/harris/ddca/rvsocd")
+                          ? t("furtherResources.sourceType.companionMaterials")
+                          : resource.url.includes("docs.openhwgroup.org")
+                            ? t("furtherResources.sourceType.officialDocs")
+                            : resource.url.includes("github.com")
+                              ? t("furtherResources.sourceType.projectSource")
+                              : resource.url.includes("doi.org") ||
+                                  resource.url.includes("arxiv.org")
+                                ? t("furtherResources.sourceType.publication")
+                                : t("furtherResources.sourceType.relatedSource");
 
                   return (
                     <a

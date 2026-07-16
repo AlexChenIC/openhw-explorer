@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generatedAt": "2026-07-16T13:07:35.163Z",
+    "generatedAt": "2026-07-16T15:56:39.964Z",
     "source": "docs/repos/*/profile.md",
     "totalProjects": 40,
     "reviewedCount": 40,
@@ -154,6 +154,21 @@
       ],
       "furtherResources": [
         {
+          "label": "RISC-V System-on-Chip Design",
+          "url": "https://shop.elsevier.com/books/risc-v-system-on-chip-design/harris/978-0-323-99498-9",
+          "note": "official publisher page for purchasing the textbook (ISBN 978-0-323-99498-9)"
+        },
+        {
+          "label": "Textbook companion resources",
+          "url": "https://pages.hmc.edu/harris/ddca/rvsocd.html",
+          "note": "author-maintained lecture slides, labs, sample chapters, exercises, and links to CORE-V Wally"
+        },
+        {
+          "label": "Textbook errata",
+          "url": "https://github.com/openhwgroup/cvw/blob/main/errata.md",
+          "note": "corrections maintained alongside the CVW repository"
+        },
+        {
           "label": "CVW test plan",
           "url": "https://github.com/openhwgroup/cvw/blob/main/docs/testplans/testplan.md",
           "note": "verification scope and coverage planning"
@@ -173,13 +188,16 @@
       "sourceTier": "official",
       "verifiedAt": "2026-07-16",
       "sourceUrls": [
-        "https://github.com/openhwgroup/cvw/blob/main/docs/testplans/testplan.md",
-        "https://github.com/openhwgroup/cvw/blob/main/linux/README.md",
-        "https://github.com/openhwgroup/core-v-cores",
         "https://github.com/openhwgroup/cvw",
-        "https://github.com/openhwgroup/.github/blob/main/profile/README.md"
+        "https://github.com/openhwgroup/cvw/blob/main/docs/testplans/testplan.md",
+        "https://shop.elsevier.com/books/risc-v-system-on-chip-design/harris/978-0-323-99498-9",
+        "https://pages.hmc.edu/harris/ddca/rvsocd.html",
+        "https://github.com/openhwgroup/cvw/blob/main/errata.md",
+        "https://github.com/openhwgroup/.github/blob/main/profile/README.md",
+        "https://github.com/openhwgroup/core-v-cores",
+        "https://github.com/openhwgroup/cvw/blob/main/linux/README.md"
       ],
-      "sourceCount": 5,
+      "sourceCount": 8,
       "confidence": 0.95
     },
     "cv32e40x": {

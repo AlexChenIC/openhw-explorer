@@ -28,8 +28,21 @@ CVW（CORE-V Wally）是一款用 SystemVerilog 编写的可配置五级流水 R
 - 已展示能力：通过 RISC-V 架构测试，并可在仿真和 FPGA 上启动 Linux
 - 成熟度与学习资源：当前标注为 TRL-4，并配套教材、环境脚本、示例、测试与回归流程
 
+## 主要来源
+
+- https://github.com/openhwgroup/cvw
+- https://github.com/openhwgroup/cvw/blob/main/docs/testplans/testplan.md
+- https://shop.elsevier.com/books/risc-v-system-on-chip-design/harris/978-0-323-99498-9
+- https://pages.hmc.edu/harris/ddca/rvsocd.html
+- https://github.com/openhwgroup/cvw/blob/main/errata.md
+- https://github.com/openhwgroup/.github/blob/main/profile/README.md
+- https://github.com/openhwgroup/core-v-cores
+
 ## Further resources
 
+- [RISC-V System-on-Chip Design](https://shop.elsevier.com/books/risc-v-system-on-chip-design/harris/978-0-323-99498-9) — official publisher page for purchasing the textbook (ISBN 978-0-323-99498-9)
+- [Textbook companion resources](https://pages.hmc.edu/harris/ddca/rvsocd.html) — author-maintained lecture slides, labs, sample chapters, exercises, and links to CORE-V Wally
+- [Textbook errata](https://github.com/openhwgroup/cvw/blob/main/errata.md) — corrections maintained alongside the CVW repository
 - [CVW test plan](https://github.com/openhwgroup/cvw/blob/main/docs/testplans/testplan.md) — verification scope and coverage planning
 - [CVW Linux guide](https://github.com/openhwgroup/cvw/blob/main/linux/README.md) — Linux build and test-vector workflow maintained in the repository
 - [CORE-V family overview](https://github.com/openhwgroup/core-v-cores) — official family positioning for Wally
@@ -43,10 +56,3 @@ CVW README 描述 Wally 为 5-stage pipelined processor，可配置支持 RV32/6
 - 分类建议为 `core` + `learning`，这是少数可以比较自信标为 learning-friendly 的核心仓库。
 - 可保留 `linux-application` 与 `embedded-mcu` 两类，因为 README 明确说配置范围从 minimal RV32E 到 RV64GC application processor，并可 boot Linux。
 - 不应把 CVW 说成只适合初学者；它也覆盖工程级 SoC 配置、仿真和测试计划。
-
-## 主要来源
-
-- https://github.com/openhwgroup/cvw
-- https://github.com/openhwgroup/cvw/blob/main/docs/testplans/testplan.md
-- https://github.com/openhwgroup/.github/blob/main/profile/README.md
-- https://github.com/openhwgroup/core-v-cores
