@@ -2,7 +2,7 @@
 
 > CVA5 是面向 FPGA 的 5-stage application-class RISC-V soft processor，官方项目表将其列为 completed。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 
@@ -21,6 +21,7 @@ CVA5 is a 32-bit RISC-V processor designed for FPGAs, supporting the Multiply/Di
 - [Taiga project](https://gitlab.com/sfu-rcl/taiga-project) — upstream project and current setup documentation referenced by CVA5
 - [CVA5 architecture presentation](https://github.com/openhwgroup/cva5/tree/master/docs/FCCM_Presentation) — architecture material included in the repository
 - [CORE-V family overview](https://github.com/openhwgroup/core-v-cores) — official family positioning and maturity context
+- [Soft-processor architecture publication (FCCM 2018)](https://doi.org/10.1109/FCCM.2018.00010) — the founding Taiga/CVA5 architecture paper listed in the repository's publications section
 - [Configurable FPU publication](https://doi.org/10.1145/3650036) — CVA5 publication listed by the repository
 
 ## 项目概述

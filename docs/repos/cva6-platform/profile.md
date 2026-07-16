@@ -2,7 +2,7 @@
 
 > cva6-platform 是"多核 CVA6 + CV-MESH"的软件测试/回归平台，基于 OpenPiton 构建，提供 Genesys II 预编译 bitstream 与 Fedora 镜像快速上手。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 

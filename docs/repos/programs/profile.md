@@ -2,7 +2,7 @@
 
 > programs 是 OpenHW 全部项目的项目级/治理文档仓库：TWG 与各 Task Group 会议纪要、每个项目的 gate 材料、项目 dashboard 与流程模板。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 
