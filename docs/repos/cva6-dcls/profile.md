@@ -2,7 +2,7 @@
 
 > cva6-dcls 是 CVA6 的 Dual-Core Lock-Step 平台仓库；README 目前只有 "Under construction..."，站内按早期实验项目处理。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 

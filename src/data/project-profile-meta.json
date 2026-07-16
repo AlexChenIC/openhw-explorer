@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generatedAt": "2026-07-11T08:23:14.835Z",
+    "generatedAt": "2026-07-16T11:25:56.156Z",
     "source": "docs/repos/*/profile.md",
     "totalProjects": 40,
     "reviewedCount": 40,
@@ -59,7 +59,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://docs.openhwgroup.org/projects/cva6-user-manual/",
         "https://github.com/openhwgroup/core-v-cores",
@@ -107,7 +107,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://docs.openhwgroup.org/projects/cv32e40p-user-manual/",
         "https://github.com/openhwgroup/core-v-cores",
@@ -132,6 +132,11 @@
       ],
       "furtherResources": [
         {
+          "label": "RISC-V System-on-Chip Design (Elsevier)",
+          "url": "https://www.inspectioncopy.elsevier.com/book/details/9780323994989",
+          "note": "the companion textbook by Harris, Stine, Thompson, and Harris that documents Wally chapter by chapter"
+        },
+        {
           "label": "CVW test plan",
           "url": "https://github.com/openhwgroup/cvw/blob/main/docs/testplans/testplan.md",
           "note": "verification scope and coverage planning"
@@ -149,15 +154,16 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
+        "https://www.inspectioncopy.elsevier.com/book/details/9780323994989",
         "https://github.com/openhwgroup/cvw/blob/main/docs/testplans/testplan.md",
         "https://github.com/openhwgroup/cvw/blob/main/linux/README.md",
         "https://github.com/openhwgroup/core-v-cores",
         "https://github.com/openhwgroup/cvw",
         "https://github.com/openhwgroup/.github/blob/main/profile/README.md"
       ],
-      "sourceCount": 5,
+      "sourceCount": 6,
       "confidence": 0.95
     },
     "cv32e40x": {
@@ -194,7 +200,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://docs.openhwgroup.org/projects/cv32e40x-user-manual/en/latest/",
         "https://docs.openhwgroup.org/projects/openhw-group-core-v-xif/",
@@ -241,7 +247,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://docs.openhwgroup.org/projects/cv32e40s-user-manual/en/latest/",
         "https://github.com/openhwgroup/cv32e40s-dv",
@@ -280,6 +286,11 @@
           "note": "official family positioning and maturity context"
         },
         {
+          "label": "Soft-processor architecture publication (FCCM 2018)",
+          "url": "https://doi.org/10.1109/FCCM.2018.00010",
+          "note": "the founding Taiga/CVA5 architecture paper listed in the repository's publications section"
+        },
+        {
           "label": "Configurable FPU publication",
           "url": "https://doi.org/10.1145/3650036",
           "note": "CVA5 publication listed by the repository"
@@ -287,17 +298,18 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://gitlab.com/sfu-rcl/taiga-project",
         "https://github.com/openhwgroup/cva5/tree/master/docs/FCCM_Presentation",
         "https://github.com/openhwgroup/core-v-cores",
+        "https://doi.org/10.1109/FCCM.2018.00010",
         "https://doi.org/10.1145/3650036",
         "https://github.com/openhwgroup/cva5",
         "https://github.com/openhwgroup/.github/blob/main/profile/README.md",
         "https://doi.org/10.1109/FCCM.2019.00046"
       ],
-      "sourceCount": 7,
+      "sourceCount": 8,
       "confidence": 0.95
     },
     "cve2": {
@@ -334,7 +346,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://docs.openhwgroup.org/projects/cve2-user-manual/en/latest/",
         "https://github.com/openhwgroup/cv32e20-dv",
@@ -375,7 +387,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/cv32e41p/tree/master/docs",
         "https://github.com/openhwgroup/core-v-cores",
@@ -420,7 +432,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://docs.openhwgroup.org/projects/core-v-verif/en/latest/",
         "https://docs.openhwgroup.org/projects/core-v-verif/en/latest/quick_start.html",
@@ -461,7 +473,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/force-riscv/blob/master/doc/FORCE-RISCV_User_Manual-v0.8.pdf",
         "https://github.com/openhwgroup/force-riscv#force-riscv-quick-start-guide-for-risc-v",
@@ -501,7 +513,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://docs.openhwgroup.org/projects/core-v-mcu/index.html",
         "https://github.com/openhwgroup/core-v-mcu",
@@ -540,7 +552,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://openhw-group-cv-hpdcache.readthedocs-hosted.com/",
         "https://github.com/openhwgroup/cv-hpdcache",
@@ -579,7 +591,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/riscv-non-isa/riscv-arch-test",
         "https://github.com/openhwgroup/cvw",
@@ -623,7 +635,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/cvfpu",
         "https://github.com/openhwgroup/cvfpu-uvm/tree/main/docs/testplan",
@@ -668,7 +680,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/cve2",
         "https://docs.openhwgroup.org/projects/cve2-user-manual/en/latest/",
@@ -709,7 +721,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/cv32e40s",
         "https://docs.openhwgroup.org/projects/cv32e40s-user-manual/en/latest/",
@@ -748,7 +760,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/cv32e40x",
         "https://docs.openhwgroup.org/projects/cv32e40x-user-manual/en/latest/",
@@ -792,7 +804,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://core-v-mcu.readthedocs.io/en/latest/",
         "https://github.com/openhwgroup/core-v-mcu/tree/master/emulation/quickstart",
@@ -840,7 +852,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/core-v-mcu-devkit/blob/main/docs/images/OpenHW%20DevKit.pdf",
         "https://github.com/openhwgroup/core-v-mcu",
@@ -881,7 +893,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/cva6",
         "https://docs.openhwgroup.org/projects/cva6-user-manual/",
@@ -925,7 +937,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/pulp-platform/ara",
         "https://github.com/PrincetonUniversity/openpiton",
@@ -970,7 +982,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/core-et/blob/main/STATUS.md",
         "https://github.com/openhwgroup/core-et/blob/main/docs/onboarding.md",
@@ -1018,7 +1030,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/cva6-platform#genesys-ii-getting-started",
         "https://parallel.princeton.edu/openpiton/",
@@ -1057,7 +1069,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/cva6",
         "https://github.com/openhwgroup/cva6-safe",
@@ -1101,7 +1113,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/cvfpu/blob/develop/docs/README.md",
         "https://github.com/openhwgroup/cvfpu-uvm",
@@ -1148,7 +1160,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://openhw-group-cv-hpdcache.readthedocs-hosted.com/",
         "https://github.com/openhwgroup/cv-hpdcache-verif",
@@ -1195,7 +1207,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://docs.openhwgroup.org/projects/openhw-group-core-v-xif/",
         "https://docs.openhwgroup.org/projects/cv32e40x-user-manual/en/latest/",
@@ -1240,7 +1252,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/cv-mesh",
         "https://parallel.princeton.edu/openpiton/",
@@ -1284,7 +1296,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/obi/blob/main/OBI-v1.6.0.pdf",
         "https://docs.openhwgroup.org/projects/cv32e40p-user-manual/",
@@ -1329,7 +1341,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://gcc.gnu.org/onlinedocs/",
         "https://github.com/openhwgroup/corev-binutils-gdb",
@@ -1375,7 +1387,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/core-v-sw/tree/master/projects/gnu-tools/2023",
         "https://sourceware.org/binutils/",
@@ -1421,7 +1433,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://llvm.org/docs/",
         "https://github.com/llvm/llvm-project",
@@ -1467,7 +1479,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/core-v-sdk#core-v-sdk-quick-start-guide",
         "https://github.com/openhwgroup/core-v-mcu",
@@ -1513,7 +1525,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://www.freertos.org/Documentation/RTOS_book.html",
         "https://github.com/openhwgroup/core-v-mcu",
@@ -1555,7 +1567,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/core-v-freertos-kernel/tree/pulp-project-devel/portable",
         "https://github.com/openhwgroup/core-v-freertos",
@@ -1601,7 +1613,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/cva6-sdk#quickstart",
         "https://github.com/openhwgroup/cva6",
@@ -1646,7 +1658,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://docs.yoctoproject.org/3.4/",
         "https://github.com/riscv/meta-riscv",
@@ -1691,7 +1703,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/.github/blob/main/profile/README.md",
         "https://github.com/openhwgroup/programs/blob/master/dashboard/Dashboard_SpreadSheetFriendly.md",
@@ -1736,7 +1748,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://github.com/openhwgroup/programs/tree/master/Project-Descriptions-and-Plans",
         "https://github.com/openhwgroup/programs/blob/master/dashboard/Dashboard_SpreadSheetFriendly.md",
@@ -1781,7 +1793,7 @@
       ],
       "reviewStatus": "reviewed",
       "sourceTier": "official",
-      "verifiedAt": "2026-07-11",
+      "verifiedAt": "2026-07-16",
       "sourceUrls": [
         "https://openhwgroup.github.io/uap/unified-access.html",
         "https://openhwfoundation.org/our-work/projects/",
