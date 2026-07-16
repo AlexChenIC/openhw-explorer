@@ -289,6 +289,7 @@
         "officialDocs": "Official OpenHW documentation",
         "officialPurchase": "Official publisher purchase page",
         "companionMaterials": "Textbook companion materials",
+        "ciDashboard": "Tiered CI status and test coverage",
         "projectSource": "Project source or supporting material",
         "publication": "Research publication",
         "relatedSource": "Related source"

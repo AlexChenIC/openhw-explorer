@@ -36,6 +36,7 @@ CVA6 是一套可配置的六级顺序执行 CORE-V 处理器家族，覆盖 32 
 - [CVA6 Kanban board](https://github.com/orgs/openhwgroup/projects/3/views/7) — planned improvements tracked by the project
 - [CVA6 SDK](https://github.com/openhwgroup/cva6-sdk) — build a bootable Linux image (toolchain, OpenSBI, U-Boot, kernel)
 - [CVA6 dashboard (Thales CI)](https://riscv-ci.pages.thales-invia.fr/dashboard/dashboard_cva6.html) — continuous-integration status linked from the README badge
+- [CVA6 Tier CI Dashboard](https://openhwgroup.github.io/cva6/) — latest status, coverage matrix, trends, and run history for the reference, Tier 1, and Tier 2 GitHub Actions workflows
 - [Founding publication (Zaruba & Benini, IEEE TVLSI 2019)](https://doi.org/10.1109/TVLSI.2019.2926114) — the citation recommended by the repository
 
 ## 项目概述
@@ -53,4 +54,5 @@ CVA6 原名 Ariane，现由 OpenHW Group 维护。`cva6` 仓库 README 把该核
 - https://github.com/openhwgroup/cva6
 - https://github.com/openhwgroup/core-v-cores
 - https://docs.openhwgroup.org/projects/cva6-user-manual/
+- https://openhwgroup.github.io/cva6/
 - https://github.com/openhwgroup/.github/blob/main/profile/README.md

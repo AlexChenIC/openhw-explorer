@@ -1,6 +1,6 @@
 {
   "_meta": {
-    "generatedAt": "2026-07-16T15:56:39.964Z",
+    "generatedAt": "2026-07-16T16:42:18.432Z",
     "source": "docs/repos/*/profile.md",
     "totalProjects": 40,
     "reviewedCount": 40,
@@ -58,6 +58,11 @@
           "note": "continuous-integration status linked from the README badge"
         },
         {
+          "label": "CVA6 Tier CI Dashboard",
+          "url": "https://openhwgroup.github.io/cva6/",
+          "note": "latest status, coverage matrix, trends, and run history for the reference, Tier 1, and Tier 2 GitHub Actions workflows"
+        },
+        {
           "label": "Founding publication (Zaruba & Benini, IEEE TVLSI 2019)",
           "url": "https://doi.org/10.1109/TVLSI.2019.2926114",
           "note": "the citation recommended by the repository"
@@ -73,10 +78,10 @@
         "https://github.com/orgs/openhwgroup/projects/3/views/7",
         "https://github.com/openhwgroup/cva6-sdk",
         "https://riscv-ci.pages.thales-invia.fr/dashboard/dashboard_cva6.html",
-        "https://doi.org/10.1109/TVLSI.2019.2926114",
-        "https://github.com/openhwgroup/cva6"
+        "https://openhwgroup.github.io/cva6/",
+        "https://doi.org/10.1109/TVLSI.2019.2926114"
       ],
-      "sourceCount": 9,
+      "sourceCount": 10,
       "confidence": 0.95
     },
     "cv32e40p": {

@@ -289,6 +289,7 @@
         "officialDocs": "OpenHW 官方文档",
         "officialPurchase": "出版社官方购买页面",
         "companionMaterials": "教材配套资料",
+        "ciDashboard": "分层 CI 状态与测试覆盖",
         "projectSource": "项目源码或配套资料",
         "publication": "研究论文",
         "relatedSource": "相关原始资料"
