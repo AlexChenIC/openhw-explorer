@@ -29,6 +29,14 @@ export type PublishedClassroomQuestion = {
   analysis?: string;
 };
 
+export type PublishedClassroomSourceAnchor = {
+  id: string;
+  title: string;
+  url?: string;
+  locator?: string;
+  claimSupported?: string;
+};
+
 export type PublishedClassroomScene = {
   id: string;
   type: "html-slide" | "quiz" | string;
@@ -40,6 +48,7 @@ export type PublishedClassroomScene = {
     theme?: "dark" | "light";
     content?: Record<string, unknown>;
     assets?: PublishedClassroomAsset[];
+    sourceAnchors?: PublishedClassroomSourceAnchor[];
     questions?: PublishedClassroomQuestion[];
     speakerNotes?: string;
   };

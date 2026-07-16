@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { notFound } from "next/navigation";
-import { projects, getProjectById, getRelatedProjects, getGitHubStats } from "@/data/projects";
+import {
+  projects,
+  getProjectById,
+  getRelatedProjects,
+  getGitHubStats,
+  localizeProject,
+} from "@/data/projects";
 import { ProjectDetail } from "@/components/ProjectDetail";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
@@ -26,7 +32,8 @@ export async function generateStaticParams() {
 // Dynamic metadata per project with Open Graph
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { id, locale } = await params;
-  const project = getProjectById(id);
+  const canonicalProject = getProjectById(id);
+  const project = canonicalProject && localizeProject(canonicalProject, locale);
   if (!project) return { title: "Not Found" };
 
   const title = `${project.name} - OpenHW Explorer`;
@@ -55,10 +62,13 @@ export default async function ProjectPage({ params }: Props) {
   const { id, locale } = await params;
   setRequestLocale(locale);
 
-  const project = getProjectById(id);
-  if (!project) notFound();
+  const canonicalProject = getProjectById(id);
+  if (!canonicalProject) notFound();
+  const project = localizeProject(canonicalProject, locale);
 
-  const relatedProjects = getRelatedProjects(project);
+  const relatedProjects = getRelatedProjects(canonicalProject).map((relatedProject) =>
+    localizeProject(relatedProject, locale),
+  );
   const knowledge = getProjectKnowledge(project.id);
   const knowledgeSummary = getKnowledgeSummary(project.id);
   const githubStats = getGitHubStats(project.id);

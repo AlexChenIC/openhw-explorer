@@ -70,6 +70,8 @@ function cleanMarkdownText(content) {
     .map((line) => line.trim())
     .filter((line) => line && !line.startsWith("- ") && !line.startsWith("* "))
     .join(" ")
+    .replace(/`([^`]+)`/g, "$1")
+    .replace(/\[([^\]]+)\]\([^\)]+\)/g, "$1")
     .replace(/\s+/g, " ")
     .trim();
 }
@@ -131,14 +133,26 @@ function extractBullets(section) {
     .split(/\r?\n/)
     .map((line) => line.trim())
     .filter((line) => line.startsWith("- ") || line.startsWith("* "))
-    .map((line) => line.replace(/^[-*]\s+/, "").trim())
+    .map((line) =>
+      line
+        .replace(/^[-*]\s+/, "")
+        .replace(/`([^`]+)`/g, "$1")
+        .replace(/\[([^\]]+)\]\([^\)]+\)/g, "$1")
+        .trim(),
+    )
     .filter(Boolean);
 }
 
 // Parse "- [Label](url) — optional note" bullets into structured links.
 function extractResourceLinks(section) {
   const links = [];
-  for (const bullet of extractBullets(section)) {
+  const bullets = section
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter((line) => line.startsWith("- ") || line.startsWith("* "))
+    .map((line) => line.replace(/^[-*]\s+/, "").trim());
+
+  for (const bullet of bullets) {
     const match = bullet.match(/^\[([^\]]+)\]\((https?:\/\/[^\s)]+)\)\s*(?:[—-]\s*(.*))?$/);
     if (match) {
       links.push({
@@ -165,7 +179,9 @@ function parseProfile(content) {
   const summary = cleanMarkdownText(
     extractSection(content, "Public summary") || extractSection(content, "站内摘要"),
   );
+  const summaryZh = cleanMarkdownText(extractSection(content, "项目概述"));
   const keyFacts = extractBullets(extractSection(content, "Key facts"));
+  const keyFactsZh = extractBullets(extractSection(content, "事实核查要点"));
   const furtherResources = extractResourceLinks(extractSection(content, "Further resources"));
 
   let reviewStatus = "auto";
@@ -181,7 +197,9 @@ function parseProfile(content) {
   return {
     tagline,
     summary,
+    summaryZh,
     keyFacts,
+    keyFactsZh,
     furtherResources,
     reviewStatus,
     sourceTier,

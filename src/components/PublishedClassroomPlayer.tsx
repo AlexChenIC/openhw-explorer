@@ -7,6 +7,7 @@ import {
   CheckCircle2,
   ChevronLeft,
   ChevronRight,
+  ExternalLink,
   FileText,
   Layers3,
   ListChecks,
@@ -399,6 +400,7 @@ export function PublishedClassroomPlayer({
   const scene = scenes[sceneIndex] ?? scenes[0];
   const action = scene ? getPrimaryAction(scene) : undefined;
   const audio = audioPath(classroom.id, action?.audioUrl);
+  const sourceAnchors = scene?.content.sourceAnchors ?? [];
   const zh = locale === "zh";
 
   useEffect(() => {
@@ -563,6 +565,38 @@ export function PublishedClassroomPlayer({
               {scene.type === "quiz" ? (zh ? "互动题" : "quiz") : scene.content.slot || "slide"}
             </div>
           </div>
+
+          {sourceAnchors.length > 0 && (
+            <details className="mt-3 rounded-xl border border-slate-200 bg-white text-xs text-slate-600">
+              <summary className="cursor-pointer px-3 py-2.5 font-semibold text-slate-700">
+                {zh ? "查看本页来源" : "View sources"} ({sourceAnchors.length})
+              </summary>
+              <div className="max-h-56 space-y-2 overflow-auto border-t border-slate-200 p-3">
+                {sourceAnchors.map((source) => (
+                  <div key={source.id} className="rounded-lg bg-slate-50 p-3">
+                    {source.url ? (
+                      <a
+                        href={source.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-start gap-1.5 font-semibold text-[var(--primary)] hover:underline"
+                      >
+                        <span>{source.title}</span>
+                        <ExternalLink className="mt-0.5 h-3 w-3 flex-none" />
+                      </a>
+                    ) : (
+                      <p className="font-semibold text-slate-700">{source.title}</p>
+                    )}
+                    {source.locator && (
+                      <p className="mt-1 break-words font-mono text-[10px] leading-4 text-slate-500">
+                        {source.locator}
+                      </p>
+                    )}
+                  </div>
+                ))}
+              </div>
+            </details>
+          )}
 
           <div className="mt-4 flex items-center gap-2 rounded-xl border border-[var(--primary)]/20 bg-[var(--primary)]/10 p-3 text-xs leading-5 text-slate-700">
             <PlayCircle className="h-4 w-4 flex-none text-[var(--primary)]" />

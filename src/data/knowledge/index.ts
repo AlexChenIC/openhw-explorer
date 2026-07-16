@@ -217,7 +217,7 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
       {
         entity: "QuickLogic Corporation",
         useCase: "First CORE-V silicon tapeout, manufactured and available as development kit",
-        sourceUrl: "https://www.quicklogic.com/",
+        sourceUrl: "https://openhwfoundation.org/core-v-devkits/",
       },
     ],
     educationalUse: [],
@@ -280,10 +280,11 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
 
   // FORCE-RISCV - Test generation tool
   "force-riscv": {
-    industryAdoption: [
+    projectInvolvement: [
       {
         entity: "Futurewei Technologies",
-        useCase:
+        kind: "origin",
+        description:
           "Originally developed and contributed as an open instruction-sequence generator for constrained-random RISC-V verification workloads.",
         sourceUrl: "https://github.com/openhwgroup/force-riscv",
       },
@@ -327,10 +328,11 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
   // CV32E40X - Compute-oriented with extensions
   cv32e40x: {
     presentations: [],
-    industryAdoption: [
+    projectInvolvement: [
       {
         entity: "Silicon Laboratories (Silabs)",
-        useCase:
+        kind: "contributor",
+        description:
           "Primary contributor; developed CV32E40X as a compute-optimized CV32E40P variant with extension-friendly integration model.",
         sourceUrl: "https://github.com/openhwgroup/cv32e40x",
       },
@@ -380,10 +382,11 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
   // CV32E40S - Security-enhanced core
   cv32e40s: {
     presentations: [],
-    industryAdoption: [
+    projectInvolvement: [
       {
         entity: "Silicon Laboratories (Silabs)",
-        useCase:
+        kind: "contributor",
+        description:
           "Led security-focused development in OpenHW with emphasis on embedded protection mechanisms and hardened design behavior.",
         sourceUrl: "https://github.com/openhwgroup/cv32e40s",
       },
@@ -482,10 +485,11 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
         doi: "10.1109/FCCM.2019.00046",
       },
     ],
-    industryAdoption: [
+    projectInvolvement: [
       {
         entity: "Simon Fraser University (Taiga project)",
-        useCase:
+        kind: "origin",
+        description:
           "CVA5 inherits Taiga soft-processor design lineage and associated FPGA research practices.",
         sourceUrl: "https://gitlab.com/sfu-rcl/taiga-project",
       },
@@ -522,10 +526,11 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
 
   // CVE2 (CV32E20) - Minimal embedded core
   cve2: {
-    industryAdoption: [
+    projectInvolvement: [
       {
         entity: "lowRISC / ETH Zurich",
-        useCase:
+        kind: "origin",
+        description:
           "Derived from Ibex (zero-riscy); inherits lowRISC's industrial verification methodology and ETH Zurich PULP heritage",
         sourceUrl: "https://github.com/lowRISC/ibex",
       },
@@ -593,10 +598,11 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
 
   // CORE-V MCU UVM - SoC-level verification
   "core-v-mcu-uvm": {
-    industryAdoption: [
+    projectInvolvement: [
       {
         entity: "Datum Technology Corporation",
-        useCase: "Contributed UVM agent architecture and SoC-level testbench methodology",
+        kind: "contributor",
+        description: "Contributed UVM agent architecture and SoC-level testbench methodology",
         sourceUrl: "https://github.com/openhwgroup/core-v-mcu-uvm",
       },
     ],
@@ -631,10 +637,11 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
 
   // CV-HPDCache Verification
   "cv-hpdcache-verif": {
-    industryAdoption: [
+    projectInvolvement: [
       {
         entity: "CEA (Commissariat à l'énergie atomique)",
-        useCase:
+        kind: "contributor",
+        description:
           "Primary developer of both HPDCache and its verification environment; part of European research infrastructure",
         sourceUrl: "https://github.com/openhwgroup/cv-hpdcache-verif",
       },
@@ -752,10 +759,11 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
 
   // CV32E40S DV - Security core verification
   "cv32e40s-dv": {
-    industryAdoption: [
+    projectInvolvement: [
       {
         entity: "Silicon Laboratories (Silabs)",
-        useCase:
+        kind: "contributor",
+        description:
           "Primary contributor; security-specific test scenarios for PMP, anti-tampering, and Zc extensions",
         sourceUrl: "https://github.com/openhwgroup/cv32e40s-dv",
       },
@@ -840,10 +848,11 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
         url: "https://dl.acm.org/doi/10.1145/2954679.2872414",
       },
     ],
-    industryAdoption: [
+    projectInvolvement: [
       {
         entity: "Princeton University",
-        useCase:
+        kind: "origin",
+        description:
           "CV-MESH has roots in the OpenPiton manycore platform developed at Princeton for scalable chip-level communication",
         sourceUrl: "https://parallel.princeton.edu/openpiton/",
       },
@@ -879,16 +888,18 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
 
   // CORE-V MCU DevKit - Physical development board
   "core-v-mcu-devkit": {
-    industryAdoption: [
+    projectInvolvement: [
       {
         entity: "QuickLogic Corporation",
-        useCase:
+        kind: "integration",
+        description:
           "Manufactured the CORE-V MCU ASIC on GlobalFoundries 22nm FDX; DevKit features QuickLogic Arnold chip",
         sourceUrl: "https://www.quicklogic.com/",
       },
       {
         entity: "GroupGets",
-        useCase: "Distribution partner for CORE-V MCU DevKit; handled community orders",
+        kind: "distribution",
+        description: "Distribution partner for CORE-V MCU DevKit; handled community orders",
         sourceUrl: "https://github.com/openhwgroup/core-v-mcu-devkit",
       },
     ],
@@ -1002,10 +1013,11 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
 
   // CORE-V GCC - GNU compiler toolchain
   "corev-gcc": {
-    industryAdoption: [
+    projectInvolvement: [
       {
         entity: "Embecosm",
-        useCase:
+        kind: "contributor",
+        description:
           "Lead development and maintenance; contracted by OpenHW to port PULP extensions and Zc* extensions to GCC",
         sourceUrl: "https://www.embecosm.com/",
       },
@@ -1053,10 +1065,11 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
 
   // CORE-V Binutils & GDB
   "corev-binutils-gdb": {
-    industryAdoption: [
+    projectInvolvement: [
       {
         entity: "Embecosm",
-        useCase:
+        kind: "contributor",
+        description:
           "Lead developer for CORE-V binutils and GDB; assembler/disassembler/debugger support for PULP and Zc* extensions",
         sourceUrl: "https://www.embecosm.com/",
       },
@@ -1097,10 +1110,11 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
 
   // CORE-V LLVM - Alternative compiler toolchain
   "corev-llvm": {
-    industryAdoption: [
+    projectInvolvement: [
       {
         entity: "Embecosm",
-        useCase:
+        kind: "contributor",
+        description:
           "Lead development of CORE-V LLVM; implementing PULP custom extension support in Clang/LLVM backend",
         sourceUrl: "https://www.embecosm.com/",
       },
@@ -1137,15 +1151,17 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
 
   // CORE-V SDK - Software development kit
   "core-v-sdk": {
-    industryAdoption: [
+    projectInvolvement: [
       {
         entity: "Ashling Microsystems",
-        useCase: "Contributed Eclipse-based IDE integration and debug probe support",
+        kind: "contributor",
+        description: "Contributed Eclipse-based IDE integration and debug probe support",
         sourceUrl: "https://www.ashling.com/",
       },
       {
         entity: "QuickLogic Corporation",
-        useCase: "SDK used with CORE-V MCU DevKit for application development",
+        kind: "integration",
+        description: "SDK used with CORE-V MCU DevKit for application development",
         sourceUrl: "https://www.quicklogic.com/",
       },
     ],
@@ -1191,10 +1207,12 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
 
   // CORE-V FreeRTOS - RTOS port
   "core-v-freertos": {
-    industryAdoption: [
+    projectInvolvement: [
       {
         entity: "Amazon Web Services (FreeRTOS)",
-        useCase: "Upstream FreeRTOS kernel used as base; CORE-V port contributed back to ecosystem",
+        kind: "upstream",
+        description:
+          "Upstream FreeRTOS kernel used as base; CORE-V port contributed back to ecosystem",
         sourceUrl: "https://www.freertos.org/",
       },
     ],
@@ -1235,10 +1253,11 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
 
   // CORE-V FreeRTOS Kernel
   "core-v-freertos-kernel": {
-    industryAdoption: [
+    projectInvolvement: [
       {
         entity: "Amazon Web Services (FreeRTOS)",
-        useCase:
+        kind: "upstream",
+        description:
           "Base kernel maintained by AWS; CORE-V adaptations add RISC-V CORE-V-specific port code",
         sourceUrl: "https://www.freertos.org/",
       },
@@ -1311,6 +1330,13 @@ function sanitizeKnowledge(knowledge: ProjectKnowledge): ProjectKnowledge {
       sourceUrl: isValidHttpUrl(item.sourceUrl) ? item.sourceUrl : undefined,
     }));
 
+  const projectInvolvement = knowledge.projectInvolvement
+    ?.filter((item) => Boolean(item.entity && item.kind && item.description))
+    .map((item) => ({
+      ...item,
+      sourceUrl: isValidHttpUrl(item.sourceUrl) ? item.sourceUrl : undefined,
+    }));
+
   const educationalUse = knowledge.educationalUse
     ?.filter((item) => Boolean(item.university))
     .map((item) => ({
@@ -1337,6 +1363,7 @@ function sanitizeKnowledge(knowledge: ProjectKnowledge): ProjectKnowledge {
   const sanitized: ProjectKnowledge = {
     academicPapers,
     industryAdoption,
+    projectInvolvement,
     educationalUse,
     presentations,
     articles,
@@ -1355,6 +1382,7 @@ export function getProjectKnowledge(projectId: string): ProjectKnowledge | null 
   const hasContent =
     (sanitized.academicPapers?.length || 0) > 0 ||
     (sanitized.industryAdoption?.length || 0) > 0 ||
+    (sanitized.projectInvolvement?.length || 0) > 0 ||
     (sanitized.educationalUse?.length || 0) > 0 ||
     (sanitized.presentations?.length || 0) > 0 ||
     (sanitized.articles?.length || 0) > 0 ||
@@ -1372,6 +1400,7 @@ export function getKnowledgeSummary(projectId: string) {
   return {
     papersCount: knowledge.academicPapers?.length || 0,
     industryCount: knowledge.industryAdoption?.length || 0,
+    involvementCount: knowledge.projectInvolvement?.length || 0,
     educationCount: knowledge.educationalUse?.length || 0,
     presentationsCount: knowledge.presentations?.length || 0,
     articlesCount: knowledge.articles?.length || 0,
@@ -1380,6 +1409,7 @@ export function getKnowledgeSummary(projectId: string) {
     totalCount:
       (knowledge.academicPapers?.length || 0) +
       (knowledge.industryAdoption?.length || 0) +
+      (knowledge.projectInvolvement?.length || 0) +
       (knowledge.educationalUse?.length || 0) +
       (knowledge.presentations?.length || 0) +
       (knowledge.articles?.length || 0) +

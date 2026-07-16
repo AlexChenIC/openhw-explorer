@@ -29,7 +29,7 @@ CV32E40S README 将其描述为 32-bit、4-stage、in-order RISC-V core，支持
 
 ## 事实核查要点
 
-- 分类建议为 `core`，core type 使用 `embedded-mcu` + `safety-critical`，但站内中文应显示为“安全/功能安全”，避免暗示已经完成 ISO 26262 认证。
+- 分类建议为 `core`，architecture/focus 使用 `embedded-mcu` + `security-focused`。信息安全与功能安全是不同概念，不能用一个合并标签表达。
 - 验证环境不在 RTL 仓库中，关联到 `core-v-verif` 与 `cv32e40s-dv`。
 - 可描述为 security-focused，不应直接写成 certified safety core。
 

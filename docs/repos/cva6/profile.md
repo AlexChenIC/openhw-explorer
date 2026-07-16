@@ -36,7 +36,7 @@ CVA6 原名 Ariane，现由 OpenHW Group 维护。`cva6` 仓库 README 把该核
 
 - 不应简单写成“CVA6 永远是 single-issue”：官方 CORE-V cores roadmap 明确使用 single or dual-issue 描述家族。
 - 不应简单写成“所有 CVA6 配置都可启动 Linux”：GitHub repo description 更谨慎地说 application-class configurations are capable of booting Linux。
-- 站内分类保留为 `core`，core type 使用 `linux-application`（展示标签为 Application-class/应用级，2026-07-09 起不再使用已删除的 high-performance 维度），避免暗示乱序或超标量一定存在。
+- 站内分类保留为 `core`，architecture class 同时使用 `embedded-mcu` 与 `linux-application`，对应官方 CORE-V family roadmap 的 embedded/application family configurations；这不表示每一种配置都支持 Linux，也不暗示乱序或超标量一定存在。
 
 ## 主要来源
 

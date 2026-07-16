@@ -6,7 +6,7 @@
 
 ## Public summary
 
-cv-hpdcache-verif is the verification environment for OpenHW's CORE-V High Performance Data Cache controller. Its README describes an HPDcache subsystem verification environment that targets the HPDcache DUT and prefetcher DUT, using Python-driven compile, simulation, and regression scripts.
+cv-hpdcache-verif is the verification environment for OpenHW's CORE-V High Performance Data Cache controller. Its README currently warns that the testbench remains unstable after HPDcache changes: only CFG1 is working, the SystemVerilog PLRU model is commented out, and the optional AXI5 adapter has not been verified. The repository provides Python-driven compile, simulation, and regression scripts for the HPDcache and prefetcher DUTs.
 
 ## Key facts
 

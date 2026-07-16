@@ -37,6 +37,11 @@ export function SmartNavigator({
   const tf = useTranslations("filters");
   const [isExpanded, setIsExpanded] = useState(false);
   const contentId = "smart-navigator-content";
+  const visibleCoreTypes = filterConfig.coreTypes.filter((coreType) =>
+    activeCategory === "soc"
+      ? coreType.id === "embedded-mcu" || coreType.id === "fault-tolerant"
+      : coreType.id !== "fault-tolerant",
+  );
 
   const optionButtonClass = (isActive: boolean) =>
     `px-3 sm:px-4 py-2 rounded-lg text-[12px] sm:text-[13px] font-medium transition-all border ${
@@ -133,8 +138,8 @@ export function SmartNavigator({
             </div>
           </div>
 
-          {/* Core Type Row — only when the Cores category is active */}
-          {activeCategory === "core" && (
+          {/* Architecture/focus refinement for cores and SoC/subsystems. */}
+          {(activeCategory === "core" || activeCategory === "soc") && (
             <div className="flex flex-col sm:flex-row sm:items-center gap-2 sm:gap-5">
               <div className="sm:w-[110px] flex-shrink-0">
                 <div className="flex items-center gap-2">
@@ -145,7 +150,7 @@ export function SmartNavigator({
                 </div>
               </div>
               <div className="flex flex-wrap items-center gap-2 flex-1">
-                {filterConfig.coreTypes.map((coreType) => {
+                {visibleCoreTypes.map((coreType) => {
                   const isActive = activeCoreType === coreType.id;
                   return (
                     <button

@@ -19,4 +19,5 @@ export const statusConfig: Record<ProjectStatus, { color: string; bg: string }> 
   inactive: { color: "text-slate-400", bg: "bg-slate-400/10" },
   experimental: { color: "text-amber-400", bg: "bg-amber-400/10" },
   archived: { color: "text-gray-400", bg: "bg-gray-400/10" },
+  deprecated: { color: "text-rose-400", bg: "bg-rose-400/10" },
 };

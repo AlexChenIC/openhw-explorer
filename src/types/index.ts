@@ -16,7 +16,12 @@ export type ProjectCategory =
 
 // Core types for detailed filtering.
 // Aligned with OpenHW's official embedded-class / application-class terminology.
-export type CoreType = "embedded-mcu" | "linux-application" | "low-power" | "safety-critical";
+export type CoreType =
+  | "embedded-mcu"
+  | "linux-application"
+  | "low-power"
+  | "security-focused"
+  | "fault-tolerant";
 
 // Verification types
 export type VerificationType =
@@ -32,7 +37,10 @@ export type ProjectStatus =
   | "completed"
   | "inactive"
   | "experimental"
-  | "archived";
+  | "archived"
+  | "deprecated";
+
+export type ProjectStatusSource = "openhw" | "github" | "editorial";
 
 export type ReviewStatus = "reviewed" | "auto" | "needs-review";
 export type SourceTier = "official" | "trusted" | "community";
@@ -51,6 +59,8 @@ export interface Project {
   // Metadata
   tags: string[];
   status: ProjectStatus;
+  statusSource?: ProjectStatusSource;
+  statusSourceUrl?: string;
   featured?: boolean;
 
   // Links
@@ -81,7 +91,9 @@ export interface Project {
 
   // Verified at-a-glance facts and curated external links (from profile.md)
   keyFacts?: string[];
+  keyFactsZh?: string[];
   furtherResources?: ProjectResourceLink[];
+  localizedDescription?: Partial<Record<"zh", string>>;
 
   // Knowledge base data (populated from src/data/knowledge/)
   knowledge?: ProjectKnowledge;
@@ -110,6 +122,14 @@ export interface AcademicPaper {
 export interface IndustryAdoption {
   entity: string; // Company or product name
   useCase: string; // How they use it
+  sourceUrl?: string;
+}
+
+/** Documented organizational involvement that is not a product-adoption claim */
+export interface ProjectInvolvement {
+  entity: string;
+  kind: "origin" | "contributor" | "upstream" | "integration" | "distribution";
+  description: string;
   sourceUrl?: string;
 }
 
@@ -152,6 +172,7 @@ export interface EcosystemLink {
 export interface ProjectKnowledge {
   academicPapers?: AcademicPaper[];
   industryAdoption?: IndustryAdoption[];
+  projectInvolvement?: ProjectInvolvement[];
   educationalUse?: EducationalUse[];
   presentations?: Presentation[];
   articles?: Article[];

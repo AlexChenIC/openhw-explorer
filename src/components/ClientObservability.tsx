@@ -5,18 +5,14 @@ import { trackEvent } from "@/lib/observability";
 
 const MAX_REPORTED_ERRORS = 5;
 
-function truncate(value: string, maxLength: number): string {
-  if (value.length <= maxLength) return value;
-  return `${value.slice(0, maxLength - 1)}…`;
-}
-
-function getRejectionMessage(reason: unknown): string {
-  if (typeof reason === "string") return reason;
-  if (reason instanceof Error) return reason.message;
+function getSourceKind(filename: string): "same-origin" | "external" | "unknown" {
+  if (!filename) return "unknown";
   try {
-    return JSON.stringify(reason);
-  } catch (error) {
-    return "unknown rejection";
+    return new URL(filename, window.location.href).origin === window.location.origin
+      ? "same-origin"
+      : "external";
+  } catch {
+    return "unknown";
   }
 }
 
@@ -34,8 +30,8 @@ export function ClientObservability() {
       markReported();
 
       trackEvent("client_error", {
-        message: truncate(event.message || "unknown error", 180),
-        source: truncate(event.filename || "unknown source", 120),
+        kind: "runtime-error",
+        sourceKind: getSourceKind(event.filename),
         line: event.lineno || 0,
         column: event.colno || 0,
       });
@@ -46,7 +42,7 @@ export function ClientObservability() {
       markReported();
 
       trackEvent("client_unhandled_rejection", {
-        message: truncate(getRejectionMessage(event.reason), 180),
+        kind: "unhandled-rejection",
       });
     };
 

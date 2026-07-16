@@ -43,13 +43,15 @@
             "id": "h24-p07-openhw-riscv",
             "title": "HiPEAC 2024 page 7: OpenHW and RISC-V",
             "locator": "HiPEAC_OpenHW_Group_2024_09_OpenSource_IndustrialUse_RISC-V.pdf#page=7",
-            "claimSupported": "OpenHW is presented as a RISC-V International member and an organization that makes industrial-quality open-source RISC-V core implementations available."
+            "claimSupported": "OpenHW is presented as a RISC-V International member and an organization that makes industrial-quality open-source RISC-V core implementations available.",
+            "url": "https://openhwfoundation.org/projects/"
           },
           {
             "id": "l23-p14-adoption-lessons",
             "title": "Lessons Learned 2023 page 14: adoption lessons",
             "locator": "Lessons_Learned_OpenHW_Open-Source_Commercial_Adoption_Nov2023v3.pdf#page=14",
-            "claimSupported": "The 2023 deck frames commercial open-source hardware adoption through permissive use, IP quality, and roadmap/ecosystem readiness."
+            "claimSupported": "The 2023 deck frames commercial open-source hardware adoption through permissive use, IP quality, and roadmap/ecosystem readiness.",
+            "url": "https://openhwfoundation.org/news/2023/10/31/please-join-openhw-group-staff-and-members-at-the-upcoming-risc-v-summit/"
           }
         ],
         "speakerNotes": "In this lesson we are not going to memorize every OpenHW project name. We will build a usable mental model. OpenHW sits where open RISC-V ideas have to become implementation-quality IP. That means licenses must be commercially acceptable, verification has to look familiar to industry teams, and the surrounding software, boards, documentation, and roadmap must make adoption feel realistic instead of heroic."
@@ -114,13 +116,15 @@
             "id": "h24-p07-openhw-riscv",
             "title": "HiPEAC 2024 page 7: OpenHW and RISC-V",
             "locator": "HiPEAC_OpenHW_Group_2024_09_OpenSource_IndustrialUse_RISC-V.pdf#page=7",
-            "claimSupported": "OpenHW is presented as a RISC-V International member and an organization that makes industrial-quality open-source RISC-V core implementations available."
+            "claimSupported": "OpenHW is presented as a RISC-V International member and an organization that makes industrial-quality open-source RISC-V core implementations available.",
+            "url": "https://openhwfoundation.org/projects/"
           },
           {
             "id": "h24-p12-deliverables",
             "title": "HiPEAC 2024 page 12: OpenHW deliverables",
             "locator": "HiPEAC_OpenHW_Group_2024_09_OpenSource_IndustrialUse_RISC-V.pdf#page=12",
-            "claimSupported": "OpenHW deliverables include CORE-V core families, verification, documentation, compilers, RTOS/bare-metal/Linux support, FPGA images, SoCs, and commercial EDA tool compatibility."
+            "claimSupported": "OpenHW deliverables include CORE-V core families, verification, documentation, compilers, RTOS/bare-metal/Linux support, FPGA images, SoCs, and commercial EDA tool compatibility.",
+            "url": "https://openhwfoundation.org/projects/"
           }
         ],
         "speakerNotes": "A clean way to explain the stack is this: RISC-V tells you what the machine must mean; OpenHW works on implementations that engineers can actually inspect, verify, modify, and integrate. This matters because a company adopting open hardware does not only ask, 'Is the ISA open?' It asks, 'Where is the core, the testbench, the documentation, the compiler path, and the board-level proof that this can become a product?'"
@@ -186,7 +190,8 @@
             "id": "h24-p12-deliverables",
             "title": "HiPEAC 2024 page 12: OpenHW deliverables",
             "locator": "HiPEAC_OpenHW_Group_2024_09_OpenSource_IndustrialUse_RISC-V.pdf#page=12",
-            "claimSupported": "OpenHW deliverables include CORE-V core families, verification, documentation, compilers, RTOS/bare-metal/Linux support, FPGA images, SoCs, and commercial EDA tool compatibility."
+            "claimSupported": "OpenHW deliverables include CORE-V core families, verification, documentation, compilers, RTOS/bare-metal/Linux support, FPGA images, SoCs, and commercial EDA tool compatibility.",
+            "url": "https://openhwfoundation.org/projects/"
           }
         ],
         "speakerNotes": "This slide is one of the most important ones in the whole source set. It says, in visual form, that OpenHW is not trying to win by publishing RTL alone. Around the core there must be UVM testbenches, SystemVerilog design source, documentation, compilers, operating-system paths, and board or SoC artifacts. That is exactly the difference between a demo repository and something an industrial team can plan around."
@@ -247,13 +252,15 @@
             "id": "h24-p13-roadmap",
             "title": "HiPEAC 2024 page 13: OpenHW RISC-V roadmap",
             "locator": "HiPEAC_OpenHW_Group_2024_09_OpenSource_IndustrialUse_RISC-V.pdf#page=13",
-            "claimSupported": "The roadmap maps CVE2, CVE4, CVA6, CVW, and planned variants across performance classes, while noting that the roadmap is member-driven and may change."
+            "claimSupported": "The roadmap maps CVE2, CVE4, CVA6, CVW, and planned variants across performance classes, while noting that the roadmap is member-driven and may change.",
+            "url": "https://github.com/openhwgroup/core-v-cores"
           },
           {
             "id": "l23-p04-cva6-platform",
             "title": "Lessons Learned 2023 page 4: CORE-V CVA6 platform",
             "locator": "Lessons_Learned_OpenHW_Open-Source_Commercial_Adoption_Nov2023v3.pdf#page=4",
-            "claimSupported": "The CVA6 platform example shows a vendor-neutral open-source RISC-V system platform with reusable CVA6 instances, memory system, peripherals, and open-source hardware/software stack expectations."
+            "claimSupported": "The CVA6 platform example shows a vendor-neutral open-source RISC-V system platform with reusable CVA6 instances, memory system, peripherals, and open-source hardware/software stack expectations.",
+            "url": "https://github.com/openhwgroup/cva6-platform"
           }
         ],
         "speakerNotes": "The core names become less intimidating once you read them as a product map. CVE2 is where a compact embedded baseline lives. CVE4 moves toward richer embedded cores and MCU use cases. CVA6 is the application-class path where memory management, Linux-capable integration, cache and interface boundaries, and deeper source reading become unavoidable. That is why CVA6 deserves its own long course series."
@@ -319,7 +326,8 @@
             "id": "l23-p04-cva6-platform",
             "title": "Lessons Learned 2023 page 4: CORE-V CVA6 platform",
             "locator": "Lessons_Learned_OpenHW_Open-Source_Commercial_Adoption_Nov2023v3.pdf#page=4",
-            "claimSupported": "The CVA6 platform example shows a vendor-neutral open-source RISC-V system platform with reusable CVA6 instances, memory system, peripherals, and open-source hardware/software stack expectations."
+            "claimSupported": "The CVA6 platform example shows a vendor-neutral open-source RISC-V system platform with reusable CVA6 instances, memory system, peripherals, and open-source hardware/software stack expectations.",
+            "url": "https://github.com/openhwgroup/cva6-platform"
           }
         ],
         "speakerNotes": "This is where CVA6 becomes more than a name in a repository. The platform slide shows CVA6 instances in a wider system context: memory, IO, boot and software assumptions, and vendor-neutral reuse. The lesson for us is practical. When we teach CVA6, we should never pretend the core alone is the whole product. The engineering value appears when the core boundary and platform boundary are both visible."
@@ -381,7 +389,8 @@
             "id": "l23-p14-adoption-lessons",
             "title": "Lessons Learned 2023 page 14: adoption lessons",
             "locator": "Lessons_Learned_OpenHW_Open-Source_Commercial_Adoption_Nov2023v3.pdf#page=14",
-            "claimSupported": "The 2023 deck frames commercial open-source hardware adoption through permissive use, IP quality, and roadmap/ecosystem readiness."
+            "claimSupported": "The 2023 deck frames commercial open-source hardware adoption through permissive use, IP quality, and roadmap/ecosystem readiness.",
+            "url": "https://openhwfoundation.org/news/2023/10/31/please-join-openhw-group-staff-and-members-at-the-upcoming-risc-v-summit/"
           }
         ],
         "speakerNotes": "The 2023 deck is useful because it does not romanticize open hardware. It asks three business-facing questions. First, can the company use the IP permissively? Second, is the IP quality high enough to fit a serious verification culture? Third, is there a roadmap and ecosystem around the core? In other words, adoption is not a vibe. It is legal confidence, technical confidence, and planning confidence."
@@ -446,13 +455,15 @@
             "id": "l23-p16-commercial-license",
             "title": "Lessons Learned 2023 page 16: hardware companies and open source",
             "locator": "Lessons_Learned_OpenHW_Open-Source_Commercial_Adoption_Nov2023v3.pdf#page=16",
-            "claimSupported": "The deck highlights why hardware companies prefer permissive licensing: patent exposure, commercial benefit, and already accepted Apache-style terms matter for adoption."
+            "claimSupported": "The deck highlights why hardware companies prefer permissive licensing: patent exposure, commercial benefit, and already accepted Apache-style terms matter for adoption.",
+            "url": "https://vision24.hipeac.net/new-hardware--open-source-hardware.html"
           },
           {
             "id": "l23-p17-solderpad",
             "title": "Lessons Learned 2023 page 17: Solderpad Hardware License 2.1",
             "locator": "Lessons_Learned_OpenHW_Open-Source_Commercial_Adoption_Nov2023v3.pdf#page=17",
-            "claimSupported": "Solderpad Hardware License 2.1 is presented as a permissive open hardware license based on Apache-2.0 with explicit hardware, open silicon, and gateware coverage."
+            "claimSupported": "Solderpad Hardware License 2.1 is presented as a permissive open hardware license based on Apache-2.0 with explicit hardware, open silicon, and gateware coverage.",
+            "url": "https://solderpad.org/licenses/SHL-2.1/"
           }
         ],
         "speakerNotes": "For software people, licensing sometimes feels like an appendix. For hardware companies, it can decide whether a project is even evaluated. The OpenHW lesson is that permissive use is not a philosophical decoration; it is a product feature. If a company can modify, integrate, manufacture, and sell with a licensing story it already understands, the technical conversation has a chance to begin."
@@ -517,19 +528,22 @@
             "id": "l23-p19-verification",
             "title": "Lessons Learned 2023 page 19: Verification Task Group",
             "locator": "Lessons_Learned_OpenHW_Open-Source_Commercial_Adoption_Nov2023v3.pdf#page=19",
-            "claimSupported": "The Verification Task Group develops best-in-class testbench environments for cores and IP blocks developed within OpenHW."
+            "claimSupported": "The Verification Task Group develops best-in-class testbench environments for cores and IP blocks developed within OpenHW.",
+            "url": "https://github.com/openhwgroup/core-v-verif"
           },
           {
             "id": "l23-p20-standard-tools",
             "title": "Lessons Learned 2023 page 20: Industry standard tools",
             "locator": "Lessons_Learned_OpenHW_Open-Source_Commercial_Adoption_Nov2023v3.pdf#page=20",
-            "claimSupported": "The deck states that open-source hardware projects should use industry-standard languages and verification methods and fit existing EDA tool flows."
+            "claimSupported": "The deck states that open-source hardware projects should use industry-standard languages and verification methods and fit existing EDA tool flows.",
+            "url": "https://openhwfoundation.org/news/2023/10/31/please-join-openhw-group-staff-and-members-at-the-upcoming-risc-v-summit/"
           },
           {
             "id": "h24-p12-deliverables",
             "title": "HiPEAC 2024 page 12: OpenHW deliverables",
             "locator": "HiPEAC_OpenHW_Group_2024_09_OpenSource_IndustrialUse_RISC-V.pdf#page=12",
-            "claimSupported": "OpenHW deliverables include CORE-V core families, verification, documentation, compilers, RTOS/bare-metal/Linux support, FPGA images, SoCs, and commercial EDA tool compatibility."
+            "claimSupported": "OpenHW deliverables include CORE-V core families, verification, documentation, compilers, RTOS/bare-metal/Linux support, FPGA images, SoCs, and commercial EDA tool compatibility.",
+            "url": "https://openhwfoundation.org/projects/"
           }
         ],
         "speakerNotes": "The second lesson is about quality, but not quality as a slogan. Open-source hardware has to speak the language of the engineers who will sign off the design. That means SystemVerilog source, UVM-style environments, repeatable regressions, documentation, and compatibility with serious EDA flows. The open-source part lowers access. The quality system lowers fear."
@@ -596,13 +610,15 @@
             "id": "l23-p20-standard-tools",
             "title": "Lessons Learned 2023 page 20: Industry standard tools",
             "locator": "Lessons_Learned_OpenHW_Open-Source_Commercial_Adoption_Nov2023v3.pdf#page=20",
-            "claimSupported": "The deck states that open-source hardware projects should use industry-standard languages and verification methods and fit existing EDA tool flows."
+            "claimSupported": "The deck states that open-source hardware projects should use industry-standard languages and verification methods and fit existing EDA tool flows.",
+            "url": "https://openhwfoundation.org/news/2023/10/31/please-join-openhw-group-staff-and-members-at-the-upcoming-risc-v-summit/"
           },
           {
             "id": "h24-p12-deliverables",
             "title": "HiPEAC 2024 page 12: OpenHW deliverables",
             "locator": "HiPEAC_OpenHW_Group_2024_09_OpenSource_IndustrialUse_RISC-V.pdf#page=12",
-            "claimSupported": "OpenHW deliverables include CORE-V core families, verification, documentation, compilers, RTOS/bare-metal/Linux support, FPGA images, SoCs, and commercial EDA tool compatibility."
+            "claimSupported": "OpenHW deliverables include CORE-V core families, verification, documentation, compilers, RTOS/bare-metal/Linux support, FPGA images, SoCs, and commercial EDA tool compatibility.",
+            "url": "https://openhwfoundation.org/projects/"
           }
         ],
         "speakerNotes": "This slide is refreshingly practical. It says open-source hardware projects must fit the tool flows that companies already rely on. That does not weaken the open-source story; it makes the story usable. If an open core can be read publicly, improved collaboratively, and still pass through familiar industrial verification and implementation tools, it has a much better adoption path."
@@ -669,19 +685,22 @@
             "id": "h24-p14-collaboration",
             "title": "HiPEAC 2024 page 14: How to collaborate",
             "locator": "HiPEAC_OpenHW_Group_2024_09_OpenSource_IndustrialUse_RISC-V.pdf#page=14",
-            "claimSupported": "OpenHW collaboration is organized around cores, verification, documentation, hardware development, software development, and concrete demos/dev kits."
+            "claimSupported": "OpenHW collaboration is organized around cores, verification, documentation, hardware development, software development, and concrete demos/dev kits.",
+            "url": "https://github.com/openhwgroup/programs"
           },
           {
             "id": "l23-p23-sw-task-group",
             "title": "Lessons Learned 2023 page 23: SW Task Group",
             "locator": "Lessons_Learned_OpenHW_Open-Source_Commercial_Adoption_Nov2023v3.pdf#page=23",
-            "claimSupported": "The SW Task Group supports toolchains, OS ports, firmware, GCC/LLVM, IDEs, FreeRTOS, HAL, and CORE-V MCU SDK work."
+            "claimSupported": "The SW Task Group supports toolchains, OS ports, firmware, GCC/LLVM, IDEs, FreeRTOS, HAL, and CORE-V MCU SDK work.",
+            "url": "https://github.com/openhwgroup/programs"
           },
           {
             "id": "l23-p25-hw-task-group",
             "title": "Lessons Learned 2023 page 25: HW Task Group",
             "locator": "Lessons_Learned_OpenHW_Open-Source_Commercial_Adoption_Nov2023v3.pdf#page=25",
-            "claimSupported": "The HW Task Group supports SoC and FPGA evaluation/development platforms for cores and IP developed within OpenHW."
+            "claimSupported": "The HW Task Group supports SoC and FPGA evaluation/development platforms for cores and IP developed within OpenHW.",
+            "url": "https://github.com/openhwgroup/programs"
           }
         ],
         "speakerNotes": "OpenHW collaboration is not just, 'go contribute somewhere.' The materials show lanes: cores, verification, software, documentation, hardware development, boards, and demos. That matters for learners, because your contribution path depends on your strengths. An RTL engineer, a verification engineer, a compiler person, and a documentation-minded learner can all enter the ecosystem, but through different doors."
@@ -748,7 +767,8 @@
             "id": "h24-p14-collaboration",
             "title": "HiPEAC 2024 page 14: How to collaborate",
             "locator": "HiPEAC_OpenHW_Group_2024_09_OpenSource_IndustrialUse_RISC-V.pdf#page=14",
-            "claimSupported": "OpenHW collaboration is organized around cores, verification, documentation, hardware development, software development, and concrete demos/dev kits."
+            "claimSupported": "OpenHW collaboration is organized around cores, verification, documentation, hardware development, software development, and concrete demos/dev kits.",
+            "url": "https://github.com/openhwgroup/programs"
           }
         ],
         "speakerNotes": "This collaboration slide is useful for a very specific reason: it prevents vague community talk. It pushes us to name artifacts. Are we talking about a core repository, a verification environment, compiler work, an FPGA image, documentation, or a demo? For OpenHW Explorer, this is a design principle. Every classroom should help the learner move from idea to source, and from source to action."
@@ -813,19 +833,22 @@
             "id": "h24-p19-devkit",
             "title": "HiPEAC 2024 page 19: MCU DevKit",
             "locator": "HiPEAC_OpenHW_Group_2024_09_OpenSource_IndustrialUse_RISC-V.pdf#page=19",
-            "claimSupported": "The CORE-V MCU DevKit is shown as a multi-party hardware result involving CV32E40P, QuickLogic eFPGA, GF 22FDX, debug, USB-C, AWS IoT connectivity, and several partners."
+            "claimSupported": "The CORE-V MCU DevKit is shown as a multi-party hardware result involving CV32E40P, QuickLogic eFPGA, GF 22FDX, debug, USB-C, AWS IoT connectivity, and several partners.",
+            "url": "https://openhwfoundation.org/core-v-devkits/"
           },
           {
             "id": "l23-p23-sw-task-group",
             "title": "Lessons Learned 2023 page 23: SW Task Group",
             "locator": "Lessons_Learned_OpenHW_Open-Source_Commercial_Adoption_Nov2023v3.pdf#page=23",
-            "claimSupported": "The SW Task Group supports toolchains, OS ports, firmware, GCC/LLVM, IDEs, FreeRTOS, HAL, and CORE-V MCU SDK work."
+            "claimSupported": "The SW Task Group supports toolchains, OS ports, firmware, GCC/LLVM, IDEs, FreeRTOS, HAL, and CORE-V MCU SDK work.",
+            "url": "https://github.com/openhwgroup/programs"
           },
           {
             "id": "l23-p25-hw-task-group",
             "title": "Lessons Learned 2023 page 25: HW Task Group",
             "locator": "Lessons_Learned_OpenHW_Open-Source_Commercial_Adoption_Nov2023v3.pdf#page=25",
-            "claimSupported": "The HW Task Group supports SoC and FPGA evaluation/development platforms for cores and IP developed within OpenHW."
+            "claimSupported": "The HW Task Group supports SoC and FPGA evaluation/development platforms for cores and IP developed within OpenHW.",
+            "url": "https://github.com/openhwgroup/programs"
           }
         ],
         "speakerNotes": "The third adoption lesson is roadmap and ecosystem. A core can look impressive, but companies also ask what happens after evaluation. Is there an IDE path? Are there board images? Are there dev kits? Can the project coordinate universities, members, partners, debug, firmware, and silicon details? The MCU DevKit slide is a good example of ecosystem becoming tangible hardware."
@@ -892,7 +915,8 @@
             "id": "h24-p16-sovereignty",
             "title": "HiPEAC 2024 page 16: Open source and digital sovereignty",
             "locator": "HiPEAC_OpenHW_Group_2024_09_OpenSource_IndustrialUse_RISC-V.pdf#page=16",
-            "claimSupported": "The slide connects permissive open source with the ability to modify, innovate, produce, sell, build know-how, teach students, and support digital sovereignty."
+            "claimSupported": "The slide connects permissive open source with the ability to modify, innovate, produce, sell, build know-how, teach students, and support digital sovereignty.",
+            "url": "https://vision24.hipeac.net/new-hardware--open-source-hardware.html"
           }
         ],
         "speakerNotes": "This is the slide that connects OpenHW to a broader mission. If processor IP is inspectable and permissively usable, students can learn from real implementation, companies can build internal know-how, and regions can reduce dependence on completely closed digital infrastructure. That does not magically make chip design easy. But it changes who is allowed to learn, inspect, improve, and build."
@@ -944,19 +968,22 @@
             "id": "h24-p20-issues",
             "title": "HiPEAC 2024 page 20: Open source hardware issues",
             "locator": "HiPEAC_OpenHW_Group_2024_09_OpenSource_IndustrialUse_RISC-V.pdf#page=20",
-            "claimSupported": "Open-source hardware still faces a smaller community, expensive third-party licenses, specialized knowledge needs, teamwork requirements, and high chip investment."
+            "claimSupported": "Open-source hardware still faces a smaller community, expensive third-party licenses, specialized knowledge needs, teamwork requirements, and high chip investment.",
+            "url": "https://vision24.hipeac.net/new-hardware--open-source-hardware.html"
           },
           {
             "id": "h24-p13-roadmap",
             "title": "HiPEAC 2024 page 13: OpenHW RISC-V roadmap",
             "locator": "HiPEAC_OpenHW_Group_2024_09_OpenSource_IndustrialUse_RISC-V.pdf#page=13",
-            "claimSupported": "The roadmap maps CVE2, CVE4, CVA6, CVW, and planned variants across performance classes, while noting that the roadmap is member-driven and may change."
+            "claimSupported": "The roadmap maps CVE2, CVE4, CVA6, CVW, and planned variants across performance classes, while noting that the roadmap is member-driven and may change.",
+            "url": "https://github.com/openhwgroup/core-v-cores"
           },
           {
             "id": "l23-p14-adoption-lessons",
             "title": "Lessons Learned 2023 page 14: adoption lessons",
             "locator": "Lessons_Learned_OpenHW_Open-Source_Commercial_Adoption_Nov2023v3.pdf#page=14",
-            "claimSupported": "The 2023 deck frames commercial open-source hardware adoption through permissive use, IP quality, and roadmap/ecosystem readiness."
+            "claimSupported": "The 2023 deck frames commercial open-source hardware adoption through permissive use, IP quality, and roadmap/ecosystem readiness.",
+            "url": "https://openhwfoundation.org/news/2023/10/31/please-join-openhw-group-staff-and-members-at-the-upcoming-risc-v-summit/"
           }
         ],
         "speakerNotes": "Before moving on, keep both sides of the story. OpenHW is exciting because it makes industrial-quality open-source RISC-V IP more inspectable and teachable. But the source material is honest: hardware communities are smaller than software communities, tools can still be expensive, special knowledge matters, and chip investment is high. That honesty is a strength. It tells us what a serious learning platform has to explain next."

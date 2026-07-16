@@ -28,7 +28,7 @@ README 描述 CVA6-Safe provides dual-core lockstep and caches error detection a
 
 ## 事实核查要点
 
-- 分类建议为 `soc`，core type 用 `safety-critical`，但中文展示应为“安全/功能安全”，避免暗示认证完成。
+- 分类建议为 `soc`，architecture/focus 使用 `fault-tolerant`，展示为“Fault-tolerant / lockstep（容错 / 锁步）”。公开 README 能证明 DCLS、split mode 与 cache EDAC，但没有公开的 ISO 26262 认证声明。
 - 状态建议为 `experimental`，因为 README 明确留有 detailed description TODO。
 - 不应把 DCLS 说成一定运行两个独立应用；lockstep 模式和 split/AMP 模式不同。
 

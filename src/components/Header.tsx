@@ -1,13 +1,14 @@
 "use client";
 
 import { useState } from "react";
-import { Github, Menu, X, Sun, Moon, PawPrint } from "lucide-react";
+import { Github, Menu, X, Sun, Moon, PawPrint, Languages } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, useRouter, usePathname } from "@/lib/routing";
 import { useTheme } from "@/lib/theme";
 import { useFunMode } from "@/lib/fun-mode";
 import { features } from "@/lib/features";
 import { BrandLockup } from "@/components/BrandMark";
+import { localeOptions, type SiteLocale } from "@/lib/locales";
 
 export function Header() {
   const t = useTranslations("header");
@@ -18,7 +19,7 @@ export function Header() {
   const { funMode, toggleFunMode } = useFunMode();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
-  const switchLocale = (newLocale: "en" | "zh") => {
+  const switchLocale = (newLocale: SiteLocale) => {
     router.replace(pathname, { locale: newLocale });
   };
 
@@ -67,67 +68,62 @@ export function Header() {
 
         {/* Right section */}
         <div className="flex items-center gap-1.5 sm:gap-3">
-          {/* Language switcher */}
           <div
-            className="flex rounded-md border border-[var(--border)] bg-[var(--bg-card)] overflow-hidden"
+            className="flex items-center gap-1.5 sm:gap-2"
             role="group"
-            aria-label={t("aria.languageSwitcher")}
+            aria-label={t("aria.displayPreferences")}
           >
+            {/* Locale options stay in one central list so future supported languages appear here automatically. */}
+            <div className="relative">
+              <Languages
+                aria-hidden="true"
+                className="pointer-events-none absolute left-2 top-1/2 h-3.5 w-3.5 -translate-y-1/2 text-[var(--text-tertiary)]"
+              />
+              <select
+                value={locale}
+                onChange={(event) => switchLocale(event.target.value as SiteLocale)}
+                aria-label={t("aria.languageSwitcher")}
+                className="h-8 w-[96px] rounded-lg border border-[var(--border)] bg-[var(--bg-card)] py-1 pl-7 pr-2 text-xs font-medium text-[var(--text-primary)] transition-colors hover:border-[var(--text-tertiary)] hover:bg-[var(--bg-card-hover)] sm:h-9 sm:w-[116px]"
+              >
+                {localeOptions.map((option) => (
+                  <option key={option.code} value={option.code}>
+                    {option.label}
+                  </option>
+                ))}
+              </select>
+            </div>
+
             <button
-              onClick={() => switchLocale("zh")}
-              aria-label={t("aria.switchToChinese")}
-              aria-pressed={locale === "zh"}
-              className={`px-2 py-1.5 text-xs font-medium transition-all sm:px-2.5 ${
-                locale === "zh"
-                  ? "text-white bg-[var(--primary)]"
-                  : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
-              }`}
+              onClick={toggleTheme}
+              aria-label={theme === "dark" ? t("aria.switchToLight") : t("aria.switchToDark")}
+              title={theme === "dark" ? t("aria.switchToLight") : t("aria.switchToDark")}
+              className="rounded-lg border border-[var(--border)] bg-[var(--bg-card)] p-1.5 transition-all hover:bg-[var(--bg-card-hover)] hover:border-[var(--text-tertiary)] sm:p-2"
             >
-              CN
+              {theme === "dark" ? (
+                <Sun className="w-4 h-4 text-[var(--text-primary)]" />
+              ) : (
+                <Moon className="w-4 h-4 text-[var(--text-primary)]" />
+              )}
             </button>
+
             <button
-              onClick={() => switchLocale("en")}
-              aria-label={t("aria.switchToEnglish")}
-              aria-pressed={locale === "en"}
-              className={`px-2 py-1.5 text-xs font-medium transition-all sm:px-2.5 ${
-                locale === "en"
-                  ? "text-white bg-[var(--primary)]"
-                  : "text-[var(--text-secondary)] hover:text-[var(--text-primary)]"
+              onClick={toggleFunMode}
+              aria-pressed={funMode}
+              aria-label={funMode ? t("aria.disableFunMode") : t("aria.enableFunMode")}
+              title={funMode ? t("aria.disableFunMode") : t("aria.enableFunMode")}
+              className={`hidden rounded-lg border p-1.5 transition-all sm:inline-flex sm:p-2 ${
+                funMode
+                  ? "border-[var(--primary)] bg-[var(--primary)]/10"
+                  : "border-[var(--border)] bg-[var(--bg-card)] hover:bg-[var(--bg-card-hover)] hover:border-[var(--text-tertiary)]"
               }`}
             >
-              EN
+              <PawPrint
+                className={`w-4 h-4 ${funMode ? "text-[var(--primary)]" : "text-[var(--text-primary)]"}`}
+              />
             </button>
           </div>
 
-          {/* Theme toggle */}
-          <button
-            onClick={toggleTheme}
-            aria-label={theme === "dark" ? t("aria.switchToLight") : t("aria.switchToDark")}
-            className="rounded-lg border border-[var(--border)] bg-[var(--bg-card)] p-1.5 transition-all hover:bg-[var(--bg-card-hover)] hover:border-[var(--text-tertiary)] sm:p-2"
-          >
-            {theme === "dark" ? (
-              <Sun className="w-4 h-4 text-[var(--text-primary)]" />
-            ) : (
-              <Moon className="w-4 h-4 text-[var(--text-primary)]" />
-            )}
-          </button>
-
-          {/* Fun mode toggle */}
-          <button
-            onClick={toggleFunMode}
-            aria-pressed={funMode}
-            aria-label={funMode ? t("aria.disableFunMode") : t("aria.enableFunMode")}
-            title={funMode ? t("aria.disableFunMode") : t("aria.enableFunMode")}
-            className={`hidden rounded-lg border p-1.5 transition-all sm:inline-flex sm:p-2 ${
-              funMode
-                ? "border-[var(--primary)] bg-[var(--primary)]/10"
-                : "border-[var(--border)] bg-[var(--bg-card)] hover:bg-[var(--bg-card-hover)] hover:border-[var(--text-tertiary)]"
-            }`}
-          >
-            <PawPrint
-              className={`w-4 h-4 ${funMode ? "text-[var(--primary)]" : "text-[var(--text-primary)]"}`}
-            />
-          </button>
+          <span className="hidden h-5 w-px bg-[var(--border)] sm:block" aria-hidden="true" />
 
           {/* GitHub button - desktop */}
           <a

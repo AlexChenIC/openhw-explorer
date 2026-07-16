@@ -35,10 +35,14 @@ export function QuickFilters({
   const t = useTranslations("projects");
 
   const handleCategoryChange = (categoryId: ProjectCategory | "all") => {
+    const keepsArchitectureFocus =
+      (categoryId === "core" && activeCoreType !== "fault-tolerant") ||
+      (categoryId === "soc" &&
+        (activeCoreType === "embedded-mcu" || activeCoreType === "fault-tolerant"));
     onFilterChange({
       category: categoryId,
       role: activeRole,
-      coreType: categoryId === "core" ? activeCoreType : null,
+      coreType: keepsArchitectureFocus ? activeCoreType : null,
       verificationType: categoryId === "verification" ? activeVerificationType : null,
     });
   };
@@ -47,13 +51,13 @@ export function QuickFilters({
     onFilterChange({
       category: activeCategory,
       role: activeRole === roleId ? null : roleId,
-      coreType: activeCategory === "core" ? activeCoreType : null,
+      coreType: activeCategory === "core" || activeCategory === "soc" ? activeCoreType : null,
       verificationType: activeCategory === "verification" ? activeVerificationType : null,
     });
   };
 
   const handleCoreTypeChange = (coreTypeId: CoreType) => {
-    if (activeCategory !== "core") return;
+    if (activeCategory !== "core" && activeCategory !== "soc") return;
     onFilterChange({
       category: activeCategory,
       role: activeRole,

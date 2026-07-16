@@ -13,7 +13,7 @@ import {
   ChevronUp,
   Activity,
 } from "lucide-react";
-import { useTranslations } from "next-intl";
+import { useLocale, useTranslations } from "next-intl";
 import type { Project, ProjectKnowledge } from "@/types";
 import type { GitHubRepoStats } from "@/data/projects";
 import { getGitHubStatsMeta } from "@/data/projects";
@@ -21,6 +21,7 @@ import { getGitHubStatsMeta } from "@/data/projects";
 interface ProjectKnowledgeSummary {
   papersCount: number;
   industryCount: number;
+  involvementCount: number;
   educationCount: number;
   presentationsCount: number;
   articlesCount: number;
@@ -43,6 +44,7 @@ export function ProjectKnowledgeSection({
   launchStage,
 }: ProjectKnowledgeSectionProps) {
   const t = useTranslations("projectDetail");
+  const locale = useLocale();
   const isBaseline = launchStage === "baseline";
 
   if (isBaseline) {
@@ -66,6 +68,7 @@ export function ProjectKnowledgeSection({
         <ActivityCard
           stats={stats}
           t={t}
+          locale={locale}
           fetchedAt={String(getGitHubStatsMeta().fetchedAt ?? "")}
         />
       )}
@@ -140,10 +143,12 @@ function ActivityCard({
   stats,
   t,
   fetchedAt,
+  locale,
 }: {
   stats: GitHubRepoStats;
   t: ReturnType<typeof useTranslations>;
   fetchedAt?: string;
+  locale: string;
 }) {
   const activityLevel =
     stats.recentCommits >= 10 ? "high" : stats.recentCommits >= 3 ? "moderate" : "low";
@@ -194,7 +199,7 @@ function ActivityCard({
       {fetchedAt && (
         <p className="text-[10px] text-[var(--text-tertiary)] text-right mt-2">
           {t("activity.dataAsOf", {
-            date: new Date(fetchedAt).toLocaleDateString("en-US", {
+            date: new Date(fetchedAt).toLocaleDateString(locale === "zh" ? "zh-CN" : "en-US", {
               year: "numeric",
               month: "short",
               day: "numeric",

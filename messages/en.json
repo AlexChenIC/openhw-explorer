@@ -26,6 +26,7 @@
     "aria": {
       "mainNavigation": "Main navigation",
       "languageSwitcher": "Language switcher",
+      "displayPreferences": "Display preferences",
       "switchToChinese": "Switch to Chinese",
       "switchToEnglish": "Switch to English",
       "switchToLight": "Switch to light mode",
@@ -50,7 +51,7 @@
     "title": "Project Directory",
     "titleByCategory": "{category}",
     "found": "{count} projects",
-    "directoryIntro": "Browse the complete, source-checked OpenHW repository catalog and narrow it by project type or learning goal.",
+    "directoryIntro": "Browse a curated, source-checked selection of OpenHW repositories and narrow it by project type or learning goal.",
     "showing": "Showing {shown} of {total}",
     "loadMore": "Show {count} more",
     "noResults": "No projects found",
@@ -61,7 +62,7 @@
     "quickFilters": "Quick Filters",
     "iAmA": "I am a...",
     "lookingFor": "Looking for...",
-    "coreType": "Core Type",
+    "coreType": "Architecture / Focus",
     "verificationType": "Verification Type",
     "clearAll": "Clear All",
     "showResults": "Show Results",
@@ -109,10 +110,11 @@
       "sdk": "SDK/Software"
     },
     "coreTypes": {
-      "embedded-mcu": "Embedded-class (MCU)",
+      "embedded-mcu": "Embedded-class",
       "linux-application": "Application-class",
-      "low-power": "Low Power",
-      "safety-critical": "Security / Safety"
+      "low-power": "Low-power focus",
+      "security-focused": "Security-focused",
+      "fault-tolerant": "Fault-tolerant / lockstep"
     },
     "verificationTypes": {
       "uvm-testbench": "UVM Testbench",
@@ -180,15 +182,17 @@
     "categories": "Categories",
     "tags": "Tags",
     "suitableFor": "Suitable For",
-    "coreType": "Core Type",
+    "coreType": "Architecture / Focus",
     "verificationType": "Verification Type",
     "relatedProjects": "Related Projects",
     "knowledge": {
       "title": "Knowledge Base",
       "papers": "Academic Papers",
       "papersCount": "{count} paper(s)",
-      "industry": "Industry Adoption",
-      "industryCount": "{count} adoption(s)",
+      "industry": "Verified Industry Adoption",
+      "industryCount": "{count} verified adoption(s)",
+      "involvement": "Contributors & Lineage",
+      "involvementCount": "{count} documented relationship(s)",
       "education": "Educational Use",
       "educationCount": "{count} university(ies)",
       "presentations": "Presentations",
@@ -198,7 +202,7 @@
       "ecosystem": "Ecosystem",
       "noData": "No data yet",
       "noDataHint": "Know about this project? Contributions welcome!",
-      "otherSectionsComingSoon": "Industry adoption, educational use, presentations, articles, and ecosystem data will be added incrementally — contributions from the community and official sources welcome.",
+      "otherSectionsComingSoon": "Verified adoption, contributor and lineage records, educational use, presentations, articles, and ecosystem data will be added incrementally from named sources.",
       "source": "Source",
       "viewPaper": "View Paper",
       "viewMore": "View More"
@@ -218,11 +222,23 @@
     },
     "status": {
       "active": "Active",
-      "stable": "Stable",
+      "stable": "Mature",
       "completed": "Completed",
-      "inactive": "Inactive",
+      "inactive": "Low activity",
       "experimental": "Experimental",
-      "archived": "Archived"
+      "archived": "Archived",
+      "deprecated": "Deprecated"
+    },
+    "statusBadge": "{source} · {status}",
+    "statusSourceShort": {
+      "openhw": "OpenHW",
+      "github": "GitHub",
+      "editorial": "Editorial"
+    },
+    "statusSource": {
+      "openhw": "OpenHW project status",
+      "github": "GitHub repository signal",
+      "editorial": "OpenHW Explorer editorial assessment"
     },
     "metrics": {
       "stars": "stars",
@@ -264,10 +280,17 @@
     "reportIssueTitle": "Content issue: {project}",
     "reportIssueBody": "Project: {project}\nPage: {url}\n\nWhat looks wrong or outdated?\n\nSource for the correction (link):",
     "atAGlance": {
-      "title": "At a glance"
+      "title": "At a glance",
+      "factCheckTitle": "Fact-check notes"
     },
     "furtherResources": {
-      "title": "Further resources"
+      "title": "Further resources",
+      "sourceType": {
+        "officialDocs": "Official OpenHW documentation",
+        "projectSource": "Project source or supporting material",
+        "publication": "Research publication",
+        "relatedSource": "Related source"
+      }
     }
   },
   "about": {
@@ -309,7 +332,7 @@
     },
     "privacy": {
       "title": "Privacy",
-      "content": "OpenHW Explorer has no user accounts and collects no personal data. It uses Vercel Analytics for anonymous, aggregate page-view and error statistics, and your browser's localStorage only to remember display preferences such as the theme. No tracking cookies are set by this site, and feedback is handled entirely through GitHub Issues."
+      "content": "OpenHW Explorer has no user accounts and does not ask visitors to submit personal information. It uses Vercel Web Analytics for anonymous, aggregate page-view statistics and limited, structured client-error signals; Vercel also processes ordinary hosting request data under its own terms. This site does not set tracking cookies. Browser localStorage remembers display preferences, and feedback opens GitHub Issues."
     }
   },
   "contributePage": {

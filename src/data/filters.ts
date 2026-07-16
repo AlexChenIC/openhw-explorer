@@ -49,13 +49,14 @@ export const filterConfig: FilterConfig = {
     { id: "learning", label: "Learning-friendly", icon: "BookOpen" },
   ],
 
-  // Core types - when "Processor Cores" is selected.
-  // Aligned with OpenHW's official embedded-class / application-class terminology.
+  // Architecture class and design focus. The same refinement is useful for
+  // processor cores and SoC/subsystem entries such as CVA6-Safe.
   coreTypes: [
-    { id: "embedded-mcu", label: "Embedded-class (MCU)" },
+    { id: "embedded-mcu", label: "Embedded-class" },
     { id: "linux-application", label: "Application-class" },
-    { id: "low-power", label: "Low Power" },
-    { id: "safety-critical", label: "Security / Safety" },
+    { id: "low-power", label: "Low-power focus" },
+    { id: "security-focused", label: "Security-focused" },
+    { id: "fault-tolerant", label: "Fault-tolerant / lockstep" },
   ],
 
   // Verification types - when "Verification" is selected

@@ -6,7 +6,7 @@
 
 ## Public summary
 
-CV32E40X is a 32-bit, 4-stage in-order CORE-V RISC-V core based on CV32E40P, aimed at compute-intensive embedded applications and custom instruction integration through CORE-V-XIF. OpenHW's official project table lists CV32E40X as inactive.
+CV32E40X is a 32-bit, 4-stage in-order CORE-V RISC-V core based on CV32E40P, aimed at compute-intensive embedded applications and custom instruction integration through CORE-V-XIF. The CORE-V family release table describes it as mature but not in active development toward its TRL goal.
 
 ## Key facts
 
@@ -14,7 +14,7 @@ CV32E40X is a 32-bit, 4-stage in-order CORE-V RISC-V core based on CV32E40P, aim
 - ISA options include RV32I or RV32E, M or Zmmul, compressed and bit-manipulation extensions, and optional atomic support
 - Extension path: CORE-V-XIF allows custom instructions to be implemented outside the core
 - Origin: started as a fork of CV32E40P, which in turn originated from the PULP RI5CY core
-- Project status: OpenHW's official project table lists CV32E40X as inactive; the family release table says it has not achieved its TRL-5 goal
+- Project status: the CORE-V family release table says CV32E40X is mature but not in active development toward its TRL goal and has not achieved TRL-5
 
 ## Further resources
 
@@ -29,7 +29,7 @@ CV32E40X README 描述其为 small and efficient 32-bit in-order RISC-V core wit
 
 ## 事实核查要点
 
-- 站内状态应为 `inactive`，不能仅因为 GitHub 仓库未归档就标为 active。
+- `core-v-cores` 发布表脚注说明 CV32E40X 已成熟、当前没有朝 TRL 目标积极开发，且尚未达到 TRL-5；站内使用 `stable`，避免误写成持续活跃的代码开发。
 - 分类建议为 `core`，core type 为 `embedded-mcu`；使用“计算扩展”标签描述 XIF 定位，避免暗示应用级 Linux 或未经来源支持的性能等级。
 - 需要与 `core-v-xif` 建立强关联。
 

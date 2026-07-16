@@ -136,3 +136,23 @@ Fallback logo sources:
 - Altera: https://commons.wikimedia.org/wiki/Category:Altera_logos
 
 Espressif's logo is a trademark of Espressif Systems (Shanghai) Co., Ltd. The cached mark follows the official primary-logo guidance at https://www.espressif.com/en/about-espressif/logo-guidelines.
+
+## OpenHW Foundations Classroom
+
+The prototype classroom `openhw-overview-industrial-adoption-en` is based on two OpenHW Group presentation decks retained in the editorial source archive. Each in-course source anchor records the exact local filename and slide page. Stable public PDF download URLs could not be confirmed during the 2026-07-11 review, so the classroom does not invent direct deck URLs. Each anchor instead links to a claim-specific public first-party source, such as the OpenHW project catalogue, CORE-V roadmap, CVA6 Platform repository, CORE-V Verification repository, CORE-V DevKit page, Solderpad license text, or the relevant public event context.
+
+Source decks and public context:
+
+- `Lessons_Learned_OpenHW_Open-Source_Commercial_Adoption_Nov2023v3.pdf`, November 2023, Rick O'Connor and Florian Wohlrab, OpenHW Group. Public OpenHW event context: https://openhwfoundation.org/news/2023/10/31/please-join-openhw-group-staff-and-members-at-the-upcoming-risc-v-summit/
+- `HiPEAC_OpenHW_Group_2024_09_OpenSource_IndustrialUse_RISC-V.pdf`, September 2024, OpenHW Group. Public HiPEAC open-source hardware context: https://vision24.hipeac.net/new-hardware--open-source-hardware.html
+
+Locally cached slide extracts are used for source-based explanation inside the prototype classroom. Copyright and trademarks remain with OpenHW Group and the identified slide contributors.
+
+- `p01-cva6-platform.png`: 2023 deck, page 4
+- `p02-cores-roadmap-2023.png`: 2023 deck, page 10; retained but not currently rendered in the lesson
+- `p03-solderpad-license.png`: 2023 deck, page 17
+- `p04-industry-standard-tools.png`: 2023 deck, page 20
+- `p05-openhw-deliverables.png`: 2024 deck, page 12
+- `p06-how-to-collaborate.png`: 2024 deck, page 14
+- `p07-digital-sovereignty.png`: 2024 deck, page 16
+- `p08-mcu-devkit.png`: 2024 deck, page 19

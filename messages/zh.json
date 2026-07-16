@@ -26,6 +26,7 @@
     "aria": {
       "mainNavigation": "主导航",
       "languageSwitcher": "语言切换",
+      "displayPreferences": "显示偏好",
       "switchToChinese": "切换到中文",
       "switchToEnglish": "切换到英文",
       "switchToLight": "切换到浅色模式",
@@ -50,7 +51,7 @@
     "title": "项目目录",
     "titleByCategory": "{category}",
     "found": "{count} 个项目",
-    "directoryIntro": "浏览经过来源核对的完整 OpenHW 仓库目录，并按项目类型或学习目标快速缩小范围。",
+    "directoryIntro": "浏览经过来源核对、人工精选的 OpenHW 仓库，并按项目类型或学习目标快速缩小范围。",
     "showing": "正在显示 {shown} / {total}",
     "loadMore": "再显示 {count} 个",
     "noResults": "未找到项目",
@@ -61,7 +62,7 @@
     "quickFilters": "快速筛选",
     "iAmA": "我是...",
     "lookingFor": "我在找...",
-    "coreType": "核心类型",
+    "coreType": "架构 / 侧重点",
     "verificationType": "验证类型",
     "clearAll": "清除全部",
     "showResults": "查看结果",
@@ -109,10 +110,11 @@
       "sdk": "SDK/软件"
     },
     "coreTypes": {
-      "embedded-mcu": "嵌入式级（MCU）",
+      "embedded-mcu": "嵌入式级",
       "linux-application": "应用级",
-      "low-power": "低功耗",
-      "safety-critical": "安全/功能安全"
+      "low-power": "低功耗侧重",
+      "security-focused": "信息安全侧重",
+      "fault-tolerant": "容错 / 锁步"
     },
     "verificationTypes": {
       "uvm-testbench": "UVM 测试平台",
@@ -180,15 +182,17 @@
     "categories": "分类",
     "tags": "标签",
     "suitableFor": "适合人群",
-    "coreType": "核心类型",
+    "coreType": "架构 / 侧重点",
     "verificationType": "验证类型",
     "relatedProjects": "相关项目",
     "knowledge": {
       "title": "知识库",
       "papers": "学术论文",
       "papersCount": "{count} 篇论文",
-      "industry": "产业采用",
-      "industryCount": "{count} 个采用案例",
+      "industry": "已核实的产业采用",
+      "industryCount": "{count} 个已核实采用案例",
+      "involvement": "贡献方与技术血缘",
+      "involvementCount": "{count} 个有来源的项目关系",
       "education": "教学使用",
       "educationCount": "{count} 所大学",
       "presentations": "会议演讲",
@@ -198,7 +202,7 @@
       "ecosystem": "生态关联",
       "noData": "暂无数据",
       "noDataHint": "了解此项目？欢迎贡献信息！",
-      "otherSectionsComingSoon": "产业采用、教学使用、演讲资料、技术文章及生态关联等内容将逐步补充——欢迎社区与官方来源共同贡献。",
+      "otherSectionsComingSoon": "已核实的产业采用、贡献方与技术血缘、教学使用、演讲资料、技术文章及生态关联会依据具名来源逐步补充。",
       "source": "来源",
       "viewPaper": "查看论文",
       "viewMore": "查看更多"
@@ -218,11 +222,23 @@
     },
     "status": {
       "active": "活跃开发中",
-      "stable": "稳定版本",
+      "stable": "成熟",
       "completed": "已完成",
-      "inactive": "非活跃",
+      "inactive": "近期低活跃",
       "experimental": "实验阶段",
-      "archived": "已归档"
+      "archived": "已归档",
+      "deprecated": "已弃用"
+    },
+    "statusBadge": "{source} · {status}",
+    "statusSourceShort": {
+      "openhw": "OpenHW",
+      "github": "GitHub",
+      "editorial": "编辑判断"
+    },
+    "statusSource": {
+      "openhw": "OpenHW 项目状态",
+      "github": "GitHub 仓库信号",
+      "editorial": "OpenHW Explorer 编辑判断"
     },
     "metrics": {
       "stars": "星标",
@@ -264,10 +280,17 @@
     "reportIssueTitle": "Content issue: {project}",
     "reportIssueBody": "项目：{project}\n页面：{url}\n\n哪里看起来有误或过时？\n\n更正依据（链接）：",
     "atAGlance": {
-      "title": "核心速览"
+      "title": "核心速览",
+      "factCheckTitle": "核查说明"
     },
     "furtherResources": {
-      "title": "延伸资源"
+      "title": "延伸资源",
+      "sourceType": {
+        "officialDocs": "OpenHW 官方文档",
+        "projectSource": "项目源码或配套资料",
+        "publication": "研究论文",
+        "relatedSource": "相关原始资料"
+      }
     }
   },
   "about": {
@@ -309,7 +332,7 @@
     },
     "privacy": {
       "title": "隐私说明",
-      "content": "OpenHW Explorer 没有用户账号，不收集任何个人数据。站点使用 Vercel Analytics 做匿名的聚合访问与错误统计；浏览器 localStorage 仅用于记住主题等显示偏好。本站不设置任何追踪 Cookie，反馈完全通过 GitHub Issues 处理。"
+      "content": "OpenHW Explorer 不设用户账号，也不会主动要求访问者提交个人信息。站点使用 Vercel Web Analytics 处理匿名、聚合的页面访问统计和有限的结构化客户端错误信号；Vercel 还会依据其条款处理常规托管请求数据。本站不设置追踪 Cookie；浏览器 localStorage 仅记住显示偏好，反馈入口会打开 GitHub Issues。"
     }
   },
   "contributePage": {

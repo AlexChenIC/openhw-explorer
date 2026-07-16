@@ -26,6 +26,7 @@ import { trackEvent } from "@/lib/observability";
 interface ProjectKnowledgeSummary {
   papersCount: number;
   industryCount: number;
+  involvementCount: number;
   educationCount: number;
   presentationsCount: number;
   articlesCount: number;
@@ -98,6 +99,7 @@ export function ProjectDetail({
   const getProjectDetailHref = (projectId: string) =>
     returnQuery ? `/projects/${projectId}?${returnQuery}` : `/projects/${projectId}`;
   const status = statusConfig[project.status];
+  const statusSource = project.statusSource || "editorial";
   const primaryCategory = project.category[0];
   const { color } = getCategoryStyle(primaryCategory);
   const reviewMeta = getReviewMeta(project.descriptionReviewStatus);
@@ -187,10 +189,26 @@ export function ProjectDetail({
                   {project.name}
                 </h1>
                 <span
+                  title={t(`statusSource.${statusSource}`)}
                   className={`px-2.5 py-1 rounded-md text-xs font-medium ${status.color} ${status.bg}`}
                 >
                   {t(`status.${project.status}`)}
                 </span>
+                {project.statusSourceUrl ? (
+                  <a
+                    href={project.statusSourceUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 rounded-md border border-[var(--border)] px-2 py-1 text-[10px] font-medium text-[var(--text-tertiary)] hover:border-[var(--text-tertiary)] hover:text-[var(--text-secondary)]"
+                  >
+                    {t(`statusSource.${statusSource}`)}
+                    <ExternalLink className="h-3 w-3" />
+                  </a>
+                ) : (
+                  <span className="rounded-md border border-[var(--border)] px-2 py-1 text-[10px] font-medium text-[var(--text-tertiary)]">
+                    {t(`statusSource.${statusSource}`)}
+                  </span>
+                )}
                 {project.featured && (
                   <span className="px-2.5 py-1 rounded-md bg-[var(--green)]/15 text-[var(--green)] text-xs font-semibold">
                     {t("featured")}
@@ -277,7 +295,10 @@ export function ProjectDetail({
                   </span>
                   <span className="px-2 py-0.5 rounded-md bg-[var(--bg-subtle-strong)] text-[11px] text-[var(--text-secondary)]">
                     {t("quickStart.statusChip", {
-                      value: t(`status.${project.status}`),
+                      value: t("statusBadge", {
+                        source: t(`statusSourceShort.${statusSource}`),
+                        status: t(`status.${project.status}`),
+                      }),
                     })}
                   </span>
                   {primaryRole && (
@@ -308,7 +329,9 @@ export function ProjectDetail({
           {project.keyFacts && project.keyFacts.length > 0 && (
             <div className="mb-4 rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-4 sm:p-5">
               <p className="mb-3 text-xs font-semibold tracking-wide text-[var(--text-tertiary)] uppercase">
-                {t("atAGlance.title")}
+                {locale === "zh" && project.keyFactsZh?.length
+                  ? t("atAGlance.factCheckTitle")
+                  : t("atAGlance.title")}
               </p>
               <ul className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
                 {project.keyFacts.map((fact) => (
@@ -331,27 +354,40 @@ export function ProjectDetail({
                 {t("furtherResources.title")}
               </p>
               <div className="grid gap-2 sm:grid-cols-2">
-                {project.furtherResources.map((resource) => (
-                  <a
-                    key={resource.url}
-                    href={resource.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="group flex items-start gap-2 rounded-lg border border-[var(--border)] bg-[var(--bg-card)] px-3 py-2.5 transition-all hover:border-[var(--primary)]/40"
-                  >
-                    <ExternalLink className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-[var(--text-tertiary)] transition-colors group-hover:text-[var(--primary)]" />
-                    <span className="min-w-0">
-                      <span className="block text-[13px] font-medium text-[var(--text-primary)] group-hover:text-[var(--primary)] transition-colors">
-                        {resource.label}
-                      </span>
-                      {resource.note && (
-                        <span className="block text-[11px] leading-relaxed text-[var(--text-tertiary)]">
-                          {resource.note}
+                {project.furtherResources.map((resource) => {
+                  const localizedNote =
+                    locale !== "zh"
+                      ? resource.note
+                      : resource.url.includes("docs.openhwgroup.org")
+                        ? t("furtherResources.sourceType.officialDocs")
+                        : resource.url.includes("github.com")
+                          ? t("furtherResources.sourceType.projectSource")
+                          : resource.url.includes("doi.org") || resource.url.includes("arxiv.org")
+                            ? t("furtherResources.sourceType.publication")
+                            : t("furtherResources.sourceType.relatedSource");
+
+                  return (
+                    <a
+                      key={resource.url}
+                      href={resource.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="group flex items-start gap-2 rounded-lg border border-[var(--border)] bg-[var(--bg-card)] px-3 py-2.5 transition-all hover:border-[var(--primary)]/40"
+                    >
+                      <ExternalLink className="mt-0.5 h-3.5 w-3.5 flex-shrink-0 text-[var(--text-tertiary)] transition-colors group-hover:text-[var(--primary)]" />
+                      <span className="min-w-0">
+                        <span className="block text-[13px] font-medium text-[var(--text-primary)] group-hover:text-[var(--primary)] transition-colors">
+                          {resource.label}
                         </span>
-                      )}
-                    </span>
-                  </a>
-                ))}
+                        {localizedNote && (
+                          <span className="block text-[11px] leading-relaxed text-[var(--text-tertiary)]">
+                            {localizedNote}
+                          </span>
+                        )}
+                      </span>
+                    </a>
+                  );
+                })}
               </div>
             </div>
           )}

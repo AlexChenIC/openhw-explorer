@@ -35,7 +35,9 @@ const githubStats: Record<string, GitHubRepoStats> = rawData.repos || {};
 interface ProjectProfileMeta {
   tagline: string;
   summary?: string;
+  summaryZh?: string;
   keyFacts?: string[];
+  keyFactsZh?: string[];
   furtherResources?: { label: string; url: string; note?: string }[];
   reviewStatus: ReviewStatus;
   sourceTier: SourceTier;
@@ -65,11 +67,11 @@ interface VerifiedClassification {
 }
 
 const verifiedClassification: Record<string, VerifiedClassification> = {
-  cva6: { category: ["core"], coreType: ["linux-application"] },
+  cva6: { category: ["core"], coreType: ["embedded-mcu", "linux-application"] },
   cv32e40p: { category: ["core"], coreType: ["embedded-mcu", "low-power"] },
   cvw: { category: ["core", "learning"], coreType: ["linux-application", "embedded-mcu"] },
   cv32e40x: { category: ["core"], coreType: ["embedded-mcu"] },
-  cv32e40s: { category: ["core"], coreType: ["embedded-mcu", "safety-critical"] },
+  cv32e40s: { category: ["core"], coreType: ["embedded-mcu", "security-focused"] },
   cva5: { category: ["core"], coreType: ["linux-application"] },
   cve2: { category: ["core"], coreType: ["embedded-mcu", "low-power"] },
   // Note: the GitHub repo description says "secure" but that is an upstream
@@ -98,7 +100,7 @@ const verifiedClassification: Record<string, VerifiedClassification> = {
 
   "core-v-mcu": { category: ["soc"] },
   "core-v-mcu-devkit": { category: ["soc", "tools"] },
-  "cva6-safe": { category: ["soc"] },
+  "cva6-safe": { category: ["soc"], coreType: ["fault-tolerant"] },
   "core-v-polara-apu": { category: ["soc"] },
   "core-et": { category: ["soc", "ip"] },
   "cva6-platform": { category: ["soc"] },
@@ -126,6 +128,9 @@ const verifiedClassification: Record<string, VerifiedClassification> = {
   uap: { category: ["ip", "docs"] },
 };
 
+const openhwStatusProjects = new Set(["cva6", "cvw", "cv32e40x", "cv32e40s", "cva5", "cve2"]);
+const openhwStatusSource = "https://github.com/openhwgroup/core-v-cores";
+
 const repoTagHints: Record<string, string[]> = {
   cva6: ["RV64", "Linux", "Application Core"],
   cv32e40p: ["RV32", "Embedded MCU", "PULP"],
@@ -145,7 +150,7 @@ const repoTagHints: Record<string, string[]> = {
   "cv32e40s-dv": ["Security DV", "Core DV"],
   "core-v-mcu": ["Reference SoC", "Peripheral Integration"],
   "core-v-mcu-devkit": ["DevKit", "Board Support"],
-  "cva6-safe": ["Lockstep", "Safety"],
+  "cva6-safe": ["Lockstep", "DCLS", "Fault Tolerance", "EDAC"],
   "core-v-polara-apu": ["OpenPiton", "Multi-Core"],
   cvfpu: ["Floating Point", "Transprecision"],
   "cv-hpdcache": ["L1 D-Cache", "Non-Blocking"],
@@ -186,7 +191,8 @@ const coreTypeTagLabel: Record<CoreType, string> = {
   "embedded-mcu": "Embedded-class",
   "linux-application": "Application-class",
   "low-power": "Low Power",
-  "safety-critical": "Security / Safety",
+  "security-focused": "Security-focused",
+  "fault-tolerant": "Fault-tolerant / lockstep",
 };
 
 const verificationTypeTagLabel: Record<VerificationType, string> = {
@@ -277,7 +283,7 @@ export const projects: Project[] = [
     description:
       "CVA6 is a configurable 6-stage CORE-V RISC-V core family for application-class and embedded-class use. The cva6 repository README describes the current baseline CPU as 6-stage, single-issue, and in-order, while the OpenHW CORE-V cores roadmap describes the broader CVA6 family as single- or dual-issue; application-class configurations are Linux-capable.",
     category: ["core"],
-    coreType: ["linux-application"],
+    coreType: ["embedded-mcu", "linux-application"],
     tags: ["RISC-V", "SystemVerilog", "RV64", "Linux", "Application-Class"],
     status: "active",
     featured: true,
@@ -341,7 +347,7 @@ export const projects: Project[] = [
     category: ["core"],
     coreType: ["embedded-mcu"],
     tags: ["RISC-V", "SystemVerilog", "Custom Extensions", "X-Interface"],
-    status: "inactive",
+    status: "stable",
     github: "https://github.com/openhwgroup/cv32e40x",
     stars: 258,
     forks: 55,
@@ -355,7 +361,7 @@ export const projects: Project[] = [
     description:
       "CV32E40S is a 32-bit, 4-stage in-order RISC-V core forked from CV32E40P, focused on security-oriented embedded deployments with enhanced Physical Memory Protection (PMP), anti-tampering features, and compressed and bitwise extensions (Zca_Zcb_Zcmp_Zcmt, Zba_Zbb_Zbs). It supports machine and user privilege modes and targets MCU-class systems requiring protection-focused behavior.",
     category: ["core"],
-    coreType: ["embedded-mcu", "safety-critical"],
+    coreType: ["embedded-mcu", "security-focused"],
     tags: ["RISC-V", "SystemVerilog", "Security", "IoT", "PMP"],
     status: "active",
     github: "https://github.com/openhwgroup/cv32e40s",
@@ -468,7 +474,7 @@ export const projects: Project[] = [
     id: "cv-hpdcache-verif",
     name: "CV-HPDCache Verification",
     description:
-      "CV-HPDCache Verification is a UVM-based validation environment for the HPDCache high-performance data cache and its associated hardware prefetcher, covering four parameter configurations spanning HPC and embedded use cases (CONFIG1_HPC, CONFIG2_HPC, CONFIG3_EMBEDDED, CONFIG4_EMBEDDED). It uses pseudo-random sequence generation, directed testing, and memory shadow models for scoreboarding and LRU algorithm validation.",
+      "CV-HPDCache Verification is a UVM environment for the HPDCache and its hardware prefetcher. Its README currently warns that the testbench remains unstable after HPDcache changes: only CFG1 is working, the SystemVerilog PLRU model is commented out, and the optional AXI5 adapter has not been verified. The repository still documents four configuration choices and Python-driven compile, simulation, and regression flows.",
     category: ["verification"],
     verificationType: ["uvm-testbench"],
     tags: ["Verification", "SystemVerilog", "Cache", "HPDCache"],
@@ -488,7 +494,7 @@ export const projects: Project[] = [
     category: ["verification"],
     verificationType: ["arch-compliance"],
     tags: ["Verification", "SystemVerilog", "ISA Compliance", "Wally"],
-    status: "completed",
+    status: "deprecated",
     github: "https://github.com/openhwgroup/cvw-arch-verif",
     stars: 17,
     forks: 39,
@@ -598,10 +604,10 @@ export const projects: Project[] = [
     id: "cva6-safe",
     name: "CVA6-Safe",
     description:
-      "CVA6-Safe is a dual-core lockstep (DCLS) subsystem built on CVA6, providing fault-tolerant operation through synchronized dual-core execution for safety-critical deployments. It also supports an asymmetric multi-processing (AMP) mode when lockstep is not required, offering flexibility for configurations that trade fault detection for independent core operation.",
+      "CVA6-Safe is a CVA6-based dual-core lockstep subsystem. Its public README documents synchronized DCLS execution, a split mode for independent core operation, and cache error detection and correction. These mechanisms support fault-detection and safety-oriented system research; the repository does not claim ISO 26262 certification.",
     category: ["soc"],
-    coreType: ["safety-critical"],
-    tags: ["Safety", "Lockstep", "DCLS", "CVA6", "ISO 26262", "Automotive"],
+    coreType: ["fault-tolerant"],
+    tags: ["Lockstep", "DCLS", "CVA6", "Fault Tolerance", "EDAC"],
     status: "experimental",
     github: "https://github.com/openhwgroup/cva6-safe",
     stars: 0,
@@ -965,11 +971,33 @@ for (const project of projects) {
     project.tags = buildVerifiedTags(project);
   }
 
+  if (project.status === "archived") {
+    project.statusSource = "github";
+    project.statusSourceUrl = project.github;
+  } else if (openhwStatusProjects.has(project.id)) {
+    project.statusSource = "openhw";
+    project.statusSourceUrl = openhwStatusSource;
+  } else if (
+    project.status === "active" ||
+    project.status === "inactive" ||
+    project.status === "deprecated"
+  ) {
+    project.statusSource = "github";
+    project.statusSourceUrl = project.github;
+  } else {
+    project.statusSource = "editorial";
+    project.statusSourceUrl = project.github;
+  }
+
   const profileMeta = projectProfileMeta[project.id];
   if (profileMeta) {
     const summary = profileMeta.summary?.trim();
     if (summary) {
       project.description = summary;
+    }
+    const summaryZh = profileMeta.summaryZh?.trim();
+    if (summaryZh) {
+      project.localizedDescription = { zh: summaryZh };
     }
     project.descriptionReviewStatus = profileMeta.reviewStatus;
     project.descriptionSourceTier = profileMeta.sourceTier;
@@ -979,6 +1007,9 @@ for (const project of projects) {
     project.descriptionConfidence = profileMeta.confidence;
     if (profileMeta.keyFacts?.length) {
       project.keyFacts = profileMeta.keyFacts;
+    }
+    if (profileMeta.keyFactsZh?.length) {
+      project.keyFactsZh = profileMeta.keyFactsZh;
     }
     if (profileMeta.furtherResources?.length) {
       project.furtherResources = profileMeta.furtherResources;
@@ -1087,6 +1118,20 @@ export function getFeaturedProjects(): Project[] {
 // Get project by ID
 export function getProjectById(id: string): Project | undefined {
   return projects.find((p) => p.id === id);
+}
+
+/**
+ * Keep the verified English profile as the canonical source while exposing the
+ * Chinese material authored alongside it in docs/repos/<id>/profile.md.
+ */
+export function localizeProject(project: Project, locale: string): Project {
+  if (locale !== "zh") return project;
+
+  return {
+    ...project,
+    description: project.localizedDescription?.zh || project.description,
+    keyFacts: project.keyFactsZh?.length ? project.keyFactsZh : project.keyFacts,
+  };
 }
 
 // Get related projects

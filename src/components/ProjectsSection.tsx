@@ -24,7 +24,13 @@ const projectCategories: ProjectCategory[] = [
 ];
 
 const userRoles: UserRole[] = ["browsing", "student", "engineer", "researcher", "contributor"];
-const coreTypes: CoreType[] = ["embedded-mcu", "linux-application", "low-power", "safety-critical"];
+const coreTypes: CoreType[] = [
+  "embedded-mcu",
+  "linux-application",
+  "low-power",
+  "security-focused",
+  "fault-tolerant",
+];
 const verificationTypes: VerificationType[] = [
   "uvm-testbench",
   "formal-verification",
@@ -75,7 +81,7 @@ export function ProjectsSection() {
   const [activeCategory, setActiveCategory] = useState<ProjectCategory | "all">(initialCategory);
   const [activeRole, setActiveRole] = useState<UserRole | null>(initialRole);
   const [activeCoreType, setActiveCoreType] = useState<CoreType | null>(
-    initialCategory === "core" ? initialCoreType : null,
+    initialCategory === "core" || initialCategory === "soc" ? initialCoreType : null,
   );
   const [activeVerificationType, setActiveVerificationType] = useState<VerificationType | null>(
     initialCategory === "verification" ? initialVerificationType : null,

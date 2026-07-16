@@ -326,6 +326,20 @@ function validateProjectProfileMeta() {
       });
     }
 
+    if (typeof profile.summaryZh !== "string" || !profile.summaryZh.trim()) {
+      errors.push(`project '${id}' is missing a Chinese summary`);
+    }
+
+    if (!Array.isArray(profile.keyFactsZh) || profile.keyFactsZh.length === 0) {
+      errors.push(`project '${id}' is missing Chinese fact-check notes`);
+    } else {
+      profile.keyFactsZh.forEach((fact, index) => {
+        if (typeof fact !== "string" || !fact.trim()) {
+          errors.push(`project '${id}' keyFactsZh[${index}] must be a non-empty string`);
+        }
+      });
+    }
+
     if (!Array.isArray(profile.furtherResources)) {
       errors.push(`project '${id}' furtherResources must be an array`);
     } else {

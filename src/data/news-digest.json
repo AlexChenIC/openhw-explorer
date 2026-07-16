@@ -1,6 +1,6 @@
 {
-  "weekOf": "2026-07-10",
-  "generatedAt": "2026-07-10T07:40:20.541Z",
+  "weekOf": "2026-07-11",
+  "generatedAt": "2026-07-11T21:19:45.984Z",
   "stats": {
     "totalRelevant": 78,
     "totalSources": 33,
@@ -1987,7 +1987,7 @@
       "title": "Gemmini v0.7.1 adds rectangular convolutions and new Timeloop configurations",
       "url": "https://github.com/ucb-bar/gemmini/releases/tag/v0.7.1",
       "source": "UC Berkeley / Gemmini (GitHub)",
-      "publishedAt": "2026-05-22T23:35:00.000Z",
+      "publishedAt": "2023-05-22T23:35:24.000Z",
       "summary": "Gemmini v0.7.1 is an incremental accelerator release that adds rectangular convolution support, ships new Timeloop configurations, improves area for runtime-con...",
       "author": "",
       "relevanceScore": 5,
@@ -2033,7 +2033,7 @@
       "title": "OpenHW publishes CV32A60X 6.0.0 configuration release for TRL5 work",
       "url": "https://github.com/openhwgroup/cva6/releases/tag/cv32a60x-v6.0.0",
       "source": "OpenHW / CVA6 (GitHub)",
-      "publishedAt": "2026-04-23T13:49:00.000Z",
+      "publishedAt": "2025-04-23T13:49:12.000Z",
       "summary": "The OpenHW CVA6 repository published CV32A60X 6.0.0 as a dedicated configuration release, adding an OBI-based pipeline hierarchy, removing caches and PMP entrie...",
       "author": "",
       "relevanceScore": 8,
