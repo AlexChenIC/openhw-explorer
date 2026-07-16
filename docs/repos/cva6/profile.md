@@ -2,21 +2,31 @@
 
 > CVA6 是 OpenHW 的 6-stage 应用级/嵌入式 CORE-V RISC-V 核心家族；官方资料同时存在“当前基线 single-issue”和“家族 single or dual-issue”的表述，需要在站内明确区分。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 
-CVA6 is a configurable 6-stage CORE-V RISC-V core family for application-class and embedded-class use. The cva6 repository README describes the current baseline CPU as 6-stage, single-issue, and in-order, while the OpenHW CORE-V cores roadmap describes the broader CVA6 family as single- or dual-issue; application-class configurations are Linux-capable.
+CVA6 is a configurable six-stage, in-order CORE-V processor family spanning 32-bit and 64-bit embedded- and application-class configurations. The baseline implementation is single-issue and includes the privilege and virtual-memory features needed by Unix-like operating systems; the wider family roadmap also covers dual-issue configurations. This is the main OpenHW repository to study when evaluating Linux-capable RISC-V cores, custom extensions through CV-X-IF, FPGA prototypes, or application-class microarchitecture.
+
+## 中文介绍
+
+CVA6 是一套可配置的六级顺序执行 CORE-V 处理器家族，覆盖 32 位与 64 位、嵌入式与应用级配置。当前基线实现为单发射，并具备运行类 Unix 操作系统所需的特权级、地址转换与虚拟内存能力；更广泛的家族路线还包含双发射配置。若你正在评估可启动 Linux 的 RISC-V 核心、通过 CV-X-IF 集成自定义扩展、进行 FPGA 原型验证或研究应用级微架构，CVA6 是 OpenHW 中最值得优先深入的仓库之一。
 
 ## Key facts
 
-- ISA: 64-bit RISC-V with full I, M, A, and C extensions (User-Level ISA V 2.3), per the repository README
-- Pipeline: 6-stage, single-issue, in-order baseline; the CORE-V family roadmap describes single- or dual-issue family configurations
-- Privilege levels: M, S, and U — sufficient to run a Unix-like operating system
-- Memory system: configurable size, separate TLBs, hardware page-table walker, and branch prediction (BTB, branch history table, and return-address stack)
-- Family configurations include CV32A60AX, CV32A60X, and CV64A60AX; CV32A60X v5.3 has achieved TRL-5 per the official CORE-V table
-- Origin: started as Ariane at ETH Zürich (PULP platform), contributed to OpenHW
-- A performance model lives in the repository's perf-model/ folder for micro-architecture studies
+- Baseline architecture: six-stage, single-issue, in-order RISC-V CPU with I, M, A, and C extensions
+- System capability: M, S, and U privilege modes, separate TLBs, a hardware page-table walker, and branch prediction
+- Family scope: CV32A60AX, CV32A60X, and CV64A60AX configurations; the family roadmap covers single- and dual-issue variants
+- Readiness: CV32A60X v5.3 has achieved OpenHW TRL-5; readiness must be checked per configuration rather than assumed for the whole family
+- Ecosystem: user manual, verification environment, FPGA APU, tutorials, CV-X-IF support, and a performance model for microarchitecture studies
+
+## 中文核心事实
+
+- 基线架构：六级、单发射、顺序执行，支持 RISC-V I、M、A、C 扩展
+- 系统能力：支持 M/S/U 特权级、独立 TLB、硬件页表遍历和分支预测
+- 家族范围：包含 CV32A60AX、CV32A60X、CV64A60AX 等配置，路线图覆盖单发射与双发射变体
+- 成熟度：CV32A60X v5.3 已达到 OpenHW TRL-5，其他配置需要分别确认成熟度，不能以家族整体代替
+- 配套资源：用户手册、验证环境、FPGA APU、教程、CV-X-IF 支持及微架构性能模型
 
 ## Further resources
 

@@ -2,19 +2,31 @@
 
 > core-v-freertos-kernel 是 FreeRTOS kernel source/header 和 ports 层，作为 CORE-V FreeRTOS 生态的内核基础。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 
-core-v-freertos-kernel contains the FreeRTOS kernel source for CORE-V targets. Its README describes the standard FreeRTOS kernel layout: the core kernel contained in list.c, queue.c, and tasks.c, optional co-routine support in croutine.c, a Portable directory for microcontroller- and compiler-specific port files, and an include directory for the kernel headers.
+core-v-freertos-kernel contains the FreeRTOS kernel sources and target/compiler ports used by the CORE-V MCU software stack. The tree follows the familiar FreeRTOS organization around task, queue, and list management, optional co-routines, public headers, and a portability layer. This is a low-level dependency for engineers maintaining a CORE-V FreeRTOS port; developers looking for runnable demos, drivers, or setup instructions should use core-v-freertos instead.
+
+## 中文介绍
+
+core-v-freertos-kernel 保存 CORE-V MCU 软件栈使用的 FreeRTOS 内核源码以及面向目标与编译器的移植层。目录结构围绕任务、队列和链表管理、可选 co-routine、公共头文件和 portable 层展开，与常见 FreeRTOS 内核组织方式一致。它适合维护 CORE-V FreeRTOS 移植的底层工程师；需要可运行示例、驱动或环境配置的开发者应转到 core-v-freertos。
 
 ## Key facts
 
-- Kernel core: `list.c`, `queue.c`, and `tasks.c` are the files shared by every port and appear at this repository's root
-- Optional feature: `croutine.c` implements co-routines, normally for very memory-constrained systems
-- Portability layer: the repository's `portable` directory contains microcontroller- and compiler-specific port files
-- Headers: the root-level `include` directory contains the real-time kernel headers
-- Scope limit: the repository README does not provide a quick-start workflow or application demos
+- Kernel core: list.c, queue.c, and tasks.c provide shared scheduler and synchronization behavior
+- Optional feature: croutine.c implements co-routines for memory-constrained systems
+- Portability layer: portable contains microcontroller- and compiler-specific files
+- Headers: include contains the real-time kernel interfaces
+- Scope boundary: kernel and ports only; application demos and quick-start flows live in core-v-freertos
+
+## 中文核心事实
+
+- 内核核心：list.c、queue.c 和 tasks.c 提供共享调度与同步行为
+- 可选功能：croutine.c 为内存受限系统实现 co-routine
+- 移植层：portable 包含面向微控制器与编译器的专用文件
+- 头文件：include 包含实时内核接口
+- 范围边界：这里只维护内核与移植，应用示例和快速入门位于 core-v-freertos
 
 ## Further resources
 

@@ -2,19 +2,31 @@
 
 > CVW/Wally 是面向教学与工程实践的 5-stage configurable RISC-V processor，资料与课程属性强，是本站教学方向的重要入口。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 
-CVW, also known as CORE-V Wally, is a configurable 5-stage RISC-V processor associated with the RISC-V System-on-Chip Design textbook. It supports a broad range of RV32/RV64 configurations and optional extensions, passes RISC-V architecture tests, and boots Linux on FPGA according to its README.
+CVW, also known as CORE-V Wally, is a configurable five-stage SystemVerilog RISC-V processor that spans minimal RV32E designs through feature-rich RV64GC application processors. It combines a broad extension set with optional caches, branch prediction, virtual memory, and standard platform peripherals, and it can boot Linux on FPGA. Its close connection to the RISC-V System-on-Chip Design textbook, examples, and regression flows makes it especially approachable for students while retaining enough configurability for architecture and SoC research.
+
+## 中文介绍
+
+CVW（CORE-V Wally）是一款用 SystemVerilog 编写的可配置五级流水 RISC-V 处理器，配置范围从精简的 RV32E 核心一直延伸到功能完整的 RV64GC 应用处理器。它可选多种指令扩展、缓存、分支预测、虚拟内存和常见平台外设，并能够在 FPGA 上启动 Linux。项目与 RISC-V System-on-Chip Design 教材紧密配套，提供示例和回归流程，因此对学生较友好，同时也具备支持体系结构与 SoC 研究的配置深度。
 
 ## Key facts
 
-- Pipeline and RTL: 5-stage pipelined processor written in SystemVerilog
-- Configuration range: from a minimal RV32E core to a fully featured RV64GC application processor
-- Optional system features include caches, branch prediction, virtual memory, PMP, CLINT, PLIC, UART, and GPIO
-- Verification status: the README reports RISC-V architecture-test compliance, Linux boot in simulation and on FPGA, and Technology Readiness Level 4
-- Learning context: the repository is associated with the RISC-V System-on-Chip Design textbook and includes setup, examples, tests, and regression flows
+- Architecture: five-stage SystemVerilog processor configurable for RV32 or RV64
+- Configuration range: minimal RV32E through RV64GC with RVA22S64-profile features
+- Optional system features: caches, branch prediction, virtual memory, PMP, CLINT, PLIC, UART, and GPIO
+- Demonstrated capability: passes RISC-V architecture tests and boots Linux in simulation and on FPGA
+- Readiness and learning context: currently identified as TRL-4 and developed alongside a textbook, setup scripts, examples, tests, and regression flows
+
+## 中文核心事实
+
+- 架构：五级流水 SystemVerilog 处理器，可配置为 RV32 或 RV64
+- 配置范围：从精简 RV32E 到带 RVA22S64 profile 特性的 RV64GC
+- 可选系统功能：缓存、分支预测、虚拟内存、PMP、CLINT、PLIC、UART 和 GPIO
+- 已展示能力：通过 RISC-V 架构测试，并可在仿真和 FPGA 上启动 Linux
+- 成熟度与学习资源：当前标注为 TRL-4，并配套教材、环境脚本、示例、测试与回归流程
 
 ## Further resources
 

@@ -2,19 +2,31 @@
 
 > cva6-sdk 是为 CVA6 构建可启动 Linux 镜像的工具集合：RISC-V toolchain、OpenSBI、U-Boot、Linux kernel 与 Buildroot rootfs，输出可直接烧录的 SD 卡镜像。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 
-CVA6 SDK houses the RISC-V tools used to build a bootable Linux image for the CVA6 core: a RISC-V toolchain, OpenSBI, U-Boot with a corresponding device tree, the Linux kernel, and an initramfs including the rootfs. It produces ready-to-flash SD card images, supports both 32-bit and 64-bit builds via an XLEN switch, and has been designed and tested for the Digilent Genesys 2 and Altera Agilex 7 FPGA boards.
+CVA6 SDK is the Buildroot-based path for producing a complete bootable Linux image for CVA6 FPGA systems. A single build coordinates the RISC-V toolchain, OpenSBI, U-Boot and device tree, Linux kernel, initramfs, and root filesystem, then packages them into a flashable SD-card image. It is the practical starting point for users bringing up 32-bit or 64-bit CVA6 on Genesys 2 or Agilex 7; teams committed to Yocto should compare it with meta-cva6-yocto.
+
+## 中文介绍
+
+CVA6 SDK 是为 CVA6 FPGA 系统生成完整可启动 Linux 镜像的 Buildroot 路线。一次构建会协调 RISC-V 工具链、OpenSBI、U-Boot 与设备树、Linux 内核、initramfs 和根文件系统，并打包成可写入 SD 卡的镜像。需要在 Genesys 2 或 Agilex 7 上启动 32 位/64 位 CVA6 的用户可以优先从这里开始；已经采用 Yocto 的团队则应同时比较 meta-cva6-yocto。
 
 ## Key facts
 
-- Output: ready-to-flash `sdcard.img` containing the CVA6 boot and Linux payloads
+- Output: ready-to-flash sdcard.img containing CVA6 boot and Linux payloads
 - Build stack: RISC-V toolchain, OpenSBI, U-Boot/device tree, Linux kernel, Buildroot, initramfs, and root filesystem
-- Architecture selection: 64-bit by default, with 32-bit builds selected through `XLEN`
-- Tested FPGA boards named by the README: Digilent Genesys 2 and Altera Agilex 7
-- Explicit boundary: the SDK does not contain OpenOCD; optional installation guidance points to the separate RISC-V OpenOCD project
+- Architecture selection: 64-bit by default, with 32-bit builds selected through XLEN
+- Tested FPGA boards: Digilent Genesys 2 and Altera Agilex 7
+- Tool boundary: OpenOCD is not included and must be obtained separately when needed
+
+## 中文核心事实
+
+- 输出：包含 CVA6 启动栈与 Linux 载荷的可写入 sdcard.img
+- 构建栈：RISC-V 工具链、OpenSBI、U-Boot/设备树、Linux 内核、Buildroot、initramfs 与根文件系统
+- 位宽选择：默认 64 位，可通过 XLEN 选择 32 位构建
+- 已测试 FPGA 板：Digilent Genesys 2 与 Altera Agilex 7
+- 工具边界：不包含 OpenOCD，需要时应单独获取
 
 ## Further resources
 

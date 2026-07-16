@@ -2,19 +2,31 @@
 
 > core-v-mcu-uvm 是面向 CORE-V MCU 的 UVM 验证环境，目标是把 CORE-V MCU 项目推进到 TRL-5 及以上。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 
-core-v-mcu-uvm is an advanced UVM verification environment for the CORE-V MCU project. Its README says the project aims to bring CORE-V MCU to TRL-5 and beyond, with chip-level and subsystem-level UVM environments and Moore.io/Datum-related infrastructure.
+core-v-mcu-uvm is the chip- and subsystem-level UVM environment built to raise the verification maturity of CORE-V MCU toward TRL-5 and beyond. It covers the MCU at chip level and includes reusable environments for blocks such as the APB timer, while consuming the RTL as a submodule. This repository is most relevant to experienced DV engineers because its flows depend on Moore.io packages, simulator-specific tooling, and in some cases licensed Datum verification IP; the stated TRL level is a goal, not an achieved certification.
+
+## 中文介绍
+
+core-v-mcu-uvm 是为提升 CORE-V MCU 验证成熟度而建设的芯片级与子系统级 UVM 环境，目标指向 TRL-5 及更高阶段。它覆盖完整 MCU，也包含 APB timer 等模块的可复用验证环境，并通过 submodule 引入被测 RTL。该仓库更适合有经验的 DV 工程师，因为流程依赖 Moore.io 软件包、特定仿真器，部分验证 IP 还需要授权的 Datum 组件；TRL-5 是项目目标，并不代表已经达成。
 
 ## Key facts
 
-- Goal: the README says the project aims to bring CORE-V MCU to TRL-5 and beyond; it does not claim that this level has already been achieved
-- Verification scope includes a chip-level CORE-V MCU environment and testbench plus APB timer subsystem environments
-- The CORE-V MCU RTL is consumed as a Git submodule rather than maintained in this repository
-- Tooling described by the README includes Moore.io packages, Metrics DSim Cloud, Vivado, and simulator-specific flows
-- Some VIP libraries require a Moore.io account and licensed Datum packages
+- Goal: advance CORE-V MCU verification toward TRL-5 and beyond; this is a target rather than a completed milestone
+- Scope: chip-level CORE-V MCU environment and testbench plus APB timer subsystem environments
+- RTL boundary: CORE-V MCU is consumed as a Git submodule and is not maintained here
+- Tooling: Moore.io packages, Metrics DSim Cloud, Vivado, and simulator-specific flows
+- Access requirements: some VIP libraries require a Moore.io account and licensed Datum packages
+
+## 中文核心事实
+
+- 目标：推动 CORE-V MCU 验证达到 TRL-5 及更高阶段，这是目标而非已完成里程碑
+- 范围：芯片级 CORE-V MCU 环境与 testbench，以及 APB timer 子系统环境
+- RTL 边界：CORE-V MCU 通过 Git submodule 引入，并不在本仓库维护
+- 工具：涉及 Moore.io 软件包、Metrics DSim Cloud、Vivado 和特定仿真器流程
+- 访问要求：部分 VIP 库需要 Moore.io 账户和授权的 Datum 软件包
 
 ## Further resources
 

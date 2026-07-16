@@ -2,19 +2,31 @@
 
 > corev-binutils-gdb 是 CORE-V Binutils/GDB 的 development fork；README 明确说它不是 official Binutils repository。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 
-corev-binutils-gdb is OpenHW's CORE-V Binutils/GDB development repository before upstream submission. Its README explicitly says it is not the official Binutils repository and that the `development` branch tracks upstream Binutils while incorporating CORE-V changes.
+corev-binutils-gdb is OpenHW's development fork of GNU Binutils and GDB for CORE-V-specific assembler, linker, binary-tool, and debugger changes. Its development branch tracks upstream Binutils while carrying CORE-V work intended for possible upstream submission. This inactive repository is useful when maintaining or auditing the historical CORE-V GNU toolchain, but it is not an official upstream distribution or a current end-user tool package.
+
+## 中文介绍
+
+corev-binutils-gdb 是 OpenHW 为 CORE-V 专用汇编器、链接器、二进制工具和调试器修改维护的 GNU Binutils/GDB 开发分支。development 分支跟踪上游 Binutils，同时承载计划向上游提交的 CORE-V 工作。该仓库目前处于非活跃状态，适合维护或审计历史 CORE-V GNU 工具链，但它不是官方上游发行版，也不是面向普通用户的当前工具包。
 
 ## Key facts
 
-- Repository role: CORE-V Binutils/GDB development before proposed upstream inclusion
-- Upstream boundary: the README explicitly states that this is not the official Binutils repository
-- Branch model: `development` is the single active branch described by the README
-- Synchronization: the development branch tracks upstream Binutils and adds CORE-V changes
-- Quality expectation: the README says the development branch should compile and pass tests, but this is a project policy rather than an independent certification
+- Role: CORE-V Binutils/GDB development before proposed upstream inclusion
+- Upstream boundary: development fork, not the official GNU Binutils repository
+- Branch model: development is the designated active-development branch
+- Synchronization: tracks upstream Binutils while adding CORE-V changes
+- Quality posture: branch policy expects builds and tests to pass, but this is not an independent certification
+
+## 中文核心事实
+
+- 角色：用于 CORE-V Binutils/GDB 修改及潜在上游提交前的开发
+- 上游边界：开发分支，并非 GNU Binutils 官方仓库
+- 分支模型：development 是指定的活跃开发分支
+- 同步方式：跟踪上游 Binutils，同时加入 CORE-V 修改
+- 质量定位：分支策略要求编译和测试通过，但这不等同于独立认证
 
 ## Further resources
 

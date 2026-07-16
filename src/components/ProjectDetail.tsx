@@ -329,9 +329,7 @@ export function ProjectDetail({
           {project.keyFacts && project.keyFacts.length > 0 && (
             <div className="mb-4 rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-4 sm:p-5">
               <p className="mb-3 text-xs font-semibold tracking-wide text-[var(--text-tertiary)] uppercase">
-                {locale === "zh" && project.keyFactsZh?.length
-                  ? t("atAGlance.factCheckTitle")
-                  : t("atAGlance.title")}
+                {t("atAGlance.title")}
               </p>
               <ul className="grid gap-x-6 gap-y-2 sm:grid-cols-2">
                 {project.keyFacts.map((fact) => (

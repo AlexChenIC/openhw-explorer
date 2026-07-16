@@ -2,19 +2,31 @@
 
 > meta-cva6-yocto 是为 CVA6 构建嵌入式 Linux 镜像的 Yocto layer，提供 Genesys 2 与 Agilex 7 板卡上 32/64-bit CVA6 的 machine 定义。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 
-meta-cva6-yocto is a Yocto layer for building embedded Linux images for the CVA6 core. It depends on openembedded-core, BitBake, and the meta-riscv layer, and provides machine definitions for CVA6 targets on the Digilent Genesys 2 and Altera Agilex 7 FPGA boards in both 32-bit (cv32a6) and 64-bit (cv64a6) configurations.
+meta-cva6-yocto is an OpenEmbedded layer for building reproducible embedded-Linux images and extensible SDKs for CVA6. It defines 32-bit and 64-bit machines for Genesys 2 and Agilex 7 and composes openembedded-core, BitBake, and meta-riscv into a board-oriented image workflow. This is the appropriate route for engineers already using Yocto layer management; its declared compatibility is the older Honister release, so dependency versions should be reviewed before adopting it in a new build system.
+
+## 中文介绍
+
+meta-cva6-yocto 是一套用于为 CVA6 构建可复现嵌入式 Linux 镜像和 extensible SDK 的 OpenEmbedded layer。它为 Genesys 2 与 Agilex 7 定义 32 位和 64 位 machine，并将 openembedded-core、BitBake 与 meta-riscv 组合为面向板卡的镜像流程。对于已经采用 Yocto layer 管理的工程团队，这是一条合适路线；但项目声明兼容的是较旧的 Honister 版本，新构建系统采用前应先检查依赖版本。
 
 ## Key facts
 
-- Artifact type: Yocto/OpenEmbedded layer for CVA6 embedded Linux images
-- Declared compatibility: the README names the Yocto `honister` release
+- Artifact type: Yocto/OpenEmbedded layer for CVA6 embedded-Linux images and SDKs
+- Declared compatibility: Yocto Honister
 - Dependencies: openembedded-core, BitBake, and riscv/meta-riscv
-- Machine definitions: 32-bit and 64-bit CVA6 targets for both Genesys 2 and Agilex 7
-- Tested image: the README records `core-image-minimal` testing against a specific CVA6 commit for both 32-bit and 64-bit configurations
+- Machine definitions: 32-bit and 64-bit CVA6 targets for Genesys 2 and Agilex 7
+- Tested image: core-image-minimal for both 32-bit and 64-bit configurations against a recorded CVA6 revision
+
+## 中文核心事实
+
+- 产物类型：面向 CVA6 嵌入式 Linux 镜像与 SDK 的 Yocto/OpenEmbedded layer
+- 声明兼容版本：Yocto Honister
+- 依赖：openembedded-core、BitBake 与 riscv/meta-riscv
+- Machine 定义：Genesys 2 和 Agilex 7 的 32 位与 64 位 CVA6 目标
+- 已测试镜像：针对记录的 CVA6 revision 测试 32 位和 64 位 core-image-minimal
 
 ## Further resources
 

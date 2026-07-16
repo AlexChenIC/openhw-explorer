@@ -2,19 +2,31 @@
 
 > CV32E40P 是 OpenHW CORE-V 家族中成熟度最高、资料最完整的 32-bit embedded-class 核心之一；需要区分 completed CV32E40P 与仍在发展的 CV32E40PV2。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 
-CV32E40P is a small, efficient 32-bit, 4-stage in-order CORE-V RISC-V core implementing RV32IM[F|Zfinx]C with PULP custom extensions. It originated from the RI5CY/PULP line and was contributed to OpenHW in 2020; OpenHW lists CV32E40P as completed while CV32E40PV2 remains an active-development line.
+CV32E40P is a compact four-stage, in-order 32-bit RISC-V core for embedded and MCU-class systems. It combines RV32IMC with optional floating-point support and PULP custom extensions aimed at code density, DSP-style performance, and energy efficiency. Its clear documentation, mature v1 release, and shared CORE-V verification flow make it useful both for learning a production-oriented embedded core and for integrating or extending a small CPU in an SoC.
+
+## 中文介绍
+
+CV32E40P 是一款紧凑的四级顺序执行 32 位 RISC-V 核心，面向嵌入式和 MCU 级系统。它以 RV32IMC 为基础，可选浮点能力，并加入用于提高代码密度、DSP 类运算性能和能效的 PULP 自定义扩展。该项目拥有较完整的文档、成熟的 v1 版本以及共享的 CORE-V 验证流程，既适合学习一款面向工程应用的嵌入式核心，也适合进行小型 SoC 集成与扩展研究。
 
 ## Key facts
 
-- Architecture: 32-bit, 4-stage, in-order embedded-class RISC-V core
-- ISA: RV32IMC with optional F or Zfinx support and PULP custom extensions, as described by the repository and family documentation
-- Origin: evolved from the RI5CY core developed by the PULP Platform team
-- Release status: CV32E40Pv1 v1.0.0 achieved TRL-5; the official CORE-V table lists CV32E40Pv2 v1.8.3 as not yet at its TRL-5 goal
-- Verification: the shared verification environment is maintained in core-v-verif, not in the RTL repository
+- Architecture: 32-bit, four-stage, in-order embedded-class RISC-V core
+- ISA: RV32IMC with optional F or Zfinx support and PULP custom extensions
+- Origin: evolved from the RI5CY core developed by the PULP Platform team and moved to OpenHW in 2020
+- Readiness: CV32E40Pv1 v1.0.0 achieved TRL-5; CV32E40Pv2 v1.8.3 has not yet reached its TRL-5 goal
+- Verification boundary: production verification is maintained in core-v-verif; the simple RTL-repository testbench is for experimentation
+
+## 中文核心事实
+
+- 架构：32 位、四级流水、顺序执行的嵌入式 RISC-V 核心
+- 指令集：RV32IMC，可选 F 或 Zfinx，并支持 PULP 自定义扩展
+- 来源：由 PULP Platform 团队的 RI5CY 核心演进而来，2020 年进入 OpenHW
+- 成熟度：CV32E40Pv1 v1.0.0 已达到 TRL-5；CV32E40Pv2 v1.8.3 尚未达到其 TRL-5 目标
+- 验证边界：正式验证环境位于 core-v-verif；RTL 仓库中的简单 testbench 仅用于实验
 
 ## Further resources
 

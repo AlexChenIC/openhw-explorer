@@ -2,19 +2,31 @@
 
 > cvfpu-uvm 是 CVFPU 在 CVA6 wrapper 场景下的 UVM 验证环境，使用 C++ reference model 和 SystemVerilog DPI。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 
-cvfpu-uvm provides a UVM verification environment for CVFPU, with the DUT described as the CVA6 wrapper of the floating-point unit. The repository includes test plans, UVM environment components, a C++ reference model exposed through SystemVerilog DPI, and simulator-specific regression flows.
+cvfpu-uvm is the dedicated UVM environment for verifying CVFPU through the floating-point wrapper used by CVA6. It combines test plans, agents, scoreboards, regression lists, and a C++ reference model connected to SystemVerilog through DPI, with CVA6 and core-v-verif supplied as dependencies. This repository is the right entry point for engineers validating floating-point operations and wrapper integration, provided they have access to one of the documented commercial simulator flows.
+
+## 中文介绍
+
+cvfpu-uvm 是用于验证 CVFPU 的专用 UVM 环境，被测对象是 CVA6 使用的浮点单元 wrapper。它整合测试计划、agent、scoreboard、回归列表，以及通过 SystemVerilog DPI 接入的 C++ 参考模型，并依赖 CVA6 与 core-v-verif。若工程师需要验证浮点运算和 wrapper 集成，这里是合适的入口，但现有流程主要面向已列出的商业仿真器。
 
 ## Key facts
 
-- DUT: the README identifies the device under test as the CVA6 wrapper around CVFPU
+- DUT: CVA6 wrapper around the CVFPU floating-point unit
 - Testbench: UVM environment, agent, scoreboard, tests, top-level testbench, and regression lists
-- Reference model: C++ model compiled into a shared library and connected to SystemVerilog through DPI
+- Reference model: C++ shared library connected to SystemVerilog through DPI
 - Dependencies: CVA6 and core-v-verif are included as Git submodules
-- Simulator flows are documented for QuestaSim, Xcelium, and VCS; these are external commercial tools
+- Simulator support: documented flows for QuestaSim, Xcelium, and VCS
+
+## 中文核心事实
+
+- 被测对象：CVFPU 浮点单元的 CVA6 wrapper
+- Testbench：包含 UVM environment、agent、scoreboard、测试、顶层 testbench 和回归列表
+- 参考模型：编译为共享库并通过 DPI 连接 SystemVerilog 的 C++ 模型
+- 依赖：以 Git submodule 方式引入 CVA6 与 core-v-verif
+- 仿真器支持：提供 QuestaSim、Xcelium 和 VCS 流程
 
 ## Further resources
 

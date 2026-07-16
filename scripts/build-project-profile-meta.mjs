@@ -176,16 +176,21 @@ function parseProfile(content) {
 
   const urls = extractUrls(content);
   const hasOverview = /##\s*项目概述/.test(content);
+  const hasPublicCopy =
+    /##\s*Public summary/.test(content) &&
+    /##\s*中文介绍/.test(content) &&
+    /##\s*Key facts/.test(content) &&
+    /##\s*中文核心事实/.test(content);
   const summary = cleanMarkdownText(
     extractSection(content, "Public summary") || extractSection(content, "站内摘要"),
   );
-  const summaryZh = cleanMarkdownText(extractSection(content, "项目概述"));
+  const summaryZh = cleanMarkdownText(extractSection(content, "中文介绍"));
   const keyFacts = extractBullets(extractSection(content, "Key facts"));
-  const keyFactsZh = extractBullets(extractSection(content, "事实核查要点"));
+  const keyFactsZh = extractBullets(extractSection(content, "中文核心事实"));
   const furtherResources = extractResourceLinks(extractSection(content, "Further resources"));
 
   let reviewStatus = "auto";
-  if (isTodo || !hasOverview) {
+  if (isTodo || !hasOverview || !hasPublicCopy) {
     reviewStatus = "needs-review";
   } else if (verifiedAt && urls.length > 0 && summary) {
     reviewStatus = "reviewed";

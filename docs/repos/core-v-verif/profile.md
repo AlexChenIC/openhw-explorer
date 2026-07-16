@@ -2,19 +2,31 @@
 
 > core-v-verif 是 OpenHW CORE-V 家族共享的功能验证基础设施，是验证筛选维度的核心锚点。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 
-core-v-verif is the shared functional verification project for the CORE-V family of RISC-V cores. It provides common verification infrastructure, core-specific directories for CV32E40P/CV32E40X/CV32E40S/CVA6, documentation for verification strategy and DV plans, and Bender-based hardware dependency management.
+core-v-verif is the shared functional-verification framework used across several CORE-V processors rather than a testbench for only one core. It combines reusable UVM infrastructure, simulation Makefiles, verification libraries, utilities, vendor dependencies, DV plans, and core-specific environments for processors including CV32E40P, CV32E40X, CV32E40S, and CVA6. Verification engineers should start here to understand common CORE-V methodology, then move into the target core's directory or dedicated DV repository for configuration-specific tests and coverage.
+
+## 中文介绍
+
+core-v-verif 是多个 CORE-V 处理器共享的功能验证框架，而不是只服务某一个核心的 testbench。它汇集可复用的 UVM 基础设施、仿真 Makefile、验证库、工具脚本、第三方依赖、DV 计划，以及 CV32E40P、CV32E40X、CV32E40S、CVA6 等核心的专用环境。验证工程师可以先从这里理解 CORE-V 的共用方法，再进入目标核心目录或独立 DV 仓库查看具体配置、测试和覆盖率。
 
 ## Key facts
 
 - Scope: shared functional-verification project for the CORE-V family, not a single-core testbench
-- Core-specific areas currently named by the README include CV32E40P, CV32E40X, CV32E40S, and CVA6
-- Shared infrastructure includes simulation Makefiles, verification libraries, utilities, vendor components, DV plans, and coding guidelines
-- Dependency management: the repository supports Bender and can be included as a dependency by projects such as cvfpu-uvm
-- Starting point: the project README directs first-time users to the CORE-V-VERIF Quick Start Guide
+- Core environments: CV32E40P, CV32E40X, CV32E40S, and CVA6 areas are maintained in the repository
+- Shared assets: simulation Makefiles, verification libraries, utilities, vendor components, DV plans, and coding guidelines
+- Dependency management: supports Bender and can be consumed by projects such as cvfpu-uvm
+- Entry path: the CORE-V-VERIF Quick Start Guide explains setup before users select a core-specific flow
+
+## 中文核心事实
+
+- 范围：CORE-V 家族共享的功能验证项目，并非单核心 testbench
+- 核心环境：仓库维护 CV32E40P、CV32E40X、CV32E40S 和 CVA6 等专用区域
+- 共享资产：仿真 Makefile、验证库、工具、第三方组件、DV 计划和编码规范
+- 依赖管理：支持 Bender，并可被 cvfpu-uvm 等项目作为依赖使用
+- 入门路径：先完成 CORE-V-VERIF Quick Start Guide，再选择具体核心流程
 
 ## Further resources
 

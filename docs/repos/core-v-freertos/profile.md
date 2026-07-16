@@ -2,19 +2,31 @@
 
 > core-v-freertos 是 CORE-V MCU 的 FreeRTOS runtime、drivers、demos 和 tests 仓库，偏嵌入式软件支持。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 
-core-v-freertos provides FreeRTOS and drivers for real-time application development on CORE-V MCU. Its README includes demos, environment files, kernel code with PULP-specific patches, no-RTOS examples, templates, tests, and flows for RTL simulation and virtual platform simulation.
+core-v-freertos is the software-support repository for running real-time applications on CORE-V MCU. It combines FreeRTOS, board and peripheral drivers, demonstrations, templates, tests, no-RTOS examples, and execution paths for RTL simulation or the GVSOC virtual platform. Embedded developers should start here when they need application-level examples and target integration; the separate core-v-freertos-kernel repository contains the lower-level kernel source and ports.
+
+## 中文介绍
+
+core-v-freertos 是在 CORE-V MCU 上运行实时应用的软件支持仓库。它整合 FreeRTOS、板级与外设驱动、示例、模板、测试、no-RTOS 程序，以及 RTL 仿真和 GVSOC 虚拟平台两条执行路径。嵌入式开发者需要应用级示例和目标平台集成时应从这里开始；更底层的内核源码与移植位于独立的 core-v-freertos-kernel 仓库。
 
 ## Key facts
 
-- Purpose: FreeRTOS runtime and drivers for real-time applications on CORE-V MCU
-- Execution paths: programs can run in RTL simulation or the GVSOC virtual platform
-- Repository areas include target code, drivers, demos, environment files, a patched kernel, no-RTOS examples, templates, and tests
-- Toolchain: supports either PULP RISC-V GCC for PULP extensions or an upstream RISC-V GCC toolchain
-- Boundary: this is a CORE-V MCU software-support repository, not the upstream FreeRTOS kernel project
+- Purpose: FreeRTOS runtime, drivers, and examples for CORE-V MCU applications
+- Execution paths: RTL simulation or the GVSOC virtual platform
+- Contents: target code, drivers, demos, environment files, patched kernel code, no-RTOS examples, templates, and tests
+- Toolchain: PULP RISC-V GCC for PULP extensions or an upstream RISC-V GCC toolchain
+- Boundary: CORE-V MCU support package, not the upstream FreeRTOS project
+
+## 中文核心事实
+
+- 用途：面向 CORE-V MCU 应用的 FreeRTOS 运行环境、驱动与示例
+- 执行路径：RTL 仿真或 GVSOC 虚拟平台
+- 内容：目标代码、驱动、示例、环境文件、带补丁内核、no-RTOS 示例、模板和测试
+- 工具链：支持面向 PULP 扩展的 PULP RISC-V GCC 或上游 RISC-V GCC
+- 边界：属于 CORE-V MCU 支持包，不是 FreeRTOS 上游项目
 
 ## Further resources
 

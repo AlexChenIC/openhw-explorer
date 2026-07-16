@@ -2,19 +2,31 @@
 
 > CORE-V Polara APU 是基于 Ara 与 OpenPiton 的多核 RISC-V vector research platform，公开资料偏研究原型。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 
-CORE-V Polara APU is a multicore RISC-V vector research platform originating from Ara and OpenPiton. Its README describes four RISC-V vector cores connected using the OpenPiton platform, with simulation flows that require a RISC-V LLVM compiler with vector extension support.
+CORE-V Polara APU is a multicore vector-processing research platform that combines ideas and code from Ara with the OpenPiton manycore infrastructure. Its documented configuration connects four RISC-V vector cores and includes low-precision operations relevant to DNN inference. The repository is aimed at researchers evaluating vector and multicore systems; reproducing its flows requires a vector-capable RISC-V LLVM toolchain and supported commercial simulators.
+
+## 中文介绍
+
+CORE-V Polara APU 是一套多核向量处理研究平台，将 Ara 的向量处理工作与 OpenPiton 多核基础设施结合。公开配置连接四个 RISC-V 向量核心，并包含与 DNN 推理相关的低精度运算能力。该仓库主要面向研究向量与多核系统的用户；复现实验流程需要支持向量扩展的 RISC-V LLVM 工具链以及相应商业仿真器。
 
 ## Key facts
 
-- Origin: combines work from the PULP Ara vector processor and Princeton OpenPiton projects
-- Topology described by the README: four RISC-V vector cores connected through the OpenPiton platform
-- Compute scope includes low-precision operations for DNN inference
+- Origin: combines the PULP Ara vector processor with Princeton OpenPiton infrastructure
+- Topology: four RISC-V vector cores connected through OpenPiton
+- Compute scope: includes low-precision operations for DNN inference
 - Toolchain: requires a RISC-V LLVM compiler with vector-extension support
-- Simulation flows are documented for VCS and ModelSim/QuestaSim and therefore depend on external commercial tools
+- Simulation: VCS and ModelSim/QuestaSim flows depend on external commercial tools
+
+## 中文核心事实
+
+- 来源：结合 PULP Ara 向量处理器与 Princeton OpenPiton 基础设施
+- 拓扑：四个 RISC-V 向量核心通过 OpenPiton 连接
+- 计算范围：包含面向 DNN 推理的低精度运算
+- 工具链：需要支持向量扩展的 RISC-V LLVM 编译器
+- 仿真：VCS 与 ModelSim/QuestaSim 流程依赖外部商业工具
 
 ## Further resources
 

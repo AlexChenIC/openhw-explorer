@@ -2,19 +2,31 @@
 
 > cvw-arch-verif 是 CVW/Wally 的架构测试与覆盖资料仓库，官方 README 已声明迁移到 riscv-arch-test，不应标为 formal verification。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 
-cvw-arch-verif is a deprecated architectural verification repository for CORE-V Wally. The README states that tests, coverage, and the updated framework have migrated to the RISC-V architecture test repository, so OpenHW Explorer classifies it as architecture tests rather than formal verification.
+cvw-arch-verif is the former architectural-verification workspace for CORE-V Wally, containing test plans, covergroups, and directed tests for RVA22S64 and related RV32 extensions. The repository is deprecated and its tests, coverage material, and maintained framework have moved to riscv-arch-test. Use this code only for historical context or migration work; current architecture-testing work should start in the upstream RISC-V repository.
+
+## 中文介绍
+
+cvw-arch-verif 是 CORE-V Wally 早期使用的架构验证工作区，包含面向 RVA22S64 及相关 RV32 扩展的测试计划、covergroup 和定向测试。该仓库已经弃用，测试、覆盖率资料和继续维护的框架均已迁移到 riscv-arch-test。它目前主要适合查阅历史实现或处理迁移问题；新的架构测试工作应直接从上游 RISC-V 仓库开始。
 
 ## Key facts
 
-- Repository status: the README explicitly marks cvw-arch-verif as deprecated
-- Migration: tests, coverage, and the updated framework moved to riscv-non-isa/riscv-arch-test
+- Status: deprecated repository retained for historical reference
+- Successor: tests, coverage, and the maintained framework moved to riscv-non-isa/riscv-arch-test
 - Original scope: architecture functional verification for CORE-V Wally
-- Repository contents include test plans, covergroups, and directed tests for RVA22S64 and corresponding RV32 extensions
-- Classification: architecture tests and functional coverage, not a formal-verification framework
+- Contents: test plans, covergroups, and directed tests for RVA22S64 and corresponding RV32 extensions
+- Method boundary: architecture tests and functional coverage, not a formal-verification framework
+
+## 中文核心事实
+
+- 状态：已弃用，仅保留作历史参考
+- 后继项目：测试、覆盖率和持续维护的框架已迁移至 riscv-non-isa/riscv-arch-test
+- 原始范围：CORE-V Wally 的架构功能验证
+- 内容：RVA22S64 及相应 RV32 扩展的测试计划、covergroup 和定向测试
+- 方法边界：属于架构测试与功能覆盖率，不是形式验证框架
 
 ## Further resources
 

@@ -2,18 +2,29 @@
 
 > cva6-dcls 是 CVA6 的 Dual-Core Lock-Step 平台仓库；README 目前只有 "Under construction..."，站内按早期实验项目处理。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 
-cva6-dcls is a dual-core lock-step (DCLS) platform for the CVA6 RISC-V processor core. Its README is currently a placeholder marked "Under construction...", so OpenHW Explorer treats it as an early-stage experimental project alongside the related CVA6-Safe lockstep subsystem.
+cva6-dcls is an early-stage dual-core lockstep platform for CVA6. Its public repository confirms the DCLS scope and shows current development activity, but it does not yet publish enough architecture, configuration, safety-mechanism, or verification detail for an engineering evaluation. Readers can use it to follow emerging lockstep work; anyone selecting a design today should also examine CVA6-Safe, whose public subsystem behavior is documented in greater detail.
+
+## 中文介绍
+
+cva6-dcls 是一套处于早期阶段的 CVA6 双核锁步平台。公开仓库确认了 DCLS 方向，也显示项目仍有开发活动，但目前尚未提供足够的架构、配置、安全机制和验证资料，不能据此完成工程选型。读者可以用它跟踪新的锁步工作；如果当前就需要评估可用设计，还应同时查看公开行为说明更完整的 CVA6-Safe。
 
 ## Key facts
 
-- Confirmed scope: a dual-core lockstep module/platform for the CVA6 processor core
-- Documentation state: the public README contains only the title and "Under construction..."
-- Evidence limit: no detailed architecture, safety mechanism, configuration, or verification claim is shown here because the repository does not document it publicly
-- Activity context: GitHub records pushes in 2026, but repository activity alone is not treated as evidence of technical maturity
+- Confirmed scope: dual-core lockstep module/platform for the CVA6 processor core
+- Documentation state: public project documentation is still marked under construction
+- Evidence limit: detailed architecture, safety mechanisms, configuration options, and verification results are not yet public
+- Activity context: development continued in 2026, but activity alone does not establish technical maturity
+
+## 中文核心事实
+
+- 已确认范围：面向 CVA6 处理器核心的双核锁步模块/平台
+- 文档状态：公开项目文档仍标为建设中
+- 证据边界：详细架构、安全机制、配置选项和验证结果尚未公开
+- 活跃度：2026 年仍有开发活动，但活跃本身不能证明技术成熟度
 
 ## Further resources
 

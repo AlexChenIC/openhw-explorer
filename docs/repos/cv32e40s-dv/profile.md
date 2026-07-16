@@ -2,20 +2,31 @@
 
 > cv32e40s-dv 是 CV32E40S 的设计验证环境，包含 UVM testbench 目录和 formal verification 目录。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 
-cv32e40s-dv is the design-verification environment for the CV32E40S core. Its README lists BSP, UVM environment, simulation, testbench, tests, and an `fv` directory for formal verification work.
+cv32e40s-dv is the core-specific verification repository for the security-oriented CV32E40S processor. It organizes software test compilation, UVM infrastructure, simulation, top-level testbench code, test cases, and formal-verification work into separate areas. Engineers changing CV32E40S RTL can use it to locate the relevant dynamic or formal flow, while noting that the repository is currently treated as inactive rather than an actively evolving DV baseline.
+
+## 中文介绍
+
+cv32e40s-dv 是安全型处理器 CV32E40S 的专用验证仓库。它将测试软件编译、UVM 基础设施、仿真、顶层 testbench、测试用例和形式验证分别组织在独立目录中。修改 CV32E40S RTL 的工程师可以在这里找到对应的动态或形式验证流程，但该仓库当前应视为非活跃维护状态，而不是持续演进的 DV 基线。
 
 ## Key facts
 
 - Target: design-verification environment for the CV32E40S core
-- The BSP compiles, assembles, and links test programs for the core and UVM environment
-- The `env` directory contains the UVM environment class and associated infrastructure
-- The repository separates simulation, testbench, and test-case directories
-- Formal verification is explicitly run from the `fv` directory
-- Maintenance context: GitHub's latest push is from November 2024, so OpenHW Explorer marks this repository inactive rather than implying current development
+- BSP: compiles, assembles, and links test programs for the core and UVM environment
+- UVM structure: environment class and supporting infrastructure live under env
+- Flow separation: simulation, testbench, test cases, and formal work have dedicated directories
+- Maintenance context: the latest recorded push is from November 2024 and the site classifies the project as inactive
+
+## 中文核心事实
+
+- 目标：CV32E40S 核心的设计验证环境
+- BSP：负责为核心与 UVM 环境编译、汇编和链接测试程序
+- UVM 结构：environment class 及配套基础设施位于 env 目录
+- 流程划分：仿真、testbench、测试用例和形式验证分别位于独立目录
+- 维护状态：最近记录的推送时间为 2024 年 11 月，本站将其标为非活跃
 
 ## Further resources
 

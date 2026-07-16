@@ -2,19 +2,31 @@
 
 > CVFPU/FPnew 是可参数化 floating-point unit；README 写的是 aims to be IEEE 754-2008 compliant，不能直接写成完全符合。
 
-数据核对日期: 2026-07-11
+数据核对日期: 2026-07-16
 
 ## Public summary
 
-CVFPU, also known as FPnew, is a parametric SystemVerilog floating-point unit supporting standard RISC-V formats and transprecision formats. Its README says the design aims to be IEEE 754-2008 compliant and explicitly notes known compliance caveats for the PULP DivSqrt unit.
+CVFPU, also known as FPnew, is a highly parameterized SystemVerilog floating-point unit for processors and accelerators that need more flexibility than a fixed FP32 or FP64 datapath. Designers can select standard binary formats, custom exponent and mantissa widths, operations, pipeline behavior, and optional packed-SIMD support, making it useful for both conventional RISC-V floating point and transprecision research. The project aims at IEEE 754-2008 behavior, but adopters must account for documented compliance limitations in the optional PULP DivSqrt implementation.
+
+## 中文介绍
+
+CVFPU（FPnew）是一款高度参数化的 SystemVerilog 浮点单元，适合需要比固定 FP32 或 FP64 数据通路更灵活的处理器与加速器。设计者可以选择标准二进制格式、自定义指数和尾数位宽、运算集合、流水线方式以及可选 packed-SIMD，因此既能支持常规 RISC-V 浮点计算，也适合 transprecision 研究。项目目标是实现 IEEE 754-2008 行为，但采用可选 PULP DivSqrt 单元时必须考虑已经记录的兼容性限制。
 
 ## Key facts
 
-- Design: parametric SystemVerilog floating-point unit also known as FPnew
-- Formats: configurable IEEE 754-style binary formats, including binary16/32/64/128, plus arbitrary exponent and mantissa widths
-- Operations include arithmetic, fused multiply-add, division, square root, comparisons, conversions, classification, and optional packed SIMD
-- Compliance wording: the README says the design aims to comply with IEEE 754-2008 rather than claiming unconditional compliance
-- Known caveat: the PULP DivSqrt option has documented rounding and inexact-flag issues in some cases
+- Design: parameterized SystemVerilog floating-point unit also known as FPnew
+- Formats: binary16/32/64/128 plus custom exponent and mantissa widths
+- Operations: arithmetic, fused multiply-add, division, square root, comparisons, conversions, classification, and optional packed SIMD
+- Standards posture: designed to target IEEE 754-2008 behavior, without an unconditional compliance claim
+- Known limitation: the PULP DivSqrt option has rounding and inexact-flag issues in some cases
+
+## 中文核心事实
+
+- 设计：高度参数化的 SystemVerilog 浮点单元，也称 FPnew
+- 格式：支持 binary16/32/64/128，以及自定义指数和尾数位宽
+- 运算：算术、融合乘加、除法、平方根、比较、转换、分类和可选 packed SIMD
+- 标准定位：目标是实现 IEEE 754-2008 行为，但没有无条件完全符合的声明
+- 已知限制：PULP DivSqrt 选项在部分场景存在舍入和 inexact flag 问题
 
 ## Further resources
 

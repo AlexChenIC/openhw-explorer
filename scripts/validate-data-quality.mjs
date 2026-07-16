@@ -20,6 +20,19 @@ const OFFICIAL_ACTIVITY_STATUS_EXCEPTIONS = new Set([
   // OpenHW's official project catalogue still lists CV32E40S under active development.
   "cv32e40s",
 ]);
+const EDITORIAL_COPY_PATTERNS = [
+  /\b(?:the\s+)?readme\b/i,
+  /according to/i,
+  /openhw explorer/i,
+  /站内/,
+  /(?:README|readme)\s*(?:描述|说明|写明|列出|指出|明确)/i,
+  /分类建议/,
+  /(?:不应|不要).*(?:描述|归为|标为|写成|夸大)/,
+];
+
+function containsEditorialCopy(value) {
+  return EDITORIAL_COPY_PATTERNS.some((pattern) => pattern.test(value));
+}
 
 function readJson(filePath) {
   const raw = readFileSync(filePath, "utf-8");
@@ -323,19 +336,33 @@ function validateProjectProfileMeta() {
         if (typeof fact !== "string" || !fact.trim()) {
           errors.push(`project '${id}' keyFacts[${index}] must be a non-empty string`);
         }
+        if (typeof fact === "string" && containsEditorialCopy(fact)) {
+          errors.push(`project '${id}' keyFacts[${index}] contains editorial/source-audit wording`);
+        }
       });
+    }
+
+    if (typeof profile.summary !== "string" || !profile.summary.trim()) {
+      errors.push(`project '${id}' is missing an English public summary`);
+    } else if (containsEditorialCopy(profile.summary)) {
+      errors.push(`project '${id}' English public summary contains editorial/source-audit wording`);
     }
 
     if (typeof profile.summaryZh !== "string" || !profile.summaryZh.trim()) {
       errors.push(`project '${id}' is missing a Chinese summary`);
+    } else if (containsEditorialCopy(profile.summaryZh)) {
+      errors.push(`project '${id}' Chinese public summary contains editorial/source-audit wording`);
     }
 
     if (!Array.isArray(profile.keyFactsZh) || profile.keyFactsZh.length === 0) {
-      errors.push(`project '${id}' is missing Chinese fact-check notes`);
+      errors.push(`project '${id}' is missing Chinese key facts`);
     } else {
       profile.keyFactsZh.forEach((fact, index) => {
         if (typeof fact !== "string" || !fact.trim()) {
           errors.push(`project '${id}' keyFactsZh[${index}] must be a non-empty string`);
+        }
+        if (typeof fact === "string" && containsEditorialCopy(fact)) {
+          errors.push(`project '${id}' keyFactsZh[${index}] contains editorial/source-audit wording`);
         }
       });
     }
@@ -392,6 +419,12 @@ function validateProjectProfileMeta() {
       }
       if (!/^##\s+Public summary\s*$/m.test(doc) && !/^##\s+站内摘要\s*$/m.test(doc)) {
         errors.push(`project '${id}' profile.md missing Public summary section`);
+      }
+      if (!/^##\s+中文介绍\s*$/m.test(doc)) {
+        errors.push(`project '${id}' profile.md missing 中文介绍 section`);
+      }
+      if (!/^##\s+中文核心事实\s*$/m.test(doc)) {
+        errors.push(`project '${id}' profile.md missing 中文核心事实 section`);
       }
     }
   }
