@@ -1,16 +1,16 @@
 {
   "_meta": {
-    "generatedAt": "2026-07-10T07:34:35.908Z",
+    "generatedAt": "2026-07-17T07:35:17.805Z",
     "lookbackDays": 45,
     "openHwActivityDays": 14,
-    "totalCandidates": 45,
+    "totalCandidates": 43,
     "sourceCount": 17,
     "reviewWorkflow": "Review candidates, verify source facts, copy selected items into src/data/curated-news.json, then run npm run build-news."
   },
   "sources": [
     {
       "source": "Antmicro Blog",
-      "count": 5
+      "count": 4
     },
     {
       "source": "Apache TVM (GitHub)",
@@ -21,16 +21,16 @@
       "count": 1
     },
     {
+      "source": "CHIPS Alliance / Caliptra MCU SW (GitHub)",
+      "count": 1
+    },
+    {
       "source": "CHIPS Alliance / Caliptra Subsystem (GitHub)",
       "count": 1
     },
     {
       "source": "CHIPS Alliance / Caliptra SW (GitHub)",
       "count": 2
-    },
-    {
-      "source": "CHIPS Alliance / Chisel (GitHub)",
-      "count": 1
     },
     {
       "source": "CHIPS Alliance Blog",
@@ -54,7 +54,7 @@
     },
     {
       "source": "lowRISC Newsroom",
-      "count": 4
+      "count": 6
     },
     {
       "source": "MLCommons",
@@ -62,7 +62,7 @@
     },
     {
       "source": "OpenHW Foundation News",
-      "count": 7
+      "count": 5
     },
     {
       "source": "RISC-V International news",
@@ -74,7 +74,7 @@
     },
     {
       "source": "YosysHQ / Yosys (GitHub)",
-      "count": 2
+      "count": 1
     }
   ],
   "items": [
@@ -96,6 +96,31 @@
       ],
       "suggestedAudience": [
         "openhw-riscv",
+        "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "Tampere University Joins OpenTitan Coalition to Advance RISC-V SoC Security and Open-Source Silicon Research",
+      "url": "https://lowrisc.org/news/tampere-university-joins-opentitan-coalition-to-advance-risc-v-soc-security-and-open-source-silicon-research/",
+      "source": "lowRISC Newsroom",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-07-10T08:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 14,
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "RISC-V",
+        "SoC/IP",
+        "Security"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv",
+        "security",
         "soc-ip"
       ],
       "reviewStatus": "candidate",
@@ -154,31 +179,6 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "Ainekko’s CORE-ET Silicon Platform is now an OpenHW Foundation project",
-      "url": "https://openhwfoundation.org/ainekkos-core-et-silicon-platform-is-now-an-openhw-foundation-project/",
-      "source": "OpenHW Foundation News",
-      "sourceType": "web-page",
-      "sourceTier": "official",
-      "publishedAt": "2026-06-02T00:00:00.000Z",
-      "summary": "A new open source project has joined the OpenHW Foundation ecosystem! Ainekko’s CORE-ET Silicon Platform is now an OpenHW Foundation project, bringing an open platform for low-power AI inference at the edge.",
-      "author": "",
-      "relevanceScore": 13,
-      "tags": [
-        "OpenHW",
-        "Eclipse Foundation",
-        "RISC-V",
-        "AI",
-        "LLM"
-      ],
-      "suggestedAudience": [
-        "openhw-riscv",
-        "ai-accelerators",
-        "soc-ip"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
       "title": "lowRISC/opentitan release: devbundle-2026-06-02-1",
       "url": "https://github.com/lowRISC/opentitan/releases/tag/devbundle-2026-06-02-1",
       "source": "lowRISC / OpenTitan (GitHub)",
@@ -203,30 +203,6 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "Fraunhofer AISEC Joins the OpenHW Foundation – Open Hardware as the Foundation for Digital Sovereignty",
-      "url": "https://openhwfoundation.org/fraunhofer-aisec-joins-the-openhw-foundation-open-hardware-as-the-foundation-for-digital-sovereignty/",
-      "source": "OpenHW Foundation News",
-      "sourceType": "web-page",
-      "sourceTier": "official",
-      "publishedAt": "2026-06-01T00:00:00.000Z",
-      "summary": "The Fraunhofer Institute for Applied and Integrated Security (AISEC) has joined the OpenHW Foundation. The goal of this collaboration is to advance open, trustworthy, and highly secure hardware platforms, thereby strengt...",
-      "author": "",
-      "relevanceScore": 11,
-      "tags": [
-        "OpenHW",
-        "Eclipse Foundation",
-        "RISC-V",
-        "Security"
-      ],
-      "suggestedAudience": [
-        "openhw-riscv",
-        "security",
-        "soc-ip"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
       "title": "Unlocking the open-source hardware ecosystem at RISC-V Ottawa (RVO)",
       "url": "https://openhwfoundation.org/unlocking-the-open-source-hardware-ecosystem-at-risc-v-ottawa-rvo/",
       "source": "OpenHW Foundation News",
@@ -245,6 +221,27 @@
       "suggestedAudience": [
         "openhw-riscv",
         "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "OpenTitan Earl Grey 2 to support CHERI and PQC",
+      "url": "https://lowrisc.org/news/opentitan-earl-grey-2-to-support-cheri-and-pqc/",
+      "source": "lowRISC Newsroom",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-07-14T08:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 9,
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "CHERI"
+      ],
+      "suggestedAudience": [
+        "security"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -454,13 +451,13 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "riscv/riscv-isa-manual release: Release riscv-isa-release-fbae3b4-2026-07-09",
-      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-fbae3b4-2026-07-09",
+      "title": "riscv/riscv-isa-manual release: Release riscv-isa-release-3adf599-2026-07-17",
+      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-3adf599-2026-07-17",
       "source": "RISC-V ISA Manual (GitHub)",
       "sourceType": "github-release",
       "sourceTier": "official",
-      "publishedAt": "2026-07-09T22:55:54.000Z",
-      "summary": "This release was created by: aswaterman Release of RISC-V ISA, built from commit fbae3b4, is now available. ## What's Changed * Improve HTML rendering a bit by @aswaterman in https://github.com/riscv/riscv-isa-manual/pul...",
+      "publishedAt": "2026-07-17T00:40:25.000Z",
+      "summary": "This release was created by: wmat Release of RISC-V ISA, built from commit 3adf599, is now available. ## What's Changed * 3251 add autofixci by @wmat in https://github.com/riscv/riscv-isa-manual/pull/3253 **Full Changelo...",
       "author": "github-actions[bot]",
       "relevanceScore": 6,
       "tags": [
@@ -470,6 +467,53 @@
       ],
       "suggestedAudience": [
         "openhw-riscv"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "riscv/riscv-isa-manual release: Release riscv-isa-release-c1e1e1e-2026-07-15",
+      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-c1e1e1e-2026-07-15",
+      "source": "RISC-V ISA Manual (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "official",
+      "publishedAt": "2026-07-15T21:45:43.000Z",
+      "summary": "This release was created by: aswaterman Release of RISC-V ISA, built from commit c1e1e1e, is now available. ## What's Changed * regenerate normative tag reference file by @wmat in https://github.com/riscv/riscv-isa-manua...",
+      "author": "github-actions[bot]",
+      "relevanceScore": 6,
+      "tags": [
+        "RISC-V",
+        "ISA Manual",
+        "Specification"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "chipsalliance/caliptra-mcu-sw release: rom-sdk-2.0.1",
+      "url": "https://github.com/chipsalliance/caliptra-mcu-sw/releases/tag/rom-sdk-2.0.1",
+      "source": "CHIPS Alliance / Caliptra MCU SW (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "official",
+      "publishedAt": "2026-07-10T15:56:16.000Z",
+      "summary": "This release updates the MCU ROM SDK for Caliptra 2.0 with changes merged since [`rom-sdk-2.0.0`](https://github.com/chipsalliance/caliptra-mcu-sw/releases/tag/rom-sdk-2.0.0). This is a reference source release. No prebu...",
+      "author": "mhatrevi",
+      "relevanceScore": 6,
+      "tags": [
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "Firmware",
+        "MCU",
+        "RISC-V"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv",
+        "security",
+        "soc-ip"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -512,27 +556,6 @@
       ],
       "suggestedAudience": [
         "security"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "riscv/riscv-isa-manual release: Release riscv-isa-release-60d323c-2026-07-06",
-      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-60d323c-2026-07-06",
-      "source": "RISC-V ISA Manual (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "official",
-      "publishedAt": "2026-07-06T23:36:07.000Z",
-      "summary": "This release was created by: aswaterman Release of RISC-V ISA, built from commit 60d323c, is now available. ## What's Changed * Add missing AIA CSRs to priv/csrs.adoc by @topperc in https://github.com/riscv/riscv-isa-man...",
-      "author": "github-actions[bot]",
-      "relevanceScore": 6,
-      "tags": [
-        "RISC-V",
-        "ISA Manual",
-        "Specification"
-      ],
-      "suggestedAudience": [
-        "openhw-riscv"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -628,6 +651,26 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
+      "title": "Qualcomm Joins CHIPS Alliance as Platinum Member",
+      "url": "https://www.chipsalliance.org/news/qualcomm-new-member-blog/",
+      "source": "CHIPS Alliance Blog",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-07-15T22:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CHIPS Alliance",
+        "Open Silicon"
+      ],
+      "suggestedAudience": [
+        "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
       "title": "COSMIC - CHERI Mocha MVP-2 Release",
       "url": "https://lowrisc.org/news/cosmic-cheri-mocha-mvp-2-release/",
       "source": "lowRISC Newsroom",
@@ -698,22 +741,47 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "CHIPS Alliance at Latch-Up 2026",
-      "url": "https://www.chipsalliance.org/news/latch-up2026/",
-      "source": "CHIPS Alliance Blog",
-      "sourceType": "web-page",
-      "sourceTier": "official",
-      "publishedAt": "2026-05-31T22:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 5,
+      "title": "llvm/circt release: firtool-1.153.1",
+      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.153.1",
+      "source": "LLVM / CIRCT (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-07-11T13:54:56.000Z",
+      "summary": "**Full Changelog**: https://github.com/llvm/circt/compare/firtool-1.153.0...firtool-1.153.1",
+      "author": "seldridge",
+      "relevanceScore": 4,
       "tags": [
-        "CHIPS Alliance",
-        "Open Silicon",
-        "sv-tools"
+        "CIRCT",
+        "MLIR",
+        "Hardware Compiler",
+        "EDA"
       ],
       "suggestedAudience": [
-        "soc-ip"
+        "ai-accelerators",
+        "eda-tools"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "llvm/circt release: firtool-1.153.0",
+      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.153.0",
+      "source": "LLVM / CIRCT (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-07-10T23:26:53.000Z",
+      "summary": "## What's Changed * [firtool] register verif passes by @Clo91eaf in https://github.com/llvm/circt/pull/10771 * [NFC][LTLToCore] Fix inaccurate test comments by @TaoBi22 in https://github.com/llvm/circt/pull/10779 * [Sim]...",
+      "author": "seldridge",
+      "relevanceScore": 4,
+      "tags": [
+        "CIRCT",
+        "MLIR",
+        "Hardware Compiler",
+        "EDA"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators",
+        "eda-tools"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -762,29 +830,6 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "llvm/circt release: firtool-1.152.0",
-      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.152.0",
-      "source": "LLVM / CIRCT (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-07-04T04:21:10.000Z",
-      "summary": "## What's Changed * [ImportVerilog][Moore] Add $fscanf/$sscanf and scan format support by @VecoMr in https://github.com/llvm/circt/pull/10605 * [ImportVerilog][Moore][Sim] Add $timeformat system task support by @VecoMr i...",
-      "author": "seldridge",
-      "relevanceScore": 4,
-      "tags": [
-        "CIRCT",
-        "MLIR",
-        "Hardware Compiler",
-        "EDA"
-      ],
-      "suggestedAudience": [
-        "ai-accelerators",
-        "eda-tools"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
       "title": "Implementing extended technology mapping in OpenROAD with mockturtle integration",
       "url": "https://antmicro.com/blog/2026/06/multi-output-techmapping-in-openroad",
       "source": "Antmicro Blog",
@@ -802,29 +847,6 @@
       "suggestedAudience": [
         "eda-tools",
         "soc-ip"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "llvm/circt release: firtool-1.151.0",
-      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.151.0",
-      "source": "LLVM / CIRCT (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-06-26T20:21:09.000Z",
-      "summary": "## What's Changed * [ci] Remove Python 3.10 wheels by @seldridge in https://github.com/llvm/circt/pull/10715 * [DCToHW] Fix invalid ESI connections from Unpack(pack()) by @jack2bs in https://github.com/llvm/circt/pull/10...",
-      "author": "seldridge",
-      "relevanceScore": 4,
-      "tags": [
-        "CIRCT",
-        "MLIR",
-        "Hardware Compiler",
-        "EDA"
-      ],
-      "suggestedAudience": [
-        "ai-accelerators",
-        "eda-tools"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -887,48 +909,6 @@
         "Benchmarking",
         "AI",
         "LLM"
-      ],
-      "suggestedAudience": [
-        "ai-accelerators"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "YosysHQ/yosys release: Yosys 0.66",
-      "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.66",
-      "source": "YosysHQ / Yosys (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-06-01T16:22:15.000Z",
-      "summary": "Yosys 0.65 .. Yosys 0.66 -------------------------- * Various - C++ compiler with C++20 support is required. - Please be aware that next release will also migrate to CMake build system. * New commands and options - Added...",
-      "author": "mmicko",
-      "relevanceScore": 4,
-      "tags": [
-        "Yosys",
-        "EDA",
-        "Synthesis"
-      ],
-      "suggestedAudience": [
-        "eda-tools"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "Antmicro supports NVIDIA-Yocto Project on Jetson launch with open source hardware and tools for OTA, fleet management, factory testing, AI",
-      "url": "https://antmicro.com/blog/2026/06/antmicro-support-for-yocto-on-nvidia-jetson",
-      "source": "Antmicro Blog",
-      "sourceType": "rss",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-06-01T00:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 4,
-      "tags": [
-        "Antmicro",
-        "Open Hardware",
-        "AI"
       ],
       "suggestedAudience": [
         "ai-accelerators"
@@ -1060,27 +1040,6 @@
       ],
       "suggestedAudience": [
         "general"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "chipsalliance/chisel release: Chisel v7.13.0",
-      "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.13.0",
-      "source": "CHIPS Alliance / Chisel (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "official",
-      "publishedAt": "2026-06-01T20:37:33.000Z",
-      "summary": "## Features - ChiselTest Compatibility Layer for Chisel 7 (by @EhsanKhodadad in https://github.com/chipsalliance/chisel/pull/5221) - [debug] Add circt_debug_* intrinsics for Chisel type metadata (by @fkhaidari in https:/...",
-      "author": "jackkoenig",
-      "relevanceScore": 2,
-      "tags": [
-        "Chisel",
-        "Hardware Construction",
-        "SoC"
-      ],
-      "suggestedAudience": [
-        "soc-ip"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
