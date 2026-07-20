@@ -1,10 +1,10 @@
 {
   "_meta": {
-    "generatedAt": "2026-07-17T07:35:17.805Z",
+    "generatedAt": "2026-07-20T04:56:27.000Z",
     "lookbackDays": 45,
     "openHwActivityDays": 14,
-    "totalCandidates": 43,
-    "sourceCount": 17,
+    "totalCandidates": 40,
+    "sourceCount": 16,
     "reviewWorkflow": "Review candidates, verify source facts, copy selected items into src/data/curated-news.json, then run npm run build-news."
   },
   "sources": [
@@ -49,20 +49,16 @@
       "count": 2
     },
     {
-      "source": "lowRISC / OpenTitan (GitHub)",
-      "count": 1
-    },
-    {
       "source": "lowRISC Newsroom",
       "count": 6
     },
     {
       "source": "MLCommons",
-      "count": 7
+      "count": 6
     },
     {
       "source": "OpenHW Foundation News",
-      "count": 5
+      "count": 4
     },
     {
       "source": "RISC-V International news",
@@ -127,36 +123,12 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "Ainekko’s Open Edge AI Silicon Joins OpenHW Foundation",
-      "url": "https://openhwfoundation.org/ainekkos-open-edge-ai-silicon-joins-openhw-foundation/",
-      "source": "OpenHW Foundation News",
-      "sourceType": "web-page",
-      "sourceTier": "official",
-      "publishedAt": "2026-06-04T00:00:00.000Z",
-      "summary": "Ainekko, a startup focused on open AI infrastructure, has contributed its CORE-ET Silicon Platform (ETSP) to the OpenHW Foundation, a RISC-V-centric open hardware initiative hosted under the Eclipse Foundation. The platf...",
-      "author": "",
-      "relevanceScore": 14,
-      "tags": [
-        "OpenHW",
-        "Eclipse Foundation",
-        "RISC-V",
-        "AI"
-      ],
-      "suggestedAudience": [
-        "openhw-riscv",
-        "ai-accelerators",
-        "soc-ip"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
       "title": "Dual-core Lockstep in the VeeR EL2 RISC-V core for safety-critical applications and side-channel access mitigation in Caliptra RoT",
       "url": "https://www.chipsalliance.org/news/implementing-dual-core-lockstep-in-the-veer-el2-risc-v-core/",
       "source": "CHIPS Alliance Blog",
       "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-06-28T22:00:00.000Z",
+      "publishedAt": "2026-06-29T00:00:00.000Z",
       "summary": "",
       "author": "",
       "relevanceScore": 13,
@@ -174,30 +146,6 @@
         "openhw-riscv",
         "security",
         "soc-ip"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "lowRISC/opentitan release: devbundle-2026-06-02-1",
-      "url": "https://github.com/lowRISC/opentitan/releases/tag/devbundle-2026-06-02-1",
-      "source": "lowRISC / OpenTitan (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "official",
-      "publishedAt": "2026-06-02T13:33:29.000Z",
-      "summary": "This is the first release of the development bundle for Earl Grey 1.0.0. It currently contains: * FPGA bitstreams * a Verilated simulation binary * an OpenTitanTool binary * a HSMTool binary * a test ROM binary * an FPGA...",
-      "author": "github-actions[bot]",
-      "relevanceScore": 11,
-      "tags": [
-        "OpenTitan",
-        "Root of Trust",
-        "Security",
-        "lowRISC",
-        "EDA"
-      ],
-      "suggestedAudience": [
-        "eda-tools",
-        "security"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -433,7 +381,7 @@
       "source": "CHIPS Alliance Blog",
       "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-06-28T22:00:00.000Z",
+      "publishedAt": "2026-06-29T00:00:00.000Z",
       "summary": "",
       "author": "",
       "relevanceScore": 7,
@@ -656,7 +604,7 @@
       "source": "CHIPS Alliance Blog",
       "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-07-15T22:00:00.000Z",
+      "publishedAt": "2026-07-16T00:00:00.000Z",
       "summary": "",
       "author": "",
       "relevanceScore": 5,
@@ -723,7 +671,7 @@
       "source": "CHIPS Alliance Blog",
       "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-06-10T22:00:00.000Z",
+      "publishedAt": "2026-06-11T00:00:00.000Z",
       "summary": "",
       "author": "",
       "relevanceScore": 5,
@@ -977,29 +925,6 @@
       ],
       "suggestedAudience": [
         "ai-accelerators"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "Chakra Comes of Age: A Standardized Trace Ecosystem for AI Systems Benchmarking and Co-design",
-      "url": "https://mlcommons.org/2026/06/chakra-comes-of-age/",
-      "source": "MLCommons",
-      "sourceType": "rss",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-06-02T14:27:00.000Z",
-      "summary": "From a working group proposal in 2023 to a 40+ member industry effort with native support in PyTorch, NVIDIA NeMo, ASTRA-sim, and commercial simulation and emulation tools — MLCommons Chakra is reshaping how the AI syste...",
-      "author": "lori@mlcommons.org",
-      "relevanceScore": 3,
-      "tags": [
-        "MLCommons",
-        "Benchmarking",
-        "AI",
-        "EDA"
-      ],
-      "suggestedAudience": [
-        "ai-accelerators",
-        "eda-tools"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
