@@ -235,9 +235,6 @@ export function ProjectsSection() {
             <h2 className="text-xl sm:text-2xl font-semibold text-[var(--text-primary)]">
               {getCategoryTitle()}
             </h2>
-            <p className="mt-1 max-w-2xl text-sm leading-relaxed text-[var(--text-secondary)]">
-              {t("directoryIntro")}
-            </p>
           </div>
           <span className="text-sm font-medium tabular-nums text-[var(--text-secondary)]">
             {resultSummaryLabel}

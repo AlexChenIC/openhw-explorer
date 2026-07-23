@@ -475,7 +475,7 @@ function DailyBrief({
 
   return (
     <section className="mb-9">
-      <div className="mb-4 flex flex-col gap-1 sm:flex-row sm:items-end sm:justify-between">
+      <div className="mb-4">
         <div>
           <div className="mb-1 flex items-center gap-2 text-xs font-semibold uppercase tracking-wide text-[var(--primary)]">
             <Activity className="h-3.5 w-3.5" />
@@ -483,7 +483,6 @@ function DailyBrief({
           </div>
           <h2 className="text-2xl font-bold text-[var(--text-primary)]">{t("dailyBriefTitle")}</h2>
         </div>
-        <p className="max-w-xl text-sm text-[var(--text-tertiary)]">{t("dailyBriefSubtitle")}</p>
       </div>
 
       <div className="mb-4 grid grid-cols-2 gap-2 md:grid-cols-4">

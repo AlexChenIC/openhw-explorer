@@ -75,7 +75,7 @@ The PDK cards use locally cached marks from these official project or steward so
 
 The `/resources/industry` page uses official company pages to verify publicly documented RISC-V offerings. The supplier coverage is cross-checked against the abridged 2026 RISC-V Market Analysis supplied for editorial review; inclusion remains a curated directory decision rather than a ranking or endorsement.
 
-The inclusion criteria, status rules, and 2026-07-11 review decisions are recorded in `docs/industry-landscape-methodology.md`.
+The inclusion criteria, status rules, and review decisions through 2026-07-23 are recorded in `docs/industry-landscape-methodology.md`.
 
 Locally cached company logos are used solely to identify and link to the companies' official websites. Names, logos, and trademarks remain the property of their respective owners. Assets are taken from official company sites where a stable source is available. The Cadence and Qualcomm marks are cached from Wikimedia Commons copies of their official wordmarks.
 
@@ -98,8 +98,12 @@ Official company sources:
 - OXMIQ Labs: https://oxmiq.ai/
 - Bluespec: https://bluespec.com/products/
 - Frontgrade Gaisler: https://www.gaisler.com/products/noel-v
+- Imagination Technologies Catapult CPU IP: https://www.imaginationtech.com/news/new-catapult-cpu-is-driving-risc-v-device-adoption/
 - Infineon Technologies: https://www.infineon.com/press-release/2025/infatv202503-067
+- NXP S32N7: https://www.nxp.com/products/S32N7
 - Rivos: https://www.rivosinc.com/
+- Axelera AI Metis: https://axelera.ai/ai-accelerators/aipu/metis
+- Axelera AI Metis product brief: https://axelera.ai/hubfs/Axelera_February2025/pdfs/axelera-metis-compute-board-product-brief.pdf
 - Ventana Micro Systems acquisition by Qualcomm: https://www.qualcomm.com/news/releases/2025/12/qualcomm-acquires-ventana-micro-systems--deepening-risc-v-cpu-ex
 - StarFive: https://www.starfivetech.com/en/
 - SpacemiT: https://www.spacemit.com/en/
@@ -109,8 +113,10 @@ Official company sources:
 - Microchip Technology: https://www.microchip.com/en-us/products/fpgas-and-plds/system-on-chip-fpgas/polarfire-soc-fpgas
 - ESWIN Computing: https://www.eswincomputing.com/en/
 - DeepComputing: https://deepcomputing.io/
+- Milk-V: https://milkv.io/
 - Allwinner Technology: https://www.allwinnertech.com/
 - Espressif Systems: https://www.espressif.com/en/products/socs/esp32-c6
+- Bouffalo Lab: https://en.bouffalolab.com/product/
 - GigaDevice: https://www.gigadevice.com/product/mcu/main-stream-mcus/gd32vf103-series
 - WCH / Nanjing Qinheng: https://www.wch-ic.com/products/productsCenter/mcuInterface?categoryId=70
 - SOPHGO: https://en.sophgo.com/
@@ -127,6 +133,14 @@ Official company sources:
 - SEGGER: https://www.segger.com/products/development-tools/embedded-studio/technology/cpu-support/
 - Antmicro: https://antmicro.com/technologies/risc-v/
 - S2C: https://www.s2ceda.com/
+
+Official cached marks added during the 2026-07-23 review:
+
+- Imagination Technologies: https://www.imaginationtech.com/wp-content/themes/imgtec/assets/svg/logo.svg
+- NXP: https://www.nxp.com/resources/images/nxp-logo.svg
+- Axelera AI: https://axelera.ai/hubfs/Axelera%20AI%20Logo%20Horizontal.svg
+- Milk-V: https://milkv.io/components/LogoNew.svg
+- Bouffalo Lab: https://en.bouffalolab.com/static/img/logo1.png
 
 Fallback logo sources:
 

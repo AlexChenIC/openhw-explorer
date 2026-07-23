@@ -1,8 +1,8 @@
 {
-  "weekOf": "2026-07-17",
-  "generatedAt": "2026-07-17T07:40:19.286Z",
+  "weekOf": "2026-07-23",
+  "generatedAt": "2026-07-23T20:15:16.553Z",
   "stats": {
-    "totalRelevant": 85,
+    "totalRelevant": 86,
     "totalSources": 34,
     "topTags": [
       {
@@ -19,11 +19,11 @@
       },
       {
         "tag": "Verification",
-        "count": 18
+        "count": 19
       },
       {
-        "tag": "Root of Trust",
-        "count": 14
+        "tag": "CHIPS Alliance",
+        "count": 15
       }
     ]
   },
@@ -271,8 +271,20 @@
         "zh": "硬件与嵌入式"
       },
       "icon": "circuit",
-      "count": 7,
+      "count": 8,
       "items": [
+        {
+          "title": "Verilator reaches an initial four-state logic implementation milestone",
+          "titleZh": "Verilator 四态逻辑实现达到首个里程碑",
+          "url": "https://www.chipsalliance.org/news/initial-implementation-verilator/",
+          "source": "CHIPS Alliance Blog",
+          "tags": [
+            "CHIPS Alliance",
+            "Verilator",
+            "SystemVerilog"
+          ],
+          "publishedAt": "2026-07-22T00:00:00.000Z"
+        },
         {
           "title": "Antmicro releases Topwrap 0.7.0 with cleaner SoC YAML and deeper SystemVerilog parsing",
           "titleZh": "Antmicro 发布 Topwrap 0.7.0，改进 SoC YAML 与 SystemVerilog 解析",
@@ -308,18 +320,6 @@
             "I3C"
           ],
           "publishedAt": "2026-06-16T00:00:00.000Z"
-        },
-        {
-          "title": "CHIPS Alliance Latch-Up recap connects SV Tools, Verilator, VeeR, and open PDK work",
-          "titleZh": "CHIPS Alliance Latch-Up 回顾串联 SV Tools、Verilator、VeeR 与开放 PDK 工作",
-          "url": "https://www.chipsalliance.org/news/latch-up2026/",
-          "source": "CHIPS Alliance Blog",
-          "tags": [
-            "CHIPS Alliance",
-            "FOSSi",
-            "Latch-Up"
-          ],
-          "publishedAt": "2026-06-01T00:00:00.000Z"
         }
       ]
     },
@@ -487,6 +487,30 @@
       "highlightRank": 5,
       "titleZh": "CIRCT firtool 1.153.0 更新 verification、ImportVerilog、Moore、ESI 与 FIRRTL 流程",
       "summaryZh": "CIRCT firtool 1.153.0 是一次正式发布，包含 firtool verification pass 注册、Moore/SystemVerilog 字符串 lowering 修复、ImportVerilog hierarchical reference 与 foreach loop 支持、ESI runtime/codegen 修复、Arc coroutine lowering 更新，以及 FIRRTL LowerLayers 和 LowerMemory 改进；随后 1.153.1 作为小型 patch release 发布。"
+    },
+    {
+      "title": "Verilator reaches an initial four-state logic implementation milestone",
+      "url": "https://www.chipsalliance.org/news/initial-implementation-verilator/",
+      "source": "CHIPS Alliance Blog",
+      "publishedAt": "2026-07-22T00:00:00.000Z",
+      "summary": "CHIPS Alliance detailed the first milestone toward four-state SystemVerilog simulation in Verilator. The experimental --fourstate mode represents 0, 1, x, and z...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CHIPS Alliance",
+        "Verilator",
+        "SystemVerilog",
+        "Four-State Logic",
+        "RTL Simulation",
+        "Verification",
+        "Open EDA"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Verilator 四态逻辑实现达到首个里程碑",
+      "summaryZh": "CHIPS Alliance 介绍了 Verilator 支持 SystemVerilog 四态仿真的首个里程碑。实验性 --fourstate 模式用成对的二态值表示 0、1、x、z，从而复用现有优化；数组、队列、调度器及更完整的覆盖仍在持续开发中。"
     },
     {
       "title": "Tampere University joins OpenTitan to advance RISC-V SoC security and PQC research",

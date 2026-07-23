@@ -785,7 +785,7 @@ async function collectGithubReleases(openHwRepos) {
   for (const repoInfo of repos) {
     try {
       const releases = await fetchJson(
-        `https://api.github.com/repos/${repoInfo.repo}/releases?per_page=5`,
+        `https://api.github.com/repos/${repoInfo.repo}/releases?per_page=20`,
       );
       let addedForRepo = 0;
       for (const release of releases) {

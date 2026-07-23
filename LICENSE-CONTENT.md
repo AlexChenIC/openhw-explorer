@@ -66,8 +66,8 @@ exceptions and limitations provided by applicable law.
 
 ## 3. Brand Assets and Marks
 
-Original OpenHW Explorer logo artwork, mascot artwork, and brand identity
-materials are Copyright © 2026 Alex Chen, all rights reserved, to the extent
+Original OpenHW Explorer logo artwork and brand identity materials are
+Copyright © 2026 Alex Chen, all rights reserved, to the extent
 copyright subsists. They may not be reused, modified, or redistributed without
 prior written permission.
 

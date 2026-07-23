@@ -1,7 +1,27 @@
 {
   "_doc": "近期重点新闻的人工策展入口。优先放 OpenHW 官方动态、RISC-V 官方/工作组动态、开源硬件项目发布和高质量技术文章。",
-  "_usage": "每次更新添加 3-7 条即可。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
+  "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
+    {
+      "title": "Verilator reaches an initial four-state logic implementation milestone",
+      "titleZh": "Verilator 四态逻辑实现达到首个里程碑",
+      "url": "https://www.chipsalliance.org/news/initial-implementation-verilator/",
+      "source": "CHIPS Alliance Blog",
+      "addedAt": "2026-07-22T00:00:00Z",
+      "summary": "CHIPS Alliance detailed the first milestone toward four-state SystemVerilog simulation in Verilator. The experimental --fourstate mode represents 0, 1, x, and z through paired two-state values so existing optimizations can be reused; arrays, queues, scheduler work, and broader coverage remain under active development.",
+      "summaryZh": "CHIPS Alliance 介绍了 Verilator 支持 SystemVerilog 四态仿真的首个里程碑。实验性 --fourstate 模式用成对的二态值表示 0、1、x、z，从而复用现有优化；数组、队列、调度器及更完整的覆盖仍在持续开发中。",
+      "tags": [
+        "CHIPS Alliance",
+        "Verilator",
+        "SystemVerilog",
+        "Four-State Logic",
+        "RTL Simulation",
+        "Verification",
+        "Open EDA"
+      ],
+      "sourceTier": "official",
+      "language": "en"
+    },
     {
       "title": "OpenTitan Earl Grey 2 roadmap adds CHERI, PQC, I3C, and efficiency upgrades",
       "titleZh": "OpenTitan Earl Grey 2 路线图加入 CHERI、PQC、I3C 与效率升级",

@@ -5,11 +5,7 @@ import Image from "next/image";
 import { useState } from "react";
 import {
   ArrowLeft,
-  Blocks,
   Building2,
-  CheckCircle2,
-  CircuitBoard,
-  Cpu,
   ExternalLink,
   Globe2,
   MapPin,
@@ -20,7 +16,6 @@ import {
   industryCompanies,
   industryRegions,
   industrySegments,
-  industryVerifiedAt,
   type IndustryCompany,
   type IndustryRegionId,
   type IndustrySegmentId,
@@ -35,11 +30,6 @@ const copy = {
       "A source-checked map of companies turning the RISC-V standard into processor IP, production silicon, compute platforms, and commercial design flows.",
     companies: "companies",
     segments: "industry segments",
-    verified: `Source-checked ${industryVerifiedAt}`,
-    mapLabel: "Industry map",
-    mapTitle: "Browse by role in the value chain",
-    mapSubtitle:
-      "Use these segments to separate processor technology, product platforms, and the tools needed to design and verify them.",
     all: "All companies",
     valueChainFilter: "Value chain",
     regionFilter: "Region",
@@ -49,17 +39,6 @@ const copy = {
     noResults: "No companies match this value-chain and region combination.",
     resetFilters: "Reset filters",
     visit: "Visit company site",
-    signalsLabel: "What to watch",
-    signalsTitle: "Three forces shaping commercial RISC-V",
-    signalOneTitle: "Custom compute",
-    signalOne:
-      "Processor differentiation is moving beyond core selection toward custom instructions, subsystem IP, and hardware-software co-design.",
-    signalTwoTitle: "AI and higher performance",
-    signalTwo:
-      "Commercial portfolios increasingly extend from embedded control into vector, tensor, client, server, and chiplet-based computing.",
-    signalThreeTitle: "Verification and productization",
-    signalThree:
-      "Mature models, toolchains, formal verification, emulation, and software readiness are becoming as important as the CPU RTL itself.",
     note: "Coverage was cross-checked against the abridged RISC-V Market Report: Market Adoption Accelerates 2026, RISC-V International and OpenHW membership lists, and current official company materials. Membership is used only as a discovery signal: inclusion requires a publicly documented RISC-V product, IP, platform, or design-enablement offering. Announced products and acquired businesses are labelled explicitly. This is a curated supplier map, not a ranking.",
   },
   zh: {
@@ -70,10 +49,6 @@ const copy = {
       "经过官网核对的企业地图，呈现如何将 RISC-V 标准转化为处理器 IP、量产芯片、计算平台与商业设计流程。",
     companies: "家企业",
     segments: "个产业环节",
-    verified: `官网核对于 ${industryVerifiedAt}`,
-    mapLabel: "产业地图",
-    mapTitle: "按价值链角色浏览",
-    mapSubtitle: "区分处理器技术、产品平台，以及支撑设计和验证的商业工具与服务。",
     all: "全部企业",
     valueChainFilter: "价值链",
     regionFilter: "区域",
@@ -83,24 +58,9 @@ const copy = {
     noResults: "当前价值链与区域组合下暂无企业。",
     resetFilters: "重置筛选",
     visit: "访问企业官网",
-    signalsLabel: "趋势观察",
-    signalsTitle: "推动 RISC-V 商业化的三个方向",
-    signalOneTitle: "定制计算",
-    signalOne: "处理器差异化正从内核选型扩展到自定义指令、子系统 IP 与软硬件协同设计。",
-    signalTwoTitle: "AI 与更高性能",
-    signalTwo: "商业产品正在从嵌入式控制延伸至向量、张量、客户端、服务器和 Chiplet 计算。",
-    signalThreeTitle: "验证与产品化",
-    signalThree:
-      "成熟的模型、工具链、形式验证、硬件仿真与软件就绪度，正变得与 CPU RTL 本身同样重要。",
     note: "覆盖范围参考了《RISC-V Market Report: Market Adoption Accelerates 2026》简版报告、RISC-V International 与 OpenHW 会员名单，并按照企业当前官网资料逐项核对。会员身份仅用于发现候选企业；入选仍须有公开的 RISC-V 产品、IP、平台或设计支撑方案。已宣布但尚未量产的产品与已被收购的业务均明确标注。本页面是精选供应商地图，不构成排名。",
   },
 } as const;
-
-const segmentIcons: Record<IndustrySegmentId, typeof Cpu> = {
-  "processor-ip": Cpu,
-  "silicon-platforms": CircuitBoard,
-  "design-enablement": Blocks,
-};
 
 function localized<T extends { en: string; zh: string }>(value: T, locale: "en" | "zh") {
   return locale === "zh" ? value.zh : value.en;
@@ -157,63 +117,8 @@ export function IndustryLandscapeContent({ locale }: IndustryLandscapeContentPro
           </aside>
         </section>
 
-        <section aria-labelledby="industry-map-heading">
-          <div className="mb-7 flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-            <div className="max-w-3xl">
-              <div className="mb-2 flex items-center gap-2 text-xs font-semibold text-[var(--primary)]">
-                <Network className="h-4 w-4" />
-                {t.mapLabel}
-              </div>
-              <h2
-                id="industry-map-heading"
-                className="text-xl font-semibold text-[var(--text-primary)] sm:text-2xl"
-              >
-                {t.mapTitle}
-              </h2>
-              <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)] sm:text-base">
-                {t.mapSubtitle}
-              </p>
-            </div>
-            <div className="inline-flex w-fit items-center gap-2 text-xs font-medium text-[var(--text-tertiary)]">
-              <CheckCircle2 className="h-4 w-4 text-[var(--green)]" />
-              {t.verified}
-            </div>
-          </div>
-
-          <div className="grid border-y border-[var(--border)] sm:grid-cols-3">
-            {industrySegments.map((segment, index) => {
-              const Icon = segmentIcons[segment.id];
-              const count = industryCompanies.filter(
-                (company) => company.segment === segment.id,
-              ).length;
-
-              return (
-                <div
-                  key={segment.id}
-                  className={`py-5 sm:px-5 ${
-                    index > 0 ? "border-t border-[var(--border)] sm:border-l sm:border-t-0" : ""
-                  }`}
-                >
-                  <div className="flex items-center justify-between gap-3">
-                    <span className="grid h-9 w-9 place-items-center rounded-md bg-[var(--primary)]/10 text-[var(--primary)]">
-                      <Icon className="h-4.5 w-4.5" />
-                    </span>
-                    <span className="text-sm font-semibold text-[var(--text-tertiary)]">
-                      {count}
-                    </span>
-                  </div>
-                  <h3 className="mt-4 text-base font-semibold text-[var(--text-primary)]">
-                    {localized(segment.title, resolvedLocale)}
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
-                    {localized(segment.description, resolvedLocale)}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
-
-          <div className="mt-7 grid gap-3">
+        <section aria-label={t.valueChainFilter}>
+          <div className="grid gap-3">
             <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
               <div className="inline-flex w-28 shrink-0 items-center gap-2 text-xs font-semibold text-[var(--text-tertiary)]">
                 <Network className="h-4 w-4 text-[var(--primary)]" />
@@ -328,23 +233,6 @@ export function IndustryLandscapeContent({ locale }: IndustryLandscapeContentPro
               </button>
             </div>
           )}
-        </section>
-
-        <section className="border-y border-[var(--border)] py-8" aria-labelledby="signals-heading">
-          <div className="mb-6 max-w-3xl">
-            <div className="mb-2 text-xs font-semibold text-[var(--primary)]">{t.signalsLabel}</div>
-            <h2
-              id="signals-heading"
-              className="text-xl font-semibold text-[var(--text-primary)] sm:text-2xl"
-            >
-              {t.signalsTitle}
-            </h2>
-          </div>
-          <div className="grid gap-6 md:grid-cols-3 md:gap-0">
-            <Signal index="01" title={t.signalOneTitle} text={t.signalOne} />
-            <Signal index="02" title={t.signalTwoTitle} text={t.signalTwo} bordered />
-            <Signal index="03" title={t.signalThreeTitle} text={t.signalThree} bordered />
-          </div>
         </section>
 
         <p className="pb-2 text-xs leading-6 text-[var(--text-tertiary)]">{t.note}</p>
@@ -469,25 +357,5 @@ function CompanyCard({
         </div>
       </a>
     </article>
-  );
-}
-
-function Signal({
-  index,
-  title,
-  text,
-  bordered = false,
-}: {
-  index: string;
-  title: string;
-  text: string;
-  bordered?: boolean;
-}) {
-  return (
-    <div className={bordered ? "md:border-l md:border-[var(--border)] md:px-6" : "md:pr-6"}>
-      <span className="font-mono text-xs font-semibold text-[var(--primary)]">{index}</span>
-      <h3 className="mt-2 text-base font-semibold text-[var(--text-primary)]">{title}</h3>
-      <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">{text}</p>
-    </div>
   );
 }

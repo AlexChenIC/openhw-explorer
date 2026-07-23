@@ -24,8 +24,7 @@ src/
 ├── app/[locale]/          # Page routes (en / zh bilingual)
 ├── components/
 │   ├── QuickFilters.tsx   # Filter system UI
-│   ├── ProjectCard.tsx    # Project card
-│   └── RepoMascotMetroZoo.tsx # Optional project mascots used by fun mode
+│   └── ProjectCard.tsx    # Project card
 ├── data/
 │   ├── projects.ts        # 40 project entries + filter logic (core file)
 │   ├── filters.ts         # Filter option configuration
@@ -57,11 +56,6 @@ messages/
 
 All configuration is in `src/data/filters.ts`, covering roles (5), categories (6), core types, and verification types.
 Filter logic lives in `filterProjects()` in `src/data/projects.ts` — supports multi-condition stacking and URL state sync.
-
-### Project Mascot
-
-`src/components/RepoMascotMetroZoo.tsx` contains the optional project mascot
-presentation used by fun mode.
 
 ### Data Structure
 

@@ -322,21 +322,6 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
     upstreamSource: "riscv-ottawa",
   },
   {
-    id: "openhw-docs",
-    title: "OpenHW Documentation",
-    url: "https://docs.openhwgroup.org/en/latest/index.html",
-    category: "standards-docs",
-    kind: "official",
-    logo: "/resources/logos/openhw.png",
-    summary: {
-      en: "Official documentation entry for OpenHW projects, including CORE-V cores and verification.",
-      zh: "OpenHW 项目的官方文档入口，覆盖 CORE-V 核心和验证相关内容。",
-    },
-    tags: ["OpenHW", "CORE-V", "Docs", "CVA6"],
-    featured: true,
-    upstreamSource: "riscv-ottawa",
-  },
-  {
     id: "riscv-reader",
     title: "The RISC-V Reader",
     url: "https://www.amazon.com/RISC-V-Reader-Open-Architecture-Atlas/dp/0999249118",

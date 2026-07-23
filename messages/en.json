@@ -34,9 +34,7 @@
       "openGithub": "Open OpenHW Foundation GitHub",
       "openMenu": "Open menu",
       "closeMenu": "Close menu",
-      "mobileNavigation": "Mobile navigation",
-      "enableFunMode": "Enable fun mode (project mascots)",
-      "disableFunMode": "Disable fun mode"
+      "mobileNavigation": "Mobile navigation"
     }
   },
   "hero": {
@@ -51,7 +49,6 @@
     "title": "Project Directory",
     "titleByCategory": "{category}",
     "found": "{count} projects",
-    "directoryIntro": "Browse a curated, source-checked selection of OpenHW repositories and narrow it by project type or learning goal.",
     "showing": "Showing {shown} of {total}",
     "loadMore": "Show {count} more",
     "noResults": "No projects found",
@@ -444,7 +441,6 @@
     "fromSources": "from {count} sources",
     "dailyBriefEyebrow": "Editor's brief",
     "dailyBriefTitle": "Start with the essentials",
-    "dailyBriefSubtitle": "A compact view of the latest verified signals, the most important developments, and the direction of the ecosystem.",
     "pulseReviewed": "Reviewed",
     "pulseReviewedHint": "public signals",
     "pulseSources": "Sources",

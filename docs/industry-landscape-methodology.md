@@ -1,6 +1,6 @@
 # Industry Landscape Editorial Method
 
-Last substantive review: 2026-07-11
+Last substantive review: 2026-07-23
 
 ## Scope
 
@@ -42,6 +42,18 @@ The review retained the previously source-checked companies and added representa
 - Space and engineering enablement: Frontgrade Gaisler, Lauterbach, SEGGER, and Antmicro.
 
 Silvaco was removed. Its general TCAD and EDA portfolio is relevant to semiconductor development, but the review did not find a sufficiently explicit current RISC-V offering to meet this directory's inclusion test.
+
+## 2026-07-23 Review Decisions
+
+Five representative gaps were added from current first-party product materials:
+
+- Imagination Technologies for Catapult RISC-V CPU IP, including RTXM-2200 and APXM-6200.
+- NXP for the preproduction S32N7 automotive processor, which includes a RISC-V-based workload accelerator alongside Arm host cores.
+- Axelera AI for Metis edge-AI accelerator products whose official product brief identifies a RISC-V-based architecture.
+- Milk-V for its broad family of purchasable RISC-V boards and computer platforms.
+- Bouffalo Lab for RISC-V wireless IoT chips, SDKs, and reference development boards.
+
+NXP is intentionally described as a heterogeneous, preproduction processor. The entry does not imply that S32N7 is an all-RISC-V SoC. Bosch and Thales were reviewed again but remain outside this supplier map: their public materials establish adoption, development, or ecosystem leadership, not a current externally adoptable RISC-V product or service under this page's inclusion test.
 
 Special status labels retained in the dataset include:
 

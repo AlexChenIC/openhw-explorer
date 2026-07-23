@@ -62,8 +62,6 @@ const copy = {
     openWebsite: "Visit official site",
     libraryLabel: "Technical library",
     libraryTitle: "Browse resources by task",
-    librarySubtitle:
-      "Choose one area to see a focused set of authoritative documentation, tools, and references without scanning the entire directory.",
     showing: "Showing",
     linkCount: "links",
     openResource: "Open resource",
@@ -97,7 +95,6 @@ const copy = {
     openWebsite: "访问官方网站",
     libraryLabel: "技术资料库",
     libraryTitle: "按任务浏览技术资源",
-    librarySubtitle: "选择一个方向，只查看相关的权威文档、工具与参考资料，不必滚动浏览完整目录。",
     showing: "当前显示",
     linkCount: "个链接",
     openResource: "打开资源",
@@ -312,9 +309,6 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
               >
                 {t.libraryTitle}
               </h3>
-              <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)] sm:text-base">
-                {t.librarySubtitle}
-              </p>
             </div>
 
             <div

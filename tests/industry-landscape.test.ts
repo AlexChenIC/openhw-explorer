@@ -7,7 +7,7 @@ import { ecosystemEntries } from "@/data/ecosystem";
 describe("industry landscape", () => {
   it("keeps a focused, source-checkable company map", () => {
     expect(industryCompanies.length).toBeGreaterThanOrEqual(30);
-    expect(industryCompanies.length).toBeLessThanOrEqual(50);
+    expect(industryCompanies.length).toBeLessThanOrEqual(60);
     expect(new Set(industryCompanies.map((company) => company.id)).size).toBe(
       industryCompanies.length,
     );

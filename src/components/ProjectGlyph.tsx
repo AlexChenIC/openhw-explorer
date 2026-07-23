@@ -1,6 +1,3 @@
-"use client";
-
-import dynamic from "next/dynamic";
 import {
   Cpu,
   ShieldCheck,
@@ -14,9 +11,6 @@ import {
 } from "lucide-react";
 import { ProjectCategory } from "@/types";
 import { getCategoryStyle } from "@/lib/category-styles";
-import { useFunMode } from "@/lib/fun-mode";
-
-const MascotBadge = dynamic(() => import("./MascotBadge"), { ssr: false });
 
 const categoryIcon: Record<ProjectCategory, LucideIcon> = {
   core: Cpu,
@@ -30,33 +24,11 @@ const categoryIcon: Record<ProjectCategory, LucideIcon> = {
 };
 
 interface ProjectGlyphProps {
-  projectId: string;
   primaryCategory: ProjectCategory;
   variant: "card" | "detail";
-  showHoverName?: boolean;
 }
 
-// Default project visual: a professional category icon. When fun mode is on,
-// the playful mascot system is loaded on demand instead.
-export function ProjectGlyph({
-  projectId,
-  primaryCategory,
-  variant,
-  showHoverName = false,
-}: ProjectGlyphProps) {
-  const { funMode } = useFunMode();
-
-  if (funMode) {
-    return (
-      <MascotBadge
-        projectId={projectId}
-        primaryCategory={primaryCategory}
-        variant={variant}
-        showHoverName={showHoverName}
-      />
-    );
-  }
-
+export function ProjectGlyph({ primaryCategory, variant }: ProjectGlyphProps) {
   const Icon = categoryIcon[primaryCategory] || Cpu;
   const { color } = getCategoryStyle(primaryCategory);
   const boxSize = variant === "card" ? "w-11 h-11" : "w-16 h-16";
@@ -64,8 +36,9 @@ export function ProjectGlyph({
 
   return (
     <div
-      className={`flex items-center justify-center ${boxSize} rounded-xl flex-shrink-0 border`}
-      style={{ backgroundColor: `${color}15`, borderColor: `${color}40` }}
+      aria-hidden="true"
+      className={`flex items-center justify-center ${boxSize} flex-shrink-0 rounded-lg border`}
+      style={{ backgroundColor: `${color}18`, borderColor: `${color}4D` }}
     >
       <Icon className={iconSize} style={{ color }} />
     </div>

@@ -34,9 +34,7 @@
       "openGithub": "打开 OpenHW Foundation GitHub",
       "openMenu": "打开菜单",
       "closeMenu": "关闭菜单",
-      "mobileNavigation": "移动端导航",
-      "enableFunMode": "开启趣味模式（项目吉祥物）",
-      "disableFunMode": "关闭趣味模式"
+      "mobileNavigation": "移动端导航"
     }
   },
   "hero": {
@@ -51,7 +49,6 @@
     "title": "项目目录",
     "titleByCategory": "{category}",
     "found": "{count} 个项目",
-    "directoryIntro": "浏览经过来源核对、人工精选的 OpenHW 仓库，并按项目类型或学习目标快速缩小范围。",
     "showing": "正在显示 {shown} / {total}",
     "loadMore": "再显示 {count} 个",
     "noResults": "未找到项目",
@@ -444,7 +441,6 @@
     "fromSources": "来自 {count} 个源",
     "dailyBriefEyebrow": "编辑简报",
     "dailyBriefTitle": "先看重点",
-    "dailyBriefSubtitle": "快速了解最近核验的信息、最值得关注的发展，以及开源硬件生态的变化方向。",
     "pulseReviewed": "已核验",
     "pulseReviewedHint": "公开信号",
     "pulseSources": "来源",

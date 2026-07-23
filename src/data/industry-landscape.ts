@@ -34,7 +34,7 @@ export interface IndustryCompany {
   focus: string[];
 }
 
-export const industryVerifiedAt = "2026-07-11";
+export const industryVerifiedAt = "2026-07-23";
 
 export const industrySegments: IndustrySegment[] = [
   {
@@ -377,6 +377,22 @@ export const industryCompanies: IndustryCompany[] = [
     focus: ["Space", "Fault Tolerance", "CPU IP"],
   },
   {
+    id: "imagination-technologies",
+    name: "Imagination Technologies",
+    mark: "IMG",
+    logo: "/industry/logos/imagination.svg",
+    url: "https://www.imaginationtech.com/news/new-catapult-cpu-is-driving-risc-v-device-adoption/",
+    segment: "processor-ip",
+    entityType: { en: "Compute IP company", zh: "计算 IP 企业" },
+    summary: {
+      en: "Develops Catapult RISC-V CPU IP, including the 32-bit real-time RTXM-2200 and the 64-bit, dual-issue APXM-6200 application processor with vector support.",
+      zh: "开发 Catapult RISC-V CPU IP，包括 32 位实时 RTXM-2200，以及支持向量扩展的 64 位双发射 APXM-6200 应用处理器。",
+    },
+    region: { en: "United Kingdom", zh: "英国" },
+    regionGroup: "europe",
+    focus: ["CPU IP", "Vector", "Edge AI"],
+  },
+  {
     id: "infineon",
     name: "Infineon Technologies",
     mark: "IF",
@@ -393,6 +409,22 @@ export const industryCompanies: IndustryCompany[] = [
     focus: ["Automotive", "MCU", "Announced"],
   },
   {
+    id: "nxp",
+    name: "NXP Semiconductors",
+    mark: "NXP",
+    logo: "/industry/logos/nxp.svg",
+    url: "https://www.nxp.com/products/S32N7",
+    segment: "silicon-platforms",
+    entityType: { en: "Automotive semiconductor company", zh: "汽车半导体企业" },
+    summary: {
+      en: "Its preproduction S32N7 automotive processor combines Arm application and real-time cores with a RISC-V-based accelerator for networking, math, and data-intensive workloads.",
+      zh: "其预生产阶段的 S32N7 汽车处理器将 Arm 应用与实时内核，同面向网络、数学及数据密集型负载的 RISC-V 加速器结合。",
+    },
+    region: { en: "Netherlands", zh: "荷兰" },
+    regionGroup: "europe",
+    focus: ["Automotive", "Accelerator", "Preproduction"],
+  },
+  {
     id: "rivos",
     name: "Rivos",
     mark: "RV",
@@ -407,6 +439,22 @@ export const industryCompanies: IndustryCompany[] = [
     region: { en: "United States", zh: "美国" },
     regionGroup: "north-america",
     focus: ["Data Center", "AI", "Chiplets"],
+  },
+  {
+    id: "axelera-ai",
+    name: "Axelera AI",
+    mark: "AX",
+    logo: "/industry/logos/axelera.svg",
+    url: "https://axelera.ai/ai-accelerators/aipu/metis",
+    segment: "silicon-platforms",
+    entityType: { en: "Edge-AI accelerator company", zh: "边缘 AI 加速器企业" },
+    summary: {
+      en: "Offers Metis edge-AI accelerator silicon, cards, compute boards, and the Voyager SDK; its official product brief describes an architecture based on RISC-V and digital in-memory computing.",
+      zh: "提供 Metis 边缘 AI 加速器芯片、板卡、计算板与 Voyager SDK；官方产品资料将其架构描述为基于 RISC-V 与数字存内计算。",
+    },
+    region: { en: "Netherlands", zh: "荷兰" },
+    regionGroup: "europe",
+    focus: ["Edge AI", "Accelerator", "RISC-V"],
   },
   {
     id: "ventana-micro-systems",
@@ -553,6 +601,22 @@ export const industryCompanies: IndustryCompany[] = [
     focus: ["Laptops", "Mainboards", "Developer Systems"],
   },
   {
+    id: "milk-v",
+    name: "Milk-V",
+    mark: "MV",
+    logo: "/industry/logos/milkv.svg",
+    url: "https://milkv.io/",
+    segment: "silicon-platforms",
+    entityType: { en: "RISC-V computer platform company", zh: "RISC-V 计算平台企业" },
+    summary: {
+      en: "Builds a broad range of RISC-V developer and compute platforms, from the compact Duo series to Jupiter, Megrez, Pioneer, and Titan boards and systems.",
+      zh: "构建覆盖广泛的 RISC-V 开发与计算平台，从紧凑型 Duo 系列延伸到 Jupiter、Megrez、Pioneer 和 Titan 板卡与系统。",
+    },
+    region: { en: "China", zh: "中国" },
+    regionGroup: "asia-pacific",
+    focus: ["Boards", "Developer Platforms", "RISC-V PCs"],
+  },
+  {
     id: "allwinner",
     name: "Allwinner Technology",
     mark: "AW",
@@ -583,6 +647,22 @@ export const industryCompanies: IndustryCompany[] = [
     region: { en: "China", zh: "中国" },
     regionGroup: "asia-pacific",
     focus: ["Wireless", "IoT", "SoC"],
+  },
+  {
+    id: "bouffalo-lab",
+    name: "Bouffalo Lab",
+    mark: "BL",
+    logo: "/industry/logos/bouffalo.png",
+    url: "https://en.bouffalolab.com/product/",
+    segment: "silicon-platforms",
+    entityType: { en: "Wireless IoT chip company", zh: "无线物联网芯片企业" },
+    summary: {
+      en: "Offers RISC-V-based wireless IoT chips and development platforms, including the BL602/604 and BL702/706 families, with first-party SDKs and reference boards.",
+      zh: "提供基于 RISC-V 的无线物联网芯片与开发平台，包括 BL602/604、BL702/706 系列，并配套官方 SDK 和参考开发板。",
+    },
+    region: { en: "China", zh: "中国" },
+    regionGroup: "asia-pacific",
+    focus: ["Wireless", "IoT", "MCU"],
   },
   {
     id: "gigadevice",

@@ -37,10 +37,8 @@ export function ProjectCard({ project }: ProjectCardProps) {
       >
         <div className="flex items-start justify-between gap-2">
           <ProjectGlyph
-            projectId={localizedProject.id}
             primaryCategory={primaryCategory}
             variant="card"
-            showHoverName
           />
           <div className="flex flex-wrap items-center justify-end gap-1.5">
             <span

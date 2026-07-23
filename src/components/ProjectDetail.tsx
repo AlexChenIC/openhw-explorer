@@ -179,7 +179,6 @@ export function ProjectDetail({
           {/* Top: Icon + Title + Status */}
           <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
             <ProjectGlyph
-              projectId={project.id}
               primaryCategory={primaryCategory}
               variant="detail"
             />
@@ -594,7 +593,6 @@ export function ProjectDetail({
                     className="card-glow flex items-center gap-3 p-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border)] hover:border-[var(--text-tertiary)] transition-all group"
                   >
                     <ProjectGlyph
-                      projectId={related.id}
                       primaryCategory={relatedPrimaryCategory}
                       variant="card"
                     />

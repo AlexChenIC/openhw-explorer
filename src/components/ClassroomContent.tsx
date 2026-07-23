@@ -1,10 +1,6 @@
 import {
   ArrowRight,
-  BookOpenCheck,
-  CheckCircle2,
-  FileCheck2,
   GraduationCap,
-  Headphones,
   Languages,
   PlayCircle,
   Route,
@@ -18,7 +14,7 @@ import {
 
 const copy = {
   en: {
-    eyebrow: "OpenHW Classroom · Public preview",
+    eyebrow: "OpenHW Classroom · Preview · In active development",
     title: "Explore the classroom format and the roadmap behind it",
     subtitle:
       "Two selected prototype lessons remain online for evaluation. The CVA6 series also exposes its planned nine-unit structure while the production lessons are rebuilt with direct human review.",
@@ -31,25 +27,9 @@ const copy = {
     transparencyTitle: "What is public today",
     transparencyBody:
       "These lessons were created during the AI-assisted prototyping phase and are kept to demonstrate the interaction and visual format. They are not presented as completed or fully human-reviewed courses.",
-    standardsEyebrow: "Production standard",
-    standardsTitle: "What the rebuilt lessons must pass",
-    standards: [
-      {
-        title: "Source-grounded",
-        body: "Important claims trace to official documentation, code, or another clearly identified primary source.",
-      },
-      {
-        title: "Human-reviewed",
-        body: "Alex reviews technical depth, teaching structure, examples, and learning outcomes before formal publication.",
-      },
-      {
-        title: "Comfortable to follow",
-        body: "Narration pace, pauses, slide density, diagrams, and quizzes work as one learning experience.",
-      },
-    ],
   },
   zh: {
-    eyebrow: "OpenHW 交互式课堂 · 公开预览",
+    eyebrow: "OpenHW 交互式课堂 · 预览版 · 持续建设中",
     title: "先体验课堂形式，也能看到未来的课程路线",
     subtitle:
       "目前保留两个系列各一节原型样课，用于展示交互和视觉效果。CVA6 同时公开计划中的九个 Unit 框架，后续正式课程将由人工参与重新制作和核对。",
@@ -62,26 +42,8 @@ const copy = {
     transparencyTitle: "目前公开的内容是什么",
     transparencyBody:
       "这些样课来自 AI 辅助原型阶段，保留的目的是展示交互方式和视觉形式。它们不代表课程已经完成，也不应被理解为已经通过完整人工技术审校。",
-    standardsEyebrow: "正式发布标准",
-    standardsTitle: "重新制作的课程需要通过这些检查",
-    standards: [
-      {
-        title: "依据可以追溯",
-        body: "重要判断必须能够追溯到官方文档、代码或明确标出的其他一手来源。",
-      },
-      {
-        title: "由人工完成审核",
-        body: "Alex 会在正式发布前检查技术深度、教学结构、示例和实际学习目标。",
-      },
-      {
-        title: "完整体验足够舒适",
-        body: "讲解速度、停顿、每页信息密度、图表和测验需要共同构成可使用的学习体验。",
-      },
-    ],
   },
 } as const;
-
-const standardIcons = [FileCheck2, BookOpenCheck, Headphones] as const;
 
 type ClassroomContentProps = { locale: string };
 
@@ -180,26 +142,6 @@ export function ClassroomContent({ locale }: ClassroomContentProps) {
           </p>
         </section>
 
-        <section className="mb-4 border-t border-[var(--border)] py-10">
-          <p className="text-xs font-semibold text-[var(--primary)]">{text.standardsEyebrow}</p>
-          <h2 className="mt-2 text-2xl font-semibold text-[var(--text-primary)]">
-            {text.standardsTitle}
-          </h2>
-          <div className="mt-8 grid gap-7 md:grid-cols-3">
-            {text.standards.map((item, index) => {
-              const Icon = standardIcons[index] ?? CheckCircle2;
-              return (
-                <article key={item.title} className="border-t border-[var(--border)] pt-5">
-                  <Icon className="h-5 w-5 text-[var(--primary)]" />
-                  <h3 className="mt-4 text-base font-semibold text-[var(--text-primary)]">
-                    {item.title}
-                  </h3>
-                  <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">{item.body}</p>
-                </article>
-              );
-            })}
-          </div>
-        </section>
       </div>
     </div>
   );

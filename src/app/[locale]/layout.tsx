@@ -6,7 +6,6 @@ import { notFound } from "next/navigation";
 import { routing } from "@/lib/routing";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider, ThemeScript } from "@/lib/theme";
-import { FunModeProvider } from "@/lib/fun-mode";
 import { SITE_URL } from "@/lib/site-url";
 import { ClientObservability } from "@/components/ClientObservability";
 import { FeedbackButton } from "@/components/FeedbackButton";
@@ -106,14 +105,12 @@ export default async function LocaleLayout({ children, params }: Props) {
       </head>
       <body className="h-full font-primary scrollbar-dark">
         <ThemeProvider>
-          <FunModeProvider>
-            <NextIntlClientProvider messages={messages}>
-              {children}
-              <FeedbackButton />
-            </NextIntlClientProvider>
-            <ClientObservability />
-            <Analytics />
-          </FunModeProvider>
+          <NextIntlClientProvider messages={messages}>
+            {children}
+            <FeedbackButton />
+          </NextIntlClientProvider>
+          <ClientObservability />
+          <Analytics />
         </ThemeProvider>
       </body>
     </html>

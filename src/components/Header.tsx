@@ -1,11 +1,10 @@
 "use client";
 
 import { useState } from "react";
-import { Github, Menu, X, Sun, Moon, PawPrint, Languages } from "lucide-react";
+import { Github, Menu, X, Sun, Moon, Languages } from "lucide-react";
 import { useTranslations, useLocale } from "next-intl";
 import { Link, useRouter, usePathname } from "@/lib/routing";
 import { useTheme } from "@/lib/theme";
-import { useFunMode } from "@/lib/fun-mode";
 import { features } from "@/lib/features";
 import { BrandLockup } from "@/components/BrandMark";
 import { localeOptions, type SiteLocale } from "@/lib/locales";
@@ -16,7 +15,6 @@ export function Header() {
   const router = useRouter();
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
-  const { funMode, toggleFunMode } = useFunMode();
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const switchLocale = (newLocale: SiteLocale) => {
@@ -106,21 +104,6 @@ export function Header() {
               )}
             </button>
 
-            <button
-              onClick={toggleFunMode}
-              aria-pressed={funMode}
-              aria-label={funMode ? t("aria.disableFunMode") : t("aria.enableFunMode")}
-              title={funMode ? t("aria.disableFunMode") : t("aria.enableFunMode")}
-              className={`hidden rounded-lg border p-1.5 transition-all sm:inline-flex sm:p-2 ${
-                funMode
-                  ? "border-[var(--primary)] bg-[var(--primary)]/10"
-                  : "border-[var(--border)] bg-[var(--bg-card)] hover:bg-[var(--bg-card-hover)] hover:border-[var(--text-tertiary)]"
-              }`}
-            >
-              <PawPrint
-                className={`w-4 h-4 ${funMode ? "text-[var(--primary)]" : "text-[var(--text-primary)]"}`}
-              />
-            </button>
           </div>
 
           <span className="hidden h-5 w-px bg-[var(--border)] sm:block" aria-hidden="true" />
@@ -193,15 +176,6 @@ export function Header() {
             >
               {t("about")}
             </Link>
-            <button
-              type="button"
-              onClick={toggleFunMode}
-              aria-pressed={funMode}
-              className="flex w-full items-center gap-2 rounded-lg px-3 py-2.5 text-left text-sm font-medium text-[var(--text-secondary)] transition-all hover:bg-[var(--bg-subtle-hover)] hover:text-[var(--text-primary)] sm:hidden"
-            >
-              <PawPrint className="h-4 w-4" />
-              {funMode ? t("aria.disableFunMode") : t("aria.enableFunMode")}
-            </button>
             <a
               href="https://github.com/openhwgroup"
               target="_blank"
