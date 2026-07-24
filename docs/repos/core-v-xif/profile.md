@@ -41,7 +41,7 @@ README 将 CV-X-IF 描述为 RISC-V eXtension interface that provides a generali
 
 ## 事实核查要点
 
-- 分类建议为 `ip`，不是 tools。
+- 主分类建议为 `ip`，不是 tools；同时加入 `docs` 次分类，因为仓库的主要公开产物是版本化规范与 Sphinx 文档。
 - 强关联 `cv32e40x` 与 `cva6` 等支持扩展接口的核心。
 - 不应把它写成某个具体 accelerator；它是 interface specification/framework。
 

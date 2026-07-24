@@ -33,11 +33,11 @@ export function FeedbackButton() {
     <button
       type="button"
       aria-label={t("ariaLabel")}
+      title={t("button")}
       onClick={handleClick}
-      className="fixed bottom-4 right-4 z-50 inline-flex h-11 items-center gap-2 rounded-full border border-[var(--border)] bg-[var(--bg-card)] px-3 text-sm font-semibold text-[var(--text-primary)] shadow-lg shadow-black/10 transition-colors hover:border-[var(--primary)] hover:text-[var(--primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-dark)] sm:bottom-5 sm:right-5 sm:px-4"
+      className="fixed bottom-4 right-4 z-50 inline-flex h-11 w-11 items-center justify-center rounded-full border border-[var(--border)] bg-[var(--bg-card)] text-[var(--text-primary)] shadow-lg shadow-black/10 transition-colors hover:border-[var(--primary)] hover:text-[var(--primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-dark)] sm:bottom-5 sm:right-5"
     >
       <MessageSquare className="h-4 w-4" />
-      <span className="hidden sm:inline">{t("button")}</span>
     </button>
   );
 }

@@ -25,7 +25,6 @@ export function ProjectCard({ project }: ProjectCardProps) {
     ? `/projects/${localizedProject.id}?${queryString}`
     : `/projects/${localizedProject.id}`;
 
-  const primaryCategory = localizedProject.category[0];
   const status = statusConfig[localizedProject.status];
   const statusSource = localizedProject.statusSource || "editorial";
 
@@ -37,7 +36,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       >
         <div className="flex items-start justify-between gap-2">
           <ProjectGlyph
-            primaryCategory={primaryCategory}
+            categories={localizedProject.category}
             variant="card"
           />
           <div className="flex flex-wrap items-center justify-end gap-1.5">

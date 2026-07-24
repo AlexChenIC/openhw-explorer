@@ -179,7 +179,7 @@ export function ProjectDetail({
           {/* Top: Icon + Title + Status */}
           <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
             <ProjectGlyph
-              primaryCategory={primaryCategory}
+              categories={project.category}
               variant="detail"
             />
             <div className="flex-1 min-w-0">
@@ -585,7 +585,6 @@ export function ProjectDetail({
             </h2>
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
               {relatedProjects.map((related) => {
-                const relatedPrimaryCategory = related.category[0];
                 return (
                   <Link
                     key={related.id}
@@ -593,7 +592,7 @@ export function ProjectDetail({
                     className="card-glow flex items-center gap-3 p-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border)] hover:border-[var(--text-tertiary)] transition-all group"
                   >
                     <ProjectGlyph
-                      primaryCategory={relatedPrimaryCategory}
+                      categories={related.category}
                       variant="card"
                     />
                     <div className="flex-1 min-w-0">

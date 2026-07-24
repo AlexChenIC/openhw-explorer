@@ -14,6 +14,8 @@
   --green: #18a957;
   --orange: #f0883e;
   --purple: #5b6ee1;
+  --linkedin: #5da9e9;
+  --linkedin-hover: #8bc4f2;
   --brand-wordmark-primary: #ffffff;
   --brand-wordmark-accent: #4f9bff;
   --brand-wordmark-muted: #a5b4c7;
@@ -43,10 +45,10 @@
 
 /* Light theme */
 [data-theme="light"] {
-  --bg-dark: #f5f7fb;
-  --bg-card: #ffffff;
-  --bg-card-hover: #f8fafc;
-  --border: #dfe7f0;
+  --bg-dark: #edf2f7;
+  --bg-card: #f9fbfd;
+  --bg-card-hover: #ffffff;
+  --border: #c7d2df;
 
   --primary: #0b5cab;
   --primary-dark: #084a8f;
@@ -55,30 +57,32 @@
   --green: #16a34a;
   --orange: #b45309;
   --purple: #4757c5;
+  --linkedin: #0a66c2;
+  --linkedin-hover: #084f96;
   --brand-wordmark-primary: #071b3e;
   --brand-wordmark-accent: #0b5cab;
-  --brand-wordmark-muted: #7d8896;
+  --brand-wordmark-muted: #697586;
 
-  --text-primary: #1d1d1f;
-  --text-secondary: #5f6b7a;
-  --text-tertiary: #8592a3;
+  --text-primary: #101828;
+  --text-secondary: #475467;
+  --text-tertiary: #5b6b7d;
 
-  --glow-blue: rgba(11, 92, 171, 0.035);
-  --glow-purple: rgba(15, 118, 110, 0.018);
-  --glow-green: rgba(22, 163, 74, 0.018);
-  --glow-orange: rgba(180, 83, 9, 0.012);
+  --glow-blue: rgba(11, 92, 171, 0.045);
+  --glow-purple: rgba(71, 87, 197, 0.02);
+  --glow-green: rgba(22, 163, 74, 0.022);
+  --glow-orange: rgba(180, 83, 9, 0.016);
 
-  --noise-opacity: 0.01;
-  --grid-line: rgba(29, 29, 31, 0.025);
+  --noise-opacity: 0.012;
+  --grid-line: rgba(16, 24, 40, 0.045);
   --selection-bg: rgba(11, 92, 171, 0.16);
-  --selection-fg: #1f2328;
-  --card-shadow: 0 1px 2px rgba(15, 23, 42, 0.04), 0 12px 28px rgba(15, 23, 42, 0.07);
-  --scrollbar-track: #eef2f7;
-  --scrollbar-thumb: #cbd5e1;
+  --selection-fg: #101828;
+  --card-shadow: 0 1px 2px rgba(16, 24, 40, 0.06), 0 12px 28px rgba(16, 24, 40, 0.08);
+  --scrollbar-track: #e4eaf1;
+  --scrollbar-thumb: #aebdcd;
 
-  --bg-subtle: rgba(15, 23, 42, 0.035);
-  --bg-subtle-hover: rgba(15, 23, 42, 0.055);
-  --bg-subtle-strong: rgba(15, 23, 42, 0.075);
+  --bg-subtle: rgba(16, 24, 40, 0.045);
+  --bg-subtle-hover: rgba(16, 24, 40, 0.07);
+  --bg-subtle-strong: rgba(16, 24, 40, 0.1);
 }
 
 @layer base {
@@ -254,9 +258,9 @@
 
 [data-theme="light"] .page-wrapper::after {
   background:
-    linear-gradient(180deg, rgba(255, 255, 255, 0.82) 0%, rgba(245, 247, 251, 0) 34%),
-    radial-gradient(ellipse 78% 48% at 50% -10%, rgba(11, 92, 171, 0.055) 0%, transparent 62%),
-    radial-gradient(ellipse 46% 34% at 100% 12%, rgba(22, 163, 74, 0.028) 0%, transparent 62%);
+    linear-gradient(180deg, rgba(249, 251, 253, 0.58) 0%, rgba(237, 242, 247, 0) 34%),
+    radial-gradient(ellipse 78% 48% at 50% -10%, rgba(11, 92, 171, 0.07) 0%, transparent 62%),
+    radial-gradient(ellipse 46% 34% at 100% 12%, rgba(22, 163, 74, 0.035) 0%, transparent 62%);
 }
 
 /* Custom scrollbar for dark theme */

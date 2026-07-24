@@ -39,7 +39,7 @@ obi 仓库 README 很简短："Repository that maintains the OpenBus Interface s
 
 ## 事实核查要点
 
-- 这是规范文档仓库，无 RTL；站内分类为 ip（接口规范），状态为 stable（规范已发布，仓库低频维护，最后 push 2023-04）。
+- 这是规范文档仓库，无 RTL；站内以 ip（接口规范）为主分类、docs 为次分类，状态为 stable（规范已发布，仓库低频维护，最后 push 2023-04）。
 - "CORE-V 核心使用 OBI" 的表述来自 CV32E40P 用户手册与 cv32e20-dv README，不是 obi 仓库本身。
 
 ## 主要来源

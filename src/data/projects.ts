@@ -108,9 +108,9 @@ const verifiedClassification: Record<string, VerifiedClassification> = {
 
   cvfpu: { category: ["ip"] },
   "cv-hpdcache": { category: ["ip"] },
-  "core-v-xif": { category: ["ip"] },
+  "core-v-xif": { category: ["ip", "docs"] },
   "cv-mesh": { category: ["ip"] },
-  obi: { category: ["ip"] },
+  obi: { category: ["ip", "docs"] },
 
   "corev-gcc": { category: ["tools"] },
   "corev-binutils-gdb": { category: ["tools"] },

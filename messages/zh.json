@@ -152,21 +152,9 @@
     "officialWebsite": "官方网站",
     "documentation": "文档中心",
     "linkedin": "LinkedIn",
-    "madeWithPrefix": "为 RISC-V 社区用",
-    "madeWithSuffix": "打造",
-    "madeWith": "为 RISC-V 社区用 {heart} 打造",
-    "by": "开源老陈",
-    "personalTagline": "关注开源硬件学习、验证与工程协作的 OpenHW 社区建设者。",
-    "connectLinkedIn": "在 LinkedIn 联系",
-    "contribute": "参与贡献",
     "licensing": "许可说明",
-    "projectNote": "面向 OpenHW、RISC-V 与开源硬件学习的独立导航平台。",
     "linksLabel": "项目与 OpenHW 链接",
-    "creatorLabel": "创建与持续策展",
-    "creatorName": "Alex Chen",
-    "aboutCreator": "关于 Alex",
-    "independentNote": "OpenHW Explorer 是独立的社区项目。",
-    "communityNote": "服务工程师、学习者与 RISC-V 社区。"
+    "creatorName": "Alex Chen"
   },
   "projectDetail": {
     "home": "首页",

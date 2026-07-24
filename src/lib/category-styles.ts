@@ -1,14 +1,20 @@
-import { ProjectStatus } from "@/types";
+import { ProjectCategory, ProjectStatus } from "@/types";
 
-// Category visual style mapping
-export function getCategoryStyle(category: string): { color: string; emoji: string } {
-  if (category.includes("core")) return { color: "var(--green)", emoji: "⚡" };
-  if (category.includes("verification")) return { color: "var(--purple)", emoji: "✓" };
-  if (category.includes("soc")) return { color: "var(--orange)", emoji: "🔲" };
-  if (category.includes("ip")) return { color: "var(--primary)", emoji: "🧩" };
-  if (category.includes("tools")) return { color: "var(--primary)", emoji: "🔧" };
-  if (category.includes("learning")) return { color: "var(--green)", emoji: "📚" };
-  return { color: "var(--primary)", emoji: "📄" };
+const categoryColor: Record<ProjectCategory, string> = {
+  core: "var(--green)",
+  verification: "var(--purple)",
+  soc: "var(--orange)",
+  ip: "var(--primary)",
+  tools: "var(--cyan)",
+  sdk: "var(--primary)",
+  docs: "var(--text-secondary)",
+  learning: "var(--green)",
+};
+
+export function getCategoryStyle(category: string): { color: string } {
+  return {
+    color: categoryColor[category as ProjectCategory] || "var(--primary)",
+  };
 }
 
 // Status visual config

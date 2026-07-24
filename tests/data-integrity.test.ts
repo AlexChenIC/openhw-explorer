@@ -59,6 +59,15 @@ describe("no dead filter options", () => {
     }
   });
 
+  it("surfaces specification repositories through the documentation filter", () => {
+    const documentationProjectIds = filterProjects({ category: "docs" }).map(
+      (project) => project.id,
+    );
+
+    expect(documentationProjectIds).toContain("core-v-xif");
+    expect(documentationProjectIds).toContain("obi");
+  });
+
   it("every architecture/focus option matches its applicable project category", () => {
     for (const coreType of filterConfig.coreTypes) {
       const category = coreType.id === "fault-tolerant" ? "soc" : "core";

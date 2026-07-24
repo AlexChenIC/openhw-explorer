@@ -23,13 +23,15 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    // Client-only preference can't be known during SSR; hydrate the default
-    // first, then sync from localStorage in an effect.
     const stored = localStorage.getItem("theme") as Theme | null;
-    if (stored === "light" || stored === "dark") {
-      // eslint-disable-next-line react-hooks/set-state-in-effect
-      setTheme(stored);
-    }
+    const resolvedTheme =
+      stored === "light" || stored === "dark"
+        ? stored
+        : window.matchMedia("(prefers-color-scheme: dark)").matches
+          ? "dark"
+          : "light";
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setTheme(resolvedTheme);
     setMounted(true);
   }, []);
 
@@ -56,7 +58,10 @@ export function ThemeScript() {
       try {
         var root = document.documentElement;
         var t = localStorage.getItem('theme');
-        if (t === 'dark') {
+        var prefersDark =
+          typeof window.matchMedia === 'function' &&
+          window.matchMedia('(prefers-color-scheme: dark)').matches;
+        if (t === 'dark' || (t !== 'light' && prefersDark)) {
           root.setAttribute('data-theme', 'dark');
         } else {
           root.setAttribute('data-theme', 'light');
