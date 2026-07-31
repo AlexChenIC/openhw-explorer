@@ -1,21 +1,21 @@
 {
-  "weekOf": "2026-07-23",
-  "generatedAt": "2026-07-23T20:15:16.553Z",
+  "weekOf": "2026-07-31",
+  "generatedAt": "2026-07-31T13:01:33.684Z",
   "stats": {
-    "totalRelevant": 86,
-    "totalSources": 34,
+    "totalRelevant": 90,
+    "totalSources": 35,
     "topTags": [
       {
         "tag": "RISC-V",
-        "count": 28
+        "count": 30
       },
       {
         "tag": "Security",
-        "count": 23
+        "count": 24
       },
       {
         "tag": "EDA",
-        "count": 21
+        "count": 23
       },
       {
         "tag": "Verification",
@@ -23,7 +23,7 @@
       },
       {
         "tag": "CHIPS Alliance",
-        "count": 15
+        "count": 16
       }
     ]
   },
@@ -35,7 +35,7 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 29,
+      "count": 30,
       "items": [
         {
           "title": "Caliptra MCU ROM SDK 2.1.0 adds source-oriented RISC-V ROM integration controls",
@@ -74,16 +74,16 @@
           "publishedAt": "2026-07-10T23:26:53.000Z"
         },
         {
-          "title": "Yosys 0.67 lands sv-elab SystemVerilog flow and build-system updates",
-          "titleZh": "Yosys 0.67 引入 sv-elab SystemVerilog 流程与构建系统更新",
-          "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.67",
-          "source": "YosysHQ / Yosys (GitHub)",
+          "title": "CIRCT firtool 1.154.0 updates Arcilator, ImportVerilog, Moore, BMC, and HWToLLVM flows",
+          "titleZh": "CIRCT firtool 1.154.0 更新 Arcilator、ImportVerilog、Moore、BMC 与 HWToLLVM 流程",
+          "url": "https://github.com/llvm/circt/releases/tag/firtool-1.154.0",
+          "source": "LLVM / CIRCT (GitHub)",
           "tags": [
-            "Yosys",
-            "EDA",
-            "Synthesis"
+            "CIRCT",
+            "firtool",
+            "MLIR"
           ],
-          "publishedAt": "2026-07-09T09:12:38.000Z"
+          "publishedAt": "2026-07-27T18:39:17.000Z"
         }
       ]
     },
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 32,
+      "count": 34,
       "items": [
         {
           "title": "OpenTitan Earl Grey 2 roadmap adds CHERI, PQC, I3C, and efficiency upgrades",
@@ -109,6 +109,30 @@
           "publishedAt": "2026-07-14T08:00:00.000Z"
         },
         {
+          "title": "RISC-V International publishes open workflow for migrating custom extensions into compliant opcode space",
+          "titleZh": "RISC-V International 发布自定义扩展迁移到合规 opcode space 的开放流程",
+          "url": "https://riscv.org/blog/conflict-to-compliance-risc-v-extension-migration-across-spec-hw-and-sw/",
+          "source": "RISC-V International news",
+          "tags": [
+            "RISC-V",
+            "Unified Database",
+            "ISA Extensions"
+          ],
+          "publishedAt": "2026-07-29T08:46:17.000Z"
+        },
+        {
+          "title": "CHIPS Alliance explains dual-core lockstep in VeeR EL2 for Caliptra root-of-trust designs",
+          "titleZh": "CHIPS Alliance 解析 VeeR EL2 面向 Caliptra RoT 的 dual-core lockstep 设计",
+          "url": "https://www.chipsalliance.org/news/implementing-dual-core-lockstep-in-the-veer-el2-risc-v-core/",
+          "source": "CHIPS Alliance Blog",
+          "tags": [
+            "CHIPS Alliance",
+            "VeeR EL2",
+            "Caliptra"
+          ],
+          "publishedAt": "2026-06-29T00:00:00.000Z"
+        },
+        {
           "title": "Tampere University joins OpenTitan to advance RISC-V SoC security and PQC research",
           "titleZh": "Tampere University 加入 OpenTitan，推进 RISC-V SoC security 与 PQC 研究",
           "url": "https://lowrisc.org/news/tampere-university-joins-opentitan-coalition-to-advance-risc-v-soc-security-and-open-source-silicon-research/",
@@ -119,30 +143,6 @@
             "Tampere University"
           ],
           "publishedAt": "2026-07-10T08:00:00.000Z"
-        },
-        {
-          "title": "OpenTitan publishes side-channel-hardened, hardware-accelerated ML-DSA implementation",
-          "titleZh": "OpenTitan 发布 side-channel-hardened、硬件加速的 ML-DSA 实现",
-          "url": "https://lowrisc.org/news/a-side-channel-hardened-hardware-accelerated-implementation-of-ml-dsa-in-opentitan/",
-          "source": "lowRISC Newsroom",
-          "tags": [
-            "lowRISC",
-            "OpenTitan",
-            "ML-DSA"
-          ],
-          "publishedAt": "2026-06-25T08:00:00.000Z"
-        },
-        {
-          "title": "MLPerf Tiny v1.4 reports edge-AI results across RISC-V cores, NPUs, and microcontrollers",
-          "titleZh": "MLPerf Tiny v1.4 发布覆盖 RISC-V core、NPU 与 MCU 的 edge-AI 结果",
-          "url": "https://mlcommons.org/2026/07/mlperf-tiny-v1-4-results/",
-          "source": "MLCommons",
-          "tags": [
-            "MLCommons",
-            "MLPerf Tiny",
-            "TinyML"
-          ],
-          "publishedAt": "2026-07-07T14:39:00.000Z"
         }
       ]
     },
@@ -212,7 +212,7 @@
         "zh": "产业动态"
       },
       "icon": "trending",
-      "count": 4,
+      "count": 5,
       "items": [
         {
           "title": "Qualcomm joins CHIPS Alliance as a Platinum member for open-source chip design",
@@ -225,6 +225,18 @@
             "Open Silicon"
           ],
           "publishedAt": "2026-07-16T00:00:00.000Z"
+        },
+        {
+          "title": "Antmicro joins the OpenROAD Initiative to support open-source silicon design tooling",
+          "titleZh": "Antmicro 加入 OpenROAD Initiative，支持开源硅设计工具生态",
+          "url": "https://antmicro.com/blog/2026/07/antmicro-joins-the-openroad-initiative",
+          "source": "Antmicro Blog",
+          "tags": [
+            "Antmicro",
+            "OpenROAD",
+            "OpenROAD Initiative"
+          ],
+          "publishedAt": "2026-07-27T00:00:00.000Z"
         },
         {
           "title": "FOSSi highlights ODE4EC's three-year push for open-source European chip design",
@@ -249,18 +261,6 @@
             "Open Silicon"
           ],
           "publishedAt": "2026-06-13T00:00:00.000Z"
-        },
-        {
-          "title": "CHIPS Alliance recaps OCP EMEA work across Caliptra, OpenPRoT, and VeeR",
-          "titleZh": "CHIPS Alliance 回顾 OCP EMEA 上的 Caliptra、OpenPRoT 与 VeeR 协作",
-          "url": "https://www.chipsalliance.org/news/ocp-recap-2026/",
-          "source": "CHIPS Alliance Blog",
-          "tags": [
-            "CHIPS Alliance",
-            "OCP",
-            "Caliptra"
-          ],
-          "publishedAt": "2026-06-10T22:00:00.000Z"
         }
       ]
     },
@@ -487,6 +487,114 @@
       "highlightRank": 5,
       "titleZh": "CIRCT firtool 1.153.0 更新 verification、ImportVerilog、Moore、ESI 与 FIRRTL 流程",
       "summaryZh": "CIRCT firtool 1.153.0 是一次正式发布，包含 firtool verification pass 注册、Moore/SystemVerilog 字符串 lowering 修复、ImportVerilog hierarchical reference 与 foreach loop 支持、ESI runtime/codegen 修复、Arc coroutine lowering 更新，以及 FIRRTL LowerLayers 和 LowerMemory 改进；随后 1.153.1 作为小型 patch release 发布。"
+    },
+    {
+      "title": "RISC-V International publishes open workflow for migrating custom extensions into compliant opcode space",
+      "url": "https://riscv.org/blog/conflict-to-compliance-risc-v-extension-migration-across-spec-hw-and-sw/",
+      "source": "RISC-V International news",
+      "publishedAt": "2026-07-29T08:46:17.000Z",
+      "summary": "RISC-V International highlighted a two-phase extension-migration workflow that uses the RISC-V Unified Database as the source of truth, MCP-connected LLM toolin...",
+      "author": "",
+      "relevanceScore": 6,
+      "tags": [
+        "RISC-V",
+        "Unified Database",
+        "ISA Extensions",
+        "Custom Opcodes",
+        "Hardware/Software Co-Design",
+        "RTL",
+        "Zephyr",
+        "GNU Binutils",
+        "AI-Assisted Engineering",
+        "Open Hardware"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "RISC-V International 发布自定义扩展迁移到合规 opcode space 的开放流程",
+      "summaryZh": "RISC-V International 介绍了一套两阶段 extension migration workflow：以 RISC-V Unified Database 作为 source of truth，用连接 MCP tools 的 LLM 做编码冲突分析和 remapping 建议，并开源 packed-SIMD extensions、full-system simulator、GNU assembler support、Zephyr runtime support，以及超过 140 条迁移指令的 RTL。"
+    },
+    {
+      "title": "Antmicro joins the OpenROAD Initiative to support open-source silicon design tooling",
+      "url": "https://antmicro.com/blog/2026/07/antmicro-joins-the-openroad-initiative",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-07-27T00:00:00.000Z",
+      "summary": "Antmicro announced that it has joined the OpenROAD Initiative after long-running contributions to the OpenROAD project, framing the move around transparent gove...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Antmicro",
+        "OpenROAD",
+        "OpenROAD Initiative",
+        "Open Silicon",
+        "EDA",
+        "RTL-to-GDSII",
+        "ASIC",
+        "FPGA",
+        "Tape-out",
+        "Open Hardware"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Antmicro 加入 OpenROAD Initiative，支持开源硅设计工具生态",
+      "summaryZh": "Antmicro 宣布加入 OpenROAD Initiative；它此前已长期贡献 OpenROAD project。文章把这次加入定位为对 transparent governance、open-source FPGA/ASIC tooling、architecture exploration、silicon prototyping，以及可复现 RTL-to-GDSII flow 的投入，以缩短芯片设计反馈周期。"
+    },
+    {
+      "title": "CIRCT firtool 1.154.0 updates Arcilator, ImportVerilog, Moore, BMC, and HWToLLVM flows",
+      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.154.0",
+      "source": "LLVM / CIRCT (GitHub)",
+      "publishedAt": "2026-07-27T18:39:17.000Z",
+      "summary": "CIRCT released firtool 1.154.0 with hardware-compiler updates including Arcilator stream printing and DLTI handling, circt-bmc support for verif.formal and veri...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CIRCT",
+        "firtool",
+        "MLIR",
+        "Arcilator",
+        "ImportVerilog",
+        "Moore",
+        "circt-bmc",
+        "HWToLLVM",
+        "EDA",
+        "Hardware Compiler"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "CIRCT firtool 1.154.0 更新 Arcilator、ImportVerilog、Moore、BMC 与 HWToLLVM 流程",
+      "summaryZh": "CIRCT 发布 firtool 1.154.0，硬件编译器更新包括 Arcilator stream printing 与 DLTI handling、circt-bmc 对 verif.formal/verif.contract operations 的支持、ImportVerilog/Moore 对 $readmemb/$readmemh 的支持、packed struct bit-range 修复，以及 HWToLLVM 通过 module DLTI 计算 union buffer size。"
+    },
+    {
+      "title": "CHIPS Alliance explains dual-core lockstep in VeeR EL2 for Caliptra root-of-trust designs",
+      "url": "https://www.chipsalliance.org/news/implementing-dual-core-lockstep-in-the-veer-el2-risc-v-core/",
+      "source": "CHIPS Alliance Blog",
+      "publishedAt": "2026-06-29T00:00:00.000Z",
+      "summary": "CHIPS Alliance published a technical explainer on optional dual-core lockstep in the VeeR EL2 RISC-V core, covering how a delayed shadow core compares behavior ...",
+      "author": "",
+      "relevanceScore": 7,
+      "tags": [
+        "CHIPS Alliance",
+        "VeeR EL2",
+        "Caliptra",
+        "RISC-V",
+        "Dual-Core Lockstep",
+        "DCLS",
+        "Root of Trust",
+        "Fault Tolerance",
+        "Security",
+        "SoC/IP"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "CHIPS Alliance 解析 VeeR EL2 面向 Caliptra RoT 的 dual-core lockstep 设计",
+      "summaryZh": "CHIPS Alliance 发布 VeeR EL2 RISC-V core 中 optional dual-core lockstep 的技术解析，说明 delayed shadow core 如何与 main core 比较行为并检测不一致，为什么该机制对 safety-critical systems 与 side-channel mitigation 有价值，以及它如何服务 Caliptra root-of-trust project。"
     },
     {
       "title": "Verilator reaches an initial four-state logic implementation milestone",
@@ -2457,6 +2565,7 @@
     "RISC-V Architecture Tests (GitHub)",
     "RISC-V ISA Manual (GitHub)",
     "RISC-V International",
+    "RISC-V International news",
     "RISC-V Summit Europe 2026",
     "Tenstorrent / TT-Metalium (GitHub)",
     "Tom's Hardware / The Information",

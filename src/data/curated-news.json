@@ -3,6 +3,98 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "RISC-V International publishes open workflow for migrating custom extensions into compliant opcode space",
+      "titleZh": "RISC-V International 发布自定义扩展迁移到合规 opcode space 的开放流程",
+      "url": "https://riscv.org/blog/conflict-to-compliance-risc-v-extension-migration-across-spec-hw-and-sw/",
+      "source": "RISC-V International news",
+      "addedAt": "2026-07-29T08:46:17Z",
+      "summary": "RISC-V International highlighted a two-phase extension-migration workflow that uses the RISC-V Unified Database as the source of truth, MCP-connected LLM tooling for conflict analysis and remapping proposals, and open hardware/software artifacts including packed-SIMD extensions, simulator support, GNU assembler integration, Zephyr runtime support, and RTL for more than 140 migrated instructions.",
+      "summaryZh": "RISC-V International 介绍了一套两阶段 extension migration workflow：以 RISC-V Unified Database 作为 source of truth，用连接 MCP tools 的 LLM 做编码冲突分析和 remapping 建议，并开源 packed-SIMD extensions、full-system simulator、GNU assembler support、Zephyr runtime support，以及超过 140 条迁移指令的 RTL。",
+      "tags": [
+        "RISC-V",
+        "Unified Database",
+        "ISA Extensions",
+        "Custom Opcodes",
+        "Hardware/Software Co-Design",
+        "RTL",
+        "Zephyr",
+        "GNU Binutils",
+        "AI-Assisted Engineering",
+        "Open Hardware"
+      ],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
+      "title": "Antmicro joins the OpenROAD Initiative to support open-source silicon design tooling",
+      "titleZh": "Antmicro 加入 OpenROAD Initiative，支持开源硅设计工具生态",
+      "url": "https://antmicro.com/blog/2026/07/antmicro-joins-the-openroad-initiative",
+      "source": "Antmicro Blog",
+      "addedAt": "2026-07-27T00:00:00Z",
+      "summary": "Antmicro announced that it has joined the OpenROAD Initiative after long-running contributions to the OpenROAD project, framing the move around transparent governance, open-source FPGA and ASIC tooling, architecture exploration, silicon prototyping, and reproducible RTL-to-GDSII flows for faster chip-design feedback.",
+      "summaryZh": "Antmicro 宣布加入 OpenROAD Initiative；它此前已长期贡献 OpenROAD project。文章把这次加入定位为对 transparent governance、open-source FPGA/ASIC tooling、architecture exploration、silicon prototyping，以及可复现 RTL-to-GDSII flow 的投入，以缩短芯片设计反馈周期。",
+      "tags": [
+        "Antmicro",
+        "OpenROAD",
+        "OpenROAD Initiative",
+        "Open Silicon",
+        "EDA",
+        "RTL-to-GDSII",
+        "ASIC",
+        "FPGA",
+        "Tape-out",
+        "Open Hardware"
+      ],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
+      "title": "CIRCT firtool 1.154.0 updates Arcilator, ImportVerilog, Moore, BMC, and HWToLLVM flows",
+      "titleZh": "CIRCT firtool 1.154.0 更新 Arcilator、ImportVerilog、Moore、BMC 与 HWToLLVM 流程",
+      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.154.0",
+      "source": "LLVM / CIRCT (GitHub)",
+      "addedAt": "2026-07-27T18:39:17Z",
+      "summary": "CIRCT released firtool 1.154.0 with hardware-compiler updates including Arcilator stream printing and DLTI handling, circt-bmc support for verif.formal and verif.contract operations, ImportVerilog and Moore support for $readmemb/$readmemh, packed-struct bit-range fixes, and HWToLLVM union-buffer sizing through module DLTI.",
+      "summaryZh": "CIRCT 发布 firtool 1.154.0，硬件编译器更新包括 Arcilator stream printing 与 DLTI handling、circt-bmc 对 verif.formal/verif.contract operations 的支持、ImportVerilog/Moore 对 $readmemb/$readmemh 的支持、packed struct bit-range 修复，以及 HWToLLVM 通过 module DLTI 计算 union buffer size。",
+      "tags": [
+        "CIRCT",
+        "firtool",
+        "MLIR",
+        "Arcilator",
+        "ImportVerilog",
+        "Moore",
+        "circt-bmc",
+        "HWToLLVM",
+        "EDA",
+        "Hardware Compiler"
+      ],
+      "sourceTier": "trusted",
+      "language": "en"
+    },
+    {
+      "title": "CHIPS Alliance explains dual-core lockstep in VeeR EL2 for Caliptra root-of-trust designs",
+      "titleZh": "CHIPS Alliance 解析 VeeR EL2 面向 Caliptra RoT 的 dual-core lockstep 设计",
+      "url": "https://www.chipsalliance.org/news/implementing-dual-core-lockstep-in-the-veer-el2-risc-v-core/",
+      "source": "CHIPS Alliance Blog",
+      "addedAt": "2026-06-29T00:00:00Z",
+      "summary": "CHIPS Alliance published a technical explainer on optional dual-core lockstep in the VeeR EL2 RISC-V core, covering how a delayed shadow core compares behavior with the main core to detect inconsistencies, why the mechanism matters for safety-critical systems and side-channel mitigation, and how it fits the Caliptra root-of-trust project.",
+      "summaryZh": "CHIPS Alliance 发布 VeeR EL2 RISC-V core 中 optional dual-core lockstep 的技术解析，说明 delayed shadow core 如何与 main core 比较行为并检测不一致，为什么该机制对 safety-critical systems 与 side-channel mitigation 有价值，以及它如何服务 Caliptra root-of-trust project。",
+      "tags": [
+        "CHIPS Alliance",
+        "VeeR EL2",
+        "Caliptra",
+        "RISC-V",
+        "Dual-Core Lockstep",
+        "DCLS",
+        "Root of Trust",
+        "Fault Tolerance",
+        "Security",
+        "SoC/IP"
+      ],
+      "sourceTier": "official",
+      "language": "en"
+    },
+    {
       "title": "Verilator reaches an initial four-state logic implementation milestone",
       "titleZh": "Verilator 四态逻辑实现达到首个里程碑",
       "url": "https://www.chipsalliance.org/news/initial-implementation-verilator/",
