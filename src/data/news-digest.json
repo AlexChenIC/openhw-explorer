@@ -1,17 +1,17 @@
 {
   "weekOf": "2026-07-31",
-  "generatedAt": "2026-07-31T13:01:33.684Z",
+  "generatedAt": "2026-07-31T13:08:30.641Z",
   "stats": {
-    "totalRelevant": 90,
+    "totalRelevant": 89,
     "totalSources": 35,
     "topTags": [
       {
         "tag": "RISC-V",
-        "count": 30
+        "count": 29
       },
       {
         "tag": "Security",
-        "count": 24
+        "count": 23
       },
       {
         "tag": "EDA",
@@ -23,7 +23,7 @@
       },
       {
         "tag": "CHIPS Alliance",
-        "count": 16
+        "count": 15
       }
     ]
   },
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 34,
+      "count": 33,
       "items": [
         {
           "title": "OpenTitan Earl Grey 2 roadmap adds CHERI, PQC, I3C, and efficiency upgrades",
@@ -121,18 +121,6 @@
           "publishedAt": "2026-07-29T08:46:17.000Z"
         },
         {
-          "title": "CHIPS Alliance explains dual-core lockstep in VeeR EL2 for Caliptra root-of-trust designs",
-          "titleZh": "CHIPS Alliance 解析 VeeR EL2 面向 Caliptra RoT 的 dual-core lockstep 设计",
-          "url": "https://www.chipsalliance.org/news/implementing-dual-core-lockstep-in-the-veer-el2-risc-v-core/",
-          "source": "CHIPS Alliance Blog",
-          "tags": [
-            "CHIPS Alliance",
-            "VeeR EL2",
-            "Caliptra"
-          ],
-          "publishedAt": "2026-06-29T00:00:00.000Z"
-        },
-        {
           "title": "Tampere University joins OpenTitan to advance RISC-V SoC security and PQC research",
           "titleZh": "Tampere University 加入 OpenTitan，推进 RISC-V SoC security 与 PQC 研究",
           "url": "https://lowrisc.org/news/tampere-university-joins-opentitan-coalition-to-advance-risc-v-soc-security-and-open-source-silicon-research/",
@@ -143,6 +131,18 @@
             "Tampere University"
           ],
           "publishedAt": "2026-07-10T08:00:00.000Z"
+        },
+        {
+          "title": "OpenTitan publishes side-channel-hardened, hardware-accelerated ML-DSA implementation",
+          "titleZh": "OpenTitan 发布 side-channel-hardened、硬件加速的 ML-DSA 实现",
+          "url": "https://lowrisc.org/news/a-side-channel-hardened-hardware-accelerated-implementation-of-ml-dsa-in-opentitan/",
+          "source": "lowRISC Newsroom",
+          "tags": [
+            "lowRISC",
+            "OpenTitan",
+            "ML-DSA"
+          ],
+          "publishedAt": "2026-06-25T08:00:00.000Z"
         }
       ]
     },
@@ -568,33 +568,6 @@
       "curated": true,
       "titleZh": "CIRCT firtool 1.154.0 更新 Arcilator、ImportVerilog、Moore、BMC 与 HWToLLVM 流程",
       "summaryZh": "CIRCT 发布 firtool 1.154.0，硬件编译器更新包括 Arcilator stream printing 与 DLTI handling、circt-bmc 对 verif.formal/verif.contract operations 的支持、ImportVerilog/Moore 对 $readmemb/$readmemh 的支持、packed struct bit-range 修复，以及 HWToLLVM 通过 module DLTI 计算 union buffer size。"
-    },
-    {
-      "title": "CHIPS Alliance explains dual-core lockstep in VeeR EL2 for Caliptra root-of-trust designs",
-      "url": "https://www.chipsalliance.org/news/implementing-dual-core-lockstep-in-the-veer-el2-risc-v-core/",
-      "source": "CHIPS Alliance Blog",
-      "publishedAt": "2026-06-29T00:00:00.000Z",
-      "summary": "CHIPS Alliance published a technical explainer on optional dual-core lockstep in the VeeR EL2 RISC-V core, covering how a delayed shadow core compares behavior ...",
-      "author": "",
-      "relevanceScore": 7,
-      "tags": [
-        "CHIPS Alliance",
-        "VeeR EL2",
-        "Caliptra",
-        "RISC-V",
-        "Dual-Core Lockstep",
-        "DCLS",
-        "Root of Trust",
-        "Fault Tolerance",
-        "Security",
-        "SoC/IP"
-      ],
-      "language": "en",
-      "sourceTier": "official",
-      "reviewStatus": "curated",
-      "curated": true,
-      "titleZh": "CHIPS Alliance 解析 VeeR EL2 面向 Caliptra RoT 的 dual-core lockstep 设计",
-      "summaryZh": "CHIPS Alliance 发布 VeeR EL2 RISC-V core 中 optional dual-core lockstep 的技术解析，说明 delayed shadow core 如何与 main core 比较行为并检测不一致，为什么该机制对 safety-critical systems 与 side-channel mitigation 有价值，以及它如何服务 Caliptra root-of-trust project。"
     },
     {
       "title": "Verilator reaches an initial four-state logic implementation milestone",
