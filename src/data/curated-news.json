@@ -72,29 +72,6 @@
       "language": "en"
     },
     {
-      "title": "CHIPS Alliance explains dual-core lockstep in VeeR EL2 for Caliptra root-of-trust designs",
-      "titleZh": "CHIPS Alliance 解析 VeeR EL2 面向 Caliptra RoT 的 dual-core lockstep 设计",
-      "url": "https://www.chipsalliance.org/news/implementing-dual-core-lockstep-in-the-veer-el2-risc-v-core/",
-      "source": "CHIPS Alliance Blog",
-      "addedAt": "2026-06-29T00:00:00Z",
-      "summary": "CHIPS Alliance published a technical explainer on optional dual-core lockstep in the VeeR EL2 RISC-V core, covering how a delayed shadow core compares behavior with the main core to detect inconsistencies, why the mechanism matters for safety-critical systems and side-channel mitigation, and how it fits the Caliptra root-of-trust project.",
-      "summaryZh": "CHIPS Alliance 发布 VeeR EL2 RISC-V core 中 optional dual-core lockstep 的技术解析，说明 delayed shadow core 如何与 main core 比较行为并检测不一致，为什么该机制对 safety-critical systems 与 side-channel mitigation 有价值，以及它如何服务 Caliptra root-of-trust project。",
-      "tags": [
-        "CHIPS Alliance",
-        "VeeR EL2",
-        "Caliptra",
-        "RISC-V",
-        "Dual-Core Lockstep",
-        "DCLS",
-        "Root of Trust",
-        "Fault Tolerance",
-        "Security",
-        "SoC/IP"
-      ],
-      "sourceTier": "official",
-      "language": "en"
-    },
-    {
       "title": "Verilator reaches an initial four-state logic implementation milestone",
       "titleZh": "Verilator 四态逻辑实现达到首个里程碑",
       "url": "https://www.chipsalliance.org/news/initial-implementation-verilator/",
