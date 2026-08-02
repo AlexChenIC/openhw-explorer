@@ -46,12 +46,13 @@ export async function generateMetadata({ params }: ClassroomPageProps): Promise<
 export default async function ClassroomPage({ params }: ClassroomPageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
+  const newsletterUsername = process.env.NEXT_PUBLIC_BUTTONDOWN_USERNAME?.trim();
 
   return (
     <div className="page-wrapper">
       <main className="relative z-10 min-h-full">
         <Header />
-        <ClassroomContent locale={locale} />
+        <ClassroomContent locale={locale} newsletterUsername={newsletterUsername} />
         <Footer />
       </main>
     </div>

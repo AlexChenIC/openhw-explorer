@@ -3,6 +3,8 @@
 export const externalLinks = {
   projectGithub: "https://github.com/AlexChenIC/openhw-explorer",
   feedbackIssues: "https://github.com/AlexChenIC/openhw-explorer/issues/new",
+  courseRequests:
+    "https://github.com/AlexChenIC/openhw-explorer/issues/new?template=course-request.yml",
   github: "https://github.com/openhwgroup",
   website: "https://openhwfoundation.org/",
   docs: "https://docs.openhwgroup.org/",

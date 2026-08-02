@@ -2,13 +2,18 @@ import {
   ArrowRight,
   BookOpenText,
   Clock3,
+  ExternalLink,
   GraduationCap,
+  Github,
   Languages,
   Library,
+  Mail,
+  MessageSquareText,
   PlayCircle,
   Route,
 } from "lucide-react";
 import { Link } from "@/lib/routing";
+import { externalLinks } from "@/data/external-links";
 import {
   getCatalogLessons,
   getDevelopmentClassroomSeries,
@@ -66,6 +71,27 @@ const copy = {
     previewsBody:
       "Earlier samples remain available as format previews while the new lessons are rebuilt.",
     openPreview: "Open preview",
+    communityKicker: "Shape what comes next",
+    communityTitle: "Stay close to the Learning Hub",
+    communityBody:
+      "Hear about meaningful course releases and selected public OpenHW or RISC-V events, or tell Alex which lesson would help you next.",
+    subscribeTitle: "Course and event updates",
+    subscribeBody:
+      "Occasional email when there is something worth sharing. You will confirm your address before the first update.",
+    emailLabel: "Email address",
+    emailPlaceholder: "you@example.com",
+    subscribeAction: "Subscribe",
+    subscriptionsSoon: "Email subscriptions are being prepared.",
+    subscribeNote:
+      "Free to join. Unsubscribe at any time. OpenHW Explorer is an independent community project.",
+    requestTitle: "Suggest the next lesson",
+    requestBody:
+      "Send Alex a private message, or open a public request so other learners can add context.",
+    privateAction: "Message Alex privately",
+    privateMeta: "via LinkedIn",
+    publicAction: "Post a public course request",
+    publicMeta: "on GitHub",
+    publicNote: "GitHub requests are visible to everyone.",
     statuses: {
       published: "Available",
       "editorial-review": "Final review",
@@ -117,6 +143,24 @@ const copy = {
     previewsTitle: "体验交互式课程形式",
     previewsBody: "新课程重制期间，早期样课继续作为播放器形式预览保留。",
     openPreview: "打开预览",
+    communityKicker: "一起决定下一步",
+    communityTitle: "关注学习园地的新进展",
+    communityBody:
+      "在重要课程发布或有值得关注的 OpenHW、RISC-V 公开活动时收到通知，也可以告诉 Alex 你最需要哪一课。",
+    subscribeTitle: "订阅课程与活动更新",
+    subscribeBody: "只在有值得分享的内容时发送。首次接收前，需要通过邮件确认订阅。",
+    emailLabel: "邮箱地址",
+    emailPlaceholder: "you@example.com",
+    subscribeAction: "订阅更新",
+    subscriptionsSoon: "邮箱订阅入口正在准备中。",
+    subscribeNote: "免费订阅，可随时退订。OpenHW Explorer 是独立社区项目。",
+    requestTitle: "建议下一门课程",
+    requestBody: "可以私下告诉 Alex，也可以公开提出建议，让其他学习者补充需求。",
+    privateAction: "私信 Alex",
+    privateMeta: "通过 LinkedIn",
+    publicAction: "公开提交课程建议",
+    publicMeta: "通过 GitHub",
+    publicNote: "GitHub 中的建议对所有人公开。",
     statuses: {
       published: "可学习",
       "editorial-review": "最终审核",
@@ -127,11 +171,14 @@ const copy = {
   },
 } as const;
 
-type ClassroomContentProps = { locale: string };
+type ClassroomContentProps = {
+  locale: string;
+  newsletterUsername?: string;
+};
 
 const collectionIcons = [BookOpenText, Route, Library] as const;
 
-export function ClassroomContent({ locale }: ClassroomContentProps) {
+export function ClassroomContent({ locale, newsletterUsername }: ClassroomContentProps) {
   const resolvedLocale = locale === "zh" ? "zh" : "en";
   const text = copy[resolvedLocale];
   const [releaseSeries] = getFeaturedClassroomSeries();
@@ -149,6 +196,9 @@ export function ClassroomContent({ locale }: ClassroomContentProps) {
     );
 
   const getStatusLabel = (status: ClassroomLessonStatus) => text.statuses[status];
+  const newsletterAction = newsletterUsername
+    ? `https://buttondown.com/api/emails/embed-subscribe/${encodeURIComponent(newsletterUsername)}`
+    : undefined;
 
   return (
     <div className="page-shell">
@@ -350,6 +400,120 @@ export function ClassroomContent({ locale }: ClassroomContentProps) {
             </div>
           </section>
         )}
+
+        <section className="border-y border-[var(--border)] py-12 lg:py-16">
+          <p className="text-xs font-semibold uppercase text-[var(--primary)]">
+            {text.communityKicker}
+          </p>
+          <div className="mt-3 max-w-3xl">
+            <h2 className="text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl">
+              {text.communityTitle}
+            </h2>
+            <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)] sm:text-base">
+              {text.communityBody}
+            </p>
+          </div>
+
+          <div className="mt-9 grid gap-8 lg:grid-cols-2 lg:divide-x lg:divide-[var(--border)]">
+            <div className="lg:pr-12">
+              <Mail className="h-5 w-5 text-[var(--primary)]" />
+              <h3 className="mt-4 text-lg font-semibold text-[var(--text-primary)]">
+                {text.subscribeTitle}
+              </h3>
+              <p className="mt-2 max-w-xl text-sm leading-7 text-[var(--text-secondary)]">
+                {text.subscribeBody}
+              </p>
+
+              {newsletterAction ? (
+                <form action={newsletterAction} method="post" className="mt-5 max-w-xl">
+                  <label
+                    htmlFor="learning-hub-email"
+                    className="text-xs font-semibold text-[var(--text-secondary)]"
+                  >
+                    {text.emailLabel}
+                  </label>
+                  <div className="mt-2 flex flex-col gap-3 sm:flex-row">
+                    <input
+                      id="learning-hub-email"
+                      name="email"
+                      type="email"
+                      autoComplete="email"
+                      required
+                      placeholder={text.emailPlaceholder}
+                      className="min-h-11 min-w-0 flex-1 border border-[var(--border)] bg-[var(--bg-card)] px-3 text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-tertiary)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20"
+                    />
+                    <button
+                      type="submit"
+                      className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 bg-[var(--primary)] px-5 text-sm font-semibold text-white transition-colors hover:bg-[var(--primary-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-dark)]"
+                    >
+                      {text.subscribeAction}
+                      <ArrowRight className="h-4 w-4" />
+                    </button>
+                  </div>
+                  <input type="hidden" name="embed" value="1" />
+                </form>
+              ) : (
+                <p className="mt-5 text-sm font-semibold text-[var(--text-tertiary)]">
+                  {text.subscriptionsSoon}
+                </p>
+              )}
+
+              <p className="mt-3 max-w-xl text-xs leading-5 text-[var(--text-tertiary)]">
+                {text.subscribeNote}
+              </p>
+            </div>
+
+            <div className="border-t border-[var(--border)] pt-8 lg:border-t-0 lg:pl-12 lg:pt-0">
+              <MessageSquareText className="h-5 w-5 text-[var(--primary)]" />
+              <h3 className="mt-4 text-lg font-semibold text-[var(--text-primary)]">
+                {text.requestTitle}
+              </h3>
+              <p className="mt-2 max-w-xl text-sm leading-7 text-[var(--text-secondary)]">
+                {text.requestBody}
+              </p>
+
+              <div className="mt-5 divide-y divide-[var(--border)] border-y border-[var(--border)]">
+                <a
+                  href={externalLinks.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex min-h-16 items-center justify-between gap-4 py-3 text-sm font-semibold text-[var(--text-primary)] hover:text-[var(--primary)]"
+                >
+                  <span className="inline-flex items-center gap-3">
+                    <MessageSquareText className="h-4 w-4 text-[var(--primary)]" />
+                    <span>
+                      <span className="block">{text.privateAction}</span>
+                      <span className="mt-0.5 block text-xs font-normal text-[var(--text-tertiary)]">
+                        {text.privateMeta}
+                      </span>
+                    </span>
+                  </span>
+                  <ExternalLink className="h-4 w-4 shrink-0" />
+                </a>
+                <a
+                  href={externalLinks.courseRequests}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="group flex min-h-16 items-center justify-between gap-4 py-3 text-sm font-semibold text-[var(--text-primary)] hover:text-[var(--primary)]"
+                >
+                  <span className="inline-flex items-center gap-3">
+                    <Github className="h-4 w-4 text-[var(--primary)]" />
+                    <span>
+                      <span className="block">{text.publicAction}</span>
+                      <span className="mt-0.5 block text-xs font-normal text-[var(--text-tertiary)]">
+                        {text.publicMeta}
+                      </span>
+                    </span>
+                  </span>
+                  <ExternalLink className="h-4 w-4 shrink-0" />
+                </a>
+              </div>
+              <p className="mt-3 text-xs leading-5 text-[var(--text-tertiary)]">
+                {text.publicNote}
+              </p>
+            </div>
+          </div>
+        </section>
       </div>
     </div>
   );

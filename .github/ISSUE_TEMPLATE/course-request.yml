@@ -1,0 +1,67 @@
+name: Course request
+description: Suggest a Learning Hub lesson in public so others can add context.
+title: "[Course request] "
+labels:
+  - enhancement
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for helping shape the OpenHW Explorer Learning Hub. This issue is public. Do not include private contact details or confidential information.
+
+  - type: input
+    id: topic
+    attributes:
+      label: Course topic
+      description: What should the lesson explain?
+      placeholder: For example, how to read a CORE-V core name
+    validations:
+      required: true
+
+  - type: textarea
+    id: learning_goal
+    attributes:
+      label: What should a learner be able to do afterwards?
+      description: A concrete question, task, or decision is more useful than a broad subject.
+      placeholder: After this lesson, I want to be able to...
+    validations:
+      required: true
+
+  - type: dropdown
+    id: audience
+    attributes:
+      label: Intended audience
+      options:
+        - New to open hardware
+        - Student with some digital-design background
+        - Working engineer
+        - Advanced or research audience
+        - Mixed audience
+    validations:
+      required: true
+
+  - type: dropdown
+    id: language
+    attributes:
+      label: Preferred language
+      options:
+        - English
+        - Chinese
+        - Both English and Chinese
+        - No preference
+    validations:
+      required: true
+
+  - type: textarea
+    id: sources
+    attributes:
+      label: Useful public sources
+      description: Optional links to official documentation, talks, repositories, or papers that could support the lesson.
+
+  - type: checkboxes
+    id: public_content
+    attributes:
+      label: Public request
+      options:
+        - label: I understand this request and any replies will be publicly visible on GitHub.
+          required: true
