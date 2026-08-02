@@ -462,7 +462,7 @@ export const classroomSeries: ClassroomSeries[] = [
         language: "en",
         durationMinutes: 7,
         slideCount: 10,
-        quizCount: 1,
+        quizCount: 3,
         level: { en: "Starter", zh: "入门" },
         title: {
           en: "Why is it called CVA6? Read a CORE-V core name",
