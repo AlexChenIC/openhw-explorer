@@ -3,6 +3,8 @@
 
 import whatIsCva6En from "./published-classrooms/openhw-cva6-u01-l01-what-is-cva6-en.json";
 import whatIsCva6Zh from "./published-classrooms/openhw-cva6-u01-l01-what-is-cva6-zh.json";
+import coreVNamesEn from "./published-classrooms/openhw-essentials-core-v-names-en.json";
+import coreVNamesZh from "./published-classrooms/openhw-essentials-core-v-names-zh.json";
 import openhwIndustrialAdoptionEn from "./published-classrooms/openhw-overview-industrial-adoption-en.json";
 
 export type PublishedClassroomAction = {
@@ -48,6 +50,8 @@ export type PublishedClassroomScene = {
     theme?: "dark" | "light";
     content?: Record<string, unknown>;
     assets?: PublishedClassroomAsset[];
+    html?: string;
+    locale?: string;
     sourceAnchors?: PublishedClassroomSourceAnchor[];
     questions?: PublishedClassroomQuestion[];
     speakerNotes?: string;
@@ -71,6 +75,8 @@ export type PublishedClassroom = {
 const publishedClassrooms = {
   [whatIsCva6En.id]: whatIsCva6En,
   [whatIsCva6Zh.id]: whatIsCva6Zh,
+  [coreVNamesEn.id]: coreVNamesEn,
+  [coreVNamesZh.id]: coreVNamesZh,
   [openhwIndustrialAdoptionEn.id]: openhwIndustrialAdoptionEn,
 } as Record<string, PublishedClassroom>;
 

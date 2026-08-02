@@ -1,0 +1,26 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.297
+The most important distinction is project versus product instance.
+
+2
+00:00:04.297 --> 00:00:07.552
+CVA6 is the repository and configurable code base.
+
+3
+00:00:07.552 --> 00:00:12.760
+The documentation says the repository as-is is not one specific production core.
+
+4
+00:00:12.760 --> 00:00:18.294
+A name such as C V thirty two A six zero X points to configuration-specific evidence.
+
+5
+00:00:18.294 --> 00:00:25.325
+That evidence can define instruction extensions, privilege modes, interfaces, issue direction, and maturity.
+
+6
+00:00:25.325 --> 00:00:31.575
+A feature found in one configuration should never be copied automatically to every CVA6 variant.
+

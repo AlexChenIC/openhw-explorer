@@ -1,0 +1,22 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.361
+Why is the project called C V A six?
+
+2
+00:00:02.361 --> 00:00:07.541
+The short answer is useful, but the engineering answer needs one extra caution.
+
+3
+00:00:07.541 --> 00:00:17.639
+In the current CVA6 documentation, C V identifies the CORE-V family, A identifies the application class, and six points to a six-stage execution pipeline.
+
+4
+00:00:17.639 --> 00:00:20.131
+The name gives us an orientation clue.
+
+5
+00:00:20.131 --> 00:00:30.950
+It does not, by itself, tell us the exact instruction set, privilege modes, cache choices, issue width, or maturity of every configuration built from the repository.
+

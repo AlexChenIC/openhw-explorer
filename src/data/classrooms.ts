@@ -448,16 +448,20 @@ export const classroomSeries: ClassroomSeries[] = [
     lessons: [
       {
         id: "openhw-u01-l01-core-v-names",
+        classroomIds: {
+          en: "openhw-essentials-core-v-names-en",
+          zh: "openhw-essentials-core-v-names-zh",
+        },
         projectId: "openhw",
         seriesId: "openhw-foundations",
-        status: "editorial-review",
+        status: "published",
         role: "catalog",
         order: 1,
         unitId: "u01-core-v-names",
         skillId: "u01-s01-nomenclature",
         language: "en",
-        durationMinutes: 8,
-        slideCount: 8,
+        durationMinutes: 7,
+        slideCount: 10,
         quizCount: 1,
         level: { en: "Starter", zh: "入门" },
         title: {
@@ -465,8 +469,8 @@ export const classroomSeries: ClassroomSeries[] = [
           zh: "为什么叫 CVA6？读懂 CORE-V 核心名称",
         },
         summary: {
-          en: "Decode the information carried by names such as CV32E40P, CVA6, CV32A60AX, and CV64A6 without confusing a repository family with a specific configuration.",
-          zh: "拆解 CV32E40P、CVA6、CV32A60AX 与 CV64A6 等名称，并区分项目家族与具体配置。",
+          en: "Decode CVA6, CV64A60, CV32A60X, and the historical CV32E40P pattern without confusing a repository family with a specific configuration.",
+          zh: "拆解 CVA6、CV64A60、CV32A60X 以及历史命名中的 CV32E40P，同时区分项目家族与具体配置。",
         },
         outcome: {
           en: "Explain the useful parts of CORE-V nomenclature and state where a name stops being a complete technical specification.",

@@ -1,0 +1,22 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.259
+There are two related naming layers.
+
+2
+00:00:02.259 --> 00:00:12.110
+The current CVA6 page gives a compact rule for cores derived from this repository: C V, instruction length, class, pipeline stages, and a product identifier.
+
+3
+00:00:12.110 --> 00:00:18.572
+The older CORE-V deck used a broader five-field structure that also named identity and modifier fields.
+
+4
+00:00:18.572 --> 00:00:23.529
+These models overlap, but they should not be forced into one universal grammar.
+
+5
+00:00:23.529 --> 00:00:32.125
+This is why the lesson labels the older decomposition as historical context and keeps the current project documentation as the authority.
+

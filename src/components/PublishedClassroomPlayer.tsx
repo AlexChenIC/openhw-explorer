@@ -44,6 +44,15 @@ function audioPath(classroomId: string, audioUrl?: string) {
   return file ? `/classroom-assets/${classroomId}/audio/${file}` : "";
 }
 
+function captionPath(classroomId: string, audioUrl?: string) {
+  if (!audioUrl) return "";
+  const file = audioUrl
+    .split("/")
+    .pop()
+    ?.replace(/\.[^.]+$/, ".vtt");
+  return file ? `/classroom-assets/${classroomId}/subtitles/${file}` : "";
+}
+
 function assetPath(asset?: PublishedClassroomAsset) {
   if (!asset?.src) return "";
   if (asset.src.startsWith("/openhw-assets/")) return `/classroom-assets${asset.src}`;
@@ -212,9 +221,10 @@ function DiagramFocus({
   );
 }
 
-function Quiz({ questions }: { questions: PublishedClassroomQuestion[] }) {
+function Quiz({ questions, locale }: { questions: PublishedClassroomQuestion[]; locale: string }) {
   const [selected, setSelected] = useState<Record<string, string[]>>({});
   const [revealed, setRevealed] = useState<Record<string, boolean>>({});
+  const zh = locale === "zh";
 
   return (
     <div className="space-y-4">
@@ -226,7 +236,9 @@ function Quiz({ questions }: { questions: PublishedClassroomQuestion[] }) {
             key={question.id}
             className="rounded-xl border border-[var(--border)] bg-white/90 p-5 text-slate-900"
           >
-            <p className="text-xs font-bold text-[var(--primary)]">Question {index + 1}</p>
+            <p className="text-xs font-bold text-[var(--primary)]">
+              {zh ? `第 ${index + 1} 题` : `Question ${index + 1}`}
+            </p>
             <h3 className="mt-2 text-lg font-bold">{question.question}</h3>
             <div className="mt-4 grid gap-2">
               {question.options.map((option) => {
@@ -274,11 +286,13 @@ function Quiz({ questions }: { questions: PublishedClassroomQuestion[] }) {
               onClick={() => setRevealed((current) => ({ ...current, [question.id]: true }))}
               className="mt-4 rounded-lg bg-[var(--primary)] px-4 py-2 text-sm font-semibold text-white"
             >
-              Show answer
+              {zh ? "查看答案" : "Show answer"}
             </button>
             {isRevealed && (
               <p className="mt-3 rounded-lg border border-[var(--green)]/30 bg-[var(--green)]/10 p-3 text-sm leading-6 text-slate-700">
-                <strong>Answer: {question.answer.join(", ")}</strong>
+                <strong>
+                  {zh ? "答案" : "Answer"}: {question.answer.join(", ")}
+                </strong>
                 {question.analysis ? ` · ${question.analysis}` : ""}
               </p>
             )}
@@ -289,9 +303,21 @@ function Quiz({ questions }: { questions: PublishedClassroomQuestion[] }) {
   );
 }
 
-function SlideBody({ scene }: { scene: PublishedClassroomScene }) {
+function SlideBody({ scene, locale }: { scene: PublishedClassroomScene; locale: string }) {
   if (scene.type === "quiz") {
-    return <Quiz questions={scene.content.questions ?? []} />;
+    return <Quiz questions={scene.content.questions ?? []} locale={locale} />;
+  }
+
+  if (scene.type === "interactive" && scene.content.html) {
+    return (
+      <iframe
+        title={scene.title}
+        srcDoc={scene.content.html}
+        sandbox="allow-scripts"
+        referrerPolicy="no-referrer"
+        className="h-[min(68vh,640px)] min-h-[500px] w-full rounded-xl border border-slate-200 bg-white"
+      />
+    );
   }
 
   const body = (scene.content.content ?? {}) as SlideContent;
@@ -400,6 +426,7 @@ export function PublishedClassroomPlayer({
   const scene = scenes[sceneIndex] ?? scenes[0];
   const action = scene ? getPrimaryAction(scene) : undefined;
   const audio = audioPath(classroom.id, action?.audioUrl);
+  const captions = captionPath(classroom.id, action?.audioUrl);
   const sourceAnchors = scene?.content.sourceAnchors ?? [];
   const zh = locale === "zh";
 
@@ -445,8 +472,8 @@ export function PublishedClassroomPlayer({
   if (!scene) return null;
 
   const reviewNotice = zh
-    ? "社区教学内容，未经 OpenHW Foundation 官方审校；技术细节以官方文档为准。"
-    : "Community teaching content, not reviewed by the OpenHW Foundation; refer to official docs for authoritative details.";
+    ? "OpenHW Explorer 社区课程 · 关键技术表述附有一手资料来源"
+    : "OpenHW Explorer community course · key technical claims include primary-source references";
 
   return (
     <div
@@ -518,7 +545,7 @@ export function PublishedClassroomPlayer({
               isFullscreen ? "min-h-[calc(100vh-129px)] max-w-7xl" : "min-h-[500px] max-w-5xl"
             }`}
           >
-            <SlideBody scene={scene} />
+            <SlideBody scene={scene} locale={locale} />
           </div>
         </div>
 
@@ -541,7 +568,15 @@ export function PublishedClassroomPlayer({
 
           {audio && (
             <audio key={audio} controls className="mb-4 w-full" preload="metadata" src={audio}>
-              <track kind="captions" />
+              {captions && (
+                <track
+                  kind="captions"
+                  src={captions}
+                  srcLang={zh ? "zh" : "en"}
+                  label={zh ? "中文字幕" : "English captions"}
+                  default
+                />
+              )}
             </audio>
           )}
 
