@@ -1,5 +1,5 @@
 import type { MetadataRoute } from "next";
-import { classroomSeries, hasPublishedLesson } from "@/data/classrooms";
+import { getFeaturedClassroomSeries, hasPublishedLesson } from "@/data/classrooms";
 import { projects } from "@/data/projects";
 import { features } from "@/lib/features";
 import { SITE_URL } from "@/lib/site-url";
@@ -57,7 +57,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       : []),
   ]);
 
-  const classroomPages = classroomSeries.flatMap((series) =>
+  const classroomPages = getFeaturedClassroomSeries().flatMap((series) =>
     locales.flatMap((locale) => [
       {
         url: `${SITE_URL}/${locale}/classroom/${series.id}`,
@@ -66,7 +66,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
         priority: 0.7,
       },
       ...series.lessons
-        .filter(hasPublishedLesson)
+        .filter((lesson) => lesson.status === "published" && hasPublishedLesson(lesson))
         .map((lesson) => ({
           url: `${SITE_URL}/${locale}/classroom/${series.id}/${lesson.id}`,
           lastModified: new Date(),

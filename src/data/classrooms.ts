@@ -8,8 +8,15 @@ export type ClassroomLocale = "en" | "zh";
 export type LocalizedText = Record<ClassroomLocale, string>;
 
 export type ClassroomTrackStatus = "open" | "planned";
-export type ClassroomSeriesStatus = "pilot" | "planned";
-export type ClassroomLessonStatus = "featured" | "pilot" | "draft" | "planned";
+export type ClassroomSeriesStatus = "in-production" | "development";
+export type ClassroomSeriesVisibility = "featured" | "development";
+export type ClassroomLessonStatus =
+  | "published"
+  | "editorial-review"
+  | "in-production"
+  | "planned"
+  | "prototype";
+export type ClassroomLessonRole = "catalog" | "prototype";
 
 export interface ClassroomTrack {
   id: string;
@@ -27,6 +34,7 @@ export interface ClassroomLesson {
   projectId: string;
   seriesId: string;
   status: ClassroomLessonStatus;
+  role: ClassroomLessonRole;
   order: number;
   unitId: string;
   skillId: string;
@@ -62,15 +70,15 @@ export interface ClassroomSeries {
   trackId: string;
   projectId: string;
   status: ClassroomSeriesStatus;
+  visibility: ClassroomSeriesVisibility;
   title: LocalizedText;
   subtitle: LocalizedText;
   description: LocalizedText;
   audience: LocalizedText;
   level: LocalizedText;
   estimatedHours: number;
-  lessonsPlanned: number;
-  lessonsReady: number;
-  featuredLessonId?: string;
+  targetDurationMinutes?: readonly [number, number];
+  prototypeLessonId?: string;
   units: ClassroomUnit[];
   skills: ClassroomSkill[];
   lessons: ClassroomLesson[];
@@ -81,22 +89,22 @@ export const classroomTracks: ClassroomTrack[] = [
     id: "openhw-foundations",
     status: "open",
     title: {
-      en: "OpenHW Foundations",
-      zh: "OpenHW 基础导读",
+      en: "OpenHW Essentials",
+      zh: "OpenHW 核心概念",
     },
     description: {
-      en: "Understand OpenHW as an industrial open-source RISC-V IP ecosystem before entering individual core deep dives.",
-      zh: "在进入具体处理器核心深度课前，先理解 OpenHW 作为工业级开源 RISC-V IP 生态的定位。",
+      en: "Short, source-checked lessons that make OpenHW names, organizations, and technical boundaries easier to read.",
+      zh: "用短小且经过资料核对的课程，读懂 OpenHW 的命名、组织关系与技术边界。",
     },
     audience: {
-      en: "Learners, engineers, and partners who want the context behind OpenHW and CORE-V.",
-      zh: "适合希望理解 OpenHW 与 CORE-V 背景的学习者、工程师和产业伙伴。",
+      en: "Learners and engineers who want a reliable first map of OpenHW and CORE-V.",
+      zh: "适合希望建立可靠 OpenHW 与 CORE-V 入门地图的学习者和工程师。",
     },
     seriesIds: ["openhw-foundations"],
   },
   {
     id: "processor-cores",
-    status: "open",
+    status: "planned",
     title: {
       en: "Processor Core Deep Dives",
       zh: "处理器核心深度课",
@@ -147,23 +155,24 @@ export const classroomTracks: ClassroomTrack[] = [
   },
 ];
 
-// These selected packages are public previews of the classroom format. They are
-// not presented as completed, fully reviewed courses; the roadmap below shows
-// the intended structure for future human-reviewed production.
+// Prototype packages remain available by direct link so the classroom player
+// and older course work can still be evaluated. Only lessons with status
+// "published" belong to the reviewed public catalog.
 export const classroomSeries: ClassroomSeries[] = [
   {
     id: "cva6-from-zero",
     trackId: "processor-cores",
     projectId: "cva6",
-    status: "pilot",
+    status: "development",
+    visibility: "development",
     title: { en: "CVA6 From Zero", zh: "CVA6 从零开始" },
     subtitle: {
       en: "A structured path for understanding CVA6 before opening large RTL folders.",
       zh: "在打开大型 RTL 目录之前，先建立 CVA6 的资料、边界、配置和架构地图。",
     },
     description: {
-      en: "This public blueprint shows the intended nine-unit learning path. One bilingual prototype lesson is available now to demonstrate the classroom format; the remaining units will be rebuilt with direct human review.",
-      zh: "这里公开展示计划中的九个 Unit 课程框架。目前保留一节中英双语原型样课用于体验课堂形式，其余内容将由人工参与重新制作和核对。",
+      en: "A nine-unit deep-dive roadmap retained for future production. One bilingual format preview remains available, while the first public release focuses on shorter OpenHW Essentials lessons.",
+      zh: "为后续制作保留的九单元深度课程路线。目前保留一节中英双语形式预览，首发阶段则优先完成更短的 OpenHW 核心概念课程。",
     },
     audience: {
       en: "Learners who know basic RISC-V concepts and want to read CVA6 like an engineer.",
@@ -171,9 +180,7 @@ export const classroomSeries: ClassroomSeries[] = [
     },
     level: { en: "Starter to intermediate", zh: "入门到进阶" },
     estimatedHours: 13,
-    lessonsPlanned: 50,
-    lessonsReady: 1,
-    featuredLessonId: "cva6-u01-l01-what-is-cva6",
+    prototypeLessonId: "cva6-u01-l01-what-is-cva6",
     units: [
       {
         id: "u01-orientation",
@@ -286,7 +293,8 @@ export const classroomSeries: ClassroomSeries[] = [
         },
         projectId: "cva6",
         seriesId: "cva6-from-zero",
-        status: "featured",
+        status: "prototype",
+        role: "prototype",
         order: 1,
         unitId: "u01-orientation",
         skillId: "u01-s01-positioning",
@@ -316,66 +324,312 @@ export const classroomSeries: ClassroomSeries[] = [
     id: "openhw-foundations",
     trackId: "openhw-foundations",
     projectId: "openhw",
-    status: "pilot",
-    title: { en: "OpenHW Foundations", zh: "OpenHW 基础导读" },
+    status: "in-production",
+    visibility: "featured",
+    title: { en: "OpenHW Essentials", zh: "OpenHW 核心概念" },
     subtitle: {
-      en: "A practical introduction to OpenHW as an industrial open-source RISC-V IP ecosystem.",
-      zh: "从产业采用角度理解 OpenHW 作为开源 RISC-V IP 生态的入门样课。",
+      en: "One question, one reliable map, and one short lesson at a time.",
+      zh: "每节课解决一个具体问题，建立一张可靠的小地图。",
     },
     description: {
-      en: "This preview introduces OpenHW, CORE-V deliverables, licensing, verification, tooling, roadmap, and ecosystem support. It remains a format prototype rather than a completed course series.",
-      zh: "这节样课介绍 OpenHW、CORE-V deliverables、许可、验证、工具、路线图和生态支持。目前它仍是课程形式原型，而不是已经完成的正式系列。",
+      en: "Five short lessons build a practical first map: CORE-V names, the OpenHW Foundation, technical boundaries, verification, and the work required to turn open RTL into usable processor IP.",
+      zh: "五节短课建立一张实用的入门地图：CORE-V 命名、OpenHW Foundation、技术对象边界、验证，以及把开放 RTL 变成可用处理器 IP 所需的工作。",
     },
     audience: {
       en: "Engineers, students, researchers, and partners who want context before choosing a specific CORE-V project.",
       zh: "适合在选择具体 CORE-V 项目前，想先理解 OpenHW 背景的工程师、学生、研究者和产业伙伴。",
     },
     level: { en: "Starter", zh: "入门" },
-    estimatedHours: 0.4,
-    lessonsPlanned: 1,
-    lessonsReady: 1,
-    featuredLessonId: "openhw-u01-l01-industrial-adoption",
+    estimatedHours: 0.75,
+    targetDurationMinutes: [6, 10],
+    prototypeLessonId: "openhw-u01-l01-industrial-adoption",
     units: [
       {
-        id: "u01-openhw-industrial-context",
+        id: "u01-core-v-names",
         order: 1,
-        title: { en: "OpenHW industrial context", zh: "OpenHW 产业背景" },
+        title: { en: "Read a CORE-V core name", zh: "读懂 CORE-V 核心名称" },
         goal: {
-          en: "Build a mental model for OpenHW, CORE-V deliverables, adoption gates, and the path into project deep dives.",
-          zh: "建立 OpenHW、CORE-V deliverables、产业采用门槛和进入项目深度学习路径的整体认知。",
+          en: "Decode names such as CV32E40P and understand why CVA6 names a configurable project family rather than one frozen core.",
+          zh: "拆解 CV32E40P 等名称，并理解为什么 CVA6 指向可配置的项目家族，而不是一个固定核心。",
         },
-        skillIds: ["u01-s01-openhw-adoption"],
+        skillIds: ["u01-s01-nomenclature"],
+      },
+      {
+        id: "u02-openhw-foundation",
+        order: 2,
+        title: { en: "Understand the OpenHW Foundation", zh: "理解 OpenHW Foundation" },
+        goal: {
+          en: "Place OpenHW, Eclipse Foundation, RISC-V International, and CORE-V in one current organizational map.",
+          zh: "把 OpenHW、Eclipse Foundation、RISC-V International 与 CORE-V 放进一张当前有效的组织关系图。",
+        },
+        skillIds: ["u02-s01-foundation-map"],
+      },
+      {
+        id: "u03-technical-boundaries",
+        order: 3,
+        title: {
+          en: "Separate ISA, IP, core, SoC, and repository",
+          zh: "区分 ISA、IP、处理器核、SoC 与仓库",
+        },
+        goal: {
+          en: "Use the right technical object when navigating OpenHW projects and documentation.",
+          zh: "浏览 OpenHW 项目和文档时，能够判断自己面对的技术对象。",
+        },
+        skillIds: ["u03-s01-boundaries"],
+      },
+      {
+        id: "u04-verification",
+        order: 4,
+        title: { en: "See why verification matters", zh: "理解验证为什么重要" },
+        goal: {
+          en: "Understand why a well-designed or silicon-proven core still needs structured verification evidence.",
+          zh: "理解为什么设计良好、甚至已经流片的处理器核，仍然需要结构化的验证证据。",
+        },
+        skillIds: ["u04-s01-verification-evidence"],
+      },
+      {
+        id: "u05-usable-ip",
+        order: 5,
+        title: { en: "Look beyond the RTL", zh: "把视线移到 RTL 之外" },
+        goal: {
+          en: "Recognize the documentation, verification, software, integration, and governance work behind usable open processor IP.",
+          zh: "识别可用开源处理器 IP 背后的文档、验证、软件、集成与治理工作。",
+        },
+        skillIds: ["u05-s01-ip-readiness"],
       },
     ],
     skills: [
       {
-        id: "u01-s01-openhw-adoption",
-        title: { en: "Read OpenHW as an adoption ecosystem", zh: "从采用生态角度理解 OpenHW" },
+        id: "u01-s01-nomenclature",
+        title: { en: "Decode CORE-V nomenclature", zh: "拆解 CORE-V 命名" },
         description: {
-          en: "Connect RISC-V, CORE-V, licensing, verification, tooling, roadmap, and ecosystem support.",
-          zh: "把 RISC-V、CORE-V、许可、验证、工具、路线图和生态支持串联起来。",
+          en: "Read family, width, class, pipeline, product, and modifier signals without treating every name as identical.",
+          zh: "识别家族、位宽、类别、流水线、产品编号与修饰符，同时避免把所有项目名称套进同一公式。",
         },
-        lessonIds: ["openhw-u01-l01-industrial-adoption"],
+        lessonIds: ["openhw-u01-l01-core-v-names"],
+      },
+      {
+        id: "u02-s01-foundation-map",
+        title: { en: "Map the organizations", zh: "建立组织关系图" },
+        description: {
+          en: "Explain the distinct roles of OpenHW Foundation, Eclipse Foundation, RISC-V International, and CORE-V projects.",
+          zh: "解释 OpenHW Foundation、Eclipse Foundation、RISC-V International 与 CORE-V 项目的不同角色。",
+        },
+        lessonIds: ["openhw-u02-l01-foundation"],
+      },
+      {
+        id: "u03-s01-boundaries",
+        title: { en: "Name the technical object", zh: "说清技术对象" },
+        description: {
+          en: "Distinguish an instruction-set standard from an implementation, a processor core, a SoC, and a source repository.",
+          zh: "区分指令集标准、实现、处理器核、SoC 与源代码仓库。",
+        },
+        lessonIds: ["openhw-u03-l01-riscv-corev-core-soc"],
+      },
+      {
+        id: "u04-s01-verification-evidence",
+        title: { en: "Read verification evidence", zh: "读懂验证证据" },
+        description: {
+          en: "Separate design reputation, architectural compliance, testbench capability, and published verification results.",
+          zh: "区分设计声誉、架构兼容性、验证平台能力和公开验证结果。",
+        },
+        lessonIds: ["openhw-u04-l01-why-verification"],
+      },
+      {
+        id: "u05-s01-ip-readiness",
+        title: { en: "Assess IP readiness", zh: "判断 IP 是否可用" },
+        description: {
+          en: "Evaluate an open processor project through its RTL, verification, documentation, software, integration assets, and maintenance model.",
+          zh: "从 RTL、验证、文档、软件、集成资产和维护方式评估开源处理器项目。",
+        },
+        lessonIds: ["openhw-u05-l01-beyond-rtl"],
       },
     ],
     lessons: [
+      {
+        id: "openhw-u01-l01-core-v-names",
+        projectId: "openhw",
+        seriesId: "openhw-foundations",
+        status: "editorial-review",
+        role: "catalog",
+        order: 1,
+        unitId: "u01-core-v-names",
+        skillId: "u01-s01-nomenclature",
+        language: "en",
+        durationMinutes: 8,
+        slideCount: 8,
+        quizCount: 1,
+        level: { en: "Starter", zh: "入门" },
+        title: {
+          en: "Why is it called CVA6? Read a CORE-V core name",
+          zh: "为什么叫 CVA6？读懂 CORE-V 核心名称",
+        },
+        summary: {
+          en: "Decode the information carried by names such as CV32E40P, CVA6, CV32A60AX, and CV64A6 without confusing a repository family with a specific configuration.",
+          zh: "拆解 CV32E40P、CVA6、CV32A60AX 与 CV64A6 等名称，并区分项目家族与具体配置。",
+        },
+        outcome: {
+          en: "Explain the useful parts of CORE-V nomenclature and state where a name stops being a complete technical specification.",
+          zh: "解释 CORE-V 命名中可读取的信息，并说明名称为什么不能替代完整技术规格。",
+        },
+        tags: ["OpenHW", "CORE-V", "CVA6", "nomenclature"],
+        sourceRefs: [
+          "CVA6 documentation: CORE-V Nomenclature",
+          "CVA6 User Manual: verified configurations",
+          "OpenHW Projects",
+        ],
+      },
+      {
+        id: "openhw-u02-l01-foundation",
+        projectId: "openhw",
+        seriesId: "openhw-foundations",
+        status: "in-production",
+        role: "catalog",
+        order: 2,
+        unitId: "u02-openhw-foundation",
+        skillId: "u02-s01-foundation-map",
+        language: "en",
+        durationMinutes: 8,
+        slideCount: 7,
+        quizCount: 1,
+        level: { en: "Starter", zh: "入门" },
+        title: {
+          en: "What is the OpenHW Foundation?",
+          zh: "OpenHW Foundation 是什么？",
+        },
+        summary: {
+          en: "Build a current map of the foundation, its Eclipse governance context, its relationship to RISC-V International, and the CORE-V projects it supports.",
+          zh: "建立当前组织关系图，理解 OpenHW Foundation 的 Eclipse 治理背景、与 RISC-V International 的关系及其支持的 CORE-V 项目。",
+        },
+        outcome: {
+          en: "Describe OpenHW's role without confusing an ISA standards body, a foundation, and the projects it hosts.",
+          zh: "准确描述 OpenHW 的角色，不混淆指令集标准组织、基金会与其承载的项目。",
+        },
+        tags: ["OpenHW Foundation", "Eclipse Foundation", "RISC-V", "CORE-V"],
+        sourceRefs: [
+          "OpenHW Foundation: About",
+          "Eclipse OpenHW Foundation Working Group Charter",
+          "RISC-V International: About",
+        ],
+      },
+      {
+        id: "openhw-u03-l01-riscv-corev-core-soc",
+        projectId: "openhw",
+        seriesId: "openhw-foundations",
+        status: "planned",
+        role: "catalog",
+        order: 3,
+        unitId: "u03-technical-boundaries",
+        skillId: "u03-s01-boundaries",
+        language: "en",
+        durationMinutes: 8,
+        slideCount: 7,
+        quizCount: 1,
+        level: { en: "Starter", zh: "入门" },
+        title: {
+          en: "From the RISC-V ISA to a CORE-V core and SoC",
+          zh: "从 RISC-V 指令集到 CORE-V 处理器核与 SoC",
+        },
+        summary: {
+          en: "Follow one concrete stack from the software-visible RISC-V contract, through a CORE-V processor implementation, to a system that adds memory, interconnect, peripherals, and I/O.",
+          zh: "沿一条具体技术链，理解软件可见的 RISC-V 约定、CORE-V 处理器实现，以及加入存储、互连、外设和 I/O 后形成的系统。",
+        },
+        outcome: {
+          en: "Distinguish an ISA, processor core, and SoC, then recognize a repository as the engineering container for one or more related artifacts.",
+          zh: "区分指令集、处理器核与 SoC，并理解仓库是承载一个或多个相关工程产物的协作容器。",
+        },
+        tags: ["RISC-V", "CORE-V", "processor core", "SoC", "repository"],
+        sourceRefs: [
+          "Open Source Processor IP for High-Volume Production SoCs (2019)",
+          "VLSI SoC: Open Source Processor IP (2020)",
+          "OpenHW Foundation RISC-V Cores (2025, CC BY 4.0)",
+          "RISC-V International and current OpenHW project documentation",
+        ],
+      },
+      {
+        id: "openhw-u04-l01-why-verification",
+        projectId: "openhw",
+        seriesId: "openhw-foundations",
+        status: "planned",
+        role: "catalog",
+        order: 4,
+        unitId: "u04-verification",
+        skillId: "u04-s01-verification-evidence",
+        language: "en",
+        durationMinutes: 9,
+        slideCount: 8,
+        quizCount: 1,
+        level: { en: "Starter", zh: "入门" },
+        title: {
+          en: "Why does a proven core still need verification?",
+          zh: "为什么成熟的处理器核仍然需要验证？",
+        },
+        summary: {
+          en: "Use CORE-V-VERIF to see why prior silicon, a strong design lineage, and passing architecture tests do not replace a maintained verification environment and reviewable evidence.",
+          zh: "以 CORE-V-VERIF 为例，理解既有流片、良好设计传承和架构测试为什么不能替代持续维护的验证环境与可复核证据。",
+        },
+        outcome: {
+          en: "Explain the distinct roles of architecture tests, simulation, formal methods, coverage, and published verification results.",
+          zh: "解释架构测试、仿真、形式验证、覆盖率和公开验证结果各自承担的角色。",
+        },
+        tags: ["OpenHW", "CORE-V-VERIF", "verification", "UVM"],
+        sourceRefs: [
+          "OpenHW Projects: CORE-V-Verif",
+          "CORE-V-VERIF Verification Strategy",
+          "CV32E40P Verification Strategy and Status",
+        ],
+      },
+      {
+        id: "openhw-u05-l01-beyond-rtl",
+        projectId: "openhw",
+        seriesId: "openhw-foundations",
+        status: "planned",
+        role: "catalog",
+        order: 5,
+        unitId: "u05-usable-ip",
+        skillId: "u05-s01-ip-readiness",
+        language: "en",
+        durationMinutes: 9,
+        slideCount: 8,
+        quizCount: 1,
+        level: { en: "Starter", zh: "入门" },
+        title: {
+          en: "What turns open RTL into usable processor IP?",
+          zh: "什么让开放 RTL 变成可用的处理器 IP？",
+        },
+        summary: {
+          en: "Follow the layers around a core: specifications, verification, documentation, toolchains, software, integration platforms, licensing, and long-term maintenance.",
+          zh: "沿着处理器核周围的各层展开：规格、验证、文档、工具链、软件、集成平台、许可和长期维护。",
+        },
+        outcome: {
+          en: "Use a compact readiness checklist to decide whether an open processor project is worth deeper technical evaluation.",
+          zh: "使用一份精简的成熟度检查表，判断一个开源处理器项目是否值得继续深入评估。",
+        },
+        tags: ["OpenHW", "processor IP", "open source", "adoption"],
+        sourceRefs: [
+          "OpenHW Foundation: Projects",
+          "OpenHW Foundation: About",
+          "Eclipse OpenHW Foundation Working Group Charter",
+        ],
+      },
       {
         id: "openhw-u01-l01-industrial-adoption",
         classroomIds: { en: "openhw-overview-industrial-adoption-en" },
         projectId: "openhw",
         seriesId: "openhw-foundations",
-        status: "featured",
-        order: 1,
-        unitId: "u01-openhw-industrial-context",
-        skillId: "u01-s01-openhw-adoption",
+        status: "prototype",
+        role: "prototype",
+        order: 0,
+        unitId: "prototype",
+        skillId: "prototype",
         language: "en",
         durationMinutes: 22,
         slideCount: 14,
         quizCount: 0,
         level: { en: "Starter", zh: "入门" },
         title: {
-          en: "OpenHW foundations: industrial open-source RISC-V IP",
-          zh: "OpenHW 基础导读：面向产业的开源 RISC-V IP",
+          en: "Format preview: industrial open-source RISC-V IP",
+          zh: "形式预览：面向产业的开源 RISC-V IP",
         },
         summary: {
           en: "Use OpenHW Group public slide decks to understand OpenHW's role, CORE-V deliverables, permissive licensing, verification quality, ecosystem readiness, and digital sovereignty.",
@@ -426,8 +680,26 @@ export function getLessonById(seriesId: string, lessonId: string) {
   return getSeriesById(seriesId)?.lessons.find((lesson) => lesson.id === lessonId);
 }
 
-export function getFeaturedLesson(series: ClassroomSeries) {
-  return series.lessons.find((lesson) => lesson.id === series.featuredLessonId);
+export function getFeaturedClassroomSeries() {
+  return classroomSeries.filter((series) => series.visibility === "featured");
+}
+
+export function getDevelopmentClassroomSeries() {
+  return classroomSeries.filter((series) => series.visibility === "development");
+}
+
+export function getCatalogLessons(series: ClassroomSeries) {
+  return series.lessons.filter((lesson) => lesson.role === "catalog");
+}
+
+export function getPrototypeLessons(series: ClassroomSeries) {
+  return series.lessons.filter(
+    (lesson) => lesson.role === "prototype" && hasPublishedLesson(lesson),
+  );
+}
+
+export function getPrototypeLesson(series: ClassroomSeries) {
+  return series.lessons.find((lesson) => lesson.id === series.prototypeLessonId);
 }
 
 export function getClassroomIdForLocale(lesson: ClassroomLesson, locale: string) {
@@ -454,6 +726,6 @@ export function lessonUsesClassroomId(lesson: ClassroomLesson, classroomId: stri
 
 export function getReadyLessons(series: ClassroomSeries) {
   return series.lessons.filter(
-    (lesson) => lesson.status === "featured" || lesson.status === "pilot",
+    (lesson) => lesson.status === "published" && hasPublishedLesson(lesson),
   );
 }

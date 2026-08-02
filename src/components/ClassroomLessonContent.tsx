@@ -21,31 +21,31 @@ import { PublishedClassroomPlayer } from "@/components/PublishedClassroomPlayer"
 const copy = {
   en: {
     back: "Back to series",
-    preview: "Prototype classroom",
-    fallbackLanguage: "This preview is currently available in English only.",
-    openStandalone: "Open standalone classroom",
+    preview: "Classroom format preview",
+    fallbackLanguage: "This format preview is currently available in English only.",
+    openStandalone: "Open focused player",
     outcome: "Learning outcome",
     sources: "Source anchors",
     minutes: "min",
     slides: "slides",
     quiz: "quiz",
-    notesTitle: "Prototype status",
+    notesTitle: "About this preview",
     notes:
-      "This AI-assisted prototype is retained to demonstrate the classroom format. It is not a completed, fully human-reviewed course and is not reviewed or endorsed by OpenHW Foundation. Use the cited official sources for authoritative technical details.",
+      "This sample is retained to evaluate the player experience while the lesson is rebuilt for the reviewed V1 catalog. Use the listed primary sources when relying on technical details.",
   },
   zh: {
     back: "返回课程系列",
-    preview: "原型课堂",
-    fallbackLanguage: "这节原型样课目前只有英文版本。",
-    openStandalone: "打开独立课堂",
+    preview: "课堂形式预览",
+    fallbackLanguage: "这节形式预览目前只有英文版本。",
+    openStandalone: "打开专注播放器",
     outcome: "学习目标",
     sources: "资料锚点",
     minutes: "分钟",
     slides: "页 slide",
     quiz: "题 quiz",
-    notesTitle: "原型状态说明",
+    notesTitle: "关于这节预览",
     notes:
-      "这节 AI 辅助生成的原型样课被保留下来用于展示课堂形式，并不代表课程已经完成或通过完整人工审核，也未经 OpenHW Foundation 官方审校或背书。权威技术细节请以课程列出的一手资料为准。",
+      "这节样课用于评估播放器体验，正式版本正在按 1.0 人工审核流程重制。需要引用技术细节时，请以页面列出的一手资料为准。",
   },
 } as const;
 
@@ -108,17 +108,17 @@ export function ClassroomLessonContent({
             )}
           </div>
 
-          <aside className="rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-5 shadow-[var(--card-shadow)]">
+          <aside className="rounded-md border border-[var(--border)] bg-[var(--bg-card)] p-5 shadow-[var(--card-shadow)]">
             <div className="grid grid-cols-3 gap-2 text-xs text-[var(--text-tertiary)]">
-              <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-3">
+              <div className="rounded-md border border-[var(--border)] bg-[var(--bg-subtle)] p-3">
                 <Clock3 className="mb-2 h-4 w-4 text-[var(--primary)]" />
                 {lesson.durationMinutes} {t.minutes}
               </div>
-              <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-3">
+              <div className="rounded-md border border-[var(--border)] bg-[var(--bg-subtle)] p-3">
                 <Layers3 className="mb-2 h-4 w-4 text-[var(--primary)]" />
                 {lesson.slideCount} {t.slides}
               </div>
-              <div className="rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-3">
+              <div className="rounded-md border border-[var(--border)] bg-[var(--bg-subtle)] p-3">
                 <ListChecks className="mb-2 h-4 w-4 text-[var(--primary)]" />
                 {lesson.quizCount} {t.quiz}
               </div>
@@ -169,14 +169,14 @@ export function ClassroomLessonContent({
         {publishedClassroom ? (
           <PublishedClassroomPlayer classroom={publishedClassroom} locale={resolvedLocale} />
         ) : (
-          <section className="rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-6 text-[var(--text-secondary)] shadow-[var(--card-shadow)]">
+          <section className="rounded-md border border-[var(--border)] bg-[var(--bg-card)] p-6 text-[var(--text-secondary)] shadow-[var(--card-shadow)]">
             {resolvedLocale === "zh"
               ? "这节课的公开发布包尚未同步到 OpenHW Explorer。"
               : "The public release package for this lesson has not been synced into OpenHW Explorer yet."}
           </section>
         )}
 
-        <section className="mb-4 rounded-2xl border border-[var(--border)] bg-[var(--bg-card)] p-5">
+        <section className="mb-4 rounded-md border border-[var(--border)] bg-[var(--bg-card)] p-5">
           <h2 className="text-lg font-semibold text-[var(--text-primary)]">{t.notesTitle}</h2>
           <p className="mt-2 text-sm leading-7 text-[var(--text-secondary)]">{t.notes}</p>
         </section>

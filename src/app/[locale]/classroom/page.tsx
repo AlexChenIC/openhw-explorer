@@ -11,13 +11,13 @@ type ClassroomPageProps = {
 
 const metadataCopy = {
   en: {
-    title: "OpenHW Classroom",
+    title: "OpenHW Learning Hub",
     description:
-      "A learning hub for future source-grounded, human-reviewed OpenHW and RISC-V technical courses.",
+      "Short, source-checked OpenHW lessons, original technical deep dives, and selected public learning material.",
   },
   zh: {
-    title: "OpenHW 交互式课堂",
-    description: "为未来经过人工核对、基于一手资料的 OpenHW 与 RISC-V 技术课程准备的学习中心。",
+    title: "OpenHW 学习中心",
+    description: "从来源可追溯的 OpenHW 短课开始，逐步进入原创技术深度课和精选公开学习资料。",
   },
 } as const;
 
