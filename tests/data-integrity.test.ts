@@ -2,6 +2,12 @@ import { describe, expect, it } from "vitest";
 import { filterProjects, localizeProject, projects } from "@/data/projects";
 import { filterConfig, quickFilterTags } from "@/data/filters";
 import { getProjectKnowledge } from "@/data/knowledge";
+import {
+  classroomSeries,
+  getCatalogLessons,
+  getFeaturedClassroomSeries,
+  getPrototypeLessons,
+} from "@/data/classrooms";
 import classroom from "@/data/published-classrooms/openhw-overview-industrial-adoption-en.json";
 import curatedNews from "@/data/curated-news.json";
 
@@ -139,5 +145,25 @@ describe("source-backed content boundaries", () => {
       const item = curatedNews.items.find((candidate) => candidate.url === url);
       expect(item?.addedAt, url).toBe(expectedDate);
     }
+  });
+});
+
+describe("learning hub release boundaries", () => {
+  it("features the short OpenHW Essentials catalog for V1", () => {
+    const featuredSeries = getFeaturedClassroomSeries();
+
+    expect(featuredSeries.map((series) => series.id)).toEqual(["openhw-foundations"]);
+    expect(getCatalogLessons(featuredSeries[0])).toHaveLength(5);
+    expect(getCatalogLessons(featuredSeries[0]).every((lesson) => lesson.role === "catalog")).toBe(
+      true,
+    );
+  });
+
+  it("keeps retained player prototypes outside the reviewed catalog", () => {
+    const prototypes = classroomSeries.flatMap(getPrototypeLessons);
+
+    expect(prototypes).toHaveLength(2);
+    expect(prototypes.every((lesson) => lesson.status === "prototype")).toBe(true);
+    expect(prototypes.some((lesson) => lesson.id.includes("cva6"))).toBe(true);
   });
 });

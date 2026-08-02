@@ -126,9 +126,9 @@
     "subtitle": "从首页继续前进：开始学习、查资料、看资讯，或了解这个项目。",
     "cards": {
       "classroom": {
-        "title": "OpenHW 小课堂",
-        "description": "围绕贡献入门、核心使用、验证流程、软件使能四条主线快速上手。",
-        "cta": "进入课堂"
+        "title": "OpenHW 学习中心",
+        "description": "从五节聚焦短课开始，再进入原创深度课和精选 OpenHW 学习资料。",
+        "cta": "进入学习中心"
       },
       "pathway": {
         "title": "资源导航库",

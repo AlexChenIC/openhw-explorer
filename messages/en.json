@@ -126,9 +126,9 @@
     "subtitle": "Choose the right path after the homepage: learn, browse references, read updates, or understand the project.",
     "cards": {
       "classroom": {
-        "title": "OpenHW Mini Classroom",
-        "description": "Start with practical themes: contribution onboarding, core usage, verification workflows, and software enablement.",
-        "cta": "Open classroom"
+        "title": "OpenHW Learning Hub",
+        "description": "Start with five focused lessons, then move into original deep dives and selected OpenHW learning material.",
+        "cta": "Open Learning Hub"
       },
       "pathway": {
         "title": "Resource Directory",
