@@ -47,7 +47,7 @@ const copy = {
     sources: "资料锚点",
     minutes: "分钟",
     slides: "页 slide",
-    quiz: "题 quiz",
+    quiz: "道测验",
     notesTitle: "关于这节预览",
     notes:
       "这节样课用于评估播放器体验，正式版本正在按 1.0 人工审核流程重制。需要引用技术细节时，请以页面列出的一手资料为准。",
