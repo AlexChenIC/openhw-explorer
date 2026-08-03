@@ -1,12 +1,12 @@
 {
   "id": "openhw-essentials-core-v-names-en",
-  "createdAt": 1785672000000,
+  "createdAt": 1785758400000,
   "stage": {
     "id": "openhw-essentials-core-v-names-en",
-    "name": "Why is it called CVA6?",
-    "description": "A source-grounded microcourse for decoding CORE-V names without mistaking a name for a complete specification.",
-    "createdAt": 1785672000000,
-    "updatedAt": 1785672000000,
+    "name": "How to read CORE-V core names",
+    "description": "A technical microcourse on CORE-V family labels, part numbers, configurations, and machine-readable identities.",
+    "createdAt": 1785758400000,
+    "updatedAt": 1785761244402,
     "language": "en-US",
     "style": "openhw-signal-technical",
     "courseTemplateId": "openhw-essentials-microcourse",
@@ -20,7 +20,7 @@
       "id": "scene-core-v-names-title",
       "stageId": "openhw-essentials-core-v-names-en",
       "type": "html-slide",
-      "title": "Why is it called CVA6?",
+      "title": "How to read CORE-V core names",
       "order": 0,
       "content": {
         "type": "html-slide",
@@ -29,174 +29,266 @@
         "theme": "dark",
         "locale": "en-US",
         "content": {
-          "sceneTitle": "Why is it called CVA6?",
+          "sceneTitle": "How to read CORE-V core names",
           "kicker": "OPENHW ESSENTIALS · 01",
-          "title": "Why is it called CVA6?",
-          "subtitle": "Read the family, class and pipeline clue, then verify the actual configuration.",
+          "title": "CORE-V names are a compact architecture index",
+          "subtitle": "Decode CVE2, CV32E20, CV32E40P/X/S and CVA6 without confusing a family, repository, core, or configuration.",
           "chips": [
-            "CORE-V family",
-            "application class",
-            "six-stage pipeline"
+            "family / repo",
+            "part number",
+            "configuration",
+            "identity CSRs"
           ],
-          "thesis": "CVA6 is a useful name, not a complete specification: CV identifies the family, A the application class, and 6 the pipeline depth named by the project.",
-          "narration": "Why is the project called C V A six? The short answer is useful, but the engineering answer needs one extra caution. In the current CVA6 documentation, C V identifies the CORE-V family, A identifies the application class, and six points to a six-stage execution pipeline. The name gives us an orientation clue. It does not, by itself, tell us the exact instruction set, privilege modes, cache choices, issue width, or maturity of every configuration built from the repository."
+          "thesis": "A CORE-V name narrows the search space. The specification, configuration table, release tag, and identity CSRs establish the implementation.",
+          "narration": "CORE-V uses short labels for several different technical objects. CVE2 and CVA6 can name a family or code base. CV32E20, CV32E40X, and CV32A60AX identify more specific cores or configurations. This lesson builds a practical decoder across the embedded two-stage, embedded four-stage, and application-class six-stage lines. We will also connect the human-readable name to the repository, verified configuration, release, and the machine-readable identity CSRs."
         },
         "assets": [],
         "sourceAnchors": [
           {
-            "id": "cva6-nomenclature-current",
-            "title": "CVA6 documentation: CORE-V Nomenclature",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
-            "locator": "docs/index.rst, CORE-V Nomenclature",
-            "claimSupported": "CORE-V is the OpenHW family name; CVA6 names a repository/code base; CV identifies the family; A6 identifies application class and a six-stage pipeline; specific cores use CV <ILEN> <class> <pipeline stages> <product identifier>."
+            "id": "core-v-cores-current-catalog",
+            "title": "CORE-V family catalog",
+            "url": "https://github.com/openhwgroup/core-v-cores",
+            "locator": "CORE-V Repositories; CORE-V Core Names and Releases",
+            "claimSupported": "Current family groupings, representative core characteristics, and the role of mvendorid, marchid, and mimpid."
           },
           {
-            "id": "openhw-current-projects",
-            "title": "OpenHW Foundation: Cores, IP, and standards",
-            "url": "https://openhwfoundation.org/projects/",
-            "locator": "CVA6, CVE4, CVE2, CVA5 and CVW entries",
-            "claimSupported": "The current public portfolio uses both repository/family labels and specific core names; the project page describes CVA6 as a configurable six-stage project spanning 32-bit embedded to 64-bit application-ready configurations."
+            "id": "cva6-current-nomenclature",
+            "title": "CVA6 documentation: CORE-V nomenclature",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
+            "locator": "CORE-V Nomenclature",
+            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
+          },
+          {
+            "id": "cv32e20-current-specification",
+            "title": "CV32E20 specification",
+            "url": "https://docs.openhwgroup.org/projects/cve2-user-manual/en/latest/01_specification/",
+            "locator": "Introduction, Scope of the IP, Configurations",
+            "claimSupported": "CVE2 is the OpenHW fork/code base and CV32E20 is its current named core; the specification defines its 32-bit MCU scope, ISA options, OBI interfaces, and golden configurations."
           }
         ],
-        "speakerNotes": "Why is the project called C V A six? The short answer is useful, but the engineering answer needs one extra caution. In the current CVA6 documentation, C V identifies the CORE-V family, A identifies the application class, and six points to a six-stage execution pipeline. The name gives us an orientation clue. It does not, by itself, tell us the exact instruction set, privilege modes, cache choices, issue width, or maturity of every configuration built from the repository."
+        "speakerNotes": "CORE-V uses short labels for several different technical objects. CVE2 and CVA6 can name a family or code base. CV32E20, CV32E40X, and CV32A60AX identify more specific cores or configurations. This lesson builds a practical decoder across the embedded two-stage, embedded four-stage, and application-class six-stage lines. We will also connect the human-readable name to the repository, verified configuration, release, and the machine-readable identity CSRs."
       },
       "sourceAnchors": [
-        "cva6-nomenclature-current",
-        "openhw-current-projects"
+        "core-v-cores-current-catalog",
+        "cva6-current-nomenclature",
+        "cv32e20-current-specification"
       ],
       "actions": [
         {
           "id": "scene-core-v-names-title-speech",
           "type": "speech",
-          "text": "Why is the project called C V A six? The short answer is useful, but the engineering answer needs one extra caution. In the current CVA6 documentation, C V identifies the CORE-V family, A identifies the application class, and six points to a six-stage execution pipeline. The name gives us an orientation clue. It does not, by itself, tell us the exact instruction set, privilege modes, cache choices, issue width, or maturity of every configuration built from the repository.",
+          "text": "CORE-V uses short labels for several different technical objects. CVE2 and CVA6 can name a family or code base. CV32E20, CV32E40X, and CV32A60AX identify more specific cores or configurations. This lesson builds a practical decoder across the embedded two-stage, embedded four-stage, and application-class six-stage lines. We will also connect the human-readable name to the repository, verified configuration, release, and the machine-readable identity CSRs.",
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-core-v-names-title-speech",
           "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-title-speech.mp3"
         }
       ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
     },
     {
       "id": "scene-core-v-names-evidence",
       "stageId": "openhw-essentials-core-v-names-en",
       "type": "html-slide",
-      "title": "Use three evidence layers",
+      "title": "First identify what kind of name you are reading",
       "order": 1,
       "content": {
         "type": "html-slide",
         "slideKit": "openhw-signal-technical",
-        "slot": "sourceMap",
+        "slot": "twoColumnExplain",
         "theme": "light",
         "locale": "en-US",
         "content": {
-          "sceneTitle": "Use three evidence layers",
-          "kicker": "EVIDENCE FIRST",
-          "title": "Use three evidence layers",
-          "subtitle": "Current documentation answers current questions; older decks explain historical intent.",
-          "cards": [
+          "sceneTitle": "First identify what kind of name you are reading",
+          "kicker": "TWO NAMING LAYERS",
+          "title": "Family labels and part numbers answer different questions",
+          "subtitle": "Do not compare CVE4 and CV32E40X as though they were objects at the same level.",
+          "columns": [
             {
-              "label": "CURRENT RULE",
-              "title": "CVA6 nomenclature",
-              "body": "The repository documentation explains CV, A6 and the part-number pattern used for CVA6-derived cores.",
-              "tone": "teal"
+              "label": "FAMILY / CODE-BASE LAYER",
+              "title": "Compact labels group an implementation line",
+              "bullets": [
+                "CVE2: low-complexity two-stage embedded line and repository",
+                "CVE4: four-stage embedded family split across sibling repositories",
+                "CVA5 and CVA6: five- and six-stage application-oriented code bases",
+                "CVW: Wally-derived five-stage family with broad configuration options"
+              ]
             },
             {
-              "label": "CURRENT REALITY",
-              "title": "Configurations",
-              "body": "The User Manual records configuration-specific behavior and warns when a part number remains provisional.",
-              "tone": "blue"
-            },
-            {
-              "label": "HISTORICAL CONTEXT",
-              "title": "Earlier CORE-V syntax",
-              "body": "The 2022 public deck helps explain names such as CV32E40P, but it is not treated as timeless policy.",
-              "tone": "gold"
+              "label": "CORE / CONFIGURATION LAYER",
+              "title": "Longer names narrow width, class and identity",
+              "bullets": [
+                "CV32E20: named two-stage MCU core produced from CVE2",
+                "CV32E40P, X and S: sibling four-stage embedded cores",
+                "CV32A60AX, CV32A60X and CV32A65X: names in the evolving CVA6 documentation set",
+                "CV64A60: the current CVA6 nomenclature example"
+              ]
             }
           ],
-          "narration": "This lesson uses three evidence layers. First, the current CVA6 repository documentation is the authority for what C V, A and six mean in this project. Second, the current User Manual tells us what a named configuration actually implements and whether a name is still provisional. Third, an older public CORE-V deck explains the historical five-field syntax behind names such as C V thirty two E four zero P. That history is valuable, but current documentation wins whenever the two differ."
+          "takeaway": "Before decoding characters, classify the object: family, repository, named core, configuration, or release.",
+          "narration": "Start by identifying the object level. CVE2 is both a compact family label and the repository that hosts the RTL. Its current named processor is CV32E20. CVE4 is a family grouping for several four-stage cores, but CV32E40P, CV32E40X, and CV32E40S live in separate repositories. CVA6 is a heavily parameterized repository for several 32- and 64-bit cores. The longer part number narrows the implementation, but a release tag and configuration table narrow it further."
         },
         "assets": [],
         "sourceAnchors": [
           {
-            "id": "cva6-nomenclature-current",
-            "title": "CVA6 documentation: CORE-V Nomenclature",
+            "id": "core-v-cores-current-catalog",
+            "title": "CORE-V family catalog",
+            "url": "https://github.com/openhwgroup/core-v-cores",
+            "locator": "CORE-V Repositories; CORE-V Core Names and Releases",
+            "claimSupported": "Current family groupings, representative core characteristics, and the role of mvendorid, marchid, and mimpid."
+          },
+          {
+            "id": "cv32e20-current-specification",
+            "title": "CV32E20 specification",
+            "url": "https://docs.openhwgroup.org/projects/cve2-user-manual/en/latest/01_specification/",
+            "locator": "Introduction, Scope of the IP, Configurations",
+            "claimSupported": "CVE2 is the OpenHW fork/code base and CV32E20 is its current named core; the specification defines its 32-bit MCU scope, ISA options, OBI interfaces, and golden configurations."
+          },
+          {
+            "id": "cva6-current-nomenclature",
+            "title": "CVA6 documentation: CORE-V nomenclature",
             "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
-            "locator": "docs/index.rst, CORE-V Nomenclature",
-            "claimSupported": "CORE-V is the OpenHW family name; CVA6 names a repository/code base; CV identifies the family; A6 identifies application class and a six-stage pipeline; specific cores use CV <ILEN> <class> <pipeline stages> <product identifier>."
-          },
-          {
-            "id": "cva6-current-configurations",
-            "title": "CVA6 User Manual: Introduction and configurations",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/01_cva6_user/Introduction.rst",
-            "locator": "CVA6 configurations and CV32A60X note",
-            "claimSupported": "The manual lists configuration-specific characteristics and states that CV32A60X is an interim part number while single- versus dual-issue direction is decided."
-          },
-          {
-            "id": "core-v-historical-naming",
-            "title": "CORE-V Cores Roadmap, RISC-V Week Paris 2022",
-            "url": "https://open-src-soc.org/2022-05/media/slides/4th-RISC-V-Meeting-2022-05-04-14h40-Davide-Schiavone.pdf",
-            "locator": "slides 3-4",
-            "claimSupported": "The public historical deck illustrates the broader CV32E40P decomposition into family, word length, class, identity and modifier fields."
+            "locator": "CORE-V Nomenclature",
+            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
           }
         ],
-        "speakerNotes": "This lesson uses three evidence layers. First, the current CVA6 repository documentation is the authority for what C V, A and six mean in this project. Second, the current User Manual tells us what a named configuration actually implements and whether a name is still provisional. Third, an older public CORE-V deck explains the historical five-field syntax behind names such as C V thirty two E four zero P. That history is valuable, but current documentation wins whenever the two differ."
+        "speakerNotes": "Start by identifying the object level. CVE2 is both a compact family label and the repository that hosts the RTL. Its current named processor is CV32E20. CVE4 is a family grouping for several four-stage cores, but CV32E40P, CV32E40X, and CV32E40S live in separate repositories. CVA6 is a heavily parameterized repository for several 32- and 64-bit cores. The longer part number narrows the implementation, but a release tag and configuration table narrow it further."
       },
       "sourceAnchors": [
-        "cva6-nomenclature-current",
-        "cva6-current-configurations",
-        "core-v-historical-naming"
+        "core-v-cores-current-catalog",
+        "cv32e20-current-specification",
+        "cva6-current-nomenclature"
       ],
       "actions": [
         {
           "id": "scene-core-v-names-evidence-speech",
           "type": "speech",
-          "text": "This lesson uses three evidence layers. First, the current CVA6 repository documentation is the authority for what C V, A and six mean in this project. Second, the current User Manual tells us what a named configuration actually implements and whether a name is still provisional. Third, an older public CORE-V deck explains the historical five-field syntax behind names such as C V thirty two E four zero P. That history is valuable, but current documentation wins whenever the two differ.",
+          "text": "Start by identifying the object level. CVE2 is both a compact family label and the repository that hosts the RTL. Its current named processor is CV32E20. CVE4 is a family grouping for several four-stage cores, but CV32E40P, CV32E40X, and CV32E40S live in separate repositories. CVA6 is a heavily parameterized repository for several 32- and 64-bit cores. The longer part number narrows the implementation, but a release tag and configuration table narrow it further.",
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-core-v-names-evidence-speech",
           "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-evidence-speech.mp3"
         }
       ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
-    },
-    {
-      "id": "scene-core-v-names-decoder",
-      "stageId": "openhw-essentials-core-v-names-en",
-      "type": "interactive",
-      "title": "Try the name decoder",
-      "order": 2,
-      "content": {
-        "type": "interactive",
-        "url": "",
-        "html": "<!doctype html>\n<html lang=\"en-US\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Decode the clue, not the whole core</title>\n  <style>\n    :root { color-scheme: light; --ink:#142033; --muted:#617086; --line:#d9e2ee; --paper:#f7f9fc; --white:#fff; --blue:#165eb8; --teal:#078878; --gold:#9d6d16; --soft:#eaf1fa; }\n    * { box-sizing: border-box; }\n    html, body { width:100%; height:100%; margin:0; overflow:hidden; background:var(--paper); font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,\"PingFang SC\",\"Microsoft YaHei\",Arial,sans-serif; color:var(--ink); }\n    main { width:100%; height:100%; display:grid; grid-template-rows:auto auto 1fr auto; gap:18px; padding:clamp(22px,4vw,48px); }\n    header { display:flex; align-items:end; justify-content:space-between; gap:24px; border-bottom:1px solid var(--line); padding-bottom:16px; }\n    .eyebrow { margin:0 0 6px; color:var(--teal); font-size:13px; font-weight:800; text-transform:uppercase; }\n    h1 { margin:0; font-size:clamp(30px,4vw,50px); line-height:1.05; letter-spacing:0; }\n    .subtitle { margin:6px 0 0; color:var(--muted); font-size:clamp(14px,1.5vw,20px); }\n    .examples { display:flex; gap:8px; flex-wrap:wrap; }\n    button { font:inherit; }\n    .example { border:1px solid var(--line); background:var(--white); color:var(--ink); min-height:42px; padding:8px 14px; font-weight:750; cursor:pointer; }\n    .example[aria-pressed=\"true\"] { border-color:var(--blue); background:var(--soft); color:var(--blue); }\n    .workspace { min-height:0; display:grid; grid-template-columns:minmax(0,1.08fr) minmax(270px,.92fr); gap:20px; }\n    .name-panel, .detail { border:1px solid var(--line); background:var(--white); padding:clamp(18px,2.6vw,30px); min-height:0; }\n    .name-panel { display:grid; align-content:center; gap:20px; }\n    .name-note { color:var(--muted); font-size:14px; }\n    .tokens { display:flex; flex-wrap:wrap; gap:10px; align-items:stretch; }\n    .token { border:0; border-bottom:5px solid var(--blue); background:#eef4fb; color:var(--ink); padding:14px 16px 11px; font-size:clamp(24px,4vw,48px); font-weight:900; cursor:pointer; min-width:72px; }\n    .token:nth-child(2n) { border-bottom-color:var(--teal); }\n    .token:nth-child(3n) { border-bottom-color:var(--gold); }\n    .token[aria-pressed=\"true\"] { background:var(--ink); color:var(--white); }\n    .detail { display:grid; align-content:center; gap:12px; }\n    .detail-label { color:var(--blue); font-size:13px; font-weight:850; text-transform:uppercase; }\n    .detail-token { font-size:clamp(42px,7vw,82px); font-weight:950; line-height:1; }\n    .detail-text { color:var(--muted); font-size:clamp(16px,1.8vw,23px); line-height:1.45; }\n    .caution { border-left:4px solid var(--gold); background:#fff8e8; padding:12px 15px; color:#684811; font-weight:700; line-height:1.35; }\n    footer { display:flex; justify-content:space-between; gap:20px; color:var(--muted); font-size:12px; border-top:1px solid var(--line); padding-top:12px; }\n    .history { color:var(--gold); font-weight:800; }\n    @media (max-width:680px) {\n      html, body { overflow:auto; }\n      main { height:auto; min-height:100%; display:flex; flex-direction:column; gap:14px; overflow:visible; padding:24px 22px; }\n      header { align-items:start; flex-direction:column; padding-bottom:12px; }\n      h1 { font-size:30px; }\n      .examples { flex-wrap:nowrap; overflow-x:auto; padding-bottom:4px; }\n      .example { flex:0 0 auto; }\n      .workspace { display:flex; flex-direction:column; min-height:auto; gap:14px; }\n      .name-panel, .detail { min-height:210px; padding:20px; }\n      .tokens { gap:8px; }\n      .token { min-width:62px; padding:11px 13px 9px; font-size:30px; }\n      footer { flex-direction:column; gap:6px; }\n    }\n  </style>\n</head>\n<body>\n  <main>\n    <header>\n      <div><p class=\"eyebrow\">Interactive name decoder</p><h1>Decode the clue, not the whole core</h1><p class=\"subtitle\">Choose an example, then select a segment.</p></div>\n    </header>\n    <nav class=\"examples\" aria-label=\"Example names\"></nav>\n    <section class=\"workspace\">\n      <article class=\"name-panel\"><div class=\"name-note\"></div><div class=\"tokens\"></div><div class=\"caution\">The trailing identity/product field must be checked in configuration documentation.</div></article>\n      <aside class=\"detail\" aria-live=\"polite\"><div class=\"detail-label\"></div><div class=\"detail-token\"></div><div class=\"detail-text\"></div></aside>\n    </section>\n    <footer><span>Sources: current CVA6 nomenclature · historical CORE-V naming deck</span><span class=\"history\"></span></footer>\n  </main>\n  <script>\n    const examples = [{\"name\":\"CVA6\",\"note\":\"Repository and configurable project name\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"Member of the OpenHW CORE-V processor family.\"},{\"token\":\"A\",\"label\":\"Class\",\"detail\":\"Application-class project direction.\"},{\"token\":\"6\",\"label\":\"Pipeline clue\",\"detail\":\"Six-stage execution pipeline in the project naming.\"}]},{\"name\":\"CV64A60\",\"note\":\"Example used by the current CVA6 nomenclature page\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"CORE-V family.\"},{\"token\":\"64\",\"label\":\"ILEN\",\"detail\":\"64-bit instruction length.\"},{\"token\":\"A\",\"label\":\"Class\",\"detail\":\"Application class.\"},{\"token\":\"6\",\"label\":\"Pipeline stages\",\"detail\":\"Six-stage pipeline.\"},{\"token\":\"0\",\"label\":\"Product identifier\",\"detail\":\"Product identifier zero in the documentation example.\"}]},{\"name\":\"CV32A60X\",\"note\":\"Current configuration name with an explicit provisional-name warning\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"CORE-V family.\"},{\"token\":\"32\",\"label\":\"ILEN\",\"detail\":\"32-bit instruction length.\"},{\"token\":\"A\",\"label\":\"Class field\",\"detail\":\"A is retained in the part number; read the configuration table for its actual target class.\"},{\"token\":\"6\",\"label\":\"Pipeline stages\",\"detail\":\"Six-stage pipeline.\"},{\"token\":\"0X\",\"label\":\"Product identifier\",\"detail\":\"A distinguishing product field. The manual says this part number is interim.\"}]},{\"name\":\"CV32E40P\",\"note\":\"Historical broader CORE-V syntax\",\"historical\":true,\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"CORE-V family.\"},{\"token\":\"32\",\"label\":\"Word length\",\"detail\":\"32-bit word length.\"},{\"token\":\"E\",\"label\":\"Class\",\"detail\":\"Embedded class.\"},{\"token\":\"40\",\"label\":\"Identity\",\"detail\":\"Historical identity field, including pipeline/version information in that naming proposal.\"},{\"token\":\"P\",\"label\":\"Modifier\",\"detail\":\"Historical modifier field. Confirm present behavior in the current core manual.\"}]}];\n    const exampleNav = document.querySelector('.examples');\n    const tokens = document.querySelector('.tokens');\n    const note = document.querySelector('.name-note');\n    const detailLabel = document.querySelector('.detail-label');\n    const detailToken = document.querySelector('.detail-token');\n    const detailText = document.querySelector('.detail-text');\n    const history = document.querySelector('.history');\n    let selectedExample = 0;\n    let selectedToken = 0;\n\n    function renderDetail() {\n      const item = examples[selectedExample].tokens[selectedToken];\n      detailLabel.textContent = item.label;\n      detailToken.textContent = item.token;\n      detailText.textContent = item.detail;\n      [...tokens.children].forEach((button, index) => button.setAttribute('aria-pressed', String(index === selectedToken)));\n    }\n\n    function renderExample() {\n      const example = examples[selectedExample];\n      note.textContent = example.note;\n      history.textContent = example.historical ? 'Historical naming context' : '';\n      tokens.replaceChildren(...example.tokens.map((item, index) => {\n        const button = document.createElement('button');\n        button.className = 'token';\n        button.type = 'button';\n        button.textContent = item.token;\n        button.addEventListener('click', () => { selectedToken = index; renderDetail(); });\n        return button;\n      }));\n      [...exampleNav.children].forEach((button, index) => button.setAttribute('aria-pressed', String(index === selectedExample)));\n      selectedToken = 0;\n      renderDetail();\n    }\n\n    examples.forEach((example, index) => {\n      const button = document.createElement('button');\n      button.className = 'example';\n      button.type = 'button';\n      button.textContent = example.name;\n      button.addEventListener('click', () => { selectedExample = index; renderExample(); });\n      exampleNav.appendChild(button);\n    });\n    renderExample();\n  </script>\n</body>\n</html>"
-      },
-      "sourceAnchors": [
-        "cva6-nomenclature-current",
-        "core-v-historical-naming",
-        "cva6-current-configurations"
-      ],
-      "actions": [
-        {
-          "id": "scene-core-v-names-decoder-speech",
-          "type": "speech",
-          "text": "Now try the decoder. C V A six is the compact repository name. C V sixty four A six zero follows the current CVA6 part-number example: family, instruction length, class, pipeline stages, and product identifier. C V thirty two E four zero P comes from a broader historical syntax with family, word length, class, identity, and modifier fields. The important habit is to stop where the evidence stops. A suffix can distinguish a product, but its behavior belongs in the current configuration documentation.",
-          "voice": "alexchen-en",
-          "speed": 0.85,
-          "audioId": "tts_scene-core-v-names-decoder-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-decoder-speech.mp3"
-        }
-      ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
     },
     {
       "id": "scene-core-v-names-rules",
       "stageId": "openhw-essentials-core-v-names-en",
       "type": "html-slide",
-      "title": "One current rule, one historical rule",
+      "title": "The grammar changed as the portfolio evolved",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "comparisonMatrix",
+        "theme": "light",
+        "locale": "en-US",
+        "content": {
+          "sceneTitle": "The grammar changed as the portfolio evolved",
+          "kicker": "FIELD SYNTAX",
+          "title": "Use the grammar attached to the project and date",
+          "subtitle": "The shared fields are useful; the two historical contexts are not one universal standard.",
+          "columns": [
+            {
+              "key": "context",
+              "label": "Context"
+            },
+            {
+              "key": "pattern",
+              "label": "Published pattern"
+            },
+            {
+              "key": "example",
+              "label": "Worked example"
+            },
+            {
+              "key": "engineeringUse",
+              "label": "Engineering use"
+            }
+          ],
+          "rows": [
+            {
+              "context": "Historical CORE-V deck (2021–2022)",
+              "pattern": "family | word length | class | identity | modifier",
+              "example": "CV | 32 | E | 40 | P",
+              "engineeringUse": "Explains the origin of CV32E40P-style names."
+            },
+            {
+              "context": "Current CVA6 documentation",
+              "pattern": "CV | ILEN | class | pipeline stages | product ID",
+              "example": "CV | 64 | A | 6 | 0",
+              "engineeringUse": "Authority for names derived from the CVA6 repository."
+            },
+            {
+              "context": "Current portfolio catalog",
+              "pattern": "family labels plus repository-specific core names",
+              "example": "CVE2 → CV32E20; CVE4 → CV32E40X",
+              "engineeringUse": "Maps the part number to the code and manual that define it."
+            }
+          ],
+          "note": "Digits such as 2, 4, 5 and 6 often expose pipeline depth, but suffix semantics remain project-specific.",
+          "narration": "The original OpenHW naming deck used five fields: family, word length, class, identity, and an optional modifier. There the identity combined pipeline length with a product feature number. Current CVA6 documentation publishes a related but clearer pattern: C V, instruction length, class, pipeline stages, and product identifier. Both help parse names, but neither applies blindly to every current repository. The current manual remains authoritative."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "core-v-historical-naming",
+            "title": "CORE-V Cores Roadmap, RISC-V Week Paris 2022",
+            "url": "https://open-src-soc.org/2022-05/media/slides/4th-RISC-V-Meeting-2022-05-04-14h40-Davide-Schiavone.pdf",
+            "locator": "slide 4",
+            "claimSupported": "The historical public deck decomposes CV32E40P into family, word length, class, identity, and modifier fields."
+          },
+          {
+            "id": "core-v-historical-core-names-deck",
+            "title": "CORE-V Cores Naming Conventions (historical reference)",
+            "locator": "CoreNames.pptx, slides 3, 5-7, 10-11",
+            "claimSupported": "The historical internal reference expands the identity field into pipeline length plus a specific-feature identifier and separates repository, project release, and CSR identities."
+          },
+          {
+            "id": "cva6-current-nomenclature",
+            "title": "CVA6 documentation: CORE-V nomenclature",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
+            "locator": "CORE-V Nomenclature",
+            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
+          },
+          {
+            "id": "core-v-cores-current-catalog",
+            "title": "CORE-V family catalog",
+            "url": "https://github.com/openhwgroup/core-v-cores",
+            "locator": "CORE-V Repositories; CORE-V Core Names and Releases",
+            "claimSupported": "Current family groupings, representative core characteristics, and the role of mvendorid, marchid, and mimpid."
+          }
+        ],
+        "speakerNotes": "The original OpenHW naming deck used five fields: family, word length, class, identity, and an optional modifier. There the identity combined pipeline length with a product feature number. Current CVA6 documentation publishes a related but clearer pattern: C V, instruction length, class, pipeline stages, and product identifier. Both help parse names, but neither applies blindly to every current repository. The current manual remains authoritative."
+      },
+      "sourceAnchors": [
+        "core-v-historical-naming",
+        "core-v-historical-core-names-deck",
+        "cva6-current-nomenclature",
+        "core-v-cores-current-catalog"
+      ],
+      "actions": [
+        {
+          "id": "scene-core-v-names-rules-speech",
+          "type": "speech",
+          "text": "The original OpenHW naming deck used five fields: family, word length, class, identity, and an optional modifier. There the identity combined pipeline length with a product feature number. Current CVA6 documentation publishes a related but clearer pattern: C V, instruction length, class, pipeline stages, and product identifier. Both help parse names, but neither applies blindly to every current repository. The current manual remains authoritative.",
+          "voice": "alexchen-en",
+          "speed": 0.85,
+          "audioId": "tts_scene-core-v-names-rules-speech",
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-rules-speech.mp3"
+        }
+      ],
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
+    },
+    {
+      "id": "scene-core-v-names-project-vs-product",
+      "stageId": "openhw-essentials-core-v-names-en",
+      "type": "html-slide",
+      "title": "CVE2 and CV32E20 show the two layers cleanly",
       "order": 3,
       "content": {
         "type": "html-slide",
@@ -205,81 +297,189 @@
         "theme": "light",
         "locale": "en-US",
         "content": {
-          "sceneTitle": "One current rule, one historical rule",
-          "kicker": "TWO NAMING LAYERS",
-          "title": "One current rule, one historical rule",
-          "subtitle": "They overlap, but they are not interchangeable grammars.",
+          "sceneTitle": "CVE2 and CV32E20 show the two layers cleanly",
+          "kicker": "WORKED EXAMPLE · TWO-STAGE EMBEDDED",
+          "title": "CVE2 is the code base; CV32E20 is the named core",
+          "subtitle": "The current specification turns a compact name into an implementable set of processor configurations.",
           "columns": [
             {
-              "label": "CURRENT CVA6 DOCUMENTATION",
-              "title": "Derived-core part numbers",
+              "label": "MICROARCHITECTURE",
+              "title": "CV32E20",
               "bullets": [
-                "CV = CORE-V family",
-                "ILEN = 32 or 64",
-                "class = application or another documented class field",
-                "pipeline stages + product identifier complete the name"
+                "32-bit, low-complexity MCU core derived from Ibex/Zero-riscy",
+                "Two stages: instruction fetch, then combined decode/execute",
+                "Maximum IPC 1 when no multi-cycle instruction stalls ID/EX",
+                "Separate 32-bit instruction and data OBI interfaces"
               ]
             },
             {
-              "label": "HISTORICAL CORE-V DECK",
-              "title": "Broader five-field syntax",
+              "label": "CONFIGURATION SPACE",
+              "title": "One core name, multiple golden builds",
               "bullets": [
-                "family and word length",
-                "embedded/application class",
-                "identity field",
-                "optional modifier for special cases"
+                "RV32EMC or RV32IMC register/ISA direction",
+                "Separate golden configurations for FPGA and ASIC targets",
+                "Fine-grained SystemVerilog parameters control optional features",
+                "XIF variants exist in the matrix; initial golden v1 builds are non-XIF"
               ]
             }
           ],
-          "anchor": {
-            "label": "Safe interpretation",
-            "text": "Use the current project manual as authority; use older naming decks to explain origin and intent."
-          },
-          "narration": "There are two related naming layers. The current CVA6 page gives a compact rule for cores derived from this repository: C V, instruction length, class, pipeline stages, and a product identifier. The older CORE-V deck used a broader five-field structure that also named identity and modifier fields. These models overlap, but they should not be forced into one universal grammar. This is why the lesson labels the older decomposition as historical context and keeps the current project documentation as the authority."
+          "takeaway": "The part number names the core; the configuration name selects ISA, target technology, and optional interfaces.",
+          "narration": "CVE2 cleanly separates family from core. OpenHW forked Ibex in 2023 and named the code base CVE2. Its current named core, CV32E20, targets constrained 32-bit MCU and embedded subsystem use. Stage one fetches instructions; stage two combines decode, register access, execution, and writeback. The specification defines golden RV32E M C and RV32I M C builds for FPGA and ASIC targets. The part number alone cannot carry those configuration choices."
         },
         "assets": [],
         "sourceAnchors": [
           {
-            "id": "cva6-nomenclature-current",
-            "title": "CVA6 documentation: CORE-V Nomenclature",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
-            "locator": "docs/index.rst, CORE-V Nomenclature",
-            "claimSupported": "CORE-V is the OpenHW family name; CVA6 names a repository/code base; CV identifies the family; A6 identifies application class and a six-stage pipeline; specific cores use CV <ILEN> <class> <pipeline stages> <product identifier>."
+            "id": "cv32e20-current-specification",
+            "title": "CV32E20 specification",
+            "url": "https://docs.openhwgroup.org/projects/cve2-user-manual/en/latest/01_specification/",
+            "locator": "Introduction, Scope of the IP, Configurations",
+            "claimSupported": "CVE2 is the OpenHW fork/code base and CV32E20 is its current named core; the specification defines its 32-bit MCU scope, ISA options, OBI interfaces, and golden configurations."
           },
           {
-            "id": "core-v-historical-naming",
-            "title": "CORE-V Cores Roadmap, RISC-V Week Paris 2022",
-            "url": "https://open-src-soc.org/2022-05/media/slides/4th-RISC-V-Meeting-2022-05-04-14h40-Davide-Schiavone.pdf",
-            "locator": "slides 3-4",
-            "claimSupported": "The public historical deck illustrates the broader CV32E40P decomposition into family, word length, class, identity and modifier fields."
+            "id": "cv32e20-current-pipeline",
+            "title": "CV32E20 pipeline details",
+            "url": "https://docs.openhwgroup.org/projects/cve2-user-manual/en/latest/03_reference/pipeline_details.html",
+            "locator": "Pipeline Details",
+            "claimSupported": "CV32E20 currently uses a two-stage IF plus ID/EX pipeline with a maximum IPC of one when multi-cycle instructions do not stall the second stage."
           }
         ],
-        "speakerNotes": "There are two related naming layers. The current CVA6 page gives a compact rule for cores derived from this repository: C V, instruction length, class, pipeline stages, and a product identifier. The older CORE-V deck used a broader five-field structure that also named identity and modifier fields. These models overlap, but they should not be forced into one universal grammar. This is why the lesson labels the older decomposition as historical context and keeps the current project documentation as the authority."
+        "speakerNotes": "CVE2 cleanly separates family from core. OpenHW forked Ibex in 2023 and named the code base CVE2. Its current named core, CV32E20, targets constrained 32-bit MCU and embedded subsystem use. Stage one fetches instructions; stage two combines decode, register access, execution, and writeback. The specification defines golden RV32E M C and RV32I M C builds for FPGA and ASIC targets. The part number alone cannot carry those configuration choices."
       },
       "sourceAnchors": [
-        "cva6-nomenclature-current",
-        "core-v-historical-naming"
+        "cv32e20-current-specification",
+        "cv32e20-current-pipeline"
       ],
       "actions": [
         {
-          "id": "scene-core-v-names-rules-speech",
+          "id": "scene-core-v-names-project-vs-product-speech",
           "type": "speech",
-          "text": "There are two related naming layers. The current CVA6 page gives a compact rule for cores derived from this repository: C V, instruction length, class, pipeline stages, and a product identifier. The older CORE-V deck used a broader five-field structure that also named identity and modifier fields. These models overlap, but they should not be forced into one universal grammar. This is why the lesson labels the older decomposition as historical context and keeps the current project documentation as the authority.",
+          "text": "CVE2 cleanly separates family from core. OpenHW forked Ibex in 2023 and named the code base CVE2. Its current named core, CV32E20, targets constrained 32-bit MCU and embedded subsystem use. Stage one fetches instructions; stage two combines decode, register access, execution, and writeback. The specification defines golden RV32E M C and RV32I M C builds for FPGA and ASIC targets. The part number alone cannot carry those configuration choices.",
           "voice": "alexchen-en",
           "speed": 0.85,
-          "audioId": "tts_scene-core-v-names-rules-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-rules-speech.mp3"
+          "audioId": "tts_scene-core-v-names-project-vs-product-speech",
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-project-vs-product-speech.mp3"
         }
       ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
     },
     {
-      "id": "scene-core-v-names-project-vs-product",
+      "id": "scene-core-v-names-examples",
       "stageId": "openhw-essentials-core-v-names-en",
       "type": "html-slide",
-      "title": "CVA6 is a project; a part number is a configuration claim",
+      "title": "The CV32E4 siblings share a pipeline, not a feature set",
       "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "comparisonMatrix",
+        "theme": "light",
+        "locale": "en-US",
+        "content": {
+          "sceneTitle": "The CV32E4 siblings share a pipeline, not a feature set",
+          "kicker": "FAMILY COMPARISON · FOUR-STAGE EMBEDDED",
+          "title": "P, X and S lead to different integration choices",
+          "subtitle": "All three are 32-bit, four-stage, in-order embedded cores; their differentiators live in current manuals.",
+          "columns": [
+            {
+              "key": "core",
+              "label": "Core"
+            },
+            {
+              "key": "technicalFocus",
+              "label": "Technical focus"
+            },
+            {
+              "key": "extensionPath",
+              "label": "Extension path"
+            },
+            {
+              "key": "integrationSignal",
+              "label": "What an integrator checks next"
+            }
+          ],
+          "rows": [
+            {
+              "core": "CV32E40P",
+              "technicalFocus": "RI5CY/PULP-derived compute and DSP-oriented MCU core",
+              "extensionPath": "Optional F or Zfinx plus PULP custom extensions",
+              "integrationSignal": "Selected parameters, released version, compiler support"
+            },
+            {
+              "core": "CV32E40X",
+              "technicalFocus": "Compute core designed for external instruction acceleration",
+              "extensionPath": "CORE-V-XIF offloads ALU, load/store and CSR operations",
+              "integrationSignal": "XIF protocol subset, coprocessor latency and memory path"
+            },
+            {
+              "core": "CV32E40S",
+              "technicalFocus": "Security-oriented embedded core",
+              "extensionPath": "Security features and the documented Xsecure direction",
+              "integrationSignal": "Privilege modes, ePMP/PMA and threat assumptions"
+            }
+          ],
+          "note": "The shared “CV32E4” prefix tells you family resemblance. It does not make P, X and S software- or integration-equivalent.",
+          "narration": "The four-stage embedded family shows why suffixes matter. CV32E40P preserves RI5CY and PULP lineage and may include F or Zfinx plus PULP custom instructions. CV32E40X exposes CORE-V-XIF, allowing external modules to implement instructions without changing core RTL. CV32E40S targets security systems, with Machine and User privilege support, enhanced protection, and anti-tampering features. The shared prefix predicts width, class, and pipeline; the suffix points to a different integration contract."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "core-v-cores-current-catalog",
+            "title": "CORE-V family catalog",
+            "url": "https://github.com/openhwgroup/core-v-cores",
+            "locator": "CORE-V Repositories; CORE-V Core Names and Releases",
+            "claimSupported": "Current family groupings, representative core characteristics, and the role of mvendorid, marchid, and mimpid."
+          },
+          {
+            "id": "cv32e40p-current-manual",
+            "title": "CV32E40P user manual",
+            "url": "https://docs.openhwgroup.org/projects/cv32e40p-user-manual/en/latest/",
+            "locator": "Introduction, Pipeline Details, CORE-V instruction-set extensions",
+            "claimSupported": "CV32E40P is a 32-bit, four-stage, in-order core derived from RI5CY with optional floating-point support and PULP custom extensions."
+          },
+          {
+            "id": "cv32e40x-current-manual",
+            "title": "CV32E40X user manual",
+            "url": "https://docs.openhwgroup.org/projects/cv32e40x-user-manual/en/latest/",
+            "locator": "Introduction and eXtension Interface",
+            "claimSupported": "CV32E40X is a 32-bit, four-stage embedded core whose CORE-V-XIF interface can offload custom or standardized instructions to external logic."
+          },
+          {
+            "id": "cv32e40s-current-manual",
+            "title": "CV32E40S user manual",
+            "url": "https://docs.openhwgroup.org/projects/cv32e40s-user-manual/en/latest/",
+            "locator": "Introduction and security extensions",
+            "claimSupported": "CV32E40S is the security-oriented member of the four-stage embedded family, with Machine/User privilege support and security features documented by its manual."
+          }
+        ],
+        "speakerNotes": "The four-stage embedded family shows why suffixes matter. CV32E40P preserves RI5CY and PULP lineage and may include F or Zfinx plus PULP custom instructions. CV32E40X exposes CORE-V-XIF, allowing external modules to implement instructions without changing core RTL. CV32E40S targets security systems, with Machine and User privilege support, enhanced protection, and anti-tampering features. The shared prefix predicts width, class, and pipeline; the suffix points to a different integration contract."
+      },
+      "sourceAnchors": [
+        "core-v-cores-current-catalog",
+        "cv32e40p-current-manual",
+        "cv32e40x-current-manual",
+        "cv32e40s-current-manual"
+      ],
+      "actions": [
+        {
+          "id": "scene-core-v-names-examples-speech",
+          "type": "speech",
+          "text": "The four-stage embedded family shows why suffixes matter. CV32E40P preserves RI5CY and PULP lineage and may include F or Zfinx plus PULP custom instructions. CV32E40X exposes CORE-V-XIF, allowing external modules to implement instructions without changing core RTL. CV32E40S targets security systems, with Machine and User privilege support, enhanced protection, and anti-tampering features. The shared prefix predicts width, class, and pipeline; the suffix points to a different integration contract.",
+          "voice": "alexchen-en",
+          "speed": 0.85,
+          "audioId": "tts_scene-core-v-names-examples-speech",
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-examples-speech.mp3"
+        }
+      ],
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
+    },
+    {
+      "id": "scene-core-v-names-limits",
+      "stageId": "openhw-essentials-core-v-names-en",
+      "type": "html-slide",
+      "title": "CVA6 separates the repository from verified configurations",
+      "order": 5,
       "content": {
         "type": "html-slide",
         "slideKit": "openhw-signal-technical",
@@ -287,350 +487,310 @@
         "theme": "light",
         "locale": "en-US",
         "content": {
-          "sceneTitle": "CVA6 is a project; a part number is a configuration claim",
-          "kicker": "PROJECT ≠ PRODUCT INSTANCE",
-          "title": "CVA6 is a project; a part number is a configuration claim",
-          "subtitle": "The repository can generate multiple cores, so every technical statement needs a configuration context.",
+          "sceneTitle": "CVA6 separates the repository from verified configurations",
+          "kicker": "WORKED EXAMPLE · SIX-STAGE FAMILY",
+          "title": "“A6” describes the code-base direction, not every configuration",
+          "subtitle": "Current CVA6 documentation supports both 32- and 64-bit configurations and family-level single- or dual-issue work.",
           "columns": [
             {
-              "label": "CVA6",
-              "title": "Repository and configurable code base",
+              "label": "REPOSITORY GRAMMAR",
+              "title": "CVA6 and CV64A60",
               "bullets": [
-                "source for a family of application-class CORE-V cores",
-                "heavily parameterized SystemVerilog",
-                "not intended to be one fixed production core as-is",
-                "can support different 32-bit and 64-bit directions"
+                "CV = CORE-V family",
+                "A6 = application class plus six-stage pipeline in the repository name",
+                "CV64A60 = 64-bit, application, six stages, product ID 0",
+                "The RTL is heavily parameterized; the repository “as is” is not one production core"
               ]
             },
             {
-              "label": "NAMED CORE",
-              "title": "Configuration-specific evidence",
+              "label": "CURRENT CONFIGURATION TABLE",
+              "title": "Names must be read with their rows",
               "bullets": [
-                "selects a documented parameter set",
-                "has its own ISA and privilege profile",
-                "may have a maturity or release status",
-                "can carry a provisional product identifier"
+                "CV32A60AX: 32-bit application configuration, M/S/U and CV-X-IF",
+                "CV32A60X: 32-bit embedded configuration, Machine mode and CV-X-IF",
+                "CV64A6_MMU: 64-bit configuration with MMU and M/S/U",
+                "The user guide retains an interim-name note; newer index/release pages also expose CV32A65X and CV32A60X 6.0.0"
               ]
             }
           ],
-          "anchor": {
-            "label": "Engineering sentence",
-            "text": "Never transfer a feature from one CVA6 configuration to another without checking the configuration table."
-          },
-          "narration": "The most important distinction is project versus product instance. CVA6 is the repository and configurable code base. The documentation says the repository as-is is not one specific production core. A name such as C V thirty two A six zero X points to configuration-specific evidence. That evidence can define instruction extensions, privilege modes, interfaces, issue direction, and maturity. A feature found in one configuration should never be copied automatically to every CVA6 variant."
+          "takeaway": "CVA6 can host cores with different width, privilege, ISA and issue decisions; quote the configuration, not only the repository.",
+          "narration": "CVA6 breaks simplistic decoding. Its repository name indicates CORE-V, application direction, and six stages; CV64A60 is the formal naming example. The user guide lists configurations with different width, privilege, ISA, and targets, and still calls CV32A60X interim. Newer evidence matters: Releases now includes CV32A60X 6.0.0, while the documentation index links CV32A65X. Read the name together with source date and release."
         },
         "assets": [],
         "sourceAnchors": [
           {
-            "id": "cva6-nomenclature-current",
-            "title": "CVA6 documentation: CORE-V Nomenclature",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
-            "locator": "docs/index.rst, CORE-V Nomenclature",
-            "claimSupported": "CORE-V is the OpenHW family name; CVA6 names a repository/code base; CV identifies the family; A6 identifies application class and a six-stage pipeline; specific cores use CV <ILEN> <class> <pipeline stages> <product identifier>."
+            "id": "core-v-cores-current-catalog",
+            "title": "CORE-V family catalog",
+            "url": "https://github.com/openhwgroup/core-v-cores",
+            "locator": "CORE-V Repositories; CORE-V Core Names and Releases",
+            "claimSupported": "Current family groupings, representative core characteristics, and the role of mvendorid, marchid, and mimpid."
           },
           {
-            "id": "openhw-current-projects",
-            "title": "OpenHW Foundation: Cores, IP, and standards",
-            "url": "https://openhwfoundation.org/projects/",
-            "locator": "CVA6, CVE4, CVE2, CVA5 and CVW entries",
-            "claimSupported": "The current public portfolio uses both repository/family labels and specific core names; the project page describes CVA6 as a configurable six-stage project spanning 32-bit embedded to 64-bit application-ready configurations."
+            "id": "cva6-current-nomenclature",
+            "title": "CVA6 documentation: CORE-V nomenclature",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
+            "locator": "CORE-V Nomenclature",
+            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
           },
           {
             "id": "cva6-current-configurations",
-            "title": "CVA6 User Manual: Introduction and configurations",
+            "title": "CVA6 user manual: current configurations",
             "url": "https://github.com/openhwgroup/cva6/blob/master/docs/01_cva6_user/Introduction.rst",
-            "locator": "CVA6 configurations and CV32A60X note",
-            "claimSupported": "The manual lists configuration-specific characteristics and states that CV32A60X is an interim part number while single- versus dual-issue direction is decided."
+            "locator": "Configurations",
+            "claimSupported": "The user manual distinguishes CV32A60AX, CV32A60X, and CV64A6_MMU configurations and retains a note that CV32A60X was an interim part number while issue width was decided."
+          },
+          {
+            "id": "cva6-current-releases",
+            "title": "CVA6 releases",
+            "url": "https://github.com/openhwgroup/cva6/releases",
+            "locator": "CV32A60X 6.0.0; CVA6 v5.3.0",
+            "claimSupported": "The current release page includes a configuration-specific CV32A60X 6.0.0 release alongside the CVA6 v5.3.0 family release."
           }
         ],
-        "speakerNotes": "The most important distinction is project versus product instance. CVA6 is the repository and configurable code base. The documentation says the repository as-is is not one specific production core. A name such as C V thirty two A six zero X points to configuration-specific evidence. That evidence can define instruction extensions, privilege modes, interfaces, issue direction, and maturity. A feature found in one configuration should never be copied automatically to every CVA6 variant."
+        "speakerNotes": "CVA6 breaks simplistic decoding. Its repository name indicates CORE-V, application direction, and six stages; CV64A60 is the formal naming example. The user guide lists configurations with different width, privilege, ISA, and targets, and still calls CV32A60X interim. Newer evidence matters: Releases now includes CV32A60X 6.0.0, while the documentation index links CV32A65X. Read the name together with source date and release."
       },
       "sourceAnchors": [
-        "cva6-nomenclature-current",
-        "openhw-current-projects",
-        "cva6-current-configurations"
-      ],
-      "actions": [
-        {
-          "id": "scene-core-v-names-project-vs-product-speech",
-          "type": "speech",
-          "text": "The most important distinction is project versus product instance. CVA6 is the repository and configurable code base. The documentation says the repository as-is is not one specific production core. A name such as C V thirty two A six zero X points to configuration-specific evidence. That evidence can define instruction extensions, privilege modes, interfaces, issue direction, and maturity. A feature found in one configuration should never be copied automatically to every CVA6 variant.",
-          "voice": "alexchen-en",
-          "speed": 0.85,
-          "audioId": "tts_scene-core-v-names-project-vs-product-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-project-vs-product-speech.mp3"
-        }
-      ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
-    },
-    {
-      "id": "scene-core-v-names-examples",
-      "stageId": "openhw-essentials-core-v-names-en",
-      "type": "html-slide",
-      "title": "Names can be useful and still provisional",
-      "order": 5,
-      "content": {
-        "type": "html-slide",
-        "slideKit": "openhw-signal-technical",
-        "slot": "sourceMap",
-        "theme": "light",
-        "locale": "en-US",
-        "content": {
-          "sceneTitle": "Names can be useful and still provisional",
-          "kicker": "CURRENT EXAMPLES",
-          "title": "Names can be useful and still provisional",
-          "subtitle": "A part number can orient you while the design and product decision continue to evolve.",
-          "cards": [
-            {
-              "label": "DOCUMENTED EXAMPLE",
-              "title": "CV64A60",
-              "body": "The nomenclature page decodes this as 64-bit, application class, six-stage, product identifier 0.",
-              "tone": "teal"
-            },
-            {
-              "label": "CURRENT CONFIGURATION",
-              "title": "CV32A60X",
-              "body": "The User Manual gives configuration details and also says the part number is interim while issue direction is decided.",
-              "tone": "blue"
-            },
-            {
-              "label": "HISTORICAL EXAMPLE",
-              "title": "CV32E40P",
-              "body": "The older syntax helps decode the label, while the current core manual remains the source for implemented behavior and releases.",
-              "tone": "gold"
-            }
-          ],
-          "narration": "Three examples show why names are clues rather than contracts. C V sixty four A six zero is the example on the current nomenclature page. C V thirty two A six zero X is a real configuration name, but the current introduction calls that part number interim while the team decides the issue direction. C V thirty two E four zero P is historically easy to decompose, yet its implemented behavior and released parameter sets must come from the current CV32E40P manual. A readable name is not a frozen product definition."
-        },
-        "assets": [],
-        "sourceAnchors": [
-          {
-            "id": "cva6-nomenclature-current",
-            "title": "CVA6 documentation: CORE-V Nomenclature",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
-            "locator": "docs/index.rst, CORE-V Nomenclature",
-            "claimSupported": "CORE-V is the OpenHW family name; CVA6 names a repository/code base; CV identifies the family; A6 identifies application class and a six-stage pipeline; specific cores use CV <ILEN> <class> <pipeline stages> <product identifier>."
-          },
-          {
-            "id": "cva6-current-configurations",
-            "title": "CVA6 User Manual: Introduction and configurations",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/01_cva6_user/Introduction.rst",
-            "locator": "CVA6 configurations and CV32A60X note",
-            "claimSupported": "The manual lists configuration-specific characteristics and states that CV32A60X is an interim part number while single- versus dual-issue direction is decided."
-          },
-          {
-            "id": "core-v-historical-naming",
-            "title": "CORE-V Cores Roadmap, RISC-V Week Paris 2022",
-            "url": "https://open-src-soc.org/2022-05/media/slides/4th-RISC-V-Meeting-2022-05-04-14h40-Davide-Schiavone.pdf",
-            "locator": "slides 3-4",
-            "claimSupported": "The public historical deck illustrates the broader CV32E40P decomposition into family, word length, class, identity and modifier fields."
-          },
-          {
-            "id": "cv32e40p-current-manual",
-            "title": "CORE-V CV32E40P User Manual",
-            "url": "https://docs.openhwgroup.org/projects/cv32e40p-user-manual/en/latest/",
-            "locator": "Introduction and core versions",
-            "claimSupported": "Current documentation identifies CV32E40P as a four-stage, in-order, 32-bit RISC-V core and defines released variants through verified parameter sets and version identifiers."
-          }
-        ],
-        "speakerNotes": "Three examples show why names are clues rather than contracts. C V sixty four A six zero is the example on the current nomenclature page. C V thirty two A six zero X is a real configuration name, but the current introduction calls that part number interim while the team decides the issue direction. C V thirty two E four zero P is historically easy to decompose, yet its implemented behavior and released parameter sets must come from the current CV32E40P manual. A readable name is not a frozen product definition."
-      },
-      "sourceAnchors": [
-        "cva6-nomenclature-current",
+        "core-v-cores-current-catalog",
+        "cva6-current-nomenclature",
         "cva6-current-configurations",
-        "core-v-historical-naming",
-        "cv32e40p-current-manual"
-      ],
-      "actions": [
-        {
-          "id": "scene-core-v-names-examples-speech",
-          "type": "speech",
-          "text": "Three examples show why names are clues rather than contracts. C V sixty four A six zero is the example on the current nomenclature page. C V thirty two A six zero X is a real configuration name, but the current introduction calls that part number interim while the team decides the issue direction. C V thirty two E four zero P is historically easy to decompose, yet its implemented behavior and released parameter sets must come from the current CV32E40P manual. A readable name is not a frozen product definition.",
-          "voice": "alexchen-en",
-          "speed": 0.85,
-          "audioId": "tts_scene-core-v-names-examples-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-examples-speech.mp3"
-        }
-      ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
-    },
-    {
-      "id": "scene-core-v-names-limits",
-      "stageId": "openhw-essentials-core-v-names-en",
-      "type": "html-slide",
-      "title": "What the name does not prove",
-      "order": 6,
-      "content": {
-        "type": "html-slide",
-        "slideKit": "openhw-signal-technical",
-        "slot": "checklist",
-        "theme": "light",
-        "locale": "en-US",
-        "content": {
-          "sceneTitle": "What the name does not prove",
-          "kicker": "BOUNDARY CHECK",
-          "title": "What the name does not prove",
-          "subtitle": "Do not infer architecture details that the current configuration documents have not confirmed.",
-          "items": [
-            {
-              "title": "ISA extensions",
-              "body": "The name does not enumerate I, M, A, C, bit-manipulation, vector, or custom extensions."
-            },
-            {
-              "title": "Privilege modes",
-              "body": "Machine-only and Linux-capable configurations can live in the same repository family."
-            },
-            {
-              "title": "Issue width",
-              "body": "A six-stage name does not, by itself, prove single- or dual-issue behavior."
-            },
-            {
-              "title": "Memory system",
-              "body": "MMU, PMP, caches, interfaces, and sizes remain configuration questions."
-            },
-            {
-              "title": "Maturity",
-              "body": "A part number does not automatically prove RTL freeze, TRL level, release, or verification coverage."
-            },
-            {
-              "title": "Future stability",
-              "body": "Product identifiers can be interim and naming practice can evolve."
-            }
-          ],
-          "takeaway": "A good reader extracts the clue, then opens the configuration evidence before making a technical claim.",
-          "narration": "Here is the boundary to remember. The name does not list the implemented ISA extensions. It does not prove privilege modes, cache organization, M M U or P M P support, issue width, verification coverage, or maturity. Even the six in CVA6 is a pipeline clue, not a performance score. The name is excellent for navigation: it narrows the family, width, class, or pipeline direction. Engineering conclusions begin only after the configuration table, design documentation, and release evidence agree."
-        },
-        "assets": [],
-        "sourceAnchors": [
-          {
-            "id": "cva6-nomenclature-current",
-            "title": "CVA6 documentation: CORE-V Nomenclature",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
-            "locator": "docs/index.rst, CORE-V Nomenclature",
-            "claimSupported": "CORE-V is the OpenHW family name; CVA6 names a repository/code base; CV identifies the family; A6 identifies application class and a six-stage pipeline; specific cores use CV <ILEN> <class> <pipeline stages> <product identifier>."
-          },
-          {
-            "id": "cva6-current-configurations",
-            "title": "CVA6 User Manual: Introduction and configurations",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/01_cva6_user/Introduction.rst",
-            "locator": "CVA6 configurations and CV32A60X note",
-            "claimSupported": "The manual lists configuration-specific characteristics and states that CV32A60X is an interim part number while single- versus dual-issue direction is decided."
-          },
-          {
-            "id": "cv32e40p-current-manual",
-            "title": "CORE-V CV32E40P User Manual",
-            "url": "https://docs.openhwgroup.org/projects/cv32e40p-user-manual/en/latest/",
-            "locator": "Introduction and core versions",
-            "claimSupported": "Current documentation identifies CV32E40P as a four-stage, in-order, 32-bit RISC-V core and defines released variants through verified parameter sets and version identifiers."
-          }
-        ],
-        "speakerNotes": "Here is the boundary to remember. The name does not list the implemented ISA extensions. It does not prove privilege modes, cache organization, M M U or P M P support, issue width, verification coverage, or maturity. Even the six in CVA6 is a pipeline clue, not a performance score. The name is excellent for navigation: it narrows the family, width, class, or pipeline direction. Engineering conclusions begin only after the configuration table, design documentation, and release evidence agree."
-      },
-      "sourceAnchors": [
-        "cva6-nomenclature-current",
-        "cva6-current-configurations",
-        "cv32e40p-current-manual"
+        "cva6-current-releases"
       ],
       "actions": [
         {
           "id": "scene-core-v-names-limits-speech",
           "type": "speech",
-          "text": "Here is the boundary to remember. The name does not list the implemented ISA extensions. It does not prove privilege modes, cache organization, M M U or P M P support, issue width, verification coverage, or maturity. Even the six in CVA6 is a pipeline clue, not a performance score. The name is excellent for navigation: it narrows the family, width, class, or pipeline direction. Engineering conclusions begin only after the configuration table, design documentation, and release evidence agree.",
+          "text": "CVA6 breaks simplistic decoding. Its repository name indicates CORE-V, application direction, and six stages; CV64A60 is the formal naming example. The user guide lists configurations with different width, privilege, ISA, and targets, and still calls CV32A60X interim. Newer evidence matters: Releases now includes CV32A60X 6.0.0, while the documentation index links CV32A65X. Read the name together with source date and release.",
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-core-v-names-limits-speech",
           "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-limits-speech.mp3"
         }
       ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
+    },
+    {
+      "id": "scene-core-v-names-decoder",
+      "stageId": "openhw-essentials-core-v-names-en",
+      "type": "interactive",
+      "title": "Decode nine real labels",
+      "order": 6,
+      "content": {
+        "type": "interactive",
+        "url": "",
+        "html": "<!doctype html>\n<html lang=\"en-US\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Select a core, then inspect each field</title>\n  <style>\n    :root { color-scheme: dark; --ink:#eef6ff; --muted:#9eb0c7; --line:#29405d; --panel:#101c2d; --panel2:#15253a; --blue:#5aa9ff; --cyan:#51d4c7; --gold:#f0bd5a; --bg:#07111f; }\n    * { box-sizing:border-box; }\n    html, body { width:100%; height:100%; margin:0; overflow:hidden; background:var(--bg); color:var(--ink); font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,\"PingFang SC\",\"Microsoft YaHei\",Arial,sans-serif; }\n    body { background-image:linear-gradient(rgba(81,212,199,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(81,212,199,.055) 1px,transparent 1px); background-size:34px 34px; }\n    main { width:100%; height:100%; display:grid; grid-template-rows:auto auto 1fr auto; gap:16px; padding:clamp(20px,3.5vw,42px); }\n    header { border-bottom:1px solid var(--line); padding-bottom:14px; }\n    .eyebrow { margin:0 0 6px; color:var(--cyan); font-size:12px; font-weight:850; text-transform:uppercase; letter-spacing:.12em; }\n    h1 { margin:0; font-size:clamp(28px,3.8vw,48px); line-height:1.05; }\n    .subtitle { margin:7px 0 0; color:var(--muted); font-size:clamp(14px,1.4vw,18px); }\n    .examples { display:flex; gap:8px; overflow-x:auto; padding-bottom:3px; }\n    button { font:inherit; }\n    .example { flex:0 0 auto; border:1px solid var(--line); background:#0c1829; color:var(--muted); min-height:40px; padding:7px 13px; font-weight:800; cursor:pointer; }\n    .example[aria-pressed=\"true\"] { border-color:var(--blue); background:#153252; color:#fff; }\n    .workspace { min-height:0; display:grid; grid-template-columns:minmax(0,1.12fr) minmax(270px,.88fr); gap:16px; }\n    .name-panel, .detail { min-height:0; border:1px solid var(--line); background:linear-gradient(145deg,var(--panel),var(--panel2)); padding:clamp(17px,2.4vw,27px); }\n    .name-panel { display:grid; align-content:center; gap:18px; }\n    .name-note { color:var(--muted); font-size:13px; font-weight:700; }\n    .tokens { display:flex; flex-wrap:wrap; gap:8px; align-items:stretch; }\n    .token { border:1px solid #315172; border-bottom:4px solid var(--blue); background:#0b1727; color:#fff; padding:13px 14px 10px; font-size:clamp(22px,3.5vw,42px); font-weight:900; cursor:pointer; min-width:64px; }\n    .token:nth-child(2n) { border-bottom-color:var(--cyan); }\n    .token:nth-child(3n) { border-bottom-color:var(--gold); }\n    .token[aria-pressed=\"true\"] { background:#eaf4ff; color:#07111f; border-color:#eaf4ff; }\n    .detail { display:grid; align-content:center; gap:10px; }\n    .detail-label { color:var(--cyan); font-size:12px; font-weight:850; text-transform:uppercase; letter-spacing:.1em; }\n    .detail-token { font-size:clamp(38px,6vw,72px); font-weight:950; line-height:1; }\n    .detail-text { color:#c6d3e2; font-size:clamp(15px,1.65vw,21px); line-height:1.42; }\n    .caution { border-left:3px solid var(--gold); background:rgba(240,189,90,.09); padding:10px 13px; color:#f4dba4; font-size:13px; line-height:1.35; }\n    footer { display:flex; justify-content:space-between; gap:16px; color:#8296ae; font-size:11px; border-top:1px solid var(--line); padding-top:10px; }\n    .history { color:var(--gold); font-weight:800; }\n    @media (max-width:680px) {\n      html, body { overflow:auto; }\n      main { height:auto; min-height:100%; display:flex; flex-direction:column; padding:22px 18px; }\n      .workspace { display:flex; flex-direction:column; }\n      .name-panel, .detail { min-height:210px; }\n      .token { font-size:28px; }\n      footer { flex-direction:column; gap:5px; }\n    }\n  </style>\n</head>\n<body>\n  <main>\n    <header><p class=\"eyebrow\">Interactive field decoder</p><h1>Select a core, then inspect each field</h1><p class=\"subtitle\">The decoder distinguishes direct documentation from historical field interpretation.</p></header>\n    <nav class=\"examples\" aria-label=\"Core names\"></nav>\n    <section class=\"workspace\">\n      <article class=\"name-panel\"><div class=\"name-note\"></div><div class=\"tokens\"></div><div class=\"caution\">A field is a routing clue. Use the linked current manual before turning it into a design claim.</div></article>\n      <aside class=\"detail\" aria-live=\"polite\"><div class=\"detail-label\"></div><div class=\"detail-token\"></div><div class=\"detail-text\"></div></aside>\n    </section>\n    <footer><span>Current OpenHW manuals · CORE-V catalog · historical naming deck</span><span class=\"history\"></span></footer>\n  </main>\n  <script>\n    const examples = [{\"name\":\"CVE2\",\"note\":\"Family and repository label\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"E\",\"label\":\"Class\",\"detail\":\"Embedded-class direction.\"},{\"token\":\"2\",\"label\":\"Pipeline family\",\"detail\":\"Current catalog and manual document a two-stage pipeline.\"}]},{\"name\":\"CV32E20\",\"note\":\"Named CVE2 core\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"32\",\"label\":\"Width\",\"detail\":\"32-bit instruction/register architecture.\"},{\"token\":\"E\",\"label\":\"Class\",\"detail\":\"Embedded MCU class.\"},{\"token\":\"2\",\"label\":\"Pipeline\",\"detail\":\"Two stages: IF and combined ID/EX.\"},{\"token\":\"0\",\"label\":\"Specific identity\",\"detail\":\"Trailing identity/product field; confirm semantics in the current specification.\"}]},{\"name\":\"CV32E40P\",\"note\":\"PULP-derived four-stage core\",\"historical\":true,\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"32\",\"label\":\"Width\",\"detail\":\"32-bit core.\"},{\"token\":\"E\",\"label\":\"Class\",\"detail\":\"Embedded class.\"},{\"token\":\"4\",\"label\":\"Pipeline\",\"detail\":\"Four-stage in-order pipeline.\"},{\"token\":\"0\",\"label\":\"Specific identity\",\"detail\":\"Product-specific identity inside the historical field scheme.\"},{\"token\":\"P\",\"label\":\"Modifier\",\"detail\":\"Historical PULP-lineage cue; current behavior comes from the CV32E40P manual.\"}]},{\"name\":\"CV32E40X\",\"note\":\"Four-stage core with CORE-V-XIF\",\"tokens\":[{\"token\":\"CV32E4\",\"label\":\"Shared prefix\",\"detail\":\"32-bit, embedded, four-stage family.\"},{\"token\":\"0\",\"label\":\"Specific identity\",\"detail\":\"Product-specific identity field.\"},{\"token\":\"X\",\"label\":\"Variant cue\",\"detail\":\"Current manual documents CORE-V-XIF; X is not a promise of a built-in vector unit.\"}]},{\"name\":\"CV32E40S\",\"note\":\"Security-oriented four-stage sibling\",\"tokens\":[{\"token\":\"CV32E4\",\"label\":\"Shared prefix\",\"detail\":\"32-bit, embedded, four-stage family.\"},{\"token\":\"0\",\"label\":\"Specific identity\",\"detail\":\"Product-specific identity field.\"},{\"token\":\"S\",\"label\":\"Variant cue\",\"detail\":\"Routes the reader to the security-oriented CV32E40S manual.\"}]},{\"name\":\"CVA6\",\"note\":\"Repository and configurable family\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"A\",\"label\":\"Class direction\",\"detail\":\"Application-class direction in the repository name.\"},{\"token\":\"6\",\"label\":\"Pipeline\",\"detail\":\"Six-stage pipeline family.\"}]},{\"name\":\"CV64A60\",\"note\":\"Formal example in current CVA6 nomenclature\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"64\",\"label\":\"ILEN\",\"detail\":\"64-bit instruction length.\"},{\"token\":\"A\",\"label\":\"Class\",\"detail\":\"Application class.\"},{\"token\":\"6\",\"label\":\"Pipeline\",\"detail\":\"Six pipeline stages.\"},{\"token\":\"0\",\"label\":\"Product identifier\",\"detail\":\"Product identifier zero in the nomenclature example.\"}]},{\"name\":\"CV32A60AX\",\"note\":\"Documented CVA6 configuration\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"32\",\"label\":\"ILEN\",\"detail\":\"32-bit instruction length.\"},{\"token\":\"A\",\"label\":\"Class field\",\"detail\":\"Application class in the current configuration table.\"},{\"token\":\"6\",\"label\":\"Pipeline\",\"detail\":\"Six-stage family.\"},{\"token\":\"0AX\",\"label\":\"Product identifier\",\"detail\":\"Treat the remaining identifier as a documented product/configuration label; the table confirms CV-X-IF.\"}]},{\"name\":\"CV32A65X\",\"note\":\"Specific CVA6 core in the current documentation index\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"32\",\"label\":\"ILEN\",\"detail\":\"32-bit instruction length.\"},{\"token\":\"A\",\"label\":\"Class\",\"detail\":\"Application class.\"},{\"token\":\"6\",\"label\":\"Pipeline\",\"detail\":\"Six-stage family inherited from the CVA6 code base.\"},{\"token\":\"5X\",\"label\":\"Product identifier\",\"detail\":\"The current index links the dedicated CV32A65X design document; use that document for the exact microarchitecture.\"}]}];\n    const exampleNav = document.querySelector('.examples');\n    const tokens = document.querySelector('.tokens');\n    const note = document.querySelector('.name-note');\n    const detailLabel = document.querySelector('.detail-label');\n    const detailToken = document.querySelector('.detail-token');\n    const detailText = document.querySelector('.detail-text');\n    const history = document.querySelector('.history');\n    let selectedExample = 0;\n    let selectedToken = 0;\n\n    function renderDetail() {\n      const item = examples[selectedExample].tokens[selectedToken];\n      detailLabel.textContent = item.label;\n      detailToken.textContent = item.token;\n      detailText.textContent = item.detail;\n      [...tokens.children].forEach((button, index) => button.setAttribute('aria-pressed', String(index === selectedToken)));\n    }\n\n    function renderExample() {\n      const example = examples[selectedExample];\n      note.textContent = example.note;\n      history.textContent = example.historical ? 'Includes historical field interpretation' : '';\n      tokens.replaceChildren(...example.tokens.map((item, index) => {\n        const button = document.createElement('button');\n        button.className = 'token';\n        button.type = 'button';\n        button.textContent = item.token;\n        button.addEventListener('click', () => { selectedToken = index; renderDetail(); });\n        return button;\n      }));\n      [...exampleNav.children].forEach((button, index) => button.setAttribute('aria-pressed', String(index === selectedExample)));\n      selectedToken = 0;\n      renderDetail();\n    }\n\n    examples.forEach((example, index) => {\n      const button = document.createElement('button');\n      button.className = 'example';\n      button.type = 'button';\n      button.textContent = example.name;\n      button.addEventListener('click', () => { selectedExample = index; renderExample(); });\n      exampleNav.appendChild(button);\n    });\n    renderExample();\n  </script>\n</body>\n</html>",
+        "sourceAnchors": [
+          {
+            "id": "core-v-cores-current-catalog",
+            "title": "CORE-V family catalog",
+            "url": "https://github.com/openhwgroup/core-v-cores",
+            "locator": "CORE-V Repositories; CORE-V Core Names and Releases",
+            "claimSupported": "Current family groupings, representative core characteristics, and the role of mvendorid, marchid, and mimpid."
+          },
+          {
+            "id": "cv32e20-current-specification",
+            "title": "CV32E20 specification",
+            "url": "https://docs.openhwgroup.org/projects/cve2-user-manual/en/latest/01_specification/",
+            "locator": "Introduction, Scope of the IP, Configurations",
+            "claimSupported": "CVE2 is the OpenHW fork/code base and CV32E20 is its current named core; the specification defines its 32-bit MCU scope, ISA options, OBI interfaces, and golden configurations."
+          },
+          {
+            "id": "cv32e40p-current-manual",
+            "title": "CV32E40P user manual",
+            "url": "https://docs.openhwgroup.org/projects/cv32e40p-user-manual/en/latest/",
+            "locator": "Introduction, Pipeline Details, CORE-V instruction-set extensions",
+            "claimSupported": "CV32E40P is a 32-bit, four-stage, in-order core derived from RI5CY with optional floating-point support and PULP custom extensions."
+          },
+          {
+            "id": "cv32e40x-current-manual",
+            "title": "CV32E40X user manual",
+            "url": "https://docs.openhwgroup.org/projects/cv32e40x-user-manual/en/latest/",
+            "locator": "Introduction and eXtension Interface",
+            "claimSupported": "CV32E40X is a 32-bit, four-stage embedded core whose CORE-V-XIF interface can offload custom or standardized instructions to external logic."
+          },
+          {
+            "id": "cv32e40s-current-manual",
+            "title": "CV32E40S user manual",
+            "url": "https://docs.openhwgroup.org/projects/cv32e40s-user-manual/en/latest/",
+            "locator": "Introduction and security extensions",
+            "claimSupported": "CV32E40S is the security-oriented member of the four-stage embedded family, with Machine/User privilege support and security features documented by its manual."
+          },
+          {
+            "id": "cva6-current-nomenclature",
+            "title": "CVA6 documentation: CORE-V nomenclature",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
+            "locator": "CORE-V Nomenclature",
+            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
+          },
+          {
+            "id": "cva6-current-configurations",
+            "title": "CVA6 user manual: current configurations",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/01_cva6_user/Introduction.rst",
+            "locator": "Configurations",
+            "claimSupported": "The user manual distinguishes CV32A60AX, CV32A60X, and CV64A6_MMU configurations and retains a note that CV32A60X was an interim part number while issue width was decided."
+          },
+          {
+            "id": "cva6-current-releases",
+            "title": "CVA6 releases",
+            "url": "https://github.com/openhwgroup/cva6/releases",
+            "locator": "CV32A60X 6.0.0; CVA6 v5.3.0",
+            "claimSupported": "The current release page includes a configuration-specific CV32A60X 6.0.0 release alongside the CVA6 v5.3.0 family release."
+          },
+          {
+            "id": "core-v-historical-naming",
+            "title": "CORE-V Cores Roadmap, RISC-V Week Paris 2022",
+            "url": "https://open-src-soc.org/2022-05/media/slides/4th-RISC-V-Meeting-2022-05-04-14h40-Davide-Schiavone.pdf",
+            "locator": "slide 4",
+            "claimSupported": "The historical public deck decomposes CV32E40P into family, word length, class, identity, and modifier fields."
+          }
+        ]
+      },
+      "sourceAnchors": [
+        "core-v-cores-current-catalog",
+        "cv32e20-current-specification",
+        "cv32e40p-current-manual",
+        "cv32e40x-current-manual",
+        "cv32e40s-current-manual",
+        "cva6-current-nomenclature",
+        "cva6-current-configurations",
+        "cva6-current-releases",
+        "core-v-historical-naming"
+      ],
+      "actions": [
+        {
+          "id": "scene-core-v-names-decoder-speech",
+          "type": "speech",
+          "text": "Use the decoder after learning the families. CVE2 is a family and repository label; CV32E20 adds width and product identity. CV32E40 siblings share a 32-bit embedded four-stage prefix, while P, X, and S route to different manuals. CVA6 names the configurable repository; CV64A60 is its formal part-number example. CV32A60AX comes from the configuration table, while the current index separately links CV32A65X. Resolve the remaining identifier through the matching document and release.",
+          "voice": "alexchen-en",
+          "speed": 0.85,
+          "audioId": "tts_scene-core-v-names-decoder-speech",
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-decoder-speech.mp3"
+        }
+      ],
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
     },
     {
       "id": "scene-core-v-names-workflow",
       "stageId": "openhw-essentials-core-v-names-en",
       "type": "html-slide",
-      "title": "Decode, then verify",
+      "title": "Silicon identity continues where the name stops",
       "order": 7,
       "content": {
         "type": "html-slide",
         "slideKit": "openhw-signal-technical",
-        "slot": "processFlow",
+        "slot": "comparisonMatrix",
         "theme": "dark",
         "locale": "en-US",
         "content": {
-          "sceneTitle": "Decode, then verify",
-          "kicker": "A FOUR-STEP READING HABIT",
-          "title": "Decode, then verify",
-          "subtitle": "This sequence works for students, integrators, and verification engineers.",
-          "steps": [
+          "sceneTitle": "Silicon identity continues where the name stops",
+          "kicker": "RELEASE AND CSR IDENTITY",
+          "title": "Name, release tag and identity CSRs form one chain",
+          "subtitle": "A production claim should resolve from the human label to a frozen RTL release and machine-readable identifiers.",
+          "columns": [
             {
-              "badge": "01",
-              "title": "Parse",
-              "body": "Extract only the fields the current source explicitly defines."
+              "key": "identifier",
+              "label": "Identifier"
             },
             {
-              "badge": "02",
-              "title": "Identify",
-              "body": "Decide whether the name refers to a repository, family, product, or configuration."
+              "key": "owner",
+              "label": "Who/what defines it"
             },
             {
-              "badge": "03",
-              "title": "Confirm",
-              "body": "Check ISA, privilege, interfaces, issue width, and memory-system details."
+              "key": "example",
+              "label": "OpenHW example"
             },
             {
-              "badge": "04",
-              "title": "Qualify",
-              "body": "Check release, maturity, verification scope, and whether the identifier is provisional."
+              "key": "purpose",
+              "label": "Engineering purpose"
             }
           ],
-          "takeaway": "Names accelerate navigation. Documentation supplies the contract.",
-          "narration": "Use a four-step habit. First, parse only the fields that an official source defines. Second, identify the object: repository, family, product, or configuration. Third, confirm instruction set, privilege modes, interfaces, issue width, and memory system in the configuration documents. Fourth, qualify the claim with release and maturity evidence. This conservative habit lets a beginner read names confidently without giving an expert a misleading shortcut."
+          "rows": [
+            {
+              "identifier": "mvendorid",
+              "owner": "JEDEC manufacturer identity",
+              "example": "0x0000_0602 for OpenHW CORE-V devices",
+              "purpose": "Identifies the vendor/organization in hardware."
+            },
+            {
+              "identifier": "marchid",
+              "owner": "Architecture ID assigned through RISC-V International",
+              "example": "E40P 0x04; E40X 0x14; E40S 0x15; E20 0x23",
+              "purpose": "Distinguishes named processor architectures."
+            },
+            {
+              "identifier": "mimpid",
+              "owner": "OpenHW release implementation identity",
+              "example": "CV32E40Pv1 0x0; v2 0x1 in the current catalog",
+              "purpose": "Distinguishes implementation/release evolution."
+            },
+            {
+              "identifier": "Git release / RTL freeze",
+              "owner": "Host repository release process",
+              "example": "CV32E40P v1.0.0; CVA6 v5.3.0; CV32A60X 6.0.0",
+              "purpose": "Pins the exact source baseline used for verification/integration."
+            }
+          ],
+          "note": "For a reproducible integration record all four: core/configuration name, repository, release/tag, and CSR identities.",
+          "narration": "Human names lead into release identity. OpenHW records a JEDEC value in mvendorid, an architecture ID in marchid, and an implementation ID in mimpid. The current catalog lists architecture IDs for E40P, E40X, E40S, and E20, while E40P versions one and two have different implementation IDs. A Git tag or RTL freeze then pins exact source. This chain is stronger than a slide title or repository default branch."
         },
         "assets": [],
         "sourceAnchors": [
           {
-            "id": "cva6-nomenclature-current",
-            "title": "CVA6 documentation: CORE-V Nomenclature",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
-            "locator": "docs/index.rst, CORE-V Nomenclature",
-            "claimSupported": "CORE-V is the OpenHW family name; CVA6 names a repository/code base; CV identifies the family; A6 identifies application class and a six-stage pipeline; specific cores use CV <ILEN> <class> <pipeline stages> <product identifier>."
+            "id": "core-v-cores-current-catalog",
+            "title": "CORE-V family catalog",
+            "url": "https://github.com/openhwgroup/core-v-cores",
+            "locator": "CORE-V Repositories; CORE-V Core Names and Releases",
+            "claimSupported": "Current family groupings, representative core characteristics, and the role of mvendorid, marchid, and mimpid."
           },
           {
-            "id": "cva6-current-configurations",
-            "title": "CVA6 User Manual: Introduction and configurations",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/01_cva6_user/Introduction.rst",
-            "locator": "CVA6 configurations and CV32A60X note",
-            "claimSupported": "The manual lists configuration-specific characteristics and states that CV32A60X is an interim part number while single- versus dual-issue direction is decided."
+            "id": "core-v-historical-core-names-deck",
+            "title": "CORE-V Cores Naming Conventions (historical reference)",
+            "locator": "CoreNames.pptx, slides 3, 5-7, 10-11",
+            "claimSupported": "The historical internal reference expands the identity field into pipeline length plus a specific-feature identifier and separates repository, project release, and CSR identities."
+          },
+          {
+            "id": "cv32e40p-current-manual",
+            "title": "CV32E40P user manual",
+            "url": "https://docs.openhwgroup.org/projects/cv32e40p-user-manual/en/latest/",
+            "locator": "Introduction, Pipeline Details, CORE-V instruction-set extensions",
+            "claimSupported": "CV32E40P is a 32-bit, four-stage, in-order core derived from RI5CY with optional floating-point support and PULP custom extensions."
+          },
+          {
+            "id": "cva6-current-releases",
+            "title": "CVA6 releases",
+            "url": "https://github.com/openhwgroup/cva6/releases",
+            "locator": "CV32A60X 6.0.0; CVA6 v5.3.0",
+            "claimSupported": "The current release page includes a configuration-specific CV32A60X 6.0.0 release alongside the CVA6 v5.3.0 family release."
           }
         ],
-        "speakerNotes": "Use a four-step habit. First, parse only the fields that an official source defines. Second, identify the object: repository, family, product, or configuration. Third, confirm instruction set, privilege modes, interfaces, issue width, and memory system in the configuration documents. Fourth, qualify the claim with release and maturity evidence. This conservative habit lets a beginner read names confidently without giving an expert a misleading shortcut."
+        "speakerNotes": "Human names lead into release identity. OpenHW records a JEDEC value in mvendorid, an architecture ID in marchid, and an implementation ID in mimpid. The current catalog lists architecture IDs for E40P, E40X, E40S, and E20, while E40P versions one and two have different implementation IDs. A Git tag or RTL freeze then pins exact source. This chain is stronger than a slide title or repository default branch."
       },
       "sourceAnchors": [
-        "cva6-nomenclature-current",
-        "cva6-current-configurations"
+        "core-v-cores-current-catalog",
+        "core-v-historical-core-names-deck",
+        "cv32e40p-current-manual",
+        "cva6-current-releases"
       ],
       "actions": [
         {
           "id": "scene-core-v-names-workflow-speech",
           "type": "speech",
-          "text": "Use a four-step habit. First, parse only the fields that an official source defines. Second, identify the object: repository, family, product, or configuration. Third, confirm instruction set, privilege modes, interfaces, issue width, and memory system in the configuration documents. Fourth, qualify the claim with release and maturity evidence. This conservative habit lets a beginner read names confidently without giving an expert a misleading shortcut.",
+          "text": "Human names lead into release identity. OpenHW records a JEDEC value in mvendorid, an architecture ID in marchid, and an implementation ID in mimpid. The current catalog lists architecture IDs for E40P, E40X, E40S, and E20, while E40P versions one and two have different implementation IDs. A Git tag or RTL freeze then pins exact source. This chain is stronger than a slide title or repository default branch.",
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-core-v-names-workflow-speech",
           "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-workflow-speech.mp3"
         }
       ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
     },
     {
       "id": "scene-core-v-names-quiz",
       "stageId": "openhw-essentials-core-v-names-en",
       "type": "quiz",
-      "title": "Checkpoint: can you read the name safely?",
+      "title": "Technical checkpoint",
       "order": 8,
       "content": {
         "type": "quiz",
@@ -638,80 +798,109 @@
           {
             "id": "core-v-names-en-q1",
             "type": "single",
-            "question": "In the current CVA6 nomenclature text, what does “A6” indicate?",
+            "question": "Which pairing correctly distinguishes a family/code-base label from a named core?",
             "options": [
               {
-                "label": "Application class and a six-stage execution pipeline",
+                "label": "CVE2 is the family/code base; CV32E20 is a named core",
                 "value": "A"
               },
               {
-                "label": "Atomic extension and six issue slots",
+                "label": "CV32E20 is the family; CVE2 is a release tag",
                 "value": "B"
               },
               {
-                "label": "An ASIC-only product at TRL 6",
+                "label": "CVA6 is an ISA profile; CV64A60 is a repository",
                 "value": "C"
               },
               {
-                "label": "A sixth-generation RISC-V ISA",
+                "label": "CV32E40X is a SoC; CVE4 is its compiler",
                 "value": "D"
               }
             ],
             "answer": [
               "A"
             ],
-            "analysis": "The current CVA6 documentation explicitly links A to application class and 6 to the six-stage execution pipeline.",
+            "analysis": "The current CV32E20 specification calls CVE2 the fork/code base and CV32E20 the named processor core.",
             "hasAnswer": true,
             "points": 1
           },
           {
             "id": "core-v-names-en-q2",
             "type": "single",
-            "question": "Which statement best describes “CVA6” itself?",
+            "question": "What is the most defensible first reading of CV32E20?",
             "options": [
               {
-                "label": "A repository and configurable code base for a set of CORE-V cores",
+                "label": "CORE-V, 32-bit, embedded, two-stage line, product/specific identity 0",
                 "value": "A"
               },
               {
-                "label": "One immutable production configuration",
+                "label": "CORE-V, 32 registers, extension E20, dual issue",
                 "value": "B"
               },
               {
-                "label": "A complete SoC with fixed peripherals",
+                "label": "A 20-stage Linux application core",
                 "value": "C"
               },
               {
-                "label": "A RISC-V ISA profile maintained by RISC-V International",
+                "label": "A complete MCU SoC with fixed peripherals",
                 "value": "D"
               }
             ],
             "answer": [
               "A"
             ],
-            "analysis": "The documentation distinguishes the CVA6 repository/code base from specific production cores derived from it.",
+            "analysis": "Current CVE2 documentation confirms a 32-bit embedded two-stage core; the trailing identity is interpreted through the historical naming syntax and current specification.",
             "hasAnswer": true,
             "points": 1
           },
           {
             "id": "core-v-names-en-q3",
-            "type": "multiple",
-            "question": "After decoding a CORE-V name, which evidence should you still verify?",
+            "type": "single",
+            "question": "What differentiates CV32E40X from its four-stage siblings most clearly in current documentation?",
             "options": [
               {
-                "label": "Configuration-specific ISA and privilege modes",
+                "label": "CORE-V-XIF for external instruction extensions",
                 "value": "A"
               },
               {
-                "label": "Interfaces, issue width, and memory-system choices",
+                "label": "A built-in vector unit required by the X suffix",
                 "value": "B"
               },
               {
-                "label": "Release, verification, and maturity status",
+                "label": "A six-stage dual-issue pipeline",
                 "value": "C"
               },
               {
-                "label": "Nothing; the part number is a complete specification",
+                "label": "Supervisor mode and an MMU for Linux",
+                "value": "D"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "analysis": "The CV32E40X manual documents CORE-V-XIF as the interface for external custom or standardized instructions.",
+            "hasAnswer": true,
+            "points": 1
+          },
+          {
+            "id": "core-v-names-en-q4",
+            "type": "multiple",
+            "question": "Which identifiers belong in a release-level identity check in addition to the human-readable name?",
+            "options": [
+              {
+                "label": "mvendorid",
+                "value": "A"
+              },
+              {
+                "label": "marchid",
+                "value": "B"
+              },
+              {
+                "label": "mimpid",
+                "value": "C"
+              },
+              {
+                "label": "Only the marketing title on a slide",
                 "value": "D"
               }
             ],
@@ -720,7 +909,7 @@
               "B",
               "C"
             ],
-            "analysis": "A name is a navigation aid. Configuration and release documentation are still required for technical and maturity claims.",
+            "analysis": "OpenHW records the manufacturer, architecture, and implementation identities in these CSRs at release/freeze.",
             "hasAnswer": true,
             "points": 2
           }
@@ -730,21 +919,21 @@
         {
           "id": "scene-core-v-names-quiz-speech",
           "type": "speech",
-          "text": "This checkpoint tests the boundary, not memorization. The first question checks the direct meaning of A six in the current CVA6 documentation. The second checks whether you can separate the repository from a fixed production instance. The third checks the engineering follow-up: after decoding a label, you still need configuration, instruction-set, privilege, interface, and maturity evidence. Use the explanations after grading; they are part of the lesson, not just a score.",
+          "text": "The checkpoint now tests practical classification and lookup. First separate the family or code base from a named core. Then decode CV32E20 without turning the part number into a complete specification. Identify CORE-V-XIF as the defining integration path of CV32E40X. Finally select the three identity CSRs that belong in a release-level hardware check.",
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-core-v-names-quiz-speech",
           "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-quiz-speech.mp3"
         }
       ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
     },
     {
       "id": "scene-core-v-names-summary",
       "stageId": "openhw-essentials-core-v-names-en",
       "type": "html-slide",
-      "title": "Read the name, then read the evidence",
+      "title": "A compact lookup method for CORE-V names",
       "order": 9,
       "content": {
         "type": "html-slide",
@@ -753,63 +942,63 @@
         "theme": "dark",
         "locale": "en-US",
         "content": {
-          "sceneTitle": "Read the name, then read the evidence",
-          "kicker": "TAKEAWAY",
-          "title": "Read the name, then read the evidence",
+          "sceneTitle": "A compact lookup method for CORE-V names",
+          "kicker": "ENGINEERING CHEAT SHEET",
+          "title": "Classify, decode, resolve, then pin the release",
           "takeaways": [
-            "CV identifies the CORE-V family; A6 identifies application class and a six-stage pipeline in the CVA6 project name.",
-            "CVA6 is a configurable repository/code base, not one immutable production instance.",
-            "Older CORE-V naming diagrams explain historical intent but do not replace current manuals.",
-            "ISA, privilege, issue width, memory system, release, and maturity always need configuration evidence."
+            "Classify the label first: family/repository, named core, configuration, or release.",
+            "Decode only fields supported by that project’s current documentation.",
+            "Use the configuration table for ISA, privilege, interfaces, issue width, and target.",
+            "Record repository tag plus mvendorid, marchid, and mimpid for reproducibility."
           ],
-          "nextStep": "Open the CVA6 nomenclature section and compare it with one current configuration table.",
-          "closing": "You now have a reliable way to use CORE-V names without over-reading them.",
-          "narration": "The durable takeaway is simple. C V identifies the CORE-V family. In CVA6, A means application class and six names the six-stage pipeline. CVA6 itself is a configurable repository and project, not one immutable production core. Historical naming diagrams can explain how labels such as C V thirty two E four zero P were formed, but current manuals decide present behavior. Read the name for orientation, then read the configuration and release evidence before making a technical claim."
+          "nextStep": "Compare the CV32E20 configuration table with the CV32E40X CORE-V-XIF chapter.",
+          "closing": "The name gets you to the right evidence; the evidence defines the core.",
+          "narration": "The engineering method is now compact. First classify the label. Second decode only the fields that the current project or clearly marked historical grammar supports. Third resolve the name to a configuration table and user manual before claiming ISA, privilege, interface, issue width, or maturity. Fourth pin the repository release and the three identity CSRs. With that method, CVE2, CV32E20, the CV32E40 siblings, and CVA6 become a navigable product system rather than a list of cryptic names."
         },
         "assets": [],
         "sourceAnchors": [
           {
-            "id": "cva6-nomenclature-current",
-            "title": "CVA6 documentation: CORE-V Nomenclature",
+            "id": "core-v-cores-current-catalog",
+            "title": "CORE-V family catalog",
+            "url": "https://github.com/openhwgroup/core-v-cores",
+            "locator": "CORE-V Repositories; CORE-V Core Names and Releases",
+            "claimSupported": "Current family groupings, representative core characteristics, and the role of mvendorid, marchid, and mimpid."
+          },
+          {
+            "id": "cv32e20-current-specification",
+            "title": "CV32E20 specification",
+            "url": "https://docs.openhwgroup.org/projects/cve2-user-manual/en/latest/01_specification/",
+            "locator": "Introduction, Scope of the IP, Configurations",
+            "claimSupported": "CVE2 is the OpenHW fork/code base and CV32E20 is its current named core; the specification defines its 32-bit MCU scope, ISA options, OBI interfaces, and golden configurations."
+          },
+          {
+            "id": "cva6-current-nomenclature",
+            "title": "CVA6 documentation: CORE-V nomenclature",
             "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
-            "locator": "docs/index.rst, CORE-V Nomenclature",
-            "claimSupported": "CORE-V is the OpenHW family name; CVA6 names a repository/code base; CV identifies the family; A6 identifies application class and a six-stage pipeline; specific cores use CV <ILEN> <class> <pipeline stages> <product identifier>."
-          },
-          {
-            "id": "cva6-current-configurations",
-            "title": "CVA6 User Manual: Introduction and configurations",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/01_cva6_user/Introduction.rst",
-            "locator": "CVA6 configurations and CV32A60X note",
-            "claimSupported": "The manual lists configuration-specific characteristics and states that CV32A60X is an interim part number while single- versus dual-issue direction is decided."
-          },
-          {
-            "id": "core-v-historical-naming",
-            "title": "CORE-V Cores Roadmap, RISC-V Week Paris 2022",
-            "url": "https://open-src-soc.org/2022-05/media/slides/4th-RISC-V-Meeting-2022-05-04-14h40-Davide-Schiavone.pdf",
-            "locator": "slides 3-4",
-            "claimSupported": "The public historical deck illustrates the broader CV32E40P decomposition into family, word length, class, identity and modifier fields."
+            "locator": "CORE-V Nomenclature",
+            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
           }
         ],
-        "speakerNotes": "The durable takeaway is simple. C V identifies the CORE-V family. In CVA6, A means application class and six names the six-stage pipeline. CVA6 itself is a configurable repository and project, not one immutable production core. Historical naming diagrams can explain how labels such as C V thirty two E four zero P were formed, but current manuals decide present behavior. Read the name for orientation, then read the configuration and release evidence before making a technical claim."
+        "speakerNotes": "The engineering method is now compact. First classify the label. Second decode only the fields that the current project or clearly marked historical grammar supports. Third resolve the name to a configuration table and user manual before claiming ISA, privilege, interface, issue width, or maturity. Fourth pin the repository release and the three identity CSRs. With that method, CVE2, CV32E20, the CV32E40 siblings, and CVA6 become a navigable product system rather than a list of cryptic names."
       },
       "sourceAnchors": [
-        "cva6-nomenclature-current",
-        "cva6-current-configurations",
-        "core-v-historical-naming"
+        "core-v-cores-current-catalog",
+        "cv32e20-current-specification",
+        "cva6-current-nomenclature"
       ],
       "actions": [
         {
           "id": "scene-core-v-names-summary-speech",
           "type": "speech",
-          "text": "The durable takeaway is simple. C V identifies the CORE-V family. In CVA6, A means application class and six names the six-stage pipeline. CVA6 itself is a configurable repository and project, not one immutable production core. Historical naming diagrams can explain how labels such as C V thirty two E four zero P were formed, but current manuals decide present behavior. Read the name for orientation, then read the configuration and release evidence before making a technical claim.",
+          "text": "The engineering method is now compact. First classify the label. Second decode only the fields that the current project or clearly marked historical grammar supports. Third resolve the name to a configuration table and user manual before claiming ISA, privilege, interface, issue width, or maturity. Fourth pin the repository release and the three identity CSRs. With that method, CVE2, CV32E20, the CV32E40 siblings, and CVA6 become a navigable product system rather than a list of cryptic names.",
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-core-v-names-summary-speech",
           "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-summary-speech.mp3"
         }
       ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
     }
   ]
 }

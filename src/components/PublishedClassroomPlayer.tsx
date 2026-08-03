@@ -162,6 +162,93 @@ function ProcessFlow({ steps }: { steps: unknown[] }) {
   );
 }
 
+function ComparisonMatrix({
+  columns,
+  rows,
+  note,
+  dark = false,
+}: {
+  columns: unknown[];
+  rows: unknown[];
+  note: string;
+  dark?: boolean;
+}) {
+  const normalizedColumns = columns.map((entry) => entry as Record<string, unknown>);
+  const normalizedRows = rows.map((entry) => entry as Record<string, unknown>);
+  const surface = dark
+    ? "border-slate-700 bg-slate-950 text-slate-100"
+    : "border-[var(--border)] bg-white/90 text-slate-900";
+
+  return (
+    <div className="space-y-3">
+      <div className={`hidden overflow-x-auto rounded-lg border md:block ${surface}`}>
+        <table className="w-full min-w-[760px] table-fixed border-collapse text-left">
+          <thead className={dark ? "bg-cyan-400/10 text-cyan-200" : "bg-slate-100 text-slate-600"}>
+            <tr>
+              {normalizedColumns.map((column, index) => (
+                <th
+                  key={`${text(column.key)}-${index}`}
+                  className="border-b border-r border-current/10 px-4 py-3 text-xs font-bold uppercase tracking-[0.08em] last:border-r-0"
+                >
+                  {text(column.label)}
+                </th>
+              ))}
+            </tr>
+          </thead>
+          <tbody>
+            {normalizedRows.map((row, rowIndex) => (
+              <tr
+                key={`matrix-row-${rowIndex}`}
+                className="border-b border-current/10 last:border-b-0"
+              >
+                {normalizedColumns.map((column, columnIndex) => (
+                  <td
+                    key={`${text(column.key)}-${columnIndex}`}
+                    className={`border-r border-current/10 px-4 py-3 align-top text-sm leading-6 last:border-r-0 ${
+                      columnIndex === 0 ? "font-bold" : dark ? "text-slate-300" : "text-slate-600"
+                    }`}
+                  >
+                    {text(row[text(column.key)])}
+                  </td>
+                ))}
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+
+      <div className="grid gap-3 md:hidden">
+        {normalizedRows.map((row, rowIndex) => (
+          <article key={`matrix-card-${rowIndex}`} className={`rounded-lg border p-4 ${surface}`}>
+            {normalizedColumns.map((column, columnIndex) => (
+              <div key={`${text(column.key)}-${columnIndex}`} className="mb-3 last:mb-0">
+                <p
+                  className={`text-[11px] font-bold uppercase tracking-[0.1em] ${dark ? "text-cyan-300" : "text-[var(--primary)]"}`}
+                >
+                  {text(column.label)}
+                </p>
+                <p
+                  className={`mt-1 text-sm leading-6 ${columnIndex === 0 ? "font-bold" : dark ? "text-slate-300" : "text-slate-600"}`}
+                >
+                  {text(row[text(column.key)])}
+                </p>
+              </div>
+            ))}
+          </article>
+        ))}
+      </div>
+
+      {note && (
+        <p
+          className={`border-l-4 border-[var(--orange)] px-4 py-2 text-sm font-semibold leading-6 ${dark ? "bg-slate-900 text-slate-200" : "bg-white/70 text-slate-700"}`}
+        >
+          {note}
+        </p>
+      )}
+    </div>
+  );
+}
+
 function DiagramFocus({
   body,
   assets,
@@ -362,6 +449,14 @@ function SlideBody({ scene, locale }: { scene: PublishedClassroomScene; locale: 
       {slot === "twoColumnExplain" && <TwoColumn columns={list(body.columns)} />}
       {slot === "checklist" && <Checklist items={list(body.items)} />}
       {slot === "processFlow" && <ProcessFlow steps={list(body.steps)} />}
+      {slot === "comparisonMatrix" && (
+        <ComparisonMatrix
+          columns={list(body.columns)}
+          rows={list(body.rows)}
+          note={text(body.note)}
+          dark={scene.content.theme === "dark"}
+        />
+      )}
       {slot === "diagramFocus" && (
         <DiagramFocus
           body={text(body.body)}

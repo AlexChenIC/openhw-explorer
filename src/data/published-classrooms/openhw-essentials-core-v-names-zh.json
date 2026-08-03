@@ -1,12 +1,12 @@
 {
   "id": "openhw-essentials-core-v-names-zh",
-  "createdAt": 1785672000000,
+  "createdAt": 1785758400000,
   "stage": {
     "id": "openhw-essentials-core-v-names-zh",
-    "name": "为什么叫 CVA6？",
-    "description": "一门基于官方来源的短课：读懂 CORE-V 命名，同时避免把名称误当成完整规格。",
-    "createdAt": 1785672000000,
-    "updatedAt": 1785672000000,
+    "name": "如何读懂 CORE-V 内核命名",
+    "description": "一门技术短课：理解 CORE-V 家族名称、料号、配置和机器可读身份。",
+    "createdAt": 1785758400000,
+    "updatedAt": 1785761763319,
     "language": "zh-CN",
     "style": "openhw-signal-technical",
     "courseTemplateId": "openhw-essentials-microcourse",
@@ -20,7 +20,7 @@
       "id": "scene-core-v-names-title",
       "stageId": "openhw-essentials-core-v-names-zh",
       "type": "html-slide",
-      "title": "为什么叫 CVA6？",
+      "title": "如何读懂 CORE-V 内核命名",
       "order": 0,
       "content": {
         "type": "html-slide",
@@ -29,174 +29,266 @@
         "theme": "dark",
         "locale": "zh-CN",
         "content": {
-          "sceneTitle": "为什么叫 CVA6？",
+          "sceneTitle": "如何读懂 CORE-V 内核命名",
           "kicker": "OPENHW 入门短课 · 01",
-          "title": "为什么叫 CVA6？",
-          "subtitle": "先读出家族、类别与流水线线索，再核对具体配置。",
+          "title": "CORE-V 名称是一份压缩的架构索引",
+          "subtitle": "从 CVE2、CV32E20、CV32E40P/X/S 到 CVA6，先分清家族、仓库、内核和配置。",
           "chips": [
-            "CORE-V 家族",
-            "应用级类别",
-            "六级流水线"
+            "家族 / 仓库",
+            "内核料号",
+            "具名配置",
+            "身份 CSR"
           ],
-          "thesis": "CVA6 是一个有用的名称，但不是完整规格：CV 表示家族，A 表示应用级，6 表示项目命名中的六级流水线。",
-          "narration": "为什么这个项目叫 C V A 六？简短答案很容易记住，但工程上的答案还需要一条边界。按照当前 CVA6 文档，C V 表示 CORE-V 处理器家族，A 表示应用级类别，数字六指向六级执行流水线。这个名称能帮助我们快速定位项目，却不能单独证明某个配置的指令集、特权级、缓存、发射宽度或成熟度。理解名称，是进入文档的第一步，不是结束。先把这个边界记牢，后面的每个名字都会更容易读，也更不容易读错。"
+          "thesis": "名称负责缩小检索范围；规格、配置表、发布标签和身份 CSR 才能锁定实现。",
+          "narration": "CORE-V 用很短的名称表示不同层级的技术对象。CVE2 和 CVA6 可以表示家族或代码库；CV32E20、CV32E40X 和 CV32A60AX 则指向更具体的内核或配置。这门课会横跨两级嵌入式、四级嵌入式和六级应用处理器方向，建立一套可以实际使用的解码方法。最后还会把人类可读名称连接到仓库、配置、发布版本以及机器可读的身份 CSR。目标不是背诵缩写，而是快速定位正确的技术证据。"
         },
         "assets": [],
         "sourceAnchors": [
           {
-            "id": "cva6-nomenclature-current",
-            "title": "CVA6 documentation: CORE-V Nomenclature",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
-            "locator": "docs/index.rst, CORE-V Nomenclature",
-            "claimSupported": "CORE-V is the OpenHW family name; CVA6 names a repository/code base; CV identifies the family; A6 identifies application class and a six-stage pipeline; specific cores use CV <ILEN> <class> <pipeline stages> <product identifier>."
+            "id": "core-v-cores-current-catalog",
+            "title": "CORE-V family catalog",
+            "url": "https://github.com/openhwgroup/core-v-cores",
+            "locator": "CORE-V Repositories; CORE-V Core Names and Releases",
+            "claimSupported": "Current family groupings, representative core characteristics, and the role of mvendorid, marchid, and mimpid."
           },
           {
-            "id": "openhw-current-projects",
-            "title": "OpenHW Foundation: Cores, IP, and standards",
-            "url": "https://openhwfoundation.org/projects/",
-            "locator": "CVA6, CVE4, CVE2, CVA5 and CVW entries",
-            "claimSupported": "The current public portfolio uses both repository/family labels and specific core names; the project page describes CVA6 as a configurable six-stage project spanning 32-bit embedded to 64-bit application-ready configurations."
+            "id": "cva6-current-nomenclature",
+            "title": "CVA6 documentation: CORE-V nomenclature",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
+            "locator": "CORE-V Nomenclature",
+            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
+          },
+          {
+            "id": "cv32e20-current-specification",
+            "title": "CV32E20 specification",
+            "url": "https://docs.openhwgroup.org/projects/cve2-user-manual/en/latest/01_specification/",
+            "locator": "Introduction, Scope of the IP, Configurations",
+            "claimSupported": "CVE2 is the OpenHW fork/code base and CV32E20 is its current named core; the specification defines its 32-bit MCU scope, ISA options, OBI interfaces, and golden configurations."
           }
         ],
-        "speakerNotes": "为什么这个项目叫 C V A 六？简短答案很容易记住，但工程上的答案还需要一条边界。按照当前 CVA6 文档，C V 表示 CORE-V 处理器家族，A 表示应用级类别，数字六指向六级执行流水线。这个名称能帮助我们快速定位项目，却不能单独证明某个配置的指令集、特权级、缓存、发射宽度或成熟度。理解名称，是进入文档的第一步，不是结束。先把这个边界记牢，后面的每个名字都会更容易读，也更不容易读错。"
+        "speakerNotes": "CORE-V 用很短的名称表示不同层级的技术对象。CVE2 和 CVA6 可以表示家族或代码库；CV32E20、CV32E40X 和 CV32A60AX 则指向更具体的内核或配置。这门课会横跨两级嵌入式、四级嵌入式和六级应用处理器方向，建立一套可以实际使用的解码方法。最后还会把人类可读名称连接到仓库、配置、发布版本以及机器可读的身份 CSR。目标不是背诵缩写，而是快速定位正确的技术证据。"
       },
       "sourceAnchors": [
-        "cva6-nomenclature-current",
-        "openhw-current-projects"
+        "core-v-cores-current-catalog",
+        "cva6-current-nomenclature",
+        "cv32e20-current-specification"
       ],
       "actions": [
         {
           "id": "scene-core-v-names-title-speech",
           "type": "speech",
-          "text": "为什么这个项目叫 C V A 六？简短答案很容易记住，但工程上的答案还需要一条边界。按照当前 CVA6 文档，C V 表示 CORE-V 处理器家族，A 表示应用级类别，数字六指向六级执行流水线。这个名称能帮助我们快速定位项目，却不能单独证明某个配置的指令集、特权级、缓存、发射宽度或成熟度。理解名称，是进入文档的第一步，不是结束。先把这个边界记牢，后面的每个名字都会更容易读，也更不容易读错。",
+          "text": "CORE-V 用很短的名称表示不同层级的技术对象。CVE2 和 CVA6 可以表示家族或代码库；CV32E20、CV32E40X 和 CV32A60AX 则指向更具体的内核或配置。这门课会横跨两级嵌入式、四级嵌入式和六级应用处理器方向，建立一套可以实际使用的解码方法。最后还会把人类可读名称连接到仓库、配置、发布版本以及机器可读的身份 CSR。目标不是背诵缩写，而是快速定位正确的技术证据。",
           "voice": "alexchen-zh",
           "speed": 0.9,
           "audioId": "tts_scene-core-v-names-title-speech",
           "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-title-speech.mp3"
         }
       ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
     },
     {
       "id": "scene-core-v-names-evidence",
       "stageId": "openhw-essentials-core-v-names-zh",
       "type": "html-slide",
-      "title": "使用三层证据",
+      "title": "先判断你正在读哪一种名称",
       "order": 1,
       "content": {
         "type": "html-slide",
         "slideKit": "openhw-signal-technical",
-        "slot": "sourceMap",
+        "slot": "twoColumnExplain",
         "theme": "light",
         "locale": "zh-CN",
         "content": {
-          "sceneTitle": "使用三层证据",
-          "kicker": "先看证据",
-          "title": "使用三层证据",
-          "subtitle": "当前文档回答当前问题；较早资料用于解释历史设计意图。",
-          "cards": [
+          "sceneTitle": "先判断你正在读哪一种名称",
+          "kicker": "两层命名对象",
+          "title": "家族标签和内核料号回答不同问题",
+          "subtitle": "CVE4 与 CV32E40X 并不是同一层级的对象。",
+          "columns": [
             {
-              "label": "当前规则",
-              "title": "CVA6 命名说明",
-              "body": "仓库文档直接说明 CV、A6，以及 CVA6 衍生内核所使用的料号结构。",
-              "tone": "teal"
+              "label": "家族 / 代码库层",
+              "title": "短名称组织一条实现路线",
+              "bullets": [
+                "CVE2：低复杂度两级嵌入式路线及其仓库",
+                "CVE4：由多个兄弟仓库组成的四级嵌入式家族",
+                "CVA5 与 CVA6：五级和六级应用处理器代码库",
+                "CVW：来自 Wally 的五级、宽配置范围家族"
+              ]
             },
             {
-              "label": "当前实现",
-              "title": "具体配置",
-              "body": "用户手册记录每个配置实际实现的特性，也会提示某些料号仍是临时名称。",
-              "tone": "blue"
-            },
-            {
-              "label": "历史背景",
-              "title": "早期 CORE-V 语法",
-              "body": "2022 年公开演讲有助于理解 CV32E40P，但不能被当成永远不变的规则。",
-              "tone": "gold"
+              "label": "内核 / 配置层",
+              "title": "较长名称进一步限定位宽、类别和身份",
+              "bullets": [
+                "CV32E20：由 CVE2 产生的具名两级 MCU 内核",
+                "CV32E40P、X、S：三个四级嵌入式兄弟核",
+                "CV32A60AX、CV32A60X 与 CV32A65X：CVA6 演进中的文档名称",
+                "CV64A60：当前 CVA6 命名文档中的正式示例"
+              ]
             }
           ],
-          "narration": "这门课使用三层证据。第一层是当前 CVA6 仓库中的命名说明，它直接解释 C V、A 和数字六。第二层是当前用户手册，它告诉我们某个配置真正实现了什么，以及名称是否仍然是临时的。第三层是较早的公开 CORE-V 演讲，它解释 C V 三十二 E 四零 P 这类名称的历史结构。历史资料很有价值，但当历史表达和当前文档不一致时，应以当前官方文档为准。也就是说，旧资料负责解释来历，新资料负责回答今天的工程问题。"
+          "takeaway": "拆字符以前，先确定对象：家族、仓库、具名内核、配置，还是发布版本。",
+          "narration": "第一步不是拆字符，而是识别对象层级。CVE2 既是紧凑的家族标签，也是承载 RTL 的仓库；当前具名处理器是 CV32E20。CVE4 则是几个四级内核的家族分组，CV32E40P、CV32E40X 和 CV32E40S 分别位于不同仓库。CVA6 是一个高度参数化的代码库，可以形成多种三十二位和六十四位内核。料号会进一步缩小范围，但配置表和发布标签还会继续限定实现。"
         },
         "assets": [],
         "sourceAnchors": [
           {
-            "id": "cva6-nomenclature-current",
-            "title": "CVA6 documentation: CORE-V Nomenclature",
+            "id": "core-v-cores-current-catalog",
+            "title": "CORE-V family catalog",
+            "url": "https://github.com/openhwgroup/core-v-cores",
+            "locator": "CORE-V Repositories; CORE-V Core Names and Releases",
+            "claimSupported": "Current family groupings, representative core characteristics, and the role of mvendorid, marchid, and mimpid."
+          },
+          {
+            "id": "cv32e20-current-specification",
+            "title": "CV32E20 specification",
+            "url": "https://docs.openhwgroup.org/projects/cve2-user-manual/en/latest/01_specification/",
+            "locator": "Introduction, Scope of the IP, Configurations",
+            "claimSupported": "CVE2 is the OpenHW fork/code base and CV32E20 is its current named core; the specification defines its 32-bit MCU scope, ISA options, OBI interfaces, and golden configurations."
+          },
+          {
+            "id": "cva6-current-nomenclature",
+            "title": "CVA6 documentation: CORE-V nomenclature",
             "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
-            "locator": "docs/index.rst, CORE-V Nomenclature",
-            "claimSupported": "CORE-V is the OpenHW family name; CVA6 names a repository/code base; CV identifies the family; A6 identifies application class and a six-stage pipeline; specific cores use CV <ILEN> <class> <pipeline stages> <product identifier>."
-          },
-          {
-            "id": "cva6-current-configurations",
-            "title": "CVA6 User Manual: Introduction and configurations",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/01_cva6_user/Introduction.rst",
-            "locator": "CVA6 configurations and CV32A60X note",
-            "claimSupported": "The manual lists configuration-specific characteristics and states that CV32A60X is an interim part number while single- versus dual-issue direction is decided."
-          },
-          {
-            "id": "core-v-historical-naming",
-            "title": "CORE-V Cores Roadmap, RISC-V Week Paris 2022",
-            "url": "https://open-src-soc.org/2022-05/media/slides/4th-RISC-V-Meeting-2022-05-04-14h40-Davide-Schiavone.pdf",
-            "locator": "slides 3-4",
-            "claimSupported": "The public historical deck illustrates the broader CV32E40P decomposition into family, word length, class, identity and modifier fields."
+            "locator": "CORE-V Nomenclature",
+            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
           }
         ],
-        "speakerNotes": "这门课使用三层证据。第一层是当前 CVA6 仓库中的命名说明，它直接解释 C V、A 和数字六。第二层是当前用户手册，它告诉我们某个配置真正实现了什么，以及名称是否仍然是临时的。第三层是较早的公开 CORE-V 演讲，它解释 C V 三十二 E 四零 P 这类名称的历史结构。历史资料很有价值，但当历史表达和当前文档不一致时，应以当前官方文档为准。也就是说，旧资料负责解释来历，新资料负责回答今天的工程问题。"
+        "speakerNotes": "第一步不是拆字符，而是识别对象层级。CVE2 既是紧凑的家族标签，也是承载 RTL 的仓库；当前具名处理器是 CV32E20。CVE4 则是几个四级内核的家族分组，CV32E40P、CV32E40X 和 CV32E40S 分别位于不同仓库。CVA6 是一个高度参数化的代码库，可以形成多种三十二位和六十四位内核。料号会进一步缩小范围，但配置表和发布标签还会继续限定实现。"
       },
       "sourceAnchors": [
-        "cva6-nomenclature-current",
-        "cva6-current-configurations",
-        "core-v-historical-naming"
+        "core-v-cores-current-catalog",
+        "cv32e20-current-specification",
+        "cva6-current-nomenclature"
       ],
       "actions": [
         {
           "id": "scene-core-v-names-evidence-speech",
           "type": "speech",
-          "text": "这门课使用三层证据。第一层是当前 CVA6 仓库中的命名说明，它直接解释 C V、A 和数字六。第二层是当前用户手册，它告诉我们某个配置真正实现了什么，以及名称是否仍然是临时的。第三层是较早的公开 CORE-V 演讲，它解释 C V 三十二 E 四零 P 这类名称的历史结构。历史资料很有价值，但当历史表达和当前文档不一致时，应以当前官方文档为准。也就是说，旧资料负责解释来历，新资料负责回答今天的工程问题。",
+          "text": "第一步不是拆字符，而是识别对象层级。CVE2 既是紧凑的家族标签，也是承载 RTL 的仓库；当前具名处理器是 CV32E20。CVE4 则是几个四级内核的家族分组，CV32E40P、CV32E40X 和 CV32E40S 分别位于不同仓库。CVA6 是一个高度参数化的代码库，可以形成多种三十二位和六十四位内核。料号会进一步缩小范围，但配置表和发布标签还会继续限定实现。",
           "voice": "alexchen-zh",
           "speed": 0.9,
           "audioId": "tts_scene-core-v-names-evidence-speech",
           "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-evidence-speech.mp3"
         }
       ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
-    },
-    {
-      "id": "scene-core-v-names-decoder",
-      "stageId": "openhw-essentials-core-v-names-zh",
-      "type": "interactive",
-      "title": "试一试名称解码器",
-      "order": 2,
-      "content": {
-        "type": "interactive",
-        "url": "",
-        "html": "<!doctype html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>解码线索，不要脑补整个内核</title>\n  <style>\n    :root { color-scheme: light; --ink:#142033; --muted:#617086; --line:#d9e2ee; --paper:#f7f9fc; --white:#fff; --blue:#165eb8; --teal:#078878; --gold:#9d6d16; --soft:#eaf1fa; }\n    * { box-sizing: border-box; }\n    html, body { width:100%; height:100%; margin:0; overflow:hidden; background:var(--paper); font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,\"PingFang SC\",\"Microsoft YaHei\",Arial,sans-serif; color:var(--ink); }\n    main { width:100%; height:100%; display:grid; grid-template-rows:auto auto 1fr auto; gap:18px; padding:clamp(22px,4vw,48px); }\n    header { display:flex; align-items:end; justify-content:space-between; gap:24px; border-bottom:1px solid var(--line); padding-bottom:16px; }\n    .eyebrow { margin:0 0 6px; color:var(--teal); font-size:13px; font-weight:800; text-transform:uppercase; }\n    h1 { margin:0; font-size:clamp(30px,4vw,50px); line-height:1.05; letter-spacing:0; }\n    .subtitle { margin:6px 0 0; color:var(--muted); font-size:clamp(14px,1.5vw,20px); }\n    .examples { display:flex; gap:8px; flex-wrap:wrap; }\n    button { font:inherit; }\n    .example { border:1px solid var(--line); background:var(--white); color:var(--ink); min-height:42px; padding:8px 14px; font-weight:750; cursor:pointer; }\n    .example[aria-pressed=\"true\"] { border-color:var(--blue); background:var(--soft); color:var(--blue); }\n    .workspace { min-height:0; display:grid; grid-template-columns:minmax(0,1.08fr) minmax(270px,.92fr); gap:20px; }\n    .name-panel, .detail { border:1px solid var(--line); background:var(--white); padding:clamp(18px,2.6vw,30px); min-height:0; }\n    .name-panel { display:grid; align-content:center; gap:20px; }\n    .name-note { color:var(--muted); font-size:14px; }\n    .tokens { display:flex; flex-wrap:wrap; gap:10px; align-items:stretch; }\n    .token { border:0; border-bottom:5px solid var(--blue); background:#eef4fb; color:var(--ink); padding:14px 16px 11px; font-size:clamp(24px,4vw,48px); font-weight:900; cursor:pointer; min-width:72px; }\n    .token:nth-child(2n) { border-bottom-color:var(--teal); }\n    .token:nth-child(3n) { border-bottom-color:var(--gold); }\n    .token[aria-pressed=\"true\"] { background:var(--ink); color:var(--white); }\n    .detail { display:grid; align-content:center; gap:12px; }\n    .detail-label { color:var(--blue); font-size:13px; font-weight:850; text-transform:uppercase; }\n    .detail-token { font-size:clamp(42px,7vw,82px); font-weight:950; line-height:1; }\n    .detail-text { color:var(--muted); font-size:clamp(16px,1.8vw,23px); line-height:1.45; }\n    .caution { border-left:4px solid var(--gold); background:#fff8e8; padding:12px 15px; color:#684811; font-weight:700; line-height:1.35; }\n    footer { display:flex; justify-content:space-between; gap:20px; color:var(--muted); font-size:12px; border-top:1px solid var(--line); padding-top:12px; }\n    .history { color:var(--gold); font-weight:800; }\n    @media (max-width:680px) {\n      html, body { overflow:auto; }\n      main { height:auto; min-height:100%; display:flex; flex-direction:column; gap:14px; overflow:visible; padding:24px 22px; }\n      header { align-items:start; flex-direction:column; padding-bottom:12px; }\n      h1 { font-size:30px; }\n      .examples { flex-wrap:nowrap; overflow-x:auto; padding-bottom:4px; }\n      .example { flex:0 0 auto; }\n      .workspace { display:flex; flex-direction:column; min-height:auto; gap:14px; }\n      .name-panel, .detail { min-height:210px; padding:20px; }\n      .tokens { gap:8px; }\n      .token { min-width:62px; padding:11px 13px 9px; font-size:30px; }\n      footer { flex-direction:column; gap:6px; }\n    }\n  </style>\n</head>\n<body>\n  <main>\n    <header>\n      <div><p class=\"eyebrow\">互动名称解码器</p><h1>解码线索，不要脑补整个内核</h1><p class=\"subtitle\">先选择一个名称，再点击其中的字段。</p></div>\n    </header>\n    <nav class=\"examples\" aria-label=\"示例名称\"></nav>\n    <section class=\"workspace\">\n      <article class=\"name-panel\"><div class=\"name-note\"></div><div class=\"tokens\"></div><div class=\"caution\">末尾的身份或产品字段必须回到具体配置文档核对。</div></article>\n      <aside class=\"detail\" aria-live=\"polite\"><div class=\"detail-label\"></div><div class=\"detail-token\"></div><div class=\"detail-text\"></div></aside>\n    </section>\n    <footer><span>来源：当前 CVA6 命名文档 · 历史 CORE-V 命名演讲</span><span class=\"history\"></span></footer>\n  </main>\n  <script>\n    const examples = [{\"name\":\"CVA6\",\"note\":\"仓库名称与可配置项目名称\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"属于 OpenHW 的 CORE-V 处理器家族。\"},{\"token\":\"A\",\"label\":\"类别\",\"detail\":\"项目面向应用级处理器方向。\"},{\"token\":\"6\",\"label\":\"流水线线索\",\"detail\":\"项目命名中的六级执行流水线。\"}]},{\"name\":\"CV64A60\",\"note\":\"当前 CVA6 命名页面使用的示例\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"CORE-V 家族。\"},{\"token\":\"64\",\"label\":\"ILEN\",\"detail\":\"六十四位指令长度。\"},{\"token\":\"A\",\"label\":\"类别\",\"detail\":\"应用级。\"},{\"token\":\"6\",\"label\":\"流水级数\",\"detail\":\"六级流水线。\"},{\"token\":\"0\",\"label\":\"产品标识\",\"detail\":\"文档示例中的产品标识零。\"}]},{\"name\":\"CV32A60X\",\"note\":\"当前配置名称，文档明确提示料号仍是临时的\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"CORE-V 家族。\"},{\"token\":\"32\",\"label\":\"ILEN\",\"detail\":\"三十二位指令长度。\"},{\"token\":\"A\",\"label\":\"类别字段\",\"detail\":\"料号保留 A 字段；实际目标类别应查看当前配置表。\"},{\"token\":\"6\",\"label\":\"流水级数\",\"detail\":\"六级流水线。\"},{\"token\":\"0X\",\"label\":\"产品标识\",\"detail\":\"用于区分产品的尾部字段；用户手册称该料号为临时名称。\"}]},{\"name\":\"CV32E40P\",\"note\":\"较早的 CORE-V 宽格式命名示例\",\"historical\":true,\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"CORE-V 家族。\"},{\"token\":\"32\",\"label\":\"字长\",\"detail\":\"三十二位字长。\"},{\"token\":\"E\",\"label\":\"类别\",\"detail\":\"嵌入式类别。\"},{\"token\":\"40\",\"label\":\"身份字段\",\"detail\":\"历史方案中的身份字段，包含流水级数与版本等信息。\"},{\"token\":\"P\",\"label\":\"修饰符\",\"detail\":\"历史方案中的修饰字段；当前行为仍要查最新用户手册。\"}]}];\n    const exampleNav = document.querySelector('.examples');\n    const tokens = document.querySelector('.tokens');\n    const note = document.querySelector('.name-note');\n    const detailLabel = document.querySelector('.detail-label');\n    const detailToken = document.querySelector('.detail-token');\n    const detailText = document.querySelector('.detail-text');\n    const history = document.querySelector('.history');\n    let selectedExample = 0;\n    let selectedToken = 0;\n\n    function renderDetail() {\n      const item = examples[selectedExample].tokens[selectedToken];\n      detailLabel.textContent = item.label;\n      detailToken.textContent = item.token;\n      detailText.textContent = item.detail;\n      [...tokens.children].forEach((button, index) => button.setAttribute('aria-pressed', String(index === selectedToken)));\n    }\n\n    function renderExample() {\n      const example = examples[selectedExample];\n      note.textContent = example.note;\n      history.textContent = example.historical ? '历史命名语境' : '';\n      tokens.replaceChildren(...example.tokens.map((item, index) => {\n        const button = document.createElement('button');\n        button.className = 'token';\n        button.type = 'button';\n        button.textContent = item.token;\n        button.addEventListener('click', () => { selectedToken = index; renderDetail(); });\n        return button;\n      }));\n      [...exampleNav.children].forEach((button, index) => button.setAttribute('aria-pressed', String(index === selectedExample)));\n      selectedToken = 0;\n      renderDetail();\n    }\n\n    examples.forEach((example, index) => {\n      const button = document.createElement('button');\n      button.className = 'example';\n      button.type = 'button';\n      button.textContent = example.name;\n      button.addEventListener('click', () => { selectedExample = index; renderExample(); });\n      exampleNav.appendChild(button);\n    });\n    renderExample();\n  </script>\n</body>\n</html>"
-      },
-      "sourceAnchors": [
-        "cva6-nomenclature-current",
-        "core-v-historical-naming",
-        "cva6-current-configurations"
-      ],
-      "actions": [
-        {
-          "id": "scene-core-v-names-decoder-speech",
-          "type": "speech",
-          "text": "现在可以亲手试一下。C V A 六是精简的仓库和项目名称。C V 六十四 A 六零符合当前 CVA6 文档给出的料号示例，依次提供家族、指令长度、类别、流水级数和产品标识。C V 三十二 E 四零 P 来自更宽的历史命名结构，其中还有身份字段和修饰符。关键习惯是：证据解释到哪里，我们就读到哪里。后缀可以用于区分产品，但具体含义和实现行为必须回到当前配置文档。",
-          "voice": "alexchen-zh",
-          "speed": 0.9,
-          "audioId": "tts_scene-core-v-names-decoder-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-decoder-speech.mp3"
-        }
-      ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
     },
     {
       "id": "scene-core-v-names-rules",
       "stageId": "openhw-essentials-core-v-names-zh",
       "type": "html-slide",
-      "title": "一套当前规则，一套历史规则",
+      "title": "产品演进也改变了命名语法",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "comparisonMatrix",
+        "theme": "light",
+        "locale": "zh-CN",
+        "content": {
+          "sceneTitle": "产品演进也改变了命名语法",
+          "kicker": "字段语法",
+          "title": "命名规则必须带着项目和时间一起读",
+          "subtitle": "共同字段可以复用，但不能把两种历史语境硬合并成永恒标准。",
+          "columns": [
+            {
+              "key": "context",
+              "label": "语境"
+            },
+            {
+              "key": "pattern",
+              "label": "公开结构"
+            },
+            {
+              "key": "example",
+              "label": "拆解示例"
+            },
+            {
+              "key": "engineeringUse",
+              "label": "工程用途"
+            }
+          ],
+          "rows": [
+            {
+              "context": "历史 CORE-V 资料（2021–2022）",
+              "pattern": "家族 | 字长 | 类别 | 身份 | 修饰符",
+              "example": "CV | 32 | E | 40 | P",
+              "engineeringUse": "解释 CV32E40P 一类名称的来源。"
+            },
+            {
+              "context": "当前 CVA6 文档",
+              "pattern": "CV | ILEN | 类别 | 流水级数 | 产品标识",
+              "example": "CV | 64 | A | 6 | 0",
+              "engineeringUse": "用于 CVA6 仓库衍生内核的当前权威语法。"
+            },
+            {
+              "context": "当前产品家族目录",
+              "pattern": "家族标签 + 各仓库内的具名内核",
+              "example": "CVE2 → CV32E20；CVE4 → CV32E40X",
+              "engineeringUse": "把料号映射到真正定义它的代码和手册。"
+            }
+          ],
+          "note": "2、4、5、6 等数字经常暴露流水线深度，但后缀含义仍是项目相关的。",
+          "narration": "OpenHW 早期命名资料使用五个字段：家族、字长、类别、身份和可选修饰符。其中身份字段把流水线长度与产品特征编号组合起来。当前 CVA6 文档给出了相关但更明确的结构：C V、指令长度、类别、流水级数和产品标识。这两种语法都能帮助我们拆解名称，却不能不加判断地套用到所有当前仓库。对于具体内核，最终权威仍然是它的当前手册。这样可以避免把历史命名习惯误当成永久、通用的技术规格。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "core-v-historical-naming",
+            "title": "CORE-V Cores Roadmap, RISC-V Week Paris 2022",
+            "url": "https://open-src-soc.org/2022-05/media/slides/4th-RISC-V-Meeting-2022-05-04-14h40-Davide-Schiavone.pdf",
+            "locator": "slide 4",
+            "claimSupported": "The historical public deck decomposes CV32E40P into family, word length, class, identity, and modifier fields."
+          },
+          {
+            "id": "core-v-historical-core-names-deck",
+            "title": "CORE-V Cores Naming Conventions (historical reference)",
+            "locator": "CoreNames.pptx, slides 3, 5-7, 10-11",
+            "claimSupported": "The historical internal reference expands the identity field into pipeline length plus a specific-feature identifier and separates repository, project release, and CSR identities."
+          },
+          {
+            "id": "cva6-current-nomenclature",
+            "title": "CVA6 documentation: CORE-V nomenclature",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
+            "locator": "CORE-V Nomenclature",
+            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
+          },
+          {
+            "id": "core-v-cores-current-catalog",
+            "title": "CORE-V family catalog",
+            "url": "https://github.com/openhwgroup/core-v-cores",
+            "locator": "CORE-V Repositories; CORE-V Core Names and Releases",
+            "claimSupported": "Current family groupings, representative core characteristics, and the role of mvendorid, marchid, and mimpid."
+          }
+        ],
+        "speakerNotes": "OpenHW 早期命名资料使用五个字段：家族、字长、类别、身份和可选修饰符。其中身份字段把流水线长度与产品特征编号组合起来。当前 CVA6 文档给出了相关但更明确的结构：C V、指令长度、类别、流水级数和产品标识。这两种语法都能帮助我们拆解名称，却不能不加判断地套用到所有当前仓库。对于具体内核，最终权威仍然是它的当前手册。这样可以避免把历史命名习惯误当成永久、通用的技术规格。"
+      },
+      "sourceAnchors": [
+        "core-v-historical-naming",
+        "core-v-historical-core-names-deck",
+        "cva6-current-nomenclature",
+        "core-v-cores-current-catalog"
+      ],
+      "actions": [
+        {
+          "id": "scene-core-v-names-rules-speech",
+          "type": "speech",
+          "text": "OpenHW 早期命名资料使用五个字段：家族、字长、类别、身份和可选修饰符。其中身份字段把流水线长度与产品特征编号组合起来。当前 CVA6 文档给出了相关但更明确的结构：C V、指令长度、类别、流水级数和产品标识。这两种语法都能帮助我们拆解名称，却不能不加判断地套用到所有当前仓库。对于具体内核，最终权威仍然是它的当前手册。这样可以避免把历史命名习惯误当成永久、通用的技术规格。",
+          "voice": "alexchen-zh",
+          "speed": 0.9,
+          "audioId": "tts_scene-core-v-names-rules-speech",
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-rules-speech.mp3"
+        }
+      ],
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
+    },
+    {
+      "id": "scene-core-v-names-project-vs-product",
+      "stageId": "openhw-essentials-core-v-names-zh",
+      "type": "html-slide",
+      "title": "CVE2 与 CV32E20 清楚展示了两个层级",
       "order": 3,
       "content": {
         "type": "html-slide",
@@ -205,81 +297,189 @@
         "theme": "light",
         "locale": "zh-CN",
         "content": {
-          "sceneTitle": "一套当前规则，一套历史规则",
-          "kicker": "两层命名语境",
-          "title": "一套当前规则，一套历史规则",
-          "subtitle": "它们有重叠，但不能被强行合并成一套通用语法。",
+          "sceneTitle": "CVE2 与 CV32E20 清楚展示了两个层级",
+          "kicker": "实例 · 两级嵌入式",
+          "title": "CVE2 是代码库，CV32E20 是具名内核",
+          "subtitle": "当前规格把紧凑名称展开为可实现、可验证的处理器配置。",
           "columns": [
             {
-              "label": "当前 CVA6 文档",
-              "title": "衍生内核料号",
+              "label": "微架构",
+              "title": "CV32E20",
               "bullets": [
-                "CV 表示 CORE-V 家族",
-                "ILEN 可为 32 或 64",
-                "类别字段描述处理器方向",
-                "流水级数与产品标识完成料号"
+                "来自 Ibex/Zero-riscy 的 32 位低复杂度 MCU 内核",
+                "两级流水线：取指，以及合并的译码/执行级",
+                "没有多周期指令阻塞 ID/EX 时，最高 IPC 为 1",
+                "独立的 32 位指令与数据 OBI 接口"
               ]
             },
             {
-              "label": "历史 CORE-V 演讲",
-              "title": "更宽的五字段结构",
+              "label": "配置空间",
+              "title": "一个内核名称，多套 Golden 配置",
               "bullets": [
-                "家族与字长",
-                "嵌入式或应用级类别",
-                "身份字段",
-                "面向特殊情况的可选修饰符"
+                "支持 RV32EMC 或 RV32IMC 方向",
+                "FPGA 与 ASIC 各有独立 Golden 配置",
+                "细粒度 SystemVerilog 参数控制可选特性",
+                "配置矩阵含 XIF 变体；首版 Golden 配置不启用 XIF"
               ]
             }
           ],
-          "anchor": {
-            "label": "稳妥读法",
-            "text": "当前项目手册负责定论；较早的命名资料负责解释来源和历史意图。"
-          },
-          "narration": "这里有两层彼此相关的命名语境。当前 CVA6 页面给出面向该仓库衍生内核的精简规则：C V、指令长度、类别、流水级数和产品标识。较早的 CORE-V 演讲使用更宽的五字段结构，还明确列出身份字段与修饰符。两者确实有重叠，但不应该被强行解释成永远适用于所有项目的一套语法。因此，这门课把旧图明确标成历史背景，并把当前项目文档作为最终依据。这样既保留了命名历史，也不会把旧提案误讲成今天的硬标准。"
+          "takeaway": "料号命名内核；配置名称继续选择 ISA、目标工艺形态和可选接口。",
+          "narration": "CVE2 是区分家族与内核最清楚的例子。OpenHW 在二零二三年分叉 Ibex，并把代码库命名为 CVE2。当前规格中的具体处理器是 CV32E20，面向受约束的三十二位 MCU 和嵌入式子系统。数字二不是抽象标签：第一级负责取指，第二级合并译码、寄存器访问、执行与结果写回相关行为。规格还为 FPGA 与 ASIC 分别定义了 RV32E M C 和 RV32I M C 的 Golden 配置。"
         },
         "assets": [],
         "sourceAnchors": [
           {
-            "id": "cva6-nomenclature-current",
-            "title": "CVA6 documentation: CORE-V Nomenclature",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
-            "locator": "docs/index.rst, CORE-V Nomenclature",
-            "claimSupported": "CORE-V is the OpenHW family name; CVA6 names a repository/code base; CV identifies the family; A6 identifies application class and a six-stage pipeline; specific cores use CV <ILEN> <class> <pipeline stages> <product identifier>."
+            "id": "cv32e20-current-specification",
+            "title": "CV32E20 specification",
+            "url": "https://docs.openhwgroup.org/projects/cve2-user-manual/en/latest/01_specification/",
+            "locator": "Introduction, Scope of the IP, Configurations",
+            "claimSupported": "CVE2 is the OpenHW fork/code base and CV32E20 is its current named core; the specification defines its 32-bit MCU scope, ISA options, OBI interfaces, and golden configurations."
           },
           {
-            "id": "core-v-historical-naming",
-            "title": "CORE-V Cores Roadmap, RISC-V Week Paris 2022",
-            "url": "https://open-src-soc.org/2022-05/media/slides/4th-RISC-V-Meeting-2022-05-04-14h40-Davide-Schiavone.pdf",
-            "locator": "slides 3-4",
-            "claimSupported": "The public historical deck illustrates the broader CV32E40P decomposition into family, word length, class, identity and modifier fields."
+            "id": "cv32e20-current-pipeline",
+            "title": "CV32E20 pipeline details",
+            "url": "https://docs.openhwgroup.org/projects/cve2-user-manual/en/latest/03_reference/pipeline_details.html",
+            "locator": "Pipeline Details",
+            "claimSupported": "CV32E20 currently uses a two-stage IF plus ID/EX pipeline with a maximum IPC of one when multi-cycle instructions do not stall the second stage."
           }
         ],
-        "speakerNotes": "这里有两层彼此相关的命名语境。当前 CVA6 页面给出面向该仓库衍生内核的精简规则：C V、指令长度、类别、流水级数和产品标识。较早的 CORE-V 演讲使用更宽的五字段结构，还明确列出身份字段与修饰符。两者确实有重叠，但不应该被强行解释成永远适用于所有项目的一套语法。因此，这门课把旧图明确标成历史背景，并把当前项目文档作为最终依据。这样既保留了命名历史，也不会把旧提案误讲成今天的硬标准。"
+        "speakerNotes": "CVE2 是区分家族与内核最清楚的例子。OpenHW 在二零二三年分叉 Ibex，并把代码库命名为 CVE2。当前规格中的具体处理器是 CV32E20，面向受约束的三十二位 MCU 和嵌入式子系统。数字二不是抽象标签：第一级负责取指，第二级合并译码、寄存器访问、执行与结果写回相关行为。规格还为 FPGA 与 ASIC 分别定义了 RV32E M C 和 RV32I M C 的 Golden 配置。"
       },
       "sourceAnchors": [
-        "cva6-nomenclature-current",
-        "core-v-historical-naming"
+        "cv32e20-current-specification",
+        "cv32e20-current-pipeline"
       ],
       "actions": [
         {
-          "id": "scene-core-v-names-rules-speech",
+          "id": "scene-core-v-names-project-vs-product-speech",
           "type": "speech",
-          "text": "这里有两层彼此相关的命名语境。当前 CVA6 页面给出面向该仓库衍生内核的精简规则：C V、指令长度、类别、流水级数和产品标识。较早的 CORE-V 演讲使用更宽的五字段结构，还明确列出身份字段与修饰符。两者确实有重叠，但不应该被强行解释成永远适用于所有项目的一套语法。因此，这门课把旧图明确标成历史背景，并把当前项目文档作为最终依据。这样既保留了命名历史，也不会把旧提案误讲成今天的硬标准。",
+          "text": "CVE2 是区分家族与内核最清楚的例子。OpenHW 在二零二三年分叉 Ibex，并把代码库命名为 CVE2。当前规格中的具体处理器是 CV32E20，面向受约束的三十二位 MCU 和嵌入式子系统。数字二不是抽象标签：第一级负责取指，第二级合并译码、寄存器访问、执行与结果写回相关行为。规格还为 FPGA 与 ASIC 分别定义了 RV32E M C 和 RV32I M C 的 Golden 配置。",
           "voice": "alexchen-zh",
           "speed": 0.9,
-          "audioId": "tts_scene-core-v-names-rules-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-rules-speech.mp3"
+          "audioId": "tts_scene-core-v-names-project-vs-product-speech",
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-project-vs-product-speech.mp3"
         }
       ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
     },
     {
-      "id": "scene-core-v-names-project-vs-product",
+      "id": "scene-core-v-names-examples",
       "stageId": "openhw-essentials-core-v-names-zh",
       "type": "html-slide",
-      "title": "CVA6 是项目，料号对应配置证据",
+      "title": "CV32E4 兄弟核共享流水线，但不共享全部特性",
       "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "comparisonMatrix",
+        "theme": "light",
+        "locale": "zh-CN",
+        "content": {
+          "sceneTitle": "CV32E4 兄弟核共享流水线，但不共享全部特性",
+          "kicker": "家族比较 · 四级嵌入式",
+          "title": "P、X、S 会导向不同的集成选择",
+          "subtitle": "三者都是 32 位、四级、顺序执行嵌入式核；真正的差异由当前手册定义。",
+          "columns": [
+            {
+              "key": "core",
+              "label": "内核"
+            },
+            {
+              "key": "technicalFocus",
+              "label": "技术重点"
+            },
+            {
+              "key": "extensionPath",
+              "label": "扩展路径"
+            },
+            {
+              "key": "integrationSignal",
+              "label": "集成人员下一步核对"
+            }
+          ],
+          "rows": [
+            {
+              "core": "CV32E40P",
+              "technicalFocus": "来自 RI5CY/PULP 的计算与 DSP 型 MCU 核",
+              "extensionPath": "可选 F 或 Zfinx，以及 PULP 自定义扩展",
+              "integrationSignal": "参数组合、发布版本、编译器支持"
+            },
+            {
+              "core": "CV32E40X",
+              "technicalFocus": "面向外部指令加速的计算核",
+              "extensionPath": "CORE-V-XIF 可卸载 ALU、访存与 CSR 操作",
+              "integrationSignal": "XIF 协议子集、协处理器延迟和访存路径"
+            },
+            {
+              "core": "CV32E40S",
+              "technicalFocus": "面向安全场景的嵌入式核",
+              "extensionPath": "安全特性与文档中的 Xsecure 方向",
+              "integrationSignal": "特权级、ePMP/PMA 与威胁假设"
+            }
+          ],
+          "note": "共同的 CV32E4 前缀表示家族相似性，并不代表 P、X、S 在软件和集成上等价。",
+          "narration": "四级嵌入式家族说明了为什么必须举具体例子。CV32E40P 延续 RI5CY 与 PULP 路线，可以包含浮点或 Zfinx 支持以及 PULP 自定义指令。CV32E40X 则公开 CORE-V-XIF，让外部模块实现新指令而不修改内核 RTL。CV32E40S 面向安全系统，文档描述了 Machine 与 User 特权级、增强保护和安全特性。共同前缀能提示位宽、嵌入式类别和四级流水线；后缀则把你导向不同的集成契约。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "core-v-cores-current-catalog",
+            "title": "CORE-V family catalog",
+            "url": "https://github.com/openhwgroup/core-v-cores",
+            "locator": "CORE-V Repositories; CORE-V Core Names and Releases",
+            "claimSupported": "Current family groupings, representative core characteristics, and the role of mvendorid, marchid, and mimpid."
+          },
+          {
+            "id": "cv32e40p-current-manual",
+            "title": "CV32E40P user manual",
+            "url": "https://docs.openhwgroup.org/projects/cv32e40p-user-manual/en/latest/",
+            "locator": "Introduction, Pipeline Details, CORE-V instruction-set extensions",
+            "claimSupported": "CV32E40P is a 32-bit, four-stage, in-order core derived from RI5CY with optional floating-point support and PULP custom extensions."
+          },
+          {
+            "id": "cv32e40x-current-manual",
+            "title": "CV32E40X user manual",
+            "url": "https://docs.openhwgroup.org/projects/cv32e40x-user-manual/en/latest/",
+            "locator": "Introduction and eXtension Interface",
+            "claimSupported": "CV32E40X is a 32-bit, four-stage embedded core whose CORE-V-XIF interface can offload custom or standardized instructions to external logic."
+          },
+          {
+            "id": "cv32e40s-current-manual",
+            "title": "CV32E40S user manual",
+            "url": "https://docs.openhwgroup.org/projects/cv32e40s-user-manual/en/latest/",
+            "locator": "Introduction and security extensions",
+            "claimSupported": "CV32E40S is the security-oriented member of the four-stage embedded family, with Machine/User privilege support and security features documented by its manual."
+          }
+        ],
+        "speakerNotes": "四级嵌入式家族说明了为什么必须举具体例子。CV32E40P 延续 RI5CY 与 PULP 路线，可以包含浮点或 Zfinx 支持以及 PULP 自定义指令。CV32E40X 则公开 CORE-V-XIF，让外部模块实现新指令而不修改内核 RTL。CV32E40S 面向安全系统，文档描述了 Machine 与 User 特权级、增强保护和安全特性。共同前缀能提示位宽、嵌入式类别和四级流水线；后缀则把你导向不同的集成契约。"
+      },
+      "sourceAnchors": [
+        "core-v-cores-current-catalog",
+        "cv32e40p-current-manual",
+        "cv32e40x-current-manual",
+        "cv32e40s-current-manual"
+      ],
+      "actions": [
+        {
+          "id": "scene-core-v-names-examples-speech",
+          "type": "speech",
+          "text": "四级嵌入式家族说明了为什么必须举具体例子。CV32E40P 延续 RI5CY 与 PULP 路线，可以包含浮点或 Zfinx 支持以及 PULP 自定义指令。CV32E40X 则公开 CORE-V-XIF，让外部模块实现新指令而不修改内核 RTL。CV32E40S 面向安全系统，文档描述了 Machine 与 User 特权级、增强保护和安全特性。共同前缀能提示位宽、嵌入式类别和四级流水线；后缀则把你导向不同的集成契约。",
+          "voice": "alexchen-zh",
+          "speed": 0.9,
+          "audioId": "tts_scene-core-v-names-examples-speech",
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-examples-speech.mp3"
+        }
+      ],
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
+    },
+    {
+      "id": "scene-core-v-names-limits",
+      "stageId": "openhw-essentials-core-v-names-zh",
+      "type": "html-slide",
+      "title": "CVA6 把仓库与已定义配置区分开来",
+      "order": 5,
       "content": {
         "type": "html-slide",
         "slideKit": "openhw-signal-technical",
@@ -287,350 +487,310 @@
         "theme": "light",
         "locale": "zh-CN",
         "content": {
-          "sceneTitle": "CVA6 是项目，料号对应配置证据",
-          "kicker": "项目不等于固定产品实例",
-          "title": "CVA6 是项目，料号对应配置证据",
-          "subtitle": "同一仓库能够形成多个内核，所以每条技术结论都需要配置上下文。",
+          "sceneTitle": "CVA6 把仓库与已定义配置区分开来",
+          "kicker": "实例 · 六级处理器家族",
+          "title": "A6 描述代码库方向，不等于所有配置",
+          "subtitle": "当前 CVA6 文档覆盖 32/64 位配置，并包含家族层面的单发射与双发射演进。",
           "columns": [
             {
-              "label": "CVA6",
-              "title": "仓库与可配置代码库",
+              "label": "仓库语法",
+              "title": "CVA6 与 CV64A60",
               "bullets": [
-                "面向一组应用级 CORE-V 内核的源码",
-                "高度参数化的 SystemVerilog",
-                "仓库原样并不等于某个固定量产内核",
-                "支持不同的三十二位和六十四位方向"
+                "CV 表示 CORE-V 家族",
+                "仓库名中的 A6 表示应用级与六级流水线",
+                "CV64A60 表示 64 位、应用级、六级流水线、产品标识 0",
+                "RTL 高度参数化；仓库原样不是唯一的量产内核"
               ]
             },
             {
-              "label": "具名内核",
-              "title": "面向配置的证据",
+              "label": "当前配置表",
+              "title": "名称必须与配置行一起阅读",
               "bullets": [
-                "选择一个有记录的参数集合",
-                "具有自己的 ISA 与特权级组合",
-                "可能拥有成熟度或发布状态",
-                "产品标识也可能仍是临时的"
+                "CV32A60AX：32 位应用配置，M/S/U 与 CV-X-IF",
+                "CV32A60X：32 位嵌入式配置，仅 Machine 模式与 CV-X-IF",
+                "CV64A6_MMU：带 MMU 的 64 位配置，支持 M/S/U",
+                "用户指南仍保留临时编号说明；较新的索引和发布页还出现 CV32A65X 与 CV32A60X 6.0.0"
               ]
             }
           ],
-          "anchor": {
-            "label": "工程原则",
-            "text": "没有核对配置表，就不要把一个 CVA6 配置的特性直接套到另一个配置。"
-          },
-          "narration": "最重要的区别，是项目与产品实例。CVA6 是仓库和可配置代码库，文档明确说明，它原样并不是某个唯一的量产内核，而是多个应用级 CORE-V 内核的基础。像 C V 三十二 A 六零 X 这样的名称，才把我们带到面向具体配置的证据。配置文档可以定义指令扩展、特权级、接口、发射方向和成熟度。看到某个配置拥有一项功能，并不代表所有 CVA6 变体都自动拥有它。做横向比较时，先把配置名称写在结论旁边，是一个很好的工程习惯。"
+          "takeaway": "CVA6 可承载不同位宽、特权级、ISA 与发射决策的内核；引用技术特性时必须带上配置名。",
+          "narration": "CVA6 最能暴露简单解码法的边界。仓库名称表示 CORE-V、应用级方向和六级流水线；命名页面以 CV64A60 作为正式示例，用户指南则列出位宽、特权级、ISA 和目标各不相同的配置。它仍把 CV32A60X 写作临时料号，但较新的证据也必须纳入：发布页已有配置专属的 CV32A60X 6.0.0，文档索引还链接了独立的 CV32A65X 设计文档。因此，来源和日期与名称字符同样重要。"
         },
         "assets": [],
         "sourceAnchors": [
           {
-            "id": "cva6-nomenclature-current",
-            "title": "CVA6 documentation: CORE-V Nomenclature",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
-            "locator": "docs/index.rst, CORE-V Nomenclature",
-            "claimSupported": "CORE-V is the OpenHW family name; CVA6 names a repository/code base; CV identifies the family; A6 identifies application class and a six-stage pipeline; specific cores use CV <ILEN> <class> <pipeline stages> <product identifier>."
+            "id": "core-v-cores-current-catalog",
+            "title": "CORE-V family catalog",
+            "url": "https://github.com/openhwgroup/core-v-cores",
+            "locator": "CORE-V Repositories; CORE-V Core Names and Releases",
+            "claimSupported": "Current family groupings, representative core characteristics, and the role of mvendorid, marchid, and mimpid."
           },
           {
-            "id": "openhw-current-projects",
-            "title": "OpenHW Foundation: Cores, IP, and standards",
-            "url": "https://openhwfoundation.org/projects/",
-            "locator": "CVA6, CVE4, CVE2, CVA5 and CVW entries",
-            "claimSupported": "The current public portfolio uses both repository/family labels and specific core names; the project page describes CVA6 as a configurable six-stage project spanning 32-bit embedded to 64-bit application-ready configurations."
+            "id": "cva6-current-nomenclature",
+            "title": "CVA6 documentation: CORE-V nomenclature",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
+            "locator": "CORE-V Nomenclature",
+            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
           },
           {
             "id": "cva6-current-configurations",
-            "title": "CVA6 User Manual: Introduction and configurations",
+            "title": "CVA6 user manual: current configurations",
             "url": "https://github.com/openhwgroup/cva6/blob/master/docs/01_cva6_user/Introduction.rst",
-            "locator": "CVA6 configurations and CV32A60X note",
-            "claimSupported": "The manual lists configuration-specific characteristics and states that CV32A60X is an interim part number while single- versus dual-issue direction is decided."
+            "locator": "Configurations",
+            "claimSupported": "The user manual distinguishes CV32A60AX, CV32A60X, and CV64A6_MMU configurations and retains a note that CV32A60X was an interim part number while issue width was decided."
+          },
+          {
+            "id": "cva6-current-releases",
+            "title": "CVA6 releases",
+            "url": "https://github.com/openhwgroup/cva6/releases",
+            "locator": "CV32A60X 6.0.0; CVA6 v5.3.0",
+            "claimSupported": "The current release page includes a configuration-specific CV32A60X 6.0.0 release alongside the CVA6 v5.3.0 family release."
           }
         ],
-        "speakerNotes": "最重要的区别，是项目与产品实例。CVA6 是仓库和可配置代码库，文档明确说明，它原样并不是某个唯一的量产内核，而是多个应用级 CORE-V 内核的基础。像 C V 三十二 A 六零 X 这样的名称，才把我们带到面向具体配置的证据。配置文档可以定义指令扩展、特权级、接口、发射方向和成熟度。看到某个配置拥有一项功能，并不代表所有 CVA6 变体都自动拥有它。做横向比较时，先把配置名称写在结论旁边，是一个很好的工程习惯。"
+        "speakerNotes": "CVA6 最能暴露简单解码法的边界。仓库名称表示 CORE-V、应用级方向和六级流水线；命名页面以 CV64A60 作为正式示例，用户指南则列出位宽、特权级、ISA 和目标各不相同的配置。它仍把 CV32A60X 写作临时料号，但较新的证据也必须纳入：发布页已有配置专属的 CV32A60X 6.0.0，文档索引还链接了独立的 CV32A65X 设计文档。因此，来源和日期与名称字符同样重要。"
       },
       "sourceAnchors": [
-        "cva6-nomenclature-current",
-        "openhw-current-projects",
-        "cva6-current-configurations"
-      ],
-      "actions": [
-        {
-          "id": "scene-core-v-names-project-vs-product-speech",
-          "type": "speech",
-          "text": "最重要的区别，是项目与产品实例。CVA6 是仓库和可配置代码库，文档明确说明，它原样并不是某个唯一的量产内核，而是多个应用级 CORE-V 内核的基础。像 C V 三十二 A 六零 X 这样的名称，才把我们带到面向具体配置的证据。配置文档可以定义指令扩展、特权级、接口、发射方向和成熟度。看到某个配置拥有一项功能，并不代表所有 CVA6 变体都自动拥有它。做横向比较时，先把配置名称写在结论旁边，是一个很好的工程习惯。",
-          "voice": "alexchen-zh",
-          "speed": 0.9,
-          "audioId": "tts_scene-core-v-names-project-vs-product-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-project-vs-product-speech.mp3"
-        }
-      ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
-    },
-    {
-      "id": "scene-core-v-names-examples",
-      "stageId": "openhw-essentials-core-v-names-zh",
-      "type": "html-slide",
-      "title": "名称有用，也可能仍是临时的",
-      "order": 5,
-      "content": {
-        "type": "html-slide",
-        "slideKit": "openhw-signal-technical",
-        "slot": "sourceMap",
-        "theme": "light",
-        "locale": "zh-CN",
-        "content": {
-          "sceneTitle": "名称有用，也可能仍是临时的",
-          "kicker": "当前示例",
-          "title": "名称有用，也可能仍是临时的",
-          "subtitle": "料号能帮助定位，但设计和产品决策仍可能继续演进。",
-          "cards": [
-            {
-              "label": "文档示例",
-              "title": "CV64A60",
-              "body": "当前命名页面把它解释为六十四位、应用级、六级流水线、产品标识零。",
-              "tone": "teal"
-            },
-            {
-              "label": "当前配置",
-              "title": "CV32A60X",
-              "body": "用户手册既提供配置细节，也明确说明该料号在发射方向确定前仍是临时名称。",
-              "tone": "blue"
-            },
-            {
-              "label": "历史示例",
-              "title": "CV32E40P",
-              "body": "早期语法有助于拆解名称；当前用户手册仍负责说明已实现行为与发布版本。",
-              "tone": "gold"
-            }
-          ],
-          "narration": "这三个例子说明，名称是线索，不是合同。C V 六十四 A 六零，是当前命名页面使用的清晰示例。C V 三十二 A 六零 X 是真实的配置名称，但当前介绍页仍把这个料号称为临时名称，因为团队还要确定单发射或双发射方向。C V 三十二 E 四零 P 很容易按历史结构拆解，可它真正实现了什么，以及哪些参数集合已经发布，仍然要看当前 CV32E40P 用户手册。可读的名称，不等于冻结的产品定义。"
-        },
-        "assets": [],
-        "sourceAnchors": [
-          {
-            "id": "cva6-nomenclature-current",
-            "title": "CVA6 documentation: CORE-V Nomenclature",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
-            "locator": "docs/index.rst, CORE-V Nomenclature",
-            "claimSupported": "CORE-V is the OpenHW family name; CVA6 names a repository/code base; CV identifies the family; A6 identifies application class and a six-stage pipeline; specific cores use CV <ILEN> <class> <pipeline stages> <product identifier>."
-          },
-          {
-            "id": "cva6-current-configurations",
-            "title": "CVA6 User Manual: Introduction and configurations",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/01_cva6_user/Introduction.rst",
-            "locator": "CVA6 configurations and CV32A60X note",
-            "claimSupported": "The manual lists configuration-specific characteristics and states that CV32A60X is an interim part number while single- versus dual-issue direction is decided."
-          },
-          {
-            "id": "core-v-historical-naming",
-            "title": "CORE-V Cores Roadmap, RISC-V Week Paris 2022",
-            "url": "https://open-src-soc.org/2022-05/media/slides/4th-RISC-V-Meeting-2022-05-04-14h40-Davide-Schiavone.pdf",
-            "locator": "slides 3-4",
-            "claimSupported": "The public historical deck illustrates the broader CV32E40P decomposition into family, word length, class, identity and modifier fields."
-          },
-          {
-            "id": "cv32e40p-current-manual",
-            "title": "CORE-V CV32E40P User Manual",
-            "url": "https://docs.openhwgroup.org/projects/cv32e40p-user-manual/en/latest/",
-            "locator": "Introduction and core versions",
-            "claimSupported": "Current documentation identifies CV32E40P as a four-stage, in-order, 32-bit RISC-V core and defines released variants through verified parameter sets and version identifiers."
-          }
-        ],
-        "speakerNotes": "这三个例子说明，名称是线索，不是合同。C V 六十四 A 六零，是当前命名页面使用的清晰示例。C V 三十二 A 六零 X 是真实的配置名称，但当前介绍页仍把这个料号称为临时名称，因为团队还要确定单发射或双发射方向。C V 三十二 E 四零 P 很容易按历史结构拆解，可它真正实现了什么，以及哪些参数集合已经发布，仍然要看当前 CV32E40P 用户手册。可读的名称，不等于冻结的产品定义。"
-      },
-      "sourceAnchors": [
-        "cva6-nomenclature-current",
+        "core-v-cores-current-catalog",
+        "cva6-current-nomenclature",
         "cva6-current-configurations",
-        "core-v-historical-naming",
-        "cv32e40p-current-manual"
-      ],
-      "actions": [
-        {
-          "id": "scene-core-v-names-examples-speech",
-          "type": "speech",
-          "text": "这三个例子说明，名称是线索，不是合同。C V 六十四 A 六零，是当前命名页面使用的清晰示例。C V 三十二 A 六零 X 是真实的配置名称，但当前介绍页仍把这个料号称为临时名称，因为团队还要确定单发射或双发射方向。C V 三十二 E 四零 P 很容易按历史结构拆解，可它真正实现了什么，以及哪些参数集合已经发布，仍然要看当前 CV32E40P 用户手册。可读的名称，不等于冻结的产品定义。",
-          "voice": "alexchen-zh",
-          "speed": 0.9,
-          "audioId": "tts_scene-core-v-names-examples-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-examples-speech.mp3"
-        }
-      ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
-    },
-    {
-      "id": "scene-core-v-names-limits",
-      "stageId": "openhw-essentials-core-v-names-zh",
-      "type": "html-slide",
-      "title": "名称不能证明什么",
-      "order": 6,
-      "content": {
-        "type": "html-slide",
-        "slideKit": "openhw-signal-technical",
-        "slot": "checklist",
-        "theme": "light",
-        "locale": "zh-CN",
-        "content": {
-          "sceneTitle": "名称不能证明什么",
-          "kicker": "边界检查",
-          "title": "名称不能证明什么",
-          "subtitle": "不要推断当前配置文档尚未确认的架构细节。",
-          "items": [
-            {
-              "title": "ISA 扩展",
-              "body": "名称不会列出 I、M、A、C、位操作、向量或自定义扩展。"
-            },
-            {
-              "title": "特权级",
-              "body": "同一仓库家族中可以同时存在仅机器模式和可运行 Linux 的配置。"
-            },
-            {
-              "title": "发射宽度",
-              "body": "六级流水线这个名称，本身不能证明单发射或双发射。"
-            },
-            {
-              "title": "存储系统",
-              "body": "MMU、PMP、缓存、接口和容量仍然是配置问题。"
-            },
-            {
-              "title": "成熟度",
-              "body": "料号不能自动证明 RTL 冻结、TRL 等级、正式发布或验证覆盖。"
-            },
-            {
-              "title": "未来稳定性",
-              "body": "产品标识可能是临时的，命名习惯本身也会演进。"
-            }
-          ],
-          "takeaway": "好的读者先提取线索，再打开配置证据，最后才形成技术结论。",
-          "narration": "需要牢牢记住这条边界。名称不会列出实际支持的指令扩展，也不能证明特权级、缓存结构、M M U、P M P、发射宽度、验证覆盖或成熟度。即便 CVA6 中的数字六能够提示流水级数，它也不是性能分数。名称最适合用于导航：帮助我们缩小家族、位宽、类别或流水线方向。真正的工程结论，必须等配置表、设计文档和发布证据彼此一致之后再下。只看名称就下结论，往往正是技术介绍产生错误的起点。"
-        },
-        "assets": [],
-        "sourceAnchors": [
-          {
-            "id": "cva6-nomenclature-current",
-            "title": "CVA6 documentation: CORE-V Nomenclature",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
-            "locator": "docs/index.rst, CORE-V Nomenclature",
-            "claimSupported": "CORE-V is the OpenHW family name; CVA6 names a repository/code base; CV identifies the family; A6 identifies application class and a six-stage pipeline; specific cores use CV <ILEN> <class> <pipeline stages> <product identifier>."
-          },
-          {
-            "id": "cva6-current-configurations",
-            "title": "CVA6 User Manual: Introduction and configurations",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/01_cva6_user/Introduction.rst",
-            "locator": "CVA6 configurations and CV32A60X note",
-            "claimSupported": "The manual lists configuration-specific characteristics and states that CV32A60X is an interim part number while single- versus dual-issue direction is decided."
-          },
-          {
-            "id": "cv32e40p-current-manual",
-            "title": "CORE-V CV32E40P User Manual",
-            "url": "https://docs.openhwgroup.org/projects/cv32e40p-user-manual/en/latest/",
-            "locator": "Introduction and core versions",
-            "claimSupported": "Current documentation identifies CV32E40P as a four-stage, in-order, 32-bit RISC-V core and defines released variants through verified parameter sets and version identifiers."
-          }
-        ],
-        "speakerNotes": "需要牢牢记住这条边界。名称不会列出实际支持的指令扩展，也不能证明特权级、缓存结构、M M U、P M P、发射宽度、验证覆盖或成熟度。即便 CVA6 中的数字六能够提示流水级数，它也不是性能分数。名称最适合用于导航：帮助我们缩小家族、位宽、类别或流水线方向。真正的工程结论，必须等配置表、设计文档和发布证据彼此一致之后再下。只看名称就下结论，往往正是技术介绍产生错误的起点。"
-      },
-      "sourceAnchors": [
-        "cva6-nomenclature-current",
-        "cva6-current-configurations",
-        "cv32e40p-current-manual"
+        "cva6-current-releases"
       ],
       "actions": [
         {
           "id": "scene-core-v-names-limits-speech",
           "type": "speech",
-          "text": "需要牢牢记住这条边界。名称不会列出实际支持的指令扩展，也不能证明特权级、缓存结构、M M U、P M P、发射宽度、验证覆盖或成熟度。即便 CVA6 中的数字六能够提示流水级数，它也不是性能分数。名称最适合用于导航：帮助我们缩小家族、位宽、类别或流水线方向。真正的工程结论，必须等配置表、设计文档和发布证据彼此一致之后再下。只看名称就下结论，往往正是技术介绍产生错误的起点。",
+          "text": "CVA6 最能暴露简单解码法的边界。仓库名称表示 CORE-V、应用级方向和六级流水线；命名页面以 CV64A60 作为正式示例，用户指南则列出位宽、特权级、ISA 和目标各不相同的配置。它仍把 CV32A60X 写作临时料号，但较新的证据也必须纳入：发布页已有配置专属的 CV32A60X 6.0.0，文档索引还链接了独立的 CV32A65X 设计文档。因此，来源和日期与名称字符同样重要。",
           "voice": "alexchen-zh",
           "speed": 0.9,
           "audioId": "tts_scene-core-v-names-limits-speech",
           "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-limits-speech.mp3"
         }
       ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
+    },
+    {
+      "id": "scene-core-v-names-decoder",
+      "stageId": "openhw-essentials-core-v-names-zh",
+      "type": "interactive",
+      "title": "拆解九个真实名称",
+      "order": 6,
+      "content": {
+        "type": "interactive",
+        "url": "",
+        "html": "<!doctype html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>选择一个内核，再逐项查看字段</title>\n  <style>\n    :root { color-scheme: dark; --ink:#eef6ff; --muted:#9eb0c7; --line:#29405d; --panel:#101c2d; --panel2:#15253a; --blue:#5aa9ff; --cyan:#51d4c7; --gold:#f0bd5a; --bg:#07111f; }\n    * { box-sizing:border-box; }\n    html, body { width:100%; height:100%; margin:0; overflow:hidden; background:var(--bg); color:var(--ink); font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,\"PingFang SC\",\"Microsoft YaHei\",Arial,sans-serif; }\n    body { background-image:linear-gradient(rgba(81,212,199,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(81,212,199,.055) 1px,transparent 1px); background-size:34px 34px; }\n    main { width:100%; height:100%; display:grid; grid-template-rows:auto auto 1fr auto; gap:16px; padding:clamp(20px,3.5vw,42px); }\n    header { border-bottom:1px solid var(--line); padding-bottom:14px; }\n    .eyebrow { margin:0 0 6px; color:var(--cyan); font-size:12px; font-weight:850; text-transform:uppercase; letter-spacing:.12em; }\n    h1 { margin:0; font-size:clamp(28px,3.8vw,48px); line-height:1.05; }\n    .subtitle { margin:7px 0 0; color:var(--muted); font-size:clamp(14px,1.4vw,18px); }\n    .examples { display:flex; gap:8px; overflow-x:auto; padding-bottom:3px; }\n    button { font:inherit; }\n    .example { flex:0 0 auto; border:1px solid var(--line); background:#0c1829; color:var(--muted); min-height:40px; padding:7px 13px; font-weight:800; cursor:pointer; }\n    .example[aria-pressed=\"true\"] { border-color:var(--blue); background:#153252; color:#fff; }\n    .workspace { min-height:0; display:grid; grid-template-columns:minmax(0,1.12fr) minmax(270px,.88fr); gap:16px; }\n    .name-panel, .detail { min-height:0; border:1px solid var(--line); background:linear-gradient(145deg,var(--panel),var(--panel2)); padding:clamp(17px,2.4vw,27px); }\n    .name-panel { display:grid; align-content:center; gap:18px; }\n    .name-note { color:var(--muted); font-size:13px; font-weight:700; }\n    .tokens { display:flex; flex-wrap:wrap; gap:8px; align-items:stretch; }\n    .token { border:1px solid #315172; border-bottom:4px solid var(--blue); background:#0b1727; color:#fff; padding:13px 14px 10px; font-size:clamp(22px,3.5vw,42px); font-weight:900; cursor:pointer; min-width:64px; }\n    .token:nth-child(2n) { border-bottom-color:var(--cyan); }\n    .token:nth-child(3n) { border-bottom-color:var(--gold); }\n    .token[aria-pressed=\"true\"] { background:#eaf4ff; color:#07111f; border-color:#eaf4ff; }\n    .detail { display:grid; align-content:center; gap:10px; }\n    .detail-label { color:var(--cyan); font-size:12px; font-weight:850; text-transform:uppercase; letter-spacing:.1em; }\n    .detail-token { font-size:clamp(38px,6vw,72px); font-weight:950; line-height:1; }\n    .detail-text { color:#c6d3e2; font-size:clamp(15px,1.65vw,21px); line-height:1.42; }\n    .caution { border-left:3px solid var(--gold); background:rgba(240,189,90,.09); padding:10px 13px; color:#f4dba4; font-size:13px; line-height:1.35; }\n    footer { display:flex; justify-content:space-between; gap:16px; color:#8296ae; font-size:11px; border-top:1px solid var(--line); padding-top:10px; }\n    .history { color:var(--gold); font-weight:800; }\n    @media (max-width:680px) {\n      html, body { overflow:auto; }\n      main { height:auto; min-height:100%; display:flex; flex-direction:column; padding:22px 18px; }\n      .workspace { display:flex; flex-direction:column; }\n      .name-panel, .detail { min-height:210px; }\n      .token { font-size:28px; }\n      footer { flex-direction:column; gap:5px; }\n    }\n  </style>\n</head>\n<body>\n  <main>\n    <header><p class=\"eyebrow\">交互式字段解码器</p><h1>选择一个内核，再逐项查看字段</h1><p class=\"subtitle\">解码器会区分当前文档事实与历史字段解释。</p></header>\n    <nav class=\"examples\" aria-label=\"内核名称\"></nav>\n    <section class=\"workspace\">\n      <article class=\"name-panel\"><div class=\"name-note\"></div><div class=\"tokens\"></div><div class=\"caution\">字段只是导航线索；把它写成设计结论以前，请打开对应的当前手册。</div></article>\n      <aside class=\"detail\" aria-live=\"polite\"><div class=\"detail-label\"></div><div class=\"detail-token\"></div><div class=\"detail-text\"></div></aside>\n    </section>\n    <footer><span>OpenHW 当前手册 · CORE-V 产品目录 · 历史命名资料</span><span class=\"history\"></span></footer>\n  </main>\n  <script>\n    const examples = [{\"name\":\"CVE2\",\"note\":\"家族与仓库标签\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"E\",\"label\":\"类别\",\"detail\":\"嵌入式方向。\"},{\"token\":\"2\",\"label\":\"流水线家族\",\"detail\":\"当前目录与手册记录为两级流水线。\"}]},{\"name\":\"CV32E20\",\"note\":\"CVE2 的具名内核\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"32\",\"label\":\"位宽\",\"detail\":\"32 位指令/寄存器架构。\"},{\"token\":\"E\",\"label\":\"类别\",\"detail\":\"嵌入式 MCU 类别。\"},{\"token\":\"2\",\"label\":\"流水线\",\"detail\":\"两级：IF 与合并的 ID/EX。\"},{\"token\":\"0\",\"label\":\"特定身份\",\"detail\":\"尾部身份/产品字段；具体语义以当前规格为准。\"}]},{\"name\":\"CV32E40P\",\"note\":\"来自 PULP 路线的四级内核\",\"historical\":true,\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"32\",\"label\":\"位宽\",\"detail\":\"32 位内核。\"},{\"token\":\"E\",\"label\":\"类别\",\"detail\":\"嵌入式类别。\"},{\"token\":\"4\",\"label\":\"流水线\",\"detail\":\"四级顺序执行流水线。\"},{\"token\":\"0\",\"label\":\"特定身份\",\"detail\":\"历史字段方案中的产品特定身份。\"},{\"token\":\"P\",\"label\":\"修饰符\",\"detail\":\"历史 PULP 路线线索；当前行为由 CV32E40P 手册定义。\"}]},{\"name\":\"CV32E40X\",\"note\":\"带 CORE-V-XIF 的四级内核\",\"tokens\":[{\"token\":\"CV32E4\",\"label\":\"共同前缀\",\"detail\":\"32 位、嵌入式、四级流水线家族。\"},{\"token\":\"0\",\"label\":\"特定身份\",\"detail\":\"产品特定身份字段。\"},{\"token\":\"X\",\"label\":\"变体线索\",\"detail\":\"当前手册记录 CORE-V-XIF；X 不表示强制内置向量单元。\"}]},{\"name\":\"CV32E40S\",\"note\":\"面向安全的四级兄弟核\",\"tokens\":[{\"token\":\"CV32E4\",\"label\":\"共同前缀\",\"detail\":\"32 位、嵌入式、四级流水线家族。\"},{\"token\":\"0\",\"label\":\"特定身份\",\"detail\":\"产品特定身份字段。\"},{\"token\":\"S\",\"label\":\"变体线索\",\"detail\":\"把读者导向面向安全的 CV32E40S 手册。\"}]},{\"name\":\"CVA6\",\"note\":\"仓库与可配置家族\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"A\",\"label\":\"类别方向\",\"detail\":\"仓库名中的应用级方向。\"},{\"token\":\"6\",\"label\":\"流水线\",\"detail\":\"六级流水线家族。\"}]},{\"name\":\"CV64A60\",\"note\":\"当前 CVA6 命名文档的正式示例\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"64\",\"label\":\"ILEN\",\"detail\":\"64 位指令长度。\"},{\"token\":\"A\",\"label\":\"类别\",\"detail\":\"应用级。\"},{\"token\":\"6\",\"label\":\"流水线\",\"detail\":\"六级流水线。\"},{\"token\":\"0\",\"label\":\"产品标识\",\"detail\":\"当前命名示例中的产品标识 0。\"}]},{\"name\":\"CV32A60AX\",\"note\":\"CVA6 当前配置\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"32\",\"label\":\"ILEN\",\"detail\":\"32 位指令长度。\"},{\"token\":\"A\",\"label\":\"类别字段\",\"detail\":\"当前配置表把它定义为应用级。\"},{\"token\":\"6\",\"label\":\"流水线\",\"detail\":\"六级流水线家族。\"},{\"token\":\"0AX\",\"label\":\"产品标识\",\"detail\":\"把剩余字段作为已记录的产品/配置标签；配置表确认 CV-X-IF。\"}]},{\"name\":\"CV32A65X\",\"note\":\"当前文档索引中的 CVA6 具体内核\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"32\",\"label\":\"ILEN\",\"detail\":\"三十二位指令长度。\"},{\"token\":\"A\",\"label\":\"类别\",\"detail\":\"应用级。\"},{\"token\":\"6\",\"label\":\"流水线\",\"detail\":\"继承自 CVA6 代码库的六级家族。\"},{\"token\":\"5X\",\"label\":\"产品标识\",\"detail\":\"当前索引链接了独立的 CV32A65X 设计文档，具体微架构应以该文档为准。\"}]}];\n    const exampleNav = document.querySelector('.examples');\n    const tokens = document.querySelector('.tokens');\n    const note = document.querySelector('.name-note');\n    const detailLabel = document.querySelector('.detail-label');\n    const detailToken = document.querySelector('.detail-token');\n    const detailText = document.querySelector('.detail-text');\n    const history = document.querySelector('.history');\n    let selectedExample = 0;\n    let selectedToken = 0;\n\n    function renderDetail() {\n      const item = examples[selectedExample].tokens[selectedToken];\n      detailLabel.textContent = item.label;\n      detailToken.textContent = item.token;\n      detailText.textContent = item.detail;\n      [...tokens.children].forEach((button, index) => button.setAttribute('aria-pressed', String(index === selectedToken)));\n    }\n\n    function renderExample() {\n      const example = examples[selectedExample];\n      note.textContent = example.note;\n      history.textContent = example.historical ? '包含历史字段解释' : '';\n      tokens.replaceChildren(...example.tokens.map((item, index) => {\n        const button = document.createElement('button');\n        button.className = 'token';\n        button.type = 'button';\n        button.textContent = item.token;\n        button.addEventListener('click', () => { selectedToken = index; renderDetail(); });\n        return button;\n      }));\n      [...exampleNav.children].forEach((button, index) => button.setAttribute('aria-pressed', String(index === selectedExample)));\n      selectedToken = 0;\n      renderDetail();\n    }\n\n    examples.forEach((example, index) => {\n      const button = document.createElement('button');\n      button.className = 'example';\n      button.type = 'button';\n      button.textContent = example.name;\n      button.addEventListener('click', () => { selectedExample = index; renderExample(); });\n      exampleNav.appendChild(button);\n    });\n    renderExample();\n  </script>\n</body>\n</html>",
+        "sourceAnchors": [
+          {
+            "id": "core-v-cores-current-catalog",
+            "title": "CORE-V family catalog",
+            "url": "https://github.com/openhwgroup/core-v-cores",
+            "locator": "CORE-V Repositories; CORE-V Core Names and Releases",
+            "claimSupported": "Current family groupings, representative core characteristics, and the role of mvendorid, marchid, and mimpid."
+          },
+          {
+            "id": "cv32e20-current-specification",
+            "title": "CV32E20 specification",
+            "url": "https://docs.openhwgroup.org/projects/cve2-user-manual/en/latest/01_specification/",
+            "locator": "Introduction, Scope of the IP, Configurations",
+            "claimSupported": "CVE2 is the OpenHW fork/code base and CV32E20 is its current named core; the specification defines its 32-bit MCU scope, ISA options, OBI interfaces, and golden configurations."
+          },
+          {
+            "id": "cv32e40p-current-manual",
+            "title": "CV32E40P user manual",
+            "url": "https://docs.openhwgroup.org/projects/cv32e40p-user-manual/en/latest/",
+            "locator": "Introduction, Pipeline Details, CORE-V instruction-set extensions",
+            "claimSupported": "CV32E40P is a 32-bit, four-stage, in-order core derived from RI5CY with optional floating-point support and PULP custom extensions."
+          },
+          {
+            "id": "cv32e40x-current-manual",
+            "title": "CV32E40X user manual",
+            "url": "https://docs.openhwgroup.org/projects/cv32e40x-user-manual/en/latest/",
+            "locator": "Introduction and eXtension Interface",
+            "claimSupported": "CV32E40X is a 32-bit, four-stage embedded core whose CORE-V-XIF interface can offload custom or standardized instructions to external logic."
+          },
+          {
+            "id": "cv32e40s-current-manual",
+            "title": "CV32E40S user manual",
+            "url": "https://docs.openhwgroup.org/projects/cv32e40s-user-manual/en/latest/",
+            "locator": "Introduction and security extensions",
+            "claimSupported": "CV32E40S is the security-oriented member of the four-stage embedded family, with Machine/User privilege support and security features documented by its manual."
+          },
+          {
+            "id": "cva6-current-nomenclature",
+            "title": "CVA6 documentation: CORE-V nomenclature",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
+            "locator": "CORE-V Nomenclature",
+            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
+          },
+          {
+            "id": "cva6-current-configurations",
+            "title": "CVA6 user manual: current configurations",
+            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/01_cva6_user/Introduction.rst",
+            "locator": "Configurations",
+            "claimSupported": "The user manual distinguishes CV32A60AX, CV32A60X, and CV64A6_MMU configurations and retains a note that CV32A60X was an interim part number while issue width was decided."
+          },
+          {
+            "id": "cva6-current-releases",
+            "title": "CVA6 releases",
+            "url": "https://github.com/openhwgroup/cva6/releases",
+            "locator": "CV32A60X 6.0.0; CVA6 v5.3.0",
+            "claimSupported": "The current release page includes a configuration-specific CV32A60X 6.0.0 release alongside the CVA6 v5.3.0 family release."
+          },
+          {
+            "id": "core-v-historical-naming",
+            "title": "CORE-V Cores Roadmap, RISC-V Week Paris 2022",
+            "url": "https://open-src-soc.org/2022-05/media/slides/4th-RISC-V-Meeting-2022-05-04-14h40-Davide-Schiavone.pdf",
+            "locator": "slide 4",
+            "claimSupported": "The historical public deck decomposes CV32E40P into family, word length, class, identity, and modifier fields."
+          }
+        ]
+      },
+      "sourceAnchors": [
+        "core-v-cores-current-catalog",
+        "cv32e20-current-specification",
+        "cv32e40p-current-manual",
+        "cv32e40x-current-manual",
+        "cv32e40s-current-manual",
+        "cva6-current-nomenclature",
+        "cva6-current-configurations",
+        "cva6-current-releases",
+        "core-v-historical-naming"
+      ],
+      "actions": [
+        {
+          "id": "scene-core-v-names-decoder-speech",
+          "type": "speech",
+          "text": "看完家族以后再使用解码器。CVE2 是紧凑的家族与仓库名称；CV32E20 增加了位宽和产品特定身份。CV32E40 兄弟核共享三十二位、嵌入式、四级流水线前缀，而 P、X、S 会把读者导向不同手册和集成选择。CVA6 是可配置仓库名，CV64A60 是正式料号示例。CV32A60AX 来自配置表，而当前索引又单独链接 CV32A65X。不要自行猜测剩余标识，应当回到匹配的文档与发布版本。",
+          "voice": "alexchen-zh",
+          "speed": 0.9,
+          "audioId": "tts_scene-core-v-names-decoder-speech",
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-decoder-speech.mp3"
+        }
+      ],
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
     },
     {
       "id": "scene-core-v-names-workflow",
       "stageId": "openhw-essentials-core-v-names-zh",
       "type": "html-slide",
-      "title": "先解码，再核对",
+      "title": "名称结束的地方，由硬件身份继续",
       "order": 7,
       "content": {
         "type": "html-slide",
         "slideKit": "openhw-signal-technical",
-        "slot": "processFlow",
+        "slot": "comparisonMatrix",
         "theme": "dark",
         "locale": "zh-CN",
         "content": {
-          "sceneTitle": "先解码，再核对",
-          "kicker": "四步阅读习惯",
-          "title": "先解码，再核对",
-          "subtitle": "这套顺序同时适合学生、集成工程师和验证工程师。",
-          "steps": [
+          "sceneTitle": "名称结束的地方，由硬件身份继续",
+          "kicker": "发布与 CSR 身份",
+          "title": "名称、发布标签与身份 CSR 组成一条证据链",
+          "subtitle": "面向生产的技术结论应从人类标签解析到冻结 RTL 和机器可读标识。",
+          "columns": [
             {
-              "badge": "01",
-              "title": "拆字段",
-              "body": "只提取当前官方来源明确解释的字段。"
+              "key": "identifier",
+              "label": "标识"
             },
             {
-              "badge": "02",
-              "title": "认对象",
-              "body": "判断名称指向仓库、家族、产品还是具体配置。"
+              "key": "owner",
+              "label": "定义者 / 定义对象"
             },
             {
-              "badge": "03",
-              "title": "查实现",
-              "body": "核对 ISA、特权级、接口、发射宽度和存储系统。"
+              "key": "example",
+              "label": "OpenHW 示例"
             },
             {
-              "badge": "04",
-              "title": "看状态",
-              "body": "核对发布、成熟度、验证范围，以及标识是否仍是临时的。"
+              "key": "purpose",
+              "label": "工程用途"
             }
           ],
-          "takeaway": "名称让导航更快，文档才给出工程约束。",
-          "narration": "可以养成四步阅读习惯。第一，只拆解官方来源明确解释的字段。第二，先判断对象究竟是仓库、家族、产品还是具体配置。第三，到配置和设计文档中核对指令集、特权级、接口、发射宽度和存储系统。第四，再查看发布、验证与成熟度证据，并确认产品标识是不是临时的。这套方法刻意保持克制，让初学者能够自信地读名称，同时不会给专业工程师一个误导性的捷径。以后遇到新的 CORE-V 名称，也可以重复同样的四步。"
+          "rows": [
+            {
+              "identifier": "mvendorid",
+              "owner": "JEDEC 制造商身份",
+              "example": "OpenHW CORE-V 设备为 0x0000_0602",
+              "purpose": "在硬件中标识厂商/组织。"
+            },
+            {
+              "identifier": "marchid",
+              "owner": "经 RISC-V International 分配的架构 ID",
+              "example": "E40P 0x04；E40X 0x14；E40S 0x15；E20 0x23",
+              "purpose": "区分具名处理器架构。"
+            },
+            {
+              "identifier": "mimpid",
+              "owner": "OpenHW 发布实现身份",
+              "example": "当前目录中 CV32E40Pv1 为 0x0，v2 为 0x1",
+              "purpose": "区分实现/发布版本演进。"
+            },
+            {
+              "identifier": "Git 发布 / RTL Freeze",
+              "owner": "对应仓库的发布流程",
+              "example": "CV32E40P v1.0.0；CVA6 v5.3.0；CV32A60X 6.0.0",
+              "purpose": "固定用于验证和集成的精确源码基线。"
+            }
+          ],
+          "note": "可复现的集成记录应同时包含：内核/配置名称、仓库、发布标签和身份 CSR。",
+          "narration": "早期命名资料还把人类名称连接到了发布身份。OpenHW 在 mvendorid 中记录 JEDEC 制造商值，用 marchid 记录架构身份，用 mimpid 区分实现版本。当前产品目录列出了 CV32E40P、E40X、E40S 和 E20 的架构 ID，同时 E40P 第一版与第二版使用不同的实现 ID。Git 标签或 RTL Freeze 发布再把这些身份固定到精确源码基线。这条证据链远比只引用演示文稿标题或仓库默认分支可靠。"
         },
         "assets": [],
         "sourceAnchors": [
           {
-            "id": "cva6-nomenclature-current",
-            "title": "CVA6 documentation: CORE-V Nomenclature",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
-            "locator": "docs/index.rst, CORE-V Nomenclature",
-            "claimSupported": "CORE-V is the OpenHW family name; CVA6 names a repository/code base; CV identifies the family; A6 identifies application class and a six-stage pipeline; specific cores use CV <ILEN> <class> <pipeline stages> <product identifier>."
+            "id": "core-v-cores-current-catalog",
+            "title": "CORE-V family catalog",
+            "url": "https://github.com/openhwgroup/core-v-cores",
+            "locator": "CORE-V Repositories; CORE-V Core Names and Releases",
+            "claimSupported": "Current family groupings, representative core characteristics, and the role of mvendorid, marchid, and mimpid."
           },
           {
-            "id": "cva6-current-configurations",
-            "title": "CVA6 User Manual: Introduction and configurations",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/01_cva6_user/Introduction.rst",
-            "locator": "CVA6 configurations and CV32A60X note",
-            "claimSupported": "The manual lists configuration-specific characteristics and states that CV32A60X is an interim part number while single- versus dual-issue direction is decided."
+            "id": "core-v-historical-core-names-deck",
+            "title": "CORE-V Cores Naming Conventions (historical reference)",
+            "locator": "CoreNames.pptx, slides 3, 5-7, 10-11",
+            "claimSupported": "The historical internal reference expands the identity field into pipeline length plus a specific-feature identifier and separates repository, project release, and CSR identities."
+          },
+          {
+            "id": "cv32e40p-current-manual",
+            "title": "CV32E40P user manual",
+            "url": "https://docs.openhwgroup.org/projects/cv32e40p-user-manual/en/latest/",
+            "locator": "Introduction, Pipeline Details, CORE-V instruction-set extensions",
+            "claimSupported": "CV32E40P is a 32-bit, four-stage, in-order core derived from RI5CY with optional floating-point support and PULP custom extensions."
+          },
+          {
+            "id": "cva6-current-releases",
+            "title": "CVA6 releases",
+            "url": "https://github.com/openhwgroup/cva6/releases",
+            "locator": "CV32A60X 6.0.0; CVA6 v5.3.0",
+            "claimSupported": "The current release page includes a configuration-specific CV32A60X 6.0.0 release alongside the CVA6 v5.3.0 family release."
           }
         ],
-        "speakerNotes": "可以养成四步阅读习惯。第一，只拆解官方来源明确解释的字段。第二，先判断对象究竟是仓库、家族、产品还是具体配置。第三，到配置和设计文档中核对指令集、特权级、接口、发射宽度和存储系统。第四，再查看发布、验证与成熟度证据，并确认产品标识是不是临时的。这套方法刻意保持克制，让初学者能够自信地读名称，同时不会给专业工程师一个误导性的捷径。以后遇到新的 CORE-V 名称，也可以重复同样的四步。"
+        "speakerNotes": "早期命名资料还把人类名称连接到了发布身份。OpenHW 在 mvendorid 中记录 JEDEC 制造商值，用 marchid 记录架构身份，用 mimpid 区分实现版本。当前产品目录列出了 CV32E40P、E40X、E40S 和 E20 的架构 ID，同时 E40P 第一版与第二版使用不同的实现 ID。Git 标签或 RTL Freeze 发布再把这些身份固定到精确源码基线。这条证据链远比只引用演示文稿标题或仓库默认分支可靠。"
       },
       "sourceAnchors": [
-        "cva6-nomenclature-current",
-        "cva6-current-configurations"
+        "core-v-cores-current-catalog",
+        "core-v-historical-core-names-deck",
+        "cv32e40p-current-manual",
+        "cva6-current-releases"
       ],
       "actions": [
         {
           "id": "scene-core-v-names-workflow-speech",
           "type": "speech",
-          "text": "可以养成四步阅读习惯。第一，只拆解官方来源明确解释的字段。第二，先判断对象究竟是仓库、家族、产品还是具体配置。第三，到配置和设计文档中核对指令集、特权级、接口、发射宽度和存储系统。第四，再查看发布、验证与成熟度证据，并确认产品标识是不是临时的。这套方法刻意保持克制，让初学者能够自信地读名称，同时不会给专业工程师一个误导性的捷径。以后遇到新的 CORE-V 名称，也可以重复同样的四步。",
+          "text": "早期命名资料还把人类名称连接到了发布身份。OpenHW 在 mvendorid 中记录 JEDEC 制造商值，用 marchid 记录架构身份，用 mimpid 区分实现版本。当前产品目录列出了 CV32E40P、E40X、E40S 和 E20 的架构 ID，同时 E40P 第一版与第二版使用不同的实现 ID。Git 标签或 RTL Freeze 发布再把这些身份固定到精确源码基线。这条证据链远比只引用演示文稿标题或仓库默认分支可靠。",
           "voice": "alexchen-zh",
           "speed": 0.9,
           "audioId": "tts_scene-core-v-names-workflow-speech",
           "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-workflow-speech.mp3"
         }
       ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
     },
     {
       "id": "scene-core-v-names-quiz",
       "stageId": "openhw-essentials-core-v-names-zh",
       "type": "quiz",
-      "title": "小测：你能安全地读懂名称吗？",
+      "title": "技术检查点",
       "order": 8,
       "content": {
         "type": "quiz",
@@ -638,80 +798,109 @@
           {
             "id": "core-v-names-zh-q1",
             "type": "single",
-            "question": "在当前 CVA6 命名说明中，“A6”表示什么？",
+            "question": "下面哪一组正确区分了“家族/代码库名称”和“具名内核”？",
             "options": [
               {
-                "label": "应用级类别与六级执行流水线",
+                "label": "CVE2 是家族/代码库，CV32E20 是具名内核",
                 "value": "A"
               },
               {
-                "label": "原子扩展与六路发射",
+                "label": "CV32E20 是家族，CVE2 是发布标签",
                 "value": "B"
               },
               {
-                "label": "仅面向 ASIC 且达到 TRL 6",
+                "label": "CVA6 是 ISA Profile，CV64A60 是仓库",
                 "value": "C"
               },
               {
-                "label": "第六代 RISC-V ISA",
+                "label": "CV32E40X 是 SoC，CVE4 是它的编译器",
                 "value": "D"
               }
             ],
             "answer": [
               "A"
             ],
-            "analysis": "当前 CVA6 文档明确把 A 解释为应用级类别，把数字 6 解释为六级执行流水线。",
+            "analysis": "当前 CV32E20 规格把 CVE2 作为代码库/家族语境，把 CV32E20 作为具体内核。",
             "hasAnswer": true,
             "points": 1
           },
           {
             "id": "core-v-names-zh-q2",
             "type": "single",
-            "question": "下面哪句话最准确地描述了“CVA6”本身？",
+            "question": "对 CV32E20 最稳妥的第一层解读是什么？",
             "options": [
               {
-                "label": "面向一组 CORE-V 内核的仓库与可配置代码库",
+                "label": "CORE-V、32 位、嵌入式、两级流水线方向、产品/特征标识 0",
                 "value": "A"
               },
               {
-                "label": "一个永远不变的量产配置",
+                "label": "32 个寄存器、E20 扩展、双发射",
                 "value": "B"
               },
               {
-                "label": "带有固定外设的完整 SoC",
+                "label": "二十级流水线的 Linux 应用核",
                 "value": "C"
               },
               {
-                "label": "由 RISC-V International 维护的 ISA Profile",
+                "label": "外围设备固定的完整 MCU SoC",
                 "value": "D"
               }
             ],
             "answer": [
               "A"
             ],
-            "analysis": "官方文档明确区分了 CVA6 仓库和由该代码库衍生出的具体量产内核。",
+            "analysis": "当前 CVE2 文档确认它是 32 位嵌入式两级流水线内核；尾部身份字段需结合历史语法和当前规格理解。",
             "hasAnswer": true,
             "points": 1
           },
           {
             "id": "core-v-names-zh-q3",
-            "type": "multiple",
-            "question": "拆解 CORE-V 名称以后，还应该核对哪些证据？",
+            "type": "single",
+            "question": "当前文档中，CV32E40X 与其他四级流水线兄弟核最清晰的差异是什么？",
             "options": [
               {
-                "label": "具体配置的 ISA 与特权级",
+                "label": "用于外接指令扩展的 CORE-V-XIF",
                 "value": "A"
               },
               {
-                "label": "接口、发射宽度与存储系统选择",
+                "label": "X 后缀强制内置向量单元",
                 "value": "B"
               },
               {
-                "label": "发布、验证与成熟度状态",
+                "label": "六级双发射流水线",
                 "value": "C"
               },
               {
-                "label": "什么都不用看，料号就是完整规格",
+                "label": "用于 Linux 的 Supervisor 模式和 MMU",
+                "value": "D"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "analysis": "CV32E40X 手册明确把 CORE-V-XIF 作为连接外部自定义或标准指令扩展的接口。",
+            "hasAnswer": true,
+            "points": 1
+          },
+          {
+            "id": "core-v-names-zh-q4",
+            "type": "multiple",
+            "question": "除了人类可读名称，发布级身份核对还应检查哪些 CSR？",
+            "options": [
+              {
+                "label": "mvendorid",
+                "value": "A"
+              },
+              {
+                "label": "marchid",
+                "value": "B"
+              },
+              {
+                "label": "mimpid",
+                "value": "C"
+              },
+              {
+                "label": "只看演示文稿里的市场名称",
                 "value": "D"
               }
             ],
@@ -720,7 +909,7 @@
               "B",
               "C"
             ],
-            "analysis": "名称只负责导航；技术特性与成熟度结论仍然需要配置和发布文档。",
+            "analysis": "OpenHW 在发布/冻结语境中用这三个 CSR 标识制造商、架构和实现版本。",
             "hasAnswer": true,
             "points": 2
           }
@@ -730,21 +919,21 @@
         {
           "id": "scene-core-v-names-quiz-speech",
           "type": "speech",
-          "text": "这组小测检查的是理解边界，而不是死记硬背。第一题检查当前 CVA6 文档里 A 六的直接含义。第二题检查你能否区分 CVA6 仓库和一个固定的量产实例。第三题检查工程上的后续动作：即使读懂了名称，仍然必须核对配置对应的指令集、特权级、接口、发射方向以及成熟度。完成后请阅读解析，解析本身也是课程内容的一部分。答错并不意味着没有学会，关键是能否说明为什么名称不能代替配置文档。",
+          "text": "这组题检查真正的工程阅读能力。第一题区分家族或代码库与具名内核；第二题要求在不过度推断的前提下拆解 CV32E20；第三题识别 CV32E40X 的关键集成路径 CORE-V-XIF；最后一题选择发布级硬件身份核对所需的三个 CSR。作答时必须把料号与当前手册、配置表和发布身份连起来，而不是凭字母形状猜功能；还要能够说明下一步应检查哪份文档、哪一行配置和哪一个发布标签。",
           "voice": "alexchen-zh",
           "speed": 0.9,
           "audioId": "tts_scene-core-v-names-quiz-speech",
           "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-quiz-speech.mp3"
         }
       ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
     },
     {
       "id": "scene-core-v-names-summary",
       "stageId": "openhw-essentials-core-v-names-zh",
       "type": "html-slide",
-      "title": "读懂名称，然后阅读证据",
+      "title": "CORE-V 名称的紧凑查阅方法",
       "order": 9,
       "content": {
         "type": "html-slide",
@@ -753,63 +942,63 @@
         "theme": "dark",
         "locale": "zh-CN",
         "content": {
-          "sceneTitle": "读懂名称，然后阅读证据",
-          "kicker": "课程小结",
-          "title": "读懂名称，然后阅读证据",
+          "sceneTitle": "CORE-V 名称的紧凑查阅方法",
+          "kicker": "工程速查表",
+          "title": "先分类，再解码，随后解析配置并固定发布",
           "takeaways": [
-            "CV 表示 CORE-V 家族；在 CVA6 中，A 表示应用级，6 表示六级流水线。",
-            "CVA6 是可配置的仓库与代码库，不是一个永远不变的量产实例。",
-            "较早的 CORE-V 命名图解释历史意图，但不能替代当前用户手册。",
-            "ISA、特权级、发射宽度、存储系统、发布与成熟度都要查看配置证据。"
+            "先判断标签层级：家族/仓库、具名内核、配置或发布版本。",
+            "只解读当前项目文档明确支持的字段。",
+            "ISA、特权级、接口、发射宽度和目标必须查看配置表。",
+            "用仓库标签与 mvendorid、marchid、mimpid 保证可复现。"
           ],
-          "nextStep": "打开 CVA6 命名章节，并把它与一个当前配置表并排阅读。",
-          "closing": "现在，你已经能够利用 CORE-V 名称快速定位，同时避免过度解读。",
-          "narration": "最后收拢一下。C V 表示 CORE-V 家族；在 CVA6 中，A 表示应用级，数字六表示六级流水线。CVA6 本身是一个可配置的仓库和项目，而不是唯一不变的量产内核。较早的命名图可以解释 C V 三十二 E 四零 P 这类名称的形成过程，但当前行为必须由当前用户手册决定。名称用于快速定位；形成技术结论之前，还要核对具体配置、设计文档、验证范围和发布状态。"
+          "nextStep": "并排阅读 CV32E20 配置表与 CV32E40X 的 CORE-V-XIF 章节。",
+          "closing": "名称把你带到正确证据；证据才定义内核。",
+          "narration": "把方法压缩成四步。第一，判断标签属于哪一层。第二，只拆解当前项目文档或明确标注的历史语法所支持的字段。第三，在声称 ISA、特权级、接口、发射宽度或成熟度以前，把名称解析到具体配置表和用户手册。第四，固定仓库发布和三个身份 CSR。采用这套方法以后，CVE2、CV32E20、CV32E40 兄弟核以及 CVA6 会成为可以导航的产品体系，而不是一串难懂缩写。"
         },
         "assets": [],
         "sourceAnchors": [
           {
-            "id": "cva6-nomenclature-current",
-            "title": "CVA6 documentation: CORE-V Nomenclature",
+            "id": "core-v-cores-current-catalog",
+            "title": "CORE-V family catalog",
+            "url": "https://github.com/openhwgroup/core-v-cores",
+            "locator": "CORE-V Repositories; CORE-V Core Names and Releases",
+            "claimSupported": "Current family groupings, representative core characteristics, and the role of mvendorid, marchid, and mimpid."
+          },
+          {
+            "id": "cv32e20-current-specification",
+            "title": "CV32E20 specification",
+            "url": "https://docs.openhwgroup.org/projects/cve2-user-manual/en/latest/01_specification/",
+            "locator": "Introduction, Scope of the IP, Configurations",
+            "claimSupported": "CVE2 is the OpenHW fork/code base and CV32E20 is its current named core; the specification defines its 32-bit MCU scope, ISA options, OBI interfaces, and golden configurations."
+          },
+          {
+            "id": "cva6-current-nomenclature",
+            "title": "CVA6 documentation: CORE-V nomenclature",
             "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
-            "locator": "docs/index.rst, CORE-V Nomenclature",
-            "claimSupported": "CORE-V is the OpenHW family name; CVA6 names a repository/code base; CV identifies the family; A6 identifies application class and a six-stage pipeline; specific cores use CV <ILEN> <class> <pipeline stages> <product identifier>."
-          },
-          {
-            "id": "cva6-current-configurations",
-            "title": "CVA6 User Manual: Introduction and configurations",
-            "url": "https://github.com/openhwgroup/cva6/blob/master/docs/01_cva6_user/Introduction.rst",
-            "locator": "CVA6 configurations and CV32A60X note",
-            "claimSupported": "The manual lists configuration-specific characteristics and states that CV32A60X is an interim part number while single- versus dual-issue direction is decided."
-          },
-          {
-            "id": "core-v-historical-naming",
-            "title": "CORE-V Cores Roadmap, RISC-V Week Paris 2022",
-            "url": "https://open-src-soc.org/2022-05/media/slides/4th-RISC-V-Meeting-2022-05-04-14h40-Davide-Schiavone.pdf",
-            "locator": "slides 3-4",
-            "claimSupported": "The public historical deck illustrates the broader CV32E40P decomposition into family, word length, class, identity and modifier fields."
+            "locator": "CORE-V Nomenclature",
+            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
           }
         ],
-        "speakerNotes": "最后收拢一下。C V 表示 CORE-V 家族；在 CVA6 中，A 表示应用级，数字六表示六级流水线。CVA6 本身是一个可配置的仓库和项目，而不是唯一不变的量产内核。较早的命名图可以解释 C V 三十二 E 四零 P 这类名称的形成过程，但当前行为必须由当前用户手册决定。名称用于快速定位；形成技术结论之前，还要核对具体配置、设计文档、验证范围和发布状态。"
+        "speakerNotes": "把方法压缩成四步。第一，判断标签属于哪一层。第二，只拆解当前项目文档或明确标注的历史语法所支持的字段。第三，在声称 ISA、特权级、接口、发射宽度或成熟度以前，把名称解析到具体配置表和用户手册。第四，固定仓库发布和三个身份 CSR。采用这套方法以后，CVE2、CV32E20、CV32E40 兄弟核以及 CVA6 会成为可以导航的产品体系，而不是一串难懂缩写。"
       },
       "sourceAnchors": [
-        "cva6-nomenclature-current",
-        "cva6-current-configurations",
-        "core-v-historical-naming"
+        "core-v-cores-current-catalog",
+        "cv32e20-current-specification",
+        "cva6-current-nomenclature"
       ],
       "actions": [
         {
           "id": "scene-core-v-names-summary-speech",
           "type": "speech",
-          "text": "最后收拢一下。C V 表示 CORE-V 家族；在 CVA6 中，A 表示应用级，数字六表示六级流水线。CVA6 本身是一个可配置的仓库和项目，而不是唯一不变的量产内核。较早的命名图可以解释 C V 三十二 E 四零 P 这类名称的形成过程，但当前行为必须由当前用户手册决定。名称用于快速定位；形成技术结论之前，还要核对具体配置、设计文档、验证范围和发布状态。",
+          "text": "把方法压缩成四步。第一，判断标签属于哪一层。第二，只拆解当前项目文档或明确标注的历史语法所支持的字段。第三，在声称 ISA、特权级、接口、发射宽度或成熟度以前，把名称解析到具体配置表和用户手册。第四，固定仓库发布和三个身份 CSR。采用这套方法以后，CVE2、CV32E20、CV32E40 兄弟核以及 CVA6 会成为可以导航的产品体系，而不是一串难懂缩写。",
           "voice": "alexchen-zh",
           "speed": 0.9,
           "audioId": "tts_scene-core-v-names-summary-speech",
           "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-summary-speech.mp3"
         }
       ],
-      "createdAt": 1785672000000,
-      "updatedAt": 1785672000000
+      "createdAt": 1785758400000,
+      "updatedAt": 1785758400000
     }
   ]
 }

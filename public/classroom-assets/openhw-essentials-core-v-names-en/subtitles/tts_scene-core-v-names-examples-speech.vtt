@@ -1,22 +1,22 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:04.326
-Three examples show why names are clues rather than contracts.
+00:00:00.000 --> 00:00:04.178
+The four-stage embedded family shows why suffixes matter.
 
 2
-00:00:04.326 --> 00:00:09.489
-C V sixty four A six zero is the example on the current nomenclature page.
+00:00:04.178 --> 00:00:11.433
+CV32E40P preserves RI5CY and PULP lineage and may include F or Zfinx plus PULP custom instructions.
 
 3
-00:00:09.489 --> 00:00:20.723
-C V thirty two A six zero X is a real configuration name, but the current introduction calls that part number interim while the team decides the issue direction.
+00:00:11.433 --> 00:00:19.275
+CV32E40X exposes CORE-V-XIF, allowing external modules to implement instructions without changing core RTL.
 
 4
-00:00:20.723 --> 00:00:32.166
-C V thirty two E four zero P is historically easy to decompose, yet its implemented behavior and released parameter sets must come from the current CV32E40P manual.
+00:00:19.275 --> 00:00:28.436
+CV32E40S targets security systems, with Machine and User privilege support, enhanced protection, and anti-tampering features.
 
 5
-00:00:32.166 --> 00:00:35.725
-A readable name is not a frozen product definition.
+00:00:28.436 --> 00:00:36.425
+The shared prefix predicts width, class, and pipeline; the suffix points to a different integration contract.
 

@@ -1,22 +1,26 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:02.588
-This lesson uses three evidence layers.
+00:00:00.000 --> 00:00:03.066
+Start by identifying the object level.
 
 2
-00:00:02.588 --> 00:00:09.954
-First, the current CVA6 repository documentation is the authority for what C V, A and six mean in this project.
+00:00:03.066 --> 00:00:09.038
+CVE2 is both a compact family label and the repository that hosts the RTL.
 
 3
-00:00:09.954 --> 00:00:18.448
-Second, the current User Manual tells us what a named configuration actually implements and whether a name is still provisional.
+00:00:09.038 --> 00:00:12.185
+Its current named processor is CV32E20.
 
 4
-00:00:18.448 --> 00:00:26.875
-Third, an older public CORE-V deck explains the historical five-field syntax behind names such as C V thirty two E four zero P.
+00:00:12.185 --> 00:00:22.110
+CVE4 is a family grouping for several four-stage cores, but CV32E40P, CV32E40X, and CV32E40S live in separate repositories.
 
 5
-00:00:26.875 --> 00:00:32.250
-That history is valuable, but current documentation wins whenever the two differ.
+00:00:22.110 --> 00:00:28.243
+CVA6 is a heavily parameterized repository for several 32- and 64-bit cores.
+
+6
+00:00:28.243 --> 00:00:37.200
+The longer part number narrows the implementation, but a release tag and configuration table narrow it further.
 

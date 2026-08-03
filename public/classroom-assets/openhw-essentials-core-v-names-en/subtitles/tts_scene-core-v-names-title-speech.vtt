@@ -1,22 +1,22 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:02.361
-Why is the project called C V A six?
+00:00:00.000 --> 00:00:04.861
+CORE-V uses short labels for several different technical objects.
 
 2
-00:00:02.361 --> 00:00:07.541
-The short answer is useful, but the engineering answer needs one extra caution.
+00:00:04.861 --> 00:00:08.226
+CVE2 and CVA6 can name a family or code base.
 
 3
-00:00:07.541 --> 00:00:17.639
-In the current CVA6 documentation, C V identifies the CORE-V family, A identifies the application class, and six points to a six-stage execution pipeline.
+00:00:08.226 --> 00:00:14.208
+CV32E20, CV32E40X, and CV32A60AX identify more specific cores or configurations.
 
 4
-00:00:17.639 --> 00:00:20.131
-The name gives us an orientation clue.
+00:00:14.208 --> 00:00:23.855
+This lesson builds a practical decoder across the embedded two-stage, embedded four-stage, and application-class six-stage lines.
 
 5
-00:00:20.131 --> 00:00:30.950
-It does not, by itself, tell us the exact instruction set, privilege modes, cache choices, issue width, or maturity of every configuration built from the repository.
+00:00:23.855 --> 00:00:34.025
+We will also connect the human-readable name to the repository, verified configuration, release, and the machine-readable identity CSRs.
 
