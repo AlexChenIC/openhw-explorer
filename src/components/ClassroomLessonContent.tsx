@@ -28,7 +28,7 @@ const copy = {
     outcome: "Learning outcome",
     sources: "Source anchors",
     minutes: "min",
-    slides: "slides",
+    slides: "scenes",
     quiz: "quiz",
     notesTitle: "About this preview",
     notes:
@@ -46,7 +46,7 @@ const copy = {
     outcome: "学习目标",
     sources: "资料锚点",
     minutes: "分钟",
-    slides: "页 slide",
+    slides: "个场景",
     quiz: "道测验",
     notesTitle: "关于这节预览",
     notes:

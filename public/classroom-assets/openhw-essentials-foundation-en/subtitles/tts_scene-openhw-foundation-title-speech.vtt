@@ -1,0 +1,26 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.633
+OpenHW sits in an ecosystem where similar names label different objects.
+
+2
+00:00:04.633 --> 00:00:07.722
+RISC-V International maintains the ISA standard.
+
+3
+00:00:07.722 --> 00:00:13.064
+Eclipse Foundation provides the legal, governance, IP, and collaboration framework.
+
+4
+00:00:13.064 --> 00:00:20.722
+The OpenHW Foundation working group aligns members on strategy, roadmaps, engineering policy, and ecosystem programmes.
+
+5
+00:00:20.722 --> 00:00:25.805
+CORE-V names processor families, while repositories contain concrete artifacts.
+
+6
+00:00:25.805 --> 00:00:30.825
+This lesson separates the layers and routes each question to the right source.
+

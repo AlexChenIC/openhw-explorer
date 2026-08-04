@@ -1,0 +1,34 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:05.447
+The strongest idea in the Drive material is that OpenHW deliverables form a stack.
+
+2
+00:00:05.447 --> 00:00:07.640
+Processor RTL is only the center.
+
+3
+00:00:07.640 --> 00:00:10.230
+Verification creates repeatable checks.
+
+4
+00:00:10.230 --> 00:00:14.416
+Documentation defines configuration and integration boundaries.
+
+5
+00:00:14.416 --> 00:00:18.734
+Software and platform material connect the processor to a system.
+
+6
+00:00:18.734 --> 00:00:23.317
+Repository history, CI, issues, tags, and releases create provenance.
+
+7
+00:00:23.317 --> 00:00:26.240
+Roadmaps and policy coordinate expectations.
+
+8
+00:00:26.240 --> 00:00:32.950
+Contents differ by project, so use the stack as a checklist and verify every item in current sources.
+

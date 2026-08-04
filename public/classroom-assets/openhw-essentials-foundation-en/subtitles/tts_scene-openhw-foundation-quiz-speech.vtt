@@ -1,0 +1,22 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.739
+The checkpoint tests the boundaries that matter in real work.
+
+2
+00:00:03.739 --> 00:00:06.927
+Identify RISC-V International as the standards body.
+
+3
+00:00:06.927 --> 00:00:11.034
+Recognise OpenHW Foundation as an Eclipse Foundation Working Group.
+
+4
+00:00:11.034 --> 00:00:15.753
+Preserve the boundary between working-group influence and project governance.
+
+5
+00:00:15.753 --> 00:00:27.400
+Finally, identify processor RTL, verification, documentation, software, integration assets, and releases as possible OpenHW outputs, while leaving ISA ratification with RISC-V International.
+

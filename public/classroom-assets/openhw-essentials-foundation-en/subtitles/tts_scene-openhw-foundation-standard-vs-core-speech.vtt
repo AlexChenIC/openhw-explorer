@@ -1,0 +1,30 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.045
+The cleanest boundary is specification versus implementation.
+
+2
+00:00:04.045 --> 00:00:11.537
+A RISC-V specification defines software-visible behavior: encodings, state, privilege rules, and other contracts.
+
+3
+00:00:11.537 --> 00:00:14.190
+It does not force one pipeline or cache.
+
+4
+00:00:14.190 --> 00:00:16.510
+OpenHW projects make those choices.
+
+5
+00:00:16.510 --> 00:00:22.213
+CVE2 is a small two-stage embedded design; CVA6 is a configurable six-stage code base.
+
+6
+00:00:22.213 --> 00:00:27.385
+For instructions and architectural behavior, start with RISC-V specifications.
+
+7
+00:00:27.385 --> 00:00:33.750
+For timing, interfaces, configuration, or release status, use the project manual and repository.
+

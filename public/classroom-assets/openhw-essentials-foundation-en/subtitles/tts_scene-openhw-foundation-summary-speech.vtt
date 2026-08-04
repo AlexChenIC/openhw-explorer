@@ -1,0 +1,34 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.023
+Use a five-layer lookup method.
+
+2
+00:00:02.023 --> 00:00:05.024
+Start with RISC-V International for standards.
+
+3
+00:00:05.024 --> 00:00:07.438
+Use Eclipse documents for governance.
+
+4
+00:00:07.438 --> 00:00:13.767
+Use the OpenHW charter, committees, and programme material for collaboration scope and direction.
+
+5
+00:00:13.767 --> 00:00:17.943
+Use project manuals and repositories for implementation choices.
+
+6
+00:00:17.943 --> 00:00:21.009
+Use tests, CI, tags, and releases for evidence.
+
+7
+00:00:21.009 --> 00:00:24.206
+If a sentence mixes layers, split it into claims.
+
+8
+00:00:24.206 --> 00:00:31.775
+Next, choose CVA6 or CVE2 and trace one feature from specification to manual, RTL, verification, and pinned release.
+

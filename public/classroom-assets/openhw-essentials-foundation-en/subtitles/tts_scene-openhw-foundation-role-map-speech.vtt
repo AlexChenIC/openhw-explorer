@@ -1,0 +1,30 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.660
+Do not read this as a corporate hierarchy.
+
+2
+00:00:02.660 --> 00:00:07.665
+RISC-V International is a separate standards organisation, not OpenHW’s parent.
+
+3
+00:00:07.665 --> 00:00:12.542
+Eclipse hosts the OpenHW working group and supplies its governance framework.
+
+4
+00:00:12.542 --> 00:00:17.229
+Members coordinate strategy, investment, roadmaps, and engineering policy.
+
+5
+00:00:17.229 --> 00:00:21.093
+Project communities build artifacts under project governance.
+
+6
+00:00:21.093 --> 00:00:24.197
+CORE-V is a portfolio label, not an organisation.
+
+7
+00:00:24.197 --> 00:00:31.925
+Use RISC-V sources for ISA meaning, the charter for governance, and project docs and releases for implementation behavior.
+

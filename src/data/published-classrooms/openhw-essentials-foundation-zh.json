@@ -1,0 +1,915 @@
+{
+  "id": "openhw-essentials-foundation-zh",
+  "createdAt": 1785844800000,
+  "stage": {
+    "id": "openhw-essentials-foundation-zh",
+    "name": "OpenHW Foundation 是什么？",
+    "description": "用一张可核查的职责地图，区分 RISC-V 标准、Eclipse 治理、OpenHW 协作、CORE-V IP 与项目仓库。",
+    "createdAt": 1785844800000,
+    "updatedAt": 1785830276415,
+    "language": "zh-CN",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "openhw-essentials-microcourse",
+    "courseTemplateName": "OpenHW Essentials · Source-grounded interactive microcourse",
+    "agentIds": ["default-1"]
+  },
+  "scenes": [
+    {
+      "id": "scene-openhw-foundation-title",
+      "stageId": "openhw-essentials-foundation-zh",
+      "type": "html-slide",
+      "title": "OpenHW Foundation 是什么？",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "dark",
+        "locale": "zh-CN",
+        "content": {
+          "sceneTitle": "OpenHW Foundation 是什么？",
+          "kicker": "OPENHW 入门短课 · 02",
+          "title": "一个生态，五个不同的工程层级",
+          "subtitle": "分清 RISC-V 标准、Eclipse 治理、OpenHW 协作、CORE-V 处理器 IP，以及真正交付代码的仓库。",
+          "chips": ["标准", "治理", "协作计划", "处理器 IP", "代码仓库"],
+          "thesis": "OpenHW 不制定 RISC-V ISA；它在 Eclipse 治理框架内，组织成员围绕开放处理器 IP 及相关资产协作。",
+          "narration": "OpenHW 所处的 RISC-V 生态里，有几个很容易混淆的名称，但它们代表完全不同的对象。RISC-V International 维护指令集标准；Eclipse Foundation 提供法律、治理、知识产权和协作框架；OpenHW Foundation 这个工作组协调成员的战略、路线图、工程政策和生态计划；CORE-V 是处理器家族与相关 IP 的名称；CVA6、CVE2、CORE-V-VERIF 等仓库则保存具体的工程资产。这门课会把这些层级分开，并说明面对不同问题时，应该打开哪一类权威资料。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "riscv-international-about",
+            "title": "RISC-V International: About RISC-V",
+            "url": "https://riscv.org/about/",
+            "locator": "About RISC-V International",
+            "claimSupported": "RISC-V International is the global non-profit home of the open-standard RISC-V ISA, related specifications, and stakeholder community."
+          },
+          {
+            "id": "openhw-foundation-charter-v1-1",
+            "title": "OpenHW Foundation Charter",
+            "url": "https://www.eclipse.org/collaborations/working-groups/openhw-foundation/charter/",
+            "locator": "Version 1.1: Vision and Scope; Governance and Precedence; Governing Bodies",
+            "claimSupported": "OpenHW Foundation is operated as an Eclipse Foundation Working Group; the charter defines its scope, Steering Committee, and Technical Advisory Committee."
+          },
+          {
+            "id": "openhw-foundation-about-current",
+            "title": "OpenHW Foundation: About",
+            "url": "https://openhwfoundation.org/about/",
+            "locator": "About, Mission, Governance, Part of the Eclipse Foundation",
+            "claimSupported": "OpenHW currently describes itself as a vendor-neutral collaboration for verified open-source RISC-V processor cores and related IP under Eclipse Foundation governance."
+          }
+        ],
+        "speakerNotes": "OpenHW 所处的 RISC-V 生态里，有几个很容易混淆的名称，但它们代表完全不同的对象。RISC-V International 维护指令集标准；Eclipse Foundation 提供法律、治理、知识产权和协作框架；OpenHW Foundation 这个工作组协调成员的战略、路线图、工程政策和生态计划；CORE-V 是处理器家族与相关 IP 的名称；CVA6、CVE2、CORE-V-VERIF 等仓库则保存具体的工程资产。这门课会把这些层级分开，并说明面对不同问题时，应该打开哪一类权威资料。"
+      },
+      "sourceAnchors": [
+        "riscv-international-about",
+        "openhw-foundation-charter-v1-1",
+        "openhw-foundation-about-current"
+      ],
+      "actions": [
+        {
+          "id": "scene-openhw-foundation-title-speech",
+          "type": "speech",
+          "text": "OpenHW 所处的 RISC-V 生态里，有几个很容易混淆的名称，但它们代表完全不同的对象。RISC-V International 维护指令集标准；Eclipse Foundation 提供法律、治理、知识产权和协作框架；OpenHW Foundation 这个工作组协调成员的战略、路线图、工程政策和生态计划；CORE-V 是处理器家族与相关 IP 的名称；CVA6、CVE2、CORE-V-VERIF 等仓库则保存具体的工程资产。这门课会把这些层级分开，并说明面对不同问题时，应该打开哪一类权威资料。",
+          "voice": "alexchen-zh",
+          "speed": 0.9,
+          "audioId": "tts_scene-openhw-foundation-title-speech",
+          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-zh/audio/tts_scene-openhw-foundation-title-speech.mp3"
+        }
+      ],
+      "createdAt": 1785844800000,
+      "updatedAt": 1785844800000
+    },
+    {
+      "id": "scene-openhw-foundation-role-map",
+      "stageId": "openhw-essentials-foundation-zh",
+      "type": "html-slide",
+      "title": "把每个名称对应到一种责任",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "locale": "zh-CN",
+        "content": {
+          "sceneTitle": "把每个名称对应到一种责任",
+          "kicker": "职责地图",
+          "title": "这些层级相互协作，但不是一条行政指挥链",
+          "subtitle": "每一层只能为其权限范围内的问题提供足够证据。",
+          "cards": [
+            {
+              "label": "标准",
+              "title": "RISC-V International",
+              "body": "协作制定、批准并维护开放的 RISC-V ISA 规格及相关标准。",
+              "tone": "gold"
+            },
+            {
+              "label": "托管与流程",
+              "title": "Eclipse Foundation",
+              "body": "提供工作组与项目流程、法律和 IP 框架、基础设施及厂商中立治理。",
+              "tone": "blue"
+            },
+            {
+              "label": "协作机制",
+              "title": "OpenHW Foundation",
+              "body": "成员驱动的 Eclipse Working Group，负责战略、路线图、资金、品牌发布和生态建设。",
+              "tone": "teal"
+            },
+            {
+              "label": "工程产出",
+              "title": "CORE-V 项目与仓库",
+              "body": "处理器 RTL、验证、文档、软件、集成资料、问题记录、发布版本与贡献历史。",
+              "tone": "red"
+            }
+          ],
+          "narration": "不要把这张图读成公司组织架构。RISC-V International 是独立的标准组织，不是 OpenHW 的上级机构。Eclipse Foundation 托管 OpenHW 工作组并提供共同治理框架。OpenHW 的成员使用这个框架来协调战略、投入、路线图和工程政策。开源项目社区再按照项目治理机制开发具体资产。CORE-V 是贯穿这些资产的产品家族名称，并不是另一个机构。实际工作中，ISA 含义去查标准组织，治理关系去查章程，具体实现行为则去查项目手册、代码和发布版本。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "riscv-international-about",
+            "title": "RISC-V International: About RISC-V",
+            "url": "https://riscv.org/about/",
+            "locator": "About RISC-V International",
+            "claimSupported": "RISC-V International is the global non-profit home of the open-standard RISC-V ISA, related specifications, and stakeholder community."
+          },
+          {
+            "id": "openhw-foundation-charter-v1-1",
+            "title": "OpenHW Foundation Charter",
+            "url": "https://www.eclipse.org/collaborations/working-groups/openhw-foundation/charter/",
+            "locator": "Version 1.1: Vision and Scope; Governance and Precedence; Governing Bodies",
+            "claimSupported": "OpenHW Foundation is operated as an Eclipse Foundation Working Group; the charter defines its scope, Steering Committee, and Technical Advisory Committee."
+          },
+          {
+            "id": "eclipse-working-group-process",
+            "title": "Eclipse Foundation Working Group Process",
+            "url": "https://www.eclipse.org/org/workinggroups/process.php",
+            "locator": "Guiding Principles; Relationship to Projects; Committees",
+            "claimSupported": "Working groups are open and transparent, complement open-source projects, and may support and influence them without directly managing them."
+          },
+          {
+            "id": "openhw-foundation-projects-current",
+            "title": "OpenHW Foundation: Projects",
+            "url": "https://openhwfoundation.org/projects/",
+            "locator": "Cores, IP, and standards; CVA6; CVE2; CORE-V-VERIF; Programs",
+            "claimSupported": "The current portfolio includes processor cores, verification, related tools and documentation, with projects linked to dedicated repositories."
+          }
+        ],
+        "speakerNotes": "不要把这张图读成公司组织架构。RISC-V International 是独立的标准组织，不是 OpenHW 的上级机构。Eclipse Foundation 托管 OpenHW 工作组并提供共同治理框架。OpenHW 的成员使用这个框架来协调战略、投入、路线图和工程政策。开源项目社区再按照项目治理机制开发具体资产。CORE-V 是贯穿这些资产的产品家族名称，并不是另一个机构。实际工作中，ISA 含义去查标准组织，治理关系去查章程，具体实现行为则去查项目手册、代码和发布版本。"
+      },
+      "sourceAnchors": [
+        "riscv-international-about",
+        "openhw-foundation-charter-v1-1",
+        "eclipse-working-group-process",
+        "openhw-foundation-projects-current"
+      ],
+      "actions": [
+        {
+          "id": "scene-openhw-foundation-role-map-speech",
+          "type": "speech",
+          "text": "不要把这张图读成公司组织架构。RISC-V International 是独立的标准组织，不是 OpenHW 的上级机构。Eclipse Foundation 托管 OpenHW 工作组并提供共同治理框架。OpenHW 的成员使用这个框架来协调战略、投入、路线图和工程政策。开源项目社区再按照项目治理机制开发具体资产。CORE-V 是贯穿这些资产的产品家族名称，并不是另一个机构。实际工作中，ISA 含义去查标准组织，治理关系去查章程，具体实现行为则去查项目手册、代码和发布版本。",
+          "voice": "alexchen-zh",
+          "speed": 0.9,
+          "audioId": "tts_scene-openhw-foundation-role-map-speech",
+          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-zh/audio/tts_scene-openhw-foundation-role-map-speech.mp3"
+        }
+      ],
+      "createdAt": 1785844800000,
+      "updatedAt": 1785844800000
+    },
+    {
+      "id": "scene-openhw-foundation-standard-vs-core",
+      "stageId": "openhw-essentials-foundation-zh",
+      "type": "html-slide",
+      "title": "标准不等于处理器内核",
+      "order": 2,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "locale": "zh-CN",
+        "content": {
+          "sceneTitle": "标准不等于处理器内核",
+          "kicker": "规格与实现",
+          "title": "ISA 定义契约，内核作出微架构选择",
+          "subtitle": "两个处理器可以实现同一套 RISC-V ISA，却采用完全不同的流水线和系统接口。",
+          "columns": [
+            {
+              "label": "RISC-V 规格",
+              "title": "架构契约",
+              "bullets": [
+                "指令编码与软件可见的架构行为",
+                "基础 ISA、扩展、特权、调试及相关规格",
+                "由 RISC-V International 协作制定和批准",
+                "不规定唯一流水线、Cache、预测器或 RTL 代码库"
+              ]
+            },
+            {
+              "label": "OPENHW 处理器 IP",
+              "title": "具体实现",
+              "bullets": [
+                "SystemVerilog RTL 与配置参数",
+                "流水线、发射、Cache、接口和集成决策",
+                "验证环境、文档、软件与发布版本",
+                "CVA6 与 CVE2 是两类具体代码库示例"
+              ]
+            }
+          ],
+          "anchor": {
+            "label": "工程判断",
+            "text": "“这条指令是否合法”是规格问题；“几级流水、什么接口、哪个版本”是项目问题。"
+          },
+          "narration": "最重要的边界是规格与实现。RISC-V 规格定义软件可见行为，包括指令编码、架构状态、特权规则和其他契约；它不会强迫所有处理器使用同一种流水线或 Cache。OpenHW 项目负责作出这些实现选择。CVE2 是面向嵌入式场景的小型两级设计，CVA6 则是支持多种应用级和嵌入式配置的六级代码库。它们都可以实现 RISC-V，却面向不同系统需求。遇到指令和架构行为问题，先查 RISC-V 规格；遇到流水线、接口、配置或版本问题，则转向项目手册和仓库。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "riscv-ratified-specifications",
+            "title": "RISC-V International: Ratified Specifications",
+            "url": "https://riscv.org/specifications/ratified/",
+            "locator": "Page introduction and specification catalog",
+            "claimSupported": "RISC-V International members collaboratively develop, ratify, and maintain the RISC-V ISA specifications and related documents."
+          },
+          {
+            "id": "openhw-foundation-projects-current",
+            "title": "OpenHW Foundation: Projects",
+            "url": "https://openhwfoundation.org/projects/",
+            "locator": "Cores, IP, and standards; CVA6; CVE2; CORE-V-VERIF; Programs",
+            "claimSupported": "The current portfolio includes processor cores, verification, related tools and documentation, with projects linked to dedicated repositories."
+          },
+          {
+            "id": "openhw-cva6-repository",
+            "title": "OpenHW CVA6 repository",
+            "url": "https://github.com/openhwgroup/cva6",
+            "locator": "Repository description, README, documentation, releases",
+            "claimSupported": "CVA6 is a configurable six-stage RISC-V processor code base with application- and embedded-oriented configurations."
+          },
+          {
+            "id": "openhw-cve2-repository",
+            "title": "OpenHW CVE2 repository",
+            "url": "https://github.com/openhwgroup/cve2",
+            "locator": "Repository description, README, documentation, releases",
+            "claimSupported": "CVE2 is a small 32-bit two-stage RISC-V processor code base for low-complexity embedded use."
+          }
+        ],
+        "speakerNotes": "最重要的边界是规格与实现。RISC-V 规格定义软件可见行为，包括指令编码、架构状态、特权规则和其他契约；它不会强迫所有处理器使用同一种流水线或 Cache。OpenHW 项目负责作出这些实现选择。CVE2 是面向嵌入式场景的小型两级设计，CVA6 则是支持多种应用级和嵌入式配置的六级代码库。它们都可以实现 RISC-V，却面向不同系统需求。遇到指令和架构行为问题，先查 RISC-V 规格；遇到流水线、接口、配置或版本问题，则转向项目手册和仓库。"
+      },
+      "sourceAnchors": [
+        "riscv-ratified-specifications",
+        "openhw-foundation-projects-current",
+        "openhw-cva6-repository",
+        "openhw-cve2-repository"
+      ],
+      "actions": [
+        {
+          "id": "scene-openhw-foundation-standard-vs-core-speech",
+          "type": "speech",
+          "text": "最重要的边界是规格与实现。RISC-V 规格定义软件可见行为，包括指令编码、架构状态、特权规则和其他契约；它不会强迫所有处理器使用同一种流水线或 Cache。OpenHW 项目负责作出这些实现选择。CVE2 是面向嵌入式场景的小型两级设计，CVA6 则是支持多种应用级和嵌入式配置的六级代码库。它们都可以实现 RISC-V，却面向不同系统需求。遇到指令和架构行为问题，先查 RISC-V 规格；遇到流水线、接口、配置或版本问题，则转向项目手册和仓库。",
+          "voice": "alexchen-zh",
+          "speed": 0.9,
+          "audioId": "tts_scene-openhw-foundation-standard-vs-core-speech",
+          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-zh/audio/tts_scene-openhw-foundation-standard-vs-core-speech.mp3"
+        }
+      ],
+      "createdAt": 1785844800000,
+      "updatedAt": 1785844800000
+    },
+    {
+      "id": "scene-openhw-foundation-governance",
+      "stageId": "openhw-essentials-foundation-zh",
+      "type": "html-slide",
+      "title": "治理结构包含四个不同的责任区",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "comparisonMatrix",
+        "theme": "light",
+        "locale": "zh-CN",
+        "content": {
+          "sceneTitle": "治理结构包含四个不同的责任区",
+          "kicker": "当前章程 · 1.1 版",
+          "title": "战略、技术协调和项目决策不是同一次表决",
+          "subtitle": "当前章程与 Eclipse Working Group Process 给出了清楚的边界。",
+          "columns": [
+            {
+              "key": "body",
+              "label": "主体"
+            },
+            {
+              "key": "primaryRole",
+              "label": "主要职责"
+            },
+            {
+              "key": "engineeringSignal",
+              "label": "工程意义"
+            },
+            {
+              "key": "boundary",
+              "label": "关键边界"
+            }
+          ],
+          "rows": [
+            {
+              "body": "Eclipse Foundation",
+              "primaryRole": "托管、治理流程、法律/IP、基础设施和计划支持",
+              "engineeringSignal": "定义工作组和项目共同遵循的基础流程",
+              "boundary": "它不是处理器家族，也不拥有 RISC-V ISA"
+            },
+            {
+              "body": "Steering Committee",
+              "primaryRole": "工作组战略、范围、路线图、年度计划和预算",
+              "engineeringSignal": "批准方向，并确定哪些 Eclipse 项目纳入工作组范围",
+              "boundary": "战略决策不等于日常补丁审批"
+            },
+            {
+              "body": "Technical Advisory Committee",
+              "primaryRole": "项目建议、路线图流程、跨项目协调和工程政策",
+              "engineeringSignal": "为 OpenHW 品牌发布制定政策并协调项目",
+              "boundary": "TAC 政策不等于某次代码提交"
+            },
+            {
+              "body": "开源项目",
+              "primaryRole": "开发、评审、发布和维护具体代码与文档",
+              "engineeringSignal": "提交、Issue、评审、测试、标签和发布版本形成证据",
+              "boundary": "Working Group 提供影响与支持，但不直接管理项目"
+            }
+          ],
+          "note": "公共品牌 OpenHW Foundation 与章程中的 OpenHW Foundation Working Group 指向同一个工作组。",
+          "narration": "Google Drive 里的材料已经把读者引向 Steering Committee 和 Technical Advisory Committee，但当前章程给出了更精确的边界。Steering Committee 负责工作组战略、项目范围、年度计划、路线图审批和预算。TAC 负责推荐项目、协调路线图与发布，并为 OpenHW 品牌发布制定工程政策。具体开源项目仍然按照各自社区和流程作出项目级技术决策。最后这一点尤其重要：Eclipse 明确说明，Working Group 可以提供影响、指导和支持，但不直接指挥或管理开源项目。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "openhw-foundation-charter-v1-1",
+            "title": "OpenHW Foundation Charter",
+            "url": "https://www.eclipse.org/collaborations/working-groups/openhw-foundation/charter/",
+            "locator": "Version 1.1: Vision and Scope; Governance and Precedence; Governing Bodies",
+            "claimSupported": "OpenHW Foundation is operated as an Eclipse Foundation Working Group; the charter defines its scope, Steering Committee, and Technical Advisory Committee."
+          },
+          {
+            "id": "eclipse-working-group-process",
+            "title": "Eclipse Foundation Working Group Process",
+            "url": "https://www.eclipse.org/org/workinggroups/process.php",
+            "locator": "Guiding Principles; Relationship to Projects; Committees",
+            "claimSupported": "Working groups are open and transparent, complement open-source projects, and may support and influence them without directly managing them."
+          },
+          {
+            "id": "openhw-foundation-drive-deck-2025",
+            "title": "OpenHW Foundation RISC-V Cores: Empowering the Hardware Revolution",
+            "locator": "2025 Drive deck, slides 3-8, 16-20, 22-24",
+            "claimSupported": "Historical teaching backbone for Eclipse support categories, OpenHW deliverables, and committee structure; current claims are rechecked elsewhere."
+          }
+        ],
+        "speakerNotes": "Google Drive 里的材料已经把读者引向 Steering Committee 和 Technical Advisory Committee，但当前章程给出了更精确的边界。Steering Committee 负责工作组战略、项目范围、年度计划、路线图审批和预算。TAC 负责推荐项目、协调路线图与发布，并为 OpenHW 品牌发布制定工程政策。具体开源项目仍然按照各自社区和流程作出项目级技术决策。最后这一点尤其重要：Eclipse 明确说明，Working Group 可以提供影响、指导和支持，但不直接指挥或管理开源项目。"
+      },
+      "sourceAnchors": [
+        "openhw-foundation-charter-v1-1",
+        "eclipse-working-group-process",
+        "openhw-foundation-drive-deck-2025"
+      ],
+      "actions": [
+        {
+          "id": "scene-openhw-foundation-governance-speech",
+          "type": "speech",
+          "text": "Google Drive 里的材料已经把读者引向 Steering Committee 和 Technical Advisory Committee，但当前章程给出了更精确的边界。Steering Committee 负责工作组战略、项目范围、年度计划、路线图审批和预算。TAC 负责推荐项目、协调路线图与发布，并为 OpenHW 品牌发布制定工程政策。具体开源项目仍然按照各自社区和流程作出项目级技术决策。最后这一点尤其重要：Eclipse 明确说明，Working Group 可以提供影响、指导和支持，但不直接指挥或管理开源项目。",
+          "voice": "alexchen-zh",
+          "speed": 0.9,
+          "audioId": "tts_scene-openhw-foundation-governance-speech",
+          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-zh/audio/tts_scene-openhw-foundation-governance-speech.mp3"
+        }
+      ],
+      "createdAt": 1785844800000,
+      "updatedAt": 1785844800000
+    },
+    {
+      "id": "scene-openhw-foundation-collaboration-loop",
+      "stageId": "openhw-essentials-foundation-zh",
+      "type": "html-slide",
+      "title": "协作如何变成可检查的工程证据",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "dark",
+        "locale": "zh-CN",
+        "content": {
+          "sceneTitle": "协作如何变成可检查的工程证据",
+          "kicker": "概念协作闭环",
+          "title": "从生态需求走到可评审的发布版本",
+          "subtitle": "这是有来源依据的思维模型，并非所有项目必须遵循的固定 Stage-Gate。",
+          "steps": [
+            {
+              "badge": "01",
+              "title": "需求",
+              "body": "成员和项目社区提出市场、架构、质量与生态需求。"
+            },
+            {
+              "badge": "02",
+              "title": "计划方向",
+              "body": "Steering Committee 对齐范围、战略、年度计划、路线图和资金。"
+            },
+            {
+              "badge": "03",
+              "title": "技术协调",
+              "body": "TAC 建立路线图共识，并制定跨项目协调和品牌发布政策。"
+            },
+            {
+              "badge": "04",
+              "title": "项目开发",
+              "body": "项目贡献者设计、评审、验证、记录并维护具体实现。"
+            },
+            {
+              "badge": "05",
+              "title": "工程证据",
+              "body": "代码、测试、文档、标签和发布版本让用户检查最终结果。"
+            }
+          ],
+          "takeaway": "工作组对齐投入与质量预期；真正决定能否集成的是当前项目证据。",
+          "narration": "一个实用的工程模型从需求开始，以可检查的证据结束。成员和项目社区提出需求；Steering Committee 对齐工作组计划与资金；TAC 协调技术路线图和工程政策；项目社区完成设计、评审、验证、文档和维护；最终，用户通过仓库、测试环境、手册、标签和发布版本检查结果。这是一套概念闭环，不表示所有项目都遵循完全相同的固定流程。它保留了一个关键边界：工作组负责协作与协调，项目社区负责项目级工程决策。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "openhw-foundation-charter-v1-1",
+            "title": "OpenHW Foundation Charter",
+            "url": "https://www.eclipse.org/collaborations/working-groups/openhw-foundation/charter/",
+            "locator": "Version 1.1: Vision and Scope; Governance and Precedence; Governing Bodies",
+            "claimSupported": "OpenHW Foundation is operated as an Eclipse Foundation Working Group; the charter defines its scope, Steering Committee, and Technical Advisory Committee."
+          },
+          {
+            "id": "eclipse-working-group-process",
+            "title": "Eclipse Foundation Working Group Process",
+            "url": "https://www.eclipse.org/org/workinggroups/process.php",
+            "locator": "Guiding Principles; Relationship to Projects; Committees",
+            "claimSupported": "Working groups are open and transparent, complement open-source projects, and may support and influence them without directly managing them."
+          },
+          {
+            "id": "openhwgroup-github-organisation",
+            "title": "OpenHW GitHub organisation",
+            "url": "https://github.com/openhwgroup",
+            "locator": "Repositories and organisation activity",
+            "claimSupported": "Project repositories expose source, documentation, issues, releases, and contribution history as concrete engineering artifacts."
+          }
+        ],
+        "speakerNotes": "一个实用的工程模型从需求开始，以可检查的证据结束。成员和项目社区提出需求；Steering Committee 对齐工作组计划与资金；TAC 协调技术路线图和工程政策；项目社区完成设计、评审、验证、文档和维护；最终，用户通过仓库、测试环境、手册、标签和发布版本检查结果。这是一套概念闭环，不表示所有项目都遵循完全相同的固定流程。它保留了一个关键边界：工作组负责协作与协调，项目社区负责项目级工程决策。"
+      },
+      "sourceAnchors": [
+        "openhw-foundation-charter-v1-1",
+        "eclipse-working-group-process",
+        "openhwgroup-github-organisation"
+      ],
+      "actions": [
+        {
+          "id": "scene-openhw-foundation-collaboration-loop-speech",
+          "type": "speech",
+          "text": "一个实用的工程模型从需求开始，以可检查的证据结束。成员和项目社区提出需求；Steering Committee 对齐工作组计划与资金；TAC 协调技术路线图和工程政策；项目社区完成设计、评审、验证、文档和维护；最终，用户通过仓库、测试环境、手册、标签和发布版本检查结果。这是一套概念闭环，不表示所有项目都遵循完全相同的固定流程。它保留了一个关键边界：工作组负责协作与协调，项目社区负责项目级工程决策。",
+          "voice": "alexchen-zh",
+          "speed": 0.9,
+          "audioId": "tts_scene-openhw-foundation-collaboration-loop-speech",
+          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-zh/audio/tts_scene-openhw-foundation-collaboration-loop-speech.mp3"
+        }
+      ],
+      "createdAt": 1785844800000,
+      "updatedAt": 1785844800000
+    },
+    {
+      "id": "scene-openhw-foundation-deliverables",
+      "stageId": "openhw-essentials-foundation-zh",
+      "type": "html-slide",
+      "title": "OpenHW 不只是一个 CPU RTL 目录",
+      "order": 5,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "locale": "zh-CN",
+        "content": {
+          "sceneTitle": "OpenHW 不只是一个 CPU RTL 目录",
+          "kicker": "工程交付栈",
+          "title": "可用处理器需要 RTL 上下游的完整证据",
+          "subtitle": "2025 年 Drive 资料强调了“交付栈”，当前项目目录提供了具体实例。",
+          "cards": [
+            {
+              "label": "处理器 IP",
+              "title": "内核与配置",
+              "body": "CVA6 与 CVE2 展示了家族或代码库如何形成具体处理器配置。",
+              "tone": "teal"
+            },
+            {
+              "label": "验证",
+              "title": "Testbench 与可复用流程",
+              "body": "CORE-V-VERIF 为 CORE-V 处理器提供验证环境与可复用资产。",
+              "tone": "blue"
+            },
+            {
+              "label": "文档",
+              "title": "规格与集成指南",
+              "body": "用户手册、设计文档、接口章节、需求和发布说明定义可用范围。",
+              "tone": "gold"
+            },
+            {
+              "label": "软件与系统",
+              "title": "工具链和平台使能",
+              "body": "软件支持、示例以及 FPGA/SoC 集成材料可以把 RTL 连接到运行系统。",
+              "tone": "red"
+            },
+            {
+              "label": "发布证据",
+              "title": "标签、Issue、CI 与来源链",
+              "body": "仓库记录改动、测试、评审，以及哪个基线形成了发布版本。",
+              "tone": "blue"
+            },
+            {
+              "label": "计划材料",
+              "title": "路线图与工程政策",
+              "body": "Working Group 材料协调参与项目之间的优先级和质量预期。",
+              "tone": "teal"
+            }
+          ],
+          "narration": "Drive 材料里最有价值的观点，是 OpenHW 的产出构成一个交付栈。处理器 RTL 只是中心。验证环境把设计意图转化为可重复检查；文档定义配置和集成边界；软件与平台材料让处理器进入真实系统；仓库历史、CI、Issue、标签和发布版本形成来源链；路线图和工程政策则在项目之间协调预期。不同项目提供的内容和成熟度并不相同，因此不能假设每个仓库都拥有完整交付栈。更专业的做法，是把这张图当作集成检查表，再逐项核对当前项目资料。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "openhw-foundation-projects-current",
+            "title": "OpenHW Foundation: Projects",
+            "url": "https://openhwfoundation.org/projects/",
+            "locator": "Cores, IP, and standards; CVA6; CVE2; CORE-V-VERIF; Programs",
+            "claimSupported": "The current portfolio includes processor cores, verification, related tools and documentation, with projects linked to dedicated repositories."
+          },
+          {
+            "id": "openhw-cva6-repository",
+            "title": "OpenHW CVA6 repository",
+            "url": "https://github.com/openhwgroup/cva6",
+            "locator": "Repository description, README, documentation, releases",
+            "claimSupported": "CVA6 is a configurable six-stage RISC-V processor code base with application- and embedded-oriented configurations."
+          },
+          {
+            "id": "openhw-cve2-repository",
+            "title": "OpenHW CVE2 repository",
+            "url": "https://github.com/openhwgroup/cve2",
+            "locator": "Repository description, README, documentation, releases",
+            "claimSupported": "CVE2 is a small 32-bit two-stage RISC-V processor code base for low-complexity embedded use."
+          },
+          {
+            "id": "openhw-core-v-verif",
+            "title": "CORE-V-VERIF documentation and repository",
+            "url": "https://docs.openhwgroup.org/projects/core-v-verif/en/latest/",
+            "locator": "Introduction and supported core verification environments",
+            "claimSupported": "CORE-V-VERIF supplies reusable functional verification environments and flows for members of the CORE-V family."
+          },
+          {
+            "id": "openhw-foundation-drive-deck-2025",
+            "title": "OpenHW Foundation RISC-V Cores: Empowering the Hardware Revolution",
+            "locator": "2025 Drive deck, slides 3-8, 16-20, 22-24",
+            "claimSupported": "Historical teaching backbone for Eclipse support categories, OpenHW deliverables, and committee structure; current claims are rechecked elsewhere."
+          },
+          {
+            "id": "openhw-intro-drive-deck-2025",
+            "title": "Update on the OpenHW Foundation",
+            "locator": "Intro to OpenHW - v2025-09, slides 1-6 and 19",
+            "claimSupported": "Cross-check for Eclipse support categories and the CORE-V portfolio framing; no source artwork is reproduced."
+          }
+        ],
+        "speakerNotes": "Drive 材料里最有价值的观点，是 OpenHW 的产出构成一个交付栈。处理器 RTL 只是中心。验证环境把设计意图转化为可重复检查；文档定义配置和集成边界；软件与平台材料让处理器进入真实系统；仓库历史、CI、Issue、标签和发布版本形成来源链；路线图和工程政策则在项目之间协调预期。不同项目提供的内容和成熟度并不相同，因此不能假设每个仓库都拥有完整交付栈。更专业的做法，是把这张图当作集成检查表，再逐项核对当前项目资料。"
+      },
+      "sourceAnchors": [
+        "openhw-foundation-projects-current",
+        "openhw-cva6-repository",
+        "openhw-cve2-repository",
+        "openhw-core-v-verif",
+        "openhw-foundation-drive-deck-2025",
+        "openhw-intro-drive-deck-2025"
+      ],
+      "actions": [
+        {
+          "id": "scene-openhw-foundation-deliverables-speech",
+          "type": "speech",
+          "text": "Drive 材料里最有价值的观点，是 OpenHW 的产出构成一个交付栈。处理器 RTL 只是中心。验证环境把设计意图转化为可重复检查；文档定义配置和集成边界；软件与平台材料让处理器进入真实系统；仓库历史、CI、Issue、标签和发布版本形成来源链；路线图和工程政策则在项目之间协调预期。不同项目提供的内容和成熟度并不相同，因此不能假设每个仓库都拥有完整交付栈。更专业的做法，是把这张图当作集成检查表，再逐项核对当前项目资料。",
+          "voice": "alexchen-zh",
+          "speed": 0.9,
+          "audioId": "tts_scene-openhw-foundation-deliverables-speech",
+          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-zh/audio/tts_scene-openhw-foundation-deliverables-speech.mp3"
+        }
+      ],
+      "createdAt": 1785844800000,
+      "updatedAt": 1785844800000
+    },
+    {
+      "id": "scene-openhw-foundation-router",
+      "stageId": "openhw-essentials-foundation-zh",
+      "type": "interactive",
+      "title": "把问题路由到正确的权威资料",
+      "order": 6,
+      "content": {
+        "type": "interactive",
+        "url": "",
+        "html": "<!doctype html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>选择一个对象，查看它到底能证明什么</title>\n  <style>\n    :root { color-scheme:dark; --bg:#06101c; --panel:#0d1b2b; --panel2:#12243a; --ink:#f2f7fc; --muted:#9bb0c8; --line:#28435f; --blue:#65aef8; --teal:#55d6c5; --gold:#f0be63; --red:#ff7e79; }\n    * { box-sizing:border-box; }\n    html, body { width:100%; height:100%; margin:0; overflow:hidden; background:var(--bg); color:var(--ink); font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,\"PingFang SC\",\"Microsoft YaHei\",Arial,sans-serif; }\n    body { background-image:linear-gradient(rgba(101,174,248,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(101,174,248,.055) 1px,transparent 1px); background-size:38px 38px; }\n    main { width:100%; height:100%; padding:clamp(18px,3vw,38px); display:grid; grid-template-rows:auto 1fr auto; gap:16px; }\n    header { display:flex; align-items:end; justify-content:space-between; gap:24px; border-bottom:1px solid var(--line); padding-bottom:14px; }\n    .eyebrow { color:var(--teal); font-size:12px; font-weight:900; letter-spacing:.1em; text-transform:uppercase; margin:0 0 6px; }\n    h1 { font-size:clamp(27px,3.5vw,47px); line-height:1.04; margin:0; }\n    .subtitle { max-width:620px; color:var(--muted); line-height:1.45; margin:0; font-size:clamp(13px,1.25vw,17px); }\n    .workspace { min-height:0; display:grid; grid-template-columns:minmax(240px,.72fr) minmax(0,1.28fr); gap:16px; }\n    nav, article { min-height:0; border:1px solid var(--line); background:linear-gradient(145deg,var(--panel),var(--panel2)); }\n    nav { padding:14px; display:flex; flex-direction:column; gap:8px; overflow:auto; }\n    .prompt { color:var(--muted); font-size:12px; font-weight:850; margin:0 0 3px; text-transform:uppercase; }\n    button { width:100%; min-height:46px; border:1px solid #2c4967; background:#0a1726; color:#b8c8da; padding:10px 12px; text-align:left; font:inherit; font-weight:800; cursor:pointer; display:flex; align-items:center; gap:10px; }\n    button::before { content:''; width:8px; height:8px; background:var(--accent,var(--blue)); flex:0 0 auto; }\n    button[aria-pressed=\"true\"] { border-color:var(--accent,var(--blue)); background:#17314f; color:#fff; }\n    article { padding:clamp(18px,3vw,34px); display:grid; grid-template-rows:auto auto 1fr auto; gap:15px; overflow:auto; }\n    .layer { width:max-content; border:1px solid currentColor; color:var(--accent,var(--blue)); padding:5px 9px; font-size:12px; font-weight:900; letter-spacing:.08em; }\n    h2 { margin:0; font-size:clamp(25px,3vw,40px); line-height:1.08; }\n    .evidence-grid { display:grid; grid-template-columns:1fr 1fr; gap:12px; align-content:start; }\n    .evidence { border-top:3px solid var(--accent,var(--blue)); background:#0a1726; padding:14px; }\n    .evidence.cannot { border-top-color:var(--red); }\n    .evidence span { color:var(--muted); font-size:11px; font-weight:900; text-transform:uppercase; }\n    .evidence p { margin:7px 0 0; line-height:1.42; font-size:clamp(14px,1.45vw,19px); }\n    .next { border-left:3px solid var(--gold); background:rgba(240,190,99,.09); padding:12px 14px; color:#f4dcae; }\n    .next span { display:block; color:var(--gold); font-size:11px; font-weight:900; text-transform:uppercase; margin-bottom:4px; }\n    footer { display:flex; justify-content:space-between; gap:20px; color:#7f96af; border-top:1px solid var(--line); padding-top:10px; font-size:11px; }\n    .counter { color:var(--teal); font-weight:900; }\n    @media (max-width:720px) {\n      html, body { overflow:auto; }\n      main { height:auto; min-height:100%; }\n      header { display:block; }\n      .subtitle { margin-top:8px; }\n      .workspace { display:flex; flex-direction:column; }\n      nav { flex-direction:row; overflow-x:auto; }\n      button { flex:0 0 220px; }\n      article { min-height:420px; }\n      .evidence-grid { grid-template-columns:1fr; }\n    }\n  </style>\n</head>\n<body>\n  <main>\n    <header>\n      <div><p class=\"eyebrow\">EVIDENCE ROUTER</p><h1>选择一个对象，查看它到底能证明什么</h1></div>\n      <p class=\"subtitle\">专业回答的第一步，是选择范围与问题匹配的来源。</p>\n    </header>\n    <section class=\"workspace\">\n      <nav aria-label=\"选择一种证据对象\"><p class=\"prompt\">选择一种证据对象</p></nav>\n      <article aria-live=\"polite\">\n        <div class=\"layer\"></div>\n        <h2></h2>\n        <div class=\"evidence-grid\">\n          <section class=\"evidence\"><span>可以回答</span><p class=\"proves\"></p></section>\n          <section class=\"evidence cannot\"><span>不能单独回答</span><p class=\"cannot-text\"></p></section>\n        </div>\n        <div class=\"next\"><span>下一步打开</span><strong></strong></div>\n      </article>\n    </section>\n    <footer><span>OpenHW、Eclipse、RISC-V 与 GitHub 当前一手资料</span><span class=\"counter\"></span></footer>\n  </main>\n  <script>\n    const items = [{\"name\":\"RISC-V ISA 规格\",\"layer\":\"标准\",\"proves\":\"架构行为、指令编码、特权机制和扩展要求。\",\"cannot\":\"具体 OpenHW 内核的流水线、Cache、接口参数或发布状态。\",\"next\":\"RISC-V International 已批准规格\",\"accent\":\"gold\"},{\"name\":\"OpenHW 章程\",\"layer\":\"治理\",\"proves\":\"工作组范围、成员类别、Steering Committee 与 TAC 的职责。\",\"cannot\":\"某个 RTL 分支今天是否通过全部 CI。\",\"next\":\"OpenHW Foundation Charter v1.1\",\"accent\":\"blue\"},{\"name\":\"TAC 路线图或政策\",\"layer\":\"技术协调\",\"proves\":\"跨项目方向、优先级、工程政策和品牌发布意图。\",\"cannot\":\"计划中的功能已经实现并正式发布。\",\"next\":\"当前 TAC 材料以及受影响项目的仓库\",\"accent\":\"teal\"},{\"name\":\"CVA6 仓库\",\"layer\":\"处理器 IP\",\"proves\":\"当前源码结构、配置、文档入口、Issue、标签和发布版本。\",\"cannot\":\"所有 RISC-V 处理器或所有 CORE-V 内核的通用规律。\",\"next\":\"对应配置手册、测试与发布标签\",\"accent\":\"red\"},{\"name\":\"CVE2 手册\",\"layer\":\"实现规格\",\"proves\":\"CVE2/CV32E20 实现的已记录行为和配置。\",\"cannot\":\"OpenHW 的成员制度、预算或 CVA6 微架构。\",\"next\":\"CVE2 源码以及集成所采用的发布版本\",\"accent\":\"teal\"},{\"name\":\"CORE-V-VERIF 环境\",\"layer\":\"验证\",\"proves\":\"当前环境中存在的 Testbench、测试、流程和配置支持。\",\"cannot\":\"所有 OpenHW 内核的所有配置都已经完整验证。\",\"next\":\"支持列表、验证计划、CI 结果与固定提交\",\"accent\":\"blue\"}];\n    const nav = document.querySelector('nav');\n    const layer = document.querySelector('.layer');\n    const heading = document.querySelector('h2');\n    const proves = document.querySelector('.proves');\n    const cannot = document.querySelector('.cannot-text');\n    const next = document.querySelector('.next strong');\n    const counter = document.querySelector('.counter');\n    const colors = { blue:'#65aef8', teal:'#55d6c5', gold:'#f0be63', red:'#ff7e79' };\n    let selected = 0;\n\n    function render() {\n      const item = items[selected];\n      const accent = colors[item.accent] || colors.blue;\n      document.documentElement.style.setProperty('--accent', accent);\n      layer.textContent = item.layer;\n      heading.textContent = item.name;\n      proves.textContent = item.proves;\n      cannot.textContent = item.cannot;\n      next.textContent = item.next;\n      counter.textContent = String(selected + 1).padStart(2, '0') + ' / ' + String(items.length).padStart(2, '0');\n      [...nav.querySelectorAll('button')].forEach((button, index) => button.setAttribute('aria-pressed', String(index === selected)));\n    }\n\n    items.forEach((item, index) => {\n      const button = document.createElement('button');\n      button.type = 'button';\n      button.textContent = item.name;\n      button.style.setProperty('--accent', colors[item.accent] || colors.blue);\n      button.addEventListener('click', () => { selected = index; render(); });\n      nav.appendChild(button);\n    });\n    render();\n  </script>\n</body>\n</html>",
+        "sourceAnchors": [
+          {
+            "id": "riscv-international-about",
+            "title": "RISC-V International: About RISC-V",
+            "url": "https://riscv.org/about/",
+            "locator": "About RISC-V International",
+            "claimSupported": "RISC-V International is the global non-profit home of the open-standard RISC-V ISA, related specifications, and stakeholder community."
+          },
+          {
+            "id": "riscv-ratified-specifications",
+            "title": "RISC-V International: Ratified Specifications",
+            "url": "https://riscv.org/specifications/ratified/",
+            "locator": "Page introduction and specification catalog",
+            "claimSupported": "RISC-V International members collaboratively develop, ratify, and maintain the RISC-V ISA specifications and related documents."
+          },
+          {
+            "id": "openhw-foundation-charter-v1-1",
+            "title": "OpenHW Foundation Charter",
+            "url": "https://www.eclipse.org/collaborations/working-groups/openhw-foundation/charter/",
+            "locator": "Version 1.1: Vision and Scope; Governance and Precedence; Governing Bodies",
+            "claimSupported": "OpenHW Foundation is operated as an Eclipse Foundation Working Group; the charter defines its scope, Steering Committee, and Technical Advisory Committee."
+          },
+          {
+            "id": "eclipse-working-group-process",
+            "title": "Eclipse Foundation Working Group Process",
+            "url": "https://www.eclipse.org/org/workinggroups/process.php",
+            "locator": "Guiding Principles; Relationship to Projects; Committees",
+            "claimSupported": "Working groups are open and transparent, complement open-source projects, and may support and influence them without directly managing them."
+          },
+          {
+            "id": "openhwgroup-github-organisation",
+            "title": "OpenHW GitHub organisation",
+            "url": "https://github.com/openhwgroup",
+            "locator": "Repositories and organisation activity",
+            "claimSupported": "Project repositories expose source, documentation, issues, releases, and contribution history as concrete engineering artifacts."
+          },
+          {
+            "id": "openhw-cva6-repository",
+            "title": "OpenHW CVA6 repository",
+            "url": "https://github.com/openhwgroup/cva6",
+            "locator": "Repository description, README, documentation, releases",
+            "claimSupported": "CVA6 is a configurable six-stage RISC-V processor code base with application- and embedded-oriented configurations."
+          },
+          {
+            "id": "openhw-cve2-repository",
+            "title": "OpenHW CVE2 repository",
+            "url": "https://github.com/openhwgroup/cve2",
+            "locator": "Repository description, README, documentation, releases",
+            "claimSupported": "CVE2 is a small 32-bit two-stage RISC-V processor code base for low-complexity embedded use."
+          },
+          {
+            "id": "openhw-core-v-verif",
+            "title": "CORE-V-VERIF documentation and repository",
+            "url": "https://docs.openhwgroup.org/projects/core-v-verif/en/latest/",
+            "locator": "Introduction and supported core verification environments",
+            "claimSupported": "CORE-V-VERIF supplies reusable functional verification environments and flows for members of the CORE-V family."
+          }
+        ]
+      },
+      "sourceAnchors": [
+        "riscv-international-about",
+        "riscv-ratified-specifications",
+        "openhw-foundation-charter-v1-1",
+        "eclipse-working-group-process",
+        "openhwgroup-github-organisation",
+        "openhw-cva6-repository",
+        "openhw-cve2-repository",
+        "openhw-core-v-verif"
+      ],
+      "actions": [
+        {
+          "id": "scene-openhw-foundation-router-speech",
+          "type": "speech",
+          "text": "请把证据路由器当成一种工程习惯。RISC-V 规格可以证明架构行为，但不能证明 CVA6 的流水线。OpenHW 章程可以证明治理职责，但不能证明一个分支通过了 CI。TAC 路线图可以表达方向，却不能证明计划中的 RTL 已经发布。CVA6 仓库可以展示代码、配置、问题和发布，但不能定义所有 RISC-V 处理器。CVE2 手册只针对其具体实现。CORE-V-VERIF 可以展示验证环境，也不能因此断言所有配置都已完整验证。先让结论的范围与来源的权限范围匹配。",
+          "voice": "alexchen-zh",
+          "speed": 0.9,
+          "audioId": "tts_scene-openhw-foundation-router-speech",
+          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-zh/audio/tts_scene-openhw-foundation-router-speech.mp3"
+        }
+      ],
+      "createdAt": 1785844800000,
+      "updatedAt": 1785844800000
+    },
+    {
+      "id": "scene-openhw-foundation-quiz",
+      "stageId": "openhw-essentials-foundation-zh",
+      "type": "quiz",
+      "title": "职责与证据检查",
+      "order": 7,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "openhw-foundation-zh-q1",
+            "type": "single",
+            "question": "哪一个组织负责协作制定并批准 RISC-V ISA 规格？",
+            "options": [
+              {
+                "label": "RISC-V International",
+                "value": "A"
+              },
+              {
+                "label": "OpenHW Foundation",
+                "value": "B"
+              },
+              {
+                "label": "CVA6 仓库",
+                "value": "C"
+              },
+              {
+                "label": "CORE-V-VERIF",
+                "value": "D"
+              }
+            ],
+            "answer": ["A"],
+            "analysis": "RISC-V International 是标准组织；OpenHW 项目实现并验证符合相关 RISC-V 规格的处理器。",
+            "hasAnswer": true,
+            "points": 1
+          },
+          {
+            "id": "openhw-foundation-zh-q2",
+            "type": "single",
+            "question": "按照当前章程，OpenHW Foundation 的组织形态是什么？",
+            "options": [
+              {
+                "label": "Eclipse Foundation 下属的 Working Group",
+                "value": "A"
+              },
+              {
+                "label": "一个 RISC-V ISA 扩展",
+                "value": "B"
+              },
+              {
+                "label": "一个 SystemVerilog 仓库",
+                "value": "C"
+              },
+              {
+                "label": "一家晶圆厂",
+                "value": "D"
+              }
+            ],
+            "answer": ["A"],
+            "analysis": "1.1 版章程明确写明 OpenHW Foundation 以 Eclipse Foundation Working Group 的形式运行。",
+            "hasAnswer": true,
+            "points": 1
+          },
+          {
+            "id": "openhw-foundation-zh-q3",
+            "type": "single",
+            "question": "下面哪句话最准确地描述 Working Group 与开源项目的边界？",
+            "options": [
+              {
+                "label": "Working Group 提供战略、支持和影响，项目社区保留项目治理权",
+                "value": "A"
+              },
+              {
+                "label": "Working Group 可以直接合并任何项目的任何补丁",
+                "value": "B"
+              },
+              {
+                "label": "项目替 RISC-V International 批准 ISA",
+                "value": "C"
+              },
+              {
+                "label": "GitHub 仓库负责表决 Working Group 预算",
+                "value": "D"
+              }
+            ],
+            "answer": ["A"],
+            "analysis": "Eclipse Working Group Process 明确说明，Working Group 补充并影响项目，但不直接指挥或管理项目。",
+            "hasAnswer": true,
+            "points": 1
+          },
+          {
+            "id": "openhw-foundation-zh-q4",
+            "type": "multiple",
+            "question": "哪些内容可以属于 OpenHW 的工程产出或项目资产？",
+            "options": [
+              {
+                "label": "CVA6、CVE2 一类处理器 RTL",
+                "value": "A"
+              },
+              {
+                "label": "CORE-V-VERIF 一类验证环境",
+                "value": "B"
+              },
+              {
+                "label": "文档、软件、集成资产和发布版本",
+                "value": "C"
+              },
+              {
+                "label": "批准 RISC-V 基础 ISA",
+                "value": "D"
+              }
+            ],
+            "answer": ["A", "B", "C"],
+            "analysis": "OpenHW 的工程范围可以覆盖处理器 IP 以及验证和使用这些 IP 所需的资产；ISA 规格批准属于 RISC-V International。",
+            "hasAnswer": true,
+            "points": 2
+          }
+        ]
+      },
+      "sourceAnchors": [
+        "riscv-international-about",
+        "openhw-foundation-charter-v1-1",
+        "eclipse-working-group-process",
+        "openhw-foundation-projects-current"
+      ],
+      "actions": [
+        {
+          "id": "scene-openhw-foundation-quiz-speech",
+          "type": "speech",
+          "text": "这组习题检查四条真正影响工程判断的边界。第一，RISC-V International 才是标准组织。第二，OpenHW Foundation 在当前章程中是 Eclipse Foundation Working Group。第三，Working Group 可以影响和支持项目，但项目治理仍由项目社区承担。第四，处理器 RTL、验证、文档、软件、集成资产和发布都可以属于 OpenHW 工程产出，而 ISA 的批准仍由 RISC-V International 负责。",
+          "voice": "alexchen-zh",
+          "speed": 0.9,
+          "audioId": "tts_scene-openhw-foundation-quiz-speech",
+          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-zh/audio/tts_scene-openhw-foundation-quiz-speech.mp3"
+        }
+      ],
+      "createdAt": 1785844800000,
+      "updatedAt": 1785844800000
+    },
+    {
+      "id": "scene-openhw-foundation-summary",
+      "stageId": "openhw-essentials-foundation-zh",
+      "type": "html-slide",
+      "title": "五层资料查找法",
+      "order": 8,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "dark",
+        "locale": "zh-CN",
+        "content": {
+          "sceneTitle": "五层资料查找法",
+          "kicker": "工程总结",
+          "title": "先识别层级，再判断结论是否可信",
+          "takeaways": [
+            "RISC-V International 制定并批准 ISA 规格。",
+            "Eclipse Foundation 托管治理与协作框架。",
+            "OpenHW 对齐战略、路线图、政策、资金与生态工作。",
+            "项目和仓库承载实现、验证、文档与发布证据。"
+          ],
+          "nextStep": "选择一个 OpenHW 内核，把一条结论从 RISC-V 规格一路追踪到手册、RTL、验证和发布版本。",
+          "closing": "部分内容改编自 Eclipse Foundation 2025 年 OpenHW 资料，CC BY 4.0；Alex Chen 重新绘制并完成当前事实核查。",
+          "narration": "现在你已经有一套五层资料查找法。架构标准先查 RISC-V International；共同治理流程查 Eclipse Foundation；协作范围和方向查 OpenHW 章程、委员会与计划材料；具体实现查 CORE-V 项目手册和仓库；可复现证据则查测试、CI、标签和发布版本。如果一句话同时混合了几个层级，就把它拆成多个结论，并分别连接到正确来源。下一步可以选择 CVA6 或 CVE2，把某个特性从 RISC-V 规格一路追踪到项目手册、RTL、验证环境和固定发布版本。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "riscv-international-about",
+            "title": "RISC-V International: About RISC-V",
+            "url": "https://riscv.org/about/",
+            "locator": "About RISC-V International",
+            "claimSupported": "RISC-V International is the global non-profit home of the open-standard RISC-V ISA, related specifications, and stakeholder community."
+          },
+          {
+            "id": "openhw-foundation-charter-v1-1",
+            "title": "OpenHW Foundation Charter",
+            "url": "https://www.eclipse.org/collaborations/working-groups/openhw-foundation/charter/",
+            "locator": "Version 1.1: Vision and Scope; Governance and Precedence; Governing Bodies",
+            "claimSupported": "OpenHW Foundation is operated as an Eclipse Foundation Working Group; the charter defines its scope, Steering Committee, and Technical Advisory Committee."
+          },
+          {
+            "id": "eclipse-working-group-process",
+            "title": "Eclipse Foundation Working Group Process",
+            "url": "https://www.eclipse.org/org/workinggroups/process.php",
+            "locator": "Guiding Principles; Relationship to Projects; Committees",
+            "claimSupported": "Working groups are open and transparent, complement open-source projects, and may support and influence them without directly managing them."
+          },
+          {
+            "id": "openhw-foundation-projects-current",
+            "title": "OpenHW Foundation: Projects",
+            "url": "https://openhwfoundation.org/projects/",
+            "locator": "Cores, IP, and standards; CVA6; CVE2; CORE-V-VERIF; Programs",
+            "claimSupported": "The current portfolio includes processor cores, verification, related tools and documentation, with projects linked to dedicated repositories."
+          }
+        ],
+        "speakerNotes": "现在你已经有一套五层资料查找法。架构标准先查 RISC-V International；共同治理流程查 Eclipse Foundation；协作范围和方向查 OpenHW 章程、委员会与计划材料；具体实现查 CORE-V 项目手册和仓库；可复现证据则查测试、CI、标签和发布版本。如果一句话同时混合了几个层级，就把它拆成多个结论，并分别连接到正确来源。下一步可以选择 CVA6 或 CVE2，把某个特性从 RISC-V 规格一路追踪到项目手册、RTL、验证环境和固定发布版本。"
+      },
+      "sourceAnchors": [
+        "riscv-international-about",
+        "openhw-foundation-charter-v1-1",
+        "eclipse-working-group-process",
+        "openhw-foundation-projects-current"
+      ],
+      "actions": [
+        {
+          "id": "scene-openhw-foundation-summary-speech",
+          "type": "speech",
+          "text": "现在你已经有一套五层资料查找法。架构标准先查 RISC-V International；共同治理流程查 Eclipse Foundation；协作范围和方向查 OpenHW 章程、委员会与计划材料；具体实现查 CORE-V 项目手册和仓库；可复现证据则查测试、CI、标签和发布版本。如果一句话同时混合了几个层级，就把它拆成多个结论，并分别连接到正确来源。下一步可以选择 CVA6 或 CVE2，把某个特性从 RISC-V 规格一路追踪到项目手册、RTL、验证环境和固定发布版本。",
+          "voice": "alexchen-zh",
+          "speed": 0.9,
+          "audioId": "tts_scene-openhw-foundation-summary-speech",
+          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-zh/audio/tts_scene-openhw-foundation-summary-speech.mp3"
+        }
+      ],
+      "createdAt": 1785844800000,
+      "updatedAt": 1785844800000
+    }
+  ]
+}
