@@ -1,44 +1,24 @@
 {
   "_meta": {
-    "generatedAt": "2026-07-31T13:00:35.985Z",
+    "generatedAt": "2026-08-10T03:20:36.338Z",
     "lookbackDays": 45,
     "openHwActivityDays": 14,
-    "totalCandidates": 36,
-    "sourceCount": 15,
+    "totalCandidates": 28,
+    "sourceCount": 9,
     "reviewWorkflow": "Review candidates, verify source facts, copy selected items into src/data/curated-news.json, then run npm run build-news."
   },
   "sources": [
     {
       "source": "Antmicro Blog",
-      "count": 5
-    },
-    {
-      "source": "Apache TVM (GitHub)",
-      "count": 1
-    },
-    {
-      "source": "Apache TVM Blog",
-      "count": 1
+      "count": 4
     },
     {
       "source": "CHIPS Alliance / Caliptra MCU SW (GitHub)",
       "count": 1
     },
     {
-      "source": "CHIPS Alliance / Caliptra Subsystem (GitHub)",
-      "count": 1
-    },
-    {
-      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
-      "count": 2
-    },
-    {
       "source": "CHIPS Alliance Blog",
-      "count": 5
-    },
-    {
-      "source": "Chipyard (GitHub)",
-      "count": 1
+      "count": 6
     },
     {
       "source": "LLVM / CIRCT (GitHub)",
@@ -50,23 +30,19 @@
     },
     {
       "source": "MLCommons",
-      "count": 6
+      "count": 5
     },
     {
       "source": "RISC-V International news",
-      "count": 3
+      "count": 2
     },
     {
       "source": "RISC-V ISA Manual (GitHub)",
       "count": 2
     },
     {
-      "source": "Tenstorrent / TT-Metalium (GitHub)",
-      "count": 1
-    },
-    {
       "source": "YosysHQ / Yosys (GitHub)",
-      "count": 1
+      "count": 2
     }
   ],
   "items": [
@@ -101,7 +77,7 @@
       "source": "CHIPS Alliance Blog",
       "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-06-28T22:00:00.000Z",
+      "publishedAt": "2026-06-29T00:00:00.000Z",
       "summary": "",
       "author": "",
       "relevanceScore": 13,
@@ -214,36 +190,12 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "chipsalliance/caliptra-ss release: Caliptra Subsystem Gen 2.0.2 Release [1.doc]",
-      "url": "https://github.com/chipsalliance/caliptra-ss/releases/tag/css-v2.0.2%2B1.doc",
-      "source": "CHIPS Alliance / Caliptra Subsystem (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "official",
-      "publishedAt": "2026-06-17T18:46:12.000Z",
-      "summary": "## Overview Apply updates to release 2.0.2 for documentation that does not modify the underlying RTL design. Follows the release conventions in [CaliptraSSReleaseChecklist.md](https://github.com/chipsalliance/caliptra-ss...",
-      "author": "calebofearth",
-      "relevanceScore": 8,
-      "tags": [
-        "Caliptra",
-        "Root of Trust",
-        "Security",
-        "SoC/IP",
-        "Subsystem"
-      ],
-      "suggestedAudience": [
-        "security",
-        "soc-ip"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
       "title": "Initial implementation of four-state logic in the open source Verilator RTL simulator",
       "url": "https://www.chipsalliance.org/news/initial-implementation-verilator/",
       "source": "CHIPS Alliance Blog",
       "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-07-21T22:00:00.000Z",
+      "publishedAt": "2026-07-22T00:00:00.000Z",
       "summary": "",
       "author": "",
       "relevanceScore": 7,
@@ -267,7 +219,7 @@
       "source": "CHIPS Alliance Blog",
       "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-07-20T22:00:00.000Z",
+      "publishedAt": "2026-07-21T00:00:00.000Z",
       "summary": "",
       "author": "",
       "relevanceScore": 7,
@@ -292,7 +244,7 @@
       "source": "CHIPS Alliance Blog",
       "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-06-28T22:00:00.000Z",
+      "publishedAt": "2026-06-29T00:00:00.000Z",
       "summary": "",
       "author": "",
       "relevanceScore": 7,
@@ -310,13 +262,13 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "riscv/riscv-isa-manual release: Release riscv-isa-release-310a111-2026-07-29",
-      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-310a111-2026-07-29",
+      "title": "riscv/riscv-isa-manual release: Release riscv-isa-release-ba25a36-2026-08-04",
+      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-ba25a36-2026-08-04",
       "source": "RISC-V ISA Manual (GitHub)",
       "sourceType": "github-release",
       "sourceTier": "official",
-      "publishedAt": "2026-07-29T15:59:18.000Z",
-      "summary": "This release was created by: wmat Release of RISC-V ISA, built from commit 310a111, is now available. ## What's Changed * Make the workflow callable from other repos by @wmat in https://github.com/riscv/riscv-isa-manual/...",
+      "publishedAt": "2026-08-04T12:28:32.000Z",
+      "summary": "This release was created by: wmat Release of RISC-V ISA, built from commit ba25a36, is now available. ## What's Changed * Fix Encoding of satp MODE field table formatting. by @wmat in https://github.com/riscv/riscv-isa-m...",
       "author": "github-actions[bot]",
       "relevanceScore": 6,
       "tags": [
@@ -331,13 +283,36 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "riscv/riscv-isa-manual release: Release riscv-isa-release-16d9c50-2026-07-29",
-      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-16d9c50-2026-07-29",
+      "title": "CHIPS Alliance Developer Spotlight - Mehdi Saligane on Rethinking Chip Design in the AI Era",
+      "url": "https://www.chipsalliance.org/news/mehdi-saligane-spotlight/",
+      "source": "CHIPS Alliance Blog",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-03T00:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 6,
+      "tags": [
+        "CHIPS Alliance",
+        "Open Silicon",
+        "Developer Spotlight",
+        "AI"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators",
+        "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "riscv/riscv-isa-manual release: Release riscv-isa-release-310a111-2026-07-29",
+      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-310a111-2026-07-29",
       "source": "RISC-V ISA Manual (GitHub)",
       "sourceType": "github-release",
       "sourceTier": "official",
-      "publishedAt": "2026-07-29T15:01:16.000Z",
-      "summary": "This release was created by: wmat Release of RISC-V ISA, built from commit 16d9c50, is now available. ## What's Changed * Add SARV project details to marchid.md by @Sarst04 in https://github.com/riscv/riscv-isa-manual/pu...",
+      "publishedAt": "2026-07-29T15:59:18.000Z",
+      "summary": "This release was created by: wmat Release of RISC-V ISA, built from commit 310a111, is now available. ## What's Changed * Make the workflow callable from other repos by @wmat in https://github.com/riscv/riscv-isa-manual/...",
       "author": "github-actions[bot]",
       "relevanceScore": 6,
       "tags": [
@@ -439,97 +414,6 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "chipsalliance/caliptra-sw release: fw-2.0.2",
-      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/fw-2.0.2",
-      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "official",
-      "publishedAt": "2026-06-22T18:10:40.000Z",
-      "summary": "This is a combined runtime and FMC release. ## Caliptra FW 2.0.2 Release Notes Release notes for changes introduced since FW 2.0.1. ### Features - **DPE Upgrades**: - DPE core upgrades including support for SVN in `Deriv...",
-      "author": "github-actions[bot]",
-      "relevanceScore": 6,
-      "tags": [
-        "Caliptra",
-        "Root of Trust",
-        "Security",
-        "Firmware",
-        "ROM"
-      ],
-      "suggestedAudience": [
-        "security",
-        "soc-ip"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "chipsalliance/caliptra-sw release: fw-2.1.1",
-      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/fw-2.1.1",
-      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "official",
-      "publishedAt": "2026-06-22T18:03:32.000Z",
-      "summary": "This is a combined runtime and FMC release. ## Caliptra Firmware 2.1.1 Release Notes Release notes for changes introduced since Firmware 2.1.0. ### Features - **DPE & Certification**: - Add support for `SIGN_WITH_EXPORTE...",
-      "author": "github-actions[bot]",
-      "relevanceScore": 6,
-      "tags": [
-        "Caliptra",
-        "Root of Trust",
-        "Security",
-        "Firmware",
-        "ROM"
-      ],
-      "suggestedAudience": [
-        "security",
-        "soc-ip"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "Behind The Scenes of SHD Group's 2026 RISC-V Market Forecast",
-      "url": "https://riscv.org/blog/shd-forecast-2026/",
-      "source": "RISC-V International news",
-      "sourceType": "rss",
-      "sourceTier": "official",
-      "publishedAt": "2026-06-19T19:46:36.000Z",
-      "summary": "The post Behind The Scenes of SHD Group's 2026 RISC-V Market Forecast appeared first on RISC-V International .",
-      "author": "James De Vile",
-      "relevanceScore": 6,
-      "tags": [
-        "RISC-V"
-      ],
-      "suggestedAudience": [
-        "openhw-riscv"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "tenstorrent/tt-metal release: v0.75.0",
-      "url": "https://github.com/tenstorrent/tt-metal/releases/tag/v0.75.0",
-      "source": "Tenstorrent / TT-Metalium (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-07-30T21:54:28.000Z",
-      "summary": "> [!NOTE] > > If you are installing from a release, please refer to the README, INSTALLATION instructions, and any other documentation packaged with the release, not on the main branch. There may be differences between t...",
-      "author": "github-actions[bot]",
-      "relevanceScore": 5,
-      "tags": [
-        "Tenstorrent",
-        "AI",
-        "LLM",
-        "Accelerator",
-        "RISC-V"
-      ],
-      "suggestedAudience": [
-        "openhw-riscv",
-        "ai-accelerators"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
       "title": "MedPerf Meets Google Cloud Confidential Computing: Secure AI Benchmarking for Brain Tumor Research",
       "url": "https://mlcommons.org/2026/07/medperf-google-cloud-confidential/",
       "source": "MLCommons",
@@ -560,7 +444,7 @@
       "source": "CHIPS Alliance Blog",
       "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-07-15T22:00:00.000Z",
+      "publishedAt": "2026-07-16T00:00:00.000Z",
       "summary": "",
       "author": "",
       "relevanceScore": 5,
@@ -596,27 +480,22 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "ucb-bar/chipyard release: Chipyard Release 1.14.0",
-      "url": "https://github.com/ucb-bar/chipyard/releases/tag/1.14.0",
-      "source": "Chipyard (GitHub)",
+      "title": "YosysHQ/yosys release: Yosys 0.68",
+      "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.68",
+      "source": "YosysHQ / Yosys (GitHub)",
       "sourceType": "github-release",
       "sourceTier": "trusted",
-      "publishedAt": "2026-06-22T01:24:34.000Z",
-      "summary": "Chipyard 1.14.0 contains numerous new RTL, simulation, FPGA, toolchain, and documentation updates. Chipyard is now returning to regular releases at a 3-4 month pace! ## Major Features - AWS F2 support for FireSim, includ...",
-      "author": "jimfangx",
-      "relevanceScore": 5,
+      "publishedAt": "2026-08-05T06:08:26.000Z",
+      "summary": "Yosys 0.67 .. Yosys 0.68 -------------------------- * New commands and options - Added \"symfpu\" and \"symfpu_convert\" passes. - Removed \"-fast\" option from \"abc\" pass. - Removed \"flowmap\" pass and \"-flowmap\" from \"synth\"...",
+      "author": "mmicko",
+      "relevanceScore": 4,
       "tags": [
-        "Chipyard",
-        "RISC-V",
-        "SoC",
-        "Chisel",
+        "Yosys",
         "EDA",
-        "SoC/IP"
+        "Synthesis"
       ],
       "suggestedAudience": [
-        "openhw-riscv",
-        "eda-tools",
-        "soc-ip"
+        "eda-tools"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -754,49 +633,6 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "TIRx: An Open Compiler Stack for Evolving Frontier ML Kernels",
-      "url": "/2026/06/22/tirx",
-      "source": "Apache TVM Blog",
-      "sourceType": "rss",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-06-22T00:00:00.000Z",
-      "summary": "Today we are introducing TIRx , an open-source, hardware-native DSL and compiler for ML kernels, built on Apache TVM. It targets the part of the AI software stack where fast-moving kernels meet fast-moving hardware: TIRx...",
-      "author": "Apache TVM Community",
-      "relevanceScore": 4,
-      "tags": [
-        "Apache TVM",
-        "AI Compiler",
-        "AI"
-      ],
-      "suggestedAudience": [
-        "ai-accelerators"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "MLCommons Releases MLPerf Training v6.0 Results",
-      "url": "https://mlcommons.org/2026/06/mlperf-training-v6-0-results/",
-      "source": "MLCommons",
-      "sourceType": "rss",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-06-16T14:56:24.000Z",
-      "summary": "New benchmarks and increased diversity of submissions reflect important changes in AI ecosystem The post MLCommons Releases MLPerf Training v6.0 Results appeared first on MLCommons .",
-      "author": "MLCommons",
-      "relevanceScore": 4,
-      "tags": [
-        "MLCommons",
-        "Benchmarking",
-        "AI",
-        "MLPerf"
-      ],
-      "suggestedAudience": [
-        "ai-accelerators"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
       "title": "MLPerf Endpoints v0.7: A Foundation Release",
       "url": "https://mlcommons.org/2026/07/mlperf-endpoints-v0-7-release/",
       "source": "MLCommons",
@@ -835,49 +671,6 @@
       "suggestedAudience": [
         "verification",
         "soc-ip"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "apache/tvm release: v0.25.0",
-      "url": "https://github.com/apache/tvm/releases/tag/v0.25.0",
-      "source": "Apache TVM (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-06-19T17:49:46.000Z",
-      "summary": "# Introduction The TVM community has worked since the last release to deliver the following new exciting improvements! The main tags are below (**bold text is with lots of progress**): **Relax**, **Frontend**, **TIR**, R...",
-      "author": "MasterJH5574",
-      "relevanceScore": 3,
-      "tags": [
-        "Apache TVM",
-        "AI Compiler",
-        "ML",
-        "Accelerator"
-      ],
-      "suggestedAudience": [
-        "ai-accelerators"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "Open source-driven Gemma 4 integration and deployment with the Antmicro Baseboard for NVIDIA Jetson AGX Thor and Kenning",
-      "url": "https://antmicro.com/blog/2026/06/open-source-driven-gemma-4-integration-and-deployment",
-      "source": "Antmicro Blog",
-      "sourceType": "rss",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-06-18T00:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 3,
-      "tags": [
-        "Antmicro",
-        "Open Hardware",
-        "Kenning"
-      ],
-      "suggestedAudience": [
-        "ai-accelerators"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
