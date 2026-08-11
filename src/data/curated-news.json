@@ -3,6 +3,102 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "OpenTitan Earl Grey 2 adds a low-power I3C controller and target block",
+      "titleZh": "OpenTitan Earl Grey 2 增加低功耗 I3C controller/target IP",
+      "url": "https://lowrisc.org/news/i3c-comes-to-opentitan-earl-grey-2/",
+      "source": "lowRISC Newsroom",
+      "addedAt": "2026-07-30T08:00:00Z",
+      "summary": "lowRISC detailed the new OpenTitan Earl Grey 2 I3C block, a standards-compliant controller and target implementation for discrete Root of Trust SoCs. The design supports SDR at 12.5 MHz and HDR-DDR at 25 MHz, uses SCL-driven target-side transceiver logic to avoid high-frequency oversampling, and includes deep-sleep wake handling for cost- and power-sensitive secure chips.",
+      "summaryZh": "lowRISC 详解了 OpenTitan Earl Grey 2 新增的 I3C IP block：它是面向 discrete Root of Trust SoC 的 standards-compliant controller/target 实现，支持 12.5 MHz SDR 与 25 MHz HDR-DDR；设计用 SCL-driven target-side transceiver logic 避免高频 oversampling，并加入 deep-sleep wake handling，服务低成本、低功耗安全芯片。",
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "Earl Grey 2",
+        "I3C",
+        "MIPI I3C",
+        "Root of Trust",
+        "Security",
+        "SoC/IP",
+        "Low Power",
+        "Open Silicon"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "editorPick": true,
+      "highlightRank": 1
+    },
+    {
+      "title": "CIRCT firtool 1.155.0 updates HW, LLHD, ESI, Moore, FIRRTL, and RTG flows",
+      "titleZh": "CIRCT firtool 1.155.0 更新 HW、LLHD、ESI、Moore、FIRRTL 与 RTG 流程",
+      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.155.0",
+      "source": "LLVM / CIRCT (GitHub)",
+      "addedAt": "2026-08-11T00:52:57Z",
+      "summary": "LLVM CIRCT published firtool 1.155.0 with hardware-compiler updates including aggregate-constant support in HW bitcast folding, broader LLHD loop-unrolling support, ESI runtime and channel work, Moore/SystemVerilog lowering fixes, FIRRTL domain and constant-expression updates, RTG effect-system additions, and BMC trace/counterexample handling.",
+      "summaryZh": "LLVM CIRCT 发布 firtool 1.155.0，硬件编译器更新包括 HW bitcast fold 的 aggregate constant 支持、更完整的 LLHD loop unrolling、ESI runtime/channel 工作、Moore/SystemVerilog lowering 修复、FIRRTL domain 与 constant-expression 更新、RTG effect system 增强，以及 BMC trace/counterexample handling。",
+      "tags": [
+        "CIRCT",
+        "firtool",
+        "MLIR",
+        "HW Dialect",
+        "LLHD",
+        "ESI",
+        "Moore",
+        "FIRRTL",
+        "RTG",
+        "EDA",
+        "Hardware Compiler"
+      ],
+      "sourceTier": "trusted",
+      "language": "en",
+      "highlightRank": 2
+    },
+    {
+      "title": "Yosys 0.68 adds SymFPU passes and trims legacy synthesis options",
+      "titleZh": "Yosys 0.68 新增 SymFPU pass，并清理旧 synthesis options",
+      "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.68",
+      "source": "YosysHQ / Yosys (GitHub)",
+      "addedAt": "2026-08-05T06:08:26Z",
+      "summary": "Yosys 0.68 is a formal open EDA release that adds the symfpu and symfpu_convert passes, removes several legacy or superseded options from ABC, flowmap, synth, synth_ice40, and read_aiger flows, and includes compatibility fixes such as Radiant netlist handling.",
+      "summaryZh": "Yosys 0.68 是一次正式的 open EDA 发布，新增 symfpu 与 symfpu_convert pass，移除 ABC、flowmap、synth、synth_ice40 与 read_aiger 流程中的若干旧选项或已替代选项，并包含 Radiant netlist compatibility 等修复。",
+      "tags": [
+        "Yosys",
+        "EDA",
+        "Synthesis",
+        "SymFPU",
+        "Formal",
+        "ABC",
+        "FPGA",
+        "Open EDA"
+      ],
+      "sourceTier": "trusted",
+      "language": "en",
+      "highlightRank": 3
+    },
+    {
+      "title": "Tenstorrent tt-metal v0.75.0 advances Quasar, Blackhole, TT-NN, and model flows",
+      "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
+      "url": "https://github.com/tenstorrent/tt-metal/releases/tag/v0.75.0",
+      "source": "Tenstorrent / TT-Metalium (GitHub)",
+      "addedAt": "2026-07-30T21:54:28Z",
+      "summary": "Tenstorrent published tt-metal v0.75.0 as the latest final release in its open AI accelerator stack, with broad LLK, Metalium, and TT-NN changes for Quasar and Blackhole, SFPU accuracy and tiny-tile work, trace and fabric improvements, fused MoE and SDPA fixes, and model bring-up across Llama, Qwen, Kimi, Gemma, and DeepSeek workloads.",
+      "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。",
+      "tags": [
+        "Tenstorrent",
+        "TT-Metalium",
+        "TT-NN",
+        "AI Accelerator",
+        "LLM",
+        "RISC-V",
+        "Quasar",
+        "Blackhole",
+        "MoE",
+        "Open Source"
+      ],
+      "sourceTier": "trusted",
+      "language": "en",
+      "highlightRank": 4
+    },
+    {
       "title": "RISC-V International publishes open workflow for migrating custom extensions into compliant opcode space",
       "titleZh": "RISC-V International 发布自定义扩展迁移到合规 opcode space 的开放流程",
       "url": "https://riscv.org/blog/conflict-to-compliance-risc-v-extension-migration-across-spec-hw-and-sw/",
@@ -112,9 +208,7 @@
         "Open Silicon"
       ],
       "sourceTier": "official",
-      "language": "en",
-      "editorPick": true,
-      "highlightRank": 1
+      "language": "en"
     },
     {
       "title": "Qualcomm joins CHIPS Alliance as a Platinum member for open-source chip design",
@@ -136,8 +230,7 @@
         "Standards"
       ],
       "sourceTier": "official",
-      "language": "en",
-      "highlightRank": 4
+      "language": "en"
     },
     {
       "title": "Tenstorrent tt-metal v0.74.0 brings LLM model updates and TT-NN math fixes",
@@ -160,8 +253,7 @@
         "Gemma"
       ],
       "sourceTier": "trusted",
-      "language": "en",
-      "highlightRank": 3
+      "language": "en"
     },
     {
       "title": "Caliptra MCU ROM SDK 2.1.0 adds source-oriented RISC-V ROM integration controls",
@@ -184,8 +276,7 @@
         "SoC/IP"
       ],
       "sourceTier": "official",
-      "language": "en",
-      "highlightRank": 2
+      "language": "en"
     },
     {
       "title": "CIRCT firtool 1.153.0 updates verification, ImportVerilog, Moore, ESI, and FIRRTL flows",
@@ -208,8 +299,7 @@
         "Hardware Compiler"
       ],
       "sourceTier": "trusted",
-      "language": "en",
-      "highlightRank": 5
+      "language": "en"
     },
     {
       "title": "Tampere University joins OpenTitan to advance RISC-V SoC security and PQC research",
