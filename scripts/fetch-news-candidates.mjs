@@ -63,6 +63,13 @@ const RSS_SOURCES = [
     defaultScore: 2,
   },
   {
+    name: "lowRISC Newsroom",
+    url: "https://lowrisc.org/feed/",
+    sourceTier: "official",
+    defaultTags: ["lowRISC", "OpenTitan", "Open Silicon"],
+    defaultScore: 2,
+  },
+  {
     name: "Antmicro Blog",
     url: "https://antmicro.com/blog/feed.xml",
     sourceTier: "trusted",
@@ -345,6 +352,7 @@ const KEYWORDS = [
   { pattern: /\bFOSSi\b/i, score: 3, tag: "FOSSi" },
   { pattern: /\blowRISC\b/i, score: 3, tag: "lowRISC" },
   { pattern: /\bOpenTitan\b/i, score: 4, tag: "OpenTitan" },
+  { pattern: /\bI3C\b/i, score: 3, tag: "I3C" },
   { pattern: /\bCaliptra\b/i, score: 4, tag: "Caliptra" },
   { pattern: /\bVeeR\b|\bSweRV\b/i, score: 3, tag: "VeeR" },
   { pattern: /\bKeystone\b/i, score: 3, tag: "Keystone" },
