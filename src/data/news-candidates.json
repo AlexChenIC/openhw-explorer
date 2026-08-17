@@ -1,24 +1,36 @@
 {
   "_meta": {
-    "generatedAt": "2026-08-11T07:49:33.181Z",
+    "generatedAt": "2026-08-17T02:36:00.240Z",
     "lookbackDays": 45,
     "openHwActivityDays": 14,
-    "totalCandidates": 29,
-    "sourceCount": 9,
+    "totalCandidates": 28,
+    "sourceCount": 12,
     "reviewWorkflow": "Review candidates, verify source facts, copy selected items into src/data/curated-news.json, then run npm run build-news."
   },
   "sources": [
     {
       "source": "Antmicro Blog",
-      "count": 5
+      "count": 2
+    },
+    {
+      "source": "Apache TVM (GitHub)",
+      "count": 1
     },
     {
       "source": "CHIPS Alliance / Caliptra MCU SW (GitHub)",
       "count": 1
     },
     {
+      "source": "CHIPS Alliance / Chisel (GitHub)",
+      "count": 1
+    },
+    {
       "source": "CHIPS Alliance Blog",
-      "count": 6
+      "count": 5
+    },
+    {
+      "source": "FOSSi Foundation",
+      "count": 1
     },
     {
       "source": "LLVM / CIRCT (GitHub)",
@@ -50,46 +62,19 @@
       "title": "Tampere University Joins OpenTitan Coalition to Advance RISC-V SoC Security and Open-Source Silicon Research",
       "url": "https://lowrisc.org/news/tampere-university-joins-opentitan-coalition-to-advance-risc-v-soc-security-and-open-source-silicon-research/",
       "source": "lowRISC Newsroom",
-      "sourceType": "web-page",
+      "sourceType": "rss",
       "sourceTier": "official",
       "publishedAt": "2026-07-10T08:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 14,
+      "summary": "The post Tampere University Joins OpenTitan Coalition to Advance RISC-V SoC Security and Open-Source Silicon Research appeared first on lowRISC .",
+      "author": "lowrisc_admin",
+      "relevanceScore": 17,
       "tags": [
         "lowRISC",
         "OpenTitan",
+        "Open Silicon",
         "RISC-V",
         "SoC/IP",
         "Security"
-      ],
-      "suggestedAudience": [
-        "openhw-riscv",
-        "security",
-        "soc-ip"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "Dual-core Lockstep in the VeeR EL2 RISC-V core for safety-critical applications and side-channel access mitigation in Caliptra RoT",
-      "url": "https://www.chipsalliance.org/news/implementing-dual-core-lockstep-in-the-veer-el2-risc-v-core/",
-      "source": "CHIPS Alliance Blog",
-      "sourceType": "web-page",
-      "sourceTier": "official",
-      "publishedAt": "2026-06-28T22:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 13,
-      "tags": [
-        "CHIPS Alliance",
-        "Open Silicon",
-        "project-update",
-        "caliptra",
-        "veer",
-        "RISC-V",
-        "Caliptra",
-        "VeeR"
       ],
       "suggestedAudience": [
         "openhw-riscv",
@@ -106,9 +91,9 @@
       "sourceType": "rss",
       "sourceTier": "official",
       "publishedAt": "2026-07-30T08:00:00.000Z",
-      "summary": "OpenTitan Earl Grey 2 introduces a standards-compliant I3C controller and target block for discrete Root of Trust SoCs, with SDR and HDR-DDR support, low-power target-side logic, and deep-sleep wake handling.",
+      "summary": "The post I3C comes to OpenTitan Earl Grey 2 appeared first on lowRISC .",
       "author": "lowrisc_admin",
-      "relevanceScore": 9,
+      "relevanceScore": 12,
       "tags": [
         "lowRISC",
         "OpenTitan",
@@ -116,8 +101,7 @@
         "I3C"
       ],
       "suggestedAudience": [
-        "security",
-        "soc-ip"
+        "security"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -126,15 +110,16 @@
       "title": "OpenTitan Earl Grey 2 to support CHERI and PQC",
       "url": "https://lowrisc.org/news/opentitan-earl-grey-2-to-support-cheri-and-pqc/",
       "source": "lowRISC Newsroom",
-      "sourceType": "web-page",
+      "sourceType": "rss",
       "sourceTier": "official",
       "publishedAt": "2026-07-14T08:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 9,
+      "summary": "The post OpenTitan Earl Grey 2 to support CHERI and PQC appeared first on lowRISC .",
+      "author": "lowrisc_admin",
+      "relevanceScore": 12,
       "tags": [
         "lowRISC",
         "OpenTitan",
+        "Open Silicon",
         "CHERI"
       ],
       "suggestedAudience": [
@@ -165,6 +150,27 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
+      "title": "AMI Joins OpenTitan Coalition to Enable New Use Cases and Applications",
+      "url": "https://lowrisc.org/news/ami-joins-opentitan-coalition-to-enable-new-use-cases-and-applications/",
+      "source": "lowRISC Newsroom",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-07-07T08:00:00.000Z",
+      "summary": "The post AMI Joins OpenTitan Coalition to Enable New Use Cases and Applications appeared first on lowRISC .",
+      "author": "lowrisc_admin",
+      "relevanceScore": 9,
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "Open Silicon"
+      ],
+      "suggestedAudience": [
+        "security"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
       "title": "Call for Submission: Edge Agentic Inference Benchmark for MLPerf Inference v6.1",
       "url": "https://mlcommons.org/2026/07/mlperf-inference-v61-edge-agentic/",
       "source": "MLCommons",
@@ -188,37 +194,12 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "Simulation-driven development of SoCs accelerated with Google's Coral NPU using Renode and Verilator",
-      "url": "https://antmicro.com/blog/2026/07/renode-and-verilator-for-coral-npu",
-      "source": "Antmicro Blog",
-      "sourceType": "rss",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-07-01T00:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 8,
-      "tags": [
-        "Antmicro",
-        "Open Hardware",
-        "Accelerator",
-        "Verilator",
-        "EDA"
-      ],
-      "suggestedAudience": [
-        "ai-accelerators",
-        "eda-tools",
-        "soc-ip"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
       "title": "Initial implementation of four-state logic in the open source Verilator RTL simulator",
       "url": "https://www.chipsalliance.org/news/initial-implementation-verilator/",
       "source": "CHIPS Alliance Blog",
       "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-07-21T22:00:00.000Z",
+      "publishedAt": "2026-07-22T00:00:00.000Z",
       "summary": "",
       "author": "",
       "relevanceScore": 7,
@@ -242,7 +223,7 @@
       "source": "CHIPS Alliance Blog",
       "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-07-20T22:00:00.000Z",
+      "publishedAt": "2026-07-21T00:00:00.000Z",
       "summary": "",
       "author": "",
       "relevanceScore": 7,
@@ -262,24 +243,22 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "CHIPS Alliance Developer Spotlight: Stefano Righi, Chief Security Architect, AMI",
-      "url": "https://www.chipsalliance.org/news/spotlight-stefano-righi/",
-      "source": "CHIPS Alliance Blog",
-      "sourceType": "web-page",
+      "title": "riscv/riscv-isa-manual release: Release riscv-isa-release-7fa630c-2026-08-14",
+      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-7fa630c-2026-08-14",
+      "source": "RISC-V ISA Manual (GitHub)",
+      "sourceType": "github-release",
       "sourceTier": "official",
-      "publishedAt": "2026-06-28T22:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 7,
+      "publishedAt": "2026-08-14T06:10:59.000Z",
+      "summary": "This release was created by: aswaterman Release of RISC-V ISA, built from commit 7fa630c, is now available. ## What's Changed * rvwmo: add Zicfiss source/destination register listings by @abhinavagarwal07 in https://gith...",
+      "author": "github-actions[bot]",
+      "relevanceScore": 6,
       "tags": [
-        "CHIPS Alliance",
-        "Open Silicon",
-        "Developer Spotlight",
-        "Security"
+        "RISC-V",
+        "ISA Manual",
+        "Specification"
       ],
       "suggestedAudience": [
-        "security",
-        "soc-ip"
+        "openhw-riscv"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -311,7 +290,7 @@
       "source": "CHIPS Alliance Blog",
       "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-08-02T22:00:00.000Z",
+      "publishedAt": "2026-08-03T00:00:00.000Z",
       "summary": "",
       "author": "",
       "relevanceScore": 6,
@@ -324,27 +303,6 @@
       "suggestedAudience": [
         "ai-accelerators",
         "soc-ip"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "riscv/riscv-isa-manual release: Release riscv-isa-release-310a111-2026-07-29",
-      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-310a111-2026-07-29",
-      "source": "RISC-V ISA Manual (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "official",
-      "publishedAt": "2026-07-29T15:59:18.000Z",
-      "summary": "This release was created by: wmat Release of RISC-V ISA, built from commit 310a111, is now available. ## What's Changed * Make the workflow callable from other repos by @wmat in https://github.com/riscv/riscv-isa-manual/...",
-      "author": "github-actions[bot]",
-      "relevanceScore": 6,
-      "tags": [
-        "RISC-V",
-        "ISA Manual",
-        "Specification"
-      ],
-      "suggestedAudience": [
-        "openhw-riscv"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -417,21 +375,49 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "AMI Joins OpenTitan Coalition to Enable New Use Cases and Applications",
-      "url": "https://lowrisc.org/news/ami-joins-opentitan-coalition-to-enable-new-use-cases-and-applications/",
-      "source": "lowRISC Newsroom",
-      "sourceType": "web-page",
+      "title": "chipsalliance/chisel release: Chisel v7.14.0",
+      "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.14.0",
+      "source": "CHIPS Alliance / Chisel (GitHub)",
+      "sourceType": "github-release",
       "sourceTier": "official",
-      "publishedAt": "2026-07-07T08:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 6,
+      "publishedAt": "2026-08-13T03:51:41.000Z",
+      "summary": "## Implicit Truncation Deprecation We are finally deprecating implicit truncation. The associated version of firtool (1.155.0) will print warnings for any implicitly truncated values. For any you see, you should try to f...",
+      "author": "jackkoenig",
+      "relevanceScore": 5,
       "tags": [
-        "lowRISC",
-        "OpenTitan"
+        "Chisel",
+        "Hardware Construction",
+        "SoC",
+        "CIRCT"
       ],
       "suggestedAudience": [
-        "security"
+        "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "The Future is Open (and AI-Assisted)- Highlights from the Open-Source EDA Birds-of-a-Feather Session at DAC 2026",
+      "url": "https://www.chipsalliance.org/news/dac-2026-recap/",
+      "source": "CHIPS Alliance Blog",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CHIPS Alliance",
+        "Open Silicon",
+        "dac",
+        "events",
+        "AI",
+        "EDA"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators",
+        "eda-tools",
+        "soc-ip"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -467,7 +453,7 @@
       "source": "CHIPS Alliance Blog",
       "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-07-15T22:00:00.000Z",
+      "publishedAt": "2026-07-16T00:00:00.000Z",
       "summary": "",
       "author": "",
       "relevanceScore": 5,
@@ -482,22 +468,24 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "COSMIC - CHERI Mocha MVP-2 Release",
-      "url": "https://lowrisc.org/news/cosmic-cheri-mocha-mvp-2-release/",
-      "source": "lowRISC Newsroom",
-      "sourceType": "web-page",
-      "sourceTier": "official",
-      "publishedAt": "2026-07-02T08:53:33.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 5,
+      "title": "llvm/circt release: firtool-1.156.0",
+      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.156.0",
+      "source": "LLVM / CIRCT (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-08-16T01:44:10.000Z",
+      "summary": "## What's Changed * [integration-test] NFC trailing whitespace cleanup by @seldridge in https://github.com/llvm/circt/pull/10970 * [LTLToCore] implement clocked atom lowering by @Clo91eaf in https://github.com/llvm/circt...",
+      "author": "seldridge",
+      "relevanceScore": 4,
       "tags": [
-        "lowRISC",
-        "OpenTitan",
-        "CHERI"
+        "CIRCT",
+        "MLIR",
+        "Hardware Compiler",
+        "EDA"
       ],
       "suggestedAudience": [
-        "security"
+        "ai-accelerators",
+        "eda-tools"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -541,29 +529,6 @@
         "Synthesis"
       ],
       "suggestedAudience": [
-        "eda-tools"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "llvm/circt release: firtool-1.154.0",
-      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.154.0",
-      "source": "LLVM / CIRCT (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-07-27T18:39:17.000Z",
-      "summary": "## What's Changed * [Arcilator] Support sim.proc.print with stream by @nanjo712 in https://github.com/llvm/circt/pull/10778 * [ci] Bump manylinux version for Linux wheels by @seldridge in https://github.com/llvm/circt/pu...",
-      "author": "seldridge",
-      "relevanceScore": 4,
-      "tags": [
-        "CIRCT",
-        "MLIR",
-        "Hardware Compiler",
-        "EDA"
-      ],
-      "suggestedAudience": [
-        "ai-accelerators",
         "eda-tools"
       ],
       "reviewStatus": "candidate",
@@ -634,23 +599,23 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "Implementing extended technology mapping in OpenROAD with mockturtle integration",
-      "url": "https://antmicro.com/blog/2026/06/multi-output-techmapping-in-openroad",
-      "source": "Antmicro Blog",
-      "sourceType": "rss",
+      "title": "apache/tvm release: v0.26.0",
+      "url": "https://github.com/apache/tvm/releases/tag/v0.26.0",
+      "source": "Apache TVM (GitHub)",
+      "sourceType": "github-release",
       "sourceTier": "trusted",
-      "publishedAt": "2026-06-30T00:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 4,
+      "publishedAt": "2026-08-11T01:02:45.000Z",
+      "summary": "## What's Changed * [Relax][PyTorch] Cast non-bool inputs to bool in logical_and converter by @javierdejesusda in https://github.com/apache/tvm/pull/19679 * [CI] Remove PyPI-only tag ref guard from wheel publishing by @t...",
+      "author": "MasterJH5574",
+      "relevanceScore": 3,
       "tags": [
-        "Antmicro",
-        "Open Hardware",
-        "OpenROAD"
+        "Apache TVM",
+        "AI Compiler",
+        "ML",
+        "Accelerator"
       ],
       "suggestedAudience": [
-        "eda-tools",
-        "soc-ip"
+        "ai-accelerators"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -694,6 +659,26 @@
       "suggestedAudience": [
         "verification",
         "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "El Correo Libre Issue 99",
+      "url": "https://main--fossi-foundation.netlify.app/blog/2026-08-11-ecl99",
+      "source": "FOSSi Foundation",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "summary": "El Correo Libre Newsletter, Issue 99",
+      "author": "",
+      "relevanceScore": 2,
+      "tags": [
+        "FOSSi",
+        "Open Silicon"
+      ],
+      "suggestedAudience": [
+        "general"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
