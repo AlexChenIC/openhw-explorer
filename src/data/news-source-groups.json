@@ -8,8 +8,8 @@
         "zh": "OpenHW 一手信号"
       },
       "description": {
-        "en": "OpenHW GitHub releases and commit activity, plus OpenHW Foundation news and OpenHW / Eclipse announcements.",
-        "zh": "跟踪 OpenHW GitHub 发布与提交活动，以及 OpenHW Foundation 新闻页与 OpenHW / Eclipse 官方公告。"
+        "en": "OpenHW GitHub releases and commit activity, plus foundation news, OpenHW / Eclipse announcements, and technical talks from OpenHW TV.",
+        "zh": "跟踪 OpenHW GitHub 发布与提交活动、基金会新闻、OpenHW / Eclipse 官方公告，以及 OpenHW TV 技术讲座。"
       },
       "cadence": {
         "en": "Scheduled candidate PR",
@@ -19,7 +19,8 @@
         "OpenHW GitHub org releases",
         "OpenHW GitHub org commits",
         "OpenHW Foundation News",
-        "OpenHW / Eclipse announcements"
+        "OpenHW / Eclipse announcements",
+        "OpenHW TV"
       ],
       "tags": ["OpenHW", "CORE-V", "CVA6", "CV32E40"]
     },
@@ -30,14 +31,19 @@
         "zh": "RISC-V 与开源硅基金会"
       },
       "description": {
-        "en": "Official updates from RISC-V International, RISC-V ISA Manual snapshots, and FOSSi Foundation.",
-        "zh": "跟踪 RISC-V International、RISC-V ISA Manual 快照与 FOSSi Foundation 的官方动态。"
+        "en": "Official updates from RISC-V International, RISC-V ISA Manual snapshots, and FOSSi Foundation news and technical videos.",
+        "zh": "跟踪 RISC-V International、RISC-V ISA Manual 快照，以及 FOSSi Foundation 新闻与技术视频。"
       },
       "cadence": {
         "en": "RSS and GitHub",
         "zh": "RSS 与 GitHub"
       },
-      "sources": ["RISC-V International news", "RISC-V ISA Manual (GitHub)", "FOSSi Foundation"],
+      "sources": [
+        "RISC-V International news",
+        "RISC-V ISA Manual (GitHub)",
+        "FOSSi Foundation",
+        "FOSSi Foundation Videos"
+      ],
       "tags": ["RISC-V", "ISA Manual", "Specification", "FOSSi", "Open Silicon"]
     },
     {

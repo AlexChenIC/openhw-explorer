@@ -63,6 +63,22 @@ const RSS_SOURCES = [
     defaultScore: 2,
   },
   {
+    name: "OpenHW TV",
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCquHKALPMdykrseUb6gtx4g",
+    sourceType: "youtube",
+    sourceTier: "official",
+    defaultTags: ["OpenHW", "OpenHW TV", "RISC-V", "Talk", "Webinar"],
+    defaultScore: 4,
+  },
+  {
+    name: "FOSSi Foundation Videos",
+    url: "https://www.youtube.com/feeds/videos.xml?channel_id=UCoyUg0i6RBVTrSDt2qlRMDA",
+    sourceType: "youtube",
+    sourceTier: "official",
+    defaultTags: ["FOSSi", "Open Hardware", "Talk"],
+    defaultScore: 1,
+  },
+  {
     name: "lowRISC Newsroom",
     url: "https://lowrisc.org/feed/",
     sourceTier: "official",
@@ -564,8 +580,9 @@ function parseFeed(xml, source) {
   for (const block of entryBlocks) {
     const title = readTag(block, "title");
     const href = block.match(/<link[^>]+href=["']([^"']+)["']/i)?.[1] || "";
-    const publishedAt = readTag(block, "updated") || readTag(block, "published");
-    const summary = readTag(block, "summary") || readTag(block, "content");
+    const publishedAt = readTag(block, "published") || readTag(block, "updated");
+    const summary =
+      readTag(block, "summary") || readTag(block, "content") || readTag(block, "media:description");
     const author = stripHtml(readTag(block, "name") || readTag(block, "author"));
     candidates.push({ title, url: href, publishedAt, summary, author });
   }
@@ -574,7 +591,7 @@ function parseFeed(xml, source) {
     .map((item) =>
       candidateFromRaw(item, {
         source: source.name,
-        sourceType: "rss",
+        sourceType: source.sourceType || "rss",
         sourceTier: source.sourceTier,
         tags: source.defaultTags,
         defaultScore: source.defaultScore,
