@@ -1,16 +1,12 @@
 import Image from "next/image";
 import {
   ArrowRight,
-  Binary,
   BookOpenText,
-  Boxes,
-  Building2,
   Clock3,
   ExternalLink,
   GraduationCap,
   Github,
   Languages,
-  Layers3,
   Library,
   Mail,
   MessageSquareText,
@@ -195,48 +191,48 @@ type ClassroomContentProps = {
 const collectionIcons = [BookOpenText, Route, Library] as const;
 
 const defaultLessonVisual = {
-  logo: "/resources/logos/openhw.png",
-  logoAlt: "OpenHW Foundation",
-  logoWidth: 266,
-  logoHeight: 65,
-  icon: BookOpenText,
+  image: "/classroom/course-covers/core-v-names.png",
+  alt: {
+    en: "Abstract processor course emblem",
+    zh: "抽象处理器课程图标",
+  },
 };
 
 const lessonVisuals = {
   "openhw-u01-l01-core-v-names": {
-    logo: "/resources/logos/openhw.png",
-    logoAlt: "OpenHW Foundation",
-    logoWidth: 266,
-    logoHeight: 65,
-    icon: Binary,
+    image: "/classroom/course-covers/core-v-names.png",
+    alt: {
+      en: "A processor assembled from modular identity and configuration fields",
+      zh: "由模块化身份与配置字段组成的处理器",
+    },
   },
   "openhw-u02-l01-foundation": {
-    logo: "/resources/logos/openhw.png",
-    logoAlt: "OpenHW Foundation",
-    logoWidth: 266,
-    logoHeight: 65,
-    icon: Building2,
+    image: "/classroom/course-covers/openhw-foundation.png",
+    alt: {
+      en: "An open processor coordinated through shared governance and contributors",
+      zh: "通过共同治理连接贡献者的开放处理器",
+    },
   },
   "openhw-u03-l01-riscv-corev-core-soc": {
-    logo: "/resources/logos/riscv.png",
-    logoAlt: "RISC-V",
-    logoWidth: 136,
-    logoHeight: 132,
-    icon: Boxes,
+    image: "/classroom/course-covers/isa-core-soc.png",
+    alt: {
+      en: "The engineering path from an instruction set to a processor core and SoC",
+      zh: "从指令集到处理器核与 SoC 的工程路径",
+    },
   },
   "openhw-u04-l01-why-verification": {
-    logo: "/resources/logos/openhw.png",
-    logoAlt: "OpenHW Foundation",
-    logoWidth: 266,
-    logoHeight: 65,
-    icon: ShieldCheck,
+    image: "/classroom/course-covers/verification-evidence.png",
+    alt: {
+      en: "A processor connected to simulation, formal proof, and coverage evidence",
+      zh: "连接仿真、形式证明与覆盖率证据的处理器",
+    },
   },
   "openhw-u05-l01-beyond-rtl": {
-    logo: "/resources/logos/openhw.png",
-    logoAlt: "OpenHW Foundation",
-    logoWidth: 266,
-    logoHeight: 65,
-    icon: Layers3,
+    image: "/classroom/course-covers/usable-processor-ip.png",
+    alt: {
+      en: "A processor surrounded by the engineering layers required for usable IP",
+      zh: "由可用 IP 所需工程层环绕的处理器",
+    },
   },
 } as const;
 
@@ -348,7 +344,6 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
                 const title = getLocalizedText(lesson.title, resolvedLocale);
                 const visual =
                   lessonVisuals[lesson.id as keyof typeof lessonVisuals] ?? defaultLessonVisual;
-                const VisualIcon = visual.icon;
 
                 return (
                   <article
@@ -359,22 +354,18 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
                         : "border-[var(--border)]"
                     }`}
                   >
-                    <div className="relative flex h-36 items-center justify-center border-b border-[var(--border)] bg-white px-10 py-6">
-                      <span className="absolute left-4 top-4 font-mono text-xs font-semibold text-slate-500">
+                    <div className="relative h-40 overflow-hidden border-b border-[var(--border)] bg-white">
+                      <Image
+                        src={visual.image}
+                        alt={getLocalizedText(visual.alt, resolvedLocale)}
+                        width={1680}
+                        height={945}
+                        sizes="(min-width: 1280px) 390px, (min-width: 768px) 50vw, 100vw"
+                        className="h-full w-full object-cover"
+                      />
+                      <span className="absolute left-4 top-4 rounded-md bg-white/90 px-2 py-1 font-mono text-xs font-semibold text-slate-600 shadow-sm backdrop-blur-sm">
                         {text.lessonLabel} {String(index + 1).padStart(2, "0")}
                       </span>
-                      <span className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-md bg-slate-100 text-slate-600">
-                        <VisualIcon className="h-4.5 w-4.5" aria-hidden="true" />
-                      </span>
-                      <Image
-                        src={visual.logo}
-                        alt={visual.logoAlt}
-                        width={visual.logoWidth}
-                        height={visual.logoHeight}
-                        className={`h-auto max-h-20 w-auto max-w-full object-contain ${
-                          visual.logoAlt === "RISC-V" ? "max-w-24" : "max-w-64"
-                        }`}
-                      />
                     </div>
 
                     <div className="flex flex-1 flex-col p-5 sm:p-6">
