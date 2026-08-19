@@ -1,16 +1,22 @@
+import Image from "next/image";
 import {
   ArrowRight,
+  Binary,
   BookOpenText,
+  Boxes,
+  Building2,
   Clock3,
   ExternalLink,
   GraduationCap,
   Github,
   Languages,
+  Layers3,
   Library,
   Mail,
   MessageSquareText,
   PlayCircle,
   Route,
+  ShieldCheck,
 } from "lucide-react";
 import { Link } from "@/lib/routing";
 import { externalLinks } from "@/data/external-links";
@@ -56,6 +62,11 @@ const copy = {
     duration: "6-10 min",
     level: "Starter",
     language: "English first",
+    lessonLabel: "Lesson",
+    slidesLabel: "slides",
+    checksLabel: "checks",
+    startLesson: "Start lesson",
+    plannedLesson: "In development",
     deepDiveKicker: "Original courses",
     deepDiveTitle: "Go deeper when the foundation is clear",
     deepDiveBody:
@@ -129,6 +140,11 @@ const copy = {
     duration: "6-10 分钟",
     level: "入门",
     language: "英文优先",
+    lessonLabel: "课程",
+    slidesLabel: "页",
+    checksLabel: "道练习",
+    startLesson: "开始学习",
+    plannedLesson: "开发中",
     deepDiveKicker: "原创课程",
     deepDiveTitle: "建立基础后，再进入技术深处",
     deepDiveBody:
@@ -177,6 +193,52 @@ type ClassroomContentProps = {
 };
 
 const collectionIcons = [BookOpenText, Route, Library] as const;
+
+const defaultLessonVisual = {
+  logo: "/resources/logos/openhw.png",
+  logoAlt: "OpenHW Foundation",
+  logoWidth: 266,
+  logoHeight: 65,
+  icon: BookOpenText,
+};
+
+const lessonVisuals = {
+  "openhw-u01-l01-core-v-names": {
+    logo: "/resources/logos/openhw.png",
+    logoAlt: "OpenHW Foundation",
+    logoWidth: 266,
+    logoHeight: 65,
+    icon: Binary,
+  },
+  "openhw-u02-l01-foundation": {
+    logo: "/resources/logos/openhw.png",
+    logoAlt: "OpenHW Foundation",
+    logoWidth: 266,
+    logoHeight: 65,
+    icon: Building2,
+  },
+  "openhw-u03-l01-riscv-corev-core-soc": {
+    logo: "/resources/logos/riscv.png",
+    logoAlt: "RISC-V",
+    logoWidth: 136,
+    logoHeight: 132,
+    icon: Boxes,
+  },
+  "openhw-u04-l01-why-verification": {
+    logo: "/resources/logos/openhw.png",
+    logoAlt: "OpenHW Foundation",
+    logoWidth: 266,
+    logoHeight: 65,
+    icon: ShieldCheck,
+  },
+  "openhw-u05-l01-beyond-rtl": {
+    logo: "/resources/logos/openhw.png",
+    logoAlt: "OpenHW Foundation",
+    logoWidth: 266,
+    logoHeight: 65,
+    icon: Layers3,
+  },
+} as const;
 
 export function ClassroomContent({ locale, newsletterUsername }: ClassroomContentProps) {
   const resolvedLocale = locale === "zh" ? "zh" : "en";
@@ -280,41 +342,117 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
               </Link>
             </div>
 
-            <div className="mt-9 divide-y divide-[var(--border)] border-y border-[var(--border)]">
+            <div className="mt-9 grid auto-rows-fr gap-5 md:grid-cols-2 xl:grid-cols-3">
               {releaseLessons.map((lesson, index) => {
                 const isAvailable = lesson.status === "published" && hasPublishedLesson(lesson);
                 const title = getLocalizedText(lesson.title, resolvedLocale);
+                const visual =
+                  lessonVisuals[lesson.id as keyof typeof lessonVisuals] ?? defaultLessonVisual;
+                const VisualIcon = visual.icon;
 
                 return (
                   <article
                     key={lesson.id}
-                    className="grid gap-4 py-6 sm:grid-cols-[52px_1fr_auto] sm:items-start sm:gap-6"
+                    className={`group flex h-full min-w-0 flex-col overflow-hidden rounded-lg border bg-[var(--bg-card)] transition-[border-color,box-shadow,transform] ${
+                      isAvailable
+                        ? "border-[var(--border)] hover:-translate-y-0.5 hover:border-[var(--primary)] hover:shadow-lg"
+                        : "border-[var(--border)]"
+                    }`}
                   >
-                    <span className="font-mono text-sm font-semibold text-[var(--primary)]">
-                      {String(index + 1).padStart(2, "0")}
-                    </span>
-                    <div>
+                    <div className="relative flex h-36 items-center justify-center border-b border-[var(--border)] bg-white px-10 py-6">
+                      <span className="absolute left-4 top-4 font-mono text-xs font-semibold text-slate-500">
+                        {text.lessonLabel} {String(index + 1).padStart(2, "0")}
+                      </span>
+                      <span className="absolute right-4 top-4 inline-flex h-9 w-9 items-center justify-center rounded-md bg-slate-100 text-slate-600">
+                        <VisualIcon className="h-4.5 w-4.5" aria-hidden="true" />
+                      </span>
+                      <Image
+                        src={visual.logo}
+                        alt={visual.logoAlt}
+                        width={visual.logoWidth}
+                        height={visual.logoHeight}
+                        className={`h-auto max-h-20 w-auto max-w-full object-contain ${
+                          visual.logoAlt === "RISC-V" ? "max-w-24" : "max-w-64"
+                        }`}
+                      />
+                    </div>
+
+                    <div className="flex flex-1 flex-col p-5 sm:p-6">
+                      <div className="flex flex-wrap items-center justify-between gap-2 text-xs">
+                        <span
+                          className={`inline-flex min-h-7 items-center rounded-md px-2.5 font-semibold ${
+                            isAvailable
+                              ? "bg-[var(--primary)]/10 text-[var(--primary)]"
+                              : "bg-[var(--bg-muted)] text-[var(--text-tertiary)]"
+                          }`}
+                        >
+                          {getStatusLabel(lesson.status)}
+                        </span>
+                        <span className="inline-flex items-center gap-1.5 text-[var(--text-tertiary)]">
+                          <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />
+                          {lesson.durationMinutes} min
+                        </span>
+                      </div>
+
                       {isAvailable ? (
                         <Link
                           href={`/classroom/${releaseSeries.id}/${lesson.id}`}
-                          className="text-lg font-semibold text-[var(--text-primary)] hover:text-[var(--primary)] sm:text-xl"
+                          className="mt-5 text-xl font-semibold leading-snug text-[var(--text-primary)] hover:text-[var(--primary)]"
                         >
                           {title}
                         </Link>
                       ) : (
-                        <h3 className="text-lg font-semibold text-[var(--text-primary)] sm:text-xl">
+                        <h3 className="mt-5 text-xl font-semibold leading-snug text-[var(--text-primary)]">
                           {title}
                         </h3>
                       )}
-                      <p className="mt-2 max-w-3xl text-sm leading-7 text-[var(--text-secondary)]">
+                      <p className="mt-3 line-clamp-4 text-sm leading-6 text-[var(--text-secondary)]">
                         {getLocalizedText(lesson.summary, resolvedLocale)}
                       </p>
-                    </div>
-                    <div className="flex items-center gap-3 text-xs text-[var(--text-tertiary)] sm:flex-col sm:items-end sm:text-right">
-                      <span className="font-semibold text-[var(--text-secondary)]">
-                        {getStatusLabel(lesson.status)}
-                      </span>
-                      <span>{lesson.durationMinutes} min</span>
+
+                      {isAvailable && (
+                        <div className="mt-5 flex flex-wrap gap-x-4 gap-y-2 text-xs text-[var(--text-tertiary)]">
+                          <span className="inline-flex items-center gap-1.5">
+                            <BookOpenText className="h-3.5 w-3.5" aria-hidden="true" />
+                            {lesson.slideCount} {text.slidesLabel}
+                          </span>
+                          <span className="inline-flex items-center gap-1.5">
+                            <ShieldCheck className="h-3.5 w-3.5" aria-hidden="true" />
+                            {lesson.quizCount} {text.checksLabel}
+                          </span>
+                          <span className="inline-flex items-center gap-1.5">
+                            <Languages className="h-3.5 w-3.5" aria-hidden="true" />
+                            EN / 中文
+                          </span>
+                        </div>
+                      )}
+
+                      <div className="mt-5 flex flex-wrap gap-2">
+                        {lesson.tags.slice(0, 3).map((tag) => (
+                          <span
+                            key={tag}
+                            className="rounded-md bg-[var(--bg-muted)] px-2.5 py-1 text-xs text-[var(--text-tertiary)]"
+                          >
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+
+                      <div className="mt-auto border-t border-[var(--border)] pt-5">
+                        {isAvailable ? (
+                          <Link
+                            href={`/classroom/${releaseSeries.id}/${lesson.id}`}
+                            className="inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-[var(--primary)] hover:text-[var(--primary-dark)]"
+                          >
+                            {text.startLesson}
+                            <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                          </Link>
+                        ) : (
+                          <span className="inline-flex min-h-10 items-center text-sm font-semibold text-[var(--text-tertiary)]">
+                            {text.plannedLesson}
+                          </span>
+                        )}
+                      </div>
                     </div>
                   </article>
                 );
