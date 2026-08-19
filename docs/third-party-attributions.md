@@ -47,6 +47,12 @@ Official asset sources:
 
 The Technical Library reuses a small subset of these official marks where a stable project identity is useful. Other technical links use category icons rather than third-party commercial marks.
 
+## Learning Hub Course Marks
+
+The Learning Hub uses the OpenHW Foundation and CORE-V marks only to identify courses directly about those initiatives. The CORE-V mark is reproduced unchanged from the public `CoreNames.pptx` source deck used for the naming lesson; the OpenHW Foundation mark uses the same official cached asset as the ecosystem directory. These marks and trademarks remain the property of their respective owners and are not presented as OpenHW Explorer branding or endorsement.
+
+The ISA-to-SoC, verification, and usable-IP course marks are original topic icons created for OpenHW Explorer. They are not official OpenHW Foundation, CORE-V, or RISC-V marks.
+
 ## Open PDK Directory
 
 The Open PDK category distinguishes foundry-linked open releases from predictive or academic research kits. Inclusion does not imply production qualification; each card records the maturity or manufacturability stated by its official source.

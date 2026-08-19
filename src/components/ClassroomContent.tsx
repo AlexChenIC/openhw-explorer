@@ -191,47 +191,65 @@ type ClassroomContentProps = {
 const collectionIcons = [BookOpenText, Route, Library] as const;
 
 const defaultLessonVisual = {
-  image: "/classroom/course-covers/core-v-names.png",
+  image: "/classroom/course-marks/core-v.png",
+  width: 2048,
+  height: 456,
+  className: "w-[17rem] max-w-full",
   alt: {
-    en: "Abstract processor course emblem",
-    zh: "抽象处理器课程图标",
+    en: "CORE-V",
+    zh: "CORE-V",
   },
 };
 
 const lessonVisuals = {
   "openhw-u01-l01-core-v-names": {
-    image: "/classroom/course-covers/core-v-names.png",
+    image: "/classroom/course-marks/core-v.png",
+    width: 2048,
+    height: 456,
+    className: "w-[17rem] max-w-full",
     alt: {
-      en: "A processor assembled from modular identity and configuration fields",
-      zh: "由模块化身份与配置字段组成的处理器",
+      en: "CORE-V",
+      zh: "CORE-V",
     },
   },
   "openhw-u02-l01-foundation": {
-    image: "/classroom/course-covers/openhw-foundation.png",
+    image: "/classroom/course-marks/openhw-foundation.png",
+    width: 559,
+    height: 117,
+    className: "w-[17rem] max-w-full",
     alt: {
-      en: "An open processor coordinated through shared governance and contributors",
-      zh: "通过共同治理连接贡献者的开放处理器",
+      en: "OpenHW Foundation",
+      zh: "OpenHW Foundation",
     },
   },
   "openhw-u03-l01-riscv-corev-core-soc": {
-    image: "/classroom/course-covers/isa-core-soc.png",
+    image: "/classroom/course-marks/isa-core-soc.png",
+    width: 2073,
+    height: 758,
+    className: "w-[15rem] max-w-full",
     alt: {
-      en: "The engineering path from an instruction set to a processor core and SoC",
-      zh: "从指令集到处理器核与 SoC 的工程路径",
+      en: "Three stages representing ISA, processor core, and SoC",
+      zh: "代表 ISA、处理器核与 SoC 的三个递进阶段",
     },
   },
   "openhw-u04-l01-why-verification": {
-    image: "/classroom/course-covers/verification-evidence.png",
+    image: "/classroom/course-marks/verification.png",
+    width: 1254,
+    height: 1254,
+    className: "w-24 max-w-full",
     alt: {
-      en: "A processor connected to simulation, formal proof, and coverage evidence",
-      zh: "连接仿真、形式证明与覆盖率证据的处理器",
+      en: "Verified processor",
+      zh: "通过验证的处理器",
     },
   },
   "openhw-u05-l01-beyond-rtl": {
-    image: "/classroom/course-covers/usable-processor-ip.png",
+    image: "/classroom/course-marks/beyond-rtl.png",
+    width: 1254,
+    height: 1254,
+    className: "w-24 max-w-full",
     alt: {
-      en: "A processor surrounded by the engineering layers required for usable IP",
-      zh: "由可用 IP 所需工程层环绕的处理器",
+      en: "A processor supported by a complete engineering system",
+      zh: "由完整工程体系支撑的处理器",
     },
   },
 } as const;
@@ -354,14 +372,15 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
                         : "border-[var(--border)]"
                     }`}
                   >
-                    <div className="relative h-40 overflow-hidden border-b border-[var(--border)] bg-white">
+                    <div className="relative flex h-40 items-center justify-center overflow-hidden border-b border-[var(--border)] bg-white px-10 py-6">
                       <Image
                         src={visual.image}
                         alt={getLocalizedText(visual.alt, resolvedLocale)}
-                        width={1680}
-                        height={945}
-                        sizes="(min-width: 1280px) 390px, (min-width: 768px) 50vw, 100vw"
-                        className="h-full w-full object-cover"
+                        width={visual.width}
+                        height={visual.height}
+                        sizes="272px"
+                        loading={index < 3 ? "eager" : "lazy"}
+                        className={`h-auto w-auto object-contain ${visual.className}`}
                       />
                       <span className="absolute left-4 top-4 rounded-md bg-white/90 px-2 py-1 font-mono text-xs font-semibold text-slate-600 shadow-sm backdrop-blur-sm">
                         {text.lessonLabel} {String(index + 1).padStart(2, "0")}
