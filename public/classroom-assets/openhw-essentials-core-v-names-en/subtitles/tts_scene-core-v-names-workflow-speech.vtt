@@ -1,22 +1,22 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:02.884
+00:00:00.000 --> 00:00:03.460
 Human names lead into release identity.
 
 2
-00:00:02.884 --> 00:00:10.945
+00:00:03.460 --> 00:00:13.130
 OpenHW records a JEDEC value in mvendorid, an architecture ID in marchid, and an implementation ID in mimpid.
 
 3
-00:00:10.945 --> 00:00:21.299
+00:00:13.130 --> 00:00:25.551
 The current catalog lists architecture IDs for E40P, E40X, E40S, and E20, while E40P versions one and two have different implementation IDs.
 
 4
-00:00:21.299 --> 00:00:24.774
+00:00:25.551 --> 00:00:29.721
 A Git tag or RTL freeze then pins exact source.
 
 5
-00:00:24.774 --> 00:00:30.025
+00:00:29.721 --> 00:00:36.020
 This chain is stronger than a slide title or repository default branch.
 
