@@ -1,17 +1,17 @@
 {
-  "weekOf": "2026-08-11",
-  "generatedAt": "2026-08-11T07:56:14.444Z",
+  "weekOf": "2026-08-21",
+  "generatedAt": "2026-08-21T08:11:18.815Z",
   "stats": {
-    "totalRelevant": 93,
-    "totalSources": 35,
+    "totalRelevant": 98,
+    "totalSources": 36,
     "topTags": [
       {
         "tag": "RISC-V",
-        "count": 30
+        "count": 31
       },
       {
         "tag": "EDA",
-        "count": 25
+        "count": 26
       },
       {
         "tag": "Security",
@@ -19,11 +19,11 @@
       },
       {
         "tag": "Verification",
-        "count": 19
+        "count": 21
       },
       {
-        "tag": "Root of Trust",
-        "count": 15
+        "tag": "CHIPS Alliance",
+        "count": 17
       }
     ]
   },
@@ -35,8 +35,20 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 33,
+      "count": 34,
       "items": [
+        {
+          "title": "Chisel v7.14.0 deprecates implicit truncation and adds explicit hardware-construction APIs",
+          "titleZh": "Chisel v7.14.0 弃用 implicit truncation，并增加 explicit hardware-construction APIs",
+          "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.14.0",
+          "source": "CHIPS Alliance / Chisel (GitHub)",
+          "tags": [
+            "CHIPS Alliance",
+            "Chisel",
+            "Hardware Construction"
+          ],
+          "publishedAt": "2026-08-13T03:51:41.000Z"
+        },
         {
           "title": "CIRCT firtool 1.155.0 updates HW, LLHD, ESI, Moore, FIRRTL, and RTG flows",
           "titleZh": "CIRCT firtool 1.155.0 更新 HW、LLHD、ESI、Moore、FIRRTL 与 RTG 流程",
@@ -72,18 +84,6 @@
             "TT-NN"
           ],
           "publishedAt": "2026-07-30T21:54:28.000Z"
-        },
-        {
-          "title": "CIRCT firtool 1.154.0 updates Arcilator, ImportVerilog, Moore, BMC, and HWToLLVM flows",
-          "titleZh": "CIRCT firtool 1.154.0 更新 Arcilator、ImportVerilog、Moore、BMC 与 HWToLLVM 流程",
-          "url": "https://github.com/llvm/circt/releases/tag/firtool-1.154.0",
-          "source": "LLVM / CIRCT (GitHub)",
-          "tags": [
-            "CIRCT",
-            "firtool",
-            "MLIR"
-          ],
-          "publishedAt": "2026-07-27T18:39:17.000Z"
         }
       ]
     },
@@ -94,8 +94,20 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 34,
+      "count": 35,
       "items": [
+        {
+          "title": "OpenHW TV publishes open-verification webinar for RISC-V and high-assurance silicon",
+          "titleZh": "OpenHW TV 发布面向 RISC-V 与高可信 silicon 的 open verification webinar",
+          "url": "https://www.youtube.com/watch?v=pH2zvi_x5wM",
+          "source": "OpenHW TV",
+          "tags": [
+            "OpenHW",
+            "OpenHW TV",
+            "RISC-V"
+          ],
+          "publishedAt": "2026-07-29T16:44:19.000Z"
+        },
         {
           "title": "OpenTitan Earl Grey 2 adds a low-power I3C controller and target block",
           "titleZh": "OpenTitan Earl Grey 2 增加低功耗 I3C controller/target IP",
@@ -131,18 +143,6 @@
             "Earl Grey 2"
           ],
           "publishedAt": "2026-07-14T08:00:00.000Z"
-        },
-        {
-          "title": "Tampere University joins OpenTitan to advance RISC-V SoC security and PQC research",
-          "titleZh": "Tampere University 加入 OpenTitan，推进 RISC-V SoC security 与 PQC 研究",
-          "url": "https://lowrisc.org/news/tampere-university-joins-opentitan-coalition-to-advance-risc-v-soc-security-and-open-source-silicon-research/",
-          "source": "lowRISC Newsroom",
-          "tags": [
-            "lowRISC",
-            "OpenTitan",
-            "Tampere University"
-          ],
-          "publishedAt": "2026-07-10T08:00:00.000Z"
         }
       ]
     },
@@ -153,8 +153,20 @@
         "zh": "AI 与加速器"
       },
       "icon": "brain",
-      "count": 12,
+      "count": 13,
       "items": [
+        {
+          "title": "MLPerf Client v2.0 adds image-generation and agentic AI workloads for local AI benchmarking",
+          "titleZh": "MLPerf Client v2.0 增加 image-generation 与 agentic AI workload，用于本地 AI benchmarking",
+          "url": "https://mlcommons.org/2026/08/mlperf-client-v2-0/",
+          "source": "MLCommons",
+          "tags": [
+            "MLCommons",
+            "MLPerf",
+            "Benchmarking"
+          ],
+          "publishedAt": "2026-08-18T14:50:00.000Z"
+        },
         {
           "title": "MLCommons opens Edge Agentic Inference submissions for MLPerf Inference v6.1",
           "titleZh": "MLCommons 为 MLPerf Inference v6.1 开放 Edge Agentic Inference 提交",
@@ -190,18 +202,6 @@
             "Jetson AGX Thor"
           ],
           "publishedAt": "2026-06-18T00:00:00.000Z"
-        },
-        {
-          "title": "MLCommons publishes MLPerf Training v6.0 results for sparse MoE workloads",
-          "titleZh": "MLCommons 发布 MLPerf Training v6.0 结果，聚焦 sparse MoE workload",
-          "url": "https://mlcommons.org/2026/06/mlperf-training-v6-0-results/",
-          "source": "MLCommons",
-          "tags": [
-            "MLCommons",
-            "MLPerf",
-            "Training"
-          ],
-          "publishedAt": "2026-06-16T14:56:24.000Z"
         }
       ]
     },
@@ -271,8 +271,32 @@
         "zh": "硬件与嵌入式"
       },
       "icon": "circuit",
-      "count": 8,
+      "count": 10,
       "items": [
+        {
+          "title": "CHIPS Alliance I3C Core adds Host Controller support with simulation and FPGA validation",
+          "titleZh": "CHIPS Alliance I3C Core 增加 Host Controller support，并完成 simulation 与 FPGA validation",
+          "url": "https://www.chipsalliance.org/news/implementing-i3c-host-controller-support-in-the-open-source-i3c-core/",
+          "source": "CHIPS Alliance Blog",
+          "tags": [
+            "CHIPS Alliance",
+            "I3C",
+            "I3C Core"
+          ],
+          "publishedAt": "2026-08-19T00:00:00.000Z"
+        },
+        {
+          "title": "Antmicro releases Faultergeist for SEU fault-injection testing in Verilator",
+          "titleZh": "Antmicro 发布 Faultergeist，用 Verilator 做 SEU fault-injection testing",
+          "url": "https://antmicro.com/blog/2026/08/SEU-vulnerability-testing-with-Faultergeist",
+          "source": "Antmicro Blog",
+          "tags": [
+            "Antmicro",
+            "Faultergeist",
+            "Verilator"
+          ],
+          "publishedAt": "2026-08-19T00:00:00.000Z"
+        },
         {
           "title": "Verilator reaches an initial four-state logic implementation milestone",
           "titleZh": "Verilator 四态逻辑实现达到首个里程碑",
@@ -296,30 +320,6 @@
             "SoC/IP"
           ],
           "publishedAt": "2026-07-07T00:00:00.000Z"
-        },
-        {
-          "title": "Antmicro adds mockturtle extended technology mapping to OpenROAD resynthesis",
-          "titleZh": "Antmicro 为 OpenROAD resynthesis 加入 mockturtle extended technology mapping",
-          "url": "https://antmicro.com/blog/2026/06/multi-output-techmapping-in-openroad",
-          "source": "Antmicro Blog",
-          "tags": [
-            "Antmicro",
-            "OpenROAD",
-            "mockturtle"
-          ],
-          "publishedAt": "2026-06-30T00:00:00.000Z"
-        },
-        {
-          "title": "Antmicro adds host-controller support to the CHIPS Alliance open-source I3C Core",
-          "titleZh": "Antmicro 为 CHIPS Alliance 开源 I3C Core 加入 host-controller 支持",
-          "url": "https://antmicro.com/blog/2026/06/i3c-core-host-controller-support",
-          "source": "Antmicro Blog",
-          "tags": [
-            "Antmicro",
-            "CHIPS Alliance",
-            "I3C"
-          ],
-          "publishedAt": "2026-06-16T00:00:00.000Z"
         }
       ]
     },
@@ -349,6 +349,142 @@
   ],
   "items": [
     {
+      "title": "OpenHW TV publishes open-verification webinar for RISC-V and high-assurance silicon",
+      "url": "https://www.youtube.com/watch?v=pH2zvi_x5wM",
+      "source": "OpenHW TV",
+      "publishedAt": "2026-07-29T16:44:19.000Z",
+      "summary": "OpenHW TV published a 45-minute public recording on moving hardware assurance from trust-based claims to checkable verification evidence for RISC-V and high-ass...",
+      "author": "",
+      "relevanceScore": 8,
+      "tags": [
+        "OpenHW",
+        "OpenHW TV",
+        "RISC-V",
+        "Verification",
+        "High Assurance",
+        "Open Silicon",
+        "Webinar"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "editorPick": true,
+      "highlightRank": 1,
+      "titleZh": "OpenHW TV 发布面向 RISC-V 与高可信 silicon 的 open verification webinar",
+      "summaryZh": "OpenHW TV 发布了一段约 45 分钟的公开视频，主题是将 RISC-V 与 high-assurance silicon 的硬件可信度从“相信我”推进到可检查的 verification evidence。它对 OpenHW 读者有直接价值，因为它把 verification 描述为可复用的生态基础设施，而不是单个项目的临时活动。"
+    },
+    {
+      "title": "CHIPS Alliance I3C Core adds Host Controller support with simulation and FPGA validation",
+      "url": "https://www.chipsalliance.org/news/implementing-i3c-host-controller-support-in-the-open-source-i3c-core/",
+      "source": "CHIPS Alliance Blog",
+      "publishedAt": "2026-08-19T00:00:00.000Z",
+      "summary": "CHIPS Alliance detailed Host Controller support for its open-source I3C Core, expanding the project beyond target-mode capabilities. The controller is designed ...",
+      "author": "",
+      "relevanceScore": 8,
+      "tags": [
+        "CHIPS Alliance",
+        "I3C",
+        "I3C Core",
+        "MIPI I3C",
+        "Caliptra",
+        "VeeR",
+        "Guineveer",
+        "cocotb",
+        "Verilator",
+        "FPGA",
+        "SoC/IP"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 2,
+      "titleZh": "CHIPS Alliance I3C Core 增加 Host Controller support，并完成 simulation 与 FPGA validation",
+      "summaryZh": "CHIPS Alliance 详解了 open-source I3C Core 的 Host Controller support，将该项目从 target mode 能力扩展到 controller 侧。该 controller 面向 I3C HCI 1.2 与 I3C Basic 1.1.1，保持 I2C backward compatibility，支持 CCC、IBI、ENTDAA 与 CSR-configurable timing，并通过 cocotb VIP、Verilator simulation 以及 AMD ZynqMP ZCU106 FPGA 平台验证，和第三方硅片实现 12.5 MHz 通信。"
+    },
+    {
+      "title": "Antmicro releases Faultergeist for SEU fault-injection testing in Verilator",
+      "url": "https://antmicro.com/blog/2026/08/SEU-vulnerability-testing-with-Faultergeist",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-08-19T00:00:00.000Z",
+      "summary": "Antmicro introduced Faultergeist, an open-source fault-injection framework that uses Verilator to inject bit flips into hardware designs for single-event-upset ...",
+      "author": "",
+      "relevanceScore": 8,
+      "tags": [
+        "Antmicro",
+        "Faultergeist",
+        "Verilator",
+        "Fault Injection",
+        "SEU",
+        "Radiation Hardening",
+        "VeeR EL2",
+        "DCLS",
+        "TMR",
+        "Safety",
+        "Verification"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 3,
+      "titleZh": "Antmicro 发布 Faultergeist，用 Verilator 做 SEU fault-injection testing",
+      "summaryZh": "Antmicro 介绍了 Faultergeist，这是一个 open-source fault-injection framework，可通过 Verilator 向硬件设计注入 bit flip，用于 single-event upset 分析。它包含面向 heavy-ion 与 proton radiation effect 的 fault-generation model、VPI injection plugin，以及基于 Yosys/Verilator 的示例流程；对 safety、aerospace、DCLS/TMR 与 open RISC-V core 的 security-oriented verification 都有参考价值。"
+    },
+    {
+      "title": "MLPerf Client v2.0 adds image-generation and agentic AI workloads for local AI benchmarking",
+      "url": "https://mlcommons.org/2026/08/mlperf-client-v2-0/",
+      "source": "MLCommons",
+      "publishedAt": "2026-08-18T14:50:00.000Z",
+      "summary": "MLCommons released MLPerf Client v2.0, extending its PC AI benchmark with an experimental Flux.2 klein 4B image-generation category, agentic Software Engineerin...",
+      "author": "",
+      "relevanceScore": 6,
+      "tags": [
+        "MLCommons",
+        "MLPerf",
+        "Benchmarking",
+        "Client AI",
+        "Agentic AI",
+        "Image Generation",
+        "LLM",
+        "Accelerator"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 4,
+      "titleZh": "MLPerf Client v2.0 增加 image-generation 与 agentic AI workload，用于本地 AI benchmarking",
+      "summaryZh": "MLCommons 发布 MLPerf Client v2.0，将 PC AI benchmark 扩展到 experimental Flux.2 klein 4B image-generation category、agentic Software Engineering 与 Data Analyst 场景、更新后的 Phi 4 Mini required LLM inference test，以及 experimental Qwen 3 8B test。对 open hardware 与 accelerator 读者来说，这是客户端 AI workload 评测方向的一个稳定信号。"
+    },
+    {
+      "title": "Chisel v7.14.0 deprecates implicit truncation and adds explicit hardware-construction APIs",
+      "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.14.0",
+      "source": "CHIPS Alliance / Chisel (GitHub)",
+      "publishedAt": "2026-08-13T03:51:41.000Z",
+      "summary": "CHIPS Alliance released Chisel v7.14.0 with a source-level deprecation of implicit truncation: the paired firtool 1.155.0 emits warnings, while Chisel points de...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CHIPS Alliance",
+        "Chisel",
+        "Hardware Construction",
+        "FIRRTL",
+        "CIRCT",
+        "firtool",
+        "EDA",
+        "RTL"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 5,
+      "titleZh": "Chisel v7.14.0 弃用 implicit truncation，并增加 explicit hardware-construction APIs",
+      "summaryZh": "CHIPS Alliance 发布 Chisel v7.14.0，在 source level 弃用 implicit truncation；配套的 firtool 1.155.0 会发出 warning，并引导设计者改用 bit extraction、.squeeze 或新的 explicit truncating connection operator。该版本还加入 domain APIs、LTL always operator、wide logical operators，以及 Options 的 Connectable support。"
+    },
+    {
       "title": "OpenTitan Earl Grey 2 adds a low-power I3C controller and target block",
       "url": "https://lowrisc.org/news/i3c-comes-to-opentitan-earl-grey-2/",
       "source": "lowRISC Newsroom",
@@ -373,7 +509,7 @@
       "reviewStatus": "curated",
       "curated": true,
       "editorPick": true,
-      "highlightRank": 1,
+      "highlightRank": 6,
       "titleZh": "OpenTitan Earl Grey 2 增加低功耗 I3C controller/target IP",
       "summaryZh": "lowRISC 详解了 OpenTitan Earl Grey 2 新增的 I3C IP block：它是面向 discrete Root of Trust SoC 的 standards-compliant controller/target 实现，支持 12.5 MHz SDR 与 25 MHz HDR-DDR；设计用 SCL-driven target-side transceiver logic 避免高频 oversampling，并加入 deep-sleep wake handling，服务低成本、低功耗安全芯片。"
     },
@@ -402,7 +538,7 @@
       "sourceTier": "trusted",
       "reviewStatus": "curated",
       "curated": true,
-      "highlightRank": 2,
+      "highlightRank": 7,
       "titleZh": "CIRCT firtool 1.155.0 更新 HW、LLHD、ESI、Moore、FIRRTL 与 RTG 流程",
       "summaryZh": "LLVM CIRCT 发布 firtool 1.155.0，硬件编译器更新包括 HW bitcast fold 的 aggregate constant 支持、更完整的 LLHD loop unrolling、ESI runtime/channel 工作、Moore/SystemVerilog lowering 修复、FIRRTL domain 与 constant-expression 更新、RTG effect system 增强，以及 BMC trace/counterexample handling。"
     },
@@ -428,7 +564,7 @@
       "sourceTier": "trusted",
       "reviewStatus": "curated",
       "curated": true,
-      "highlightRank": 3,
+      "highlightRank": 8,
       "titleZh": "Yosys 0.68 新增 SymFPU pass，并清理旧 synthesis options",
       "summaryZh": "Yosys 0.68 是一次正式的 open EDA 发布，新增 symfpu 与 symfpu_convert pass，移除 ABC、flowmap、synth、synth_ice40 与 read_aiger 流程中的若干旧选项或已替代选项，并包含 Radiant netlist compatibility 等修复。"
     },
@@ -456,7 +592,7 @@
       "sourceTier": "trusted",
       "reviewStatus": "curated",
       "curated": true,
-      "highlightRank": 4,
+      "highlightRank": 9,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
     },
@@ -2641,6 +2777,7 @@
     "OpenHW / CVA6 (GitHub)",
     "OpenHW Foundation / Eclipse Foundation Canada",
     "OpenHW Foundation News",
+    "OpenHW TV",
     "RISC-V Architecture Tests (GitHub)",
     "RISC-V ISA Manual (GitHub)",
     "RISC-V International",
