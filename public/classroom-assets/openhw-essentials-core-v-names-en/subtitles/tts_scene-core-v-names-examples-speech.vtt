@@ -1,22 +1,22 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:04.178
+00:00:00.000 --> 00:00:05.562
 The four-stage embedded family shows why suffixes matter.
 
 2
-00:00:04.178 --> 00:00:11.433
+00:00:05.562 --> 00:00:15.223
 CV32E40P preserves RI5CY and PULP lineage and may include F or Zfinx plus PULP custom instructions.
 
 3
-00:00:11.433 --> 00:00:19.275
+00:00:15.223 --> 00:00:25.665
 CV32E40X exposes CORE-V-XIF, allowing external modules to implement instructions without changing core RTL.
 
 4
-00:00:19.275 --> 00:00:28.436
+00:00:25.665 --> 00:00:37.863
 CV32E40S targets security systems, with Machine and User privilege support, enhanced protection, and anti-tampering features.
 
 5
-00:00:28.436 --> 00:00:36.425
+00:00:37.863 --> 00:00:48.500
 The shared prefix predicts width, class, and pipeline; the suffix points to a different integration contract.
 

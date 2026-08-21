@@ -1,22 +1,22 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:06.522
+00:00:00.000 --> 00:00:09.247
 The original OpenHW naming deck used five fields: family, word length, class, identity, and an optional modifier.
 
 2
-00:00:06.522 --> 00:00:10.793
+00:00:09.247 --> 00:00:15.303
 There the identity combined pipeline length with a product feature number.
 
 3
-00:00:10.793 --> 00:00:18.874
+00:00:15.303 --> 00:00:26.760
 Current CVA6 documentation publishes a related but clearer pattern: C V, instruction length, class, pipeline stages, and product identifier.
 
 4
-00:00:18.874 --> 00:00:23.434
+00:00:26.760 --> 00:00:33.225
 Both help parse names, but neither applies blindly to every current repository.
 
 5
-00:00:23.434 --> 00:00:25.800
+00:00:33.225 --> 00:00:36.580
 The current manual remains authoritative.
 

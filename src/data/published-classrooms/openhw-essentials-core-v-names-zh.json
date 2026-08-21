@@ -6,7 +6,7 @@
     "name": "如何读懂 CORE-V 内核命名",
     "description": "一门技术短课：理解 CORE-V 家族名称、料号、配置和机器可读身份。",
     "createdAt": 1785758400000,
-    "updatedAt": 1785761763319,
+    "updatedAt": 1787306139266,
     "language": "zh-CN",
     "style": "openhw-signal-technical",
     "courseTemplateId": "openhw-essentials-microcourse",

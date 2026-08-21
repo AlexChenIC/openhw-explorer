@@ -1,26 +1,26 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:03.066
+00:00:00.000 --> 00:00:04.044
 Start by identifying the object level.
 
 2
-00:00:03.066 --> 00:00:09.038
+00:00:04.044 --> 00:00:11.919
 CVE2 is both a compact family label and the repository that hosts the RTL.
 
 3
-00:00:09.038 --> 00:00:12.185
+00:00:11.919 --> 00:00:16.070
 Its current named processor is CV32E20.
 
 4
-00:00:12.185 --> 00:00:22.110
+00:00:16.070 --> 00:00:29.159
 CVE4 is a family grouping for several four-stage cores, but CV32E40P, CV32E40X, and CV32E40S live in separate repositories.
 
 5
-00:00:22.110 --> 00:00:28.243
+00:00:29.159 --> 00:00:37.247
 CVA6 is a heavily parameterized repository for several 32- and 64-bit cores.
 
 6
-00:00:28.243 --> 00:00:37.200
+00:00:37.247 --> 00:00:49.060
 The longer part number narrows the implementation, but a release tag and configuration table narrow it further.
 

@@ -1,26 +1,26 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:03.202
+00:00:00.000 --> 00:00:03.848
 CVE2 cleanly separates family from core.
 
 2
-00:00:03.202 --> 00:00:07.684
+00:00:03.848 --> 00:00:09.234
 OpenHW forked Ibex in 2023 and named the code base CVE2.
 
 3
-00:00:07.684 --> 00:00:14.968
+00:00:09.234 --> 00:00:17.988
 Its current named core, CV32E20, targets constrained 32-bit MCU and embedded subsystem use.
 
 4
-00:00:14.968 --> 00:00:23.053
+00:00:17.988 --> 00:00:27.703
 Stage one fetches instructions; stage two combines decode, register access, execution, and writeback.
 
 5
-00:00:23.053 --> 00:00:30.257
+00:00:27.703 --> 00:00:36.360
 The specification defines golden RV32E M C and RV32I M C builds for FPGA and ASIC targets.
 
 6
-00:00:30.257 --> 00:00:35.300
+00:00:36.360 --> 00:00:42.420
 The part number alone cannot carry those configuration choices.
 
