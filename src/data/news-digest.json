@@ -1,29 +1,29 @@
 {
-  "weekOf": "2026-08-11",
-  "generatedAt": "2026-08-11T07:56:14.444Z",
+  "weekOf": "2026-08-29",
+  "generatedAt": "2026-08-29T09:35:56.233Z",
   "stats": {
-    "totalRelevant": 93,
-    "totalSources": 35,
+    "totalRelevant": 98,
+    "totalSources": 36,
     "topTags": [
       {
         "tag": "RISC-V",
-        "count": 30
+        "count": 33
+      },
+      {
+        "tag": "Security",
+        "count": 28
       },
       {
         "tag": "EDA",
         "count": 25
       },
       {
-        "tag": "Security",
-        "count": 24
-      },
-      {
         "tag": "Verification",
-        "count": 19
+        "count": 21
       },
       {
         "tag": "Root of Trust",
-        "count": 15
+        "count": 17
       }
     ]
   },
@@ -35,8 +35,20 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 33,
+      "count": 34,
       "items": [
+        {
+          "title": "Caliptra MCU Runtime SDK 2.1.0 publishes a Rust/Tock RoT reference runtime",
+          "titleZh": "Caliptra MCU Runtime SDK 2.1.0 发布 Rust/Tock RoT reference runtime",
+          "url": "https://github.com/chipsalliance/caliptra-mcu-sw/releases/tag/rt-sdk-2.1.0",
+          "source": "CHIPS Alliance / Caliptra MCU SW (GitHub)",
+          "tags": [
+            "CHIPS Alliance",
+            "Caliptra",
+            "Root of Trust"
+          ],
+          "publishedAt": "2026-08-24T15:38:57.000Z"
+        },
         {
           "title": "CIRCT firtool 1.155.0 updates HW, LLHD, ESI, Moore, FIRRTL, and RTG flows",
           "titleZh": "CIRCT firtool 1.155.0 更新 HW、LLHD、ESI、Moore、FIRRTL 与 RTG 流程",
@@ -72,18 +84,6 @@
             "TT-NN"
           ],
           "publishedAt": "2026-07-30T21:54:28.000Z"
-        },
-        {
-          "title": "CIRCT firtool 1.154.0 updates Arcilator, ImportVerilog, Moore, BMC, and HWToLLVM flows",
-          "titleZh": "CIRCT firtool 1.154.0 更新 Arcilator、ImportVerilog、Moore、BMC 与 HWToLLVM 流程",
-          "url": "https://github.com/llvm/circt/releases/tag/firtool-1.154.0",
-          "source": "LLVM / CIRCT (GitHub)",
-          "tags": [
-            "CIRCT",
-            "firtool",
-            "MLIR"
-          ],
-          "publishedAt": "2026-07-27T18:39:17.000Z"
         }
       ]
     },
@@ -94,8 +94,44 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 34,
+      "count": 37,
       "items": [
+        {
+          "title": "OpenTitan starts Peppermint, an integrated RoT for constrained SoCs",
+          "titleZh": "OpenTitan 启动面向受限 SoC 的 Peppermint integrated RoT",
+          "url": "https://lowrisc.org/news/opentitan-project-kicks-off-the-peppermint-integrated-root-of-trust-for-area-constrained-socs/",
+          "source": "lowRISC Newsroom",
+          "tags": [
+            "lowRISC",
+            "OpenTitan",
+            "Peppermint"
+          ],
+          "publishedAt": "2026-08-25T08:00:00.000Z"
+        },
+        {
+          "title": "OpenHW TV publishes a practical webinar on open RISC-V verification",
+          "titleZh": "OpenHW TV 发布开放 RISC-V verification 实务 webinar",
+          "url": "https://www.youtube.com/watch?v=pH2zvi_x5wM",
+          "source": "OpenHW TV",
+          "tags": [
+            "OpenHW",
+            "OpenHW TV",
+            "RISC-V"
+          ],
+          "publishedAt": "2026-07-29T00:00:00.000Z"
+        },
+        {
+          "title": "OpenHW TV introduces RISC-V System-on-Chip Design with CORE-V Wally",
+          "titleZh": "OpenHW TV 介绍基于 CORE-V Wally 的 RISC-V System-on-Chip Design",
+          "url": "https://www.youtube.com/watch?v=844k7CObghY",
+          "source": "OpenHW TV",
+          "tags": [
+            "OpenHW",
+            "OpenHW TV",
+            "CORE-V"
+          ],
+          "publishedAt": "2026-08-28T00:00:00.000Z"
+        },
         {
           "title": "OpenTitan Earl Grey 2 adds a low-power I3C controller and target block",
           "titleZh": "OpenTitan Earl Grey 2 增加低功耗 I3C controller/target IP",
@@ -107,42 +143,6 @@
             "Earl Grey 2"
           ],
           "publishedAt": "2026-07-30T08:00:00.000Z"
-        },
-        {
-          "title": "RISC-V International publishes open workflow for migrating custom extensions into compliant opcode space",
-          "titleZh": "RISC-V International 发布自定义扩展迁移到合规 opcode space 的开放流程",
-          "url": "https://riscv.org/blog/conflict-to-compliance-risc-v-extension-migration-across-spec-hw-and-sw/",
-          "source": "RISC-V International news",
-          "tags": [
-            "RISC-V",
-            "Unified Database",
-            "ISA Extensions"
-          ],
-          "publishedAt": "2026-07-29T08:46:17.000Z"
-        },
-        {
-          "title": "OpenTitan Earl Grey 2 roadmap adds CHERI, PQC, I3C, and efficiency upgrades",
-          "titleZh": "OpenTitan Earl Grey 2 路线图加入 CHERI、PQC、I3C 与效率升级",
-          "url": "https://lowrisc.org/news/opentitan-earl-grey-2-to-support-cheri-and-pqc/",
-          "source": "lowRISC Newsroom",
-          "tags": [
-            "lowRISC",
-            "OpenTitan",
-            "Earl Grey 2"
-          ],
-          "publishedAt": "2026-07-14T08:00:00.000Z"
-        },
-        {
-          "title": "Tampere University joins OpenTitan to advance RISC-V SoC security and PQC research",
-          "titleZh": "Tampere University 加入 OpenTitan，推进 RISC-V SoC security 与 PQC 研究",
-          "url": "https://lowrisc.org/news/tampere-university-joins-opentitan-coalition-to-advance-risc-v-soc-security-and-open-source-silicon-research/",
-          "source": "lowRISC Newsroom",
-          "tags": [
-            "lowRISC",
-            "OpenTitan",
-            "Tampere University"
-          ],
-          "publishedAt": "2026-07-10T08:00:00.000Z"
         }
       ]
     },
@@ -271,8 +271,20 @@
         "zh": "硬件与嵌入式"
       },
       "icon": "circuit",
-      "count": 8,
+      "count": 9,
       "items": [
+        {
+          "title": "Antmicro introduces Faultergeist for SEU fault injection in Verilator",
+          "titleZh": "Antmicro 推出面向 Verilator 的 SEU fault injection 工具 Faultergeist",
+          "url": "https://antmicro.com/blog/2026/08/SEU-vulnerability-testing-with-Faultergeist",
+          "source": "Antmicro Blog",
+          "tags": [
+            "Antmicro",
+            "Faultergeist",
+            "Verilator"
+          ],
+          "publishedAt": "2026-08-19T00:00:00.000Z"
+        },
         {
           "title": "Verilator reaches an initial four-state logic implementation milestone",
           "titleZh": "Verilator 四态逻辑实现达到首个里程碑",
@@ -308,18 +320,6 @@
             "mockturtle"
           ],
           "publishedAt": "2026-06-30T00:00:00.000Z"
-        },
-        {
-          "title": "Antmicro adds host-controller support to the CHIPS Alliance open-source I3C Core",
-          "titleZh": "Antmicro 为 CHIPS Alliance 开源 I3C Core 加入 host-controller 支持",
-          "url": "https://antmicro.com/blog/2026/06/i3c-core-host-controller-support",
-          "source": "Antmicro Blog",
-          "tags": [
-            "Antmicro",
-            "CHIPS Alliance",
-            "I3C"
-          ],
-          "publishedAt": "2026-06-16T00:00:00.000Z"
         }
       ]
     },
@@ -349,6 +349,149 @@
   ],
   "items": [
     {
+      "title": "OpenTitan starts Peppermint, an integrated RoT for constrained SoCs",
+      "url": "https://lowrisc.org/news/opentitan-project-kicks-off-the-peppermint-integrated-root-of-trust-for-area-constrained-socs/",
+      "source": "lowRISC Newsroom",
+      "publishedAt": "2026-08-25T08:00:00.000Z",
+      "summary": "lowRISC announced Peppermint as a new OpenTitan top level optimized for area-, cost-, and power-constrained SoCs such as wearables, IoT endnodes, and microcontr...",
+      "author": "",
+      "relevanceScore": 7,
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "Peppermint",
+        "Root of Trust",
+        "Security",
+        "Secure Boot",
+        "Firmware Update",
+        "PQC",
+        "IoT",
+        "MCU",
+        "Open Silicon"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "editorPick": true,
+      "highlightRank": 1,
+      "titleZh": "OpenTitan 启动面向受限 SoC 的 Peppermint integrated RoT",
+      "summaryZh": "lowRISC 宣布 Peppermint 成为 OpenTitan 新的 top level，面向 wearable、IoT endnode 与 microcontroller 等受面积、成本和功耗约束的 SoC。这个 integrated Root of Trust 计划负责 secure boot、firmware update 以及来自主 SoC 的 cryptographic requests；设计工作预计在 2026 年下半年进行，软件与验证预计 2027 年上半年完成。"
+    },
+    {
+      "title": "Caliptra MCU Runtime SDK 2.1.0 publishes a Rust/Tock RoT reference runtime",
+      "url": "https://github.com/chipsalliance/caliptra-mcu-sw/releases/tag/rt-sdk-2.1.0",
+      "source": "CHIPS Alliance / Caliptra MCU SW (GitHub)",
+      "publishedAt": "2026-08-24T15:38:57.000Z",
+      "summary": "CHIPS Alliance published the initial Caliptra 2.1 MCU Runtime SDK release, a Rust-based reference Root of Trust runtime built on Tock. The SDK includes reusable...",
+      "author": "",
+      "relevanceScore": 6,
+      "tags": [
+        "CHIPS Alliance",
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "Firmware",
+        "MCU",
+        "Tock",
+        "Rust",
+        "FPGA",
+        "Emulator",
+        "RISC-V"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 2,
+      "titleZh": "Caliptra MCU Runtime SDK 2.1.0 发布 Rust/Tock RoT reference runtime",
+      "summaryZh": "CHIPS Alliance 发布 Caliptra 2.1 MCU Runtime SDK 的初始版本，这是基于 Tock 的 Rust reference Root of Trust runtime。SDK 包含 reusable capsules、hardware-abstraction interfaces、reference drivers、userspace APIs、protocol stacks、reference applications、host tooling，以及可供 SoC-specific integration 使用的 emulator 与 FPGA reference platforms。"
+    },
+    {
+      "title": "OpenHW TV publishes a practical webinar on open RISC-V verification",
+      "url": "https://www.youtube.com/watch?v=pH2zvi_x5wM",
+      "source": "OpenHW TV",
+      "publishedAt": "2026-07-29T00:00:00.000Z",
+      "summary": "OpenHW TV published PlanV Tech's webinar on open verification for RISC-V and high-assurance silicon. The session connects UVM support for Verilator, industrial ...",
+      "author": "",
+      "relevanceScore": 15,
+      "tags": [
+        "OpenHW",
+        "OpenHW TV",
+        "RISC-V",
+        "Verification",
+        "UVM",
+        "Verilator",
+        "CORE-V-VERIF",
+        "Formal Verification",
+        "High-Assurance Silicon",
+        "Security"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 3,
+      "titleZh": "OpenHW TV 发布开放 RISC-V verification 实务 webinar",
+      "summaryZh": "OpenHW TV 发布 PlanV Tech 关于 RISC-V 与 high-assurance silicon 开放验证的 webinar。内容把 Verilator 的 UVM support、CORE-V-VERIF 等 industrial-strength environments、emerging formal verification frameworks，以及从 RTL verification 到 formally verified device drivers 和 trusted embedded systems 的 end-to-end trust 连接起来。"
+    },
+    {
+      "title": "OpenHW TV introduces RISC-V System-on-Chip Design with CORE-V Wally",
+      "url": "https://www.youtube.com/watch?v=844k7CObghY",
+      "source": "OpenHW TV",
+      "publishedAt": "2026-08-28T00:00:00.000Z",
+      "summary": "OpenHW TV published Prof. David Harris and Dr. Rose Thompson's webinar introducing RISC-V System-on-Chip Design and its hands-on course material around CORE-V W...",
+      "author": "",
+      "relevanceScore": 13,
+      "tags": [
+        "OpenHW",
+        "OpenHW TV",
+        "CORE-V",
+        "CORE-V Wally",
+        "RISC-V",
+        "SoC",
+        "Computer Architecture",
+        "Education",
+        "FPGA",
+        "Open Source"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 4,
+      "titleZh": "OpenHW TV 介绍基于 CORE-V Wally 的 RISC-V System-on-Chip Design",
+      "summaryZh": "OpenHW TV 发布 Prof. David Harris 与 Dr. Rose Thompson 的 webinar，介绍 RISC-V System-on-Chip Design 及其围绕 CORE-V Wally 的 hands-on course material。录制内容强调一个 practical open-source SoC platform，覆盖 RV32I/RV64I、Linux-capable virtual memory、caches、branch prediction、RISC-V extensions，以及 simulation、analysis、extension 和 FPGA 使用。"
+    },
+    {
+      "title": "Antmicro introduces Faultergeist for SEU fault injection in Verilator",
+      "url": "https://antmicro.com/blog/2026/08/SEU-vulnerability-testing-with-Faultergeist",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-08-19T00:00:00.000Z",
+      "summary": "Antmicro introduced Faultergeist, an open-source fault-injection framework for testing digital designs against single-event upset vulnerability in Verilator. Th...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Antmicro",
+        "Faultergeist",
+        "Verilator",
+        "Verification",
+        "Fault Injection",
+        "Single-Event Upset",
+        "Aerospace",
+        "Open EDA",
+        "Security",
+        "Reliability"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 5,
+      "titleZh": "Antmicro 推出面向 Verilator 的 SEU fault injection 工具 Faultergeist",
+      "summaryZh": "Antmicro 介绍了 Faultergeist，这是一个用于在 Verilator 中测试 digital designs 对 single-event upset vulnerability 的 open-source fault-injection framework。该流程用 Weibull 与 Bendel cosmic-radiation models 生成 fault campaigns，这些模型基于 irradiation data 校验；随后通过 VPI plugin 在 simulation runtime 注入 bit flips。"
+    },
+    {
       "title": "OpenTitan Earl Grey 2 adds a low-power I3C controller and target block",
       "url": "https://lowrisc.org/news/i3c-comes-to-opentitan-earl-grey-2/",
       "source": "lowRISC Newsroom",
@@ -373,7 +516,7 @@
       "reviewStatus": "curated",
       "curated": true,
       "editorPick": true,
-      "highlightRank": 1,
+      "highlightRank": 6,
       "titleZh": "OpenTitan Earl Grey 2 增加低功耗 I3C controller/target IP",
       "summaryZh": "lowRISC 详解了 OpenTitan Earl Grey 2 新增的 I3C IP block：它是面向 discrete Root of Trust SoC 的 standards-compliant controller/target 实现，支持 12.5 MHz SDR 与 25 MHz HDR-DDR；设计用 SCL-driven target-side transceiver logic 避免高频 oversampling，并加入 deep-sleep wake handling，服务低成本、低功耗安全芯片。"
     },
@@ -402,7 +545,7 @@
       "sourceTier": "trusted",
       "reviewStatus": "curated",
       "curated": true,
-      "highlightRank": 2,
+      "highlightRank": 7,
       "titleZh": "CIRCT firtool 1.155.0 更新 HW、LLHD、ESI、Moore、FIRRTL 与 RTG 流程",
       "summaryZh": "LLVM CIRCT 发布 firtool 1.155.0，硬件编译器更新包括 HW bitcast fold 的 aggregate constant 支持、更完整的 LLHD loop unrolling、ESI runtime/channel 工作、Moore/SystemVerilog lowering 修复、FIRRTL domain 与 constant-expression 更新、RTG effect system 增强，以及 BMC trace/counterexample handling。"
     },
@@ -428,7 +571,7 @@
       "sourceTier": "trusted",
       "reviewStatus": "curated",
       "curated": true,
-      "highlightRank": 3,
+      "highlightRank": 8,
       "titleZh": "Yosys 0.68 新增 SymFPU pass，并清理旧 synthesis options",
       "summaryZh": "Yosys 0.68 是一次正式的 open EDA 发布，新增 symfpu 与 symfpu_convert pass，移除 ABC、flowmap、synth、synth_ice40 与 read_aiger 流程中的若干旧选项或已替代选项，并包含 Radiant netlist compatibility 等修复。"
     },
@@ -456,7 +599,7 @@
       "sourceTier": "trusted",
       "reviewStatus": "curated",
       "curated": true,
-      "highlightRank": 4,
+      "highlightRank": 9,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
     },
@@ -2641,6 +2784,7 @@
     "OpenHW / CVA6 (GitHub)",
     "OpenHW Foundation / Eclipse Foundation Canada",
     "OpenHW Foundation News",
+    "OpenHW TV",
     "RISC-V Architecture Tests (GitHub)",
     "RISC-V ISA Manual (GitHub)",
     "RISC-V International",

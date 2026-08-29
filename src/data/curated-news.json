@@ -3,6 +3,129 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "OpenTitan starts Peppermint, an integrated RoT for constrained SoCs",
+      "titleZh": "OpenTitan 启动面向受限 SoC 的 Peppermint integrated RoT",
+      "url": "https://lowrisc.org/news/opentitan-project-kicks-off-the-peppermint-integrated-root-of-trust-for-area-constrained-socs/",
+      "source": "lowRISC Newsroom",
+      "addedAt": "2026-08-25T08:00:00Z",
+      "summary": "lowRISC announced Peppermint as a new OpenTitan top level optimized for area-, cost-, and power-constrained SoCs such as wearables, IoT endnodes, and microcontrollers. The integrated Root of Trust is planned to handle secure boot, firmware updates, and cryptographic requests from the main SoC, with design work planned for H2 2026 and software plus verification completion in H1 2027.",
+      "summaryZh": "lowRISC 宣布 Peppermint 成为 OpenTitan 新的 top level，面向 wearable、IoT endnode 与 microcontroller 等受面积、成本和功耗约束的 SoC。这个 integrated Root of Trust 计划负责 secure boot、firmware update 以及来自主 SoC 的 cryptographic requests；设计工作预计在 2026 年下半年进行，软件与验证预计 2027 年上半年完成。",
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "Peppermint",
+        "Root of Trust",
+        "Security",
+        "Secure Boot",
+        "Firmware Update",
+        "PQC",
+        "IoT",
+        "MCU",
+        "Open Silicon"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "editorPick": true,
+      "highlightRank": 1
+    },
+    {
+      "title": "Caliptra MCU Runtime SDK 2.1.0 publishes a Rust/Tock RoT reference runtime",
+      "titleZh": "Caliptra MCU Runtime SDK 2.1.0 发布 Rust/Tock RoT reference runtime",
+      "url": "https://github.com/chipsalliance/caliptra-mcu-sw/releases/tag/rt-sdk-2.1.0",
+      "source": "CHIPS Alliance / Caliptra MCU SW (GitHub)",
+      "addedAt": "2026-08-24T15:38:57Z",
+      "summary": "CHIPS Alliance published the initial Caliptra 2.1 MCU Runtime SDK release, a Rust-based reference Root of Trust runtime built on Tock. The SDK includes reusable capsules, hardware-abstraction interfaces, reference drivers, userspace APIs, protocol stacks, reference applications, host tooling, and emulator plus FPGA reference platforms for SoC-specific integration.",
+      "summaryZh": "CHIPS Alliance 发布 Caliptra 2.1 MCU Runtime SDK 的初始版本，这是基于 Tock 的 Rust reference Root of Trust runtime。SDK 包含 reusable capsules、hardware-abstraction interfaces、reference drivers、userspace APIs、protocol stacks、reference applications、host tooling，以及可供 SoC-specific integration 使用的 emulator 与 FPGA reference platforms。",
+      "tags": [
+        "CHIPS Alliance",
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "Firmware",
+        "MCU",
+        "Tock",
+        "Rust",
+        "FPGA",
+        "Emulator",
+        "RISC-V"
+      ],
+      "sourceTier": "trusted",
+      "language": "en",
+      "highlightRank": 2
+    },
+    {
+      "title": "OpenHW TV publishes a practical webinar on open RISC-V verification",
+      "titleZh": "OpenHW TV 发布开放 RISC-V verification 实务 webinar",
+      "url": "https://www.youtube.com/watch?v=pH2zvi_x5wM",
+      "source": "OpenHW TV",
+      "addedAt": "2026-07-29T00:00:00Z",
+      "summary": "OpenHW TV published PlanV Tech's webinar on open verification for RISC-V and high-assurance silicon. The session connects UVM support for Verilator, industrial environments such as CORE-V-VERIF, emerging formal verification frameworks, and end-to-end trust concerns spanning RTL verification, formally verified device drivers, and trusted embedded systems.",
+      "summaryZh": "OpenHW TV 发布 PlanV Tech 关于 RISC-V 与 high-assurance silicon 开放验证的 webinar。内容把 Verilator 的 UVM support、CORE-V-VERIF 等 industrial-strength environments、emerging formal verification frameworks，以及从 RTL verification 到 formally verified device drivers 和 trusted embedded systems 的 end-to-end trust 连接起来。",
+      "tags": [
+        "OpenHW",
+        "OpenHW TV",
+        "RISC-V",
+        "Verification",
+        "UVM",
+        "Verilator",
+        "CORE-V-VERIF",
+        "Formal Verification",
+        "High-Assurance Silicon",
+        "Security"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "highlightRank": 3
+    },
+    {
+      "title": "OpenHW TV introduces RISC-V System-on-Chip Design with CORE-V Wally",
+      "titleZh": "OpenHW TV 介绍基于 CORE-V Wally 的 RISC-V System-on-Chip Design",
+      "url": "https://www.youtube.com/watch?v=844k7CObghY",
+      "source": "OpenHW TV",
+      "addedAt": "2026-08-28T00:00:00Z",
+      "summary": "OpenHW TV published Prof. David Harris and Dr. Rose Thompson's webinar introducing RISC-V System-on-Chip Design and its hands-on course material around CORE-V Wally. The recording highlights a practical open-source SoC platform spanning RV32I and RV64I, Linux-capable virtual memory, caches, branch prediction, RISC-V extensions, simulation, analysis, extension, and FPGA use.",
+      "summaryZh": "OpenHW TV 发布 Prof. David Harris 与 Dr. Rose Thompson 的 webinar，介绍 RISC-V System-on-Chip Design 及其围绕 CORE-V Wally 的 hands-on course material。录制内容强调一个 practical open-source SoC platform，覆盖 RV32I/RV64I、Linux-capable virtual memory、caches、branch prediction、RISC-V extensions，以及 simulation、analysis、extension 和 FPGA 使用。",
+      "tags": [
+        "OpenHW",
+        "OpenHW TV",
+        "CORE-V",
+        "CORE-V Wally",
+        "RISC-V",
+        "SoC",
+        "Computer Architecture",
+        "Education",
+        "FPGA",
+        "Open Source"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "highlightRank": 4
+    },
+    {
+      "title": "Antmicro introduces Faultergeist for SEU fault injection in Verilator",
+      "titleZh": "Antmicro 推出面向 Verilator 的 SEU fault injection 工具 Faultergeist",
+      "url": "https://antmicro.com/blog/2026/08/SEU-vulnerability-testing-with-Faultergeist",
+      "source": "Antmicro Blog",
+      "addedAt": "2026-08-19T00:00:00Z",
+      "summary": "Antmicro introduced Faultergeist, an open-source fault-injection framework for testing digital designs against single-event upset vulnerability in Verilator. The workflow generates fault campaigns with Weibull and Bendel cosmic-radiation models validated against irradiation data, then injects bit flips at simulation runtime through a VPI plugin.",
+      "summaryZh": "Antmicro 介绍了 Faultergeist，这是一个用于在 Verilator 中测试 digital designs 对 single-event upset vulnerability 的 open-source fault-injection framework。该流程用 Weibull 与 Bendel cosmic-radiation models 生成 fault campaigns，这些模型基于 irradiation data 校验；随后通过 VPI plugin 在 simulation runtime 注入 bit flips。",
+      "tags": [
+        "Antmicro",
+        "Faultergeist",
+        "Verilator",
+        "Verification",
+        "Fault Injection",
+        "Single-Event Upset",
+        "Aerospace",
+        "Open EDA",
+        "Security",
+        "Reliability"
+      ],
+      "sourceTier": "trusted",
+      "language": "en",
+      "highlightRank": 5
+    },
+    {
       "title": "OpenTitan Earl Grey 2 adds a low-power I3C controller and target block",
       "titleZh": "OpenTitan Earl Grey 2 增加低功耗 I3C controller/target IP",
       "url": "https://lowrisc.org/news/i3c-comes-to-opentitan-earl-grey-2/",
@@ -25,7 +148,7 @@
       "sourceTier": "official",
       "language": "en",
       "editorPick": true,
-      "highlightRank": 1
+      "highlightRank": 6
     },
     {
       "title": "CIRCT firtool 1.155.0 updates HW, LLHD, ESI, Moore, FIRRTL, and RTG flows",
@@ -50,7 +173,7 @@
       ],
       "sourceTier": "trusted",
       "language": "en",
-      "highlightRank": 2
+      "highlightRank": 7
     },
     {
       "title": "Yosys 0.68 adds SymFPU passes and trims legacy synthesis options",
@@ -72,7 +195,7 @@
       ],
       "sourceTier": "trusted",
       "language": "en",
-      "highlightRank": 3
+      "highlightRank": 8
     },
     {
       "title": "Tenstorrent tt-metal v0.75.0 advances Quasar, Blackhole, TT-NN, and model flows",
@@ -96,7 +219,7 @@
       ],
       "sourceTier": "trusted",
       "language": "en",
-      "highlightRank": 4
+      "highlightRank": 9
     },
     {
       "title": "RISC-V International publishes open workflow for migrating custom extensions into compliant opcode space",
