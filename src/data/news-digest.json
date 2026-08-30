@@ -1,6 +1,6 @@
 {
   "weekOf": "2026-08-30",
-  "generatedAt": "2026-08-30T08:34:45.320Z",
+  "generatedAt": "2026-08-30T20:15:37.286Z",
   "stats": {
     "totalRelevant": 100,
     "totalSources": 36,
@@ -400,7 +400,7 @@
         "RISC-V"
       ],
       "language": "en",
-      "sourceTier": "trusted",
+      "sourceTier": "official",
       "reviewStatus": "curated",
       "curated": true,
       "highlightRank": 2,

@@ -49,7 +49,7 @@
         "Emulator",
         "RISC-V"
       ],
-      "sourceTier": "trusted",
+      "sourceTier": "official",
       "language": "en",
       "highlightRank": 2
     },
