@@ -1,8 +1,8 @@
 {
-  "weekOf": "2026-08-29",
-  "generatedAt": "2026-08-29T09:35:56.233Z",
+  "weekOf": "2026-08-30",
+  "generatedAt": "2026-08-30T08:34:45.320Z",
   "stats": {
-    "totalRelevant": 98,
+    "totalRelevant": 100,
     "totalSources": 36,
     "topTags": [
       {
@@ -11,7 +11,7 @@
       },
       {
         "tag": "Security",
-        "count": 28
+        "count": 29
       },
       {
         "tag": "EDA",
@@ -19,11 +19,11 @@
       },
       {
         "tag": "Verification",
-        "count": 21
+        "count": 22
       },
       {
         "tag": "Root of Trust",
-        "count": 17
+        "count": 18
       }
     ]
   },
@@ -35,7 +35,7 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 34,
+      "count": 35,
       "items": [
         {
           "title": "Caliptra MCU Runtime SDK 2.1.0 publishes a Rust/Tock RoT reference runtime",
@@ -212,8 +212,20 @@
         "zh": "产业动态"
       },
       "icon": "trending",
-      "count": 5,
+      "count": 6,
       "items": [
+        {
+          "title": "CHIPS Alliance I3C Core adds host-controller support with simulation and FPGA validation",
+          "titleZh": "CHIPS Alliance I3C Core 增加 Host Controller 支持并完成仿真与 FPGA 验证",
+          "url": "https://www.chipsalliance.org/news/implementing-i3c-host-controller-support-in-the-open-source-i3c-core/",
+          "source": "CHIPS Alliance Blog",
+          "tags": [
+            "CHIPS Alliance",
+            "I3C Core",
+            "I3C"
+          ],
+          "publishedAt": "2026-08-19T00:00:00.000Z"
+        },
         {
           "title": "Antmicro joins the OpenROAD Initiative to support open-source silicon design tooling",
           "titleZh": "Antmicro 加入 OpenROAD Initiative，支持开源硅设计工具生态",
@@ -249,18 +261,6 @@
             "Open EDA"
           ],
           "publishedAt": "2026-06-09T00:00:00.000Z"
-        },
-        {
-          "title": "FOSSi opens ORConf 2026 registration for its European open silicon conference",
-          "titleZh": "FOSSi 开放 ORConf 2026 注册，聚焦欧洲 open silicon 社区",
-          "url": "https://fossi-foundation.org/blog/2026-06-13-orconf-2026-registration-open",
-          "source": "FOSSi Foundation",
-          "tags": [
-            "FOSSi",
-            "ORConf",
-            "Open Silicon"
-          ],
-          "publishedAt": "2026-06-13T00:00:00.000Z"
         }
       ]
     },
@@ -602,6 +602,64 @@
       "highlightRank": 9,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "Caliptra firmware 2.0.3 strengthens DPE, authorization, and subsystem flows",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/fw-2.0.3",
+      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
+      "publishedAt": "2026-08-24T15:34:46.000Z",
+      "summary": "CHIPS Alliance published Caliptra firmware 2.0.3 as a combined runtime and FMC release. The release adds MCU runtime anchoring in the Caliptra-managed DPE chain...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CHIPS Alliance",
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "Firmware",
+        "FMC",
+        "DPE",
+        "Attestation",
+        "Authorization",
+        "OTP",
+        "FPGA",
+        "Emulator"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Caliptra firmware 2.0.3 强化 DPE、授权与 subsystem 流程",
+      "summaryZh": "CHIPS Alliance 发布 Caliptra firmware 2.0.3，作为 combined runtime and FMC release。该版本增加 MCU runtime anchoring into Caliptra-managed DPE chain、SoC manifest preamble DPE contexts、owner authorization manifest support、tagged DPE context SVN reporting、大于 1 MiB 镜像的 DMA hashing、entropy_src 动态功耗处理、staged subsystem OTP provisioning，并修复 DPE cache hardening、PAUSER validation、reserved firmware ID 与 PL0 authorization boundary 等安全和运行时问题。"
+    },
+    {
+      "title": "CHIPS Alliance I3C Core adds host-controller support with simulation and FPGA validation",
+      "url": "https://www.chipsalliance.org/news/implementing-i3c-host-controller-support-in-the-open-source-i3c-core/",
+      "source": "CHIPS Alliance Blog",
+      "publishedAt": "2026-08-19T00:00:00.000Z",
+      "summary": "CHIPS Alliance described Antmicro's host-controller expansion for the open source I3C Core, which was previously target-mode oriented and is already used in Cal...",
+      "author": "",
+      "relevanceScore": 13,
+      "tags": [
+        "CHIPS Alliance",
+        "I3C Core",
+        "I3C",
+        "MIPI I3C",
+        "Caliptra",
+        "Guineveer",
+        "VeeR EL2",
+        "Verilator",
+        "cocotb",
+        "FPGA",
+        "Verification",
+        "Open Silicon"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "CHIPS Alliance I3C Core 增加 Host Controller 支持并完成仿真与 FPGA 验证",
+      "summaryZh": "CHIPS Alliance 介绍 Antmicro 为 open source I3C Core 扩展 Host Controller 支持；该 Core 此前主要面向 Target mode，并已用于 Caliptra 和 Guineveer RISC-V SoC reference design。Controller 目标兼容 I3C HCI 1.2 与 I3C Basic 1.1.1，加入基于 CCC 的 bus management、Dynamic Address Assignment、IBI handling、open-drain/push-pull switching、timing CSR、cocotb/Verilator 验证，并在 ZCU106 FPGA 上用外部 I3C sensor board 进行了 12.5 MHz 验证。"
     },
     {
       "title": "RISC-V International publishes open workflow for migrating custom extensions into compliant opcode space",
