@@ -1,19 +1,31 @@
 {
   "_meta": {
-    "generatedAt": "2026-08-11T07:49:33.181Z",
+    "generatedAt": "2026-08-31T07:05:52.471Z",
     "lookbackDays": 45,
     "openHwActivityDays": 14,
-    "totalCandidates": 29,
-    "sourceCount": 9,
+    "totalCandidates": 39,
+    "sourceCount": 15,
     "reviewWorkflow": "Review candidates, verify source facts, copy selected items into src/data/curated-news.json, then run npm run build-news."
   },
   "sources": [
     {
       "source": "Antmicro Blog",
-      "count": 5
+      "count": 3
+    },
+    {
+      "source": "Apache TVM (GitHub)",
+      "count": 1
     },
     {
       "source": "CHIPS Alliance / Caliptra MCU SW (GitHub)",
+      "count": 2
+    },
+    {
+      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
+      "count": 1
+    },
+    {
+      "source": "CHIPS Alliance / Chisel (GitHub)",
       "count": 1
     },
     {
@@ -21,20 +33,32 @@
       "count": 6
     },
     {
+      "source": "cocotb (GitHub)",
+      "count": 1
+    },
+    {
+      "source": "FOSSi Foundation",
+      "count": 1
+    },
+    {
       "source": "LLVM / CIRCT (GitHub)",
       "count": 2
     },
     {
       "source": "lowRISC Newsroom",
-      "count": 4
+      "count": 2
     },
     {
       "source": "MLCommons",
-      "count": 5
+      "count": 4
+    },
+    {
+      "source": "OpenHW TV",
+      "count": 2
     },
     {
       "source": "RISC-V International news",
-      "count": 2
+      "count": 10
     },
     {
       "source": "RISC-V ISA Manual (GitHub)",
@@ -42,63 +66,10 @@
     },
     {
       "source": "YosysHQ / Yosys (GitHub)",
-      "count": 2
+      "count": 1
     }
   ],
   "items": [
-    {
-      "title": "Tampere University Joins OpenTitan Coalition to Advance RISC-V SoC Security and Open-Source Silicon Research",
-      "url": "https://lowrisc.org/news/tampere-university-joins-opentitan-coalition-to-advance-risc-v-soc-security-and-open-source-silicon-research/",
-      "source": "lowRISC Newsroom",
-      "sourceType": "web-page",
-      "sourceTier": "official",
-      "publishedAt": "2026-07-10T08:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 14,
-      "tags": [
-        "lowRISC",
-        "OpenTitan",
-        "RISC-V",
-        "SoC/IP",
-        "Security"
-      ],
-      "suggestedAudience": [
-        "openhw-riscv",
-        "security",
-        "soc-ip"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "Dual-core Lockstep in the VeeR EL2 RISC-V core for safety-critical applications and side-channel access mitigation in Caliptra RoT",
-      "url": "https://www.chipsalliance.org/news/implementing-dual-core-lockstep-in-the-veer-el2-risc-v-core/",
-      "source": "CHIPS Alliance Blog",
-      "sourceType": "web-page",
-      "sourceTier": "official",
-      "publishedAt": "2026-06-28T22:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 13,
-      "tags": [
-        "CHIPS Alliance",
-        "Open Silicon",
-        "project-update",
-        "caliptra",
-        "veer",
-        "RISC-V",
-        "Caliptra",
-        "VeeR"
-      ],
-      "suggestedAudience": [
-        "openhw-riscv",
-        "security",
-        "soc-ip"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
     {
       "title": "I3C comes to OpenTitan Earl Grey 2",
       "url": "https://lowrisc.org/news/i3c-comes-to-opentitan-earl-grey-2/",
@@ -106,36 +77,14 @@
       "sourceType": "rss",
       "sourceTier": "official",
       "publishedAt": "2026-07-30T08:00:00.000Z",
-      "summary": "OpenTitan Earl Grey 2 introduces a standards-compliant I3C controller and target block for discrete Root of Trust SoCs, with SDR and HDR-DDR support, low-power target-side logic, and deep-sleep wake handling.",
+      "summary": "The post I3C comes to OpenTitan Earl Grey 2 appeared first on lowRISC .",
       "author": "lowrisc_admin",
-      "relevanceScore": 9,
+      "relevanceScore": 12,
       "tags": [
         "lowRISC",
         "OpenTitan",
         "Open Silicon",
         "I3C"
-      ],
-      "suggestedAudience": [
-        "security",
-        "soc-ip"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "OpenTitan Earl Grey 2 to support CHERI and PQC",
-      "url": "https://lowrisc.org/news/opentitan-earl-grey-2-to-support-cheri-and-pqc/",
-      "source": "lowRISC Newsroom",
-      "sourceType": "web-page",
-      "sourceTier": "official",
-      "publishedAt": "2026-07-14T08:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 9,
-      "tags": [
-        "lowRISC",
-        "OpenTitan",
-        "CHERI"
       ],
       "suggestedAudience": [
         "security"
@@ -144,70 +93,194 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "RISC-V Edge Inference for Real-Time Eye-Movement Control on GAPses Smart Glasses",
-      "url": "https://riscv.org/blog/risc-v-edge-inference-for-real-time-eye-movement-control-on-gapses-smart-glasses/",
-      "source": "RISC-V International news",
+      "title": "OpenTitan project kicks off the Peppermint integrated root-of-trust for area-constrained SoCs",
+      "url": "https://lowrisc.org/news/opentitan-project-kicks-off-the-peppermint-integrated-root-of-trust-for-area-constrained-socs/",
+      "source": "lowRISC Newsroom",
       "sourceType": "rss",
       "sourceTier": "official",
-      "publishedAt": "2026-07-07T10:25:40.000Z",
-      "summary": "The post RISC-V Edge Inference for Real-Time Eye-Movement Control on GAPses Smart Glasses appeared first on RISC-V International .",
-      "author": "RISC-V International Staff",
+      "publishedAt": "2026-08-25T08:00:00.000Z",
+      "summary": "The post OpenTitan project kicks off the Peppermint integrated root-of-trust for area-constrained SoCs appeared first on lowRISC .",
+      "author": "lowrisc_admin",
       "relevanceScore": 9,
       "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "Open Silicon"
+      ],
+      "suggestedAudience": [
+        "security",
+        "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "RISC V System on Chip Design",
+      "url": "https://www.youtube.com/watch?v=844k7CObghY",
+      "source": "OpenHW TV",
+      "sourceType": "youtube",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-28T08:26:45.000Z",
+      "summary": "Ready to go beyond learning RISC-V in theory and start building real systems? Join Prof. David Harris and Dr. Rose Thompson for an inside look at RISC-V System-on-Chip Design, their new textbook created to help students,...",
+      "author": "OpenHW TV",
+      "relevanceScore": 8,
+      "tags": [
+        "OpenHW",
+        "OpenHW TV",
         "RISC-V",
-        "LLM"
+        "Talk",
+        "Webinar"
       ],
       "suggestedAudience": [
         "openhw-riscv",
-        "ai-accelerators"
+        "soc-ip"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "Call for Submission: Edge Agentic Inference Benchmark for MLPerf Inference v6.1",
-      "url": "https://mlcommons.org/2026/07/mlperf-inference-v61-edge-agentic/",
-      "source": "MLCommons",
-      "sourceType": "rss",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-07-09T14:45:00.000Z",
-      "summary": "Benchmarking Multi-Turn Agentic LLMs on a Single Edge Accelerator The post Call for Submission: Edge Agentic Inference Benchmark for MLPerf Inference v6.1 appeared first on MLCommons .",
-      "author": "MLCommons",
+      "title": "chipsalliance/caliptra-mcu-sw release: rt-sdk-2.1.0",
+      "url": "https://github.com/chipsalliance/caliptra-mcu-sw/releases/tag/rt-sdk-2.1.0",
+      "source": "CHIPS Alliance / Caliptra MCU SW (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-24T15:38:57.000Z",
+      "summary": "This is the initial release of the MCU Runtime SDK for Caliptra 2.1. It provides a Rust-based reference Root of Trust runtime built on Tock, including reusable capsules, hardware-abstraction interfaces, reference drivers...",
+      "author": "mhatrevi",
       "relevanceScore": 8,
       "tags": [
-        "MLCommons",
-        "Benchmarking",
-        "MLPerf",
-        "LLM",
-        "Accelerator"
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "Firmware",
+        "MCU",
+        "RISC-V"
       ],
       "suggestedAudience": [
-        "ai-accelerators"
+        "openhw-riscv",
+        "security",
+        "soc-ip"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "Simulation-driven development of SoCs accelerated with Google's Coral NPU using Renode and Verilator",
-      "url": "https://antmicro.com/blog/2026/07/renode-and-verilator-for-coral-npu",
-      "source": "Antmicro Blog",
-      "sourceType": "rss",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-07-01T00:00:00.000Z",
-      "summary": "",
-      "author": "",
+      "title": "chipsalliance/caliptra-mcu-sw release: rt-sdk-2.0.0",
+      "url": "https://github.com/chipsalliance/caliptra-mcu-sw/releases/tag/rt-sdk-2.0.0",
+      "source": "CHIPS Alliance / Caliptra MCU SW (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-24T15:38:38.000Z",
+      "summary": "This is the initial release of the MCU Runtime SDK for Caliptra 2.0. It provides a Rust-based reference Root of Trust runtime built on Tock, including reusable capsules, hardware-abstraction interfaces, reference drivers...",
+      "author": "mhatrevi",
       "relevanceScore": 8,
       "tags": [
-        "Antmicro",
-        "Open Hardware",
-        "Accelerator",
-        "Verilator",
-        "EDA"
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "Firmware",
+        "MCU",
+        "RISC-V"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv",
+        "security",
+        "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "chipsalliance/caliptra-sw release: fw-2.0.3",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/fw-2.0.3",
+      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-24T15:34:46.000Z",
+      "summary": "This is a combined runtime and FMC release. ## Caliptra Firmware 2.0.3 Release Notes Release notes for changes introduced since Firmware 2.0.2. ### Features - **Authorization, Attestation & DPE**: - Anchor MCU runtime in...",
+      "author": "github-actions[bot]",
+      "relevanceScore": 8,
+      "tags": [
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "Firmware",
+        "ROM"
+      ],
+      "suggestedAudience": [
+        "security",
+        "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "From \"Trust Me\" to \"Check Me\": Open Verification for RISC-V and High-Assurance Silicon",
+      "url": "https://www.youtube.com/watch?v=pH2zvi_x5wM",
+      "source": "OpenHW TV",
+      "sourceType": "youtube",
+      "sourceTier": "official",
+      "publishedAt": "2026-07-29T16:44:19.000Z",
+      "summary": "The open source silicon ecosystem has matured rapidly, but confidence in hardware still depends on one critical activity: verification. As RISC-V adoption accelerates across commercial, industrial, and safety-critical ap...",
+      "author": "OpenHW TV",
+      "relevanceScore": 8,
+      "tags": [
+        "OpenHW",
+        "OpenHW TV",
+        "RISC-V",
+        "Talk",
+        "Webinar"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv",
+        "verification"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "llvm/circt release: firtool-1.157.0",
+      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.157.0",
+      "source": "LLVM / CIRCT (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-08-22T21:51:05.000Z",
+      "summary": "## What's Changed * [ESI][Cosim] Link lz4 for Verilator FST tracing builds by @teqdruid in https://github.com/llvm/circt/pull/10998 * [ESI][Cosim] Raise the stack limit before running verilator_bin by @teqdruid in https:...",
+      "author": "seldridge",
+      "relevanceScore": 7,
+      "tags": [
+        "CIRCT",
+        "MLIR",
+        "Hardware Compiler",
+        "EDA",
+        "Verilator"
       ],
       "suggestedAudience": [
         "ai-accelerators",
-        "eda-tools",
-        "soc-ip"
+        "eda-tools"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "MLPerf Client v2.0 Expands AI PC Benchmarking with Image Generation and Agentic AI",
+      "url": "https://mlcommons.org/2026/08/mlperf-client-v2-0/",
+      "source": "MLCommons",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-08-18T14:50:00.000Z",
+      "summary": "New benchmark categories for generative AI and agentic workflows arrive alongside updated LLM tests, as the industry standard for measuring PC AI performance evolves. The post MLPerf Client v2.0 Expands AI PC Benchmarkin...",
+      "author": "MLCommons",
+      "relevanceScore": 7,
+      "tags": [
+        "MLCommons",
+        "Benchmarking",
+        "AI",
+        "MLPerf",
+        "LLM"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -218,7 +291,7 @@
       "source": "CHIPS Alliance Blog",
       "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-07-21T22:00:00.000Z",
+      "publishedAt": "2026-07-22T00:00:00.000Z",
       "summary": "",
       "author": "",
       "relevanceScore": 7,
@@ -242,7 +315,7 @@
       "source": "CHIPS Alliance Blog",
       "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-07-20T22:00:00.000Z",
+      "publishedAt": "2026-07-21T00:00:00.000Z",
       "summary": "",
       "author": "",
       "relevanceScore": 7,
@@ -262,36 +335,247 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "CHIPS Alliance Developer Spotlight: Stefano Righi, Chief Security Architect, AMI",
-      "url": "https://www.chipsalliance.org/news/spotlight-stefano-righi/",
-      "source": "CHIPS Alliance Blog",
-      "sourceType": "web-page",
+      "title": "riscv/riscv-isa-manual release: Release riscv-isa-release-e5c0c60-2026-08-29",
+      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-e5c0c60-2026-08-29",
+      "source": "RISC-V ISA Manual (GitHub)",
+      "sourceType": "github-release",
       "sourceTier": "official",
-      "publishedAt": "2026-06-28T22:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 7,
+      "publishedAt": "2026-08-29T22:26:36.000Z",
+      "summary": "This release was created by: aswaterman Release of RISC-V ISA, built from commit e5c0c60, is now available. ## What's Changed * Clarify that unexpected M-mode traps use RNMI interrupt trap vector by @aswaterman in https:...",
+      "author": "github-actions[bot]",
+      "relevanceScore": 6,
       "tags": [
-        "CHIPS Alliance",
-        "Open Silicon",
-        "Developer Spotlight",
-        "Security"
+        "RISC-V",
+        "ISA Manual",
+        "Specification"
       ],
       "suggestedAudience": [
-        "security",
-        "soc-ip"
+        "openhw-riscv"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "riscv/riscv-isa-manual release: Release riscv-isa-release-ba25a36-2026-08-04",
-      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-ba25a36-2026-08-04",
+      "title": "World RISC-V Days: Turin Italy",
+      "url": "https://riscv.org/blog/world-risc-v-days-turin-italy/",
+      "source": "RISC-V International news",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-27T18:32:09.000Z",
+      "summary": "The post World RISC-V Days: Turin Italy appeared first on RISC-V International .",
+      "author": "RISC-V International Staff",
+      "relevanceScore": 6,
+      "tags": [
+        "RISC-V"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "World RISC-V Days: Tel Aviv Israel",
+      "url": "https://riscv.org/blog/world-risc-v-days-tel-aviv-israel/",
+      "source": "RISC-V International news",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-27T18:32:09.000Z",
+      "summary": "The post World RISC-V Days: Tel Aviv Israel appeared first on RISC-V International .",
+      "author": "RISC-V International Staff",
+      "relevanceScore": 6,
+      "tags": [
+        "RISC-V"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "World RISC-V Days: Gujarat India",
+      "url": "https://riscv.org/blog/world-risc-v-days-gujarat-india/",
+      "source": "RISC-V International news",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-27T18:32:08.000Z",
+      "summary": "The post World RISC-V Days: Gujarat India appeared first on RISC-V International .",
+      "author": "RISC-V International Staff",
+      "relevanceScore": 6,
+      "tags": [
+        "RISC-V"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv",
+        "ai-accelerators"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "World RISC-V Days: Boston USA",
+      "url": "https://riscv.org/blog/world-risc-v-days-boston-usa/",
+      "source": "RISC-V International news",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-27T18:32:07.000Z",
+      "summary": "The post World RISC-V Days: Boston USA appeared first on RISC-V International .",
+      "author": "RISC-V International Staff",
+      "relevanceScore": 6,
+      "tags": [
+        "RISC-V"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "World RISC-V Days: Nairobi Africa",
+      "url": "https://riscv.org/blog/world-risc-v-days-nairobi-africa/",
+      "source": "RISC-V International news",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-27T18:32:06.000Z",
+      "summary": "The post World RISC-V Days: Nairobi Africa appeared first on RISC-V International .",
+      "author": "RISC-V International Staff",
+      "relevanceScore": 6,
+      "tags": [
+        "RISC-V"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "World RISC-V Days: Buenos Aires Argentina",
+      "url": "https://riscv.org/blog/world-risc-v-days-buenos-aires-argentina/",
+      "source": "RISC-V International news",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-27T18:32:05.000Z",
+      "summary": "The post World RISC-V Days: Buenos Aires Argentina appeared first on RISC-V International .",
+      "author": "RISC-V International Staff",
+      "relevanceScore": 6,
+      "tags": [
+        "RISC-V"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "World RISC-V Days: Graz Austria",
+      "url": "https://riscv.org/blog/world-risc-v-days-graz-austria/",
+      "source": "RISC-V International news",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-27T18:32:03.000Z",
+      "summary": "The post World RISC-V Days: Graz Austria appeared first on RISC-V International .",
+      "author": "RISC-V International Staff",
+      "relevanceScore": 6,
+      "tags": [
+        "RISC-V"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "World RISC-V Days: Mymensingh Bangladesh",
+      "url": "https://riscv.org/blog/world-risc-v-days-mymensingh-bangladesh/",
+      "source": "RISC-V International news",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-27T18:32:02.000Z",
+      "summary": "The post World RISC-V Days: Mymensingh Bangladesh appeared first on RISC-V International .",
+      "author": "RISC-V International Staff",
+      "relevanceScore": 6,
+      "tags": [
+        "RISC-V"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "World RISC-V Days: Dhaka Bangladesh",
+      "url": "https://riscv.org/blog/world-risc-v-days-dhaka-bangladesh/",
+      "source": "RISC-V International news",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-27T18:32:01.000Z",
+      "summary": "The post World RISC-V Days: Dhaka Bangladesh appeared first on RISC-V International .",
+      "author": "RISC-V International Staff",
+      "relevanceScore": 6,
+      "tags": [
+        "RISC-V"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "World RISC-V Days: Heraklion Greece",
+      "url": "https://riscv.org/blog/world-risc-v-days-heraklion-greece/",
+      "source": "RISC-V International news",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-27T18:32:00.000Z",
+      "summary": "The post World RISC-V Days: Heraklion Greece appeared first on RISC-V International .",
+      "author": "RISC-V International Staff",
+      "relevanceScore": 6,
+      "tags": [
+        "RISC-V"
+      ],
+      "suggestedAudience": [
+        "openhw-riscv"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "Introducing the MLPerf End-to-End RAG Inference Benchmark",
+      "url": "https://mlcommons.org/2026/08/endtoend-inference/",
+      "source": "MLCommons",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-08-26T14:50:00.000Z",
+      "summary": "Benchmarking Retrieval-Augmented Generation End to End — from Building the Vector Database to Serving an Iterative, Multi-Hop Question-Answering Inference Pipeline The post Introducing the MLPerf End-to-End RAG Inference...",
+      "author": "lori@mlcommons.org",
+      "relevanceScore": 6,
+      "tags": [
+        "MLCommons",
+        "Benchmarking",
+        "MLPerf",
+        "LLM"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "riscv/riscv-isa-manual release: Release riscv-isa-release-49a95fd-2026-08-24",
+      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-49a95fd-2026-08-24",
       "source": "RISC-V ISA Manual (GitHub)",
       "sourceType": "github-release",
       "sourceTier": "official",
-      "publishedAt": "2026-08-04T12:28:32.000Z",
-      "summary": "This release was created by: wmat Release of RISC-V ISA, built from commit ba25a36, is now available. ## What's Changed * Fix Encoding of satp MODE field table formatting. by @wmat in https://github.com/riscv/riscv-isa-m...",
+      "publishedAt": "2026-08-24T23:24:02.000Z",
+      "summary": "This release was created by: aswaterman Release of RISC-V ISA, built from commit 49a95fd, is now available. ## What's Changed * Remove misleading zeros from FENCE[.I] encoding diagrams by @aswaterman in https://github.co...",
       "author": "github-actions[bot]",
       "relevanceScore": 6,
       "tags": [
@@ -311,7 +595,7 @@
       "source": "CHIPS Alliance Blog",
       "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-08-02T22:00:00.000Z",
+      "publishedAt": "2026-08-03T00:00:00.000Z",
       "summary": "",
       "author": "",
       "relevanceScore": 6,
@@ -329,109 +613,94 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "riscv/riscv-isa-manual release: Release riscv-isa-release-310a111-2026-07-29",
-      "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-310a111-2026-07-29",
-      "source": "RISC-V ISA Manual (GitHub)",
-      "sourceType": "github-release",
+      "title": "CHIPS Alliance at 2026 OCP Global Summit",
+      "url": "https://www.chipsalliance.org/news/ocp-global-2026/",
+      "source": "CHIPS Alliance Blog",
+      "sourceType": "web-page",
       "sourceTier": "official",
-      "publishedAt": "2026-07-29T15:59:18.000Z",
-      "summary": "This release was created by: wmat Release of RISC-V ISA, built from commit 310a111, is now available. ## What's Changed * Make the workflow callable from other repos by @wmat in https://github.com/riscv/riscv-isa-manual/...",
-      "author": "github-actions[bot]",
-      "relevanceScore": 6,
+      "publishedAt": "2026-08-27T00:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 5,
       "tags": [
-        "RISC-V",
-        "ISA Manual",
-        "Specification"
+        "CHIPS Alliance",
+        "Open Silicon",
+        "ocp",
+        "events"
       ],
       "suggestedAudience": [
-        "openhw-riscv"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "Conflict to Compliance: RISC-V Extension Migration Across Spec, HW, and SW",
-      "url": "https://riscv.org/blog/conflict-to-compliance-risc-v-extension-migration-across-spec-hw-and-sw/",
-      "source": "RISC-V International news",
-      "sourceType": "rss",
-      "sourceTier": "official",
-      "publishedAt": "2026-07-29T08:46:17.000Z",
-      "summary": "The post Conflict to Compliance: RISC-V Extension Migration Across Spec, HW, and SW appeared first on RISC-V International .",
-      "author": "RISC-V International Staff",
-      "relevanceScore": 6,
-      "tags": [
-        "RISC-V"
-      ],
-      "suggestedAudience": [
-        "openhw-riscv"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "chipsalliance/caliptra-mcu-sw release: rom-sdk-2.0.1",
-      "url": "https://github.com/chipsalliance/caliptra-mcu-sw/releases/tag/rom-sdk-2.0.1",
-      "source": "CHIPS Alliance / Caliptra MCU SW (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "official",
-      "publishedAt": "2026-07-10T15:56:16.000Z",
-      "summary": "This release updates the MCU ROM SDK for Caliptra 2.0 with changes merged since [`rom-sdk-2.0.0`](https://github.com/chipsalliance/caliptra-mcu-sw/releases/tag/rom-sdk-2.0.0). This is a reference source release. No prebu...",
-      "author": "mhatrevi",
-      "relevanceScore": 6,
-      "tags": [
-        "Caliptra",
-        "Root of Trust",
-        "Security",
-        "Firmware",
-        "MCU",
-        "RISC-V"
-      ],
-      "suggestedAudience": [
-        "openhw-riscv",
-        "security",
         "soc-ip"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "Agentic Inference for MLPerf Inference",
-      "url": "https://mlcommons.org/2026/07/agentic-inference-for-mlperf-inference/",
-      "source": "MLCommons",
-      "sourceType": "rss",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-07-08T14:40:00.000Z",
-      "summary": "A new multi-turn benchmark for measuring LLM serving systems under growing context, and closed-loop agent workflows. The post Agentic Inference for MLPerf Inference appeared first on MLCommons .",
-      "author": "MLCommons",
-      "relevanceScore": 6,
+      "title": "Implementing I3C Host Controller support in the open source I3C Core",
+      "url": "https://www.chipsalliance.org/news/implementing-i3c-host-controller-support-in-the-open-source-i3c-core/",
+      "source": "CHIPS Alliance Blog",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-19T00:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 5,
       "tags": [
-        "MLCommons",
-        "Benchmarking",
-        "MLPerf",
-        "LLM"
+        "CHIPS Alliance",
+        "Open Silicon",
+        "veer",
+        "guineveer",
+        "I3C"
       ],
       "suggestedAudience": [
-        "ai-accelerators"
+        "soc-ip"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "AMI Joins OpenTitan Coalition to Enable New Use Cases and Applications",
-      "url": "https://lowrisc.org/news/ami-joins-opentitan-coalition-to-enable-new-use-cases-and-applications/",
-      "source": "lowRISC Newsroom",
-      "sourceType": "web-page",
+      "title": "chipsalliance/chisel release: Chisel v7.14.0",
+      "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.14.0",
+      "source": "CHIPS Alliance / Chisel (GitHub)",
+      "sourceType": "github-release",
       "sourceTier": "official",
-      "publishedAt": "2026-07-07T08:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 6,
+      "publishedAt": "2026-08-13T03:51:41.000Z",
+      "summary": "## Implicit Truncation Deprecation We are finally deprecating implicit truncation. The associated version of firtool (1.155.0) will print warnings for any implicitly truncated values. For any you see, you should try to f...",
+      "author": "jackkoenig",
+      "relevanceScore": 5,
       "tags": [
-        "lowRISC",
-        "OpenTitan"
+        "Chisel",
+        "Hardware Construction",
+        "SoC",
+        "CIRCT"
       ],
       "suggestedAudience": [
-        "security"
+        "soc-ip"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "The Future is Open (and AI-Assisted)- Highlights from the Open-Source EDA Birds-of-a-Feather Session at DAC 2026",
+      "url": "https://www.chipsalliance.org/news/dac-2026-recap/",
+      "source": "CHIPS Alliance Blog",
+      "sourceType": "web-page",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "summary": "",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CHIPS Alliance",
+        "Open Silicon",
+        "dac",
+        "events",
+        "AI",
+        "EDA"
+      ],
+      "suggestedAudience": [
+        "ai-accelerators",
+        "eda-tools",
+        "soc-ip"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -462,54 +731,55 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "Qualcomm Joins CHIPS Alliance as Platinum Member",
-      "url": "https://www.chipsalliance.org/news/qualcomm-new-member-blog/",
-      "source": "CHIPS Alliance Blog",
-      "sourceType": "web-page",
-      "sourceTier": "official",
-      "publishedAt": "2026-07-15T22:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 5,
+      "title": "cocotb/cocotb release: 2.1.0",
+      "url": "https://github.com/cocotb/cocotb/releases/tag/v2.1.0",
+      "source": "cocotb (GitHub)",
+      "sourceType": "github-release",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-08-30T20:52:36.000Z",
+      "summary": "Release notes: https://docs.cocotb.org/en/v2.1.0/release_notes.html PyPI release: https://pypi.org/project/cocotb/2.1.0 Install with \\`pip install cocotb==2.1.0\\`.",
+      "author": "github-actions[bot]",
+      "relevanceScore": 4,
       "tags": [
-        "CHIPS Alliance",
-        "Open Silicon"
+        "cocotb",
+        "Verification",
+        "Python"
       ],
       "suggestedAudience": [
-        "soc-ip"
+        "verification"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "COSMIC - CHERI Mocha MVP-2 Release",
-      "url": "https://lowrisc.org/news/cosmic-cheri-mocha-mvp-2-release/",
-      "source": "lowRISC Newsroom",
-      "sourceType": "web-page",
-      "sourceTier": "official",
-      "publishedAt": "2026-07-02T08:53:33.000Z",
+      "title": "Faultergeist - testing aerospace and critical applications for SEU vulnerability in Verilator",
+      "url": "https://antmicro.com/blog/2026/08/SEU-vulnerability-testing-with-Faultergeist",
+      "source": "Antmicro Blog",
+      "sourceType": "rss",
+      "sourceTier": "trusted",
+      "publishedAt": "2026-08-19T00:00:00.000Z",
       "summary": "",
       "author": "",
-      "relevanceScore": 5,
+      "relevanceScore": 4,
       "tags": [
-        "lowRISC",
-        "OpenTitan",
-        "CHERI"
+        "Antmicro",
+        "Open Hardware",
+        "Verilator"
       ],
       "suggestedAudience": [
-        "security"
+        "eda-tools"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "llvm/circt release: firtool-1.155.0",
-      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.155.0",
+      "title": "llvm/circt release: firtool-1.156.0",
+      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.156.0",
       "source": "LLVM / CIRCT (GitHub)",
       "sourceType": "github-release",
       "sourceTier": "trusted",
-      "publishedAt": "2026-08-11T00:52:57.000Z",
-      "summary": "## What's Changed * [HW] Add aggregate constant support to bitcast fold by @fzi-haxel in https://github.com/llvm/circt/pull/10854 * [LLHD][UnrollLoops] Support more loop shapes by @AlviseDeFaveri in https://github.com/ll...",
+      "publishedAt": "2026-08-16T01:44:10.000Z",
+      "summary": "## What's Changed * [integration-test] NFC trailing whitespace cleanup by @seldridge in https://github.com/llvm/circt/pull/10970 * [LTLToCore] implement clocked atom lowering by @Clo91eaf in https://github.com/llvm/circt...",
       "author": "seldridge",
       "relevanceScore": 4,
       "tags": [
@@ -547,29 +817,6 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "llvm/circt release: firtool-1.154.0",
-      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.154.0",
-      "source": "LLVM / CIRCT (GitHub)",
-      "sourceType": "github-release",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-07-27T18:39:17.000Z",
-      "summary": "## What's Changed * [Arcilator] Support sim.proc.print with stream by @nanjo712 in https://github.com/llvm/circt/pull/10778 * [ci] Bump manylinux version for Linux wheels by @seldridge in https://github.com/llvm/circt/pu...",
-      "author": "seldridge",
-      "relevanceScore": 4,
-      "tags": [
-        "CIRCT",
-        "MLIR",
-        "Hardware Compiler",
-        "EDA"
-      ],
-      "suggestedAudience": [
-        "ai-accelerators",
-        "eda-tools"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
       "title": "Antmicro joins the OpenROAD Initiative to expedite open source silicon design with range of open tooling and engineering services",
       "url": "https://antmicro.com/blog/2026/07/antmicro-joins-the-openroad-initiative",
       "source": "Antmicro Blog",
@@ -591,66 +838,23 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "YosysHQ/yosys release: Yosys 0.67",
-      "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.67",
-      "source": "YosysHQ / Yosys (GitHub)",
+      "title": "apache/tvm release: v0.26.0",
+      "url": "https://github.com/apache/tvm/releases/tag/v0.26.0",
+      "source": "Apache TVM (GitHub)",
       "sourceType": "github-release",
       "sourceTier": "trusted",
-      "publishedAt": "2026-07-09T09:12:38.000Z",
-      "summary": "Yosys 0.66 .. Yosys 0.67 -------------------------- * Various - Project is now requiring CMake 3.28 or later as build system. - At least Clang-16 or GCC-13 are required, but we recommend using later versions. - Microsoft...",
-      "author": "mmicko",
-      "relevanceScore": 4,
+      "publishedAt": "2026-08-11T01:02:45.000Z",
+      "summary": "## What's Changed * [Relax][PyTorch] Cast non-bool inputs to bool in logical_and converter by @javierdejesusda in https://github.com/apache/tvm/pull/19679 * [CI] Remove PyPI-only tag ref guard from wheel publishing by @t...",
+      "author": "MasterJH5574",
+      "relevanceScore": 3,
       "tags": [
-        "Yosys",
-        "EDA",
-        "Synthesis"
-      ],
-      "suggestedAudience": [
-        "eda-tools"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "The Benchmark Behind the Next Wave of Ultra-Low-Power AI",
-      "url": "https://mlcommons.org/2026/07/mlperf-tiny-v1-4-results/",
-      "source": "MLCommons",
-      "sourceType": "rss",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-07-07T14:39:00.000Z",
-      "summary": "MLPerf Tiny: Benchmarking AI at the Edge The post The Benchmark Behind the Next Wave of Ultra-Low-Power AI appeared first on MLCommons .",
-      "author": "MLCommons",
-      "relevanceScore": 4,
-      "tags": [
-        "MLCommons",
-        "Benchmarking",
-        "AI",
-        "MLPerf"
+        "Apache TVM",
+        "AI Compiler",
+        "ML",
+        "Accelerator"
       ],
       "suggestedAudience": [
         "ai-accelerators"
-      ],
-      "reviewStatus": "candidate",
-      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
-    },
-    {
-      "title": "Implementing extended technology mapping in OpenROAD with mockturtle integration",
-      "url": "https://antmicro.com/blog/2026/06/multi-output-techmapping-in-openroad",
-      "source": "Antmicro Blog",
-      "sourceType": "rss",
-      "sourceTier": "trusted",
-      "publishedAt": "2026-06-30T00:00:00.000Z",
-      "summary": "",
-      "author": "",
-      "relevanceScore": 4,
-      "tags": [
-        "Antmicro",
-        "Open Hardware",
-        "OpenROAD"
-      ],
-      "suggestedAudience": [
-        "eda-tools",
-        "soc-ip"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
@@ -677,23 +881,42 @@
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
     },
     {
-      "title": "\"Topwrap 0.7.0: improved YAML syntax with initial clock and reset support, extended SystemVerilog parsing, and more\"",
-      "url": "https://antmicro.com/blog/2026/07/topwrap-0-7-0-release",
+      "title": "Build entry-level edge AI products with the new NVIDIA Jetson Orin Nano 2 and Antmicro's full-stack engineering services",
+      "url": "https://antmicro.com/blog/2026/08/entry-level-edge-ai-with-nvidia-jetson-nano-2-som",
       "source": "Antmicro Blog",
       "sourceType": "rss",
       "sourceTier": "trusted",
-      "publishedAt": "2026-07-07T00:00:00.000Z",
+      "publishedAt": "2026-08-25T00:00:00.000Z",
       "summary": "",
       "author": "",
-      "relevanceScore": 3,
+      "relevanceScore": 2,
       "tags": [
         "Antmicro",
         "Open Hardware",
-        "Verification"
+        "AI"
       ],
       "suggestedAudience": [
-        "verification",
-        "soc-ip"
+        "ai-accelerators"
+      ],
+      "reviewStatus": "candidate",
+      "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
+    },
+    {
+      "title": "El Correo Libre Issue 99",
+      "url": "https://main--fossi-foundation.netlify.app/blog/2026-08-11-ecl99",
+      "source": "FOSSi Foundation",
+      "sourceType": "rss",
+      "sourceTier": "official",
+      "publishedAt": "2026-08-11T00:00:00.000Z",
+      "summary": "El Correo Libre Newsletter, Issue 99",
+      "author": "",
+      "relevanceScore": 2,
+      "tags": [
+        "FOSSi",
+        "Open Silicon"
+      ],
+      "suggestedAudience": [
+        "general"
       ],
       "reviewStatus": "candidate",
       "reviewAction": "Review and copy selected facts into src/data/curated-news.json"
