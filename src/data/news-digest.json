@@ -1,9 +1,9 @@
 {
-  "weekOf": "2026-08-30",
-  "generatedAt": "2026-08-30T20:15:37.286Z",
+  "weekOf": "2026-09-04",
+  "generatedAt": "2026-09-04T06:38:57.254Z",
   "stats": {
-    "totalRelevant": 100,
-    "totalSources": 36,
+    "totalRelevant": 103,
+    "totalSources": 37,
     "topTags": [
       {
         "tag": "RISC-V",
@@ -11,19 +11,19 @@
       },
       {
         "tag": "Security",
-        "count": 29
+        "count": 30
       },
       {
         "tag": "EDA",
-        "count": 25
+        "count": 26
       },
       {
         "tag": "Verification",
-        "count": 22
+        "count": 23
       },
       {
-        "tag": "Root of Trust",
-        "count": 18
+        "tag": "CHIPS Alliance",
+        "count": 19
       }
     ]
   },
@@ -35,8 +35,32 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 35,
+      "count": 37,
       "items": [
+        {
+          "title": "Caliptra runtime/FMC 1.3.0 adds MLDSA post-quantum support",
+          "titleZh": "Caliptra runtime/FMC 1.3.0 增加 MLDSA 后量子支持",
+          "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rt-1.3.0",
+          "source": "CHIPS Alliance / Caliptra SW (GitHub)",
+          "tags": [
+            "CHIPS Alliance",
+            "Caliptra",
+            "Root of Trust"
+          ],
+          "publishedAt": "2026-09-03T19:27:12.000Z"
+        },
+        {
+          "title": "cocotb 2.1.0 expands Python-based hardware verification workflows",
+          "titleZh": "cocotb 2.1.0 扩展基于 Python 的硬件验证流程",
+          "url": "https://github.com/cocotb/cocotb/releases/tag/v2.1.0",
+          "source": "cocotb (GitHub)",
+          "tags": [
+            "cocotb",
+            "Verification",
+            "Python"
+          ],
+          "publishedAt": "2026-08-30T20:52:36.000Z"
+        },
         {
           "title": "Caliptra MCU Runtime SDK 2.1.0 publishes a Rust/Tock RoT reference runtime",
           "titleZh": "Caliptra MCU Runtime SDK 2.1.0 发布 Rust/Tock RoT reference runtime",
@@ -60,30 +84,6 @@
             "MLIR"
           ],
           "publishedAt": "2026-08-11T00:52:57.000Z"
-        },
-        {
-          "title": "Yosys 0.68 adds SymFPU passes and trims legacy synthesis options",
-          "titleZh": "Yosys 0.68 新增 SymFPU pass，并清理旧 synthesis options",
-          "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.68",
-          "source": "YosysHQ / Yosys (GitHub)",
-          "tags": [
-            "Yosys",
-            "EDA",
-            "Synthesis"
-          ],
-          "publishedAt": "2026-08-05T06:08:26.000Z"
-        },
-        {
-          "title": "Tenstorrent tt-metal v0.75.0 advances Quasar, Blackhole, TT-NN, and model flows",
-          "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
-          "url": "https://github.com/tenstorrent/tt-metal/releases/tag/v0.75.0",
-          "source": "Tenstorrent / TT-Metalium (GitHub)",
-          "tags": [
-            "Tenstorrent",
-            "TT-Metalium",
-            "TT-NN"
-          ],
-          "publishedAt": "2026-07-30T21:54:28.000Z"
         }
       ]
     },
@@ -212,8 +212,20 @@
         "zh": "产业动态"
       },
       "icon": "trending",
-      "count": 6,
+      "count": 7,
       "items": [
+        {
+          "title": "Antmicro publishes OpenROAD workflows for peak, glitch, and scoped power analysis",
+          "titleZh": "Antmicro 发布面向 OpenROAD 的 peak、glitch 与 scoped power analysis 流程",
+          "url": "https://antmicro.com/blog/2026/08/peak-glitch-scoped-power-estimation-with-openroad",
+          "source": "Antmicro Blog",
+          "tags": [
+            "Antmicro",
+            "OpenROAD",
+            "OpenSTA"
+          ],
+          "publishedAt": "2026-08-31T00:00:00.000Z"
+        },
         {
           "title": "CHIPS Alliance I3C Core adds host-controller support with simulation and FPGA validation",
           "titleZh": "CHIPS Alliance I3C Core 增加 Host Controller 支持并完成仿真与 FPGA 验证",
@@ -249,18 +261,6 @@
             "Open Silicon"
           ],
           "publishedAt": "2026-07-16T00:00:00.000Z"
-        },
-        {
-          "title": "FOSSi highlights ODE4EC's three-year push for open-source European chip design",
-          "titleZh": "FOSSi 关注 ODE4EC 三年开放欧洲芯片设计计划",
-          "url": "https://fossi-foundation.org/blog/2026-06-09-ecl98",
-          "source": "FOSSi Foundation",
-          "tags": [
-            "FOSSi",
-            "ODE4EC",
-            "Open EDA"
-          ],
-          "publishedAt": "2026-06-09T00:00:00.000Z"
         }
       ]
     },
@@ -349,6 +349,90 @@
   ],
   "items": [
     {
+      "title": "Caliptra runtime/FMC 1.3.0 adds MLDSA post-quantum support",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rt-1.3.0",
+      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
+      "publishedAt": "2026-09-03T19:27:12.000Z",
+      "summary": "CHIPS Alliance published Caliptra runtime/FMC 1.3.0 with software support for PQC MLDSA. The release notes list PQC seed initialization, MLDSA signature verific...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CHIPS Alliance",
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "Firmware",
+        "FMC",
+        "PQC",
+        "MLDSA",
+        "Attestation",
+        "Rust"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 1,
+      "titleZh": "Caliptra runtime/FMC 1.3.0 增加 MLDSA 后量子支持",
+      "summaryZh": "CHIPS Alliance 发布 Caliptra runtime/FMC 1.3.0，加入 PQC MLDSA 软件支持。Release notes 列出 PQC seed initialization、MLDSA signature verification、面向 Caliptra Core 下游 firmware 的 attestation，以及 Rust 1.95 toolchain 更新。"
+    },
+    {
+      "title": "cocotb 2.1.0 expands Python-based hardware verification workflows",
+      "url": "https://github.com/cocotb/cocotb/releases/tag/v2.1.0",
+      "source": "cocotb (GitHub)",
+      "publishedAt": "2026-08-30T20:52:36.000Z",
+      "summary": "cocotb 2.1.0 is a substantial verification tooling release with an experimental pytest plugin, Python 3.14 support, Verilator SAIF tracing support, Questa QIS/Q...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "cocotb",
+        "Verification",
+        "Python",
+        "pytest",
+        "Verilator",
+        "SAIF",
+        "Questa",
+        "Simulation",
+        "JUnit",
+        "Open EDA"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 2,
+      "titleZh": "cocotb 2.1.0 扩展基于 Python 的硬件验证流程",
+      "summaryZh": "cocotb 2.1.0 是一次较大的 verification tooling 发布，包含 experimental pytest plugin、Python 3.14 support、Verilator SAIF tracing support、Questa QIS/Qrun runner support、xfail/skipif 等更丰富的 test controls，以及 scheduler、callback、JUnit 与 simulator integration 修复。"
+    },
+    {
+      "title": "Antmicro publishes OpenROAD workflows for peak, glitch, and scoped power analysis",
+      "url": "https://antmicro.com/blog/2026/08/peak-glitch-scoped-power-estimation-with-openroad",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-08-31T00:00:00.000Z",
+      "summary": "Antmicro described open-source power-analysis workflows built around OpenROAD, Verilator, trace2power, and OpenSTA. The workflows use VCD traces to report peak ...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Antmicro",
+        "OpenROAD",
+        "OpenSTA",
+        "Verilator",
+        "trace2power",
+        "Power Analysis",
+        "Glitch Power",
+        "ASIC",
+        "EDA",
+        "Open Silicon"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 3,
+      "titleZh": "Antmicro 发布面向 OpenROAD 的 peak、glitch 与 scoped power analysis 流程",
+      "summaryZh": "Antmicro 介绍了围绕 OpenROAD、Verilator、trace2power 与 OpenSTA 构建的开源 power-analysis workflows。这些流程用 VCD traces 按 clock cycle 报告 peak power、从 repeated transitions 估算 glitch-related power，并在 synthesis 与 place-and-route 准备后把报告限定到指定 module。"
+    },
+    {
       "title": "OpenTitan starts Peppermint, an integrated RoT for constrained SoCs",
       "url": "https://lowrisc.org/news/opentitan-project-kicks-off-the-peppermint-integrated-root-of-trust-for-area-constrained-socs/",
       "source": "lowRISC Newsroom",
@@ -374,7 +458,7 @@
       "reviewStatus": "curated",
       "curated": true,
       "editorPick": true,
-      "highlightRank": 1,
+      "highlightRank": 4,
       "titleZh": "OpenTitan 启动面向受限 SoC 的 Peppermint integrated RoT",
       "summaryZh": "lowRISC 宣布 Peppermint 成为 OpenTitan 新的 top level，面向 wearable、IoT endnode 与 microcontroller 等受面积、成本和功耗约束的 SoC。这个 integrated Root of Trust 计划负责 secure boot、firmware update 以及来自主 SoC 的 cryptographic requests；设计工作预计在 2026 年下半年进行，软件与验证预计 2027 年上半年完成。"
     },
@@ -403,7 +487,7 @@
       "sourceTier": "official",
       "reviewStatus": "curated",
       "curated": true,
-      "highlightRank": 2,
+      "highlightRank": 5,
       "titleZh": "Caliptra MCU Runtime SDK 2.1.0 发布 Rust/Tock RoT reference runtime",
       "summaryZh": "CHIPS Alliance 发布 Caliptra 2.1 MCU Runtime SDK 的初始版本，这是基于 Tock 的 Rust reference Root of Trust runtime。SDK 包含 reusable capsules、hardware-abstraction interfaces、reference drivers、userspace APIs、protocol stacks、reference applications、host tooling，以及可供 SoC-specific integration 使用的 emulator 与 FPGA reference platforms。"
     },
@@ -431,7 +515,7 @@
       "sourceTier": "official",
       "reviewStatus": "curated",
       "curated": true,
-      "highlightRank": 3,
+      "highlightRank": 6,
       "titleZh": "OpenHW TV 发布开放 RISC-V verification 实务 webinar",
       "summaryZh": "OpenHW TV 发布 PlanV Tech 关于 RISC-V 与 high-assurance silicon 开放验证的 webinar。内容把 Verilator 的 UVM support、CORE-V-VERIF 等 industrial-strength environments、emerging formal verification frameworks，以及从 RTL verification 到 formally verified device drivers 和 trusted embedded systems 的 end-to-end trust 连接起来。"
     },
@@ -459,7 +543,7 @@
       "sourceTier": "official",
       "reviewStatus": "curated",
       "curated": true,
-      "highlightRank": 4,
+      "highlightRank": 7,
       "titleZh": "OpenHW TV 介绍基于 CORE-V Wally 的 RISC-V System-on-Chip Design",
       "summaryZh": "OpenHW TV 发布 Prof. David Harris 与 Dr. Rose Thompson 的 webinar，介绍 RISC-V System-on-Chip Design 及其围绕 CORE-V Wally 的 hands-on course material。录制内容强调一个 practical open-source SoC platform，覆盖 RV32I/RV64I、Linux-capable virtual memory、caches、branch prediction、RISC-V extensions，以及 simulation、analysis、extension 和 FPGA 使用。"
     },
@@ -487,7 +571,7 @@
       "sourceTier": "trusted",
       "reviewStatus": "curated",
       "curated": true,
-      "highlightRank": 5,
+      "highlightRank": 8,
       "titleZh": "Antmicro 推出面向 Verilator 的 SEU fault injection 工具 Faultergeist",
       "summaryZh": "Antmicro 介绍了 Faultergeist，这是一个用于在 Verilator 中测试 digital designs 对 single-event upset vulnerability 的 open-source fault-injection framework。该流程用 Weibull 与 Bendel cosmic-radiation models 生成 fault campaigns，这些模型基于 irradiation data 校验；随后通过 VPI plugin 在 simulation runtime 注入 bit flips。"
     },
@@ -516,7 +600,7 @@
       "reviewStatus": "curated",
       "curated": true,
       "editorPick": true,
-      "highlightRank": 6,
+      "highlightRank": 9,
       "titleZh": "OpenTitan Earl Grey 2 增加低功耗 I3C controller/target IP",
       "summaryZh": "lowRISC 详解了 OpenTitan Earl Grey 2 新增的 I3C IP block：它是面向 discrete Root of Trust SoC 的 standards-compliant controller/target 实现，支持 12.5 MHz SDR 与 25 MHz HDR-DDR；设计用 SCL-driven target-side transceiver logic 避免高频 oversampling，并加入 deep-sleep wake handling，服务低成本、低功耗安全芯片。"
     },
@@ -545,7 +629,7 @@
       "sourceTier": "trusted",
       "reviewStatus": "curated",
       "curated": true,
-      "highlightRank": 7,
+      "highlightRank": 10,
       "titleZh": "CIRCT firtool 1.155.0 更新 HW、LLHD、ESI、Moore、FIRRTL 与 RTG 流程",
       "summaryZh": "LLVM CIRCT 发布 firtool 1.155.0，硬件编译器更新包括 HW bitcast fold 的 aggregate constant 支持、更完整的 LLHD loop unrolling、ESI runtime/channel 工作、Moore/SystemVerilog lowering 修复、FIRRTL domain 与 constant-expression 更新、RTG effect system 增强，以及 BMC trace/counterexample handling。"
     },
@@ -571,7 +655,7 @@
       "sourceTier": "trusted",
       "reviewStatus": "curated",
       "curated": true,
-      "highlightRank": 8,
+      "highlightRank": 11,
       "titleZh": "Yosys 0.68 新增 SymFPU pass，并清理旧 synthesis options",
       "summaryZh": "Yosys 0.68 是一次正式的 open EDA 发布，新增 symfpu 与 symfpu_convert pass，移除 ABC、flowmap、synth、synth_ice40 与 read_aiger 流程中的若干旧选项或已替代选项，并包含 Radiant netlist compatibility 等修复。"
     },
@@ -599,7 +683,7 @@
       "sourceTier": "trusted",
       "reviewStatus": "curated",
       "curated": true,
-      "highlightRank": 9,
+      "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
     },
@@ -2854,6 +2938,7 @@
     "YosysHQ (GitHub)",
     "YosysHQ / Yosys (GitHub)",
     "arXiv / KTH, LLNL, BSC",
+    "cocotb (GitHub)",
     "lowRISC / OpenTitan (GitHub)",
     "lowRISC Newsroom"
   ]
