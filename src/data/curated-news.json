@@ -104,6 +104,30 @@
       "highlightRank": 4
     },
     {
+      "title": "RISER details an FPGA-assisted RISC-V microserver prototype",
+      "titleZh": "RISER 介绍 FPGA 辅助的 RISC-V microserver prototype",
+      "url": "https://riscv.org/blog/integration-challenges-in-risc-v-system-prototyping-the-riser-microserver-platform/",
+      "source": "RISC-V International",
+      "addedAt": "2026-08-25T09:26:11Z",
+      "summary": "RISC-V International published a RISER project snapshot on a microserver platform for European RISC-V cloud-server and accelerator prototyping. The article describes an FPGA-assisted standalone node that integrates the EPAC1.5 RISC-V vector-processor test chip with boot firmware, NVMe storage, and 100 Gbps Ethernet, and links the work to bring-up and use-case validation challenges.",
+      "summaryZh": "RISC-V International 发布 RISER project snapshot，介绍面向欧洲 RISC-V cloud-server 与 accelerator prototype 的 microserver platform。文章描述了一个 FPGA-assisted standalone node，集成 EPAC1.5 RISC-V vector-processor test chip、boot firmware、NVMe storage 与 100 Gbps Ethernet，并讨论 bring-up 与 use-case validation 中的 integration challenges。",
+      "tags": [
+        "RISC-V",
+        "RISER",
+        "Microserver",
+        "EPAC",
+        "Vector Processor",
+        "FPGA",
+        "Cloud",
+        "HPC",
+        "System Integration",
+        "European Silicon"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated"
+    },
+    {
       "title": "Caliptra MCU Runtime SDK 2.1.0 publishes a Rust/Tock RoT reference runtime",
       "titleZh": "Caliptra MCU Runtime SDK 2.1.0 发布 Rust/Tock RoT reference runtime",
       "url": "https://github.com/chipsalliance/caliptra-mcu-sw/releases/tag/rt-sdk-2.1.0",
@@ -152,6 +176,30 @@
       ],
       "sourceTier": "official",
       "language": "en"
+    },
+    {
+      "title": "RISC-V International spotlights EDACrux for RVFI-based core debug",
+      "titleZh": "RISC-V International 聚焦基于 RVFI 的 EDACrux core debug",
+      "url": "https://riscv.org/blog/ferrite-engineering-edacrux/",
+      "source": "RISC-V International",
+      "addedAt": "2026-08-21T13:03:55Z",
+      "summary": "RISC-V International profiled Ferrite Engineering's EDACrux suite for RISC-V chip design and verification. The article highlights WaveCrux, NetCrux, LintCrux, and SimCrux cross-probing, with WaveCrux using RVFI signals to inspect retired instructions and run consistency checks against the RISC-V ISA specification for cores such as Ibex, CVA6, PicoRV32, SERV, and VeeR.",
+      "summaryZh": "RISC-V International 介绍 Ferrite Engineering 的 EDACrux suite，面向 RISC-V chip design 与 verification。文章重点说明 WaveCrux、NetCrux、LintCrux 与 SimCrux 的 cross-probing；其中 WaveCrux 利用 RVFI signals 检查 retired instructions，并对 Ibex、CVA6、PicoRV32、SERV、VeeR 等核心执行面向 RISC-V ISA specification 的 consistency checks。",
+      "tags": [
+        "RISC-V",
+        "EDACrux",
+        "Ferrite Engineering",
+        "RVFI",
+        "Verification",
+        "Debug",
+        "EDA",
+        "Ibex",
+        "CVA6",
+        "VeeR"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated"
     },
     {
       "title": "CHIPS Alliance I3C Core adds host-controller support with simulation and FPGA validation",
