@@ -1,13 +1,13 @@
 {
-  "weekOf": "2026-09-04",
-  "generatedAt": "2026-09-04T06:38:57.254Z",
+  "weekOf": "2026-09-08",
+  "generatedAt": "2026-09-08T07:42:55.802Z",
   "stats": {
-    "totalRelevant": 103,
+    "totalRelevant": 105,
     "totalSources": 37,
     "topTags": [
       {
         "tag": "RISC-V",
-        "count": 33
+        "count": 35
       },
       {
         "tag": "Security",
@@ -15,11 +15,11 @@
       },
       {
         "tag": "EDA",
-        "count": 26
+        "count": 27
       },
       {
         "tag": "Verification",
-        "count": 23
+        "count": 24
       },
       {
         "tag": "CHIPS Alliance",
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 37,
+      "count": 39,
       "items": [
         {
           "title": "OpenTitan starts Peppermint, an integrated RoT for constrained SoCs",
@@ -688,6 +688,33 @@
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
     },
     {
+      "title": "RISER details an FPGA-assisted RISC-V microserver prototype",
+      "url": "https://riscv.org/blog/integration-challenges-in-risc-v-system-prototyping-the-riser-microserver-platform/",
+      "source": "RISC-V International",
+      "publishedAt": "2026-08-25T09:26:11.000Z",
+      "summary": "RISC-V International published a RISER project snapshot on a microserver platform for European RISC-V cloud-server and accelerator prototyping. The article desc...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "RISC-V",
+        "RISER",
+        "Microserver",
+        "EPAC",
+        "Vector Processor",
+        "FPGA",
+        "Cloud",
+        "HPC",
+        "System Integration",
+        "European Silicon"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "RISER 介绍 FPGA 辅助的 RISC-V microserver prototype",
+      "summaryZh": "RISC-V International 发布 RISER project snapshot，介绍面向欧洲 RISC-V cloud-server 与 accelerator prototype 的 microserver platform。文章描述了一个 FPGA-assisted standalone node，集成 EPAC1.5 RISC-V vector-processor test chip、boot firmware、NVMe storage 与 100 Gbps Ethernet，并讨论 bring-up 与 use-case validation 中的 integration challenges。"
+    },
+    {
       "title": "Caliptra firmware 2.0.3 strengthens DPE, authorization, and subsystem flows",
       "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/fw-2.0.3",
       "source": "CHIPS Alliance / Caliptra SW (GitHub)",
@@ -715,6 +742,33 @@
       "curated": true,
       "titleZh": "Caliptra firmware 2.0.3 强化 DPE、授权与 subsystem 流程",
       "summaryZh": "CHIPS Alliance 发布 Caliptra firmware 2.0.3，作为 combined runtime and FMC release。该版本增加 MCU runtime anchoring into Caliptra-managed DPE chain、SoC manifest preamble DPE contexts、owner authorization manifest support、tagged DPE context SVN reporting、大于 1 MiB 镜像的 DMA hashing、entropy_src 动态功耗处理、staged subsystem OTP provisioning，并修复 DPE cache hardening、PAUSER validation、reserved firmware ID 与 PL0 authorization boundary 等安全和运行时问题。"
+    },
+    {
+      "title": "RISC-V International spotlights EDACrux for RVFI-based core debug",
+      "url": "https://riscv.org/blog/ferrite-engineering-edacrux/",
+      "source": "RISC-V International",
+      "publishedAt": "2026-08-21T13:03:55.000Z",
+      "summary": "RISC-V International profiled Ferrite Engineering's EDACrux suite for RISC-V chip design and verification. The article highlights WaveCrux, NetCrux, LintCrux, a...",
+      "author": "",
+      "relevanceScore": 7,
+      "tags": [
+        "RISC-V",
+        "EDACrux",
+        "Ferrite Engineering",
+        "RVFI",
+        "Verification",
+        "Debug",
+        "EDA",
+        "Ibex",
+        "CVA6",
+        "VeeR"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "RISC-V International 聚焦基于 RVFI 的 EDACrux core debug",
+      "summaryZh": "RISC-V International 介绍 Ferrite Engineering 的 EDACrux suite，面向 RISC-V chip design 与 verification。文章重点说明 WaveCrux、NetCrux、LintCrux 与 SimCrux 的 cross-probing；其中 WaveCrux 利用 RVFI signals 检查 retired instructions，并对 Ibex、CVA6、PicoRV32、SERV、VeeR 等核心执行面向 RISC-V ISA specification 的 consistency checks。"
     },
     {
       "title": "CHIPS Alliance I3C Core adds host-controller support with simulation and FPGA validation",
