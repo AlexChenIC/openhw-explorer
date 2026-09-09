@@ -1,17 +1,17 @@
 {
-  "weekOf": "2026-09-08",
-  "generatedAt": "2026-09-08T07:42:55.802Z",
+  "weekOf": "2026-09-09",
+  "generatedAt": "2026-09-09T09:36:30.546Z",
   "stats": {
-    "totalRelevant": 105,
+    "totalRelevant": 107,
     "totalSources": 37,
     "topTags": [
       {
         "tag": "RISC-V",
-        "count": 35
+        "count": 37
       },
       {
         "tag": "Security",
-        "count": 30
+        "count": 31
       },
       {
         "tag": "EDA",
@@ -19,11 +19,11 @@
       },
       {
         "tag": "Verification",
-        "count": 24
+        "count": 25
       },
       {
-        "tag": "CHIPS Alliance",
-        "count": 19
+        "tag": "Root of Trust",
+        "count": 20
       }
     ]
   },
@@ -35,7 +35,7 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 37,
+      "count": 38,
       "items": [
         {
           "title": "Caliptra runtime/FMC 1.3.0 adds MLDSA post-quantum support",
@@ -48,6 +48,18 @@
             "Root of Trust"
           ],
           "publishedAt": "2026-09-03T19:27:12.000Z"
+        },
+        {
+          "title": "RISC-V architecture tests 4.1.0 expand privileged and vector coverage",
+          "titleZh": "RISC-V architecture tests 4.1.0 扩展 privileged 与 vector 覆盖",
+          "url": "https://github.com/riscv/riscv-arch-test/releases/tag/4.1.0",
+          "source": "RISC-V Architecture Tests (GitHub)",
+          "tags": [
+            "RISC-V",
+            "Architecture Tests",
+            "Compliance"
+          ],
+          "publishedAt": "2026-09-09T00:05:36.000Z"
         },
         {
           "title": "cocotb 2.1.0 expands Python-based hardware verification workflows",
@@ -72,18 +84,6 @@
             "Root of Trust"
           ],
           "publishedAt": "2026-08-24T15:38:57.000Z"
-        },
-        {
-          "title": "CIRCT firtool 1.155.0 updates HW, LLHD, ESI, Moore, FIRRTL, and RTG flows",
-          "titleZh": "CIRCT firtool 1.155.0 更新 HW、LLHD、ESI、Moore、FIRRTL 与 RTG 流程",
-          "url": "https://github.com/llvm/circt/releases/tag/firtool-1.155.0",
-          "source": "LLVM / CIRCT (GitHub)",
-          "tags": [
-            "CIRCT",
-            "firtool",
-            "MLIR"
-          ],
-          "publishedAt": "2026-08-11T00:52:57.000Z"
         }
       ]
     },
@@ -94,8 +94,20 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 39,
+      "count": 40,
       "items": [
+        {
+          "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
+          "titleZh": "Antmicro 与 Nuvoton 推进 NPCR1 OpenTitan 的 Renode 支持",
+          "url": "https://antmicro.com/blog/2026/09/nuvoton-npcr1-opentitan-based-secure-mcu-in-renode",
+          "source": "Antmicro Blog",
+          "tags": [
+            "Antmicro",
+            "Nuvoton",
+            "OpenTitan"
+          ],
+          "publishedAt": "2026-09-07T00:00:00.000Z"
+        },
         {
           "title": "OpenTitan starts Peppermint, an integrated RoT for constrained SoCs",
           "titleZh": "OpenTitan 启动面向受限 SoC 的 Peppermint integrated RoT",
@@ -131,18 +143,6 @@
             "CORE-V"
           ],
           "publishedAt": "2026-08-28T00:00:00.000Z"
-        },
-        {
-          "title": "OpenTitan Earl Grey 2 adds a low-power I3C controller and target block",
-          "titleZh": "OpenTitan Earl Grey 2 增加低功耗 I3C controller/target IP",
-          "url": "https://lowrisc.org/news/i3c-comes-to-opentitan-earl-grey-2/",
-          "source": "lowRISC Newsroom",
-          "tags": [
-            "lowRISC",
-            "OpenTitan",
-            "Earl Grey 2"
-          ],
-          "publishedAt": "2026-07-30T08:00:00.000Z"
         }
       ]
     },
@@ -349,6 +349,34 @@
   ],
   "items": [
     {
+      "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
+      "url": "https://antmicro.com/blog/2026/09/nuvoton-npcr1-opentitan-based-secure-mcu-in-renode",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-09-07T00:00:00.000Z",
+      "summary": "Antmicro and Nuvoton announced collaboration around Nuvoton secure chips in the open-source Renode simulation framework. The article says the work builds on exi...",
+      "author": "",
+      "relevanceScore": 6,
+      "tags": [
+        "Antmicro",
+        "Nuvoton",
+        "OpenTitan",
+        "Renode",
+        "Root of Trust",
+        "Security",
+        "RISC-V",
+        "Simulation",
+        "Firmware",
+        "Open Silicon"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 1,
+      "titleZh": "Antmicro 与 Nuvoton 推进 NPCR1 OpenTitan 的 Renode 支持",
+      "summaryZh": "Antmicro 与 Nuvoton 宣布围绕 Nuvoton secure chips 在开源 Renode simulation framework 中的支持展开合作。文章说明，这项工作建立在 Renode 对 Nuvoton NPCR1 OpenTitan Earl Grey Based Secure MCU IC 的既有支持之上；该平台是基于 RISC-V 的 Root of Trust，包含 secure accelerators 与 SPI/I2C/UART/USB/GPIO interfaces，可用于早期 firmware development、testing 与 debugging。"
+    },
+    {
       "title": "Caliptra runtime/FMC 1.3.0 adds MLDSA post-quantum support",
       "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rt-1.3.0",
       "source": "CHIPS Alliance / Caliptra SW (GitHub)",
@@ -375,6 +403,33 @@
       "highlightRank": 1,
       "titleZh": "Caliptra runtime/FMC 1.3.0 增加 MLDSA 后量子支持",
       "summaryZh": "CHIPS Alliance 发布 Caliptra runtime/FMC 1.3.0，加入 PQC MLDSA 软件支持。Release notes 列出 PQC seed initialization、MLDSA signature verification、面向 Caliptra Core 下游 firmware 的 attestation，以及 Rust 1.95 toolchain 更新。"
+    },
+    {
+      "title": "RISC-V architecture tests 4.1.0 expand privileged and vector coverage",
+      "url": "https://github.com/riscv/riscv-arch-test/releases/tag/4.1.0",
+      "source": "RISC-V Architecture Tests (GitHub)",
+      "publishedAt": "2026-09-09T00:05:36.000Z",
+      "summary": "RISC-V architecture tests 4.1.0 is an official non-prerelease ACT release that expands architectural coverage and test generation. The release notes highlight a...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "RISC-V",
+        "Architecture Tests",
+        "Compliance",
+        "Verification",
+        "Privileged Architecture",
+        "Vector",
+        "PMP",
+        "Test Generation",
+        "Open Hardware"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 2,
+      "titleZh": "RISC-V architecture tests 4.1.0 扩展 privileged 与 vector 覆盖",
+      "summaryZh": "RISC-V architecture tests 4.1.0 是官方非 prerelease 的 ACT 发布，扩展了 architectural coverage 与 test generation。Release notes 强调新增或改进了面向 Zawrs、Sstvala、Ssccptr、Zama16b、Zkr、exceptions、interrupts、PMP 等领域的 privileged tests，并加入 lower-privilege execution support，以及在支持的 DUT 上默认启用 Vx/Vls vector test generation。"
     },
     {
       "title": "cocotb 2.1.0 expands Python-based hardware verification workflows",
