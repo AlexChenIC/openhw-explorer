@@ -1,9 +1,9 @@
 {
-  "weekOf": "2026-09-09",
-  "generatedAt": "2026-09-09T09:36:30.546Z",
+  "weekOf": "2026-09-11",
+  "generatedAt": "2026-09-11T12:19:04.728Z",
   "stats": {
-    "totalRelevant": 107,
-    "totalSources": 37,
+    "totalRelevant": 108,
+    "totalSources": 38,
     "topTags": [
       {
         "tag": "RISC-V",
@@ -15,11 +15,11 @@
       },
       {
         "tag": "EDA",
-        "count": 27
+        "count": 28
       },
       {
         "tag": "Verification",
-        "count": 25
+        "count": 26
       },
       {
         "tag": "Root of Trust",
@@ -271,8 +271,20 @@
         "zh": "硬件与嵌入式"
       },
       "icon": "circuit",
-      "count": 9,
+      "count": 10,
       "items": [
+        {
+          "title": "FOSSi publishes coconext talk on a faster cocotb-style verification flow",
+          "titleZh": "FOSSi 发布 coconext 讲座，探索更快的 cocotb 风格验证流程",
+          "url": "https://www.youtube.com/watch?v=iOHab5YW76I",
+          "source": "FOSSi Foundation Videos",
+          "tags": [
+            "FOSSi",
+            "cocotb",
+            "Verification"
+          ],
+          "publishedAt": "2026-09-11T09:32:40.000Z"
+        },
         {
           "title": "Antmicro introduces Faultergeist for SEU fault injection in Verilator",
           "titleZh": "Antmicro 推出面向 Verilator 的 SEU fault injection 工具 Faultergeist",
@@ -308,18 +320,6 @@
             "SoC/IP"
           ],
           "publishedAt": "2026-07-07T00:00:00.000Z"
-        },
-        {
-          "title": "Antmicro adds mockturtle extended technology mapping to OpenROAD resynthesis",
-          "titleZh": "Antmicro 为 OpenROAD resynthesis 加入 mockturtle extended technology mapping",
-          "url": "https://antmicro.com/blog/2026/06/multi-output-techmapping-in-openroad",
-          "source": "Antmicro Blog",
-          "tags": [
-            "Antmicro",
-            "OpenROAD",
-            "mockturtle"
-          ],
-          "publishedAt": "2026-06-30T00:00:00.000Z"
         }
       ]
     },
@@ -348,6 +348,34 @@
     }
   ],
   "items": [
+    {
+      "title": "FOSSi publishes coconext talk on a faster cocotb-style verification flow",
+      "url": "https://www.youtube.com/watch?v=iOHab5YW76I",
+      "source": "FOSSi Foundation Videos",
+      "publishedAt": "2026-09-11T09:32:40.000Z",
+      "summary": "FOSSi Foundation published Kaleb Barrett's coconext talk. The abstract describes coconext as an experimental cocotb fork and redesign intended to address perfor...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "FOSSi",
+        "cocotb",
+        "Verification",
+        "C++",
+        "Python",
+        "Testbench",
+        "Simulation",
+        "Open Hardware",
+        "EDA",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 1,
+      "titleZh": "FOSSi 发布 coconext 讲座，探索更快的 cocotb 风格验证流程",
+      "summaryZh": "FOSSi Foundation 发布了 Kaleb Barrett 关于 coconext 的讲座。视频摘要将 coconext 描述为一个实验性的 cocotb fork 与重构方向，目标是通过引入一等的 cocotb-like C++ API、保留现有 Python cocotb API，并用低摩擦绑定层连接两者，来改善测试平台、模型、monitor 与 driver 的性能和混合语言开发体验。"
+    },
     {
       "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
       "url": "https://antmicro.com/blog/2026/09/nuvoton-npcr1-opentitan-based-secure-mcu-in-renode",
@@ -3028,6 +3056,7 @@
     "Chipyard (GitHub)",
     "FOSSi Foundation",
     "FOSSi Foundation / Latch-Up 2026",
+    "FOSSi Foundation Videos",
     "Fraunhofer AISEC",
     "LLVM / CIRCT (GitHub)",
     "MLCommons",
