@@ -3,6 +3,31 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "FOSSi publishes coconext talk on a faster cocotb-style verification flow",
+      "titleZh": "FOSSi 发布 coconext 讲座，探索更快的 cocotb 风格验证流程",
+      "url": "https://www.youtube.com/watch?v=iOHab5YW76I",
+      "source": "FOSSi Foundation Videos",
+      "addedAt": "2026-09-11T09:32:40Z",
+      "summary": "FOSSi Foundation published Kaleb Barrett's coconext talk. The abstract describes coconext as an experimental cocotb fork and redesign intended to address performance by adding a first-class cocotb-like C++ API, preserving the existing Python cocotb API, and connecting the two through a low-friction binding layer for mixed-language testbenches, models, monitors, and drivers.",
+      "summaryZh": "FOSSi Foundation 发布了 Kaleb Barrett 关于 coconext 的讲座。视频摘要将 coconext 描述为一个实验性的 cocotb fork 与重构方向，目标是通过引入一等的 cocotb-like C++ API、保留现有 Python cocotb API，并用低摩擦绑定层连接两者，来改善测试平台、模型、monitor 与 driver 的性能和混合语言开发体验。",
+      "tags": [
+        "FOSSi",
+        "cocotb",
+        "Verification",
+        "C++",
+        "Python",
+        "Testbench",
+        "Simulation",
+        "Open Hardware",
+        "EDA",
+        "Talk"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "highlightRank": 1
+    },
+    {
       "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
       "titleZh": "Antmicro 与 Nuvoton 推进 NPCR1 OpenTitan 的 Renode 支持",
       "url": "https://antmicro.com/blog/2026/09/nuvoton-npcr1-opentitan-based-secure-mcu-in-renode",
