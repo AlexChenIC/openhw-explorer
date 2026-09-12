@@ -1,8 +1,8 @@
 {
-  "weekOf": "2026-09-11",
-  "generatedAt": "2026-09-11T12:19:04.728Z",
+  "weekOf": "2026-09-12",
+  "generatedAt": "2026-09-12T11:07:36.536Z",
   "stats": {
-    "totalRelevant": 108,
+    "totalRelevant": 110,
     "totalSources": 38,
     "topTags": [
       {
@@ -15,11 +15,11 @@
       },
       {
         "tag": "EDA",
-        "count": 28
+        "count": 30
       },
       {
         "tag": "Verification",
-        "count": 26
+        "count": 28
       },
       {
         "tag": "Root of Trust",
@@ -212,8 +212,20 @@
         "zh": "产业动态"
       },
       "icon": "trending",
-      "count": 7,
+      "count": 8,
       "items": [
+        {
+          "title": "FOSSi publishes Bucket functional-coverage tooling update",
+          "titleZh": "FOSSi 发布 Bucket 功能覆盖率工具更新讲座",
+          "url": "https://www.youtube.com/watch?v=U6RvIJr8vJg",
+          "source": "FOSSi Foundation Videos",
+          "tags": [
+            "FOSSi",
+            "Bucket",
+            "Functional Coverage"
+          ],
+          "publishedAt": "2026-09-11T09:31:43.000Z"
+        },
         {
           "title": "Antmicro publishes OpenROAD workflows for peak, glitch, and scoped power analysis",
           "titleZh": "Antmicro 发布面向 OpenROAD 的 peak、glitch 与 scoped power analysis 流程",
@@ -249,18 +261,6 @@
             "OpenROAD Initiative"
           ],
           "publishedAt": "2026-07-27T00:00:00.000Z"
-        },
-        {
-          "title": "Qualcomm joins CHIPS Alliance as a Platinum member for open-source chip design",
-          "titleZh": "Qualcomm 以 Platinum member 身份加入 CHIPS Alliance，推动开源芯片设计",
-          "url": "https://www.chipsalliance.org/news/qualcomm-new-member-blog/",
-          "source": "CHIPS Alliance Blog",
-          "tags": [
-            "CHIPS Alliance",
-            "Qualcomm",
-            "Open Silicon"
-          ],
-          "publishedAt": "2026-07-16T00:00:00.000Z"
         }
       ]
     },
@@ -271,7 +271,7 @@
         "zh": "硬件与嵌入式"
       },
       "icon": "circuit",
-      "count": 10,
+      "count": 11,
       "items": [
         {
           "title": "FOSSi publishes coconext talk on a faster cocotb-style verification flow",
@@ -284,6 +284,18 @@
             "Verification"
           ],
           "publishedAt": "2026-09-11T09:32:40.000Z"
+        },
+        {
+          "title": "FOSSi publishes Doppio talk on Java and Scala circuit verification",
+          "titleZh": "FOSSi 发布 Doppio 讲座，探索 Java 与 Scala 电路验证",
+          "url": "https://www.youtube.com/watch?v=tUl_Th5di_k",
+          "source": "FOSSi Foundation Videos",
+          "tags": [
+            "FOSSi",
+            "Doppio",
+            "Verification"
+          ],
+          "publishedAt": "2026-09-11T09:29:40.000Z"
         },
         {
           "title": "Antmicro introduces Faultergeist for SEU fault injection in Verilator",
@@ -308,18 +320,6 @@
             "SystemVerilog"
           ],
           "publishedAt": "2026-07-22T00:00:00.000Z"
-        },
-        {
-          "title": "Antmicro releases Topwrap 0.7.0 with cleaner SoC YAML and deeper SystemVerilog parsing",
-          "titleZh": "Antmicro 发布 Topwrap 0.7.0，改进 SoC YAML 与 SystemVerilog 解析",
-          "url": "https://antmicro.com/blog/2026/07/topwrap-0-7-0-release",
-          "source": "Antmicro Blog",
-          "tags": [
-            "Antmicro",
-            "Topwrap",
-            "SoC/IP"
-          ],
-          "publishedAt": "2026-07-07T00:00:00.000Z"
         }
       ]
     },
@@ -431,6 +431,62 @@
       "highlightRank": 1,
       "titleZh": "Caliptra runtime/FMC 1.3.0 增加 MLDSA 后量子支持",
       "summaryZh": "CHIPS Alliance 发布 Caliptra runtime/FMC 1.3.0，加入 PQC MLDSA 软件支持。Release notes 列出 PQC seed initialization、MLDSA signature verification、面向 Caliptra Core 下游 firmware 的 attestation，以及 Rust 1.95 toolchain 更新。"
+    },
+    {
+      "title": "FOSSi publishes Bucket functional-coverage tooling update",
+      "url": "https://www.youtube.com/watch?v=U6RvIJr8vJg",
+      "source": "FOSSi Foundation Videos",
+      "publishedAt": "2026-09-11T09:31:43.000Z",
+      "summary": "FOSSi Foundation published Stuart Alldred's Bucket update talk. The official abstract describes Bucket as an open-source Python project for collecting and viewi...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "FOSSi",
+        "Bucket",
+        "Functional Coverage",
+        "Verification",
+        "Python",
+        "Coverage",
+        "EDA",
+        "Open Hardware",
+        "Silicon",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 2,
+      "titleZh": "FOSSi 发布 Bucket 功能覆盖率工具更新讲座",
+      "summaryZh": "FOSSi Foundation 发布了 Stuart Alldred 关于 Bucket 的更新讲座。官方摘要将 Bucket 描述为用于收集和查看 functional coverage 的开源 Python 项目；在 Vypercore 关闭后由 Noodle-Bytes 接手维护，并介绍了改进后的 viewer、跨运行 coverage comparison、新 archive format，以及更多 silicon company 的采用情况。"
+    },
+    {
+      "title": "FOSSi publishes Doppio talk on Java and Scala circuit verification",
+      "url": "https://www.youtube.com/watch?v=tUl_Th5di_k",
+      "source": "FOSSi Foundation Videos",
+      "publishedAt": "2026-09-11T09:29:40.000Z",
+      "summary": "FOSSi Foundation published Martin Schoeberl's Doppio talk. The official abstract presents Doppio as an open-source, software-based verification framework that a...",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "FOSSi",
+        "Doppio",
+        "Verification",
+        "Java",
+        "Scala",
+        "Digital Circuits",
+        "Testing",
+        "EDA",
+        "Open Hardware",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 2,
+      "titleZh": "FOSSi 发布 Doppio 讲座，探索 Java 与 Scala 电路验证",
+      "summaryZh": "FOSSi Foundation 发布了 Martin Schoeberl 关于 Doppio 的讲座。官方摘要将 Doppio 描述为一个开源、software-based verification framework，把 software testing 思路以及 Java、Scala 等现代编程语言用于 digital-circuit verification，目标是推动传统硬件验证语言之外的现代化验证实践。"
     },
     {
       "title": "RISC-V architecture tests 4.1.0 expand privileged and vector coverage",
