@@ -28,6 +28,56 @@
       "highlightRank": 1
     },
     {
+      "title": "FOSSi publishes Bucket functional-coverage tooling update",
+      "titleZh": "FOSSi 发布 Bucket 功能覆盖率工具更新讲座",
+      "url": "https://www.youtube.com/watch?v=U6RvIJr8vJg",
+      "source": "FOSSi Foundation Videos",
+      "addedAt": "2026-09-11T09:31:43Z",
+      "summary": "FOSSi Foundation published Stuart Alldred's Bucket update talk. The official abstract describes Bucket as an open-source Python project for collecting and viewing functional coverage, now maintained by Noodle-Bytes after Vypercore shut down, with updates including an improved viewer, cross-run coverage comparison, a new archive format, and adoption by additional silicon companies.",
+      "summaryZh": "FOSSi Foundation 发布了 Stuart Alldred 关于 Bucket 的更新讲座。官方摘要将 Bucket 描述为用于收集和查看 functional coverage 的开源 Python 项目；在 Vypercore 关闭后由 Noodle-Bytes 接手维护，并介绍了改进后的 viewer、跨运行 coverage comparison、新 archive format，以及更多 silicon company 的采用情况。",
+      "tags": [
+        "FOSSi",
+        "Bucket",
+        "Functional Coverage",
+        "Verification",
+        "Python",
+        "Coverage",
+        "EDA",
+        "Open Hardware",
+        "Silicon",
+        "Talk"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "highlightRank": 2
+    },
+    {
+      "title": "FOSSi publishes Doppio talk on Java and Scala circuit verification",
+      "titleZh": "FOSSi 发布 Doppio 讲座，探索 Java 与 Scala 电路验证",
+      "url": "https://www.youtube.com/watch?v=tUl_Th5di_k",
+      "source": "FOSSi Foundation Videos",
+      "addedAt": "2026-09-11T09:29:40Z",
+      "summary": "FOSSi Foundation published Martin Schoeberl's Doppio talk. The official abstract presents Doppio as an open-source, software-based verification framework that applies software-testing ideas and modern programming languages such as Java and Scala to digital-circuit verification, aiming to modernize verification practices rooted in older hardware-verification languages.",
+      "summaryZh": "FOSSi Foundation 发布了 Martin Schoeberl 关于 Doppio 的讲座。官方摘要将 Doppio 描述为一个开源、software-based verification framework，把 software testing 思路以及 Java、Scala 等现代编程语言用于 digital-circuit verification，目标是推动传统硬件验证语言之外的现代化验证实践。",
+      "tags": [
+        "FOSSi",
+        "Doppio",
+        "Verification",
+        "Java",
+        "Scala",
+        "Digital Circuits",
+        "Testing",
+        "EDA",
+        "Open Hardware",
+        "Talk"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "highlightRank": 2
+    },
+    {
       "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
       "titleZh": "Antmicro 与 Nuvoton 推进 NPCR1 OpenTitan 的 Renode 支持",
       "url": "https://antmicro.com/blog/2026/09/nuvoton-npcr1-opentitan-based-secure-mcu-in-renode",
