@@ -416,6 +416,7 @@ export function ProjectDetail({
               <div className="flex items-center gap-1.5 text-[var(--text-secondary)]">
                 <span className="w-3 h-3 rounded-full" style={{ backgroundColor: color }} />
                 <span className="text-sm">{project.language}</span>
+                <span className="text-xs text-[var(--text-tertiary)]">{t("metrics.repositoryLanguage")}</span>
               </div>
             )}
           </div>

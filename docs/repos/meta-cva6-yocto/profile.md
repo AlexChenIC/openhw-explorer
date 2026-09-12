@@ -2,15 +2,15 @@
 
 > meta-cva6-yocto 是为 CVA6 构建嵌入式 Linux 镜像的 Yocto layer，提供 Genesys 2 与 Agilex 7 板卡上 32/64-bit CVA6 的 machine 定义。
 
-数据核对日期: 2026-07-16
+数据核对日期: 2026-09-12
 
 ## Public summary
 
-meta-cva6-yocto is an OpenEmbedded layer for building reproducible embedded-Linux images and extensible SDKs for CVA6. It defines 32-bit and 64-bit machines for Genesys 2 and Agilex 7 and composes openembedded-core, BitBake, and meta-riscv into a board-oriented image workflow. This is the appropriate route for engineers already using Yocto layer management; its declared compatibility is the older Honister release, so dependency versions should be reviewed before adopting it in a new build system.
+meta-cva6-yocto is an OpenEmbedded layer for building embedded-Linux images and extensible SDKs for CVA6. It defines 32-bit and 64-bit machines for Genesys 2 and Agilex 7 and composes openembedded-core, BitBake, and meta-riscv into a board-oriented image workflow. It suits engineers already using Yocto layer management, but its declared compatibility is the older Honister release. Reproducibility requires pinning the manifest and dependency revisions: the documented master/HEAD references do not guarantee identical results on a later checkout.
 
 ## 中文介绍
 
-meta-cva6-yocto 是一套用于为 CVA6 构建可复现嵌入式 Linux 镜像和 extensible SDK 的 OpenEmbedded layer。它为 Genesys 2 与 Agilex 7 定义 32 位和 64 位 machine，并将 openembedded-core、BitBake 与 meta-riscv 组合为面向板卡的镜像流程。对于已经采用 Yocto layer 管理的工程团队，这是一条合适路线；但项目声明兼容的是较旧的 Honister 版本，新构建系统采用前应先检查依赖版本。
+meta-cva6-yocto 是用于为 CVA6 构建嵌入式 Linux 镜像和 extensible SDK 的 OpenEmbedded layer。它为 Genesys 2 与 Agilex 7 定义 32 位和 64 位 machine，将 openembedded-core、BitBake 与 meta-riscv 组合为面向板卡的镜像流程，适合已有 Yocto 经验的工程团队。项目声明兼容较旧的 Honister 版本；要实现可复现构建，需要锁定 manifest 与依赖提交，文档中的 master/HEAD 引用不能保证日后重新拉取仍产生相同结果。
 
 ## Key facts
 

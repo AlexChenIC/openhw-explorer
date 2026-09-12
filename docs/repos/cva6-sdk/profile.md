@@ -2,7 +2,7 @@
 
 > cva6-sdk 是为 CVA6 构建可启动 Linux 镜像的工具集合：RISC-V toolchain、OpenSBI、U-Boot、Linux kernel 与 Buildroot rootfs，输出可直接烧录的 SD 卡镜像。
 
-数据核对日期: 2026-07-16
+数据核对日期: 2026-09-12
 
 ## Public summary
 
@@ -14,6 +14,7 @@ CVA6 SDK 是为 CVA6 FPGA 系统生成完整可启动 Linux 镜像的 Buildroot 
 
 ## Key facts
 
+- Tested core configurations: cv32a6_ima_sv32_fpga and cv64a6_imafdc_sv39; this Linux build flow does not apply to every CVA6 configuration
 - Output: ready-to-flash sdcard.img containing CVA6 boot and Linux payloads
 - Build stack: RISC-V toolchain, OpenSBI, U-Boot/device tree, Linux kernel, Buildroot, initramfs, and root filesystem
 - Architecture selection: 64-bit by default, with 32-bit builds selected through XLEN
@@ -22,6 +23,7 @@ CVA6 SDK 是为 CVA6 FPGA 系统生成完整可启动 Linux 镜像的 Buildroot 
 
 ## 中文核心事实
 
+- 已测试核心配置：cv32a6_ima_sv32_fpga 与 cv64a6_imafdc_sv39；不能将此 Linux 构建流程套用于全部 CVA6 配置
 - 输出：包含 CVA6 启动栈与 Linux 载荷的可写入 sdcard.img
 - 构建栈：RISC-V 工具链、OpenSBI、U-Boot/设备树、Linux 内核、Buildroot、initramfs 与根文件系统
 - 位宽选择：默认 64 位，可通过 XLEN 选择 32 位构建

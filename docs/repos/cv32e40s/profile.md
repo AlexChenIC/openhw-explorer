@@ -2,7 +2,7 @@
 
 > CV32E40S 是基于 CV32E40P 演进的 4-stage security-focused embedded-class CORE-V 核心。
 
-数据核对日期: 2026-07-16
+数据核对日期: 2026-09-12
 
 ## Public summary
 
@@ -19,6 +19,7 @@ CV32E40S 是一款面向安全型嵌入式系统的紧凑四级顺序执行 32 �
 - Protection features: Machine and User modes, enhanced PMP, and anti-tampering mechanisms
 - Origin: derived from CV32E40P and the earlier PULP RI5CY line
 - Verification: core-specific UVM and formal work is maintained in cv32e40s-dv with shared infrastructure from core-v-verif
+- Readiness: the family table describes a mature design with no active work toward its TRL goal; the organization's Active Development listing is not a TRL achievement or security certification
 
 ## 中文核心事实
 
@@ -27,6 +28,7 @@ CV32E40S 是一款面向安全型嵌入式系统的紧凑四级顺序执行 32 �
 - 防护能力：Machine/User 模式、增强型 PMP 和抗篡改机制
 - 来源：由 CV32E40P 及更早的 PULP RI5CY 技术路线演进而来
 - 验证：专用 UVM 与形式验证位于 cv32e40s-dv，共享基础设施来自 core-v-verif
+- 成熟度：家族表将其描述为成熟设计，但没有积极推进 TRL 目标；组织目录中的 Active Development 不等于已经达到 TRL，也不代表安全认证
 
 ## Further resources
 

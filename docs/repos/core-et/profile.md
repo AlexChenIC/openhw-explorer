@@ -2,7 +2,7 @@
 
 > CORE-ET 现以 ETASP（Agentic Silicon Platform）形式推进：由 Ainekko 发起，用 agentic 工作流把原 CORE-ET many-core RTL 翻译为干净的 SystemVerilog IP 目录；原始 RTL 与文档保留在 erbium 分支。
 
-数据核对日期: 2026-07-16
+数据核对日期: 2026-09-12
 
 ## Public summary
 
@@ -44,7 +44,7 @@ CORE-ET 是 OpenHW 官网 Projects 页列出的硅平台项目（many-core RISC-
 - 不应把 CORE-ET 简单描述为"一个 RISC-V core"：仓库当前主体是 ETASP IP 平台/目录，原始 many-core RTL 在 erbium 分支。
 - Ainekko 项目属性来自仓库 README 原文（"an Ainekko project"）。
 - 官网 openhwfoundation.org 对 CORE-ET 的描述是 "combines many-core RISC-V-based RTL with MRAM, creating a basis for the ET Silicon Platform"。
-- 站内分类使用 soc + ip：既是硅平台（SoC 方向）也是 IP 目录。
+- 站内以 ip 为主分类，保留 soc 次分类表示历史平台与系统集成范围；当前主分支不等于已经交付历史 many-core SoC。
 
 ## 主要来源
 

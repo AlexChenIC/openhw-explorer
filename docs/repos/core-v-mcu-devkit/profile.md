@@ -2,7 +2,7 @@
 
 > CORE-V MCU DevKit 是 CORE-V MCU 的官方开发板/评估平台资料仓库，适合硬件 bring-up 与教学演示。
 
-数据核对日期: 2026-07-16
+数据核对日期: 2026-09-12
 
 ## Public summary
 
@@ -19,6 +19,7 @@ CORE-V MCU DevKit 保存了一块以 CORE-V MCU 和 CV32E40P v1.0.0 为核心的
 - On-board compute: CORE-V MCU plus a QuickLogic ArcticPro2 embedded FPGA
 - Bring-up interfaces: on-board and external JTAG, test pins, mikroBUS, CSI camera, LEDs, button, and AWS IoT ExpressLink
 - Electrical constraint: the MCU pad ring and direct JTAG header use 1.8 V logic
+- Availability boundary: this repository provides board-design files and documentation, not a guarantee of current board stock or ordering availability
 
 ## 中文核心事实
 
@@ -27,9 +28,11 @@ CORE-V MCU DevKit 保存了一块以 CORE-V MCU 和 CV32E40P v1.0.0 为核心的
 - 板上计算：CORE-V MCU 与 QuickLogic ArcticPro2 嵌入式 FPGA
 - Bring-up 接口：板载/外接 JTAG、测试引脚、mikroBUS、CSI 摄像头、LED、按键和 AWS IoT ExpressLink
 - 电气约束：MCU pad ring 与直接 JTAG 接口使用 1.8 V 逻辑电平
+- 供应边界：仓库提供板级设计资料与文档，不代表目前有开发板现货或可下单购买
 
 ## Further resources
 
+- [DevKit hardware manual](https://docs.openhwgroup.org/projects/core-v-mcu-devkit-user-manual/en/latest/doc-src/hardware-description.html) — board architecture, CORE-V MCU, embedded FPGA, and electrical interfaces
 - [DevKit schematic](https://github.com/openhwgroup/core-v-mcu-devkit/blob/main/docs/images/OpenHW%20DevKit.pdf) — board-level PDF schematic
 - [CORE-V MCU repository](https://github.com/openhwgroup/core-v-mcu) — SoC/MCU RTL platform used by the board
 - [CV32E40P repository](https://github.com/openhwgroup/cv32e40p) — processor core evaluated by the DevKit

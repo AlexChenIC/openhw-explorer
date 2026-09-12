@@ -206,7 +206,7 @@
       "dataAsOf": "数据更新于 {date}"
     },
     "status": {
-      "active": "活跃开发中",
+      "active": "维护中",
       "stable": "成熟",
       "completed": "已完成",
       "inactive": "近期低活跃",
@@ -227,7 +227,8 @@
     },
     "metrics": {
       "stars": "星标",
-      "forks": "分叉"
+      "forks": "分叉",
+      "repositoryLanguage": "仓库主要语言（GitHub）"
     },
     "quickStart": {
       "title": "建议起步",

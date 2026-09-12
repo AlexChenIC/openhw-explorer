@@ -2,7 +2,7 @@
 
 > cvfpu-uvm 是 CVFPU 在 CVA6 wrapper 场景下的 UVM 验证环境，使用 C++ reference model 和 SystemVerilog DPI。
 
-数据核对日期: 2026-07-16
+数据核对日期: 2026-09-12
 
 ## Public summary
 
@@ -19,6 +19,7 @@ cvfpu-uvm 是用于验证 CVFPU 的专用 UVM 环境，被测对象是 CVA6 使�
 - Reference model: C++ shared library connected to SystemVerilog through DPI
 - Dependencies: CVA6 and core-v-verif are included as Git submodules
 - Simulator support: documented flows for QuestaSim, Xcelium, and VCS
+- Coverage boundary: CVA6 wrapper only, no vector FP testing; RMM/ROD/DYN are not fully verified, formats beyond FP32/64/16 are tested only for F2F, and F2I/I2F covers INT32/64 only; some regressions expose known DUT bugs
 
 ## 中文核心事实
 
@@ -27,9 +28,11 @@ cvfpu-uvm 是用于验证 CVFPU 的专用 UVM 环境，被测对象是 CVA6 使�
 - 参考模型：编译为共享库并通过 DPI 连接 SystemVerilog 的 C++ 模型
 - 依赖：以 Git submodule 方式引入 CVA6 与 core-v-verif
 - 仿真器支持：提供 QuestaSim、Xcelium 和 VCS 流程
+- 覆盖边界：仅面向 CVA6 wrapper，不支持向量浮点测试；RMM/ROD/DYN 尚未充分验证，FP32/64/16 以外格式仅测 F2F，F2I/I2F 仅覆盖 INT32/64；部分回归会暴露已知 DUT 缺陷
 
 ## Further resources
 
+- [Known verification limitations](https://github.com/openhwgroup/cvfpu-uvm/blob/2f787402/README.md#42-known-limitations) — supported formats, rounding modes, conversions, and known DUT issues at the reviewed revision
 - [CVFPU RTL repository](https://github.com/openhwgroup/cvfpu) — floating-point unit being verified
 - [CVFPU UVM test plan](https://github.com/openhwgroup/cvfpu-uvm/tree/main/docs/testplan) — verification planning material
 - [CVA6 repository](https://github.com/openhwgroup/cva6) — source of the wrapper used as the DUT

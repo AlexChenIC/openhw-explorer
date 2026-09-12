@@ -2,7 +2,7 @@
 
 > CVW/Wally 是面向教学与工程实践的 5-stage configurable RISC-V processor，资料与课程属性强，是本站教学方向的重要入口。
 
-数据核对日期: 2026-07-16
+数据核对日期: 2026-09-12
 
 ## Public summary
 
@@ -40,7 +40,7 @@ CVW（CORE-V Wally）是一款用 SystemVerilog 编写的可配置五级流水 R
 
 ## Further resources
 
-- [RISC-V System-on-Chip Design](https://shop.elsevier.com/books/risc-v-system-on-chip-design/harris/978-0-323-99498-9) — official publisher page for purchasing the textbook (ISBN 978-0-323-99498-9)
+- [RISC-V System-on-Chip Design (1st edition, 2026)](https://shop.elsevier.com/books/risc-v-system-on-chip-design/harris/978-0-323-99498-9) — Morgan Kaufmann textbook, published July 1, 2026; ISBN 978-0-323-99498-9
 - [Textbook companion resources](https://pages.hmc.edu/harris/ddca/rvsocd.html) — author-maintained lecture slides, labs, sample chapters, exercises, and links to CORE-V Wally
 - [Textbook errata](https://github.com/openhwgroup/cvw/blob/main/errata.md) — corrections maintained alongside the CVW repository
 - [CVW test plan](https://github.com/openhwgroup/cvw/blob/main/docs/testplans/testplan.md) — verification scope and coverage planning

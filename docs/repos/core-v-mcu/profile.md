@@ -2,7 +2,7 @@
 
 > CORE-V MCU 是 OpenHW 的 CV32E40P MCU/SoC 平台项目，源自 PULPissimo，但现在是独立项目。
 
-数据核对日期: 2026-07-16
+数据核对日期: 2026-09-12
 
 ## Public summary
 
@@ -19,6 +19,7 @@ CORE-V MCU 是一套以 CV32E40P 为处理器核心、由 PULPissimo 演进而�
 - FPGA flows: pre-built Nexys A7 quick start plus build targets for Nexys A7 and Genesys 2
 - Tooling: Make, FuseSoC, Verilator, Vivado, and a Questa simulation target
 - Debug: IEEE 1149.1 JTAG Test Access Port with a RISC-V Debug Transport Module
+- Research context: the Quentin and Arnold papers describe related predecessor designs, not production qualification or measured performance of the current CORE-V MCU revision
 
 ## 中文核心事实
 
@@ -27,6 +28,7 @@ CORE-V MCU 是一套以 CV32E40P 为处理器核心、由 PULPissimo 演进而�
 - FPGA 流程：提供预编译 Nexys A7 快速体验，以及 Nexys A7 和 Genesys 2 构建目标
 - 工具：涉及 Make、FuseSoC、Verilator、Vivado 和 Questa 仿真目标
 - 调试：IEEE 1149.1 JTAG Test Access Port 与 RISC-V Debug Transport Module
+- 研究背景：Quentin、Arnold 论文介绍相关前身设计，不代表当前 CORE-V MCU 版本已通过量产验证，也不能直接沿用其中的性能数据
 
 ## Further resources
 

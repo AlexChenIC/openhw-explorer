@@ -2,21 +2,21 @@
 
 > CVE2/CV32E20 是低复杂度、低功耗的 2-stage embedded-class RISC-V core，源自 Ibex/Zero-riscy 路线。
 
-数据核对日期: 2026-07-16
+数据核对日期: 2026-09-12
 
 ## Public summary
 
-CVE2 is OpenHW's low-complexity embedded-core family, currently represented by the two-stage CV32E20 processor. The core is a heavily parameterized 32-bit, in-order design supporting RV32I or RV32E with optional multiplication/division and compressed instructions, making it suitable for control-oriented systems where area and energy matter more than peak performance. Students can use it to understand a small modern pipeline, while engineers should pair the RTL with cv32e20-dv and core-v-verif for serious verification work.
+CVE2 is OpenHW's low-complexity embedded-core family, currently represented by the two-stage CV32E20 processor. The 32-bit, in-order design supports RV32I or RV32E, compressed instructions, and configurable multiplication/division. It suits control-oriented systems where area and energy matter more than peak performance. Students can use it to understand a small modern pipeline, while engineers should pair the RTL with cv32e20-dv and the shared core-v-verif infrastructure for verification work.
 
 ## 中文介绍
 
-CVE2 是 OpenHW 的低复杂度嵌入式核心家族，目前主要由两级流水的 CV32E20 代表。该核心是一款高度参数化的 32 位顺序执行设计，支持 RV32I 或 RV32E，并可选乘除法与压缩指令，适合面积和能耗优先于峰值性能的控制型系统。学生可以借它理解精简的现代处理器流水线；工程使用则应结合 cv32e20-dv 与 core-v-verif 进行完整验证。
+CVE2 是 OpenHW 的低复杂度嵌入式核心家族，目前主要由两级流水的 CV32E20 代表。该核心采用 32 位顺序执行设计，支持 RV32I 或 RV32E 及压缩指令，乘除法实现可配置，适合面积和能耗优先于峰值性能的控制型系统。学生可以借它理解精简的现代处理器流水线；工程使用则应结合 cv32e20-dv 与共享的 core-v-verif 基础设施开展验证。
 
 ## Key facts
 
 - Family scope: CVE2 currently contains the CV32E20 core
 - Architecture: heavily parameterized 32-bit, two-stage, in-order processor for embedded control
-- ISA: RV32I or RV32E with optional multiplication/division and compressed instructions
+- ISA: RV32I or RV32E, compressed instructions, and configurable multiplication/division; the reviewed configuration has no separate RV32C enable switch
 - Origin: forked from lowRISC Ibex and traceable to the PULP Zero-riscy core
 - Verification boundary: the local simple testbench is experimental; project verification is maintained in cv32e20-dv and core-v-verif
 
@@ -24,7 +24,7 @@ CVE2 是 OpenHW 的低复杂度嵌入式核心家族，目前主要由两级流�
 
 - 家族范围：CVE2 当前包含 CV32E20 核心
 - 架构：高度参数化的 32 位、两级流水、顺序执行嵌入式处理器
-- 指令集：RV32I 或 RV32E，可选乘除法与压缩指令
+- 指令集：RV32I 或 RV32E，支持压缩指令，乘除法可配置；核查版本没有独立的 RV32C 启用开关
 - 来源：由 lowRISC Ibex 分支演进，并可追溯到 PULP Zero-riscy 核心
 - 验证边界：仓库内简单 testbench 仅供实验，项目验证主要位于 cv32e20-dv 与 core-v-verif
 
@@ -47,6 +47,8 @@ CVE2 README 说明 CVE2 是一类 2-stage OpenHW cores，目前唯一核心是 C
 
 ## 主要来源
 
+- https://github.com/openhwgroup/cve2/blob/d079e8c8/doc/02_user/integration.rst
+- https://github.com/openhwgroup/cve2/blob/d079e8c8/doc/03_reference/instruction_fetch.rst
 - https://github.com/openhwgroup/cve2
 - https://github.com/openhwgroup/.github/blob/main/profile/README.md
 - https://github.com/openhwgroup/core-v-cores

@@ -102,7 +102,7 @@ const verifiedClassification: Record<string, VerifiedClassification> = {
   "core-v-mcu-devkit": { category: ["soc", "tools"] },
   "cva6-safe": { category: ["soc"], coreType: ["fault-tolerant"] },
   "core-v-polara-apu": { category: ["soc"] },
-  "core-et": { category: ["soc", "ip"] },
+  "core-et": { category: ["ip", "soc"] },
   "cva6-platform": { category: ["soc"] },
   "cva6-dcls": { category: ["soc"] },
 
@@ -123,9 +123,8 @@ const verifiedClassification: Record<string, VerifiedClassification> = {
 
   "core-v-cores": { category: ["docs"] },
   programs: { category: ["docs"] },
-  // UAP is a catalogue platform, but users looking for IP should discover it,
-  // so it is classified by user task (ip) first, nature (docs) second.
-  uap: { category: ["ip", "docs"] },
+  // Lead with the catalogue artifact while retaining IP discovery.
+  uap: { category: ["docs", "ip"] },
 };
 
 const openhwStatusProjects = new Set(["cva6", "cvw", "cv32e40x", "cv32e40s", "cva5", "cve2"]);
@@ -249,10 +248,6 @@ function buildVerifiedTags(project: Project, stats?: GitHubRepoStats): string[] 
 
   for (const verificationType of project.verificationType || []) {
     pushUnique(tags, verificationTypeTagLabel[verificationType]);
-  }
-
-  if (project.language) {
-    pushUnique(tags, project.language);
   }
 
   for (const topic of stats?.topics || []) {
@@ -542,7 +537,7 @@ export const projects: Project[] = [
     category: ["verification"],
     verificationType: ["uvm-testbench", "formal-verification"],
     tags: ["Verification", "Assembly", "Security", "DV"],
-    status: "inactive",
+    status: "active",
     github: "https://github.com/openhwgroup/cv32e40s-dv",
     stars: 0,
     forks: 1,
@@ -976,17 +971,15 @@ for (const project of projects) {
     project.statusSourceUrl = project.github;
   } else if (openhwStatusProjects.has(project.id)) {
     project.statusSource = "openhw";
-    project.statusSourceUrl = openhwStatusSource;
-  } else if (
-    project.status === "active" ||
-    project.status === "inactive" ||
-    project.status === "deprecated"
-  ) {
-    project.statusSource = "github";
-    project.statusSourceUrl = project.github;
+    project.statusSourceUrl = project.id === "cv32e40s"
+      ? "https://github.com/openhwgroup/.github/blob/main/profile/README.md"
+      : openhwStatusSource;
   } else {
+    // Static assessments are not live GitHub activity measurements or TRL ratings.
     project.statusSource = "editorial";
-    project.statusSourceUrl = project.github;
+    project.statusSourceUrl = project.id === "cv32e40s-dv"
+      ? "https://github.com/openhwgroup/cv32e40s-dv/commit/8b27b963ef08badfa350b4207a45e2c2cadb3001"
+      : project.github;
   }
 
   const profileMeta = projectProfileMeta[project.id];

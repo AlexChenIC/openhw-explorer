@@ -2,7 +2,7 @@
 
 > core-v-cores 是 CORE-V 家族的总览/路线仓库：介绍各家族成员并链接到各自仓库，维护 CORE-V 命名规则、发布（RTL Freeze）规则与 mvendorid/marchid/mimpid 分配表。
 
-数据核对日期: 2026-07-16
+数据核对日期: 2026-09-12
 
 ## Public summary
 
@@ -16,7 +16,7 @@ core-v-cores 是 OpenHW CORE-V 处理器的权威家族总览。它本身不保�
 
 - Artifact type: CORE-V family roadmap and release documentation; each core's RTL lives elsewhere
 - Families covered: CVA6, CVW/Wally, CVE4, CVE2, and CVA5
-- Configuration distinction: CVA6 family material covers single- and dual-issue variants while the current baseline implementation is single-issue
+- Configuration distinction: CVA6 includes single-issue CV32A60X and dual-issue CV32A65X RTL configurations; implementation availability and release TRL are separate checks
 - Release rule: reaching the target TRL creates a major release, also called an RTL Freeze
 - Identification: OpenHW mvendorid 0x602 plus assigned marchid and mimpid values for released cores
 
@@ -24,7 +24,7 @@ core-v-cores 是 OpenHW CORE-V 处理器的权威家族总览。它本身不保�
 
 - 产物类型：CORE-V 家族路线与发布文档，各核心 RTL 位于独立仓库
 - 覆盖家族：CVA6、CVW/Wally、CVE4、CVE2 和 CVA5
-- 配置差异：CVA6 家族资料覆盖单发射与双发射变体，当前基线实现为单发射
+- 配置差异：CVA6 已包含单发射 CV32A60X 与双发射 CV32A65X 的 RTL 配置；存在实现与达到发布 TRL 需要分别确认
 - 发布规则：达到目标 TRL 会产生一个 major release，也称 RTL Freeze
 - 标识：记录 OpenHW mvendorid 0x602，以及已发布核心的 marchid 和 mimpid
 
@@ -47,5 +47,7 @@ core-v-cores 仓库 README 是 CORE-V 家族的权威总览：CVA6（6-stage，s
 
 ## 主要来源
 
+- https://github.com/openhwgroup/cva6/blob/49b5fa9e/core/include/cv32a60x_config_pkg.sv
+- https://github.com/openhwgroup/cva6/blob/49b5fa9e/core/include/cv32a65x_config_pkg.sv
 - https://github.com/openhwgroup/core-v-cores
 - https://github.com/openhwgroup/.github/blob/main/profile/README.md

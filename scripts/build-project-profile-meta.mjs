@@ -209,7 +209,7 @@ function parseProfile(content) {
     reviewStatus,
     sourceTier,
     verifiedAt,
-    sourceUrls: urls.slice(0, 8),
+    sourceUrls: urls,
     sourceCount: urls.length,
     confidence,
   };

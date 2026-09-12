@@ -2,7 +2,7 @@
 
 > CV-HPDCache 是 OpenHW 的 high-performance multi-requester out-of-order L1 data cache IP，并已集成到 CVA6 配置中。
 
-数据核对日期: 2026-07-16
+数据核对日期: 2026-09-12
 
 ## Public summary
 
@@ -30,6 +30,7 @@ CV-HPDCache 是一款面向 RISC-V 核心与加速器的可配置高性能 L1 �
 
 ## Further resources
 
+- [SystemC/Verilator testbench](https://github.com/openhwgroup/cv-hpdcache/blob/master/rtl/tb/README.md) — standalone testbench in the RTL repository, separate from the dedicated UVM project
 - [CV-HPDCache User Guide](https://openhw-group-cv-hpdcache.readthedocs-hosted.com/) — official architecture and integration documentation
 - [CV-HPDCache verification](https://github.com/openhwgroup/cv-hpdcache-verif) — dedicated UVM subsystem environment
 - [CVA6 integration example](https://github.com/openhwgroup/cva6/blob/master/core/cache_subsystem/cva6_hpdcache_subsystem.sv) — concrete integration referenced by the README

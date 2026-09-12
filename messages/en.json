@@ -227,7 +227,8 @@
     },
     "metrics": {
       "stars": "stars",
-      "forks": "forks"
+      "forks": "forks",
+      "repositoryLanguage": "repository language (GitHub)"
     },
     "quickStart": {
       "title": "Start here",

@@ -123,7 +123,9 @@ describe("source-backed content boundaries", () => {
     expect(cva5?.projectInvolvement?.[0]?.kind).toBe("origin");
 
     const coreVMcu = getProjectKnowledge("core-v-mcu");
-    expect(coreVMcu?.industryAdoption?.[0]?.entity).toBe("QuickLogic Corporation");
+    expect(coreVMcu?.industryAdoption || []).toHaveLength(0);
+    expect(coreVMcu?.projectInvolvement?.[0]?.entity).toBe("QuickLogic Corporation");
+    expect(coreVMcu?.projectInvolvement?.[0]?.kind).toBe("integration");
   });
 
   it("gives every OpenHW foundations source anchor a public context URL", () => {

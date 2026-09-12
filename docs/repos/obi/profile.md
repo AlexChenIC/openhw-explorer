@@ -2,7 +2,7 @@
 
 > obi 是 OpenBus Interface (OBI) 规范的维护仓库；OBI 是 CORE-V 核心（如 CV32E40P/CVE2）指令与数据接口使用的总线协议。
 
-数据核对日期: 2026-07-16
+数据核对日期: 2026-09-12
 
 ## Public summary
 
@@ -14,6 +14,7 @@ OBI 是 OpenBus Interface 的规范仓库，这是一种被多个 CORE-V 嵌入�
 
 ## Key facts
 
+- Integration boundary: select the OBI version implemented by the target core and peripheral; the newest specification does not automatically describe every existing core interface
 - Artifact type: versioned protocol specification rather than RTL
 - Published documents: OBI v1.0 through OBI v1.6.0 are present in the repository
 - CORE-V usage: instruction and data-memory interfaces in processors including CV32E40P and CV32E20
@@ -21,6 +22,7 @@ OBI 是 OpenBus Interface 的规范仓库，这是一种被多个 CORE-V 嵌入�
 
 ## 中文核心事实
 
+- 集成边界：应匹配目标核心与外设实际实现的 OBI 版本，不能用最新规范自动替代已有核心的接口约定
 - 产物类型：带版本的总线协议规范，不是 RTL
 - 已发布文档：仓库包含 OBI v1.0 至 v1.6.0
 - CORE-V 使用场景：CV32E40P、CV32E20 等核心的取指与数据存储接口

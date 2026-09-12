@@ -2,7 +2,7 @@
 
 > UAP 是 European Unified RISC-V IP Access Platform：把 TRISTAN、ISOLDE 等欧洲研究项目产出的 RISC-V IP 统一编目、文档化的静态入口平台，EPL-2.0 许可。
 
-数据核对日期: 2026-07-16
+数据核对日期: 2026-09-12
 
 ## Public summary
 
@@ -19,6 +19,7 @@ UAP（European Unified RISC-V IP Access Platform）是一套用于发现欧洲 R
 - Information model: maturity, usability, licensing, and integration-workflow context
 - Delivery: static access page linking to OpenHW GitHub repositories and applicable European GitLab mirrors
 - Maturity: useful discovery layer today, with additional monitoring, interoperability, and governance features still planned
+- Access boundary: catalogue inclusion does not guarantee that every linked asset is openly downloadable; check each asset's own access terms and license
 
 ## 中文核心事实
 
@@ -27,6 +28,7 @@ UAP（European Unified RISC-V IP Access Platform）是一套用于发现欧洲 R
 - 信息模型：成熟度、可用性、许可和集成流程背景
 - 交付方式：静态入口页面，链接到 OpenHW GitHub 仓库及适用的欧洲 GitLab 镜像
 - 成熟度：当前已可用于资源发现，更多监测、互操作与治理功能仍在规划中
+- 访问边界：被目录收录不代表每项资产均可公开下载，需分别检查实际访问条件与许可证
 
 ## Further resources
 
@@ -41,7 +43,7 @@ UAP（Unified RISC-V Access Platform）是 OpenHW 官网 Projects 页列出的�
 
 ## 事实核查要点
 
-- UAP 本身不是 RTL 仓库，而是 IP 编目与文档平台。站内分类为 `ip` + `docs`（2026-07-09 调整）：按用户任务归类——用户在 "IP" 筛选下寻找 IP 资源时应能发现这个入口平台，同时保留 docs 属性。
+- UAP 本身不是 RTL 仓库，而是 IP 编目与文档平台。站内以 `docs` 为主分类，保留 `ip` 次分类便于发现 IP 资源；这不表示它是可综合 IP。
 - README 明确说明"not all elements are fully implemented yet"，功能仍在渐进式路线图中，描述时避免夸大完成度。
 - 项目由 EU/Chips JU 资助，与 TRISTAN、ISOLDE 项目关联。
 

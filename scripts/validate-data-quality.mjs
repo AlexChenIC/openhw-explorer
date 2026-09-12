@@ -322,8 +322,22 @@ function validateProjectProfileMeta() {
 
     if (!Array.isArray(profile.sourceUrls)) {
       errors.push(`project '${id}' sourceUrls must be an array`);
-    } else if (profile.sourceUrls.length === 0) {
-      warnings.push(`project '${id}' has no sourceUrls`);
+    } else {
+      const uniqueSources = new Set(profile.sourceUrls);
+      if (profile.sourceUrls.length === 0) {
+        warnings.push(`project '${id}' has no sourceUrls`);
+      }
+      if (uniqueSources.size !== profile.sourceUrls.length) {
+        errors.push(`project '${id}' sourceUrls contains duplicates`);
+      }
+      if (!Number.isInteger(profile.sourceCount) || profile.sourceCount !== uniqueSources.size) {
+        errors.push(`project '${id}' sourceCount must match its deduplicated sourceUrls`);
+      }
+      for (const sourceUrl of uniqueSources) {
+        if (!isHttpUrl(sourceUrl)) {
+          errors.push(`project '${id}' has an invalid source URL`);
+        }
+      }
     }
 
     if (!Array.isArray(profile.keyFacts)) {

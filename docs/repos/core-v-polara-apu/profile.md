@@ -2,7 +2,7 @@
 
 > CORE-V Polara APU 是基于 Ara 与 OpenPiton 的多核 RISC-V vector research platform，公开资料偏研究原型。
 
-数据核对日期: 2026-07-16
+数据核对日期: 2026-09-12
 
 ## Public summary
 
@@ -14,6 +14,7 @@ CORE-V Polara APU 是一套多核向量处理研究平台，将 Ara 的向量处
 
 ## Key facts
 
+- Version boundary: integration depends on the Ara and platform revisions pinned by this repository; newer upstream Ara or RVV capabilities do not automatically apply
 - Origin: combines the PULP Ara vector processor with Princeton OpenPiton infrastructure
 - Topology: four RISC-V vector cores connected through OpenPiton
 - Compute scope: includes low-precision operations for DNN inference
@@ -22,6 +23,7 @@ CORE-V Polara APU 是一套多核向量处理研究平台，将 Ara 的向量处
 
 ## 中文核心事实
 
+- 版本边界：集成能力以本仓库锁定的 Ara 与平台版本为准，不能自动继承新版上游 Ara 或 RVV 的全部能力
 - 来源：结合 PULP Ara 向量处理器与 Princeton OpenPiton 基础设施
 - 拓扑：四个 RISC-V 向量核心通过 OpenPiton 连接
 - 计算范围：包含面向 DNN 推理的低精度运算

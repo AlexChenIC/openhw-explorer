@@ -59,7 +59,7 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
     academicPapers: [
       {
         title: "Near-Threshold RISC-V Core With DSP Extensions for Scalable IoT Endpoint Devices",
-        authors: "P. Schiavone, D. Rossi, A. Pullini et al.",
+        authors: "Michael Gautschi, Pasquale Davide Schiavone, Andreas Traber, et al.",
         venue: "IEEE Transactions on VLSI Systems",
         year: 2017,
         doi: "10.1109/TVLSI.2017.2654506",
@@ -67,7 +67,7 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
       {
         title:
           "Slow and steady wins the race? A comparison of ultra-low-power RISC-V cores for Internet-of-Things applications",
-        authors: "P. D. Schiavone, G. Tagliavini, P. G. Paulin et al.",
+        authors: "Pasquale Davide Schiavone, Francesco Conti, Davide Rossi, et al.",
         venue: "PATMOS",
         year: 2017,
         doi: "10.1109/PATMOS.2017.8106976",
@@ -77,33 +77,12 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
 
   // CVW (Wally) - Education-focused
   cvw: {
-    academicPapers: [
-      {
-        title: "RISC-V System-on-Chip Design",
-        authors: "D. Harris, J. Stine, R. Thompson, S. Harris",
-        venue: "Morgan Kaufmann (Textbook)",
-        year: 2024,
-      },
-    ],
     educationalUse: [
       {
         university: "Harvey Mudd College",
         course:
           "Wally is the companion core for the RISC-V System-on-Chip Design textbook and its computer architecture coursework; the README documents classroom setup and regression flows for students.",
         url: "https://github.com/openhwgroup/cvw",
-      },
-    ],
-  },
-
-  // CORE-V Verification - Flagship verification
-  "core-v-verif": {
-    academicPapers: [
-      {
-        title: "OpenHW Group CORE-V Verification Strategy",
-        authors: "OpenHW Group",
-        venue: "OpenHW Documentation",
-        year: 2024,
-        url: "https://docs.openhwgroup.org/projects/core-v-verif/en/latest/",
       },
     ],
   },
@@ -118,14 +97,6 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
         venue: "IEEE Transactions on VLSI Systems",
         year: 2021,
         doi: "10.1109/TVLSI.2020.3044752",
-      },
-      {
-        title:
-          "FPnew: An Open-Source Multiformat Floating-Point Unit Architecture for Energy-Proportional Transprecision Computing",
-        authors: "Stefan Mach, Fabian Schuiki, Florian Zaruba, Luca Benini",
-        venue: "arXiv",
-        year: 2020,
-        url: "https://arxiv.org/abs/2007.01530",
       },
     ],
   },
@@ -200,24 +171,25 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
     academicPapers: [
       {
         title: "Quentin: an Ultra-Low-Power PULPissimo SoC in 22nm FDX",
-        authors: "P. D. Schiavone, A. Traber, F. Conti et al.",
+        authors: "Pasquale Davide Schiavone, Davide Rossi, Antonio Pullini, et al.",
         venue: "IEEE S3S",
         year: 2018,
         doi: "10.1109/S3S.2018.8640145",
       },
       {
         title: "Arnold: An eFPGA-Augmented RISC-V SoC for Flexible and Low-Power IoT End Nodes",
-        authors: "P. D. Schiavone, A. Traber, F. Conti et al.",
+        authors: "Pasquale Davide Schiavone, Davide Rossi, Alfio Di Mauro, et al.",
         venue: "IEEE Transactions on VLSI Systems",
         year: 2021,
         doi: "10.1109/TVLSI.2021.3058162",
       },
     ],
-    industryAdoption: [
+    projectInvolvement: [
       {
         entity: "QuickLogic Corporation",
-        useCase: "First CORE-V silicon tapeout, manufactured and available as development kit",
-        sourceUrl: "https://openhwfoundation.org/core-v-devkits/",
+        kind: "integration",
+        description: "The CORE-V MCU used on the DevKit includes QuickLogic ArcticPro2 embedded FPGA IP.",
+        sourceUrl: "https://github.com/openhwgroup/core-v-mcu-devkit/blob/main/README.md",
       },
     ],
     educationalUse: [],
@@ -328,15 +300,6 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
   // CV32E40X - Compute-oriented with extensions
   cv32e40x: {
     presentations: [],
-    projectInvolvement: [
-      {
-        entity: "Silicon Laboratories (Silabs)",
-        kind: "contributor",
-        description:
-          "Primary contributor; developed CV32E40X as a compute-optimized CV32E40P variant with extension-friendly integration model.",
-        sourceUrl: "https://github.com/openhwgroup/cv32e40x",
-      },
-    ],
     educationalUse: [],
     articles: [
       {
@@ -382,15 +345,6 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
   // CV32E40S - Security-enhanced core
   cv32e40s: {
     presentations: [],
-    projectInvolvement: [
-      {
-        entity: "Silicon Laboratories (Silabs)",
-        kind: "contributor",
-        description:
-          "Led security-focused development in OpenHW with emphasis on embedded protection mechanisms and hardened design behavior.",
-        sourceUrl: "https://github.com/openhwgroup/cv32e40s",
-      },
-    ],
     educationalUse: [],
     articles: [
       {
@@ -423,11 +377,6 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
         relationship: "verified-by",
         description: "Dedicated security DV environment",
       },
-      {
-        project: "cva6-safe",
-        relationship: "security-lineage",
-        description: "Represents broader OpenHW security-focused processor evolution path.",
-      },
       { project: "core-v-verif", relationship: "verified-by", description: "UVM verification" },
     ],
   },
@@ -451,11 +400,6 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
         description: "Prototype based on CV32E40P with Zfinx/Zce extensions",
       },
       {
-        project: "cv32e40s",
-        relationship: "succeeded-by",
-        description: "Security features continued in CV32E40S",
-      },
-      {
         project: "core-v-verif",
         relationship: "methodology-reference",
         description:
@@ -463,7 +407,7 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
       },
     ],
     contributionNotes:
-      "This project is archived. Security and extension work has been continued in CV32E40S and CV32E40X.",
+      "This CV32E40P-derived Zfinx/Zce prototype is archived. Consult the CORE-V family catalogue for maintained cores; shared ancestry does not establish a successor relationship.",
   },
 
   // CVA5 - FPGA-optimized application core
@@ -531,15 +475,8 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
         entity: "lowRISC / ETH Zurich",
         kind: "origin",
         description:
-          "Derived from Ibex (zero-riscy); inherits lowRISC's industrial verification methodology and ETH Zurich PULP heritage",
+          "Forked from Ibex and traceable to the PULP Zero-riscy core; this lineage does not establish CVE2's current verification coverage.",
         sourceUrl: "https://github.com/lowRISC/ibex",
-      },
-    ],
-    educationalUse: [
-      {
-        university: "ETH Zurich",
-        course: "PULP Platform: zero-riscy heritage used in educational SoC projects",
-        url: "https://pulp-platform.org/",
       },
     ],
     articles: [
@@ -561,11 +498,6 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
         project: "cv32e20-dv",
         relationship: "verified-by",
         description: "Dedicated design verification environment",
-      },
-      {
-        project: "core-v-mcu",
-        relationship: "candidate-for",
-        description: "Candidate for ultra-low-power MCU designs",
       },
     ],
   },
@@ -738,12 +670,12 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
       {
         project: "cvfpu",
         relationship: "verifies",
-        description: "UVM verification for IEEE 754 compliance across FP32/FP64/FP16",
+        description: "Tests CVFPU through the CVA6 wrapper, with documented format, rounding-mode, and conversion coverage limitations.",
       },
       {
         project: "cva6",
         relationship: "supports",
-        description: "Ensures FPU correctness for CVA6 pipeline integration",
+        description: "Exercises CVA6 FPU wrapper integration; regression coverage is not a proof of complete correctness.",
       },
       {
         project: "core-v-verif",
@@ -759,15 +691,6 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
 
   // CV32E40S DV - Security core verification
   "cv32e40s-dv": {
-    projectInvolvement: [
-      {
-        entity: "Silicon Laboratories (Silabs)",
-        kind: "contributor",
-        description:
-          "Primary contributor; security-specific test scenarios for PMP, anti-tampering, and Zc extensions",
-        sourceUrl: "https://github.com/openhwgroup/cv32e40s-dv",
-      },
-    ],
     educationalUse: [],
     articles: [
       {
@@ -893,8 +816,8 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
         entity: "QuickLogic Corporation",
         kind: "integration",
         description:
-          "Manufactured the CORE-V MCU ASIC on GlobalFoundries 22nm FDX; DevKit features QuickLogic Arnold chip",
-        sourceUrl: "https://www.quicklogic.com/",
+          "Supplies the ArcticPro2 embedded FPGA IP included in the DevKit's CORE-V MCU.",
+        sourceUrl: "https://github.com/openhwgroup/core-v-mcu-devkit/blob/main/README.md",
       },
       {
         entity: "GroupGets",
@@ -1013,15 +936,6 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
 
   // CORE-V GCC - GNU compiler toolchain
   "corev-gcc": {
-    projectInvolvement: [
-      {
-        entity: "Embecosm",
-        kind: "contributor",
-        description:
-          "Lead development and maintenance; contracted by OpenHW to port PULP extensions and Zc* extensions to GCC",
-        sourceUrl: "https://www.embecosm.com/",
-      },
-    ],
     educationalUse: [],
     presentations: [],
     articles: [
@@ -1065,15 +979,6 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
 
   // CORE-V Binutils & GDB
   "corev-binutils-gdb": {
-    projectInvolvement: [
-      {
-        entity: "Embecosm",
-        kind: "contributor",
-        description:
-          "Lead developer for CORE-V binutils and GDB; assembler/disassembler/debugger support for PULP and Zc* extensions",
-        sourceUrl: "https://www.embecosm.com/",
-      },
-    ],
     educationalUse: [],
     articles: [
       {
@@ -1110,15 +1015,6 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
 
   // CORE-V LLVM - Alternative compiler toolchain
   "corev-llvm": {
-    projectInvolvement: [
-      {
-        entity: "Embecosm",
-        kind: "contributor",
-        description:
-          "Lead development of CORE-V LLVM; implementing PULP custom extension support in Clang/LLVM backend",
-        sourceUrl: "https://www.embecosm.com/",
-      },
-    ],
     educationalUse: [],
     presentations: [],
     articles: [
@@ -1212,7 +1108,7 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
         entity: "Amazon Web Services (FreeRTOS)",
         kind: "upstream",
         description:
-          "Upstream FreeRTOS kernel used as base; CORE-V port contributed back to ecosystem",
+          "FreeRTOS supplies the upstream kernel on which the platform-specific forks are based.",
         sourceUrl: "https://www.freertos.org/",
       },
     ],
@@ -1235,8 +1131,8 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
     ecosystem: [
       {
         project: "core-v-freertos-kernel",
-        relationship: "uses",
-        description: "Uses the CORE-V adapted FreeRTOS kernel",
+        relationship: "related-fork",
+        description: "Related OpenHW kernel fork; the reviewed runtime's kernel submodule selects pulp-platform/pulp-freertos-kernel instead.",
       },
       {
         project: "core-v-mcu",
@@ -1280,18 +1176,13 @@ export const knowledgeBase: Record<string, ProjectKnowledge> = {
     ecosystem: [
       {
         project: "core-v-freertos",
-        relationship: "used-by",
-        description: "Core scheduling kernel for CORE-V FreeRTOS distribution",
+        relationship: "related-runtime",
+        description: "Application runtime with demos and drivers; its reviewed kernel submodule points to the PULP fork, not this repository.",
       },
       {
         project: "core-v-mcu",
         relationship: "runs-on",
         description: "Adapted for CORE-V MCU interrupt controller and memory map",
-      },
-      {
-        project: "core-v-sdk",
-        relationship: "consumed-by",
-        description: "Kernel adaptation is consumed through SDK and port-level software stacks.",
       },
     ],
   },
