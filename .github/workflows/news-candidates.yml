@@ -41,6 +41,7 @@ jobs:
       - name: Open pull request
         uses: peter-evans/create-pull-request@v7
         with:
+          add-paths: src/data/news-candidates.json
           branch: news-candidates/scheduled
           delete-branch: true
           commit-message: Update open hardware news candidates
@@ -53,3 +54,12 @@ jobs:
             ```sh
             npm run build-news
             ```
+
+      - name: Preserve collection health
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: news-collection-health
+          path: reports/news-collection-health.json
+          if-no-files-found: warn
+          retention-days: 14

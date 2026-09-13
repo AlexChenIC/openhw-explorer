@@ -2,6 +2,8 @@
 
 /* Dark theme (default) */
 :root {
+  --news-official: #6ee7b7;
+  --news-trusted: #93c5fd;
   --bg-dark: #0b1020;
   --bg-card: #111827;
   --bg-card-hover: #172033;
@@ -45,6 +47,8 @@
 
 /* Light theme */
 [data-theme="light"] {
+  --news-official: #065f46;
+  --news-trusted: #1e40af;
   --bg-dark: #edf2f7;
   --bg-card: #f9fbfd;
   --bg-card-hover: #ffffff;

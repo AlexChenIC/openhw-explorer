@@ -282,13 +282,13 @@ export const resourceDirectoryLinks: ResourceDirectoryLink[] = [
   },
   {
     id: "riscv-green-card",
-    title: "RISC-V Green Card",
+    title: "RISC-V Green Card (2018 edition)",
     url: "https://web.archive.org/web/2024/http://riscvbook.com/greencard-20181213.pdf",
     category: "learning",
     kind: "learning",
     summary: {
-      en: "The RISC-V Reader site includes the compact Green Card reference sheet for registers, base instructions, and common extensions.",
-      zh: "The RISC-V Reader 页面包含 Green Card 速查表，可快速查看寄存器、基础指令和常见扩展。",
+      en: "Archived PDF of the December 2018 quick reference for basic architecture reading. It does not cover all currently ratified extensions.",
+      zh: "2018 年 12 月版速查表的存档 PDF，适合辅助基础架构阅读，不覆盖当前全部已批准扩展。",
     },
     tags: ["RISC-V", "Reference", "Learning"],
     upstreamSource: "riscv-ottawa",

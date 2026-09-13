@@ -11,7 +11,9 @@
     "style": "openhw-signal-technical",
     "courseTemplateId": "openhw-essentials-microcourse",
     "courseTemplateName": "OpenHW Essentials · Source-grounded interactive microcourse",
-    "agentIds": ["default-1"]
+    "agentIds": [
+      "default-1"
+    ]
   },
   "scenes": [
     {
@@ -31,7 +33,13 @@
           "kicker": "OPENHW ESSENTIALS · 02",
           "title": "One ecosystem, five different engineering layers",
           "subtitle": "Separate the RISC-V standard, Eclipse governance, OpenHW collaboration, CORE-V processor IP, and the repositories that ship the work.",
-          "chips": ["standard", "governance", "programme", "processor IP", "repository"],
+          "chips": [
+            "standard",
+            "governance",
+            "programme",
+            "processor IP",
+            "repository"
+          ],
           "thesis": "OpenHW does not define the RISC-V ISA. It organises member-driven work around open processor IP and related assets inside the Eclipse governance framework.",
           "narration": "OpenHW sits in an ecosystem where similar names label different objects. RISC-V International maintains the ISA standard. Eclipse Foundation provides the legal, governance, IP, and collaboration framework. The OpenHW Foundation working group aligns members on strategy, roadmaps, engineering policy, and ecosystem programmes. CORE-V names processor families, while repositories contain concrete artifacts. This lesson separates the layers and routes each question to the right source."
         },
@@ -74,7 +82,8 @@
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-openhw-foundation-title-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-en/audio/tts_scene-openhw-foundation-title-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-en/audio/tts_scene-openhw-foundation-title-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-en/subtitles/tts_scene-openhw-foundation-title-speech.vtt"
         }
       ],
       "createdAt": 1785844800000,
@@ -172,7 +181,8 @@
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-openhw-foundation-role-map-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-en/audio/tts_scene-openhw-foundation-role-map-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-en/audio/tts_scene-openhw-foundation-role-map-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-en/subtitles/tts_scene-openhw-foundation-role-map-speech.vtt"
         }
       ],
       "createdAt": 1785844800000,
@@ -270,7 +280,8 @@
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-openhw-foundation-standard-vs-core-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-en/audio/tts_scene-openhw-foundation-standard-vs-core-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-en/audio/tts_scene-openhw-foundation-standard-vs-core-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-en/subtitles/tts_scene-openhw-foundation-standard-vs-core-speech.vtt"
         }
       ],
       "createdAt": 1785844800000,
@@ -378,7 +389,8 @@
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-openhw-foundation-governance-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-en/audio/tts_scene-openhw-foundation-governance-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-en/audio/tts_scene-openhw-foundation-governance-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-en/subtitles/tts_scene-openhw-foundation-governance-speech.vtt"
         }
       ],
       "createdAt": 1785844800000,
@@ -470,7 +482,8 @@
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-openhw-foundation-collaboration-loop-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-en/audio/tts_scene-openhw-foundation-collaboration-loop-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-en/audio/tts_scene-openhw-foundation-collaboration-loop-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-en/subtitles/tts_scene-openhw-foundation-collaboration-loop-speech.vtt"
         }
       ],
       "createdAt": 1785844800000,
@@ -594,7 +607,8 @@
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-openhw-foundation-deliverables-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-en/audio/tts_scene-openhw-foundation-deliverables-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-en/audio/tts_scene-openhw-foundation-deliverables-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-en/subtitles/tts_scene-openhw-foundation-deliverables-speech.vtt"
         }
       ],
       "createdAt": 1785844800000,
@@ -687,7 +701,8 @@
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-openhw-foundation-router-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-en/audio/tts_scene-openhw-foundation-router-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-en/audio/tts_scene-openhw-foundation-router-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-en/subtitles/tts_scene-openhw-foundation-router-speech.vtt"
         }
       ],
       "createdAt": 1785844800000,
@@ -724,7 +739,9 @@
                 "value": "D"
               }
             ],
-            "answer": ["A"],
+            "answer": [
+              "A"
+            ],
             "analysis": "RISC-V International is the standards body. OpenHW projects implement and verify processors that conform to relevant RISC-V specifications.",
             "hasAnswer": true,
             "points": 1
@@ -751,7 +768,9 @@
                 "value": "D"
               }
             ],
-            "answer": ["A"],
+            "answer": [
+              "A"
+            ],
             "analysis": "Charter v1.1 states that OpenHW Foundation is operated as an Eclipse Foundation Working Group and that the two names are interchangeable in that document.",
             "hasAnswer": true,
             "points": 1
@@ -778,7 +797,9 @@
                 "value": "D"
               }
             ],
-            "answer": ["A"],
+            "answer": [
+              "A"
+            ],
             "analysis": "The Eclipse Working Group Process says working groups complement and influence projects but do not direct or manage them.",
             "hasAnswer": true,
             "points": 1
@@ -805,7 +826,11 @@
                 "value": "D"
               }
             ],
-            "answer": ["A", "B", "C"],
+            "answer": [
+              "A",
+              "B",
+              "C"
+            ],
             "analysis": "OpenHW work can span processor IP and the assets needed to verify and use it. RISC-V International owns ISA specification ratification.",
             "hasAnswer": true,
             "points": 2
@@ -826,7 +851,8 @@
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-openhw-foundation-quiz-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-en/audio/tts_scene-openhw-foundation-quiz-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-en/audio/tts_scene-openhw-foundation-quiz-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-en/subtitles/tts_scene-openhw-foundation-quiz-speech.vtt"
         }
       ],
       "createdAt": 1785844800000,
@@ -905,7 +931,8 @@
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-openhw-foundation-summary-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-en/audio/tts_scene-openhw-foundation-summary-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-foundation-en/audio/tts_scene-openhw-foundation-summary-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-en/subtitles/tts_scene-openhw-foundation-summary-speech.vtt"
         }
       ],
       "createdAt": 1785844800000,

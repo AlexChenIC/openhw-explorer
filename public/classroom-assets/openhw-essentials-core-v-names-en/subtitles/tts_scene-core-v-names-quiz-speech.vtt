@@ -1,22 +1,26 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:05.051
-The checkpoint now tests practical classification and lookup.
+00:00:00.000 --> 00:00:05.543
+The checkpoint tests practical classification and lookup.
 
 2
-00:00:05.051 --> 00:00:09.770
-First separate the family or code base from a named core.
+00:00:05.543 --> 00:00:10.503
+Separate the family or code base from a named core.
 
 3
-00:00:09.770 --> 00:00:16.560
-Then decode CV32E20 without turning the part number into a complete specification.
+00:00:10.503 --> 00:00:17.992
+Decode CV32E20 without turning the part number into a complete specification.
 
 4
-00:00:16.560 --> 00:00:21.942
-Identify CORE-V-XIF as the defining integration path of CV32E40X.
+00:00:17.992 --> 00:00:23.438
+Identify CORE-V-XIF as the integration path of CV32E40X.
 
 5
-00:00:21.942 --> 00:00:28.980
-Finally select the three identity CSRs that belong in a release-level hardware check.
+00:00:23.438 --> 00:00:29.176
+Distinguish integer-register width from instruction length.
+
+6
+00:00:29.176 --> 00:00:37.540
+Finally, select the three identity CSRs that belong in a release-level hardware check.
 

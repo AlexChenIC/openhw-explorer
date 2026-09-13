@@ -7,7 +7,9 @@
  * comes from src/data/curated-news.json after manual review.
  */
 
-import { mkdirSync, readFileSync, writeFileSync } from "fs";
+import { existsSync, readFileSync } from "fs";
+import { XMLParser, XMLValidator } from "fast-xml-parser";
+import { atomicJson, collectionDecision } from "./lib/news-collection-health.mjs";
 import { dirname, join } from "path";
 import { fileURLToPath } from "url";
 
@@ -15,6 +17,17 @@ const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 const PROJECTS_FILE = join(ROOT, "src/data/projects.ts");
 const OUTPUT_FILE = join(ROOT, "src/data/news-candidates.json");
+const HEALTH_FILE = join(ROOT, "reports/news-collection-health.json");
+const sourceHealth = [];
+const requestHealth = new Map();
+
+function recordSource(source, url, parsed, retained, error) {
+  sourceHealth.push({
+    source, url, status: error ? "failed" : "ok",
+    parsed, retained, ...requestHealth.get(url),
+    ...(error && { error: error.message }),
+  });
+}
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 const LOOKBACK_DAYS = Number(process.env.NEWS_LOOKBACK_DAYS || 45);
@@ -539,22 +552,33 @@ function candidateFromRaw(raw, defaults = {}) {
 }
 
 async function fetchText(url, headers = HTTP_HEADERS) {
-  const response = await fetch(url, { headers, signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
-  if (!response.ok) {
-    throw new Error(`${response.status} ${response.statusText}`);
-  }
-  return response.text();
+  return fetchBody(url, headers, false);
 }
 
 async function fetchJson(url) {
-  const response = await fetch(url, {
-    headers: GITHUB_HEADERS,
-    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
-  });
-  if (!response.ok) {
-    throw new Error(`${response.status} ${response.statusText}`);
+  const data = await fetchBody(url, GITHUB_HEADERS, true);
+  if (!Array.isArray(data)) throw new Error("Expected a GitHub array response");
+  return data;
+}
+
+async function fetchBody(url, headers, json) {
+  for (let attempt = 1; attempt <= 3; attempt++) {
+    try {
+      const response = await fetch(url, { headers, signal: AbortSignal.timeout(FETCH_TIMEOUT_MS) });
+      requestHealth.set(url, { httpStatus: response.status, attempts: attempt });
+      if (!response.ok) {
+        const error = new Error(`${response.status} ${response.statusText}`);
+        error.retryable = response.status === 429 || response.status >= 500;
+        await response.body?.cancel();
+        throw error;
+      }
+      return await (json ? response.json() : response.text());
+    } catch (error) {
+      requestHealth.set(url, { ...requestHealth.get(url), attempts: attempt });
+      if (attempt === 3 || error.retryable === false || error instanceof SyntaxError) throw error;
+      await new Promise((resolve) => setTimeout(resolve, Number(process.env.NEWS_RETRY_DELAY_MS || 500) * attempt));
+    }
   }
-  return response.json();
 }
 
 function readTag(block, tagName) {
@@ -564,6 +588,13 @@ function readTag(block, tagName) {
 }
 
 function parseFeed(xml, source) {
+  if (/<!DOCTYPE/i.test(xml) || XMLValidator.validate(xml) !== true) {
+    throw new Error("Invalid or unsupported feed XML");
+  }
+  const document = new XMLParser({ ignoreAttributes: false, processEntities: false }).parse(xml);
+  if (!(document.rss && Object.hasOwn(document.rss, "channel")) && !Object.hasOwn(document, "feed")) {
+    throw new Error("Response is not an RSS or Atom feed");
+  }
   const candidates = [];
   const itemBlocks = xml.match(/<item\b[\s\S]*?<\/item>/gi) || [];
   const entryBlocks = xml.match(/<entry\b[\s\S]*?<\/entry>/gi) || [];
@@ -587,7 +618,7 @@ function parseFeed(xml, source) {
     candidates.push({ title, url: href, publishedAt, summary, author });
   }
 
-  return candidates
+  const normalized = candidates
     .map((item) =>
       candidateFromRaw(item, {
         source: source.name,
@@ -598,6 +629,10 @@ function parseFeed(xml, source) {
       }),
     )
     .filter(Boolean);
+  if ((itemBlocks.length || entryBlocks.length) && !normalized.length) {
+    throw new Error("Feed entries exist but none could be normalized");
+  }
+  return normalized;
 }
 
 function parseOpenHwNews(html, source) {
@@ -758,9 +793,13 @@ async function collectRssCandidates() {
   for (const source of RSS_SOURCES) {
     try {
       const xml = await fetchText(source.url);
-      all.push(...parseFeed(xml, source));
+      const items = parseFeed(xml, source);
+      const parsed = (xml.match(/<(?:item|entry)\b/gi) || []).length;
+      all.push(...items);
+      recordSource(source.name, source.url, parsed, items.length);
       console.log(`  RSS: ${source.name}`);
     } catch (error) {
+      recordSource(source.name, source.url, 0, 0, error);
       console.warn(`  RSS warning: ${source.name}: ${error.message}`);
     }
   }
@@ -772,6 +811,15 @@ async function collectHtmlCandidates() {
   for (const source of HTML_SOURCES) {
     try {
       const html = await fetchText(source.url);
+      const before = all.length;
+      const markers = {
+        openhw: /<article class="elementor-post/g,
+        chips: /<article class=(?:"blog-post"|blog-post)[ >]/g,
+        lowrisc: /<h6 class="wp-block-post-title">/g,
+        ocp: /<article class="news-article panel/g,
+      };
+      const parsed = [...html.matchAll(markers[source.parser])].length;
+      if (!parsed) throw new Error("Expected article listing not found");
       if (source.parser === "openhw") {
         all.push(...parseOpenHwNews(html, source));
       } else if (source.parser === "chips") {
@@ -781,8 +829,11 @@ async function collectHtmlCandidates() {
       } else if (source.parser === "ocp") {
         all.push(...parseOcpBlog(html, source));
       }
+      if (all.length === before) throw new Error("Article listing found but no valid entries parsed");
+      recordSource(source.name, source.url, parsed, all.length - before);
       console.log(`  Web: ${source.name}`);
     } catch (error) {
+      recordSource(source.name, source.url, 0, 0, error);
       console.warn(`  Web warning: ${source.name}: ${error.message}`);
     }
   }
@@ -808,6 +859,7 @@ async function collectGithubReleases(openHwRepos) {
   }
 
   for (const repoInfo of repos) {
+    const url = `https://api.github.com/repos/${repoInfo.repo}/releases?per_page=20`;
     try {
       const releases = await fetchJson(
         `https://api.github.com/repos/${repoInfo.repo}/releases?per_page=20`,
@@ -841,8 +893,10 @@ async function collectGithubReleases(openHwRepos) {
         }
         if (addedForRepo >= MAX_RELEASES_PER_REPO) break;
       }
+      recordSource(repoInfo.source, url, releases.length, addedForRepo);
       console.log(`  GitHub releases: ${repoInfo.repo}`);
     } catch (error) {
+      recordSource(repoInfo.source, url, 0, 0, error);
       console.warn(`  GitHub release warning: ${repoInfo.repo}: ${error.message}`);
     }
   }
@@ -851,6 +905,7 @@ async function collectGithubReleases(openHwRepos) {
 }
 
 async function collectOpenHwActivity() {
+  const url = "https://api.github.com/orgs/openhwgroup/events?per_page=100";
   try {
     const events = await fetchJson("https://api.github.com/orgs/openhwgroup/events?per_page=100");
     const grouped = new Map();
@@ -925,9 +980,11 @@ async function collectOpenHwActivity() {
       )
       .filter(Boolean);
 
+    recordSource("OpenHW GitHub org events", url, events.length, releases.length + activity.length);
     console.log("  GitHub org events: openhwgroup");
     return [...releases, ...activity];
   } catch (error) {
+    recordSource("OpenHW GitHub org events", url, 0, 0, error);
     console.warn(`  GitHub org warning: openhwgroup: ${error.message}`);
     return [];
   }
@@ -1021,8 +1078,23 @@ async function main() {
     items: candidates,
   };
 
-  mkdirSync(dirname(OUTPUT_FILE), { recursive: true });
-  writeFileSync(OUTPUT_FILE, JSON.stringify(payload, null, 2) + "\n");
+  const decision = collectionDecision(sourceHealth, candidates.length);
+  const health = { checkedAt: new Date().toISOString(), ...decision, candidates: candidates.length, sources: sourceHealth };
+  atomicJson(HEALTH_FILE, health);
+  if (decision.status === "failed") throw new Error("All news sources failed; last-good candidates retained.");
+  if (!decision.publishCandidates) {
+    console.warn("Degraded empty collection; last-good candidates retained. See reports/news-collection-health.json");
+    return;
+  }
+  if (decision.failed) console.warn(`${decision.failed} sources failed; see collection health report.`);
+  if (existsSync(OUTPUT_FILE)) {
+    const previous = JSON.parse(readFileSync(OUTPUT_FILE, "utf8"));
+    if (JSON.stringify(previous.items) === JSON.stringify(payload.items)) {
+      console.log("Unchanged candidates; retaining candidate timestamp.");
+      return;
+    }
+  }
+  atomicJson(OUTPUT_FILE, payload);
 
   console.log(`\n  Wrote ${candidates.length} candidates to ${OUTPUT_FILE}`);
 }

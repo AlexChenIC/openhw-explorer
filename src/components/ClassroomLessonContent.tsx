@@ -30,12 +30,6 @@ const copy = {
     minutes: "min",
     slides: "scenes",
     quiz: "quiz",
-    notesTitle: "About this preview",
-    notes:
-      "This sample is retained to evaluate the player experience while the lesson is rebuilt for the reviewed V1 catalog. Use the listed primary sources when relying on technical details.",
-    publishedNotesTitle: "About this course",
-    publishedNotes:
-      "This bilingual OpenHW Explorer microcourse combines source-linked explanations, narration, an interactive name decoder, and a short knowledge check.",
   },
   zh: {
     back: "返回课程系列",
@@ -48,12 +42,6 @@ const copy = {
     minutes: "分钟",
     slides: "个场景",
     quiz: "道测验",
-    notesTitle: "关于这节预览",
-    notes:
-      "这节样课用于评估播放器体验，正式版本正在按 1.0 人工审核流程重制。需要引用技术细节时，请以页面列出的一手资料为准。",
-    publishedNotesTitle: "关于本课程",
-    publishedNotes:
-      "这门 OpenHW Explorer 双语短课包含资料可追溯的讲解、配音、互动名称解码器和简短知识检查。",
   },
 } as const;
 
@@ -185,14 +173,6 @@ export function ClassroomLessonContent({
           </section>
         )}
 
-        <section className="mb-4 rounded-md border border-[var(--border)] bg-[var(--bg-card)] p-5">
-          <h2 className="text-lg font-semibold text-[var(--text-primary)]">
-            {isPublished ? t.publishedNotesTitle : t.notesTitle}
-          </h2>
-          <p className="mt-2 text-sm leading-7 text-[var(--text-secondary)]">
-            {isPublished ? t.publishedNotes : t.notes}
-          </p>
-        </section>
       </div>
     </div>
   );

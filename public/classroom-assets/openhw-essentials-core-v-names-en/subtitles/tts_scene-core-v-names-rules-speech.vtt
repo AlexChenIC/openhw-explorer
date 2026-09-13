@@ -1,22 +1,26 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:09.247
-The original OpenHW naming deck used five fields: family, word length, class, identity, and an optional modifier.
+00:00:00.000 --> 00:00:07.844
+The historical naming deck used family, word length, class, identity, and an optional modifier.
 
 2
-00:00:09.247 --> 00:00:15.303
-There the identity combined pipeline length with a product feature number.
+00:00:07.844 --> 00:00:14.532
+Current CVA6 documentation separates pipeline stages from the product identifier.
 
 3
-00:00:15.303 --> 00:00:26.760
-Current CVA6 documentation publishes a related but clearer pattern: C V, instruction length, class, pipeline stages, and product identifier.
+00:00:14.532 --> 00:00:29.478
+Be careful with its width notation: although the naming figure uses ILEN, the 32 or 64 in these names identifies the integer-register width, called XLEN in the RISC-V specification.
 
 4
-00:00:26.760 --> 00:00:33.225
-Both help parse names, but neither applies blindly to every current repository.
+00:00:29.478 --> 00:00:33.441
+It does not give the length of each instruction.
 
 5
-00:00:33.225 --> 00:00:36.580
-The current manual remains authoritative.
+00:00:33.441 --> 00:00:41.368
+RV64 uses 32-bit base instruction encodings and may also support 16-bit compressed instructions.
+
+6
+00:00:41.368 --> 00:00:49.460
+The ISA term ILEN instead describes the maximum instruction length supported by an implementation.
 

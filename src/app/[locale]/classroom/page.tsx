@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ClassroomContent } from "@/components/ClassroomContent";
 import { SITE_URL } from "@/lib/site-url";
+import { publishedNewsletterUsername } from "@/lib/newsletter";
 
 type ClassroomPageProps = {
   params: Promise<{ locale: string }>;
@@ -46,7 +47,7 @@ export async function generateMetadata({ params }: ClassroomPageProps): Promise<
 export default async function ClassroomPage({ params }: ClassroomPageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const newsletterUsername = process.env.NEXT_PUBLIC_BUTTONDOWN_USERNAME?.trim();
+  const newsletterUsername = publishedNewsletterUsername(process.env.NEXT_PUBLIC_BUTTONDOWN_USERNAME);
 
   return (
     <div className="page-wrapper">

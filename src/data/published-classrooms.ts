@@ -1,19 +1,17 @@
 // Only technically and editorially reviewed course packages are registered
 // here. See LICENSE-CONTENT.md for the applicable content terms.
 
-import whatIsCva6En from "./published-classrooms/openhw-cva6-u01-l01-what-is-cva6-en.json";
-import whatIsCva6Zh from "./published-classrooms/openhw-cva6-u01-l01-what-is-cva6-zh.json";
 import coreVNamesEn from "./published-classrooms/openhw-essentials-core-v-names-en.json";
 import coreVNamesZh from "./published-classrooms/openhw-essentials-core-v-names-zh.json";
 import openhwFoundationEn from "./published-classrooms/openhw-essentials-foundation-en.json";
 import openhwFoundationZh from "./published-classrooms/openhw-essentials-foundation-zh.json";
-import openhwIndustrialAdoptionEn from "./published-classrooms/openhw-overview-industrial-adoption-en.json";
 
 export type PublishedClassroomAction = {
   id: string;
   type: string;
   text?: string;
   audioUrl?: string;
+  captionUrl?: string;
 };
 
 export type PublishedClassroomAsset = {
@@ -75,13 +73,10 @@ export type PublishedClassroom = {
 };
 
 const publishedClassrooms = {
-  [whatIsCva6En.id]: whatIsCva6En,
-  [whatIsCva6Zh.id]: whatIsCva6Zh,
   [coreVNamesEn.id]: coreVNamesEn,
   [coreVNamesZh.id]: coreVNamesZh,
   [openhwFoundationEn.id]: openhwFoundationEn,
   [openhwFoundationZh.id]: openhwFoundationZh,
-  [openhwIndustrialAdoptionEn.id]: openhwIndustrialAdoptionEn,
 } as Record<string, PublishedClassroom>;
 
 export function getPublishedClassroom(classroomId: string) {

@@ -1,5 +1,7 @@
 "use client";
 
+import { pdkDetails } from "@/data/pdk-details";
+
 import Image from "next/image";
 import Link from "next/link";
 import { useState } from "react";
@@ -571,14 +573,18 @@ type EcosystemCardProps = {
 
 function EcosystemCard({ entry, locale, cta }: EcosystemCardProps) {
   const category = ecosystemCategories.find((item) => item.id === entry.category)!;
+  const pdk = pdkDetails[entry.id];
+  const detailLabels = locale === "zh"
+    ? { contents: "公开内容", license: "许可", tools: "上游工具支持", manufacturing: "制造条件" }
+    : { contents: "Public files", license: "License", tools: "Upstream tool support", manufacturing: "Manufacturing" };
 
   return (
-    <article className="h-full">
+    <article className="flex h-full flex-col overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--bg-card)]">
       <a
         href={entry.url}
         target="_blank"
         rel="noopener noreferrer"
-        className="group flex h-full min-h-[330px] flex-col overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--bg-card)] transition hover:-translate-y-0.5 hover:border-[var(--primary)]/50 hover:shadow-[var(--card-shadow)]"
+        className="group flex min-h-[330px] flex-1 flex-col transition hover:bg-[var(--bg-subtle)] focus-visible:outline-2 focus-visible:outline-[var(--primary)]"
       >
         <div className="flex h-24 items-center justify-center border-b border-[var(--border)] bg-white px-5">
           {entry.logo ? (
@@ -643,6 +649,27 @@ function EcosystemCard({ entry, locale, cta }: EcosystemCardProps) {
           </div>
         </div>
       </a>
+      {pdk && (
+        <details className="border-t border-[var(--border)] px-4 py-3 text-xs text-[var(--text-secondary)]">
+          <summary className="cursor-pointer font-semibold text-[var(--primary)]">
+            {locale === "zh" ? "工具、许可与制造" : "Tools, licensing & fabrication"}
+          </summary>
+          <dl className="mt-3 space-y-3 leading-5">
+            {(Object.keys(detailLabels) as (keyof typeof detailLabels)[]).map((key) => (
+              <div key={key}>
+                <dt className="font-semibold text-[var(--text-primary)]">{detailLabels[key]}</dt>
+                <dd>{pdk[key][locale]}</dd>
+              </div>
+            ))}
+          </dl>
+          <ul className="mt-3 space-y-2">
+            {pdk.sources.map((source) => (
+              <li key={source.url}><a className="text-[var(--primary)] underline" href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a></li>
+            ))}
+          </ul>
+          <p className="mt-3">{locale === "zh" ? "资料核对" : "Sources reviewed"}: {pdk.checkedAt}</p>
+        </details>
+      )}
     </article>
   );
 }

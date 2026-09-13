@@ -1,0 +1,302 @@
+{
+  "release": "2026-09-13",
+  "change": "XLEN/ILEN correction, fifth quiz question, explicit available subtitle tracks; prototypes retired",
+  "rights": "docs/third-party-attributions.md",
+  "subtitleTiming": "Sentence-weighted timing; not forced alignment or a human listening certification",
+  "packages": [
+    {
+      "id": "openhw-essentials-core-v-names-en",
+      "tracks": [
+        {
+          "scene": "scene-core-v-names-title",
+          "audio": "tts_scene-core-v-names-title-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-title-speech.vtt",
+          "sha256": "04bf7c5b17bdcc6f2f6c38eb5f73b6f1520fca3b564001bfd3ed6ae1381b9b29",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-core-v-names-evidence",
+          "audio": "tts_scene-core-v-names-evidence-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-evidence-speech.vtt",
+          "sha256": "61d730798e9f15acfa131ab85628c4e3f743741587e130e7de92586c5db6b948",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-core-v-names-rules",
+          "audio": "tts_scene-core-v-names-rules-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-rules-speech.vtt",
+          "sha256": "bf3cfe28ac76e1fe1fca8304e8d3fb84d6440be254984d48ef8ef37d738004e1",
+          "regenerated": true,
+          "provider": "Qwen3-TTS 1.7B CustomVoice / MLX / Aiden"
+        },
+        {
+          "scene": "scene-core-v-names-project-vs-product",
+          "audio": "tts_scene-core-v-names-project-vs-product-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-project-vs-product-speech.vtt",
+          "sha256": "8bfa50864b0bd8b8968c7b8f7b1025272548a4491010b946b50a23e14578fd60",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-core-v-names-examples",
+          "audio": "tts_scene-core-v-names-examples-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-examples-speech.vtt",
+          "sha256": "586b447f0f432d2943ffa93d9cf38aa6c24a6f0c754cef97ccb7ef0d580b465c",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-core-v-names-limits",
+          "audio": "tts_scene-core-v-names-limits-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-limits-speech.vtt",
+          "sha256": "b92197209eec0fbf9e7cc4d582ed644c4e9ff6eaf4c8c0e973318238bfa1e228",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-core-v-names-decoder",
+          "audio": "tts_scene-core-v-names-decoder-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-decoder-speech.vtt",
+          "sha256": "18ac93131742de661bba5087ac2eb0da3d56f29672e5ee61321f9b9879ede892",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-core-v-names-workflow",
+          "audio": "tts_scene-core-v-names-workflow-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-workflow-speech.vtt",
+          "sha256": "cc620e3c64c62401ab52d6207db4d42f9b00f1318e2cd985d1168d29e8dd4642",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-core-v-names-quiz",
+          "audio": "tts_scene-core-v-names-quiz-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-quiz-speech.vtt",
+          "sha256": "4e1f39bc9c427e480833f8e4bf5670cb67a937e3a68a5fba9778aecfec6ad5bb",
+          "regenerated": true,
+          "provider": "Qwen3-TTS 1.7B CustomVoice / MLX / Aiden"
+        },
+        {
+          "scene": "scene-core-v-names-summary",
+          "audio": "tts_scene-core-v-names-summary-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-summary-speech.vtt",
+          "sha256": "6fe5cf073e4ad8ed50110050c5860d3ea224a66d55b9946b38d7fba7c5bbdc72",
+          "regenerated": false
+        }
+      ],
+      "questions": 5
+    },
+    {
+      "id": "openhw-essentials-core-v-names-zh",
+      "tracks": [
+        {
+          "scene": "scene-core-v-names-title",
+          "audio": "tts_scene-core-v-names-title-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-title-speech.vtt",
+          "sha256": "47fb9a0b0998805363741dce81508f91eed3bdf51356b154581d513d23492d61",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-core-v-names-evidence",
+          "audio": "tts_scene-core-v-names-evidence-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-evidence-speech.vtt",
+          "sha256": "c4c3f1514c7da787b24f20190c87cb41c35302bccc7adac687a06f0dc55f54a4",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-core-v-names-rules",
+          "audio": "tts_scene-core-v-names-rules-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-rules-speech.vtt",
+          "sha256": "a4840818214831f0b7ff848cdb02c84e4edc45bb662724197b743d915c4f595c",
+          "regenerated": true,
+          "provider": "CosyVoice3 0.5B-2512 / synthetic lecturer reference"
+        },
+        {
+          "scene": "scene-core-v-names-project-vs-product",
+          "audio": "tts_scene-core-v-names-project-vs-product-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-project-vs-product-speech.vtt",
+          "sha256": "c916f17771e25797d42c2f3dc97e63f60c7ea94416f3b6fdfeb02023476442ea",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-core-v-names-examples",
+          "audio": "tts_scene-core-v-names-examples-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-examples-speech.vtt",
+          "sha256": "7986f8155c4d0b5beef1a8e5159d2a829cc849625fe8dbf1369762e64e7b31b5",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-core-v-names-limits",
+          "audio": "tts_scene-core-v-names-limits-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-limits-speech.vtt",
+          "sha256": "979b4a052e2164e5128b61c9e0158c1e43b91d211de2436beec4046f1b3fc60d",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-core-v-names-decoder",
+          "audio": "tts_scene-core-v-names-decoder-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-decoder-speech.vtt",
+          "sha256": "2cdc04f79462e73a5aeddc3bd1d0ad7657cea687a095d331ee1abb96b2317a58",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-core-v-names-workflow",
+          "audio": "tts_scene-core-v-names-workflow-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-workflow-speech.vtt",
+          "sha256": "6da57616e3fb36e0fdda1ea19297faca61c9901221ae9fb5eb7b8be55f8beb05",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-core-v-names-quiz",
+          "audio": "tts_scene-core-v-names-quiz-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-quiz-speech.vtt",
+          "sha256": "7757c186ca22172b961913d15beddb84a18fbc7a1e38b854588d1d05118aeb83",
+          "regenerated": true,
+          "provider": "CosyVoice3 0.5B-2512 / synthetic lecturer reference"
+        },
+        {
+          "scene": "scene-core-v-names-summary",
+          "audio": "tts_scene-core-v-names-summary-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-summary-speech.vtt",
+          "sha256": "b741d4afa333604ee1742044c660d6c1ec3186bb22dd499bbee735f659776df2",
+          "regenerated": false
+        }
+      ],
+      "questions": 5
+    },
+    {
+      "id": "openhw-essentials-foundation-en",
+      "tracks": [
+        {
+          "scene": "scene-openhw-foundation-title",
+          "audio": "tts_scene-openhw-foundation-title-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-en/subtitles/tts_scene-openhw-foundation-title-speech.vtt",
+          "sha256": "a23acb7d79ceda5cb638879383f87a91e3367c3580fac97b99afd81fec1ee93e",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-openhw-foundation-role-map",
+          "audio": "tts_scene-openhw-foundation-role-map-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-en/subtitles/tts_scene-openhw-foundation-role-map-speech.vtt",
+          "sha256": "b777aedaeb3d8a7358afebb78243dfc50b85d2c06b017d6806acfe1f24a29dd1",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-openhw-foundation-standard-vs-core",
+          "audio": "tts_scene-openhw-foundation-standard-vs-core-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-en/subtitles/tts_scene-openhw-foundation-standard-vs-core-speech.vtt",
+          "sha256": "c201097b862a957f00084306a28df721eaaf160b2d69e052bb74fc9abca14ffb",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-openhw-foundation-governance",
+          "audio": "tts_scene-openhw-foundation-governance-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-en/subtitles/tts_scene-openhw-foundation-governance-speech.vtt",
+          "sha256": "acd31ac2ee205c8c15f24b05c3d93d6da35509c91a24a0f413a850e65bfcf285",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-openhw-foundation-collaboration-loop",
+          "audio": "tts_scene-openhw-foundation-collaboration-loop-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-en/subtitles/tts_scene-openhw-foundation-collaboration-loop-speech.vtt",
+          "sha256": "673fc3ef68b8f449c8c77985f728a0da6c7d2cf9f2c56e7cabe464a95387d467",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-openhw-foundation-deliverables",
+          "audio": "tts_scene-openhw-foundation-deliverables-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-en/subtitles/tts_scene-openhw-foundation-deliverables-speech.vtt",
+          "sha256": "73c0198050d5e2f47367aba019f205121f62ca012391038dcaf646d18dfe124d",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-openhw-foundation-router",
+          "audio": "tts_scene-openhw-foundation-router-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-en/subtitles/tts_scene-openhw-foundation-router-speech.vtt",
+          "sha256": "709b4cf06b639441f4e8e401617f2aff4f7e0c50ea5603cd6a25986b0ad4d1e0",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-openhw-foundation-quiz",
+          "audio": "tts_scene-openhw-foundation-quiz-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-en/subtitles/tts_scene-openhw-foundation-quiz-speech.vtt",
+          "sha256": "b0bee5b54dd4a3bb5fce2a5768f74e0d36ad2845477154821be7a7bc9a3b87fb",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-openhw-foundation-summary",
+          "audio": "tts_scene-openhw-foundation-summary-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-en/subtitles/tts_scene-openhw-foundation-summary-speech.vtt",
+          "sha256": "3c69c9c74c8bc0fe40fe441f45726c4694cf72718c6b72d740baaa5bb546b367",
+          "regenerated": false
+        }
+      ],
+      "questions": 4
+    },
+    {
+      "id": "openhw-essentials-foundation-zh",
+      "tracks": [
+        {
+          "scene": "scene-openhw-foundation-title",
+          "audio": "tts_scene-openhw-foundation-title-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-zh/subtitles/tts_scene-openhw-foundation-title-speech.vtt",
+          "sha256": "7d8e19879f9d3b6f35a5107bff0df5b09db3c84a2eefb025078844a92311564b",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-openhw-foundation-role-map",
+          "audio": "tts_scene-openhw-foundation-role-map-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-zh/subtitles/tts_scene-openhw-foundation-role-map-speech.vtt",
+          "sha256": "faad9a85b3362a122c6d93c7f697841be766d711ca5b15901f002d01f25e5b99",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-openhw-foundation-standard-vs-core",
+          "audio": "tts_scene-openhw-foundation-standard-vs-core-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-zh/subtitles/tts_scene-openhw-foundation-standard-vs-core-speech.vtt",
+          "sha256": "37c20dbf8a6b34812c82a68d5f3695d7ff407d753c8b4c14e6e2e690a4c4c129",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-openhw-foundation-governance",
+          "audio": "tts_scene-openhw-foundation-governance-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-zh/subtitles/tts_scene-openhw-foundation-governance-speech.vtt",
+          "sha256": "ae47a19d44f43f88dcb95cc29e6639a61f026aa154c6ec414d18c93fa02ea5b6",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-openhw-foundation-collaboration-loop",
+          "audio": "tts_scene-openhw-foundation-collaboration-loop-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-zh/subtitles/tts_scene-openhw-foundation-collaboration-loop-speech.vtt",
+          "sha256": "7dff730fac265d3de58d800ad3fa4c57115d3822865a707ebe90d4f3b2caabd4",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-openhw-foundation-deliverables",
+          "audio": "tts_scene-openhw-foundation-deliverables-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-zh/subtitles/tts_scene-openhw-foundation-deliverables-speech.vtt",
+          "sha256": "22e23f63159e43812eae9c9f5ca7d89c44de6c11abf447729ff3c0fa937521e7",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-openhw-foundation-router",
+          "audio": "tts_scene-openhw-foundation-router-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-zh/subtitles/tts_scene-openhw-foundation-router-speech.vtt",
+          "sha256": "271ac251e2853b3f86e858113042a1114b21580ca1c73587e6f5e1acc844422a",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-openhw-foundation-quiz",
+          "audio": "tts_scene-openhw-foundation-quiz-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-zh/subtitles/tts_scene-openhw-foundation-quiz-speech.vtt",
+          "sha256": "0be776d4a61359f443812c8011326ce992e4feea174ae7a4ffc9a57c9283eeb9",
+          "regenerated": false
+        },
+        {
+          "scene": "scene-openhw-foundation-summary",
+          "audio": "tts_scene-openhw-foundation-summary-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-foundation-zh/subtitles/tts_scene-openhw-foundation-summary-speech.vtt",
+          "sha256": "d3a92fd47a29dc80f49c1638a2cb0dc48840eae62485e528e4abe8958fc4d8b6",
+          "regenerated": false
+        }
+      ],
+      "questions": 4
+    }
+  ]
+}
