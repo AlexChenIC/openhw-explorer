@@ -54,15 +54,15 @@ function getPrimaryAction(scene: PublishedClassroomScene) {
   return scene.actions?.find((action) => action.type === "speech") ?? scene.actions?.[0];
 }
 
-function CardGrid({ cards }: { cards: unknown[] }) {
+function CardGrid({ cards, projectGuide = false }: { cards: unknown[]; projectGuide?: boolean }) {
   return (
-    <div className="grid gap-3 md:grid-cols-3">
+    <div className={`grid gap-3 ${projectGuide ? "md:grid-cols-2" : "md:grid-cols-3"}`}>
       {cards.map((card, index) => {
         const item = card as Record<string, unknown>;
         return (
           <article
             key={`${text(item.title)}-${index}`}
-            className="min-h-[150px] rounded-xl border border-[var(--border)] bg-white/80 p-4 text-slate-900 shadow-sm"
+            className="min-h-[150px] min-w-0 break-words rounded-lg border border-[var(--border)] bg-white/80 p-4 text-slate-900 shadow-sm"
           >
             {text(item.label) && (
               <p className="mb-3 text-xs font-bold uppercase tracking-[0.18em] text-[var(--primary)]">
@@ -381,7 +381,15 @@ function Quiz({ questions, locale }: { questions: PublishedClassroomQuestion[]; 
   );
 }
 
-function SlideBody({ scene, locale }: { scene: PublishedClassroomScene; locale: string }) {
+function SlideBody({
+  scene,
+  locale,
+  projectGuide = false,
+}: {
+  scene: PublishedClassroomScene;
+  locale: string;
+  projectGuide?: boolean;
+}) {
   if (scene.type === "quiz") {
     return <Quiz questions={scene.content.questions ?? []} locale={locale} />;
   }
@@ -393,7 +401,7 @@ function SlideBody({ scene, locale }: { scene: PublishedClassroomScene; locale: 
         srcDoc={scene.content.html}
         sandbox="allow-scripts"
         referrerPolicy="no-referrer"
-        className="h-[min(68vh,640px)] min-h-[500px] w-full rounded-xl border border-slate-200 bg-white"
+        className="h-[min(68vh,640px)] min-h-[500px] w-full rounded-lg border border-slate-200 bg-white"
       />
     );
   }
@@ -436,8 +444,14 @@ function SlideBody({ scene, locale }: { scene: PublishedClassroomScene; locale: 
         </>
       )}
 
-      {slot === "sourceMap" && <CardGrid cards={list(body.cards)} />}
+      {slot === "sourceMap" && <CardGrid cards={list(body.cards)} projectGuide={projectGuide} />}
       {slot === "twoColumnExplain" && <TwoColumn columns={list(body.columns)} />}
+      {slot === "twoColumnExplain" && Boolean(body.anchor) && typeof body.anchor === "object" && (
+        <p className="border-l-2 border-[var(--primary)] pl-4 text-sm leading-7 text-slate-700">
+          <strong>{text((body.anchor as Record<string, unknown>).label)}: </strong>
+          {text((body.anchor as Record<string, unknown>).text)}
+        </p>
+      )}
       {slot === "checklist" && <Checklist items={list(body.items)} />}
       {slot === "processFlow" && <ProcessFlow steps={list(body.steps)} />}
       {slot === "comparisonMatrix" && (
@@ -458,10 +472,12 @@ function SlideBody({ scene, locale }: { scene: PublishedClassroomScene; locale: 
         />
       )}
       {slot === "summaryNextStep" && (
-        <div className="grid gap-4 lg:grid-cols-[1fr_320px]">
+        <div
+          className={`grid min-w-0 gap-4 break-words ${projectGuide ? "" : "lg:grid-cols-[1fr_320px]"}`}
+        >
           <div className="rounded-xl border border-[var(--border)] bg-white/85 p-5">
             <h3 className="text-sm font-bold uppercase tracking-[0.16em] text-[var(--primary)]">
-              Takeaways
+              {locale === "zh" ? "要点回顾" : "Takeaways"}
             </h3>
             <ul className="mt-4 space-y-3 text-sm leading-6 text-slate-700">
               {list(body.takeaways).map((takeaway, index) => (
@@ -475,7 +491,7 @@ function SlideBody({ scene, locale }: { scene: PublishedClassroomScene; locale: 
           <div className="space-y-3">
             {text(body.nextStep) && (
               <p className="rounded-xl border border-[var(--border)] bg-white/85 p-4 text-sm leading-7 text-slate-700">
-                <strong>Next: </strong>
+                <strong>{locale === "zh" ? "下一步：" : "Next: "}</strong>
                 {text(body.nextStep)}
               </p>
             )}
@@ -502,6 +518,7 @@ export function PublishedClassroomPlayer({
   locale,
   standalone = false,
 }: PublishedClassroomPlayerProps) {
+  const isProjectGuide = classroom.stage.courseTemplateId === "project-introduction";
   const [sceneIndex, setSceneIndex] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
   const playerRef = useRef<HTMLDivElement>(null);
@@ -557,9 +574,14 @@ export function PublishedClassroomPlayer({
 
   if (!scene) return null;
 
-  const reviewNotice = zh
-    ? "OpenHW Explorer 社区课程 · 关键技术表述附有一手资料来源"
-    : "OpenHW Explorer community course · key technical claims include primary-source references";
+  const reviewNotice =
+    classroom.stage.releaseStage === "demo"
+      ? zh
+        ? "项目导览示范课 · 待编辑与完整语音审核"
+        : "Project guide demo · Editorial and full-audio approval pending"
+      : zh
+        ? "OpenHW Explorer 社区课程 · 关键技术表述附有一手资料来源"
+        : "OpenHW Explorer community course · key technical claims include primary-source references";
 
   return (
     <div
@@ -618,20 +640,20 @@ export function PublishedClassroomPlayer({
         className={`grid bg-slate-100 ${
           isFullscreen
             ? "min-h-[calc(100vh-65px)] lg:grid-cols-[minmax(0,1fr)_420px]"
-            : "lg:grid-cols-[1fr_360px]"
+            : "lg:grid-cols-[minmax(0,1fr)_360px]"
         }`}
       >
         <div
-          className={`bg-[linear-gradient(135deg,#fff7ed_0%,#f8fafc_48%,#ecfeff_100%)] p-5 sm:p-8 ${
+          className={`min-w-0 ${isProjectGuide ? "bg-white p-4 sm:p-6" : "bg-[linear-gradient(135deg,#fff7ed_0%,#f8fafc_48%,#ecfeff_100%)] p-5 sm:p-8"} ${
             isFullscreen ? "min-h-[calc(100vh-65px)]" : "min-h-[560px]"
           }`}
         >
           <div
-            className={`mx-auto flex flex-col justify-center rounded-2xl border border-slate-200 bg-white/50 p-5 shadow-xl shadow-slate-200/60 sm:p-8 ${
+            className={`mx-auto flex min-w-0 flex-col ${isProjectGuide ? "py-4" : "justify-center rounded-2xl border border-slate-200 bg-white/50 p-5 shadow-xl shadow-slate-200/60 sm:p-8"} ${
               isFullscreen ? "min-h-[calc(100vh-129px)] max-w-7xl" : "min-h-[500px] max-w-5xl"
             }`}
           >
-            <SlideBody scene={scene} locale={locale} />
+            <SlideBody scene={scene} locale={locale} projectGuide={isProjectGuide} />
           </div>
         </div>
 
@@ -683,7 +705,19 @@ export function PublishedClassroomPlayer({
               ) : (
                 <FileText className="mb-2 h-4 w-4 text-[var(--primary)]" />
               )}
-              {scene.type === "quiz" ? (zh ? "互动题" : "quiz") : scene.content.slot || "slide"}
+              {scene.type === "quiz"
+                ? zh
+                  ? "练习"
+                  : "Quiz"
+                : isProjectGuide
+                  ? scene.type === "interactive"
+                    ? zh
+                      ? "交互"
+                      : "Interactive"
+                    : zh
+                      ? "讲解"
+                      : "Explanation"
+                  : scene.content.slot || "slide"}
             </div>
           </div>
 
@@ -719,12 +753,14 @@ export function PublishedClassroomPlayer({
             </details>
           )}
 
-          <div className="mt-4 flex items-center gap-2 rounded-xl border border-[var(--primary)]/20 bg-[var(--primary)]/10 p-3 text-xs leading-5 text-slate-700">
-            <PlayCircle className="h-4 w-4 flex-none text-[var(--primary)]" />
-            {zh
-              ? "这是 OpenHW Explorer 内置发布播放器，用于公开页面稳定播放。"
-              : "This is the built-in OpenHW Explorer player for stable public playback."}
-          </div>
+          {!isProjectGuide && (
+            <div className="mt-4 flex items-center gap-2 rounded-xl border border-[var(--primary)]/20 bg-[var(--primary)]/10 p-3 text-xs leading-5 text-slate-700">
+              <PlayCircle className="h-4 w-4 flex-none text-[var(--primary)]" />
+              {zh
+                ? "这是 OpenHW Explorer 内置发布播放器，用于公开页面稳定播放。"
+                : "This is the built-in OpenHW Explorer player for stable public playback."}
+            </div>
+          )}
         </aside>
       </div>
     </div>

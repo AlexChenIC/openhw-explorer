@@ -1,10 +1,12 @@
-// Only technically and editorially reviewed course packages are registered
-// here. See LICENSE-CONTENT.md for the applicable content terms.
+// Public course packages, including explicitly labelled demos.
+// Catalog status distinguishes demos from formally released lessons.
 
 import coreVNamesEn from "./published-classrooms/openhw-essentials-core-v-names-en.json";
 import coreVNamesZh from "./published-classrooms/openhw-essentials-core-v-names-zh.json";
 import openhwFoundationEn from "./published-classrooms/openhw-essentials-foundation-en.json";
 import openhwFoundationZh from "./published-classrooms/openhw-essentials-foundation-zh.json";
+import cva6IntroEn from "./published-classrooms/cva6-project-intro-en.json";
+import cva6IntroZh from "./published-classrooms/cva6-project-intro-zh.json";
 
 export type PublishedClassroomAction = {
   id: string;
@@ -68,11 +70,15 @@ export type PublishedClassroom = {
     description?: string;
     language?: string;
     courseTemplateName?: string;
+    courseTemplateId?: string;
+    releaseStage?: "demo";
   };
   scenes: PublishedClassroomScene[];
 };
 
 const publishedClassrooms = {
+  [cva6IntroEn.id]: cva6IntroEn,
+  [cva6IntroZh.id]: cva6IntroZh,
   [coreVNamesEn.id]: coreVNamesEn,
   [coreVNamesZh.id]: coreVNamesZh,
   [openhwFoundationEn.id]: openhwFoundationEn,

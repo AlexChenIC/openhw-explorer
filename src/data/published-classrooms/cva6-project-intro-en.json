@@ -1,0 +1,839 @@
+{
+  "id": "cva6-project-intro-en",
+  "createdAt": 1789300800000,
+  "stage": {
+    "id": "cva6-project-intro-en",
+    "name": "CVA6: From Core to System",
+    "description": "Compare real configurations, follow the core data path, and locate the platform and verification code.",
+    "language": "en-US",
+    "style": "openhw-signal-technical",
+    "courseTemplateId": "project-introduction",
+    "courseTemplateName": "Project guide · Demo",
+    "releaseStage": "demo",
+    "agentIds": [
+      "default-1"
+    ],
+    "createdAt": 1789300800000,
+    "updatedAt": 1789300800000
+  },
+  "scenes": [
+    {
+      "id": "scene-cva6-intro-scope",
+      "stageId": "cva6-project-intro-en",
+      "type": "html-slide",
+      "title": "CVA6: From Core to System",
+      "order": 0,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "titleHero",
+        "theme": "dark",
+        "locale": "en-US",
+        "content": {
+          "kicker": "PROJECT GUIDE / CVA6",
+          "title": "CVA6",
+          "subtitle": "From Core to System",
+          "chips": [
+            "RISC-V",
+            "32 / 64-bit",
+            "Configurable RTL"
+          ],
+          "thesis": "One code base. Different configurations. A system still needs integration."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-repo",
+            "title": "CVA6 repository",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/README.md",
+            "locator": "Overview, folder structure, quick setup",
+            "claimSupported": "Processor RTL is distinct from the APU testbench, verification and software integration."
+          },
+          {
+            "id": "cva6-cv32a60x",
+            "title": "CV32A60X configuration",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a60x_config_pkg.sv",
+            "locator": "CVA6ConfigXlen; cva6_cfg",
+            "claimSupported": "XLEN 32; SuperscalarEn 0; MmuPresent/RVS/RVU/RVA/RVF/RVD 0."
+          },
+          {
+            "id": "cva6-cv32a65x",
+            "title": "CV32A65X configuration",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a65x_config_pkg.sv",
+            "locator": "CVA6ConfigXlen; cva6_cfg",
+            "claimSupported": "XLEN 32; SuperscalarEn 1; MmuPresent/RVS/RVU/RVA/RVF/RVD 0."
+          },
+          {
+            "id": "cva6-rv64-config",
+            "title": "cv64a6_imafdc_sv39 configuration",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv64a6_imafdc_sv39_config_pkg.sv",
+            "locator": "CVA6ConfigXlen; MMU/ISA constants; cva6_cfg",
+            "claimSupported": "XLEN 64; SuperscalarEn 0; MMU/S/U/A/F/D enabled in this concrete package; its filename is not an exhaustive extension list."
+          }
+        ],
+        "speakerNotes": "CVA6 is a configurable RISC-V processor code base, not one fixed chip. Its family includes both embedded and application-oriented configurations. To evaluate it, separate three questions: what the core does, which configuration you selected, and what surrounds it in the system. We will compare actual parameter files, follow the main data path, and identify where platform software and verification enter. You can then choose a useful next source without reading the entire repository."
+      },
+      "sourceAnchors": [
+        "cva6-repo",
+        "cva6-cv32a60x",
+        "cva6-cv32a65x",
+        "cva6-rv64-config"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-intro-scope-speech",
+          "type": "speech",
+          "text": "CVA6 is a configurable RISC-V processor code base, not one fixed chip. Its family includes both embedded and application-oriented configurations. To evaluate it, separate three questions: what the core does, which configuration you selected, and what surrounds it in the system. We will compare actual parameter files, follow the main data path, and identify where platform software and verification enter. You can then choose a useful next source without reading the entire repository.",
+          "voice": "qwen3-mlx:Aiden",
+          "speed": 0.85,
+          "audioId": "tts_scene-cva6-intro-scope-speech",
+          "audioUrl": "/api/classroom-media/cva6-project-intro-en/audio/tts_scene-cva6-intro-scope-speech.mp3",
+          "captionUrl": "/classroom-assets/cva6-project-intro-en/subtitles/tts_scene-cva6-intro-scope-speech.vtt"
+        }
+      ],
+      "createdAt": 1789300800000,
+      "updatedAt": 1789300800000
+    },
+    {
+      "id": "scene-cva6-intro-core-map",
+      "stageId": "cva6-project-intro-en",
+      "type": "html-slide",
+      "title": "A functional map of the core",
+      "order": 1,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "locale": "en-US",
+        "content": {
+          "kicker": "INSIDE THE CORE",
+          "title": "From instructions to architectural state",
+          "subtitle": "Functional groups, not a cycle-accurate pipeline diagram.",
+          "cards": [
+            {
+              "label": "FRONTEND + DECODE",
+              "title": "Find and interpret",
+              "body": "Fetch instructions, choose the next program counter, and decode operations.",
+              "tone": "blue"
+            },
+            {
+              "label": "ISSUE + SCOREBOARD",
+              "title": "Check readiness",
+              "body": "Track operands, outstanding instructions and available execution units.",
+              "tone": "teal"
+            },
+            {
+              "label": "EXECUTE + COMMIT",
+              "title": "Compute, then retire",
+              "body": "Functional units produce results; commit updates architectural state in order.",
+              "tone": "gold"
+            },
+            {
+              "label": "SUPPORTING LOGIC",
+              "title": "Memory and control",
+              "body": "Caches, address translation when enabled, CSR state, exceptions and redirects.",
+              "tone": "red"
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-architecture",
+            "title": "CVA6 architecture and modules",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/docs/design/design-manual/source/architecture.adoc",
+            "locator": "Architecture and Modules",
+            "claimSupported": "Frontend, decode, issue, execute and commit cooperate with caches, CSR state and control. The diagram is a functional map, not a cycle-accurate six-stage schedule."
+          },
+          {
+            "id": "cva6-issue",
+            "title": "CVA6 issue-stage design",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/docs/03_cva6_design/issue_stage.md",
+            "locator": "Issue, Read Operands, Scoreboard",
+            "claimSupported": "Instructions issue in program order, while independent functional units may return results in a different order. The scoreboard tracks outstanding instructions and data."
+          },
+          {
+            "id": "cva6-commit",
+            "title": "CVA6 commit-stage design",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/docs/03_cva6_design/commit_stage.rst",
+            "locator": "Commit Stage",
+            "claimSupported": "Commit retires instructions, updates architectural state and handles exceptions."
+          }
+        ],
+        "speakerNotes": "Read the core as cooperating blocks. The frontend fetches instructions and decode interprets them. Issue checks dependencies and resource availability, while the scoreboard tracks outstanding work. Execution units return results, and commit updates architectural state in order. Caches, control registers and exception handling support this path. Address translation depends on the configuration. These four groups are a reading map, not four pipeline stages or a cycle-accurate timing model."
+      },
+      "sourceAnchors": [
+        "cva6-architecture",
+        "cva6-issue",
+        "cva6-commit"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-intro-core-map-speech",
+          "type": "speech",
+          "text": "Read the core as cooperating blocks. The frontend fetches instructions and decode interprets them. Issue checks dependencies and resource availability, while the scoreboard tracks outstanding work. Execution units return results, and commit updates architectural state in order. Caches, control registers and exception handling support this path. Address translation depends on the configuration. These four groups are a reading map, not four pipeline stages or a cycle-accurate timing model.",
+          "voice": "qwen3-mlx:Aiden",
+          "speed": 0.85,
+          "audioId": "tts_scene-cva6-intro-core-map-speech",
+          "audioUrl": "/api/classroom-media/cva6-project-intro-en/audio/tts_scene-cva6-intro-core-map-speech.mp3",
+          "captionUrl": "/classroom-assets/cva6-project-intro-en/subtitles/tts_scene-cva6-intro-core-map-speech.vtt"
+        }
+      ],
+      "createdAt": 1789300800000,
+      "updatedAt": 1789300800000
+    },
+    {
+      "id": "scene-cva6-intro-configurations",
+      "stageId": "cva6-project-intro-en",
+      "type": "interactive",
+      "title": "Three configurations, different capabilities",
+      "order": 2,
+      "content": {
+        "type": "interactive",
+        "html": "<!doctype html><html lang=\"en\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>CVA6 configuration explorer</title><style>\n    *{box-sizing:border-box;letter-spacing:0}html,body{margin:0;background:#f5f7fa;color:#182128;font-family:system-ui,-apple-system,\"PingFang SC\",sans-serif}main{padding:24px;max-width:1080px;margin:auto}header p{font-size:12px;color:#11664e;font-weight:700;margin:0 0 8px}h1{font-size:26px;line-height:1.25;margin:0 0 18px}nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}button{font:600 14px system-ui;border:1px solid #a8b5c4;border-radius:6px;padding:10px 14px;color:#293848;background:white;cursor:pointer;min-height:44px}button[aria-pressed=true]{color:white;background:#145dbc;border-color:#145dbc}button:focus-visible,a:focus-visible{outline:3px solid #bb6713;outline-offset:3px}.layout{display:grid;grid-template-columns:1fr 1.25fr;gap:24px}.chip{border:2px solid #145dbc;border-radius:8px;padding:20px;background:#fff;display:flex;flex-direction:column;justify-content:center;gap:12px}.chip h2{font-size:22px;margin:0;overflow-wrap:anywhere}.file{font:12px/1.7 ui-monospace,monospace;overflow-wrap:anywhere;color:#4c5b69}.ports{display:flex;gap:10px;height:36px}.port{display:flex;align-items:center;justify-content:center;background:#dceee6;color:#09543e;flex:1;font-size:13px;font-weight:700;border-radius:4px}dl{margin:0}dl div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid #d0d7df;padding:9px 0;font-size:14px}dt{color:#475564}dd{font-weight:700;margin:0;text-align:right}.note{margin:20px 0 10px;font-size:14px;line-height:1.7;color:#445260}footer{border-top:1px solid #c6d0dc;padding-top:12px;font-size:12px;line-height:1.7;overflow-wrap:anywhere}a{color:#145dbc}footer p{margin:6px 0}@media(max-width:600px){main{padding:18px}.layout{grid-template-columns:1fr}.chip{padding:16px}h1{font-size:26px}}\n  </style></head><body><main><header><p>CONFIGURATION SNAPSHOT / 2026-09-13</p><h1>One family; capabilities depend on configuration</h1></header><nav aria-label=\"Select configuration\"><button type=\"button\" data-index=\"0\" aria-pressed=\"true\">CV32A60X</button><button type=\"button\" data-index=\"1\" aria-pressed=\"false\">CV32A65X</button><button type=\"button\" data-index=\"2\" aria-pressed=\"false\">RV64 / Sv39 example</button></nav><div class=\"layout\"><section class=\"chip\" aria-live=\"polite\"><h2 id=\"name\"></h2><div class=\"file\" id=\"file\"></div><div class=\"ports\" id=\"ports\"></div></section><dl><div><dt>Integer register width</dt><dd id=\"v0\"></dd></div><div><dt>Issue ports</dt><dd id=\"v1\"></dd></div><div><dt>MMU</dt><dd id=\"v2\"></dd></div><div><dt>Supervisor / User</dt><dd id=\"v3\"></dd></div><div><dt>A atomics</dt><dd id=\"v4\"></dd></div><div><dt>F / D floating point</dt><dd id=\"v5\"></dd></div></dl></div><p class=\"note\">Selected parameters, not a full ISA list or product catalog. Enabling MMU and S/U does not by itself make a bootable Linux system.</p><footer>core/include/ · build_config_pkg.sv / NrIssuePorts<p>CVA6 commit 49b5fa9e2f5a · Port diagram denotes issue width, not measured throughput.</p></footer></main><script>\n    const rows=[{\"name\":\"CV32A60X\",\"file\":\"cv32a60x_config_pkg.sv\",\"xlen\":32,\"issue\":1,\"mmu\":false,\"su\":false,\"a\":false,\"fd\":false,\"source\":\"a60\",\"url\":\"https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a60x_config_pkg.sv\"},{\"name\":\"CV32A65X\",\"file\":\"cv32a65x_config_pkg.sv\",\"xlen\":32,\"issue\":2,\"mmu\":false,\"su\":false,\"a\":false,\"fd\":false,\"source\":\"a65\",\"url\":\"https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a65x_config_pkg.sv\"},{\"name\":\"RV64 / Sv39 example\",\"file\":\"cv64a6_imafdc_sv39_config_pkg.sv\",\"xlen\":64,\"issue\":1,\"mmu\":true,\"su\":true,\"a\":true,\"fd\":true,\"source\":\"rv64\",\"url\":\"https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv64a6_imafdc_sv39_config_pkg.sv\"}];\n    const enabled=[\"Off\",\"On\"];\n    function select(index){const c=rows[index];document.querySelector('#name').textContent=c.name;document.querySelector('#file').textContent=c.file;const values=[c.xlen+' bit',String(c.issue),enabled[+c.mmu],enabled[+c.su],enabled[+c.a],enabled[+c.fd]];values.forEach((v,i)=>document.querySelector('#v'+i).textContent=v);const ports=document.querySelector('#ports');ports.replaceChildren();for(let i=0;i<c.issue;i++){const port=document.createElement('span');port.className='port';port.textContent=\"Issue port \"+(i+1);ports.append(port)}document.querySelectorAll('button').forEach((b)=>b.setAttribute('aria-pressed',String(Number(b.dataset.index)===index)));}\n    document.querySelectorAll('button').forEach((b)=>b.addEventListener('click',()=>select(Number(b.dataset.index))));select(0);\n  </script></body></html>",
+        "url": "",
+        "sourceAnchors": [
+          {
+            "id": "cva6-cv32a60x",
+            "title": "CV32A60X configuration",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a60x_config_pkg.sv",
+            "locator": "CVA6ConfigXlen; cva6_cfg",
+            "claimSupported": "XLEN 32; SuperscalarEn 0; MmuPresent/RVS/RVU/RVA/RVF/RVD 0."
+          },
+          {
+            "id": "cva6-cv32a65x",
+            "title": "CV32A65X configuration",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a65x_config_pkg.sv",
+            "locator": "CVA6ConfigXlen; cva6_cfg",
+            "claimSupported": "XLEN 32; SuperscalarEn 1; MmuPresent/RVS/RVU/RVA/RVF/RVD 0."
+          },
+          {
+            "id": "cva6-rv64-config",
+            "title": "cv64a6_imafdc_sv39 configuration",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv64a6_imafdc_sv39_config_pkg.sv",
+            "locator": "CVA6ConfigXlen; MMU/ISA constants; cva6_cfg",
+            "claimSupported": "XLEN 64; SuperscalarEn 0; MMU/S/U/A/F/D enabled in this concrete package; its filename is not an exhaustive extension list."
+          },
+          {
+            "id": "cva6-build-config",
+            "title": "Derived configuration",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/build_config_pkg.sv",
+            "locator": "build_config: NrIssuePorts and NrCommitPorts",
+            "claimSupported": "SuperscalarEn derives one or two issue ports; issue and commit width are separate quantities."
+          }
+        ]
+      },
+      "sourceAnchors": [
+        "cva6-cv32a60x",
+        "cva6-cv32a65x",
+        "cva6-rv64-config",
+        "cva6-build-config"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-intro-configurations-speech",
+          "type": "speech",
+          "text": "Compare the three source snapshots. CV32A60X has one issue port; CV32A65X enables two. Both are 32-bit configurations without an MMU or supervisor and user modes. The selected 64-bit example enables those facilities, plus atomic and floating-point extensions, but has one issue port. A family name does not determine every feature. These are concrete parameter packages, not an exhaustive product table. Select each configuration and follow its source link to check the values.",
+          "voice": "qwen3-mlx:Aiden",
+          "speed": 0.85,
+          "audioId": "tts_scene-cva6-intro-configurations-speech",
+          "audioUrl": "/api/classroom-media/cva6-project-intro-en/audio/tts_scene-cva6-intro-configurations-speech.mp3",
+          "captionUrl": "/classroom-assets/cva6-project-intro-en/subtitles/tts_scene-cva6-intro-configurations-speech.vtt"
+        }
+      ],
+      "createdAt": 1789300800000,
+      "updatedAt": 1789300800000
+    },
+    {
+      "id": "scene-cva6-intro-issue",
+      "stageId": "cva6-project-intro-en",
+      "type": "html-slide",
+      "title": "In-order does not mean one instruction at a time",
+      "order": 3,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "locale": "en-US",
+        "content": {
+          "kicker": "MICROARCHITECTURE",
+          "title": "Issue order and completion order differ",
+          "subtitle": "Two independent operations can overlap without out-of-order issue.",
+          "columns": [
+            {
+              "label": "ILLUSTRATIVE SEQUENCE",
+              "title": "Load, then independent add",
+              "bullets": [
+                "Load: result may wait for memory.",
+                "Independent add: can execute once issued.",
+                "The add may return its result first."
+              ]
+            },
+            {
+              "label": "WHAT THE CORE PRESERVES",
+              "title": "Program-order issue and retirement",
+              "bullets": [
+                "Scoreboard tracks outstanding results.",
+                "Dependencies and unit readiness can stall issue.",
+                "Commit retires in order, even if results arrive earlier."
+              ]
+            }
+          ],
+          "anchor": {
+            "label": "WIDTH IS NOT THROUGHPUT",
+            "text": "Two issue ports describe an upper issue width, not a promise of two instructions completed every cycle."
+          }
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-issue",
+            "title": "CVA6 issue-stage design",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/docs/03_cva6_design/issue_stage.md",
+            "locator": "Issue, Read Operands, Scoreboard",
+            "claimSupported": "Instructions issue in program order, while independent functional units may return results in a different order. The scoreboard tracks outstanding instructions and data."
+          },
+          {
+            "id": "cva6-build-config",
+            "title": "Derived configuration",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/build_config_pkg.sv",
+            "locator": "build_config: NrIssuePorts and NrCommitPorts",
+            "claimSupported": "SuperscalarEn derives one or two issue ports; issue and commit width are separate quantities."
+          },
+          {
+            "id": "cva6-commit",
+            "title": "CVA6 commit-stage design",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/docs/03_cva6_design/commit_stage.rst",
+            "locator": "Commit Stage",
+            "claimSupported": "Commit retires instructions, updates architectural state and handles exceptions."
+          }
+        ],
+        "speakerNotes": "Consider a load followed by an independent add. If memory is slow, the add may return its result first. That does not make CVA6 an out-of-order-issue processor. The scoreboard tracks each outstanding instruction, and commit preserves architectural order. Dependencies, occupied units and memory delays can all reduce throughput. Likewise, two issue ports are a structural capability, not a guaranteed instruction rate. Keep issue width, result completion and retirement separate when reading performance claims."
+      },
+      "sourceAnchors": [
+        "cva6-issue",
+        "cva6-build-config",
+        "cva6-commit"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-intro-issue-speech",
+          "type": "speech",
+          "text": "Consider a load followed by an independent add. If memory is slow, the add may return its result first. That does not make CVA6 an out-of-order-issue processor. The scoreboard tracks each outstanding instruction, and commit preserves architectural order. Dependencies, occupied units and memory delays can all reduce throughput. Likewise, two issue ports are a structural capability, not a guaranteed instruction rate. Keep issue width, result completion and retirement separate when reading performance claims.",
+          "voice": "qwen3-mlx:Aiden",
+          "speed": 0.85,
+          "audioId": "tts_scene-cva6-intro-issue-speech",
+          "audioUrl": "/api/classroom-media/cva6-project-intro-en/audio/tts_scene-cva6-intro-issue-speech.mp3",
+          "captionUrl": "/classroom-assets/cva6-project-intro-en/subtitles/tts_scene-cva6-intro-issue-speech.vtt"
+        }
+      ],
+      "createdAt": 1789300800000,
+      "updatedAt": 1789300800000
+    },
+    {
+      "id": "scene-cva6-intro-system",
+      "stageId": "cva6-project-intro-en",
+      "type": "html-slide",
+      "title": "A core is not a bootable computer",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "processFlow",
+        "theme": "light",
+        "locale": "en-US",
+        "content": {
+          "kicker": "SYSTEM BOUNDARY",
+          "title": "What must surround a CVA6 core?",
+          "subtitle": "A conceptual Linux-capable system, not a bill of materials for every configuration.",
+          "steps": [
+            {
+              "badge": "01",
+              "title": "Core",
+              "body": "Choose a configuration with the facilities required by the software."
+            },
+            {
+              "badge": "02",
+              "title": "Platform",
+              "body": "Connect memory, interconnect, interrupts, boot and peripheral interfaces."
+            },
+            {
+              "badge": "03",
+              "title": "Software",
+              "body": "Provide firmware, boot software, kernel and board description."
+            },
+            {
+              "badge": "04",
+              "title": "Validation",
+              "body": "Check the complete hardware/software combination on its target."
+            }
+          ],
+          "takeaway": "corev_apu, CVA6 SDK and PULP Cheshire are related entry points, not interchangeable names for CVA6."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-repo",
+            "title": "CVA6 repository",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/README.md",
+            "locator": "Overview, folder structure, quick setup",
+            "claimSupported": "Processor RTL is distinct from the APU testbench, verification and software integration."
+          },
+          {
+            "id": "cva6-sdk",
+            "title": "CVA6 SDK",
+            "url": "https://github.com/openhwgroup/cva6-sdk",
+            "locator": "README: Overview; Requirements; Getting started",
+            "claimSupported": "A board-specific Linux software flow is a separate project from the CPU RTL."
+          },
+          {
+            "id": "cheshire",
+            "title": "PULP Cheshire host platform",
+            "url": "https://github.com/pulp-platform/cheshire",
+            "locator": "README: purpose and Getting Started links",
+            "claimSupported": "A separately maintained Linux-capable host platform built around CVA6, developed in the PULP project."
+          }
+        ],
+        "speakerNotes": "A core alone cannot boot a complete Linux system. It needs a suitable configuration, memory, interrupts, peripherals and a matching software stack. The CVA6 repository contains an application processing unit environment. The separate CVA6 SDK provides a board-oriented Linux flow. Cheshire is another host platform built around CVA6 in the PULP project. These are related but distinct artifacts. Choose a documented platform and its software together; enabling an MMU is not a complete integration plan."
+      },
+      "sourceAnchors": [
+        "cva6-repo",
+        "cva6-sdk",
+        "cheshire"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-intro-system-speech",
+          "type": "speech",
+          "text": "A core alone cannot boot a complete Linux system. It needs a suitable configuration, memory, interrupts, peripherals and a matching software stack. The CVA6 repository contains an application processing unit environment. The separate CVA6 SDK provides a board-oriented Linux flow. Cheshire is another host platform built around CVA6 in the PULP project. These are related but distinct artifacts. Choose a documented platform and its software together; enabling an MMU is not a complete integration plan.",
+          "voice": "qwen3-mlx:Aiden",
+          "speed": 0.85,
+          "audioId": "tts_scene-cva6-intro-system-speech",
+          "audioUrl": "/api/classroom-media/cva6-project-intro-en/audio/tts_scene-cva6-intro-system-speech.mp3",
+          "captionUrl": "/classroom-assets/cva6-project-intro-en/subtitles/tts_scene-cva6-intro-system-speech.vtt"
+        }
+      ],
+      "createdAt": 1789300800000,
+      "updatedAt": 1789300800000
+    },
+    {
+      "id": "scene-cva6-intro-source-map",
+      "stageId": "cva6-project-intro-en",
+      "type": "html-slide",
+      "title": "Where to read next in the repository",
+      "order": 5,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "locale": "en-US",
+        "content": {
+          "kicker": "REPOSITORY MAP",
+          "title": "Four questions, four entry points",
+          "subtitle": "Start from a question instead of opening every RTL file.",
+          "cards": [
+            {
+              "label": "CAPABILITIES",
+              "title": "core/include/",
+              "body": "Read the selected configuration package, then build_config_pkg.sv for derived parameters.",
+              "tone": "blue"
+            },
+            {
+              "label": "MICROARCHITECTURE",
+              "title": "core/",
+              "body": "Follow issue_stage.sv and commit_stage.sv alongside the design documentation.",
+              "tone": "teal"
+            },
+            {
+              "label": "INTEGRATION",
+              "title": "corev_apu/",
+              "body": "Inspect the platform and testbench around the processor.",
+              "tone": "gold"
+            },
+            {
+              "label": "VERIFICATION",
+              "title": "verif/",
+              "body": "Read the verification README, then choose the configuration-specific smoke script in regress/.",
+              "tone": "red"
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-repo",
+            "title": "CVA6 repository",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/README.md",
+            "locator": "Overview, folder structure, quick setup",
+            "claimSupported": "Processor RTL is distinct from the APU testbench, verification and software integration."
+          },
+          {
+            "id": "cva6-cv32a65x",
+            "title": "CV32A65X configuration",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a65x_config_pkg.sv",
+            "locator": "CVA6ConfigXlen; cva6_cfg",
+            "claimSupported": "XLEN 32; SuperscalarEn 1; MmuPresent/RVS/RVU/RVA/RVF/RVD 0."
+          },
+          {
+            "id": "cva6-smoke",
+            "title": "CV32A65X smoke regression",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/verif/regress/smoke-tests-cv32a65x.sh",
+            "locator": "Configuration-specific regression script",
+            "claimSupported": "A concrete smoke-test entry point; a passing smoke run is not full coverage or sign-off. The obsolete generic smoke-tests.sh is not used."
+          },
+          {
+            "id": "cva6-verif",
+            "title": "CVA6 verification environment",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/verif/README.md",
+            "locator": "Directories; Environment variables",
+            "claimSupported": "The verification subtree separates BSP, regression scripts, simulation, testbench and tests; DV_TARGET/DV_SIMULATORS select configuration and simulation flow."
+          }
+        ],
+        "speakerNotes": "For capabilities, start in core slash include and read the selected package plus derived parameters. For scheduling and state updates, follow the issue and commit modules with the design documentation. For integration, inspect the application processing unit directory. For tests, start in verification and its smoke regression. Fix a repository revision before comparing files. A useful first task is to explain one parameter and trace its effect, rather than trying to understand every module in one sitting."
+      },
+      "sourceAnchors": [
+        "cva6-repo",
+        "cva6-cv32a65x",
+        "cva6-smoke",
+        "cva6-verif"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-intro-source-map-speech",
+          "type": "speech",
+          "text": "For capabilities, start in core slash include and read the selected package plus derived parameters. For scheduling and state updates, follow the issue and commit modules with the design documentation. For integration, inspect the application processing unit directory. For tests, start in verification and its smoke regression. Fix a repository revision before comparing files. A useful first task is to explain one parameter and trace its effect, rather than trying to understand every module in one sitting.",
+          "voice": "qwen3-mlx:Aiden",
+          "speed": 0.85,
+          "audioId": "tts_scene-cva6-intro-source-map-speech",
+          "audioUrl": "/api/classroom-media/cva6-project-intro-en/audio/tts_scene-cva6-intro-source-map-speech.mp3",
+          "captionUrl": "/classroom-assets/cva6-project-intro-en/subtitles/tts_scene-cva6-intro-source-map-speech.vtt"
+        }
+      ],
+      "createdAt": 1789300800000,
+      "updatedAt": 1789300800000
+    },
+    {
+      "id": "scene-cva6-intro-evidence",
+      "stageId": "cva6-project-intro-en",
+      "type": "html-slide",
+      "title": "Read verification results in context",
+      "order": 6,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "locale": "en-US",
+        "content": {
+          "kicker": "ENGINEERING EVIDENCE",
+          "title": "A green result answers a scoped question",
+          "subtitle": "Record enough context to reproduce the claim.",
+          "items": [
+            {
+              "title": "Revision + configuration",
+              "body": "Which commit and parameter package were tested?"
+            },
+            {
+              "title": "Environment + tests",
+              "body": "Which simulator, reference model and test selection were used?"
+            },
+            {
+              "title": "Result + remaining gaps",
+              "body": "Did the run pass, skip or fail? What remains outside its coverage?"
+            }
+          ],
+          "takeaway": "A smoke-test pass is useful evidence. It is not full verification, qualification or a guarantee for your system."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-smoke",
+            "title": "CV32A65X smoke regression",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/verif/regress/smoke-tests-cv32a65x.sh",
+            "locator": "Configuration-specific regression script",
+            "claimSupported": "A concrete smoke-test entry point; a passing smoke run is not full coverage or sign-off. The obsolete generic smoke-tests.sh is not used."
+          },
+          {
+            "id": "cva6-tier-ci",
+            "title": "CVA6 tier CI",
+            "url": "https://openhwgroup.github.io/cva6/",
+            "locator": "Dashboard run and configuration information",
+            "claimSupported": "An entry point to inspect CI evidence; results must be read in the context of commit, target, simulator and tests."
+          },
+          {
+            "id": "cva6-repo",
+            "title": "CVA6 repository",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/README.md",
+            "locator": "Overview, folder structure, quick setup",
+            "claimSupported": "Processor RTL is distinct from the APU testbench, verification and software integration."
+          },
+          {
+            "id": "cva6-verif",
+            "title": "CVA6 verification environment",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/verif/README.md",
+            "locator": "Directories; Environment variables",
+            "claimSupported": "The verification subtree separates BSP, regression scripts, simulation, testbench and tests; DV_TARGET/DV_SIMULATORS select configuration and simulation flow."
+          }
+        ],
+        "speakerNotes": "Verification results become useful when their scope is explicit. Record the commit, configuration, simulator and tests. Open the job details rather than relying on a green badge. A smoke regression can expose basic breakage, but passing it does not establish full functional coverage, production qualification or correctness in your own system. The tier CI page is a useful starting point for run evidence. This lesson maps those entry points; it does not claim to have built or qualified the processor."
+      },
+      "sourceAnchors": [
+        "cva6-smoke",
+        "cva6-tier-ci",
+        "cva6-repo",
+        "cva6-verif"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-intro-evidence-speech",
+          "type": "speech",
+          "text": "Verification results become useful when their scope is explicit. Record the commit, configuration, simulator and tests. Open the job details rather than relying on a green badge. A smoke regression can expose basic breakage, but passing it does not establish full functional coverage, production qualification or correctness in your own system. The tier CI page is a useful starting point for run evidence. This lesson maps those entry points; it does not claim to have built or qualified the processor.",
+          "voice": "qwen3-mlx:Aiden",
+          "speed": 0.85,
+          "audioId": "tts_scene-cva6-intro-evidence-speech",
+          "audioUrl": "/api/classroom-media/cva6-project-intro-en/audio/tts_scene-cva6-intro-evidence-speech.mp3",
+          "captionUrl": "/classroom-assets/cva6-project-intro-en/subtitles/tts_scene-cva6-intro-evidence-speech.vtt"
+        }
+      ],
+      "createdAt": 1789300800000,
+      "updatedAt": 1789300800000
+    },
+    {
+      "id": "scene-cva6-intro-quiz",
+      "stageId": "cva6-project-intro-en",
+      "type": "quiz",
+      "title": "Check your engineering judgement",
+      "order": 7,
+      "content": {
+        "type": "quiz",
+        "questions": [
+          {
+            "id": "cva6-en-q1",
+            "type": "single",
+            "question": "Which statement matches the compared configurations?",
+            "options": [
+              {
+                "label": "Every CVA6 configuration is single-issue.",
+                "value": "A"
+              },
+              {
+                "label": "CV32A65X enables two issue ports but no MMU or S/U modes.",
+                "value": "B"
+              },
+              {
+                "label": "Every 64-bit CVA6 configuration is dual-issue.",
+                "value": "C"
+              },
+              {
+                "label": "The MMU is enabled in both compared 32-bit packages.",
+                "value": "D"
+              }
+            ],
+            "answer": [
+              "B"
+            ],
+            "analysis": "CV32A65X sets SuperscalarEn=1 and disables MMU/S/U. build_config derives two issue ports.",
+            "hasAnswer": true,
+            "points": 1
+          },
+          {
+            "id": "cva6-en-q2",
+            "type": "single",
+            "question": "You selected a Linux-oriented configuration. What remains?",
+            "options": [
+              {
+                "label": "Only a new processor name.",
+                "value": "A"
+              },
+              {
+                "label": "Nothing: the CPU RTL is a complete computer.",
+                "value": "B"
+              },
+              {
+                "label": "A compatible platform, boot software and system validation.",
+                "value": "C"
+              },
+              {
+                "label": "Only changing the compiler, regardless of board hardware.",
+                "value": "D"
+              }
+            ],
+            "answer": [
+              "C"
+            ],
+            "analysis": "CPU facilities are necessary but not sufficient: platform integration and matching software are separate work.",
+            "hasAnswer": true,
+            "points": 1
+          },
+          {
+            "id": "cva6-en-q3",
+            "type": "single",
+            "question": "What does a passing smoke regression establish?",
+            "options": [
+              {
+                "label": "That the executed tests passed in that recorded environment.",
+                "value": "A"
+              },
+              {
+                "label": "That every configuration is production-qualified.",
+                "value": "B"
+              },
+              {
+                "label": "That no hardware bug remains.",
+                "value": "C"
+              },
+              {
+                "label": "That the implementation meets your frequency and area targets.",
+                "value": "D"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "analysis": "The evidence is limited to the selected commit, configuration, tools and tests; coverage and sign-off need more evidence.",
+            "hasAnswer": true,
+            "points": 1
+          }
+        ],
+        "sourceAnchors": [
+          {
+            "id": "cva6-cv32a60x",
+            "title": "CV32A60X configuration",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a60x_config_pkg.sv",
+            "locator": "CVA6ConfigXlen; cva6_cfg",
+            "claimSupported": "XLEN 32; SuperscalarEn 0; MmuPresent/RVS/RVU/RVA/RVF/RVD 0."
+          },
+          {
+            "id": "cva6-cv32a65x",
+            "title": "CV32A65X configuration",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a65x_config_pkg.sv",
+            "locator": "CVA6ConfigXlen; cva6_cfg",
+            "claimSupported": "XLEN 32; SuperscalarEn 1; MmuPresent/RVS/RVU/RVA/RVF/RVD 0."
+          },
+          {
+            "id": "cva6-rv64-config",
+            "title": "cv64a6_imafdc_sv39 configuration",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv64a6_imafdc_sv39_config_pkg.sv",
+            "locator": "CVA6ConfigXlen; MMU/ISA constants; cva6_cfg",
+            "claimSupported": "XLEN 64; SuperscalarEn 0; MMU/S/U/A/F/D enabled in this concrete package; its filename is not an exhaustive extension list."
+          },
+          {
+            "id": "cva6-build-config",
+            "title": "Derived configuration",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/build_config_pkg.sv",
+            "locator": "build_config: NrIssuePorts and NrCommitPorts",
+            "claimSupported": "SuperscalarEn derives one or two issue ports; issue and commit width are separate quantities."
+          },
+          {
+            "id": "cva6-sdk",
+            "title": "CVA6 SDK",
+            "url": "https://github.com/openhwgroup/cva6-sdk",
+            "locator": "README: Overview; Requirements; Getting started",
+            "claimSupported": "A board-specific Linux software flow is a separate project from the CPU RTL."
+          },
+          {
+            "id": "cva6-smoke",
+            "title": "CV32A65X smoke regression",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/verif/regress/smoke-tests-cv32a65x.sh",
+            "locator": "Configuration-specific regression script",
+            "claimSupported": "A concrete smoke-test entry point; a passing smoke run is not full coverage or sign-off. The obsolete generic smoke-tests.sh is not used."
+          }
+        ]
+      },
+      "sourceAnchors": [
+        "cva6-cv32a60x",
+        "cva6-cv32a65x",
+        "cva6-rv64-config",
+        "cva6-build-config",
+        "cva6-sdk",
+        "cva6-smoke"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-intro-quiz-speech",
+          "type": "speech",
+          "text": "Apply the distinctions to three decisions. First, decide which claim about the two embedded configurations matches the parameter files. Second, identify what is still needed after selecting an application-oriented core configuration. Third, decide what a successful smoke regression can establish. Use the source links if necessary. The goal is not to memorise every extension flag, but to connect a technical statement to the configuration, system boundary and evidence that actually support it.",
+          "voice": "qwen3-mlx:Aiden",
+          "speed": 0.85,
+          "audioId": "tts_scene-cva6-intro-quiz-speech",
+          "audioUrl": "/api/classroom-media/cva6-project-intro-en/audio/tts_scene-cva6-intro-quiz-speech.mp3",
+          "captionUrl": "/classroom-assets/cva6-project-intro-en/subtitles/tts_scene-cva6-intro-quiz-speech.vtt"
+        }
+      ],
+      "createdAt": 1789300800000,
+      "updatedAt": 1789300800000
+    },
+    {
+      "id": "scene-cva6-intro-next",
+      "stageId": "cva6-project-intro-en",
+      "type": "html-slide",
+      "title": "Your first CVA6 reading task",
+      "order": 8,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "summaryNextStep",
+        "theme": "light",
+        "locale": "en-US",
+        "content": {
+          "kicker": "NEXT STEP",
+          "title": "Make one claim you can trace",
+          "takeaways": [
+            "Family is not configuration; configuration is not system.",
+            "Separate issue width, completion and retirement.",
+            "Tie every capability or test claim to a concrete source."
+          ],
+          "nextStep": "Open CV32A65X, find SuperscalarEn, then trace NrIssuePorts in build_config_pkg.sv.",
+          "closing": "Then return to the CVA6 project page for documentation, SDK and CI links."
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-cv32a65x",
+            "title": "CV32A65X configuration",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a65x_config_pkg.sv",
+            "locator": "CVA6ConfigXlen; cva6_cfg",
+            "claimSupported": "XLEN 32; SuperscalarEn 1; MmuPresent/RVS/RVU/RVA/RVF/RVD 0."
+          },
+          {
+            "id": "cva6-build-config",
+            "title": "Derived configuration",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/build_config_pkg.sv",
+            "locator": "build_config: NrIssuePorts and NrCommitPorts",
+            "claimSupported": "SuperscalarEn derives one or two issue ports; issue and commit width are separate quantities."
+          },
+          {
+            "id": "cva6-repo",
+            "title": "CVA6 repository",
+            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/README.md",
+            "locator": "Overview, folder structure, quick setup",
+            "claimSupported": "Processor RTL is distinct from the APU testbench, verification and software integration."
+          }
+        ],
+        "speakerNotes": "Start with one small, reproducible reading task. Open the linked CV32A65X package and find the superscalar enable flag. Follow it into the derived configuration and identify the number of issue ports. Then check the MMU and privilege flags. You now have a precise statement about one source snapshot, instead of a vague statement about the family. Use the project page to continue into architecture, software or verification according to your goal. That is the foundation for a deeper CVA6 course."
+      },
+      "sourceAnchors": [
+        "cva6-cv32a65x",
+        "cva6-build-config",
+        "cva6-repo"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-intro-next-speech",
+          "type": "speech",
+          "text": "Start with one small, reproducible reading task. Open the linked CV32A65X package and find the superscalar enable flag. Follow it into the derived configuration and identify the number of issue ports. Then check the MMU and privilege flags. You now have a precise statement about one source snapshot, instead of a vague statement about the family. Use the project page to continue into architecture, software or verification according to your goal. That is the foundation for a deeper CVA6 course.",
+          "voice": "qwen3-mlx:Aiden",
+          "speed": 0.85,
+          "audioId": "tts_scene-cva6-intro-next-speech",
+          "audioUrl": "/api/classroom-media/cva6-project-intro-en/audio/tts_scene-cva6-intro-next-speech.mp3",
+          "captionUrl": "/classroom-assets/cva6-project-intro-en/subtitles/tts_scene-cva6-intro-next-speech.vtt"
+        }
+      ],
+      "createdAt": 1789300800000,
+      "updatedAt": 1789300800000
+    }
+  ]
+}

@@ -154,7 +154,7 @@ describe("learning hub release boundaries", () => {
   it("features the short OpenHW Essentials catalog for V1", () => {
     const featuredSeries = getFeaturedClassroomSeries();
 
-    expect(featuredSeries.map((series) => series.id)).toEqual(["openhw-foundations"]);
+    expect(featuredSeries.map((series) => series.id)).toEqual(["openhw-foundations", "project-guides"]);
     expect(getCatalogLessons(featuredSeries[0])).toHaveLength(5);
     expect(getCatalogLessons(featuredSeries[0]).every((lesson) => lesson.role === "catalog")).toBe(
       true,

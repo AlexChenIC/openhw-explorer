@@ -39,6 +39,7 @@ const copy = {
     lessonCount: "lessons",
     plannedUnits: "units",
     statuses: {
+      demo: "Demo",
       published: "Available",
       "editorial-review": "Final review",
       "in-production": "In progress",
@@ -64,6 +65,7 @@ const copy = {
     lessonCount: "节课程",
     plannedUnits: "个单元",
     statuses: {
+      demo: "示范课",
       published: "可学习",
       "editorial-review": "最终审核",
       "in-production": "制作中",
@@ -84,9 +86,7 @@ export function ClassroomSeriesContent({ locale, series }: ClassroomSeriesConten
   const isReleaseSeries = series.visibility === "featured";
   const catalogLessons = getCatalogLessons(series);
   const prototypeLessons = getPrototypeLessons(series);
-  const firstPublishedLesson = catalogLessons.find(
-    (lesson) => lesson.status === "published" && hasPublishedLesson(lesson),
-  );
+  const firstPublishedLesson = catalogLessons.find((lesson) => hasPublishedLesson(lesson));
   const secondaryHref = series.projectId === "cva6" ? "/projects/cva6" : "/resources";
   const secondaryLabel = series.projectId === "cva6" ? t.project : t.resources;
   const getStatusLabel = (status: ClassroomLessonStatus) => t.statuses[status];
@@ -152,11 +152,15 @@ export function ClassroomSeriesContent({ locale, series }: ClassroomSeriesConten
           <section className="py-14 lg:py-20">
             <h2 className="text-3xl font-semibold text-[var(--text-primary)]">{t.lessons}</h2>
             <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--text-secondary)]">
-              {t.releaseNote}
+              {series.id === "project-guides"
+                ? resolvedLocale === "zh"
+                  ? "示范课已开放体验，仍待编辑与完整语音审核。"
+                  : "The demo is open for feedback; editorial and full-audio approval are pending."
+                : t.releaseNote}
             </p>
             <div className="mt-8 divide-y divide-[var(--border)] border-y border-[var(--border)]">
               {catalogLessons.map((lesson, index) => {
-                const isAvailable = lesson.status === "published" && hasPublishedLesson(lesson);
+                const isAvailable = hasPublishedLesson(lesson);
                 return (
                   <article
                     key={lesson.id}
