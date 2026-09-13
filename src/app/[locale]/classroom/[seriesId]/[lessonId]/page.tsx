@@ -44,6 +44,7 @@ export async function generateMetadata({ params }: LessonPageProps): Promise<Met
   return {
     title,
     description,
+    ...(lesson.status === "demo" ? { robots: { index: false, follow: true } } : {}),
     openGraph: {
       title: `${title} | OpenHW Explorer`,
       description,

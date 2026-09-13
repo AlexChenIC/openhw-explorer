@@ -1,0 +1,22 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.848
+CVA6 is a configurable RISC-V processor code base, not one fixed chip.
+
+2
+00:00:04.848 --> 00:00:09.972
+Its family includes both embedded and application-oriented configurations.
+
+3
+00:00:09.972 --> 00:00:19.114
+To evaluate it, separate three questions: what the core does, which configuration you selected, and what surrounds it in the system.
+
+4
+00:00:19.114 --> 00:00:27.909
+We will compare actual parameter files, follow the main data path, and identify where platform software and verification enter.
+
+5
+00:00:27.909 --> 00:00:33.380
+You can then choose a useful next source without reading the entire repository.
+

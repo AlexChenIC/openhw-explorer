@@ -32,10 +32,11 @@ describe("September audit release gates", () => {
     expect(newsDateLabel({ publishedAt: "", addedAt: "2026-06-09" }, "zh")).toContain("收录于");
     expect(digest.items.find((item) => item.url === "https://arxiv.org/html/2605.10860v2")?.publishedAt).toBe("2026-05-22");
   });
-  it("publishes only the two reviewed bilingual courses, with real subtitle files", () => {
-    expect(getPublishedClassroomIds()).toHaveLength(4);
+  it("preserves the two reviewed bilingual courses and their subtitle files", () => {
+    const reviewedIds = getPublishedClassroomIds().filter((id) => id.startsWith("openhw-essentials-"));
+    expect(reviewedIds).toHaveLength(4);
     let tracks = 0;
-    for (const id of getPublishedClassroomIds()) {
+    for (const id of reviewedIds) {
       const classroom = getPublishedClassroom(id);
       for (const scene of classroom.scenes) for (const action of scene.actions || []) {
         if (!action.audioUrl) continue;

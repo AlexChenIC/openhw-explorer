@@ -45,6 +45,7 @@ export async function generateMetadata({ params }: ClassroomPlayerPageProps): Pr
   return {
     title,
     description,
+    ...(classroom.stage.releaseStage === "demo" ? { robots: { index: false, follow: true } } : {}),
     robots: {
       index: false,
       follow: true,

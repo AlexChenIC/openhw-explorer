@@ -14,6 +14,9 @@ import { Footer } from "@/components/Footer";
 import { getProjectKnowledge, getKnowledgeSummary } from "@/data/knowledge";
 import { serializeJsonLd } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site-url";
+import { projectGuides } from "@/data/classroom-project-guides";
+import { getLocalizedText, hasPublishedLesson } from "@/data/classrooms";
+import { features } from "@/lib/features";
 
 type Props = {
   params: Promise<{ locale: string; id: string }>;
@@ -72,6 +75,11 @@ export default async function ProjectPage({ params }: Props) {
   const knowledge = getProjectKnowledge(project.id);
   const knowledgeSummary = getKnowledgeSummary(project.id);
   const githubStats = getGitHubStats(project.id);
+  const guide = features.classroomCoursesEnabled
+    ? projectGuides.lessons.find(
+        (lesson) => lesson.projectId === project.id && hasPublishedLesson(lesson),
+      )
+    : undefined;
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -114,6 +122,14 @@ export default async function ProjectPage({ params }: Props) {
           knowledge={knowledge}
           knowledgeSummary={knowledgeSummary}
           githubStats={githubStats}
+          introLesson={
+            guide
+              ? {
+                  href: `/classroom/${guide.seriesId}/${guide.id}`,
+                  title: getLocalizedText(guide.title, locale),
+                }
+              : undefined
+          }
         />
         <Footer />
       </main>

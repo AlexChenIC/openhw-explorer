@@ -1,0 +1,30 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.473
+Read the core as cooperating blocks.
+
+2
+00:00:02.473 --> 00:00:06.662
+The frontend fetches instructions and decode interprets them.
+
+3
+00:00:06.662 --> 00:00:13.393
+Issue checks dependencies and resource availability, while the scoreboard tracks outstanding work.
+
+4
+00:00:13.393 --> 00:00:18.888
+Execution units return results, and commit updates architectural state in order.
+
+5
+00:00:18.888 --> 00:00:23.490
+Caches, control registers and exception handling support this path.
+
+6
+00:00:23.490 --> 00:00:26.855
+Address translation depends on the configuration.
+
+7
+00:00:26.855 --> 00:00:33.380
+These four groups are a reading map, not four pipeline stages or a cycle-accurate timing model.
+

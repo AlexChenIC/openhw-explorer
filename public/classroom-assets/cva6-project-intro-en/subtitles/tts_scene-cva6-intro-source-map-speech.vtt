@@ -1,0 +1,26 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:07.149
+For capabilities, start in core slash include and read the selected package plus derived parameters.
+
+2
+00:00:07.149 --> 00:00:14.297
+For scheduling and state updates, follow the issue and commit modules with the design documentation.
+
+3
+00:00:14.297 --> 00:00:19.087
+For integration, inspect the application processing unit directory.
+
+4
+00:00:19.087 --> 00:00:23.233
+For tests, start in verification and its smoke regression.
+
+5
+00:00:23.233 --> 00:00:26.735
+Fix a repository revision before comparing files.
+
+6
+00:00:26.735 --> 00:00:36.100
+A useful first task is to explain one parameter and trace its effect, rather than trying to understand every module in one sitting.
+

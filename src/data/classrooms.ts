@@ -3,6 +3,8 @@
 // grants, third-party material, and non-protectable material are not affected.
 // See LICENSE-CONTENT.md at the repository root.
 
+import { projectGuides } from "./classroom-project-guides";
+
 export type ClassroomLocale = "en" | "zh";
 
 export type LocalizedText = Record<ClassroomLocale, string>;
@@ -12,6 +14,7 @@ export type ClassroomSeriesStatus = "in-production" | "development";
 export type ClassroomSeriesVisibility = "featured" | "development";
 export type ClassroomLessonStatus =
   | "published"
+  | "demo"
   | "editorial-review"
   | "in-production"
   | "planned"
@@ -85,6 +88,14 @@ export interface ClassroomSeries {
 }
 
 export const classroomTracks: ClassroomTrack[] = [
+  {
+    id: "project-guides",
+    status: "open",
+    title: projectGuides.title,
+    description: projectGuides.description,
+    audience: projectGuides.audience,
+    seriesIds: [projectGuides.id],
+  },
   {
     id: "openhw-foundations",
     status: "open",
@@ -652,6 +663,7 @@ export const classroomSeries: ClassroomSeries[] = [
       },
     ],
   },
+  projectGuides,
 ];
 
 export function getClassroomBaseUrl() {
@@ -718,8 +730,11 @@ export function getClassroomIdForLocale(lesson: ClassroomLesson, locale: string)
 }
 
 export function hasPublishedLesson(lesson: ClassroomLesson) {
-  return lesson.status === "published" && lesson.role === "catalog" &&
-    Boolean(lesson.classroomId || lesson.classroomIds?.en || lesson.classroomIds?.zh);
+  return (
+    (lesson.status === "published" || lesson.status === "demo") &&
+    lesson.role === "catalog" &&
+    Boolean(lesson.classroomId || lesson.classroomIds?.en || lesson.classroomIds?.zh)
+  );
 }
 
 export function lessonUsesClassroomId(lesson: ClassroomLesson, classroomId: string) {

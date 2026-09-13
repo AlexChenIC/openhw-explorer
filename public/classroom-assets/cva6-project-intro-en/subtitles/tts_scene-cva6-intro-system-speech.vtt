@@ -1,0 +1,30 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.859
+A core alone cannot boot a complete Linux system.
+
+2
+00:00:03.859 --> 00:00:11.498
+It needs a suitable configuration, memory, interrupts, peripherals and a matching software stack.
+
+3
+00:00:11.498 --> 00:00:17.168
+The CVA6 repository contains an application processing unit environment.
+
+4
+00:00:17.168 --> 00:00:21.814
+The separate CVA6 SDK provides a board-oriented Linux flow.
+
+5
+00:00:21.814 --> 00:00:27.485
+Cheshire is another host platform built around CVA6 in the PULP project.
+
+6
+00:00:27.485 --> 00:00:30.713
+These are related but distinct artifacts.
+
+7
+00:00:30.713 --> 00:00:39.140
+Choose a documented platform and its software together; enabling an MMU is not a complete integration plan.
+

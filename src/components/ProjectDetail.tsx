@@ -10,6 +10,7 @@ import {
   ChevronRight,
   Home,
   Flag,
+  PlayCircle,
 } from "lucide-react";
 import { useSearchParams } from "next/navigation";
 import { useEffect } from "react";
@@ -36,6 +37,7 @@ interface ProjectKnowledgeSummary {
 }
 
 interface ProjectDetailProps {
+  introLesson?: { href: string; title: string };
   project: Project;
   relatedProjects: Project[];
   knowledge: ProjectKnowledge | null;
@@ -82,6 +84,7 @@ function getSourceTierMeta(tier?: Project["descriptionSourceTier"]) {
 }
 
 export function ProjectDetail({
+  introLesson,
   project,
   relatedProjects,
   knowledge,
@@ -178,10 +181,7 @@ export function ProjectDetail({
         <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-6 sm:p-8 mb-6">
           {/* Top: Icon + Title + Status */}
           <div className="flex flex-col sm:flex-row items-start gap-4 mb-6">
-            <ProjectGlyph
-              categories={project.category}
-              variant="detail"
-            />
+            <ProjectGlyph categories={project.category} variant="detail" />
             <div className="flex-1 min-w-0">
               <div className="flex flex-wrap items-center gap-2.5 mb-2">
                 <h1 className="text-2xl sm:text-3xl font-bold text-[var(--text-primary)]">
@@ -324,6 +324,22 @@ export function ProjectDetail({
             </div>
           </div>
 
+          {introLesson && (
+            <Link
+              href={introLesson.href}
+              className="mb-5 flex min-w-0 items-center gap-4 border-y border-[var(--border)] py-5 text-[var(--primary)] hover:text-[var(--primary-dark)]"
+            >
+              <PlayCircle className="h-7 w-7 shrink-0" aria-hidden="true" />
+              <span className="min-w-0 flex-1">
+                <span className="block text-xs font-medium text-[var(--text-secondary)]">
+                  {locale === "zh" ? "交互式项目导览 · 示范课" : "Interactive project guide · Demo"}
+                </span>
+                <span className="mt-1 block text-base font-semibold">{introLesson.title}</span>
+              </span>
+              <ChevronRight className="h-5 w-5 shrink-0" aria-hidden="true" />
+            </Link>
+          )}
+
           {/* At a glance: verified key facts from the reviewed profile */}
           {project.keyFacts && project.keyFacts.length > 0 && (
             <div className="mb-4 rounded-xl border border-[var(--border)] bg-[var(--bg-subtle)] p-4 sm:p-5">
@@ -416,7 +432,9 @@ export function ProjectDetail({
               <div className="flex items-center gap-1.5 text-[var(--text-secondary)]">
                 <span className="w-3 h-3 rounded-full" style={{ backgroundColor: color }} />
                 <span className="text-sm">{project.language}</span>
-                <span className="text-xs text-[var(--text-tertiary)]">{t("metrics.repositoryLanguage")}</span>
+                <span className="text-xs text-[var(--text-tertiary)]">
+                  {t("metrics.repositoryLanguage")}
+                </span>
               </div>
             )}
           </div>
@@ -592,10 +610,7 @@ export function ProjectDetail({
                     href={getProjectDetailHref(related.id)}
                     className="card-glow flex items-center gap-3 p-4 rounded-xl bg-[var(--bg-card)] border border-[var(--border)] hover:border-[var(--text-tertiary)] transition-all group"
                   >
-                    <ProjectGlyph
-                      categories={related.category}
-                      variant="card"
-                    />
+                    <ProjectGlyph categories={related.category} variant="card" />
                     <div className="flex-1 min-w-0">
                       <h4 className="text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--primary)] transition-colors truncate">
                         {related.name}

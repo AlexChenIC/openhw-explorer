@@ -1,0 +1,30 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.881
+Start with one small, reproducible reading task.
+
+2
+00:00:03.881 --> 00:00:09.541
+Open the linked CV32A65X package and find the superscalar enable flag.
+
+3
+00:00:09.541 --> 00:00:16.009
+Follow it into the derived configuration and identify the number of issue ports.
+
+4
+00:00:16.009 --> 00:00:19.163
+Then check the MMU and privilege flags.
+
+5
+00:00:19.163 --> 00:00:27.733
+You now have a precise statement about one source snapshot, instead of a vague statement about the family.
+
+6
+00:00:27.733 --> 00:00:35.819
+Use the project page to continue into architecture, software or verification according to your goal.
+
+7
+00:00:35.819 --> 00:00:39.700
+That is the foundation for a deeper CVA6 course.
+

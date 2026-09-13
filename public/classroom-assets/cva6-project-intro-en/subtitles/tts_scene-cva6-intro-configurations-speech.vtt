@@ -1,0 +1,30 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.950
+Compare the three source snapshots.
+
+2
+00:00:02.950 --> 00:00:07.165
+CV32A60X has one issue port; CV32A65X enables two.
+
+3
+00:00:07.165 --> 00:00:13.486
+Both are 32-bit configurations without an MMU or supervisor and user modes.
+
+4
+00:00:13.486 --> 00:00:23.601
+The selected 64-bit example enables those facilities, plus atomic and floating-point extensions, but has one issue port.
+
+5
+00:00:23.601 --> 00:00:27.562
+A family name does not determine every feature.
+
+6
+00:00:27.562 --> 00:00:33.547
+These are concrete parameter packages, not an exhaustive product table.
+
+7
+00:00:33.547 --> 00:00:39.700
+Select each configuration and follow its source link to check the values.
+

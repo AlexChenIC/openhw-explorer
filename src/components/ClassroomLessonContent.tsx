@@ -22,6 +22,7 @@ const copy = {
   en: {
     back: "Back to series",
     published: "Published course",
+    demo: "Demo · Editorial review pending",
     preview: "Classroom format preview",
     fallbackLanguage: "This format preview is currently available in English only.",
     openStandalone: "Open focused player",
@@ -34,6 +35,7 @@ const copy = {
   zh: {
     back: "返回课程系列",
     published: "已发布课程",
+    demo: "示范课 · 待编辑审核",
     preview: "课堂形式预览",
     fallbackLanguage: "这节形式预览目前只有英文版本。",
     openStandalone: "打开专注播放器",
@@ -87,7 +89,7 @@ export function ClassroomLessonContent({
           <div>
             <div className="mb-4 inline-flex items-center gap-2 rounded-full border border-[var(--orange)]/25 bg-[var(--orange)]/10 px-3 py-1 text-xs font-semibold text-[var(--orange)]">
               <PlayCircle className="h-3.5 w-3.5" />
-              {isPublished ? t.published : t.preview}
+              {lesson.status === "demo" ? t.demo : isPublished ? t.published : t.preview}
             </div>
             <p className="text-sm font-semibold text-[var(--text-tertiary)]">
               {getLocalizedText(series.title, resolvedLocale)}
@@ -98,6 +100,18 @@ export function ClassroomLessonContent({
             <p className="mt-4 max-w-3xl text-base leading-8 text-[var(--text-secondary)]">
               {getLocalizedText(lesson.summary, resolvedLocale)}
             </p>
+            {series.id === "project-guides" && (
+              <Link
+                href={`/projects/${lesson.projectId}`}
+                className="mt-4 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--primary)]"
+              >
+                <BookOpen className="h-4 w-4" aria-hidden="true" />
+                {resolvedLocale === "zh"
+                  ? "CVA6 项目与延伸资源"
+                  : "CVA6 project and further resources"}
+                <ArrowRight className="h-4 w-4" aria-hidden="true" />
+              </Link>
+            )}
             {usesFallbackLanguage && (
               <p className="mt-3 inline-flex rounded-md border border-[var(--orange)]/25 bg-[var(--orange)]/10 px-3 py-2 text-sm font-medium text-[var(--orange)]">
                 {t.fallbackLanguage}
@@ -172,7 +186,6 @@ export function ClassroomLessonContent({
               : "The public release package for this lesson has not been synced into OpenHW Explorer yet."}
           </section>
         )}
-
       </div>
     </div>
   );

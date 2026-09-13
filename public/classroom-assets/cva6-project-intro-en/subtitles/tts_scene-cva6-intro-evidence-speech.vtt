@@ -1,0 +1,26 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.855
+Verification results become useful when their scope is explicit.
+
+2
+00:00:04.855 --> 00:00:08.952
+Record the commit, configuration, simulator and tests.
+
+3
+00:00:08.952 --> 00:00:13.352
+Open the job details rather than relying on a green badge.
+
+4
+00:00:13.352 --> 00:00:25.869
+A smoke regression can expose basic breakage, but passing it does not establish full functional coverage, production qualification or correctness in your own system.
+
+5
+00:00:25.869 --> 00:00:30.497
+The tier CI page is a useful starting point for run evidence.
+
+6
+00:00:30.497 --> 00:00:37.780
+This lesson maps those entry points; it does not claim to have built or qualified the processor.
+

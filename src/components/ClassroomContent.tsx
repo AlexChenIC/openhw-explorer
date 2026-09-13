@@ -3,6 +3,7 @@ import {
   ArrowRight,
   BookOpenText,
   Clock3,
+  Cpu,
   ExternalLink,
   GraduationCap,
   Github,
@@ -16,6 +17,8 @@ import {
 } from "lucide-react";
 import { Link } from "@/lib/routing";
 import { externalLinks } from "@/data/external-links";
+import { projectGuides } from "@/data/classroom-project-guides";
+import { features } from "@/lib/features";
 import {
   getCatalogLessons,
   getDevelopmentClassroomSeries,
@@ -38,6 +41,11 @@ const copy = {
         id: "essentials",
         title: "Essentials",
         description: "Five short introductions",
+      },
+      {
+        id: "project-guides",
+        title: "Project guides",
+        description: "Cores, configurations and systems",
       },
       {
         id: "deep-dives",
@@ -100,6 +108,7 @@ const copy = {
     publicMeta: "on GitHub",
     publicNote: "GitHub requests are visible to everyone.",
     statuses: {
+      demo: "Demo",
       published: "Available",
       "editorial-review": "Final review",
       "in-production": "In progress",
@@ -117,6 +126,11 @@ const copy = {
         id: "essentials",
         title: "核心概念",
         description: "五节短小入门课",
+      },
+      {
+        id: "project-guides",
+        title: "项目导览",
+        description: "内核、配置与系统",
       },
       {
         id: "deep-dives",
@@ -174,6 +188,7 @@ const copy = {
     publicMeta: "通过 GitHub",
     publicNote: "GitHub 中的建议对所有人公开。",
     statuses: {
+      demo: "示范课",
       published: "可学习",
       "editorial-review": "最终审核",
       "in-production": "制作中",
@@ -188,11 +203,17 @@ type ClassroomContentProps = {
   newsletterUsername?: string;
 };
 
-const collectionIcons = [BookOpenText, Route, Library] as const;
+const collectionIcons = [BookOpenText, Cpu, Route, Library] as const;
 const chineseTags: Record<string, string> = {
-  "processor core": "处理器内核", "processor IP": "处理器 IP", verification: "验证",
-  "open source": "开源", adoption: "工程应用", repository: "仓库", governance: "治理",
-  nomenclature: "命名规则", "RTL reading": "RTL 阅读",
+  "processor core": "处理器内核",
+  "processor IP": "处理器 IP",
+  verification: "验证",
+  "open source": "开源",
+  adoption: "工程应用",
+  repository: "仓库",
+  governance: "治理",
+  nomenclature: "命名规则",
+  "RTL reading": "RTL 阅读",
 };
 
 const defaultLessonVisual = {
@@ -262,7 +283,9 @@ const lessonVisuals = {
 export function ClassroomContent({ locale, newsletterUsername }: ClassroomContentProps) {
   const resolvedLocale = locale === "zh" ? "zh" : "en";
   const text = copy[resolvedLocale];
-  const [releaseSeries] = getFeaturedClassroomSeries();
+  const releaseSeries = getFeaturedClassroomSeries().find(
+    (series) => series.id === "openhw-foundations",
+  );
   const developmentSeries = getDevelopmentClassroomSeries();
   const releaseLessons = releaseSeries ? getCatalogLessons(releaseSeries) : [];
   const prototypeEntries = [...getFeaturedClassroomSeries(), ...developmentSeries]
@@ -299,7 +322,7 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
 
         <nav
           aria-label={text.navLabel}
-          className="grid border-y border-[var(--border)] sm:grid-cols-3 sm:divide-x sm:divide-[var(--border)]"
+          className="grid border-y border-[var(--border)] sm:grid-cols-2 lg:grid-cols-4 sm:divide-x sm:divide-[var(--border)]"
         >
           {text.collections.map((collection, index) => {
             const Icon = collectionIcons[index];
@@ -472,6 +495,60 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
                   </article>
                 );
               })}
+            </div>
+          </section>
+        )}
+
+        {features.classroomCoursesEnabled && (
+          <section
+            id="project-guides"
+            className="scroll-mt-28 border-t border-[var(--border)] py-12"
+          >
+            <h2 className="text-3xl font-semibold text-[var(--text-primary)]">
+              {getLocalizedText(projectGuides.title, resolvedLocale)}
+            </h2>
+            <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+              {projectGuides.lessons.filter(hasPublishedLesson).map((lesson) => (
+                <article
+                  key={lesson.id}
+                  className="flex min-w-0 flex-col overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--bg-card)]"
+                >
+                  <div className="flex h-40 items-center justify-center gap-5 border-b border-[var(--border)] bg-white px-6 text-[#145dbc]">
+                    <Cpu className="h-14 w-14" strokeWidth={1.5} aria-hidden="true" />
+                    <span className="text-4xl font-semibold text-[#182128]">CVA6</span>
+                  </div>
+                  <div className="flex flex-1 flex-col p-6">
+                    <div className="flex items-center justify-between text-xs font-medium text-[var(--text-secondary)]">
+                      <span>{text.statuses.demo}</span>
+                      <span className="inline-flex items-center gap-1.5">
+                        <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />
+                        {lesson.durationMinutes} min · EN / 中文
+                      </span>
+                    </div>
+                    <h3 className="mt-4 text-xl font-semibold leading-snug text-[var(--text-primary)]">
+                      <Link
+                        href={`/classroom/${lesson.seriesId}/${lesson.id}`}
+                        className="hover:text-[var(--primary)]"
+                      >
+                        {getLocalizedText(lesson.title, resolvedLocale)}
+                      </Link>
+                    </h3>
+                    <p className="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
+                      {getLocalizedText(lesson.summary, resolvedLocale)}
+                    </p>
+                    <p className="mt-4 text-xs text-[var(--text-tertiary)]">
+                      {lesson.slideCount} {text.slidesLabel} · {lesson.quizCount} {text.checksLabel}
+                    </p>
+                    <Link
+                      href={`/classroom/${lesson.seriesId}/${lesson.id}`}
+                      className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--primary)]"
+                    >
+                      {resolvedLocale === "zh" ? "体验示范课" : "Explore the demo"}
+                      <ArrowRight className="h-4 w-4" aria-hidden="true" />
+                    </Link>
+                  </div>
+                </article>
+              ))}
             </div>
           </section>
         )}
