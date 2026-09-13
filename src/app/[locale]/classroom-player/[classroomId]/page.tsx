@@ -4,7 +4,7 @@ import { redirect } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { PublishedClassroomPlayer } from "@/components/PublishedClassroomPlayer";
-import { classroomSeries, getLocalizedText, lessonUsesClassroomId } from "@/data/classrooms";
+import { classroomSeries, getClassroomIdForLocale, getLocalizedText, lessonUsesClassroomId } from "@/data/classrooms";
 import { getPublishedClassroom, getPublishedClassroomIds } from "@/data/published-classrooms";
 import { SITE_URL } from "@/lib/site-url";
 
@@ -52,8 +52,8 @@ export async function generateMetadata({ params }: ClassroomPlayerPageProps): Pr
     alternates: {
       canonical: `${SITE_URL}/${resolvedLocale}/classroom-player/${classroomId}`,
       languages: {
-        en: `${SITE_URL}/en/classroom-player/${classroomId}`,
-        zh: `${SITE_URL}/zh/classroom-player/${classroomId}`,
+        en: `${SITE_URL}/en/classroom-player/${match ? getClassroomIdForLocale(match.lesson, "en") : classroomId}`,
+        zh: `${SITE_URL}/zh/classroom-player/${match ? getClassroomIdForLocale(match.lesson, "zh") : classroomId}`,
       },
     },
   };
@@ -67,6 +67,12 @@ export default async function ClassroomPlayerPage({ params }: ClassroomPlayerPag
 
   if (!classroom) {
     redirect(`/${resolvedLocale}/classroom`);
+  }
+
+  const match = getLessonByClassroomId(classroomId);
+  const localizedId = match && getClassroomIdForLocale(match.lesson, resolvedLocale);
+  if (localizedId && localizedId !== classroomId) {
+    redirect(`/${resolvedLocale}/classroom-player/${localizedId}`);
   }
 
   return (

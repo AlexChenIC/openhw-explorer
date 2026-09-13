@@ -23,6 +23,7 @@ import { existsSync, readFileSync, writeFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import Database from "better-sqlite3";
+import { normalizeCuratedDates, mergeEventCoverage } from "./lib/news-records.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -390,7 +391,7 @@ function readCuratedData() {
 
     console.log(`  Curated items: ${items.length}`);
 
-    return items.map((item, index) => {
+    return mergeEventCoverage(items).map((item, index) => {
       // Auto-compute tags from title+summary if not provided
       const { score, tags: autoTags } = computeRelevanceScore(item.title || "", item.summary || "");
 
@@ -398,8 +399,10 @@ function readCuratedData() {
         title: item.title || "",
         url: item.url || "",
         source: item.source || "OpenHW Community",
-        publishedAt: toIsoDateTime(item.addedAt || new Date().toISOString()) || "",
-        summary: truncate(item.summary || item.summaryZh || ""),
+        ...normalizeCuratedDates(item),
+        summary: item.summary || item.summaryZh || "",
+        ...(item.eventId && { eventId: item.eventId }),
+        ...(item.relatedSources && { relatedSources: item.relatedSources }),
         author: item.author || "",
         relevanceScore: Math.max(score, 5), // curated items always high relevance
         tags: item.tags && item.tags.length > 0 ? item.tags : autoTags,
@@ -418,8 +421,7 @@ function readCuratedData() {
       };
     });
   } catch (err) {
-    console.log(`  Warning: Could not read curated file: ${err.message}`);
-    return [];
+    throw new Error(`Could not read curated file: ${err.message}`);
   }
 }
 
@@ -563,6 +565,15 @@ function buildDigest() {
     items,
     sources,
   };
+
+  if (existsSync(OUTPUT_FILE)) {
+    const previous = JSON.parse(readFileSync(OUTPUT_FILE, "utf8"));
+    if (JSON.stringify(previous.items) === JSON.stringify(digest.items) &&
+        JSON.stringify(previous.sources) === JSON.stringify(digest.sources)) {
+      console.log("  No editorial change; retaining publication timestamp.");
+      return;
+    }
+  }
 
   writeFileSync(OUTPUT_FILE, JSON.stringify(digest, null, 2));
   console.log(`\n  Digest: ${OUTPUT_FILE}`);

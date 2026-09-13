@@ -24,6 +24,7 @@ import {
 import newsDigest from "@/data/news-digest.json";
 import newsSourceGroups from "@/data/news-source-groups.json";
 import newsTopicRules from "@/data/news-topic-rules.json";
+import { newsSortDate, newsDateLabel } from "@/lib/news-dates";
 
 interface NewsItem {
   title: string;
@@ -31,6 +32,8 @@ interface NewsItem {
   url: string;
   source: string;
   publishedAt: string;
+  addedAt?: string;
+  relatedSources?: Array<{ title: string; url: string; source: string }>;
   summary: string;
   summaryZh?: string;
   author: string;
@@ -150,6 +153,13 @@ function normalizeNewsItem(value: unknown): NewsItem {
     url: asString(item.url),
     source: asString(item.source),
     publishedAt: asString(item.publishedAt),
+    addedAt: asString(item.addedAt),
+    relatedSources: Array.isArray(item.relatedSources)
+      ? item.relatedSources.filter((entry): entry is { title: string; url: string; source: string } =>
+          Boolean(entry) && typeof entry === "object" &&
+          typeof entry.url === "string" && /^https?:\/\//.test(entry.url) &&
+          typeof entry.title === "string" && typeof entry.source === "string")
+      : [],
     summary: asString(item.summary),
     summaryZh: asString(item.summaryZh) || undefined,
     author: asString(item.author),
@@ -199,18 +209,6 @@ const sourceGroups: NewsSourceGroup[] = Array.isArray(rawSourceGroups)
         tags: asStringArray(group.tags),
       }))
   : [];
-
-function formatDate(dateStr: string, locale: string): string {
-  if (!dateStr) return "";
-  const date = new Date(dateStr);
-  if (Number.isNaN(date.getTime())) return dateStr;
-
-  return new Intl.DateTimeFormat(locale, {
-    month: "short",
-    day: "numeric",
-    timeZone: "UTC",
-  }).format(date);
-}
 
 function formatFullDate(dateStr: string, locale: string): string {
   if (!dateStr) return "";
@@ -266,7 +264,7 @@ function matchesTopic(item: NewsItem, topic: TopicFilter) {
 }
 
 function sortByDateDesc(items: NewsItem[]) {
-  return [...items].sort((a, b) => (b.publishedAt || "").localeCompare(a.publishedAt || ""));
+  return [...items].sort((a, b) => newsSortDate(b).localeCompare(newsSortDate(a)));
 }
 
 function getValidDate(dateStr: string) {
@@ -300,13 +298,13 @@ function getTierBadgeMeta(tier: NewsItem["sourceTier"]) {
   if (tier === "official") {
     return {
       labelKey: "tierOfficial",
-      className: "border-emerald-500/20 bg-emerald-500/10 text-emerald-300",
+      className: "border-emerald-500/20 bg-emerald-500/10 text-[var(--news-official)]",
     };
   }
   if (tier === "trusted") {
     return {
       labelKey: "tierTrusted",
-      className: "border-blue-500/20 bg-blue-500/10 text-blue-300",
+      className: "border-blue-500/20 bg-blue-500/10 text-[var(--news-trusted)]",
     };
   }
   return {
@@ -335,7 +333,7 @@ function EmptyState() {
 function PageHeader({ latestItem }: { latestItem?: NewsItem } = {}) {
   const t = useTranslations("news");
   const locale = useLocale();
-  const latestDate = latestItem?.publishedAt || digest.generatedAt || digest.weekOf;
+  const latestDate = latestItem?.publishedAt;
 
   return (
     <header className="mb-8 border-b border-[var(--border)] pb-7">
@@ -370,7 +368,7 @@ function MetaLine({ item }: { item: NewsItem }) {
 
   return (
     <div className="flex flex-wrap items-center gap-2 text-[11px] text-[var(--text-tertiary)]">
-      {item.publishedAt && <span>{formatDate(item.publishedAt, locale)}</span>}
+      <span>{newsDateLabel(item, locale)}</span>
       <span className="font-medium text-[var(--text-secondary)]">{item.source}</span>
       <span className={`rounded border px-1.5 py-0.5 ${tierMeta.className}`}>
         {t(tierMeta.labelKey)}
@@ -392,6 +390,38 @@ function TagList({ tags, limit = 4 }: { tags: string[]; limit?: number }) {
           {tag}
         </span>
       ))}
+    </div>
+  );
+}
+
+function NewsSummary({ item }: { item: NewsItem }) {
+  const locale = useLocale();
+  const [expanded, setExpanded] = useState(false);
+  const summary = getLocalizedSummary(item, locale);
+  const long = summary.length > (locale.startsWith("zh") ? 60 : 120);
+  return (
+    <div className="mt-3 text-sm leading-7 text-[var(--text-secondary)]">
+      <p className={long && !expanded ? "line-clamp-3" : ""}>{summary}</p>
+      {long && (
+        <button type="button" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}
+          className="mt-1 text-xs font-semibold text-[var(--primary)] hover:underline">
+          {locale.startsWith("zh") ? (expanded ? "收起" : "完整摘要") : (expanded ? "Show less" : "Full summary")}
+        </button>
+      )}
+      {Boolean(item.relatedSources?.length) && (
+        <details className="mt-2 text-xs">
+          <summary className="cursor-pointer font-medium text-[var(--primary)]">
+            {locale.startsWith("zh") ? "同一进展的其他报道" : "Related coverage"}
+          </summary>
+          <ul className="mt-1 space-y-1">
+            {item.relatedSources?.map((source) => <li key={source.url}>
+              <a href={source.url} target="_blank" rel="noopener noreferrer" className="hover:underline">
+                {source.source}: {source.title}
+              </a>
+            </li>)}
+          </ul>
+        </details>
+      )}
     </div>
   );
 }
@@ -436,9 +466,7 @@ function StoryCard({
         </a>
       </h3>
       {getLocalizedSummary(item, locale) && (
-        <p className="mt-3 line-clamp-3 text-sm leading-7 text-[var(--text-secondary)]">
-          {getLocalizedSummary(item, locale)}
-        </p>
+        <NewsSummary item={item} />
       )}
       <div className="mt-4">
         <TagList tags={item.tags} limit={prominent ? 5 : 4} />
@@ -623,10 +651,10 @@ function NewsTimeline({ items, activeTopic }: { items: NewsItem[]; activeTopic: 
             <article key={`${item.url}-${index}`} className="py-5">
               <div className="grid grid-cols-1 gap-3 sm:grid-cols-[7rem_1fr]">
                 <time
-                  dateTime={item.publishedAt}
+                  dateTime={newsSortDate(item)}
                   className="text-xs font-medium text-[var(--text-tertiary)]"
                 >
-                  {formatFullDate(item.publishedAt, locale)}
+                  {newsDateLabel(item, locale)}
                 </time>
 
                 <div className="min-w-0">
@@ -643,9 +671,7 @@ function NewsTimeline({ items, activeTopic }: { items: NewsItem[]; activeTopic: 
                     </a>
                   </h3>
                   {getLocalizedSummary(item, locale) && (
-                    <p className="mt-2 line-clamp-2 text-sm leading-relaxed text-[var(--text-secondary)]">
-                      {getLocalizedSummary(item, locale)}
-                    </p>
+                    <NewsSummary item={item} />
                   )}
                   <div className="mt-3">
                     <TagList tags={item.tags} limit={5} />
@@ -750,7 +776,7 @@ export function NewsContent() {
   return (
     <div className="page-shell">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
-        <PageHeader latestItem={allItems[0]} />
+        <PageHeader latestItem={allItems.filter((item) => item.publishedAt).sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))[0]} />
         <DailyBrief allItems={allItems} editorialItems={editorialItems} />
         <TopicBrowser activeTopic={activeTopic} onChange={setActiveTopic} items={allItems} />
         <NewsTimeline items={filteredItems} activeTopic={activeTopic} />

@@ -1,8 +1,8 @@
 {
-  "weekOf": "2026-09-12",
-  "generatedAt": "2026-09-12T11:07:36.536Z",
+  "weekOf": "2026-09-13",
+  "generatedAt": "2026-09-13T11:53:09.295Z",
   "stats": {
-    "totalRelevant": 110,
+    "totalRelevant": 108,
     "totalSources": 38,
     "topTags": [
       {
@@ -19,7 +19,7 @@
       },
       {
         "tag": "Verification",
-        "count": 28
+        "count": 26
       },
       {
         "tag": "Root of Trust",
@@ -39,7 +39,7 @@
       "items": [
         {
           "title": "Caliptra runtime/FMC 1.3.0 adds MLDSA post-quantum support",
-          "titleZh": "Caliptra runtime/FMC 1.3.0 增加 MLDSA 后量子支持",
+          "titleZh": "Caliptra Runtime/FMC 1.3.0 增加 MLDSA 后量子支持",
           "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rt-1.3.0",
           "source": "CHIPS Alliance / Caliptra SW (GitHub)",
           "tags": [
@@ -47,11 +47,11 @@
             "Caliptra",
             "Root of Trust"
           ],
-          "publishedAt": "2026-09-03T19:27:12.000Z"
+          "publishedAt": "2026-09-03"
         },
         {
           "title": "RISC-V architecture tests 4.1.0 expand privileged and vector coverage",
-          "titleZh": "RISC-V architecture tests 4.1.0 扩展 privileged 与 vector 覆盖",
+          "titleZh": "RISC-V 架构测试 4.1.0 扩展特权架构与向量覆盖",
           "url": "https://github.com/riscv/riscv-arch-test/releases/tag/4.1.0",
           "source": "RISC-V Architecture Tests (GitHub)",
           "tags": [
@@ -59,7 +59,7 @@
             "Architecture Tests",
             "Compliance"
           ],
-          "publishedAt": "2026-09-09T00:05:36.000Z"
+          "publishedAt": "2026-09-09"
         },
         {
           "title": "cocotb 2.1.0 expands Python-based hardware verification workflows",
@@ -71,11 +71,11 @@
             "Verification",
             "Python"
           ],
-          "publishedAt": "2026-08-30T20:52:36.000Z"
+          "publishedAt": "2026-08-30"
         },
         {
           "title": "Caliptra MCU Runtime SDK 2.1.0 publishes a Rust/Tock RoT reference runtime",
-          "titleZh": "Caliptra MCU Runtime SDK 2.1.0 发布 Rust/Tock RoT reference runtime",
+          "titleZh": "Caliptra MCU Runtime SDK 2.1.0 发布 Rust/Tock 信任根参考运行时",
           "url": "https://github.com/chipsalliance/caliptra-mcu-sw/releases/tag/rt-sdk-2.1.0",
           "source": "CHIPS Alliance / Caliptra MCU SW (GitHub)",
           "tags": [
@@ -83,7 +83,7 @@
             "Caliptra",
             "Root of Trust"
           ],
-          "publishedAt": "2026-08-24T15:38:57.000Z"
+          "publishedAt": "2026-08-24"
         }
       ]
     },
@@ -106,11 +106,11 @@
             "Nuvoton",
             "OpenTitan"
           ],
-          "publishedAt": "2026-09-07T00:00:00.000Z"
+          "publishedAt": "2026-09-07"
         },
         {
           "title": "OpenTitan starts Peppermint, an integrated RoT for constrained SoCs",
-          "titleZh": "OpenTitan 启动面向受限 SoC 的 Peppermint integrated RoT",
+          "titleZh": "OpenTitan 启动面向资源受限 SoC 的 Peppermint 集成式信任根",
           "url": "https://lowrisc.org/news/opentitan-project-kicks-off-the-peppermint-integrated-root-of-trust-for-area-constrained-socs/",
           "source": "lowRISC Newsroom",
           "tags": [
@@ -118,11 +118,11 @@
             "OpenTitan",
             "Peppermint"
           ],
-          "publishedAt": "2026-08-25T08:00:00.000Z"
+          "publishedAt": "2026-08-25"
         },
         {
           "title": "OpenHW TV publishes a practical webinar on open RISC-V verification",
-          "titleZh": "OpenHW TV 发布开放 RISC-V verification 实务 webinar",
+          "titleZh": "OpenHW TV 发布开放 RISC-V 验证实务讲座",
           "url": "https://www.youtube.com/watch?v=pH2zvi_x5wM",
           "source": "OpenHW TV",
           "tags": [
@@ -130,11 +130,11 @@
             "OpenHW TV",
             "RISC-V"
           ],
-          "publishedAt": "2026-07-29T00:00:00.000Z"
+          "publishedAt": "2026-07-29"
         },
         {
           "title": "OpenHW TV introduces RISC-V System-on-Chip Design with CORE-V Wally",
-          "titleZh": "OpenHW TV 介绍基于 CORE-V Wally 的 RISC-V System-on-Chip Design",
+          "titleZh": "OpenHW TV 介绍基于 CORE-V Wally 的 RISC-V SoC 设计课程",
           "url": "https://www.youtube.com/watch?v=844k7CObghY",
           "source": "OpenHW TV",
           "tags": [
@@ -142,7 +142,7 @@
             "OpenHW TV",
             "CORE-V"
           ],
-          "publishedAt": "2026-08-28T00:00:00.000Z"
+          "publishedAt": "2026-08-28"
         }
       ]
     },
@@ -165,7 +165,7 @@
             "MLPerf",
             "Agentic AI"
           ],
-          "publishedAt": "2026-07-09T14:45:00.000Z"
+          "publishedAt": "2026-07-09"
         },
         {
           "title": "Apache TVM introduces TIRx as an open hardware-native DSL for frontier ML kernels",
@@ -177,7 +177,7 @@
             "TIRx",
             "AI Compiler"
           ],
-          "publishedAt": "2026-06-22T00:00:00.000Z"
+          "publishedAt": ""
         },
         {
           "title": "Antmicro runs Gemma 4 on its open hardware Jetson AGX Thor baseboard with Kenning",
@@ -189,7 +189,7 @@
             "Open Hardware",
             "Jetson AGX Thor"
           ],
-          "publishedAt": "2026-06-18T00:00:00.000Z"
+          "publishedAt": "2026-06-18"
         },
         {
           "title": "MLCommons publishes MLPerf Training v6.0 results for sparse MoE workloads",
@@ -201,7 +201,7 @@
             "MLPerf",
             "Training"
           ],
-          "publishedAt": "2026-06-16T14:56:24.000Z"
+          "publishedAt": "2026-06-16"
         }
       ]
     },
@@ -212,7 +212,7 @@
         "zh": "产业动态"
       },
       "icon": "trending",
-      "count": 8,
+      "count": 7,
       "items": [
         {
           "title": "FOSSi publishes Bucket functional-coverage tooling update",
@@ -224,11 +224,11 @@
             "Bucket",
             "Functional Coverage"
           ],
-          "publishedAt": "2026-09-11T09:31:43.000Z"
+          "publishedAt": "2026-09-11"
         },
         {
           "title": "Antmicro publishes OpenROAD workflows for peak, glitch, and scoped power analysis",
-          "titleZh": "Antmicro 发布面向 OpenROAD 的 peak、glitch 与 scoped power analysis 流程",
+          "titleZh": "Antmicro 发布 OpenROAD 峰值、毛刺与模块级功耗分析流程",
           "url": "https://antmicro.com/blog/2026/08/peak-glitch-scoped-power-estimation-with-openroad",
           "source": "Antmicro Blog",
           "tags": [
@@ -236,19 +236,7 @@
             "OpenROAD",
             "OpenSTA"
           ],
-          "publishedAt": "2026-08-31T00:00:00.000Z"
-        },
-        {
-          "title": "CHIPS Alliance I3C Core adds host-controller support with simulation and FPGA validation",
-          "titleZh": "CHIPS Alliance I3C Core 增加 Host Controller 支持并完成仿真与 FPGA 验证",
-          "url": "https://www.chipsalliance.org/news/implementing-i3c-host-controller-support-in-the-open-source-i3c-core/",
-          "source": "CHIPS Alliance Blog",
-          "tags": [
-            "CHIPS Alliance",
-            "I3C Core",
-            "I3C"
-          ],
-          "publishedAt": "2026-08-19T00:00:00.000Z"
+          "publishedAt": "2026-08-31"
         },
         {
           "title": "Antmicro joins the OpenROAD Initiative to support open-source silicon design tooling",
@@ -260,7 +248,19 @@
             "OpenROAD",
             "OpenROAD Initiative"
           ],
-          "publishedAt": "2026-07-27T00:00:00.000Z"
+          "publishedAt": "2026-07-27"
+        },
+        {
+          "title": "Qualcomm joins CHIPS Alliance as a Platinum member for open-source chip design",
+          "titleZh": "Qualcomm 以 Platinum member 身份加入 CHIPS Alliance，推动开源芯片设计",
+          "url": "https://www.chipsalliance.org/news/qualcomm-new-member-blog/",
+          "source": "CHIPS Alliance Blog",
+          "tags": [
+            "CHIPS Alliance",
+            "Qualcomm",
+            "Open Silicon"
+          ],
+          "publishedAt": "2026-07-16"
         }
       ]
     },
@@ -271,7 +271,7 @@
         "zh": "硬件与嵌入式"
       },
       "icon": "circuit",
-      "count": 11,
+      "count": 10,
       "items": [
         {
           "title": "FOSSi publishes coconext talk on a faster cocotb-style verification flow",
@@ -283,7 +283,7 @@
             "cocotb",
             "Verification"
           ],
-          "publishedAt": "2026-09-11T09:32:40.000Z"
+          "publishedAt": "2026-09-11"
         },
         {
           "title": "FOSSi publishes Doppio talk on Java and Scala circuit verification",
@@ -295,11 +295,11 @@
             "Doppio",
             "Verification"
           ],
-          "publishedAt": "2026-09-11T09:29:40.000Z"
+          "publishedAt": "2026-09-11"
         },
         {
           "title": "Antmicro introduces Faultergeist for SEU fault injection in Verilator",
-          "titleZh": "Antmicro 推出面向 Verilator 的 SEU fault injection 工具 Faultergeist",
+          "titleZh": "Antmicro 推出面向 Verilator 的单粒子翻转故障注入工具 Faultergeist",
           "url": "https://antmicro.com/blog/2026/08/SEU-vulnerability-testing-with-Faultergeist",
           "source": "Antmicro Blog",
           "tags": [
@@ -307,19 +307,19 @@
             "Faultergeist",
             "Verilator"
           ],
-          "publishedAt": "2026-08-19T00:00:00.000Z"
+          "publishedAt": "2026-08-19"
         },
         {
-          "title": "Verilator reaches an initial four-state logic implementation milestone",
-          "titleZh": "Verilator 四态逻辑实现达到首个里程碑",
-          "url": "https://www.chipsalliance.org/news/initial-implementation-verilator/",
-          "source": "CHIPS Alliance Blog",
+          "title": "Antmicro adds host-controller support to the CHIPS Alliance open-source I3C Core",
+          "titleZh": "Antmicro 为 CHIPS Alliance 开源 I3C Core 加入 host-controller 支持",
+          "url": "https://antmicro.com/blog/2026/06/i3c-core-host-controller-support",
+          "source": "Antmicro Blog",
           "tags": [
+            "Antmicro",
             "CHIPS Alliance",
-            "Verilator",
-            "SystemVerilog"
+            "I3C"
           ],
-          "publishedAt": "2026-07-22T00:00:00.000Z"
+          "publishedAt": "2026-06-16"
         }
       ]
     },
@@ -342,7 +342,7 @@
             "SystemVerilog",
             "UVM"
           ],
-          "publishedAt": "2026-03-30T00:00:00.000Z"
+          "publishedAt": "2026-03-30"
         }
       ]
     }
@@ -352,8 +352,9 @@
       "title": "FOSSi publishes coconext talk on a faster cocotb-style verification flow",
       "url": "https://www.youtube.com/watch?v=iOHab5YW76I",
       "source": "FOSSi Foundation Videos",
-      "publishedAt": "2026-09-11T09:32:40.000Z",
-      "summary": "FOSSi Foundation published Kaleb Barrett's coconext talk. The abstract describes coconext as an experimental cocotb fork and redesign intended to address perfor...",
+      "publishedAt": "2026-09-11",
+      "addedAt": "2026-09-11T09:32:40Z",
+      "summary": "FOSSi Foundation published Kaleb Barrett's coconext talk. The abstract describes coconext as an experimental cocotb fork and redesign intended to address performance by adding a first-class cocotb-like C++ API, preserving the existing Python cocotb API, and connecting the two through a low-friction binding layer for mixed-language testbenches, models, monitors, and drivers.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -374,14 +375,15 @@
       "curated": true,
       "highlightRank": 1,
       "titleZh": "FOSSi 发布 coconext 讲座，探索更快的 cocotb 风格验证流程",
-      "summaryZh": "FOSSi Foundation 发布了 Kaleb Barrett 关于 coconext 的讲座。视频摘要将 coconext 描述为一个实验性的 cocotb fork 与重构方向，目标是通过引入一等的 cocotb-like C++ API、保留现有 Python cocotb API，并用低摩擦绑定层连接两者，来改善测试平台、模型、monitor 与 driver 的性能和混合语言开发体验。"
+      "summaryZh": "FOSSi Foundation 发布了 Kaleb Barrett 关于 coconext 的讲座。视频摘要将其定位为实验性的 cocotb 分支与重构方向：引入作为一等接口的 cocotb 风格 C++ API，保留现有 Python API，并以易于集成的绑定层连接两者，改善测试平台、模型、监视器与驱动器的性能及混合语言开发体验。"
     },
     {
       "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
       "url": "https://antmicro.com/blog/2026/09/nuvoton-npcr1-opentitan-based-secure-mcu-in-renode",
       "source": "Antmicro Blog",
-      "publishedAt": "2026-09-07T00:00:00.000Z",
-      "summary": "Antmicro and Nuvoton announced collaboration around Nuvoton secure chips in the open-source Renode simulation framework. The article says the work builds on exi...",
+      "publishedAt": "2026-09-07",
+      "addedAt": "2026-09-07T00:00:00Z",
+      "summary": "Antmicro and Nuvoton announced collaboration around Nuvoton secure chips in the open-source Renode simulation framework. The article says the work builds on existing Renode support for Nuvoton's NPCR1 OpenTitan Earl Grey Based Secure MCU IC, a RISC-V Root of Trust platform with secure accelerators and SPI/I2C/UART/USB/GPIO interfaces, enabling early firmware development, testing, and debugging.",
       "author": "",
       "relevanceScore": 6,
       "tags": [
@@ -402,14 +404,15 @@
       "curated": true,
       "highlightRank": 1,
       "titleZh": "Antmicro 与 Nuvoton 推进 NPCR1 OpenTitan 的 Renode 支持",
-      "summaryZh": "Antmicro 与 Nuvoton 宣布围绕 Nuvoton secure chips 在开源 Renode simulation framework 中的支持展开合作。文章说明，这项工作建立在 Renode 对 Nuvoton NPCR1 OpenTitan Earl Grey Based Secure MCU IC 的既有支持之上；该平台是基于 RISC-V 的 Root of Trust，包含 secure accelerators 与 SPI/I2C/UART/USB/GPIO interfaces，可用于早期 firmware development、testing 与 debugging。"
+      "summaryZh": "Antmicro 与 Nuvoton 围绕新唐安全芯片在开源仿真框架 Renode 中的支持展开合作。这项工作建立在 Renode 对 NPCR1 安全 MCU 的既有支持之上。NPCR1 基于 OpenTitan Earl Grey，是采用 RISC-V 的信任根平台，包含安全加速器和 SPI、I2C、UART、USB、GPIO 接口，可用于早期固件开发、测试和调试。"
     },
     {
       "title": "Caliptra runtime/FMC 1.3.0 adds MLDSA post-quantum support",
       "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rt-1.3.0",
       "source": "CHIPS Alliance / Caliptra SW (GitHub)",
-      "publishedAt": "2026-09-03T19:27:12.000Z",
-      "summary": "CHIPS Alliance published Caliptra runtime/FMC 1.3.0 with software support for PQC MLDSA. The release notes list PQC seed initialization, MLDSA signature verific...",
+      "publishedAt": "2026-09-03",
+      "addedAt": "2026-09-03T19:27:12Z",
+      "summary": "CHIPS Alliance published Caliptra runtime/FMC 1.3.0 with software support for PQC MLDSA. The release notes list PQC seed initialization, MLDSA signature verification, attestation for firmware downstream of Caliptra Core, and an update to the Rust 1.95 toolchain.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -429,15 +432,16 @@
       "reviewStatus": "curated",
       "curated": true,
       "highlightRank": 1,
-      "titleZh": "Caliptra runtime/FMC 1.3.0 增加 MLDSA 后量子支持",
-      "summaryZh": "CHIPS Alliance 发布 Caliptra runtime/FMC 1.3.0，加入 PQC MLDSA 软件支持。Release notes 列出 PQC seed initialization、MLDSA signature verification、面向 Caliptra Core 下游 firmware 的 attestation，以及 Rust 1.95 toolchain 更新。"
+      "titleZh": "Caliptra Runtime/FMC 1.3.0 增加 MLDSA 后量子支持",
+      "summaryZh": "CHIPS Alliance 发布 Caliptra Runtime/FMC 1.3.0，加入后量子密码算法 MLDSA 的软件支持。发布说明列出后量子密码种子初始化、MLDSA 签名验证、面向 Caliptra Core 下游固件的证明机制，以及 Rust 1.95 工具链更新。"
     },
     {
       "title": "FOSSi publishes Bucket functional-coverage tooling update",
       "url": "https://www.youtube.com/watch?v=U6RvIJr8vJg",
       "source": "FOSSi Foundation Videos",
-      "publishedAt": "2026-09-11T09:31:43.000Z",
-      "summary": "FOSSi Foundation published Stuart Alldred's Bucket update talk. The official abstract describes Bucket as an open-source Python project for collecting and viewi...",
+      "publishedAt": "2026-09-11",
+      "addedAt": "2026-09-11T09:31:43Z",
+      "summary": "FOSSi Foundation published Stuart Alldred's Bucket update talk. The official abstract describes Bucket as an open-source Python project for collecting and viewing functional coverage, now maintained by Noodle-Bytes after Vypercore shut down, with updates including an improved viewer, cross-run coverage comparison, a new archive format, and adoption by additional silicon companies.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -458,14 +462,15 @@
       "curated": true,
       "highlightRank": 2,
       "titleZh": "FOSSi 发布 Bucket 功能覆盖率工具更新讲座",
-      "summaryZh": "FOSSi Foundation 发布了 Stuart Alldred 关于 Bucket 的更新讲座。官方摘要将 Bucket 描述为用于收集和查看 functional coverage 的开源 Python 项目；在 Vypercore 关闭后由 Noodle-Bytes 接手维护，并介绍了改进后的 viewer、跨运行 coverage comparison、新 archive format，以及更多 silicon company 的采用情况。"
+      "summaryZh": "FOSSi Foundation 发布了 Stuart Alldred 关于 Bucket 的更新讲座。官方摘要将其介绍为收集和查看功能覆盖率的开源 Python 项目；Vypercore 关闭后，由 Noodle-Bytes 接手维护。讲座涉及改进的查看器、跨运行覆盖率比较、新归档格式，以及更多芯片企业的采用情况。"
     },
     {
       "title": "FOSSi publishes Doppio talk on Java and Scala circuit verification",
       "url": "https://www.youtube.com/watch?v=tUl_Th5di_k",
       "source": "FOSSi Foundation Videos",
-      "publishedAt": "2026-09-11T09:29:40.000Z",
-      "summary": "FOSSi Foundation published Martin Schoeberl's Doppio talk. The official abstract presents Doppio as an open-source, software-based verification framework that a...",
+      "publishedAt": "2026-09-11",
+      "addedAt": "2026-09-11T09:29:40Z",
+      "summary": "FOSSi Foundation published Martin Schoeberl's Doppio talk. The official abstract presents Doppio as an open-source, software-based verification framework that applies software-testing ideas and modern programming languages such as Java and Scala to digital-circuit verification, aiming to modernize verification practices rooted in older hardware-verification languages.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -486,14 +491,15 @@
       "curated": true,
       "highlightRank": 2,
       "titleZh": "FOSSi 发布 Doppio 讲座，探索 Java 与 Scala 电路验证",
-      "summaryZh": "FOSSi Foundation 发布了 Martin Schoeberl 关于 Doppio 的讲座。官方摘要将 Doppio 描述为一个开源、software-based verification framework，把 software testing 思路以及 Java、Scala 等现代编程语言用于 digital-circuit verification，目标是推动传统硬件验证语言之外的现代化验证实践。"
+      "summaryZh": "FOSSi Foundation 发布了 Martin Schoeberl 关于 Doppio 的讲座。官方摘要将其介绍为开源的软件式验证框架，把软件测试方法及 Java、Scala 等现代编程语言用于数字电路验证，探索传统硬件验证语言之外的实践路径。"
     },
     {
       "title": "RISC-V architecture tests 4.1.0 expand privileged and vector coverage",
       "url": "https://github.com/riscv/riscv-arch-test/releases/tag/4.1.0",
       "source": "RISC-V Architecture Tests (GitHub)",
-      "publishedAt": "2026-09-09T00:05:36.000Z",
-      "summary": "RISC-V architecture tests 4.1.0 is an official non-prerelease ACT release that expands architectural coverage and test generation. The release notes highlight a...",
+      "publishedAt": "2026-09-09",
+      "addedAt": "2026-09-09T00:05:36Z",
+      "summary": "RISC-V architecture tests 4.1.0 is an official non-prerelease ACT release that expands architectural coverage and test generation. The release notes highlight added or improved privileged tests for Zawrs, Sstvala, Ssccptr, Zama16b, Zkr, exceptions, interrupts, PMP, and other areas, plus lower-privilege execution support and default Vx/Vls vector test generation on supported DUTs.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -512,15 +518,16 @@
       "reviewStatus": "curated",
       "curated": true,
       "highlightRank": 2,
-      "titleZh": "RISC-V architecture tests 4.1.0 扩展 privileged 与 vector 覆盖",
-      "summaryZh": "RISC-V architecture tests 4.1.0 是官方非 prerelease 的 ACT 发布，扩展了 architectural coverage 与 test generation。Release notes 强调新增或改进了面向 Zawrs、Sstvala、Ssccptr、Zama16b、Zkr、exceptions、interrupts、PMP 等领域的 privileged tests，并加入 lower-privilege execution support，以及在支持的 DUT 上默认启用 Vx/Vls vector test generation。"
+      "titleZh": "RISC-V 架构测试 4.1.0 扩展特权架构与向量覆盖",
+      "summaryZh": "RISC-V 架构测试 4.1.0 是官方非预发布版，扩展了架构覆盖与测试生成能力。发布说明重点列出 Zawrs、Sstvala、Ssccptr、Zama16b、Zkr、异常、中断和 PMP 等领域的特权测试改进，并加入低特权级执行支持；在支持的被测设计上，默认启用 Vx/Vls 向量测试生成。"
     },
     {
       "title": "cocotb 2.1.0 expands Python-based hardware verification workflows",
       "url": "https://github.com/cocotb/cocotb/releases/tag/v2.1.0",
       "source": "cocotb (GitHub)",
-      "publishedAt": "2026-08-30T20:52:36.000Z",
-      "summary": "cocotb 2.1.0 is a substantial verification tooling release with an experimental pytest plugin, Python 3.14 support, Verilator SAIF tracing support, Questa QIS/Q...",
+      "publishedAt": "2026-08-30",
+      "addedAt": "2026-08-30T20:52:36Z",
+      "summary": "cocotb 2.1.0 is a substantial verification tooling release with an experimental pytest plugin, Python 3.14 support, Verilator SAIF tracing support, Questa QIS/Qrun runner support, richer test controls such as xfail and skipif, and scheduler, callback, JUnit, and simulator-integration fixes.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -541,14 +548,15 @@
       "curated": true,
       "highlightRank": 2,
       "titleZh": "cocotb 2.1.0 扩展基于 Python 的硬件验证流程",
-      "summaryZh": "cocotb 2.1.0 是一次较大的 verification tooling 发布，包含 experimental pytest plugin、Python 3.14 support、Verilator SAIF tracing support、Questa QIS/Qrun runner support、xfail/skipif 等更丰富的 test controls，以及 scheduler、callback、JUnit 与 simulator integration 修复。"
+      "summaryZh": "cocotb 2.1.0 包含实验性 pytest 插件、Python 3.14 支持、Verilator SAIF 跟踪支持、Questa QIS/Qrun 运行器支持，以及 xfail、skipif 等更丰富的测试控制；同时修复调度器、回调、JUnit 输出和仿真器集成中的问题。"
     },
     {
       "title": "Antmicro publishes OpenROAD workflows for peak, glitch, and scoped power analysis",
       "url": "https://antmicro.com/blog/2026/08/peak-glitch-scoped-power-estimation-with-openroad",
       "source": "Antmicro Blog",
-      "publishedAt": "2026-08-31T00:00:00.000Z",
-      "summary": "Antmicro described open-source power-analysis workflows built around OpenROAD, Verilator, trace2power, and OpenSTA. The workflows use VCD traces to report peak ...",
+      "publishedAt": "2026-08-31",
+      "addedAt": "2026-08-31T00:00:00Z",
+      "summary": "Antmicro described open-source power-analysis workflows built around OpenROAD, Verilator, trace2power, and OpenSTA. The workflows use VCD traces to report peak power by clock cycle, estimate glitch-related power from repeated transitions, and scope reports to selected modules after synthesis and place-and-route preparation.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -568,15 +576,16 @@
       "reviewStatus": "curated",
       "curated": true,
       "highlightRank": 3,
-      "titleZh": "Antmicro 发布面向 OpenROAD 的 peak、glitch 与 scoped power analysis 流程",
-      "summaryZh": "Antmicro 介绍了围绕 OpenROAD、Verilator、trace2power 与 OpenSTA 构建的开源 power-analysis workflows。这些流程用 VCD traces 按 clock cycle 报告 peak power、从 repeated transitions 估算 glitch-related power，并在 synthesis 与 place-and-route 准备后把报告限定到指定 module。"
+      "titleZh": "Antmicro 发布 OpenROAD 峰值、毛刺与模块级功耗分析流程",
+      "summaryZh": "Antmicro 介绍了结合 OpenROAD、Verilator、trace2power 和 OpenSTA 的开源功耗分析流程：利用 VCD 波形按时钟周期报告峰值功耗，根据重复跳变估算毛刺相关功耗，并在完成综合和布局布线准备后，将报告范围限定到指定模块。"
     },
     {
       "title": "OpenTitan starts Peppermint, an integrated RoT for constrained SoCs",
       "url": "https://lowrisc.org/news/opentitan-project-kicks-off-the-peppermint-integrated-root-of-trust-for-area-constrained-socs/",
       "source": "lowRISC Newsroom",
-      "publishedAt": "2026-08-25T08:00:00.000Z",
-      "summary": "lowRISC announced Peppermint as a new OpenTitan top level optimized for area-, cost-, and power-constrained SoCs such as wearables, IoT endnodes, and microcontr...",
+      "publishedAt": "2026-08-25",
+      "addedAt": "2026-08-25T08:00:00Z",
+      "summary": "lowRISC announced Peppermint as a new OpenTitan top level optimized for area-, cost-, and power-constrained SoCs such as wearables, IoT endnodes, and microcontrollers. The integrated Root of Trust is planned to handle secure boot, firmware updates, and cryptographic requests from the main SoC, with design work planned for H2 2026 and software plus verification completion in H1 2027.",
       "author": "",
       "relevanceScore": 7,
       "tags": [
@@ -598,15 +607,16 @@
       "curated": true,
       "editorPick": true,
       "highlightRank": 4,
-      "titleZh": "OpenTitan 启动面向受限 SoC 的 Peppermint integrated RoT",
-      "summaryZh": "lowRISC 宣布 Peppermint 成为 OpenTitan 新的 top level，面向 wearable、IoT endnode 与 microcontroller 等受面积、成本和功耗约束的 SoC。这个 integrated Root of Trust 计划负责 secure boot、firmware update 以及来自主 SoC 的 cryptographic requests；设计工作预计在 2026 年下半年进行，软件与验证预计 2027 年上半年完成。"
+      "titleZh": "OpenTitan 启动面向资源受限 SoC 的 Peppermint 集成式信任根",
+      "summaryZh": "lowRISC 宣布启动 OpenTitan 新顶层设计 Peppermint，面向可穿戴设备、物联网终端和微控制器等面积、成本与功耗受限的 SoC。该集成式信任根计划承担安全启动、固件更新及主 SoC 的密码运算请求；设计工作预计在 2026 年下半年进行，软件与验证预计于 2027 年上半年完成。"
     },
     {
       "title": "Caliptra MCU Runtime SDK 2.1.0 publishes a Rust/Tock RoT reference runtime",
       "url": "https://github.com/chipsalliance/caliptra-mcu-sw/releases/tag/rt-sdk-2.1.0",
       "source": "CHIPS Alliance / Caliptra MCU SW (GitHub)",
-      "publishedAt": "2026-08-24T15:38:57.000Z",
-      "summary": "CHIPS Alliance published the initial Caliptra 2.1 MCU Runtime SDK release, a Rust-based reference Root of Trust runtime built on Tock. The SDK includes reusable...",
+      "publishedAt": "2026-08-24",
+      "addedAt": "2026-08-24T15:38:57Z",
+      "summary": "CHIPS Alliance published the initial Caliptra 2.1 MCU Runtime SDK release, a Rust-based reference Root of Trust runtime built on Tock. The SDK includes reusable capsules, hardware-abstraction interfaces, reference drivers, userspace APIs, protocol stacks, reference applications, host tooling, and emulator plus FPGA reference platforms for SoC-specific integration.",
       "author": "",
       "relevanceScore": 6,
       "tags": [
@@ -627,15 +637,16 @@
       "reviewStatus": "curated",
       "curated": true,
       "highlightRank": 5,
-      "titleZh": "Caliptra MCU Runtime SDK 2.1.0 发布 Rust/Tock RoT reference runtime",
-      "summaryZh": "CHIPS Alliance 发布 Caliptra 2.1 MCU Runtime SDK 的初始版本，这是基于 Tock 的 Rust reference Root of Trust runtime。SDK 包含 reusable capsules、hardware-abstraction interfaces、reference drivers、userspace APIs、protocol stacks、reference applications、host tooling，以及可供 SoC-specific integration 使用的 emulator 与 FPGA reference platforms。"
+      "titleZh": "Caliptra MCU Runtime SDK 2.1.0 发布 Rust/Tock 信任根参考运行时",
+      "summaryZh": "CHIPS Alliance 发布 Caliptra 2.1 MCU Runtime SDK 初始版本，提供基于 Tock 的 Rust 信任根参考运行时。SDK 包含可复用的 capsule 组件、硬件抽象接口、参考驱动、用户态 API、协议栈、参考应用和主机工具，以及供特定 SoC 集成使用的模拟器与 FPGA 参考平台。"
     },
     {
       "title": "OpenHW TV publishes a practical webinar on open RISC-V verification",
       "url": "https://www.youtube.com/watch?v=pH2zvi_x5wM",
       "source": "OpenHW TV",
-      "publishedAt": "2026-07-29T00:00:00.000Z",
-      "summary": "OpenHW TV published PlanV Tech's webinar on open verification for RISC-V and high-assurance silicon. The session connects UVM support for Verilator, industrial ...",
+      "publishedAt": "2026-07-29",
+      "addedAt": "2026-07-29T00:00:00Z",
+      "summary": "OpenHW TV published PlanV Tech's webinar on open verification for RISC-V and high-assurance silicon. The session connects UVM support for Verilator, industrial environments such as CORE-V-VERIF, emerging formal verification frameworks, and end-to-end trust concerns spanning RTL verification, formally verified device drivers, and trusted embedded systems.",
       "author": "",
       "relevanceScore": 15,
       "tags": [
@@ -655,15 +666,16 @@
       "reviewStatus": "curated",
       "curated": true,
       "highlightRank": 6,
-      "titleZh": "OpenHW TV 发布开放 RISC-V verification 实务 webinar",
-      "summaryZh": "OpenHW TV 发布 PlanV Tech 关于 RISC-V 与 high-assurance silicon 开放验证的 webinar。内容把 Verilator 的 UVM support、CORE-V-VERIF 等 industrial-strength environments、emerging formal verification frameworks，以及从 RTL verification 到 formally verified device drivers 和 trusted embedded systems 的 end-to-end trust 连接起来。"
+      "titleZh": "OpenHW TV 发布开放 RISC-V 验证实务讲座",
+      "summaryZh": "OpenHW TV 发布 PlanV Tech 关于 RISC-V 与高可信芯片开放验证的线上讲座。内容串联 Verilator 的 UVM 支持、CORE-V-VERIF 等工业级验证环境、新兴形式化验证框架，以及从 RTL 验证到经过形式化验证的设备驱动和可信嵌入式系统的端到端信任。"
     },
     {
       "title": "OpenHW TV introduces RISC-V System-on-Chip Design with CORE-V Wally",
       "url": "https://www.youtube.com/watch?v=844k7CObghY",
       "source": "OpenHW TV",
-      "publishedAt": "2026-08-28T00:00:00.000Z",
-      "summary": "OpenHW TV published Prof. David Harris and Dr. Rose Thompson's webinar introducing RISC-V System-on-Chip Design and its hands-on course material around CORE-V W...",
+      "publishedAt": "2026-08-28",
+      "addedAt": "2026-08-28T00:00:00Z",
+      "summary": "OpenHW TV published Prof. David Harris and Dr. Rose Thompson's webinar introducing RISC-V System-on-Chip Design and its hands-on course material around CORE-V Wally. The recording highlights a practical open-source SoC platform spanning RV32I and RV64I, Linux-capable virtual memory, caches, branch prediction, RISC-V extensions, simulation, analysis, extension, and FPGA use.",
       "author": "",
       "relevanceScore": 13,
       "tags": [
@@ -683,15 +695,16 @@
       "reviewStatus": "curated",
       "curated": true,
       "highlightRank": 7,
-      "titleZh": "OpenHW TV 介绍基于 CORE-V Wally 的 RISC-V System-on-Chip Design",
-      "summaryZh": "OpenHW TV 发布 Prof. David Harris 与 Dr. Rose Thompson 的 webinar，介绍 RISC-V System-on-Chip Design 及其围绕 CORE-V Wally 的 hands-on course material。录制内容强调一个 practical open-source SoC platform，覆盖 RV32I/RV64I、Linux-capable virtual memory、caches、branch prediction、RISC-V extensions，以及 simulation、analysis、extension 和 FPGA 使用。"
+      "titleZh": "OpenHW TV 介绍基于 CORE-V Wally 的 RISC-V SoC 设计课程",
+      "summaryZh": "OpenHW TV 发布 David Harris 教授与 Rose Thompson 博士的线上讲座，介绍 RISC-V System-on-Chip Design 及围绕 CORE-V Wally 的实践课程。录制内容以开源 SoC 平台为基础，涉及 RV32I/RV64I、支持 Linux 的虚拟内存、缓存、分支预测和 RISC-V 扩展，以及仿真、分析、扩展设计和 FPGA 实践。"
     },
     {
       "title": "Antmicro introduces Faultergeist for SEU fault injection in Verilator",
       "url": "https://antmicro.com/blog/2026/08/SEU-vulnerability-testing-with-Faultergeist",
       "source": "Antmicro Blog",
-      "publishedAt": "2026-08-19T00:00:00.000Z",
-      "summary": "Antmicro introduced Faultergeist, an open-source fault-injection framework for testing digital designs against single-event upset vulnerability in Verilator. Th...",
+      "publishedAt": "2026-08-19",
+      "addedAt": "2026-08-19T00:00:00Z",
+      "summary": "Antmicro introduced Faultergeist, an open-source fault-injection framework for testing digital designs against single-event upset vulnerability in Verilator. The workflow generates fault campaigns with Weibull and Bendel cosmic-radiation models validated against irradiation data, then injects bit flips at simulation runtime through a VPI plugin.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -711,15 +724,16 @@
       "reviewStatus": "curated",
       "curated": true,
       "highlightRank": 8,
-      "titleZh": "Antmicro 推出面向 Verilator 的 SEU fault injection 工具 Faultergeist",
-      "summaryZh": "Antmicro 介绍了 Faultergeist，这是一个用于在 Verilator 中测试 digital designs 对 single-event upset vulnerability 的 open-source fault-injection framework。该流程用 Weibull 与 Bendel cosmic-radiation models 生成 fault campaigns，这些模型基于 irradiation data 校验；随后通过 VPI plugin 在 simulation runtime 注入 bit flips。"
+      "titleZh": "Antmicro 推出面向 Verilator 的单粒子翻转故障注入工具 Faultergeist",
+      "summaryZh": "Antmicro 介绍了开源故障注入框架 Faultergeist，用于在 Verilator 中测试数字设计对单粒子翻转的敏感性。流程采用由辐照数据校验的 Weibull 与 Bendel 宇宙辐射模型生成故障测试任务，再通过 VPI 插件在仿真运行时注入比特翻转。"
     },
     {
       "title": "OpenTitan Earl Grey 2 adds a low-power I3C controller and target block",
       "url": "https://lowrisc.org/news/i3c-comes-to-opentitan-earl-grey-2/",
       "source": "lowRISC Newsroom",
-      "publishedAt": "2026-07-30T08:00:00.000Z",
-      "summary": "lowRISC detailed the new OpenTitan Earl Grey 2 I3C block, a standards-compliant controller and target implementation for discrete Root of Trust SoCs. The design...",
+      "publishedAt": "2026-07-30",
+      "addedAt": "2026-07-30T08:00:00Z",
+      "summary": "lowRISC describes an I3C interface for OpenTitan Earl Grey 2, with SDR raw bitrates up to 12.5 Mbps and HDR-DDR up to 25 Mbps. These are raw bitrates, not effective payload throughput. The article also explains low-power operation and SCL drive control.",
       "author": "",
       "relevanceScore": 6,
       "tags": [
@@ -741,14 +755,15 @@
       "editorPick": true,
       "highlightRank": 9,
       "titleZh": "OpenTitan Earl Grey 2 增加低功耗 I3C controller/target IP",
-      "summaryZh": "lowRISC 详解了 OpenTitan Earl Grey 2 新增的 I3C IP block：它是面向 discrete Root of Trust SoC 的 standards-compliant controller/target 实现，支持 12.5 MHz SDR 与 25 MHz HDR-DDR；设计用 SCL-driven target-side transceiver logic 避免高频 oversampling，并加入 deep-sleep wake handling，服务低成本、低功耗安全芯片。"
+      "summaryZh": "lowRISC 介绍了 OpenTitan Earl Grey 2 的 I3C 接口：SDR 原始比特率最高 12.5 Mbps，HDR-DDR 最高 25 Mbps。这里指原始比特率，并非扣除协议开销后的有效吞吐量；文章还说明了低功耗运行与 SCL 驱动控制。"
     },
     {
       "title": "CIRCT firtool 1.155.0 updates HW, LLHD, ESI, Moore, FIRRTL, and RTG flows",
       "url": "https://github.com/llvm/circt/releases/tag/firtool-1.155.0",
       "source": "LLVM / CIRCT (GitHub)",
-      "publishedAt": "2026-08-11T00:52:57.000Z",
-      "summary": "LLVM CIRCT published firtool 1.155.0 with hardware-compiler updates including aggregate-constant support in HW bitcast folding, broader LLHD loop-unrolling supp...",
+      "publishedAt": "2026-08-11",
+      "addedAt": "2026-08-11T00:52:57Z",
+      "summary": "LLVM CIRCT published firtool 1.155.0 with hardware-compiler updates including aggregate-constant support in HW bitcast folding, broader LLHD loop-unrolling support, ESI runtime and channel work, Moore/SystemVerilog lowering fixes, FIRRTL domain and constant-expression updates, RTG effect-system additions, and BMC trace/counterexample handling.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -776,8 +791,9 @@
       "title": "Yosys 0.68 adds SymFPU passes and trims legacy synthesis options",
       "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.68",
       "source": "YosysHQ / Yosys (GitHub)",
-      "publishedAt": "2026-08-05T06:08:26.000Z",
-      "summary": "Yosys 0.68 is a formal open EDA release that adds the symfpu and symfpu_convert passes, removes several legacy or superseded options from ABC, flowmap, synth, s...",
+      "publishedAt": "2026-08-05",
+      "addedAt": "2026-08-05T06:08:26Z",
+      "summary": "Yosys 0.68 is a formal open EDA release that adds the symfpu and symfpu_convert passes, removes several legacy or superseded options from ABC, flowmap, synth, synth_ice40, and read_aiger flows, and includes compatibility fixes such as Radiant netlist handling.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -802,8 +818,9 @@
       "title": "Tenstorrent tt-metal v0.75.0 advances Quasar, Blackhole, TT-NN, and model flows",
       "url": "https://github.com/tenstorrent/tt-metal/releases/tag/v0.75.0",
       "source": "Tenstorrent / TT-Metalium (GitHub)",
-      "publishedAt": "2026-07-30T21:54:28.000Z",
-      "summary": "Tenstorrent published tt-metal v0.75.0 as the latest final release in its open AI accelerator stack, with broad LLK, Metalium, and TT-NN changes for Quasar and ...",
+      "publishedAt": "2026-07-30",
+      "addedAt": "2026-07-30T21:54:28Z",
+      "summary": "Tenstorrent published tt-metal v0.75.0 as the latest final release in its open AI accelerator stack, with broad LLK, Metalium, and TT-NN changes for Quasar and Blackhole, SFPU accuracy and tiny-tile work, trace and fabric improvements, fused MoE and SDPA fixes, and model bring-up across Llama, Qwen, Kimi, Gemma, and DeepSeek workloads.",
       "author": "",
       "relevanceScore": 8,
       "tags": [
@@ -830,8 +847,9 @@
       "title": "RISER details an FPGA-assisted RISC-V microserver prototype",
       "url": "https://riscv.org/blog/integration-challenges-in-risc-v-system-prototyping-the-riser-microserver-platform/",
       "source": "RISC-V International",
-      "publishedAt": "2026-08-25T09:26:11.000Z",
-      "summary": "RISC-V International published a RISER project snapshot on a microserver platform for European RISC-V cloud-server and accelerator prototyping. The article desc...",
+      "publishedAt": "2026-08-25",
+      "addedAt": "2026-08-25T09:26:11Z",
+      "summary": "RISC-V International published a RISER project snapshot on a microserver platform for European RISC-V cloud-server and accelerator prototyping. The article describes an FPGA-assisted standalone node that integrates the EPAC1.5 RISC-V vector-processor test chip with boot firmware, NVMe storage, and 100 Gbps Ethernet, and links the work to bring-up and use-case validation challenges.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -850,15 +868,16 @@
       "sourceTier": "official",
       "reviewStatus": "curated",
       "curated": true,
-      "titleZh": "RISER 介绍 FPGA 辅助的 RISC-V microserver prototype",
-      "summaryZh": "RISC-V International 发布 RISER project snapshot，介绍面向欧洲 RISC-V cloud-server 与 accelerator prototype 的 microserver platform。文章描述了一个 FPGA-assisted standalone node，集成 EPAC1.5 RISC-V vector-processor test chip、boot firmware、NVMe storage 与 100 Gbps Ethernet，并讨论 bring-up 与 use-case validation 中的 integration challenges。"
+      "titleZh": "RISER 介绍 FPGA 辅助的 RISC-V 微服务器原型",
+      "summaryZh": "RISC-V International 发布 RISER 项目介绍，展示面向欧洲 RISC-V 云服务器与加速器原型的微服务器平台。该独立节点采用 FPGA 辅助，集成 EPAC1.5 RISC-V 向量处理器测试芯片、启动固件、NVMe 存储及 100 Gbps 以太网，并讨论系统启动调试和应用验证中的集成难点。"
     },
     {
       "title": "Caliptra firmware 2.0.3 strengthens DPE, authorization, and subsystem flows",
       "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/fw-2.0.3",
       "source": "CHIPS Alliance / Caliptra SW (GitHub)",
-      "publishedAt": "2026-08-24T15:34:46.000Z",
-      "summary": "CHIPS Alliance published Caliptra firmware 2.0.3 as a combined runtime and FMC release. The release adds MCU runtime anchoring in the Caliptra-managed DPE chain...",
+      "publishedAt": "2026-08-24",
+      "addedAt": "2026-08-24T15:34:46Z",
+      "summary": "CHIPS Alliance published Caliptra firmware 2.0.3 as a combined runtime and FMC release. The release adds MCU runtime anchoring in the Caliptra-managed DPE chain, SoC manifest preamble DPE contexts, owner authorization manifest support, tagged DPE context SVN reporting, larger DMA image hashing, dynamic entropy_src power handling, staged subsystem OTP provisioning, and security/runtime fixes around DPE cache hardening, PAUSER validation, reserved firmware IDs, and PL0 authorization boundaries.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -879,15 +898,16 @@
       "sourceTier": "official",
       "reviewStatus": "curated",
       "curated": true,
-      "titleZh": "Caliptra firmware 2.0.3 强化 DPE、授权与 subsystem 流程",
-      "summaryZh": "CHIPS Alliance 发布 Caliptra firmware 2.0.3，作为 combined runtime and FMC release。该版本增加 MCU runtime anchoring into Caliptra-managed DPE chain、SoC manifest preamble DPE contexts、owner authorization manifest support、tagged DPE context SVN reporting、大于 1 MiB 镜像的 DMA hashing、entropy_src 动态功耗处理、staged subsystem OTP provisioning，并修复 DPE cache hardening、PAUSER validation、reserved firmware ID 与 PL0 authorization boundary 等安全和运行时问题。"
+      "titleZh": "Caliptra 固件 2.0.3 强化 DPE、授权与子系统流程",
+      "summaryZh": "CHIPS Alliance 发布合并运行时与 FMC 的 Caliptra 固件 2.0.3。更新包括将 MCU 运行时纳入 Caliptra 管理的 DPE 链、SoC 清单前导部分的 DPE 上下文、所有者授权清单、带标签 DPE 上下文的 SVN 报告、大于 1 MiB 镜像的 DMA 哈希、entropy_src 动态功耗处理，以及分阶段子系统 OTP 配置。另修复 DPE 缓存加固、PAUSER 校验、保留固件 ID 和 PL0 授权边界等安全及运行时问题。"
     },
     {
       "title": "RISC-V International spotlights EDACrux for RVFI-based core debug",
       "url": "https://riscv.org/blog/ferrite-engineering-edacrux/",
       "source": "RISC-V International",
-      "publishedAt": "2026-08-21T13:03:55.000Z",
-      "summary": "RISC-V International profiled Ferrite Engineering's EDACrux suite for RISC-V chip design and verification. The article highlights WaveCrux, NetCrux, LintCrux, a...",
+      "publishedAt": "2026-08-21",
+      "addedAt": "2026-08-21T13:03:55Z",
+      "summary": "RISC-V International profiled Ferrite Engineering's EDACrux suite for RISC-V chip design and verification. The article highlights WaveCrux, NetCrux, LintCrux, and SimCrux cross-probing, with WaveCrux using RVFI signals to inspect retired instructions and run consistency checks against the RISC-V ISA specification for cores such as Ibex, CVA6, PicoRV32, SERV, and VeeR.",
       "author": "",
       "relevanceScore": 7,
       "tags": [
@@ -906,44 +926,53 @@
       "sourceTier": "official",
       "reviewStatus": "curated",
       "curated": true,
-      "titleZh": "RISC-V International 聚焦基于 RVFI 的 EDACrux core debug",
-      "summaryZh": "RISC-V International 介绍 Ferrite Engineering 的 EDACrux suite，面向 RISC-V chip design 与 verification。文章重点说明 WaveCrux、NetCrux、LintCrux 与 SimCrux 的 cross-probing；其中 WaveCrux 利用 RVFI signals 检查 retired instructions，并对 Ibex、CVA6、PicoRV32、SERV、VeeR 等核心执行面向 RISC-V ISA specification 的 consistency checks。"
+      "titleZh": "RISC-V International 介绍基于 RVFI 的 EDACrux 内核调试",
+      "summaryZh": "RISC-V International 介绍 Ferrite Engineering 的芯片设计与验证套件 EDACrux，重点说明 WaveCrux、NetCrux、LintCrux 与 SimCrux 之间的交叉定位。WaveCrux 利用 RVFI 信号检查已退休指令，并针对 Ibex、CVA6、PicoRV32、SERV、VeeR 等内核执行与 RISC-V ISA 规范的一致性检查。"
     },
     {
-      "title": "CHIPS Alliance I3C Core adds host-controller support with simulation and FPGA validation",
-      "url": "https://www.chipsalliance.org/news/implementing-i3c-host-controller-support-in-the-open-source-i3c-core/",
-      "source": "CHIPS Alliance Blog",
-      "publishedAt": "2026-08-19T00:00:00.000Z",
-      "summary": "CHIPS Alliance described Antmicro's host-controller expansion for the open source I3C Core, which was previously target-mode oriented and is already used in Cal...",
+      "title": "Antmicro adds host-controller support to the CHIPS Alliance open-source I3C Core",
+      "url": "https://antmicro.com/blog/2026/06/i3c-core-host-controller-support",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-06-16",
+      "addedAt": "2026-06-16T00:00:00Z",
+      "summary": "Antmicro described Host Controller support for the CHIPS Alliance open-source I3C Core, connecting the IP to Caliptra, Guineveer, the VeeR EL2 RISC-V core, and AXI-based SoC building blocks for more reusable open peripheral fabrics.",
+      "eventId": "i3c-host-controller-initial-support",
+      "relatedSources": [
+        {
+          "title": "CHIPS Alliance I3C Core adds host-controller support with simulation and FPGA validation",
+          "url": "https://www.chipsalliance.org/news/implementing-i3c-host-controller-support-in-the-open-source-i3c-core/",
+          "source": "CHIPS Alliance Blog",
+          "publishedAt": "2026-08-19",
+          "addedAt": "2026-08-19T00:00:00Z"
+        }
+      ],
       "author": "",
-      "relevanceScore": 13,
+      "relevanceScore": 8,
       "tags": [
+        "Antmicro",
         "CHIPS Alliance",
-        "I3C Core",
         "I3C",
-        "MIPI I3C",
         "Caliptra",
         "Guineveer",
-        "VeeR EL2",
-        "Verilator",
-        "cocotb",
+        "VeeR",
         "FPGA",
-        "Verification",
-        "Open Silicon"
+        "SoC/IP",
+        "Hardware IP"
       ],
       "language": "en",
-      "sourceTier": "official",
+      "sourceTier": "trusted",
       "reviewStatus": "curated",
       "curated": true,
-      "titleZh": "CHIPS Alliance I3C Core 增加 Host Controller 支持并完成仿真与 FPGA 验证",
-      "summaryZh": "CHIPS Alliance 介绍 Antmicro 为 open source I3C Core 扩展 Host Controller 支持；该 Core 此前主要面向 Target mode，并已用于 Caliptra 和 Guineveer RISC-V SoC reference design。Controller 目标兼容 I3C HCI 1.2 与 I3C Basic 1.1.1，加入基于 CCC 的 bus management、Dynamic Address Assignment、IBI handling、open-drain/push-pull switching、timing CSR、cocotb/Verilator 验证，并在 ZCU106 FPGA 上用外部 I3C sensor board 进行了 12.5 MHz 验证。"
+      "titleZh": "Antmicro 为 CHIPS Alliance 开源 I3C Core 加入 host-controller 支持",
+      "summaryZh": "Antmicro 介绍了为 CHIPS Alliance 开源 I3C Core 实现 Host Controller 支持的工作，并将该 IP 与 Caliptra、Guineveer、VeeR EL2 RISC-V core 以及基于 AXI 的 SoC building block 串联起来，增强开放外设互连与复用能力。"
     },
     {
       "title": "RISC-V International publishes open workflow for migrating custom extensions into compliant opcode space",
       "url": "https://riscv.org/blog/conflict-to-compliance-risc-v-extension-migration-across-spec-hw-and-sw/",
       "source": "RISC-V International news",
-      "publishedAt": "2026-07-29T08:46:17.000Z",
-      "summary": "RISC-V International highlighted a two-phase extension-migration workflow that uses the RISC-V Unified Database as the source of truth, MCP-connected LLM toolin...",
+      "publishedAt": "2026-07-29",
+      "addedAt": "2026-07-29T08:46:17Z",
+      "summary": "RISC-V International highlighted a two-phase extension-migration workflow that uses the RISC-V Unified Database as the source of truth, MCP-connected LLM tooling for conflict analysis and remapping proposals, and open hardware/software artifacts including packed-SIMD extensions, simulator support, GNU assembler integration, Zephyr runtime support, and RTL for more than 140 migrated instructions.",
       "author": "",
       "relevanceScore": 6,
       "tags": [
@@ -969,8 +998,9 @@
       "title": "Antmicro joins the OpenROAD Initiative to support open-source silicon design tooling",
       "url": "https://antmicro.com/blog/2026/07/antmicro-joins-the-openroad-initiative",
       "source": "Antmicro Blog",
-      "publishedAt": "2026-07-27T00:00:00.000Z",
-      "summary": "Antmicro announced that it has joined the OpenROAD Initiative after long-running contributions to the OpenROAD project, framing the move around transparent gove...",
+      "publishedAt": "2026-07-27",
+      "addedAt": "2026-07-27T00:00:00Z",
+      "summary": "Antmicro announced that it has joined the OpenROAD Initiative after long-running contributions to the OpenROAD project, framing the move around transparent governance, open-source FPGA and ASIC tooling, architecture exploration, silicon prototyping, and reproducible RTL-to-GDSII flows for faster chip-design feedback.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -996,8 +1026,9 @@
       "title": "CIRCT firtool 1.154.0 updates Arcilator, ImportVerilog, Moore, BMC, and HWToLLVM flows",
       "url": "https://github.com/llvm/circt/releases/tag/firtool-1.154.0",
       "source": "LLVM / CIRCT (GitHub)",
-      "publishedAt": "2026-07-27T18:39:17.000Z",
-      "summary": "CIRCT released firtool 1.154.0 with hardware-compiler updates including Arcilator stream printing and DLTI handling, circt-bmc support for verif.formal and veri...",
+      "publishedAt": "2026-07-27",
+      "addedAt": "2026-07-27T18:39:17Z",
+      "summary": "CIRCT released firtool 1.154.0 with hardware-compiler updates including Arcilator stream printing and DLTI handling, circt-bmc support for verif.formal and verif.contract operations, ImportVerilog and Moore support for $readmemb/$readmemh, packed-struct bit-range fixes, and HWToLLVM union-buffer sizing through module DLTI.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1020,35 +1051,46 @@
       "summaryZh": "CIRCT 发布 firtool 1.154.0，硬件编译器更新包括 Arcilator stream printing 与 DLTI handling、circt-bmc 对 verif.formal/verif.contract operations 的支持、ImportVerilog/Moore 对 $readmemb/$readmemh 的支持、packed struct bit-range 修复，以及 HWToLLVM 通过 module DLTI 计算 union buffer size。"
     },
     {
-      "title": "Verilator reaches an initial four-state logic implementation milestone",
-      "url": "https://www.chipsalliance.org/news/initial-implementation-verilator/",
-      "source": "CHIPS Alliance Blog",
-      "publishedAt": "2026-07-22T00:00:00.000Z",
-      "summary": "CHIPS Alliance detailed the first milestone toward four-state SystemVerilog simulation in Verilator. The experimental --fourstate mode represents 0, 1, x, and z...",
+      "title": "Antmicro reaches an initial four-state logic milestone in Verilator",
+      "url": "https://antmicro.com/blog/2026/04/initial-support-for-four-state-logic-in-verilator",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-04-30",
+      "addedAt": "2026-04-30T00:00:00Z",
+      "summary": "Antmicro outlined an experimental four-state logic implementation for Verilator under a --fourstate flag, using paired two-state variables internally so open-source ASIC and FPGA teams can debug X and Z behavior with fewer blind spots.",
+      "eventId": "verilator-initial-four-state-support",
+      "relatedSources": [
+        {
+          "title": "Verilator reaches an initial four-state logic implementation milestone",
+          "url": "https://www.chipsalliance.org/news/initial-implementation-verilator/",
+          "source": "CHIPS Alliance Blog",
+          "publishedAt": "2026-07-22",
+          "addedAt": "2026-07-22T00:00:00Z"
+        }
+      ],
       "author": "",
       "relevanceScore": 5,
       "tags": [
-        "CHIPS Alliance",
+        "Antmicro",
         "Verilator",
         "SystemVerilog",
-        "Four-State Logic",
-        "RTL Simulation",
         "Verification",
-        "Open EDA"
+        "Simulation",
+        "EDA"
       ],
       "language": "en",
-      "sourceTier": "official",
+      "sourceTier": "trusted",
       "reviewStatus": "curated",
       "curated": true,
-      "titleZh": "Verilator 四态逻辑实现达到首个里程碑",
-      "summaryZh": "CHIPS Alliance 介绍了 Verilator 支持 SystemVerilog 四态仿真的首个里程碑。实验性 --fourstate 模式用成对的二态值表示 0、1、x、z，从而复用现有优化；数组、队列、调度器及更完整的覆盖仍在持续开发中。"
+      "titleZh": "Antmicro 推进 Verilator 四值逻辑支持，达到初始里程碑",
+      "summaryZh": "Antmicro 介绍了 Verilator 中实验性的四值逻辑实现：通过 `--fourstate` 开关启用，并在内部使用成对的二值变量表示，从而帮助开源 ASIC 与 FPGA 团队更好地调试 X、Z 行为。"
     },
     {
       "title": "OpenTitan Earl Grey 2 roadmap adds CHERI, PQC, I3C, and efficiency upgrades",
       "url": "https://lowrisc.org/news/opentitan-earl-grey-2-to-support-cheri-and-pqc/",
       "source": "lowRISC Newsroom",
-      "publishedAt": "2026-07-14T08:00:00.000Z",
-      "summary": "lowRISC published the OpenTitan Earl Grey 2 roadmap, positioning the next discrete hardware root of trust around optional CHERI memory safety, CNSA 2.0-aligned ...",
+      "publishedAt": "2026-07-14",
+      "addedAt": "2026-07-14T08:00:00Z",
+      "summary": "lowRISC published the OpenTitan Earl Grey 2 roadmap, positioning the next discrete hardware root of trust around optional CHERI memory safety, CNSA 2.0-aligned post-quantum cryptography accelerator work, a combined I3C controller/target, and area/power reductions while the design is upstreamed through H2 2026 and H1 2027.",
       "author": "",
       "relevanceScore": 6,
       "tags": [
@@ -1074,8 +1116,9 @@
       "title": "Qualcomm joins CHIPS Alliance as a Platinum member for open-source chip design",
       "url": "https://www.chipsalliance.org/news/qualcomm-new-member-blog/",
       "source": "CHIPS Alliance Blog",
-      "publishedAt": "2026-07-16T00:00:00.000Z",
-      "summary": "CHIPS Alliance announced Qualcomm Technologies as a new Platinum Member, with Lu Dai joining the Governing Board and the alliance highlighting Qualcomm's SoC, v...",
+      "publishedAt": "2026-07-16",
+      "addedAt": "2026-07-16T00:00:00Z",
+      "summary": "CHIPS Alliance announced Qualcomm Technologies as a new Platinum Member, with Lu Dai joining the Governing Board and the alliance highlighting Qualcomm's SoC, verification, standards, and design-manufacturing flow expertise as support for open-source RTL, verification methodology, and automated hardware flows.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1100,8 +1143,9 @@
       "title": "Tenstorrent tt-metal v0.74.0 brings LLM model updates and TT-NN math fixes",
       "url": "https://github.com/tenstorrent/tt-metal/releases/tag/v0.74.0",
       "source": "Tenstorrent / TT-Metalium (GitHub)",
-      "publishedAt": "2026-07-14T01:37:12.000Z",
-      "summary": "Tenstorrent published tt-metal v0.74.0 as a final release after the RC stream, with LLK/Metalium optimizations for atanh, asinh, and acosh, TT-NN scalar divide-...",
+      "publishedAt": "2026-07-14",
+      "addedAt": "2026-07-14T01:37:12Z",
+      "summary": "Tenstorrent published tt-metal v0.74.0 as a final release after the RC stream, with LLK/Metalium optimizations for atanh, asinh, and acosh, TT-NN scalar divide-by-zero fixes, and model bring-up work for Llama 3.2 3B, Qwen3 32B, Llama 3.3 70B, Phi-4, and Gemma4 on the Tenstorrent stack.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1127,8 +1171,9 @@
       "title": "Caliptra MCU ROM SDK 2.1.0 adds source-oriented RISC-V ROM integration controls",
       "url": "https://github.com/chipsalliance/caliptra-mcu-sw/releases/tag/rom-sdk-2.1.0",
       "source": "CHIPS Alliance / Caliptra MCU SW (GitHub)",
-      "publishedAt": "2026-07-10T15:56:35.000Z",
-      "summary": "Caliptra MCU SW released rom-sdk-2.1.0 as a platform-independent no_std RISC-V ROM library for Caliptra 2.1, adding OCP LOCK documentation, DOT and owner-key ha...",
+      "publishedAt": "2026-07-10",
+      "addedAt": "2026-07-10T15:56:35Z",
+      "summary": "Caliptra MCU SW released rom-sdk-2.1.0 as a platform-independent no_std RISC-V ROM library for Caliptra 2.1, adding OCP LOCK documentation, DOT and owner-key handling, field-entropy and fuse-layout guidance, MCU-side SVN anti-rollback, encrypted firmware boot support, ROM milestone hooks, and broader FPGA/reference-platform support.",
       "author": "",
       "relevanceScore": 6,
       "tags": [
@@ -1154,8 +1199,9 @@
       "title": "CIRCT firtool 1.153.0 updates verification, ImportVerilog, Moore, ESI, and FIRRTL flows",
       "url": "https://github.com/llvm/circt/releases/tag/firtool-1.153.0",
       "source": "LLVM / CIRCT (GitHub)",
-      "publishedAt": "2026-07-10T23:26:53.000Z",
-      "summary": "CIRCT firtool 1.153.0 is a formal release with firtool verification-pass registration, Moore/SystemVerilog string-lowering fixes, ImportVerilog hierarchical-ref...",
+      "publishedAt": "2026-07-10",
+      "addedAt": "2026-07-10T23:26:53Z",
+      "summary": "CIRCT firtool 1.153.0 is a formal release with firtool verification-pass registration, Moore/SystemVerilog string-lowering fixes, ImportVerilog hierarchical-reference and foreach-loop support, ESI runtime/codegen fixes, Arc coroutine-lowering updates, and FIRRTL LowerLayers and LowerMemory improvements; 1.153.1 followed as a small patch release.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1181,8 +1227,9 @@
       "title": "Tampere University joins OpenTitan to advance RISC-V SoC security and PQC research",
       "url": "https://lowrisc.org/news/tampere-university-joins-opentitan-coalition-to-advance-risc-v-soc-security-and-open-source-silicon-research/",
       "source": "lowRISC Newsroom",
-      "publishedAt": "2026-07-10T08:00:00.000Z",
-      "summary": "lowRISC announced Tampere University as an OpenTitan academic partner, bringing SoC Hub work in hardware security, RISC-V architecture, cryptographic accelerati...",
+      "publishedAt": "2026-07-10",
+      "addedAt": "2026-07-10T08:00:00Z",
+      "summary": "lowRISC announced Tampere University as an OpenTitan academic partner, bringing SoC Hub work in hardware security, RISC-V architecture, cryptographic acceleration, PQC implementation, side-channel analysis, fault injection, and open-source SoC integration into the secure-silicon coalition.",
       "author": "",
       "relevanceScore": 11,
       "tags": [
@@ -1208,8 +1255,9 @@
       "title": "OpenTitan publishes side-channel-hardened, hardware-accelerated ML-DSA implementation",
       "url": "https://lowrisc.org/news/a-side-channel-hardened-hardware-accelerated-implementation-of-ml-dsa-in-opentitan/",
       "source": "lowRISC Newsroom",
-      "publishedAt": "2026-06-25T08:00:00.000Z",
-      "summary": "lowRISC detailed an upstream OpenTitan ML-DSA implementation that uses OTBN, KMAC, SIMD-style arithmetic, and a formally verified masking accelerator to fit a f...",
+      "publishedAt": "2026-06-25",
+      "addedAt": "2026-06-25T08:00:00Z",
+      "summary": "lowRISC detailed an upstream OpenTitan ML-DSA implementation that uses OTBN, KMAC, SIMD-style arithmetic, and a formally verified masking accelerator to fit a first-order side-channel-hardened post-quantum signature flow into 16 KiB of instruction memory and 32 KiB of data memory.",
       "author": "",
       "relevanceScore": 6,
       "tags": [
@@ -1235,8 +1283,9 @@
       "title": "MLCommons opens Edge Agentic Inference submissions for MLPerf Inference v6.1",
       "url": "https://mlcommons.org/2026/07/mlperf-inference-v61-edge-agentic/",
       "source": "MLCommons",
-      "publishedAt": "2026-07-09T14:45:00.000Z",
-      "summary": "MLCommons introduced an Edge Agentic Inference benchmark for MLPerf Inference v6.1, targeting on-device multi-turn LLM workloads on a single edge accelerator wi...",
+      "publishedAt": "2026-07-09",
+      "addedAt": "2026-07-09T14:45:00Z",
+      "summary": "MLCommons introduced an Edge Agentic Inference benchmark for MLPerf Inference v6.1, targeting on-device multi-turn LLM workloads on a single edge accelerator with Qwen3.6-27B, BFCL v4 accuracy, recorded coding replay, and a July 31 submission deadline.",
       "author": "",
       "relevanceScore": 6,
       "tags": [
@@ -1259,8 +1308,9 @@
       "title": "Yosys 0.67 lands sv-elab SystemVerilog flow and build-system updates",
       "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.67",
       "source": "YosysHQ / Yosys (GitHub)",
-      "publishedAt": "2026-07-09T09:12:38.000Z",
-      "summary": "Yosys 0.67 now requires CMake 3.28, Clang 16 or GCC 13, moves SystemVerilog support to sv-elab on top of slang, adds working Microsoft Visual Studio builds incl...",
+      "publishedAt": "2026-07-09",
+      "addedAt": "2026-07-09T09:12:38Z",
+      "summary": "Yosys 0.67 now requires CMake 3.28, Clang 16 or GCC 13, moves SystemVerilog support to sv-elab on top of slang, adds working Microsoft Visual Studio builds including ABC, and expands passes such as check_mem, arith_tree, equiv_opt, sim, proc, and latch handling.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1283,8 +1333,9 @@
       "title": "MLPerf Tiny v1.4 reports edge-AI results across RISC-V cores, NPUs, and microcontrollers",
       "url": "https://mlcommons.org/2026/07/mlperf-tiny-v1-4-results/",
       "source": "MLCommons",
-      "publishedAt": "2026-07-07T14:39:00.000Z",
-      "summary": "MLCommons described MLPerf Tiny v1.4 as an architecture-neutral benchmark for ultra-low-power AI, measuring accuracy, latency, and energy per inference across 2...",
+      "publishedAt": "2026-07-07",
+      "addedAt": "2026-07-07T14:39:00Z",
+      "summary": "MLCommons described MLPerf Tiny v1.4 as an architecture-neutral benchmark for ultra-low-power AI, measuring accuracy, latency, and energy per inference across 25 system configurations from nine organizations, including Andes RISC-V configurations and accelerator-based submissions.",
       "author": "",
       "relevanceScore": 6,
       "tags": [
@@ -1308,8 +1359,9 @@
       "title": "RISC-V International showcases GAPses smart glasses running always-on edge inference",
       "url": "https://riscv.org/blog/risc-v-edge-inference-for-real-time-eye-movement-control-on-gapses-smart-glasses/",
       "source": "RISC-V International",
-      "publishedAt": "2026-07-07T10:25:40.000Z",
-      "summary": "RISC-V International highlighted GAPses, an open wearable research platform using the GAP9 ultra-low-power RISC-V multicore processor for on-device EOG/EEG sign...",
+      "publishedAt": "2026-07-07",
+      "addedAt": "2026-07-07T10:25:40Z",
+      "summary": "RISC-V International highlighted GAPses, an open wearable research platform using the GAP9 ultra-low-power RISC-V multicore processor for on-device EOG/EEG signal processing and CNN inference, converting eye-movement signals into BLE events without cloud compute.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1332,8 +1384,9 @@
       "title": "AMI joins the OpenTitan coalition to connect firmware security with open secure silicon",
       "url": "https://lowrisc.org/news/ami-joins-opentitan-coalition-to-enable-new-use-cases-and-applications/",
       "source": "lowRISC Newsroom",
-      "publishedAt": "2026-07-07T08:00:00.000Z",
-      "summary": "lowRISC announced that AMI joined the OpenTitan project, adding firmware-security and manageability expertise to a coalition that already includes Fraunhofer, G...",
+      "publishedAt": "2026-07-07",
+      "addedAt": "2026-07-07T08:00:00Z",
+      "summary": "lowRISC announced that AMI joined the OpenTitan project, adding firmware-security and manageability expertise to a coalition that already includes Fraunhofer, Google, Nuvoton, and Realtek around transparent open-source secure silicon.",
       "author": "",
       "relevanceScore": 7,
       "tags": [
@@ -1356,8 +1409,9 @@
       "title": "Antmicro releases Topwrap 0.7.0 with cleaner SoC YAML and deeper SystemVerilog parsing",
       "url": "https://antmicro.com/blog/2026/07/topwrap-0-7-0-release",
       "source": "Antmicro Blog",
-      "publishedAt": "2026-07-07T00:00:00.000Z",
-      "summary": "Antmicro's Topwrap 0.7.0 update adds optimized component-based YAML syntax, initial clock/reset domain support with sanity checks, hierarchical SystemVerilog pa...",
+      "publishedAt": "2026-07-07",
+      "addedAt": "2026-07-07T00:00:00Z",
+      "summary": "Antmicro's Topwrap 0.7.0 update adds optimized component-based YAML syntax, initial clock/reset domain support with sanity checks, hierarchical SystemVerilog parsing into diagrams, GUI improvements, and planned Renode and IP-XACT integrations for SoC design flows.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1380,8 +1434,9 @@
       "title": "CIRCT firtool 1.152.0 expands ImportVerilog, Moore simulation, Arc, and FIRRTL fixes",
       "url": "https://github.com/llvm/circt/releases/tag/firtool-1.152.0",
       "source": "LLVM / CIRCT (GitHub)",
-      "publishedAt": "2026-07-04T04:21:10.000Z",
-      "summary": "LLVM CIRCT released firtool 1.152.0 with ImportVerilog and Moore simulation updates including fscanf/sscanf, timeformat, library-binding format specifiers, stri...",
+      "publishedAt": "2026-07-04",
+      "addedAt": "2026-07-04T04:21:10Z",
+      "summary": "LLVM CIRCT released firtool 1.152.0 with ImportVerilog and Moore simulation updates including fscanf/sscanf, timeformat, library-binding format specifiers, string-comparison lowering, Arc LowerProcesses work, and several FIRRTL inliner and dedup fixes.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1406,8 +1461,9 @@
       "title": "RISC-V ISA Manual snapshot fixes bit-manipulation reference pseudocode",
       "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-f89d503-2026-07-02",
       "source": "RISC-V ISA Manual (GitHub)",
-      "publishedAt": "2026-07-02T11:28:25.000Z",
-      "summary": "RISC-V published a new ISA Manual snapshot built from commit f89d503. The official release notes call out a fix to the bit-manipulation reference pseudocode and...",
+      "publishedAt": "2026-07-02",
+      "addedAt": "2026-07-02T11:28:25Z",
+      "summary": "RISC-V published a new ISA Manual snapshot built from commit f89d503. The official release notes call out a fix to the bit-manipulation reference pseudocode and link the full diff from the June 26 snapshot.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1428,8 +1484,9 @@
       "title": "lowRISC releases CHERI Mocha MVP-2 with CHERI-Linux boot and secure-enclave IP",
       "url": "https://lowrisc.org/news/cosmic-cheri-mocha-mvp-2-release/",
       "source": "lowRISC Newsroom",
-      "publishedAt": "2026-07-02T08:53:33.000Z",
-      "summary": "lowRISC announced the second MVP release of the CHERI Mocha Secure Enclave reference design. The subsystem SoC can boot CHERI Linux, adds secure-enclave IP bloc...",
+      "publishedAt": "2026-07-02",
+      "addedAt": "2026-07-02T08:53:33Z",
+      "summary": "lowRISC announced the second MVP release of the CHERI Mocha Secure Enclave reference design. The subsystem SoC can boot CHERI Linux, adds secure-enclave IP blocks such as entropy, KMAC, ROM controller, SPI host, and debug support, and includes Genesys 2 board synthesis collateral.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1453,8 +1510,9 @@
       "title": "Antmicro runs Coral NPU SoC simulations with Renode and Verilator",
       "url": "https://antmicro.com/blog/2026/07/renode-and-verilator-for-coral-npu",
       "source": "Antmicro Blog",
-      "publishedAt": "2026-07-01T00:00:00.000Z",
-      "summary": "Antmicro detailed a simulation-driven Coral NPU flow that embeds a RISC-V-based Coral NPU block into an NXP i.MX 8M Plus Renode Linux demo, uses RVV example pay...",
+      "publishedAt": "2026-07-01",
+      "addedAt": "2026-07-01T00:00:00Z",
+      "summary": "Antmicro detailed a simulation-driven Coral NPU flow that embeds a RISC-V-based Coral NPU block into an NXP i.MX 8M Plus Renode Linux demo, uses RVV example payloads, and runs UVM-based Coral NPU DV under Verilator through upstreamed flow changes.",
       "author": "",
       "relevanceScore": 7,
       "tags": [
@@ -1480,8 +1538,9 @@
       "title": "Antmicro adds mockturtle extended technology mapping to OpenROAD resynthesis",
       "url": "https://antmicro.com/blog/2026/06/multi-output-techmapping-in-openroad",
       "source": "Antmicro Blog",
-      "publishedAt": "2026-06-30T00:00:00.000Z",
-      "summary": "Antmicro described an OpenROAD resynthesis update that integrates mockturtle's extended mapper through a new resynth_emap command. In the published SKY130 jpeg_...",
+      "publishedAt": "2026-06-30",
+      "addedAt": "2026-06-30T00:00:00Z",
+      "summary": "Antmicro described an OpenROAD resynthesis update that integrates mockturtle's extended mapper through a new resynth_emap command. In the published SKY130 jpeg_encoder example, multi-output mapping reduced area by roughly 10% after timing repair.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1506,8 +1565,9 @@
       "title": "RISC-V ISA Manual snapshot refreshes the Zkr example",
       "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-dc8bf2a-2026-06-26",
       "source": "RISC-V ISA Manual (GitHub)",
-      "publishedAt": "2026-06-26T06:11:09.000Z",
-      "summary": "RISC-V published a new ISA Manual snapshot built from commit dc8bf2a. The release follows the June 23 snapshot and updates the Zkr example through RISC-V ISA Ma...",
+      "publishedAt": "2026-06-26",
+      "addedAt": "2026-06-26T06:11:09Z",
+      "summary": "RISC-V published a new ISA Manual snapshot built from commit dc8bf2a. The release follows the June 23 snapshot and updates the Zkr example through RISC-V ISA Manual pull request 3227.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1528,8 +1588,9 @@
       "title": "CIRCT firtool 1.151.0 fixes FIRRTL, ESI, Arc, SV, and Comb flows",
       "url": "https://github.com/llvm/circt/releases/tag/firtool-1.151.0",
       "source": "LLVM / CIRCT (GitHub)",
-      "publishedAt": "2026-06-26T20:21:09.000Z",
-      "summary": "LLVM CIRCT published firtool 1.151.0. The release fixes invalid ESI connections from Unpack(pack()), addresses a FIRRTL inliner N-squared crash, lowers non-doma...",
+      "publishedAt": "2026-06-26",
+      "addedAt": "2026-06-26T20:21:09Z",
+      "summary": "LLVM CIRCT published firtool 1.151.0. The release fixes invalid ESI connections from Unpack(pack()), addresses a FIRRTL inliner N-squared crash, lowers non-domain.define domain operands, adds Arc simulation-driver generation, extends the SV dialect with sv.fclose and sv.concat_str, supports sim.fmt.string printing in SimToSV, and fixes an O(NM) Comb extract-of-concat path.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1554,8 +1615,9 @@
       "title": "Tenstorrent TT-Metalium v0.73.1 lands MoE, Gemma 4, DeepSeek, Quasar, and Metal 2.0 work",
       "url": "https://github.com/tenstorrent/tt-metal/releases/tag/v0.73.1",
       "source": "Tenstorrent / TT-Metalium (GitHub)",
-      "publishedAt": "2026-06-26T10:19:12.000Z",
-      "summary": "Tenstorrent published TT-Metalium v0.73.1 as a final release for its open-source AI accelerator stack. The changelog includes MoE helper migration into C++ TT-N...",
+      "publishedAt": "2026-06-26",
+      "addedAt": "2026-06-26T10:19:12Z",
+      "summary": "Tenstorrent published TT-Metalium v0.73.1 as a final release for its open-source AI accelerator stack. The changelog includes MoE helper migration into C++ TT-NN, Gemma 4 performance and prefill/decode work, DeepSeek prefill and decode fixes, SDPA and KV-cache updates, Quasar LLK and firmware changes, Device 2.0 API migrations, fabric/dispatch improvements, and refreshed FW/KMD/SMI documentation.",
       "author": "",
       "relevanceScore": 8,
       "tags": [
@@ -1580,8 +1642,9 @@
       "title": "RISC-V ISA Manual snapshot fixes Zca c.jal scope and Zvkt constant-time wording",
       "url": "https://github.com/riscv/riscv-isa-manual/releases/tag/riscv-isa-release-cc30642-2026-06-23",
       "source": "RISC-V ISA Manual (GitHub)",
-      "publishedAt": "2026-06-23T02:08:50.000Z",
-      "summary": "RISC-V published a new ISA Manual snapshot from commit cc30642. The release clarifies that c.jal is only in XLEN=32 Zca, connects unprivileged and privileged cr...",
+      "publishedAt": "2026-06-23",
+      "addedAt": "2026-06-23T02:08:50Z",
+      "summary": "RISC-V published a new ISA Manual snapshot from commit cc30642. The release clarifies that c.jal is only in XLEN=32 Zca, connects unprivileged and privileged cross-references, and fixes the Zvkt DIEL constant-time instruction list for vmslt[u].vv and vrsub.vi.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1603,8 +1666,9 @@
       "title": "Caliptra FW 2.0.2 adds DPE upgrades, attested CSR, and FIPS hardening",
       "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/fw-2.0.2",
       "source": "CHIPS Alliance / Caliptra SW (GitHub)",
-      "publishedAt": "2026-06-22T18:10:40.000Z",
-      "summary": "CHIPS Alliance published Caliptra FW 2.0.2 as a combined runtime and FMC release for the 2.0 branch. It adds DPE SVN and crypto API work, DPE ML-DSA hybrid mode...",
+      "publishedAt": "2026-06-22",
+      "addedAt": "2026-06-22T18:10:40Z",
+      "summary": "CHIPS Alliance published Caliptra FW 2.0.2 as a combined runtime and FMC release for the 2.0 branch. It adds DPE SVN and crypto API work, DPE ML-DSA hybrid mode, attested CSR mailbox commands, ML-DSA/ECDH pairwise tests, richer firmware verification reporting, recovery capability updates, and fixes around production debug unlock, mailbox validation, AES-GCM GHASH state, FIPS marking, and shutdown zeroization.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1628,8 +1692,9 @@
       "title": "Caliptra FW 2.1.1 updates certification, activation, debug unlock, and crypto tests",
       "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/fw-2.1.1",
       "source": "CHIPS Alliance / Caliptra SW (GitHub)",
-      "publishedAt": "2026-06-22T18:03:32.000Z",
-      "summary": "CHIPS Alliance published Caliptra FW 2.1.1 as the latest combined runtime and FMC release. The 2.1 branch update adds SIGN_WITH_EXPORTED_MLDSA, chunked DPE cert...",
+      "publishedAt": "2026-06-22",
+      "addedAt": "2026-06-22T18:03:32Z",
+      "summary": "CHIPS Alliance published Caliptra FW 2.1.1 as the latest combined runtime and FMC release. The 2.1 branch update adds SIGN_WITH_EXPORTED_MLDSA, chunked DPE certificates, initial activation handling, and more fw_info telemetry, while fixing debug-unlock mailbox behavior, ActivateFirmware authorization and bitmap handling, manifest metadata bounds, AES-GCM streaming GHASH state, runtime startup KAT coverage, ML-KEM/ML-DSA/ECDH pairwise tests, FIPS shutdown zeroization, and mailbox PAUSER checks.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1653,8 +1718,9 @@
       "title": "Chipyard 1.14.0 adds FireSim F2 support, Chisel 7 trials, and modular SoC builds",
       "url": "https://github.com/ucb-bar/chipyard/releases/tag/1.14.0",
       "source": "Chipyard (GitHub)",
-      "publishedAt": "2026-06-22T01:24:34.000Z",
-      "summary": "Chipyard 1.14.0 is a broad RISC-V SoC generator release with AWS F2 support for FireSim, limited Chisel 7.13.0 support, modular lite builds, multichip and CTC i...",
+      "publishedAt": "2026-06-22",
+      "addedAt": "2026-06-22T01:24:34Z",
+      "summary": "Chipyard 1.14.0 is a broad RISC-V SoC generator release with AWS F2 support for FireSim, limited Chisel 7.13.0 support, modular lite builds, multichip and CTC improvements, Zephyr RTOS support, early Radiance/GPU integration, new FPGA/config examples, and updated Rocket Chip, BOOM, Shuttle, Saturn, Spike, Gemmini, and related submodules.",
       "author": "",
       "relevanceScore": 17,
       "tags": [
@@ -1680,8 +1746,9 @@
       "title": "Apache TVM introduces TIRx as an open hardware-native DSL for frontier ML kernels",
       "url": "https://tvm.apache.org/2026/06/22/tirx",
       "source": "Apache TVM Blog",
-      "publishedAt": "2026-06-22T00:00:00.000Z",
-      "summary": "Apache TVM introduced TIRx, an open-source hardware-native DSL and compiler stack for ML kernels, shipping with the Apache TVM 0.25.0 Python package, documentat...",
+      "publishedAt": "",
+      "addedAt": "2026-06-22T00:00:00Z",
+      "summary": "Apache TVM introduced TIRx, an open-source hardware-native DSL and compiler stack for ML kernels, shipping with the Apache TVM 0.25.0 Python package, documentation, a community kernel library, benchmarks, and course material for expert-written, agent-generated, and megakernel-style accelerator code.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1705,8 +1772,9 @@
       "title": "CIRCT firtool 1.150.0 expands ImportVerilog, FIRRTL, Synth, ESI, and Arc flows",
       "url": "https://github.com/llvm/circt/releases/tag/firtool-1.150.0",
       "source": "LLVM / CIRCT (GitHub)",
-      "publishedAt": "2026-06-22T03:42:26.000Z",
-      "summary": "CIRCT published firtool 1.150.0 with substantial open EDA compiler updates, including ImportVerilog support for use-before-declare, builtins, DPI export declara...",
+      "publishedAt": "2026-06-22",
+      "addedAt": "2026-06-22T03:42:26Z",
+      "summary": "CIRCT published firtool 1.150.0 with substantial open EDA compiler updates, including ImportVerilog support for use-before-declare, builtins, DPI export declarations, plusargs, assertions, and declaration handling; FIRRTL lowering and domain fixes; Synth and comb lowering work; ESI runtime improvements; and Arc coroutine lowering.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1731,8 +1799,9 @@
       "title": "Caliptra ROM 2.0.3 hardens shutdown, entropy, and debug-unlock handling",
       "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rom-2.0.3-1",
       "source": "CHIPS Alliance / Caliptra SW (GitHub)",
-      "publishedAt": "2026-06-18T18:10:48.000Z",
-      "summary": "CHIPS Alliance published Caliptra ROM 2.0.3 for the 2.0 branch, adding SS_STRAP_GENERIC[2] entropy-source configuration and CTR_DRBG-AES-256 plus MLDSA-87 KAT c...",
+      "publishedAt": "2026-06-18",
+      "addedAt": "2026-06-18T18:10:48Z",
+      "summary": "CHIPS Alliance published Caliptra ROM 2.0.3 for the 2.0 branch, adding SS_STRAP_GENERIC[2] entropy-source configuration and CTR_DRBG-AES-256 plus MLDSA-87 KAT coverage, while fixing ROM shutdown zeroization, CSRNG health-test behavior, production debug unlock binding, boot-failure reporting, and FIPS marking around hash-based ECDSA/LMS verification.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1756,8 +1825,9 @@
       "title": "Caliptra ROM 2.1.2 updates owner-key, ICCM verification, and recovery controls",
       "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rom-2.1.2",
       "source": "CHIPS Alliance / Caliptra SW (GitHub)",
-      "publishedAt": "2026-06-17T13:13:38.000Z",
-      "summary": "Caliptra ROM 2.1.2 adds Stable Owner Key derivation from the HEK seed and gates fatal-error reporting on the recovery reset strap, with fixes for firmware verif...",
+      "publishedAt": "2026-06-17",
+      "addedAt": "2026-06-17T13:13:38Z",
+      "summary": "Caliptra ROM 2.1.2 adds Stable Owner Key derivation from the HEK seed and gates fatal-error reporting on the recovery reset strap, with fixes for firmware verification after ICCM load, entropy and CSRNG setup, production debug unlock rejection, ROM shutdown zeroization, OCP LOCK key-ladder use of DOE, and identity root-key write locks.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1781,8 +1851,9 @@
       "title": "Caliptra Subsystem 2.0.2 doc release clarifies collateral without RTL changes",
       "url": "https://github.com/chipsalliance/caliptra-ss/releases/tag/css-v2.0.2%2B1.doc",
       "source": "CHIPS Alliance / Caliptra Subsystem (GitHub)",
-      "publishedAt": "2026-06-17T18:46:12.000Z",
-      "summary": "CHIPS Alliance released a documentation-only Caliptra Subsystem 2.0.2 collateral update that explicitly leaves the RTL design unchanged, follows the Caliptra su...",
+      "publishedAt": "2026-06-17",
+      "addedAt": "2026-06-17T18:46:12Z",
+      "summary": "CHIPS Alliance released a documentation-only Caliptra Subsystem 2.0.2 collateral update that explicitly leaves the RTL design unchanged, follows the Caliptra subsystem release checklist, drops the volatile PK hash lock from the spec, and cherry-picks documentation clarifications from main.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1805,8 +1876,9 @@
       "title": "RISC-V International unpacks SHD Group's 2026 market forecast methodology",
       "url": "https://riscv.org/blog/shd-forecast-2026/",
       "source": "RISC-V International",
-      "publishedAt": "2026-06-19T19:46:36.000Z",
-      "summary": "RISC-V International interviewed SHD Group on its 2026 RISC-V Market Analysis, explaining a top-down/bottom-up model across nearly 60 applications, 12 device ty...",
+      "publishedAt": "2026-06-19",
+      "addedAt": "2026-06-19T19:46:36Z",
+      "summary": "RISC-V International interviewed SHD Group on its 2026 RISC-V Market Analysis, explaining a top-down/bottom-up model across nearly 60 applications, 12 device types per system, and more than 70 ecosystem interviews, with headline 2031 forecasts of 35.9 billion RISC-V SoC units and $318 billion in associated revenue.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1828,8 +1900,9 @@
       "title": "Apache TVM v0.25.0 lands Relax, frontend, TIR, runtime, and CI updates",
       "url": "https://github.com/apache/tvm/releases/tag/v0.25.0",
       "source": "Apache TVM (GitHub)",
-      "publishedAt": "2026-06-19T17:49:46.000Z",
-      "summary": "Apache TVM v0.25.0 is a final release, not an RC, with broad compiler/runtime maintenance across Relax, frontend importers, TIR analysis and scheduling, runtime...",
+      "publishedAt": "2026-06-19",
+      "addedAt": "2026-06-19T17:49:46Z",
+      "summary": "Apache TVM v0.25.0 is a final release, not an RC, with broad compiler/runtime maintenance across Relax, frontend importers, TIR analysis and scheduling, runtime backends, and developer workflow updates since v0.24.0.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1851,8 +1924,9 @@
       "title": "Apache TVM FFI v0.1.12 advances its open ABI for ML systems",
       "url": "https://github.com/apache/tvm-ffi/releases/tag/v0.1.12",
       "source": "Apache TVM FFI (GitHub)",
-      "publishedAt": "2026-06-06T01:57:23.000Z",
-      "summary": "Apache TVM FFI v0.1.12 adds reflection, Rust macro fixes, C-ABI-oriented AnyView changes, tensor API alignment, and ROCm/PyTorch DLPack loader fixes for the pro...",
+      "publishedAt": "2026-06-06",
+      "addedAt": "2026-06-06T01:57:23Z",
+      "summary": "Apache TVM FFI v0.1.12 adds reflection, Rust macro fixes, C-ABI-oriented AnyView changes, tensor API alignment, and ROCm/PyTorch DLPack loader fixes for the project's open ABI and framework-agnostic FFI layer for ML systems.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1874,8 +1948,9 @@
       "title": "Antmicro runs Gemma 4 on its open hardware Jetson AGX Thor baseboard with Kenning",
       "url": "https://antmicro.com/blog/2026/06/open-source-driven-gemma-4-integration-and-deployment",
       "source": "Antmicro Blog",
-      "publishedAt": "2026-06-18T00:00:00.000Z",
-      "summary": "Antmicro benchmarked Gemma 4 variants on its open hardware NVIDIA Jetson AGX Thor baseboard, using the open-source Kenning framework with llama.cpp to generate ...",
+      "publishedAt": "2026-06-18",
+      "addedAt": "2026-06-18T00:00:00Z",
+      "summary": "Antmicro benchmarked Gemma 4 variants on its open hardware NVIDIA Jetson AGX Thor baseboard, using the open-source Kenning framework with llama.cpp to generate performance reports for embedded edge-AI deployment.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1899,8 +1974,9 @@
       "title": "FOSSi highlights ODE4EC's three-year push for open-source European chip design",
       "url": "https://fossi-foundation.org/blog/2026-06-09-ecl98",
       "source": "FOSSi Foundation",
-      "publishedAt": "2026-06-09T00:00:00.000Z",
-      "summary": "FOSSi's El Correo Libre Issue 98 says ODE4EC has begun as a three-year effort to strengthen Europe's open chip-design environment, with AMS, digital EDA, and pr...",
+      "publishedAt": "",
+      "addedAt": "2026-06-09T00:00:00Z",
+      "summary": "FOSSi's El Correo Libre Issue 98 says ODE4EC has begun as a three-year effort to strengthen Europe's open chip-design environment, with AMS, digital EDA, and productivity/verification projects for open EDA, open IP, and open PDK workflows.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1923,8 +1999,9 @@
       "title": "RVV study compares GCC 15 and Clang 21 on portable RISC-V vector performance",
       "url": "https://arxiv.org/html/2605.10860v2",
       "source": "arXiv / KTH, LLNL, BSC",
-      "publishedAt": "2026-06-09T00:00:00.000Z",
-      "summary": "A KTH, Lawrence Livermore, and Barcelona Supercomputing Center paper uses RVV 1.0 microbenchmarks on BananaPi-F3 and other RISC-V vector hardware to compare GCC...",
+      "publishedAt": "2026-05-22",
+      "addedAt": "2026-06-09T00:00:00Z",
+      "summary": "A KTH, Lawrence Livermore, and Barcelona Supercomputing Center paper uses RVV 1.0 microbenchmarks on BananaPi-F3 and other RISC-V vector hardware to compare GCC 15 and Clang 21, finding GCC more stable across most scientific and ML proxy workloads while exposing remaining compiler and profiling gaps.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -1948,8 +2025,9 @@
       "title": "MLCommons publishes MLPerf Training v6.0 results for sparse MoE workloads",
       "url": "https://mlcommons.org/2026/06/mlperf-training-v6-0-results/",
       "source": "MLCommons",
-      "publishedAt": "2026-06-16T14:56:24.000Z",
-      "summary": "MLCommons released MLPerf Training v6.0 results with new DeepSeek V3 and GPT-OSS 20B sparse MoE benchmarks, reporting 95 unique systems across thirteen hardware...",
+      "publishedAt": "2026-06-16",
+      "addedAt": "2026-06-16T14:56:24Z",
+      "summary": "MLCommons released MLPerf Training v6.0 results with new DeepSeek V3 and GPT-OSS 20B sparse MoE benchmarks, reporting 95 unique systems across thirteen hardware accelerators and broader cloud/on-premise training submissions.",
       "author": "",
       "relevanceScore": 6,
       "tags": [
@@ -1972,8 +2050,9 @@
       "title": "Qualcomm reportedly weighs a Tenstorrent acquisition for RISC-V AI silicon",
       "url": "https://www.tomshardware.com/tech-industry/artificial-intelligence/qualcomm-mulls-taking-over-jim-kellers-tenstorrent-report-claims-deal-for-ai-chipmaker-would-value-the-company-at-between-usd8-billion-and-usd10-billion",
       "source": "Tom's Hardware / The Information",
-      "publishedAt": "2026-06-16T12:48:21.000Z",
-      "summary": "Tom's Hardware, citing The Information, reported that Qualcomm has discussed acquiring Tenstorrent at an $8 billion to $10 billion valuation. The report is unco...",
+      "publishedAt": "2026-06-16",
+      "addedAt": "2026-06-16T12:48:21Z",
+      "summary": "Tom's Hardware, citing The Information, reported that Qualcomm has discussed acquiring Tenstorrent at an $8 billion to $10 billion valuation. The report is unconfirmed, but it is relevant to the open hardware brief because Tenstorrent's RISC-V-based AI accelerators and data-center CPU IP sit at the center of the rumored rationale.",
       "author": "",
       "relevanceScore": 9,
       "tags": [
@@ -1993,37 +2072,12 @@
       "summaryZh": "Tom's Hardware 援引 The Information 报道称，Qualcomm 曾讨论以 80 亿至 100 亿美元估值收购 Tenstorrent。该交易尚未确认，但对开源硬件简报有参考价值，因为报道中的核心理由正是 Tenstorrent 基于 RISC-V 的 AI accelerator 与数据中心 CPU IP。"
     },
     {
-      "title": "Antmicro adds host-controller support to the CHIPS Alliance open-source I3C Core",
-      "url": "https://antmicro.com/blog/2026/06/i3c-core-host-controller-support",
-      "source": "Antmicro Blog",
-      "publishedAt": "2026-06-16T00:00:00.000Z",
-      "summary": "Antmicro described Host Controller support for the CHIPS Alliance open-source I3C Core, connecting the IP to Caliptra, Guineveer, the VeeR EL2 RISC-V core, and ...",
-      "author": "",
-      "relevanceScore": 8,
-      "tags": [
-        "Antmicro",
-        "CHIPS Alliance",
-        "I3C",
-        "Caliptra",
-        "Guineveer",
-        "VeeR",
-        "FPGA",
-        "SoC/IP",
-        "Hardware IP"
-      ],
-      "language": "en",
-      "sourceTier": "trusted",
-      "reviewStatus": "curated",
-      "curated": true,
-      "titleZh": "Antmicro 为 CHIPS Alliance 开源 I3C Core 加入 host-controller 支持",
-      "summaryZh": "Antmicro 介绍了为 CHIPS Alliance 开源 I3C Core 实现 Host Controller 支持的工作，并将该 IP 与 Caliptra、Guineveer、VeeR EL2 RISC-V core 以及基于 AXI 的 SoC building block 串联起来，增强开放外设互连与复用能力。"
-    },
-    {
       "title": "OpenHW highlights EOSA webinar on Europe's open-source hardware ecosystem",
       "url": "https://openhwfoundation.org/open-source-hardware-ecosystem-a-holistic-view-of-the-community/",
       "source": "OpenHW Foundation News",
-      "publishedAt": "2026-06-12T10:14:21.000Z",
-      "summary": "OpenHW promoted the European Open Source Academy webinar on the open-source hardware ecosystem, featuring OpenHW Group, RISC-V International, CERN, and Barcelon...",
+      "publishedAt": "2026-06-12",
+      "addedAt": "2026-06-12T10:14:21Z",
+      "summary": "OpenHW promoted the European Open Source Academy webinar on the open-source hardware ecosystem, featuring OpenHW Group, RISC-V International, CERN, and Barcelona Supercomputing Center voices on European open hardware collaboration and adoption.",
       "author": "",
       "relevanceScore": 9,
       "tags": [
@@ -2046,8 +2100,9 @@
       "title": "OpenHW spotlights the inaugural RISC-V Ottawa community launch",
       "url": "https://openhwfoundation.org/unlocking-the-open-source-hardware-ecosystem-at-risc-v-ottawa-rvo/",
       "source": "OpenHW Foundation News",
-      "publishedAt": "2026-06-13T10:01:43.000Z",
-      "summary": "OpenHW highlighted the inaugural RISC-V Ottawa launch meeting, with Mike Thompson covering the open-source RISC-V ecosystem, Frederic Desbiens covering open-sou...",
+      "publishedAt": "2026-06-13",
+      "addedAt": "2026-06-13T10:01:43Z",
+      "summary": "OpenHW highlighted the inaugural RISC-V Ottawa launch meeting, with Mike Thompson covering the open-source RISC-V ecosystem, Frederic Desbiens covering open-source RTOSes, and attendees shaping local project directions.",
       "author": "",
       "relevanceScore": 7,
       "tags": [
@@ -2069,8 +2124,9 @@
       "title": "CHIPS Alliance Latch-Up recap connects SV Tools, Verilator, VeeR, and open PDK work",
       "url": "https://www.chipsalliance.org/news/latch-up2026/",
       "source": "CHIPS Alliance Blog",
-      "publishedAt": "2026-06-01T00:00:00.000Z",
-      "summary": "CHIPS Alliance's Latch-Up 2026 recap packages technical updates on SV Tools, UVM and four-state logic work in Verilator, VeeR/Guineveer open-source SoC flows, a...",
+      "publishedAt": "2026-06-01",
+      "addedAt": "2026-06-01T00:00:00Z",
+      "summary": "CHIPS Alliance's Latch-Up 2026 recap packages technical updates on SV Tools, UVM and four-state logic work in Verilator, VeeR/Guineveer open-source SoC flows, and IHP open PDK and MPW progress.",
       "author": "",
       "relevanceScore": 6,
       "tags": [
@@ -2095,8 +2151,9 @@
       "title": "MLCommons releases MLPerf Mobile v6.0 with on-device LLM benchmarks",
       "url": "https://mlcommons.org/2026/06/mlperf-mobile-v6/",
       "source": "MLCommons",
-      "publishedAt": "2026-06-15T14:40:00.000Z",
-      "summary": "MLCommons released MLPerf Mobile v6.0 with generative AI tests for Llama 3.2 1B/3B and Llama 3.1 8B on Android devices, plus NPU-accelerated Llama 3.1 8B suppor...",
+      "publishedAt": "2026-06-15",
+      "addedAt": "2026-06-15T14:40:00Z",
+      "summary": "MLCommons released MLPerf Mobile v6.0 with generative AI tests for Llama 3.2 1B/3B and Llama 3.1 8B on Android devices, plus NPU-accelerated Llama 3.1 8B support on Snapdragon 8 Elite Gen 5 and updated MediaTek Dimensity 9500 and Samsung Exynos 2600 coverage.",
       "author": "",
       "relevanceScore": 6,
       "tags": [
@@ -2119,8 +2176,9 @@
       "title": "OpenHW uses RISC-V Summit Europe 2026 to showcase CVA6, CORE-ET, UAP, and Eclipse collaboration",
       "url": "https://openhwfoundation.org/openhw-foundation-at-risc-v-summit-europe-2026-driving-innovation-in-bologna/",
       "source": "OpenHW Foundation News",
-      "publishedAt": "2026-06-08T10:23:40.000Z",
-      "summary": "OpenHW Foundation joined RISC-V Summit Europe 2026 in Bologna as a Silver Sponsor, highlighting CVE2, CVE4, and CVA6 roadmap discussions, a CVA6 tech meetup cov...",
+      "publishedAt": "2026-06-08",
+      "addedAt": "2026-06-08T10:23:40Z",
+      "summary": "OpenHW Foundation joined RISC-V Summit Europe 2026 in Bologna as a Silver Sponsor, highlighting CVE2, CVE4, and CVA6 roadmap discussions, a CVA6 tech meetup covering Rigoletto and Tristan verification, the Unified Access Platform for EU RISC-V artifacts, and the newly announced CORE-ET silicon platform.",
       "author": "",
       "relevanceScore": 12,
       "tags": [
@@ -2144,8 +2202,9 @@
       "title": "RISC-V Summit Europe posters show CVA6 momentum in CFI, secure boot, safety, and real-time designs",
       "url": "https://riscv-europe.org/summit/2026/posters#Tue",
       "source": "RISC-V Summit Europe 2026",
-      "publishedAt": "2026-06-09T09:00:00.000Z",
-      "summary": "The Summit Europe 2026 poster program includes multiple CVA6-focused results: CVA6-CFI integrates the RISC-V Zicfiss and Zicfilp CFI extensions with 1.0% 22 nm ...",
+      "publishedAt": "",
+      "addedAt": "2026-06-09T09:00:00Z",
+      "summary": "The Summit Europe 2026 poster program includes multiple CVA6-focused results: CVA6-CFI integrates the RISC-V Zicfiss and Zicfilp CFI extensions with 1.0% 22 nm FDX area overhead, while other posters cover CVA6-based secure boot with DICE and post-quantum cryptography, CAGE-V confidential computing, fault-tolerant CVA6, and CVA6-RT real-time extensions.",
       "author": "",
       "relevanceScore": 7,
       "tags": [
@@ -2169,8 +2228,9 @@
       "title": "OpenHW points to Eclipse ThreadX poster work for first-class RISC-V RTOS support",
       "url": "https://openhwfoundation.org/beyond-the-basics-elevating-eclipse-threadx-to-a-first-class-rtos-for-risc-v/",
       "source": "OpenHW Foundation News",
-      "publishedAt": "2026-06-10T10:19:03.000Z",
-      "summary": "OpenHW highlighted the RISC-V Summit Europe poster by Eclipse Foundation's Frederic Desbiens and 10xEngineers' Akif Ejaz on elevating Eclipse ThreadX into a fir...",
+      "publishedAt": "2026-06-10",
+      "addedAt": "2026-06-10T10:19:03Z",
+      "summary": "OpenHW highlighted the RISC-V Summit Europe poster by Eclipse Foundation's Frederic Desbiens and 10xEngineers' Akif Ejaz on elevating Eclipse ThreadX into a first-class RTOS for RISC-V, connecting OpenHW's hardware focus with Eclipse's embedded software stack.",
       "author": "",
       "relevanceScore": 7,
       "tags": [
@@ -2193,8 +2253,9 @@
       "title": "OpenTitan publishes first Earl Grey 1.0.0 development bundle",
       "url": "https://github.com/lowRISC/opentitan/releases/tag/devbundle-2026-06-02-1",
       "source": "lowRISC / OpenTitan (GitHub)",
-      "publishedAt": "2026-06-02T13:33:29.000Z",
-      "summary": "lowRISC published the first OpenTitan development bundle for Earl Grey 1.0.0, packaging FPGA bitstreams, a Verilated simulation binary, OpenTitanTool, HSMTool, ...",
+      "publishedAt": "2026-06-02",
+      "addedAt": "2026-06-02T13:33:29Z",
+      "summary": "lowRISC published the first OpenTitan development bundle for Earl Grey 1.0.0, packaging FPGA bitstreams, a Verilated simulation binary, OpenTitanTool, HSMTool, test ROM, and FPGA ROM extension binaries for bring-up and integration work.",
       "author": "",
       "relevanceScore": 7,
       "tags": [
@@ -2218,8 +2279,9 @@
       "title": "Antmicro outlines Yocto-based open hardware stack for NVIDIA Jetson edge AI",
       "url": "https://antmicro.com/blog/2026/06/antmicro-support-for-yocto-on-nvidia-jetson",
       "source": "Antmicro Blog",
-      "publishedAt": "2026-06-01T00:00:00.000Z",
-      "summary": "Antmicro connected NVIDIA's Jetson Yocto support with its own open source hardware baseboards, meta-antmicro Yocto layers, RDFM OTA and fleet management, Kennin...",
+      "publishedAt": "2026-06-01",
+      "addedAt": "2026-06-01T00:00:00Z",
+      "summary": "Antmicro connected NVIDIA's Jetson Yocto support with its own open source hardware baseboards, meta-antmicro Yocto layers, RDFM OTA and fleet management, Kenning AI benchmarking, and Protoplaster factory testing stack for reproducible edge-AI product development.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -2243,8 +2305,9 @@
       "title": "FOSSi opens ORConf 2026 registration for its European open silicon conference",
       "url": "https://fossi-foundation.org/blog/2026-06-13-orconf-2026-registration-open",
       "source": "FOSSi Foundation",
-      "publishedAt": "2026-06-13T00:00:00.000Z",
-      "summary": "FOSSi Foundation opened registration for ORConf 2026, scheduled for September 11-13 at the Zebrastraat event center in Ghent, Belgium, and co-located with FPL 2...",
+      "publishedAt": "",
+      "addedAt": "2026-06-13T00:00:00Z",
+      "summary": "FOSSi Foundation opened registration for ORConf 2026, scheduled for September 11-13 at the Zebrastraat event center in Ghent, Belgium, and co-located with FPL 2026. Talk submissions are open until August 16 for open-source silicon, EDA, FPGA, IP, and verification work.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -2267,8 +2330,9 @@
       "title": "CHIPS Alliance recaps OCP EMEA work across Caliptra, OpenPRoT, and VeeR",
       "url": "https://www.chipsalliance.org/news/ocp-recap-2026/",
       "source": "CHIPS Alliance Blog",
-      "publishedAt": "2026-06-10T22:00:00.000Z",
-      "summary": "CHIPS Alliance's OCP EMEA Summit recap highlights collaboration with the Open Compute Project around Caliptra, OpenPRoT, and Guineveer/VeeR EL2, including root-...",
+      "publishedAt": "2026-06-11",
+      "addedAt": "2026-06-10T22:00:00Z",
+      "summary": "CHIPS Alliance's OCP EMEA Summit recap highlights collaboration with the Open Compute Project around Caliptra, OpenPRoT, and Guineveer/VeeR EL2, including root-of-trust and open-source silicon infrastructure themes relevant to data-center security hardware.",
       "author": "",
       "relevanceScore": 7,
       "tags": [
@@ -2292,8 +2356,9 @@
       "title": "Fraunhofer AISEC becomes an official OpenTitan security testing partner",
       "url": "https://lowrisc.org/news/fraunhofer-aisec-joins-opentitan-coalition-as-an-official-security-testing-partner-to-further-enhance-its-security-credentials/",
       "source": "lowRISC Newsroom",
-      "publishedAt": "2026-06-09T08:00:00.000Z",
-      "summary": "lowRISC announced that Fraunhofer AISEC joined the OpenTitan coalition as an official security testing partner, adding independent physical attack evaluation, s...",
+      "publishedAt": "2026-06-09",
+      "addedAt": "2026-06-09T08:00:00Z",
+      "summary": "lowRISC announced that Fraunhofer AISEC joined the OpenTitan coalition as an official security testing partner, adding independent physical attack evaluation, side-channel and fault-injection expertise, and assurance work around the Earl Grey secure microcontroller.",
       "author": "",
       "relevanceScore": 6,
       "tags": [
@@ -2317,8 +2382,9 @@
       "title": "Antmicro makes its open hardware Jetson Orin baseboard directly available through System Designer",
       "url": "https://antmicro.com/blog/2026/06/antmicro-baseboard-for-jetson-orin-on-system-designer/",
       "source": "Antmicro Blog",
-      "publishedAt": "2026-06-05T00:00:00.000Z",
-      "summary": "Antmicro announced that its open hardware baseboard for the NVIDIA Jetson Orin family is available for direct purchase through System Designer, with schematics,...",
+      "publishedAt": "2026-06-05",
+      "addedAt": "2026-06-05T00:00:00Z",
+      "summary": "Antmicro announced that its open hardware baseboard for the NVIDIA Jetson Orin family is available for direct purchase through System Designer, with schematics, assets, customization paths, and AI edge-development use cases presented as part of the platform.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -2341,8 +2407,9 @@
       "title": "Realtek joins the OpenTitan coalition to build discrete hardware root-of-trust devices",
       "url": "https://lowrisc.org/news/realtek-joins-opentitan-coalition-to-develop-discrete-hardware-root-of-trust-devices/",
       "source": "lowRISC Newsroom",
-      "publishedAt": "2026-06-08T00:00:00.000Z",
-      "summary": "lowRISC and Realtek announced that Realtek has joined the OpenTitan project as a coalition partner and plans to use OpenTitan's platform-agnostic IP, firmware, ...",
+      "publishedAt": "2026-06-08",
+      "addedAt": "2026-06-08T00:00:00Z",
+      "summary": "lowRISC and Realtek announced that Realtek has joined the OpenTitan project as a coalition partner and plans to use OpenTitan's platform-agnostic IP, firmware, and verification collateral to develop discrete hardware root-of-trust devices for networking, telecom, and IoT products.",
       "author": "",
       "relevanceScore": 6,
       "tags": [
@@ -2365,8 +2432,9 @@
       "title": "Ainekko's CORE-ET edge AI silicon platform becomes an OpenHW Foundation project",
       "url": "https://www.globenewswire.com/news-release/2026/06/02/3305225/0/en/ainekko-s-edge-ai-silicon-platform-is-now-an-openhw-foundation-open-source-project.html",
       "source": "Ainekko / GlobeNewswire",
-      "publishedAt": "2026-06-02T13:00:00.000Z",
-      "summary": "Ainekko announced that its CORE-ET Silicon Platform has been accepted as an OpenHW Foundation project. The platform combines many-core 64-bit RISC-V compute, MR...",
+      "publishedAt": "2026-06-02",
+      "addedAt": "2026-06-02T13:00:00Z",
+      "summary": "Ainekko announced that its CORE-ET Silicon Platform has been accepted as an OpenHW Foundation project. The platform combines many-core 64-bit RISC-V compute, MRAM-based memory, a scalable NoC, an architecture emulator, and open tooling for low-power edge AI inference.",
       "author": "",
       "relevanceScore": 8,
       "tags": [
@@ -2390,8 +2458,9 @@
       "title": "Chisel v7.13.0 released with ChiselTest compatibility and FIRRTL 7 backend updates",
       "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.13.0",
       "source": "CHIPS Alliance / Chisel (GitHub)",
-      "publishedAt": "2026-06-01T20:37:33.000Z",
-      "summary": "Chisel v7.13.0 adds a ChiselTest compatibility layer for Chisel 7, debug intrinsics for Chisel type metadata, and bumps the FIRRTL backend to 7.0.0 while carryi...",
+      "publishedAt": "2026-06-01",
+      "addedAt": "2026-06-01T20:37:33Z",
+      "summary": "Chisel v7.13.0 adds a ChiselTest compatibility layer for Chisel 7, debug intrinsics for Chisel type metadata, and bumps the FIRRTL backend to 7.0.0 while carrying several core fixes and documentation updates.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -2413,8 +2482,9 @@
       "title": "Yosys 0.66 released with Lattice Nexus DSP inference and GateMate synthesis updates",
       "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.66",
       "source": "YosysHQ / Yosys (GitHub)",
-      "publishedAt": "2026-06-01T16:22:15.000Z",
-      "summary": "Yosys 0.66 adds the lattice_dsp_nexus pass for Lattice Nexus DSP inference, extends synth_gatemate with a scopename option propagated to flatten, and moves the ...",
+      "publishedAt": "2026-06-01",
+      "addedAt": "2026-06-01T16:22:15Z",
+      "summary": "Yosys 0.66 adds the lattice_dsp_nexus pass for Lattice Nexus DSP inference, extends synth_gatemate with a scopename option propagated to flatten, and moves the project baseline toward C++20 with a future CMake migration planned.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -2436,8 +2506,9 @@
       "title": "Fraunhofer AISEC joins OpenHW Foundation to advance secure CVA6/OpenTitan platforms",
       "url": "https://www.aisec.fraunhofer.de/en/media/press-releases/2026/FraunhoferAISEC-joins-OpenHW-Foundation.html",
       "source": "Fraunhofer AISEC",
-      "publishedAt": "2026-06-01T21:30:00.000Z",
-      "summary": "Fraunhofer AISEC joined the OpenHW Foundation and described work on a secure SoC built around the RISC-V CVA6 core and OpenTitan root-of-trust platform, with Gy...",
+      "publishedAt": "",
+      "addedAt": "2026-06-01T21:30:00Z",
+      "summary": "Fraunhofer AISEC joined the OpenHW Foundation and described work on a secure SoC built around the RISC-V CVA6 core and OpenTitan root-of-trust platform, with GyroidOS already running on a CVA6 FPGA reference platform.",
       "author": "",
       "relevanceScore": 16,
       "tags": [
@@ -2460,8 +2531,9 @@
       "title": "OpenTitan details its pre-silicon security simulation and verification flow",
       "url": "https://lowrisc.org/news/opentitans-pre-silicon-security-simulation-and-verification/",
       "source": "lowRISC Newsroom",
-      "publishedAt": "2026-05-27T00:00:00.000Z",
-      "summary": "lowRISC outlined how OpenTitan validates side-channel and fault-injection countermeasures before tape-out, combining open-source tooling such as CocoAlma and PR...",
+      "publishedAt": "2026-05-27",
+      "addedAt": "2026-05-27T00:00:00Z",
+      "summary": "lowRISC outlined how OpenTitan validates side-channel and fault-injection countermeasures before tape-out, combining open-source tooling such as CocoAlma and PROLEAD with formal and simulation-based flows to catch vulnerabilities earlier in the security lifecycle.",
       "author": "",
       "relevanceScore": 8,
       "tags": [
@@ -2484,8 +2556,9 @@
       "title": "Antmicro brings IEEE-compliant force/release statement support to Verilator",
       "url": "https://antmicro.com/blog/2026/05/force-release-statement-support-in-verilator",
       "source": "Antmicro Blog",
-      "publishedAt": "2026-05-20T00:00:00.000Z",
-      "summary": "Antmicro detailed a runtime force-tracking implementation for Verilator that supports conditional and overlapping SystemVerilog force/release statements more cl...",
+      "publishedAt": "2026-05-20",
+      "addedAt": "2026-05-20T00:00:00Z",
+      "summary": "Antmicro detailed a runtime force-tracking implementation for Verilator that supports conditional and overlapping SystemVerilog force/release statements more closely aligned with IEEE 1800-2023, with the work included in Verilator 5.048.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -2508,8 +2581,9 @@
       "title": "Real Intent joins OpenTitan as tools partner for static sign-off and verification",
       "url": "https://lowrisc.org/news/real-intent-joins-opentitan-as-tools-partner-to-strengthen-open-source-silicon-sign-off-and-verification/",
       "source": "lowRISC Newsroom",
-      "publishedAt": "2026-05-18T09:00:00.000Z",
-      "summary": "lowRISC announced that Real Intent has joined the OpenTitan coalition as an official tools partner, adding access to static sign-off tools for hardware security...",
+      "publishedAt": "2026-05-18",
+      "addedAt": "2026-05-18T09:00:00Z",
+      "summary": "lowRISC announced that Real Intent has joined the OpenTitan coalition as an official tools partner, adding access to static sign-off tools for hardware security, linting, clock-domain crossing, and reset-domain crossing checks.",
       "author": "",
       "relevanceScore": 6,
       "tags": [
@@ -2532,8 +2606,9 @@
       "title": "Cadence joins OpenTitan as a tools partner for open-source silicon security",
       "url": "https://lowrisc.org/news/cadence-joins-opentitan-as-a-tools-partner-to-accelerate-open-source-silicon-security/",
       "source": "lowRISC Newsroom",
-      "publishedAt": "2026-05-14T08:50:25.000Z",
-      "summary": "lowRISC announced that Cadence has joined the OpenTitan coalition as an official tools partner, bringing enterprise EDA support across verification, formal anal...",
+      "publishedAt": "2026-05-14",
+      "addedAt": "2026-05-14T08:50:25Z",
+      "summary": "lowRISC announced that Cadence has joined the OpenTitan coalition as an official tools partner, bringing enterprise EDA support across verification, formal analysis, synthesis, and physical implementation for OpenTitan designs.",
       "author": "",
       "relevanceScore": 8,
       "tags": [
@@ -2555,8 +2630,9 @@
       "title": "RISC-V International launches a single library for ratified specifications",
       "url": "https://riscv.org/blog/ratified-specifications-library/",
       "source": "RISC-V International",
-      "publishedAt": "2026-05-07T16:22:00.000Z",
-      "summary": "RISC-V International introduced the Ratified Specifications Library, a consolidated site for ratified RISC-V specifications in HTML and PDF formats, designed to...",
+      "publishedAt": "2026-05-07",
+      "addedAt": "2026-05-07T16:22:00Z",
+      "summary": "RISC-V International introduced the Ratified Specifications Library, a consolidated site for ratified RISC-V specifications in HTML and PDF formats, designed to replace scattered repository and draft-page discovery paths.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -2576,8 +2652,9 @@
       "title": "RISC-V International highlights a performance-model-driven superscalar CVA6 effort",
       "url": "https://riscv.org/blog/using-a-performance-model-to-implement-a-superscalar-cva6/",
       "source": "RISC-V International",
-      "publishedAt": "2026-03-24T11:01:06.000Z",
-      "summary": "RISC-V International featured Thales' work on a cycle-based Python performance model for CVA6, used to guide a dual-issue CVA6 implementation and improve CoreMa...",
+      "publishedAt": "2026-03-24",
+      "addedAt": "2026-03-24T11:01:06Z",
+      "summary": "RISC-V International featured Thales' work on a cycle-based Python performance model for CVA6, used to guide a dual-issue CVA6 implementation and improve CoreMark/MHz with modest power and area overhead.",
       "author": "",
       "relevanceScore": 7,
       "tags": [
@@ -2598,8 +2675,9 @@
       "title": "Yosys 0.65 released with arithmetic tree and Verilog frontend updates",
       "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.65",
       "source": "YosysHQ (GitHub)",
-      "publishedAt": "2026-05-12T10:30:49.000Z",
-      "summary": "Yosys 0.65 adds an arith_tree pass for converting add/sub/macc chains to carry-save adder trees, removes the share -force option, and improves read_verilog supp...",
+      "publishedAt": "2026-05-12",
+      "addedAt": "2026-05-12T10:30:49Z",
+      "summary": "Yosys 0.65 adds an arith_tree pass for converting add/sub/macc chains to carry-save adder trees, removes the share -force option, and improves read_verilog support for positional assignment patterns for unpacked arrays.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -2620,8 +2698,9 @@
       "title": "CIRCT firtool-1.149.0 adds lower-to-core FIRRTL printing, SimToSV fixes, and broader ESI runtime support",
       "url": "https://github.com/llvm/circt/releases/tag/firtool-1.149.0",
       "source": "LLVM / CIRCT (GitHub)",
-      "publishedAt": "2026-05-30T02:17:10.000Z",
-      "summary": "The latest CIRCT firtool release adds lower-to-core support for firrtl.fprintf, several SimToSV lowering fixes, larger-than-64-bit integral support in the ESI r...",
+      "publishedAt": "2026-05-30",
+      "addedAt": "2026-05-30T02:17:10Z",
+      "summary": "The latest CIRCT firtool release adds lower-to-core support for firrtl.fprintf, several SimToSV lowering fixes, larger-than-64-bit integral support in the ESI runtime, Windows cosim improvements, and new synthesis and equivalence-checking updates.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -2643,8 +2722,9 @@
       "title": "OpenTitan publishes its physical security testing framework for pre- and post-silicon validation",
       "url": "https://lowrisc.org/news/opentitans-physical-security-testing-framework/",
       "source": "lowRISC Newsroom",
-      "publishedAt": "2026-04-23T00:00:00.000Z",
-      "summary": "lowRISC detailed OpenTitan's open physical security testing framework, which coordinates side-channel and fault-injection evaluation from FPGA-based pre-silicon...",
+      "publishedAt": "2026-04-23",
+      "addedAt": "2026-04-23T00:00:00Z",
+      "summary": "lowRISC detailed OpenTitan's open physical security testing framework, which coordinates side-channel and fault-injection evaluation from FPGA-based pre-silicon analysis through post-silicon certification and is wired into CI to catch regressions in the security validation flow.",
       "author": "",
       "relevanceScore": 8,
       "tags": [
@@ -2667,8 +2747,9 @@
       "title": "Antmicro adds a genetic-algorithm resynthesis path to OpenROAD",
       "url": "https://antmicro.com/blog/2026/05/genetic-algorithm-in-openroad",
       "source": "Antmicro Blog",
-      "publishedAt": "2026-05-07T00:00:00.000Z",
-      "summary": "Antmicro described a genetic-algorithm-based local resynthesis strategy for OpenROAD that complements simulated annealing, exposing tunable search parameters an...",
+      "publishedAt": "2026-05-07",
+      "addedAt": "2026-05-07T00:00:00Z",
+      "summary": "Antmicro described a genetic-algorithm-based local resynthesis strategy for OpenROAD that complements simulated annealing, exposing tunable search parameters and showing cases where targeted tuning improves timing and power on selected OpenROAD-flow-scripts designs.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -2687,34 +2768,12 @@
       "summaryZh": "Antmicro 介绍了面向 OpenROAD 的 genetic algorithm 本地重综合策略，作为 simulated annealing 的补充；该方法开放可调搜索参数，并展示了在部分 OpenROAD-flow-scripts 设计上通过定向调参改善时序与功耗的案例。"
     },
     {
-      "title": "Antmicro reaches an initial four-state logic milestone in Verilator",
-      "url": "https://antmicro.com/blog/2026/04/initial-support-for-four-state-logic-in-verilator",
-      "source": "Antmicro Blog",
-      "publishedAt": "2026-04-30T00:00:00.000Z",
-      "summary": "Antmicro outlined an experimental four-state logic implementation for Verilator under a --fourstate flag, using paired two-state variables internally so open-so...",
-      "author": "",
-      "relevanceScore": 5,
-      "tags": [
-        "Antmicro",
-        "Verilator",
-        "SystemVerilog",
-        "Verification",
-        "Simulation",
-        "EDA"
-      ],
-      "language": "en",
-      "sourceTier": "trusted",
-      "reviewStatus": "curated",
-      "curated": true,
-      "titleZh": "Antmicro 推进 Verilator 四值逻辑支持，达到初始里程碑",
-      "summaryZh": "Antmicro 介绍了 Verilator 中实验性的四值逻辑实现：通过 `--fourstate` 开关启用，并在内部使用成对的二值变量表示，从而帮助开源 ASIC 与 FPGA 团队更好地调试 X、Z 行为。"
-    },
-    {
       "title": "OCP expands its open data center ecosystem for AI with new cluster, networking, and chiplet contributions",
       "url": "https://www.opencompute.org/blog/delivering-an-open-data-center-ecosystem-for-ai",
       "source": "Open Compute Project",
-      "publishedAt": "2026-04-29T00:00:00.000Z",
-      "summary": "OCP announced newly approved AI infrastructure contributions spanning Open Rack Wide, Ethernet-based AI cluster reference architectures, facility power and tele...",
+      "publishedAt": "",
+      "addedAt": "2026-04-29T00:00:00Z",
+      "summary": "OCP announced newly approved AI infrastructure contributions spanning Open Rack Wide, Ethernet-based AI cluster reference architectures, facility power and telemetry work, and the Foundation Chiplet System Architecture, extending its open 'chip to grid' roadmap for AI deployments.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -2736,8 +2795,9 @@
       "title": "MLCommons Chakra expands its standardized trace ecosystem for AI systems co-design",
       "url": "https://mlcommons.org/2026/06/chakra-comes-of-age/",
       "source": "MLCommons",
-      "publishedAt": "2026-06-02T00:00:00.000Z",
-      "summary": "MLCommons reported that Chakra has grown into a 40-plus-member effort with execution-trace support in PyTorch, NVIDIA NeMo, vLLM, ASTRA-sim, and commercial simu...",
+      "publishedAt": "2026-06-02",
+      "addedAt": "2026-06-02T00:00:00Z",
+      "summary": "MLCommons reported that Chakra has grown into a 40-plus-member effort with execution-trace support in PyTorch, NVIDIA NeMo, vLLM, ASTRA-sim, and commercial simulators, giving AI hardware and infrastructure teams a more portable way to benchmark and co-design training and inference systems.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -2759,8 +2819,9 @@
       "title": "Apache TVM v0.24.0 ships compiler, runtime, and CI modernization updates",
       "url": "https://github.com/apache/tvm/releases/tag/v0.24.0",
       "source": "Apache TVM (GitHub)",
-      "publishedAt": "2026-05-09T01:20:00.000Z",
-      "summary": "Apache TVM v0.24.0 bundles broad fixes across code generation and runtime backends while adding fresh architecture documentation and modernizing developer workf...",
+      "publishedAt": "2026-05-09",
+      "addedAt": "2026-05-09T01:20:00Z",
+      "summary": "Apache TVM v0.24.0 bundles broad fixes across code generation and runtime backends while adding fresh architecture documentation and modernizing developer workflows with uv-based Python dependency management and a GitHub Actions lint path.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -2782,8 +2843,9 @@
       "title": "MLCommons adds GPT-OSS 20B as a sparse MoE pretraining benchmark for MLPerf Training v6.0",
       "url": "https://mlcommons.org/2026/05/gpt-oss-moe-training6/",
       "source": "MLCommons",
-      "publishedAt": "2026-05-07T13:23:00.000Z",
-      "summary": "MLCommons described GPT-OSS 20B, a sparse Mixture-of-Experts pretraining benchmark for MLPerf Training v6.0 designed to run on a single 8-GPU node while testing...",
+      "publishedAt": "2026-05-07",
+      "addedAt": "2026-05-07T13:23:00Z",
+      "summary": "MLCommons described GPT-OSS 20B, a sparse Mixture-of-Experts pretraining benchmark for MLPerf Training v6.0 designed to run on a single 8-GPU node while testing MoE routing, sparse computation, and hardware/software training efficiency.",
       "author": "",
       "relevanceScore": 6,
       "tags": [
@@ -2807,8 +2869,9 @@
       "title": "Antmicro adds Renode support for RISC-V Andes D25F-based ChromiumOS FPMCU testing",
       "url": "https://antmicro.com/blog/2026/05/andes-d25f-based-egis-et171-in-renode",
       "source": "Antmicro Blog",
-      "publishedAt": "2026-05-05T00:00:00.000Z",
-      "summary": "Antmicro expanded simulation-based testing for Google's ChromiumOS fingerprint firmware module by adding Renode support for an Egis ET171 platform based on the ...",
+      "publishedAt": "2026-05-05",
+      "addedAt": "2026-05-05T00:00:00Z",
+      "summary": "Antmicro expanded simulation-based testing for Google's ChromiumOS fingerprint firmware module by adding Renode support for an Egis ET171 platform based on the RISC-V Andes D25F core and Zephyr RTOS.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -2830,8 +2893,9 @@
       "title": "FOSSi publishes Mike Thompson's Latch-Up talk on RISC-V in space",
       "url": "https://www.youtube.com/watch?v=xzqlF32zJe0",
       "source": "FOSSi Foundation / Latch-Up 2026",
-      "publishedAt": "2026-05-03T00:00:00.000Z",
-      "summary": "FOSSi published Mike Thompson's Latch-Up 2026 talk, \"RISC-V in Space (The Canadian version)\". The talk describes a Canadian effort with the University of Saskat...",
+      "publishedAt": "2026-05-03",
+      "addedAt": "2026-05-03T00:00:00Z",
+      "summary": "FOSSi published Mike Thompson's Latch-Up 2026 talk, \"RISC-V in Space (The Canadian version)\". The talk describes a Canadian effort with the University of Saskatchewan and collaborators to fabricate an open-source RISC-V chip, radiation-harden the design, and build a space-ready chip; the MCU is based on OpenHW Foundation's CV32E40P.",
       "author": "",
       "relevanceScore": 13,
       "tags": [
@@ -2853,8 +2917,9 @@
       "title": "Gemmini v0.7.1 adds rectangular convolutions and new Timeloop configurations",
       "url": "https://github.com/ucb-bar/gemmini/releases/tag/v0.7.1",
       "source": "UC Berkeley / Gemmini (GitHub)",
-      "publishedAt": "2023-05-22T23:35:24.000Z",
-      "summary": "Gemmini v0.7.1 is an incremental accelerator release that adds rectangular convolution support, ships new Timeloop configurations, improves area for runtime-con...",
+      "publishedAt": "2023-05-22",
+      "addedAt": "2023-05-22T23:35:24Z",
+      "summary": "Gemmini v0.7.1 is an incremental accelerator release that adds rectangular convolution support, ships new Timeloop configurations, improves area for runtime-configurable dataflows, and speeds up build and elaboration time.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -2876,8 +2941,9 @@
       "title": "Docker on RISC-V reaches near-release parity in six days with native RISC-V64 builds",
       "url": "https://riscv.org/blog/docker-on-risc-v-from-release-to-production-in-6-days/",
       "source": "RISC-V International",
-      "publishedAt": "2026-04-28T00:00:00.000Z",
-      "summary": "RISC-V International highlighted a community pipeline that brought Docker v29 to RISC-V64 within six days of release using native RISC-V hardware builds for Doc...",
+      "publishedAt": "2026-04-28",
+      "addedAt": "2026-04-28T00:00:00Z",
+      "summary": "RISC-V International highlighted a community pipeline that brought Docker v29 to RISC-V64 within six days of release using native RISC-V hardware builds for Docker Engine, CLI, Compose, and Buildx.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -2899,8 +2965,9 @@
       "title": "OpenHW publishes CV32A60X 6.0.0 configuration release for TRL5 work",
       "url": "https://github.com/openhwgroup/cva6/releases/tag/cv32a60x-v6.0.0",
       "source": "OpenHW / CVA6 (GitHub)",
-      "publishedAt": "2025-04-23T13:49:12.000Z",
-      "summary": "The OpenHW CVA6 repository published CV32A60X 6.0.0 as a dedicated configuration release, adding an OBI-based pipeline hierarchy, removing caches and PMP entrie...",
+      "publishedAt": "2025-04-23",
+      "addedAt": "2025-04-23T13:49:12Z",
+      "summary": "The OpenHW CVA6 repository published CV32A60X 6.0.0 as a dedicated configuration release, adding an OBI-based pipeline hierarchy, removing caches and PMP entries, and improving coverage, lint results, and configuration documentation.",
       "author": "",
       "relevanceScore": 8,
       "tags": [
@@ -2922,8 +2989,9 @@
       "title": "RISC-V Architecture Tests 4.0.0 released",
       "url": "https://github.com/riscv/riscv-arch-test/releases/tag/4.0.0",
       "source": "RISC-V Architecture Tests (GitHub)",
-      "publishedAt": "2026-04-16T17:21:16.000Z",
-      "summary": "ACT 4.0 is a major update to the RISC-V Architecture Certification Test suite, replacing the older riscof/riscv-ctg/riscv-isac/riscv-config flow with a new Pyth...",
+      "publishedAt": "2026-04-16",
+      "addedAt": "2026-04-16T17:21:16Z",
+      "summary": "ACT 4.0 is a major update to the RISC-V Architecture Certification Test suite, replacing the older riscof/riscv-ctg/riscv-isac/riscv-config flow with a new Python-based flow.",
       "author": "",
       "relevanceScore": 6,
       "tags": [
@@ -2943,8 +3011,9 @@
       "title": "MLPerf Inference v6.0 expands GPT-OSS and DeepSeek-R1 LLM benchmarks",
       "url": "https://mlcommons.org/2026/03/mlperf-inference-gpt-oss/",
       "source": "MLCommons",
-      "publishedAt": "2026-03-24T00:00:00.000Z",
-      "summary": "MLCommons detailed new MLPerf Inference v6.0 workloads for GPT-OSS 120B and a latency-constrained DeepSeek-R1 interactive scenario, including speculative decodi...",
+      "publishedAt": "2026-03-24",
+      "addedAt": "2026-03-24T00:00:00Z",
+      "summary": "MLCommons detailed new MLPerf Inference v6.0 workloads for GPT-OSS 120B and a latency-constrained DeepSeek-R1 interactive scenario, including speculative decoding requirements and reference implementation links.",
       "author": "",
       "relevanceScore": 6,
       "tags": [
@@ -2966,8 +3035,9 @@
       "title": "Antmicro implements dual-core lockstep support for CHIPS Alliance VeeR EL2",
       "url": "https://antmicro.com/blog/2026/04/dual-core-lockstep-in-veer-el2",
       "source": "Antmicro Blog",
-      "publishedAt": "2026-04-13T00:00:00.000Z",
-      "summary": "Antmicro described an optional dual-core lockstep feature for VeeR EL2, including shadow-core behavior, multibit control encoding, error reporting, and cocotb/P...",
+      "publishedAt": "2026-04-13",
+      "addedAt": "2026-04-13T00:00:00Z",
+      "summary": "Antmicro described an optional dual-core lockstep feature for VeeR EL2, including shadow-core behavior, multibit control encoding, error reporting, and cocotb/PyUVM-based verification.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -2989,8 +3059,9 @@
       "title": "OCP introduces Foundation Chiplet System Architecture for open chiplet interoperability",
       "url": "https://www.opencompute.org/blog/building-the-foundation-for-an-open-chiplet-future-foundation-chiplet-system-architecture-fcsa",
       "source": "Open Compute Project",
-      "publishedAt": "2026-04-08T00:00:00.000Z",
-      "summary": "OCP described Foundation Chiplet System Architecture as a CPU-architecture-neutral framework for chiplet systems, defining common chiplet classes and hardware/f...",
+      "publishedAt": "",
+      "addedAt": "2026-04-08T00:00:00Z",
+      "summary": "OCP described Foundation Chiplet System Architecture as a CPU-architecture-neutral framework for chiplet systems, defining common chiplet classes and hardware/fabric-level interface expectations under the Open Chiplet Economy initiative.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -3011,8 +3082,9 @@
       "title": "CHIPS Alliance launches the SV Tools Project for SystemVerilog/UVM codebases",
       "url": "https://www.chipsalliance.org/news/sv-tools-project-launch/",
       "source": "CHIPS Alliance",
-      "publishedAt": "2026-03-30T00:00:00.000Z",
-      "summary": "CHIPS Alliance introduced the SV Tools Project to improve visibility and support for open-source SystemVerilog and UVM tooling, including sv-tests, Verible, Syn...",
+      "publishedAt": "2026-03-30",
+      "addedAt": "2026-03-30T00:00:00Z",
+      "summary": "CHIPS Alliance introduced the SV Tools Project to improve visibility and support for open-source SystemVerilog and UVM tooling, including sv-tests, Verible, Synlig, and RISCV-DV.",
       "author": "",
       "relevanceScore": 6,
       "tags": [
@@ -3033,8 +3105,9 @@
       "title": "Caliptra RTL v2.1.2 patch release published",
       "url": "https://github.com/chipsalliance/caliptra-rtl/releases/tag/v2.1.2",
       "source": "CHIPS Alliance / Caliptra (GitHub)",
-      "publishedAt": "2026-03-19T22:26:10.000Z",
-      "summary": "Caliptra RTL v2.1.2 is a patch release for Caliptra 2.1 RTL, including AES countermeasure and Key Vault hardening plus a future-use ML-KEM Key Vault endianness ...",
+      "publishedAt": "2026-03-19",
+      "addedAt": "2026-03-19T22:26:10Z",
+      "summary": "Caliptra RTL v2.1.2 is a patch release for Caliptra 2.1 RTL, including AES countermeasure and Key Vault hardening plus a future-use ML-KEM Key Vault endianness fix.",
       "author": "",
       "relevanceScore": 5,
       "tags": [
@@ -3054,8 +3127,9 @@
       "title": "OpenHW Foundation launches Unified RISC-V IP Access Platform under TRISTAN",
       "url": "https://www.globenewswire.com/news-release/2026/01/26/3225340/0/en/The-OpenHW-Foundation-unveils-the-first-industry-ready-RISC-V-ecosystem-to-advance-European-digital-sovereignty.html",
       "source": "OpenHW Foundation / Eclipse Foundation Canada",
-      "publishedAt": "2026-01-26T10:00:00.000Z",
-      "summary": "OpenHW announced the Unified RISC-V IP Access Platform as part of TRISTAN, positioning it as a unified source for verified, industry-ready RISC-V components and...",
+      "publishedAt": "2026-01-26",
+      "addedAt": "2026-01-26T10:00:00Z",
+      "summary": "OpenHW announced the Unified RISC-V IP Access Platform as part of TRISTAN, positioning it as a unified source for verified, industry-ready RISC-V components and related open-source artifacts.",
       "author": "",
       "relevanceScore": 7,
       "tags": [
@@ -3076,8 +3150,9 @@
       "title": "CHIPS Alliance details modular RISC-V SoC design with Topwrap and Guineveer",
       "url": "https://www.chipsalliance.org/news/designing-modular-and-reusable-risc-v-socs-with-topwrap-and-guineveer/",
       "source": "CHIPS Alliance",
-      "publishedAt": "2026-03-18T00:00:00.000Z",
-      "summary": "CHIPS Alliance described an open digital design flow using Topwrap and Guineveer, a RISC-V reference SoC based on the VeeR EL2 core, for modular and reusable So...",
+      "publishedAt": "2026-03-18",
+      "addedAt": "2026-03-18T00:00:00Z",
+      "summary": "CHIPS Alliance described an open digital design flow using Topwrap and Guineveer, a RISC-V reference SoC based on the VeeR EL2 core, for modular and reusable SoC construction.",
       "author": "",
       "relevanceScore": 6,
       "tags": [

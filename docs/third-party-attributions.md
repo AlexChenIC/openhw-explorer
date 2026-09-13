@@ -157,7 +157,33 @@ Fallback logo sources:
 
 Espressif's logo is a trademark of Espressif Systems (Shanghai) Co., Ltd. The cached mark follows the official primary-logo guidance at https://www.espressif.com/en/about-espressif/logo-guidelines.
 
-## OpenHW Foundations Classroom
+## Current OpenHW Essentials Courses
+
+The published catalog contains two bilingual courses: **How to read CORE-V core names** and **What is the OpenHW Foundation?** These use rewritten explanations and original diagrams; copying a source slide image is not authorized merely by linking to it.
+
+### What is the OpenHW Foundation?
+
+Adapted in part from **OpenHW Foundation RISC-V Cores: Empowering the Hardware Revolution**, Florian Wohlrab, Eclipse Foundation, 2025, licensed under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The production rights record identifies slides 3-8, 16-20 and 22-24 of the September 2025 collaboration deck.
+
+Changes by Alex Chen / OpenHW Explorer: shortened and reorganized teaching structure, bilingual adaptation, updated factual context, original diagrams, interaction and quiz. No endorsement by the original author or the Foundation is implied. The source's CC BY permissions remain applicable to adapted material and are not narrowed by this site's original-content terms.
+
+Other 2025 introductory material was used for research only, not copied as slide images. Drive locations are not published without confirmation that they are intended for public access.
+
+### How to read CORE-V core names
+
+Historical CORE-V naming slides and the 2022 Paris naming presentation inform the distinction between family names and core/configuration identifiers. Their original slide artwork is not redistributed. Current claims are linked in each course scene to the CORE-V catalog, CVE2/CV32E40 manuals, CVA6 documentation and the [RISC-V ISA introduction](https://docs.riscv.org/reference/isa/v20240411/unpriv/intro.html).
+
+The September 2026 correction distinguishes XLEN from ILEN in both languages, the interactive examples and the quiz. Some upstream naming figures use ILEN as a field label; they are not used as the ISA definition of integer-register width.
+
+### Narration and build provenance
+
+These lessons use synthetic narration. The CORE-V names correction uses Qwen3-TTS MLX Aiden for English and CosyVoice3 0.5B-2512 with the existing synthetic lecturer reference for Chinese. No human voice was cloned for this correction. Model/software licenses are separate from script copyright and third-party teaching-material rights.
+
+Public package hashes and correction provenance are recorded in [course-release-20260913.json](course-release-20260913.json). This release regenerates the rules and quiz clips in each language; unchanged clips and the Foundation course are not represented as newly regenerated or newly listened to.
+
+## Retired Prototype Archive (Not Published)
+
+As of 2026-09-13, the three old prototype language packages, their routes and their cached media are excluded from the public site. The following attribution history is retained for the local source archive; it does not assert a redistribution license for the old slide extracts.
 
 The prototype classroom `openhw-overview-industrial-adoption-en` is based on two OpenHW Group presentation decks retained in the editorial source archive. Each in-course source anchor records the exact local filename and slide page. Stable public PDF download URLs could not be confirmed during the 2026-07-11 review, so the classroom does not invent direct deck URLs. Each anchor instead links to a claim-specific public first-party source, such as the OpenHW project catalogue, CORE-V roadmap, CVA6 Platform repository, CORE-V Verification repository, CORE-V DevKit page, Solderpad license text, or the relevant public event context.
 

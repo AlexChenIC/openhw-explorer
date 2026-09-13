@@ -6,7 +6,7 @@
     "name": "How to read CORE-V core names",
     "description": "A technical microcourse on CORE-V family labels, part numbers, configurations, and machine-readable identities.",
     "createdAt": 1785758400000,
-    "updatedAt": 1787304820453,
+    "updatedAt": 1785758400000,
     "language": "en-US",
     "style": "openhw-signal-technical",
     "courseTemplateId": "openhw-essentials-microcourse",
@@ -56,7 +56,7 @@
             "title": "CVA6 documentation: CORE-V nomenclature",
             "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
             "locator": "CORE-V Nomenclature",
-            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
+            "claimSupported": "CVA6 documents derived core-name fields and a CV32A65X design. Its naming figure labels the width field ILEN; this course distinguishes that notation from the ISA definitions of XLEN and ILEN."
           },
           {
             "id": "cv32e20-current-specification",
@@ -81,7 +81,8 @@
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-core-v-names-title-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-title-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-title-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-title-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,
@@ -150,7 +151,7 @@
             "title": "CVA6 documentation: CORE-V nomenclature",
             "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
             "locator": "CORE-V Nomenclature",
-            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
+            "claimSupported": "CVA6 documents derived core-name fields and a CV32A65X design. Its naming figure labels the width field ILEN; this course distinguishes that notation from the ISA definitions of XLEN and ILEN."
           }
         ],
         "speakerNotes": "Start by identifying the object level. CVE2 is both a compact family label and the repository that hosts the RTL. Its current named processor is CV32E20. CVE4 is a family grouping for several four-stage cores, but CV32E40P, CV32E40X, and CV32E40S live in separate repositories. CVA6 is a heavily parameterized repository for several 32- and 64-bit cores. The longer part number narrows the implementation, but a release tag and configuration table narrow it further."
@@ -168,7 +169,8 @@
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-core-v-names-evidence-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-evidence-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-evidence-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-evidence-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,
@@ -218,9 +220,9 @@
             },
             {
               "context": "Current CVA6 documentation",
-              "pattern": "CV | ILEN | class | pipeline stages | product ID",
+              "pattern": "CV | architecture width (XLEN) | class | stages | product ID",
               "example": "CV | 64 | A | 6 | 0",
-              "engineeringUse": "Authority for names derived from the CVA6 repository."
+              "engineeringUse": "Width notation clarified against the ISA specification."
             },
             {
               "context": "Current portfolio catalog",
@@ -229,8 +231,8 @@
               "engineeringUse": "Maps the part number to the code and manual that define it."
             }
           ],
-          "note": "Digits such as 2, 4, 5 and 6 often expose pipeline depth, but suffix semantics remain project-specific.",
-          "narration": "The original OpenHW naming deck used five fields: family, word length, class, identity, and an optional modifier. There the identity combined pipeline length with a product feature number. Current CVA6 documentation publishes a related but clearer pattern: C V, instruction length, class, pipeline stages, and product identifier. Both help parse names, but neither applies blindly to every current repository. The current manual remains authoritative."
+          "note": "Some naming figures use ILEN for this field. Here 32/64 means register width (XLEN), not instruction length.",
+          "narration": "The historical naming deck used family, word length, class, identity, and an optional modifier. Current CVA6 documentation separates pipeline stages from the product identifier. Be careful with its width notation: although the naming figure uses ILEN, the 32 or 64 in these names identifies the integer-register width, called XLEN in the RISC-V specification. It does not give the length of each instruction. RV64 uses 32-bit base instruction encodings and may also support 16-bit compressed instructions. The ISA term ILEN instead describes the maximum instruction length supported by an implementation."
         },
         "assets": [],
         "sourceAnchors": [
@@ -252,7 +254,7 @@
             "title": "CVA6 documentation: CORE-V nomenclature",
             "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
             "locator": "CORE-V Nomenclature",
-            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
+            "claimSupported": "CVA6 documents derived core-name fields and a CV32A65X design. Its naming figure labels the width field ILEN; this course distinguishes that notation from the ISA definitions of XLEN and ILEN."
           },
           {
             "id": "core-v-cores-current-catalog",
@@ -260,25 +262,34 @@
             "url": "https://github.com/openhwgroup/core-v-cores",
             "locator": "CORE-V Repositories; CORE-V Core Names and Releases",
             "claimSupported": "Current family groupings, representative core characteristics, and the role of mvendorid, marchid, and mimpid."
+          },
+          {
+            "id": "riscv-isa-widths",
+            "title": "RISC-V ISA: register width and instruction length",
+            "url": "https://docs.riscv.org/reference/isa/v20240411/unpriv/intro.html",
+            "locator": "RISC-V ISA Overview; Base Instruction-Length Encoding",
+            "claimSupported": "XLEN is integer-register width. ILEN is maximum instruction length; RV32/RV64 are not instruction encoding lengths."
           }
         ],
-        "speakerNotes": "The original OpenHW naming deck used five fields: family, word length, class, identity, and an optional modifier. There the identity combined pipeline length with a product feature number. Current CVA6 documentation publishes a related but clearer pattern: C V, instruction length, class, pipeline stages, and product identifier. Both help parse names, but neither applies blindly to every current repository. The current manual remains authoritative."
+        "speakerNotes": "The historical naming deck used family, word length, class, identity, and an optional modifier. Current CVA6 documentation separates pipeline stages from the product identifier. Be careful with its width notation: although the naming figure uses ILEN, the 32 or 64 in these names identifies the integer-register width, called XLEN in the RISC-V specification. It does not give the length of each instruction. RV64 uses 32-bit base instruction encodings and may also support 16-bit compressed instructions. The ISA term ILEN instead describes the maximum instruction length supported by an implementation."
       },
       "sourceAnchors": [
         "core-v-historical-naming",
         "core-v-historical-core-names-deck",
         "cva6-current-nomenclature",
-        "core-v-cores-current-catalog"
+        "core-v-cores-current-catalog",
+        "riscv-isa-widths"
       ],
       "actions": [
         {
           "id": "scene-core-v-names-rules-speech",
           "type": "speech",
-          "text": "The original OpenHW naming deck used five fields: family, word length, class, identity, and an optional modifier. There the identity combined pipeline length with a product feature number. Current CVA6 documentation publishes a related but clearer pattern: C V, instruction length, class, pipeline stages, and product identifier. Both help parse names, but neither applies blindly to every current repository. The current manual remains authoritative.",
+          "text": "The historical naming deck used family, word length, class, identity, and an optional modifier. Current CVA6 documentation separates pipeline stages from the product identifier. Be careful with its width notation: although the naming figure uses ILEN, the 32 or 64 in these names identifies the integer-register width, called XLEN in the RISC-V specification. It does not give the length of each instruction. RV64 uses 32-bit base instruction encodings and may also support 16-bit compressed instructions. The ISA term ILEN instead describes the maximum instruction length supported by an implementation.",
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-core-v-names-rules-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-rules-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-rules-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-rules-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,
@@ -357,7 +368,8 @@
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-core-v-names-project-vs-product-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-project-vs-product-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-project-vs-product-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-project-vs-product-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,
@@ -468,7 +480,8 @@
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-core-v-names-examples-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-examples-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-examples-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-examples-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,
@@ -530,7 +543,7 @@
             "title": "CVA6 documentation: CORE-V nomenclature",
             "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
             "locator": "CORE-V Nomenclature",
-            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
+            "claimSupported": "CVA6 documents derived core-name fields and a CV32A65X design. Its naming figure labels the width field ILEN; this course distinguishes that notation from the ISA definitions of XLEN and ILEN."
           },
           {
             "id": "cva6-current-configurations",
@@ -563,7 +576,8 @@
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-core-v-names-limits-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-limits-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-limits-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-limits-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,
@@ -578,7 +592,7 @@
       "content": {
         "type": "interactive",
         "url": "",
-        "html": "<!doctype html>\n<html lang=\"en-US\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Select a core, then inspect each field</title>\n  <style>\n    :root { color-scheme: dark; --ink:#eef6ff; --muted:#9eb0c7; --line:#29405d; --panel:#101c2d; --panel2:#15253a; --blue:#5aa9ff; --cyan:#51d4c7; --gold:#f0bd5a; --bg:#07111f; }\n    * { box-sizing:border-box; }\n    html, body { width:100%; height:100%; margin:0; overflow:hidden; background:var(--bg); color:var(--ink); font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,\"PingFang SC\",\"Microsoft YaHei\",Arial,sans-serif; }\n    body { background-image:linear-gradient(rgba(81,212,199,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(81,212,199,.055) 1px,transparent 1px); background-size:34px 34px; }\n    main { width:100%; height:100%; display:grid; grid-template-rows:auto auto 1fr auto; gap:16px; padding:clamp(20px,3.5vw,42px); }\n    header { border-bottom:1px solid var(--line); padding-bottom:14px; }\n    .eyebrow { margin:0 0 6px; color:var(--cyan); font-size:12px; font-weight:850; text-transform:uppercase; letter-spacing:.12em; }\n    h1 { margin:0; font-size:clamp(28px,3.8vw,48px); line-height:1.05; }\n    .subtitle { margin:7px 0 0; color:var(--muted); font-size:clamp(14px,1.4vw,18px); }\n    .examples { display:flex; gap:8px; overflow-x:auto; padding-bottom:3px; }\n    button { font:inherit; }\n    .example { flex:0 0 auto; border:1px solid var(--line); background:#0c1829; color:var(--muted); min-height:40px; padding:7px 13px; font-weight:800; cursor:pointer; }\n    .example[aria-pressed=\"true\"] { border-color:var(--blue); background:#153252; color:#fff; }\n    .workspace { min-height:0; display:grid; grid-template-columns:minmax(0,1.12fr) minmax(270px,.88fr); gap:16px; }\n    .name-panel, .detail { min-height:0; border:1px solid var(--line); background:linear-gradient(145deg,var(--panel),var(--panel2)); padding:clamp(17px,2.4vw,27px); }\n    .name-panel { display:grid; align-content:center; gap:18px; }\n    .name-note { color:var(--muted); font-size:13px; font-weight:700; }\n    .tokens { display:flex; flex-wrap:wrap; gap:8px; align-items:stretch; }\n    .token { border:1px solid #315172; border-bottom:4px solid var(--blue); background:#0b1727; color:#fff; padding:13px 14px 10px; font-size:clamp(22px,3.5vw,42px); font-weight:900; cursor:pointer; min-width:64px; }\n    .token:nth-child(2n) { border-bottom-color:var(--cyan); }\n    .token:nth-child(3n) { border-bottom-color:var(--gold); }\n    .token[aria-pressed=\"true\"] { background:#eaf4ff; color:#07111f; border-color:#eaf4ff; }\n    .detail { display:grid; align-content:center; gap:10px; }\n    .detail-label { color:var(--cyan); font-size:12px; font-weight:850; text-transform:uppercase; letter-spacing:.1em; }\n    .detail-token { font-size:clamp(38px,6vw,72px); font-weight:950; line-height:1; }\n    .detail-text { color:#c6d3e2; font-size:clamp(15px,1.65vw,21px); line-height:1.42; }\n    .caution { border-left:3px solid var(--gold); background:rgba(240,189,90,.09); padding:10px 13px; color:#f4dba4; font-size:13px; line-height:1.35; }\n    footer { display:flex; justify-content:space-between; gap:16px; color:#8296ae; font-size:11px; border-top:1px solid var(--line); padding-top:10px; }\n    .history { color:var(--gold); font-weight:800; }\n    @media (max-width:680px) {\n      html, body { overflow:auto; }\n      main { height:auto; min-height:100%; display:flex; flex-direction:column; padding:22px 18px; }\n      .workspace { display:flex; flex-direction:column; }\n      .name-panel, .detail { min-height:210px; }\n      .token { font-size:28px; }\n      footer { flex-direction:column; gap:5px; }\n    }\n  </style>\n</head>\n<body>\n  <main>\n    <header><p class=\"eyebrow\">Interactive field decoder</p><h1>Select a core, then inspect each field</h1><p class=\"subtitle\">The decoder distinguishes direct documentation from historical field interpretation.</p></header>\n    <nav class=\"examples\" aria-label=\"Core names\"></nav>\n    <section class=\"workspace\">\n      <article class=\"name-panel\"><div class=\"name-note\"></div><div class=\"tokens\"></div><div class=\"caution\">A field is a routing clue. Use the linked current manual before turning it into a design claim.</div></article>\n      <aside class=\"detail\" aria-live=\"polite\"><div class=\"detail-label\"></div><div class=\"detail-token\"></div><div class=\"detail-text\"></div></aside>\n    </section>\n    <footer><span>Current OpenHW manuals · CORE-V catalog · historical naming deck</span><span class=\"history\"></span></footer>\n  </main>\n  <script>\n    const examples = [{\"name\":\"CVE2\",\"note\":\"Family and repository label\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"E\",\"label\":\"Class\",\"detail\":\"Embedded-class direction.\"},{\"token\":\"2\",\"label\":\"Pipeline family\",\"detail\":\"Current catalog and manual document a two-stage pipeline.\"}]},{\"name\":\"CV32E20\",\"note\":\"Named CVE2 core\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"32\",\"label\":\"Width\",\"detail\":\"32-bit instruction/register architecture.\"},{\"token\":\"E\",\"label\":\"Class\",\"detail\":\"Embedded MCU class.\"},{\"token\":\"2\",\"label\":\"Pipeline\",\"detail\":\"Two stages: IF and combined ID/EX.\"},{\"token\":\"0\",\"label\":\"Specific identity\",\"detail\":\"Trailing identity/product field; confirm semantics in the current specification.\"}]},{\"name\":\"CV32E40P\",\"note\":\"PULP-derived four-stage core\",\"historical\":true,\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"32\",\"label\":\"Width\",\"detail\":\"32-bit core.\"},{\"token\":\"E\",\"label\":\"Class\",\"detail\":\"Embedded class.\"},{\"token\":\"4\",\"label\":\"Pipeline\",\"detail\":\"Four-stage in-order pipeline.\"},{\"token\":\"0\",\"label\":\"Specific identity\",\"detail\":\"Product-specific identity inside the historical field scheme.\"},{\"token\":\"P\",\"label\":\"Modifier\",\"detail\":\"Historical PULP-lineage cue; current behavior comes from the CV32E40P manual.\"}]},{\"name\":\"CV32E40X\",\"note\":\"Four-stage core with CORE-V-XIF\",\"tokens\":[{\"token\":\"CV32E4\",\"label\":\"Shared prefix\",\"detail\":\"32-bit, embedded, four-stage family.\"},{\"token\":\"0\",\"label\":\"Specific identity\",\"detail\":\"Product-specific identity field.\"},{\"token\":\"X\",\"label\":\"Variant cue\",\"detail\":\"Current manual documents CORE-V-XIF; X is not a promise of a built-in vector unit.\"}]},{\"name\":\"CV32E40S\",\"note\":\"Security-oriented four-stage sibling\",\"tokens\":[{\"token\":\"CV32E4\",\"label\":\"Shared prefix\",\"detail\":\"32-bit, embedded, four-stage family.\"},{\"token\":\"0\",\"label\":\"Specific identity\",\"detail\":\"Product-specific identity field.\"},{\"token\":\"S\",\"label\":\"Variant cue\",\"detail\":\"Routes the reader to the security-oriented CV32E40S manual.\"}]},{\"name\":\"CVA6\",\"note\":\"Repository and configurable family\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"A\",\"label\":\"Class direction\",\"detail\":\"Application-class direction in the repository name.\"},{\"token\":\"6\",\"label\":\"Pipeline\",\"detail\":\"Six-stage pipeline family.\"}]},{\"name\":\"CV64A60\",\"note\":\"Formal example in current CVA6 nomenclature\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"64\",\"label\":\"ILEN\",\"detail\":\"64-bit instruction length.\"},{\"token\":\"A\",\"label\":\"Class\",\"detail\":\"Application class.\"},{\"token\":\"6\",\"label\":\"Pipeline\",\"detail\":\"Six pipeline stages.\"},{\"token\":\"0\",\"label\":\"Product identifier\",\"detail\":\"Product identifier zero in the nomenclature example.\"}]},{\"name\":\"CV32A60AX\",\"note\":\"Documented CVA6 configuration\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"32\",\"label\":\"ILEN\",\"detail\":\"32-bit instruction length.\"},{\"token\":\"A\",\"label\":\"Class field\",\"detail\":\"Application class in the current configuration table.\"},{\"token\":\"6\",\"label\":\"Pipeline\",\"detail\":\"Six-stage family.\"},{\"token\":\"0AX\",\"label\":\"Product identifier\",\"detail\":\"Treat the remaining identifier as a documented product/configuration label; the table confirms CV-X-IF.\"}]},{\"name\":\"CV32A65X\",\"note\":\"Specific CVA6 core in the current documentation index\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"32\",\"label\":\"ILEN\",\"detail\":\"32-bit instruction length.\"},{\"token\":\"A\",\"label\":\"Class\",\"detail\":\"Application class.\"},{\"token\":\"6\",\"label\":\"Pipeline\",\"detail\":\"Six-stage family inherited from the CVA6 code base.\"},{\"token\":\"5X\",\"label\":\"Product identifier\",\"detail\":\"The current index links the dedicated CV32A65X design document; use that document for the exact microarchitecture.\"}]}];\n    const exampleNav = document.querySelector('.examples');\n    const tokens = document.querySelector('.tokens');\n    const note = document.querySelector('.name-note');\n    const detailLabel = document.querySelector('.detail-label');\n    const detailToken = document.querySelector('.detail-token');\n    const detailText = document.querySelector('.detail-text');\n    const history = document.querySelector('.history');\n    let selectedExample = 0;\n    let selectedToken = 0;\n\n    function renderDetail() {\n      const item = examples[selectedExample].tokens[selectedToken];\n      detailLabel.textContent = item.label;\n      detailToken.textContent = item.token;\n      detailText.textContent = item.detail;\n      [...tokens.children].forEach((button, index) => button.setAttribute('aria-pressed', String(index === selectedToken)));\n    }\n\n    function renderExample() {\n      const example = examples[selectedExample];\n      note.textContent = example.note;\n      history.textContent = example.historical ? 'Includes historical field interpretation' : '';\n      tokens.replaceChildren(...example.tokens.map((item, index) => {\n        const button = document.createElement('button');\n        button.className = 'token';\n        button.type = 'button';\n        button.textContent = item.token;\n        button.addEventListener('click', () => { selectedToken = index; renderDetail(); });\n        return button;\n      }));\n      [...exampleNav.children].forEach((button, index) => button.setAttribute('aria-pressed', String(index === selectedExample)));\n      selectedToken = 0;\n      renderDetail();\n    }\n\n    examples.forEach((example, index) => {\n      const button = document.createElement('button');\n      button.className = 'example';\n      button.type = 'button';\n      button.textContent = example.name;\n      button.addEventListener('click', () => { selectedExample = index; renderExample(); });\n      exampleNav.appendChild(button);\n    });\n    renderExample();\n  </script>\n</body>\n</html>",
+        "html": "<!doctype html>\n<html lang=\"en-US\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>Select a core, then inspect each field</title>\n  <style>\n    :root { color-scheme: dark; --ink:#eef6ff; --muted:#9eb0c7; --line:#29405d; --panel:#101c2d; --panel2:#15253a; --blue:#5aa9ff; --cyan:#51d4c7; --gold:#f0bd5a; --bg:#07111f; }\n    * { box-sizing:border-box; }\n    html, body { width:100%; height:100%; margin:0; overflow:hidden; background:var(--bg); color:var(--ink); font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,\"PingFang SC\",\"Microsoft YaHei\",Arial,sans-serif; }\n    body { background-image:linear-gradient(rgba(81,212,199,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(81,212,199,.055) 1px,transparent 1px); background-size:34px 34px; }\n    main { width:100%; height:100%; display:grid; grid-template-rows:auto auto 1fr auto; gap:16px; padding:clamp(20px,3.5vw,42px); }\n    header { border-bottom:1px solid var(--line); padding-bottom:14px; }\n    .eyebrow { margin:0 0 6px; color:var(--cyan); font-size:12px; font-weight:850; text-transform:uppercase; letter-spacing:.12em; }\n    h1 { margin:0; font-size:clamp(28px,3.8vw,48px); line-height:1.05; }\n    .subtitle { margin:7px 0 0; color:var(--muted); font-size:clamp(14px,1.4vw,18px); }\n    .examples { display:flex; gap:8px; overflow-x:auto; padding-bottom:3px; }\n    button { font:inherit; }\n    .example { flex:0 0 auto; border:1px solid var(--line); background:#0c1829; color:var(--muted); min-height:40px; padding:7px 13px; font-weight:800; cursor:pointer; }\n    .example[aria-pressed=\"true\"] { border-color:var(--blue); background:#153252; color:#fff; }\n    .workspace { min-height:0; display:grid; grid-template-columns:minmax(0,1.12fr) minmax(270px,.88fr); gap:16px; }\n    .name-panel, .detail { min-height:0; border:1px solid var(--line); background:linear-gradient(145deg,var(--panel),var(--panel2)); padding:clamp(17px,2.4vw,27px); }\n    .name-panel { display:grid; align-content:center; gap:18px; }\n    .name-note { color:var(--muted); font-size:13px; font-weight:700; }\n    .tokens { display:flex; flex-wrap:wrap; gap:8px; align-items:stretch; }\n    .token { border:1px solid #315172; border-bottom:4px solid var(--blue); background:#0b1727; color:#fff; padding:13px 14px 10px; font-size:clamp(22px,3.5vw,42px); font-weight:900; cursor:pointer; min-width:64px; }\n    .token:nth-child(2n) { border-bottom-color:var(--cyan); }\n    .token:nth-child(3n) { border-bottom-color:var(--gold); }\n    .token[aria-pressed=\"true\"] { background:#eaf4ff; color:#07111f; border-color:#eaf4ff; }\n    .detail { display:grid; align-content:center; gap:10px; }\n    .detail-label { color:var(--cyan); font-size:12px; font-weight:850; text-transform:uppercase; letter-spacing:.1em; }\n    .detail-token { font-size:clamp(38px,6vw,72px); font-weight:950; line-height:1; }\n    .detail-text { color:#c6d3e2; font-size:clamp(15px,1.65vw,21px); line-height:1.42; }\n    .caution { border-left:3px solid var(--gold); background:rgba(240,189,90,.09); padding:10px 13px; color:#f4dba4; font-size:13px; line-height:1.35; }\n    footer { display:flex; justify-content:space-between; gap:16px; color:#8296ae; font-size:11px; border-top:1px solid var(--line); padding-top:10px; }\n    .history { color:var(--gold); font-weight:800; }\n    @media (max-width:680px) {\n      html, body { overflow:auto; }\n      main { height:auto; min-height:100%; display:flex; flex-direction:column; padding:22px 18px; }\n      .workspace { display:flex; flex-direction:column; }\n      .name-panel, .detail { min-height:210px; }\n      .token { font-size:28px; }\n      footer { flex-direction:column; gap:5px; }\n    }\n  </style>\n</head>\n<body>\n  <main>\n    <header><p class=\"eyebrow\">Interactive field decoder</p><h1>Select a core, then inspect each field</h1><p class=\"subtitle\">The decoder distinguishes direct documentation from historical field interpretation.</p></header>\n    <nav class=\"examples\" aria-label=\"Core names\"></nav>\n    <section class=\"workspace\">\n      <article class=\"name-panel\"><div class=\"name-note\"></div><div class=\"tokens\"></div><div class=\"caution\">A field is a routing clue. Use the linked current manual before turning it into a design claim.</div></article>\n      <aside class=\"detail\" aria-live=\"polite\"><div class=\"detail-label\"></div><div class=\"detail-token\"></div><div class=\"detail-text\"></div></aside>\n    </section>\n    <footer><span>Current OpenHW manuals · CORE-V catalog · historical naming deck</span><span class=\"history\"></span></footer>\n  </main>\n  <script>\n    const examples = [{\"name\":\"CVE2\",\"note\":\"Family and repository label\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"E\",\"label\":\"Class\",\"detail\":\"Embedded-class direction.\"},{\"token\":\"2\",\"label\":\"Pipeline family\",\"detail\":\"Current catalog and manual document a two-stage pipeline.\"}]},{\"name\":\"CV32E20\",\"note\":\"Named CVE2 core\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"32\",\"label\":\"Width\",\"detail\":\"32-bit instruction/register architecture.\"},{\"token\":\"E\",\"label\":\"Class\",\"detail\":\"Embedded MCU class.\"},{\"token\":\"2\",\"label\":\"Pipeline\",\"detail\":\"Two stages: IF and combined ID/EX.\"},{\"token\":\"0\",\"label\":\"Specific identity\",\"detail\":\"Trailing identity/product field; confirm semantics in the current specification.\"}]},{\"name\":\"CV32E40P\",\"note\":\"PULP-derived four-stage core\",\"historical\":true,\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"32\",\"label\":\"Width\",\"detail\":\"32-bit core.\"},{\"token\":\"E\",\"label\":\"Class\",\"detail\":\"Embedded class.\"},{\"token\":\"4\",\"label\":\"Pipeline\",\"detail\":\"Four-stage in-order pipeline.\"},{\"token\":\"0\",\"label\":\"Specific identity\",\"detail\":\"Product-specific identity inside the historical field scheme.\"},{\"token\":\"P\",\"label\":\"Modifier\",\"detail\":\"Historical PULP-lineage cue; current behavior comes from the CV32E40P manual.\"}]},{\"name\":\"CV32E40X\",\"note\":\"Four-stage core with CORE-V-XIF\",\"tokens\":[{\"token\":\"CV32E4\",\"label\":\"Shared prefix\",\"detail\":\"32-bit, embedded, four-stage family.\"},{\"token\":\"0\",\"label\":\"Specific identity\",\"detail\":\"Product-specific identity field.\"},{\"token\":\"X\",\"label\":\"Variant cue\",\"detail\":\"Current manual documents CORE-V-XIF; X is not a promise of a built-in vector unit.\"}]},{\"name\":\"CV32E40S\",\"note\":\"Security-oriented four-stage sibling\",\"tokens\":[{\"token\":\"CV32E4\",\"label\":\"Shared prefix\",\"detail\":\"32-bit, embedded, four-stage family.\"},{\"token\":\"0\",\"label\":\"Specific identity\",\"detail\":\"Product-specific identity field.\"},{\"token\":\"S\",\"label\":\"Variant cue\",\"detail\":\"Routes the reader to the security-oriented CV32E40S manual.\"}]},{\"name\":\"CVA6\",\"note\":\"Repository and configurable family\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"A\",\"label\":\"Class direction\",\"detail\":\"Application-class direction in the repository name.\"},{\"token\":\"6\",\"label\":\"Pipeline\",\"detail\":\"Six-stage pipeline family.\"}]},{\"name\":\"CV64A60\",\"note\":\"Formal example in current CVA6 nomenclature\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"64\",\"label\":\"XLEN\",\"detail\":\"64-bit integer registers, not 64-bit instructions. Base encodings are 32 bits; compressed instructions may be 16 bits.\"},{\"token\":\"A\",\"label\":\"Class\",\"detail\":\"Application class.\"},{\"token\":\"6\",\"label\":\"Pipeline\",\"detail\":\"Six pipeline stages.\"},{\"token\":\"0\",\"label\":\"Product identifier\",\"detail\":\"Product identifier zero in the nomenclature example.\"}]},{\"name\":\"CV32A60AX\",\"note\":\"Documented CVA6 configuration\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"32\",\"label\":\"XLEN\",\"detail\":\"32-bit integer-register architecture. Instruction encoding length is a separate property.\"},{\"token\":\"A\",\"label\":\"Class field\",\"detail\":\"Application class in the current configuration table.\"},{\"token\":\"6\",\"label\":\"Pipeline\",\"detail\":\"Six-stage family.\"},{\"token\":\"0AX\",\"label\":\"Product identifier\",\"detail\":\"Treat the remaining identifier as a documented product/configuration label; the table confirms CV-X-IF.\"}]},{\"name\":\"CV32A65X\",\"note\":\"Specific CVA6 core in the current documentation index\",\"tokens\":[{\"token\":\"CV\",\"label\":\"Family\",\"detail\":\"OpenHW CORE-V processor family.\"},{\"token\":\"32\",\"label\":\"XLEN\",\"detail\":\"32-bit integer-register architecture. Instruction encoding length is a separate property.\"},{\"token\":\"A\",\"label\":\"Class\",\"detail\":\"Application class.\"},{\"token\":\"6\",\"label\":\"Pipeline\",\"detail\":\"Six-stage family inherited from the CVA6 code base.\"},{\"token\":\"5X\",\"label\":\"Product identifier\",\"detail\":\"The current index links the dedicated CV32A65X design document; use that document for the exact microarchitecture.\"}]}];\n    const exampleNav = document.querySelector('.examples');\n    const tokens = document.querySelector('.tokens');\n    const note = document.querySelector('.name-note');\n    const detailLabel = document.querySelector('.detail-label');\n    const detailToken = document.querySelector('.detail-token');\n    const detailText = document.querySelector('.detail-text');\n    const history = document.querySelector('.history');\n    let selectedExample = 0;\n    let selectedToken = 0;\n\n    function renderDetail() {\n      const item = examples[selectedExample].tokens[selectedToken];\n      detailLabel.textContent = item.label;\n      detailToken.textContent = item.token;\n      detailText.textContent = item.detail;\n      [...tokens.children].forEach((button, index) => button.setAttribute('aria-pressed', String(index === selectedToken)));\n    }\n\n    function renderExample() {\n      const example = examples[selectedExample];\n      note.textContent = example.note;\n      history.textContent = example.historical ? 'Includes historical field interpretation' : '';\n      tokens.replaceChildren(...example.tokens.map((item, index) => {\n        const button = document.createElement('button');\n        button.className = 'token';\n        button.type = 'button';\n        button.textContent = item.token;\n        button.addEventListener('click', () => { selectedToken = index; renderDetail(); });\n        return button;\n      }));\n      [...exampleNav.children].forEach((button, index) => button.setAttribute('aria-pressed', String(index === selectedExample)));\n      selectedToken = 0;\n      renderDetail();\n    }\n\n    examples.forEach((example, index) => {\n      const button = document.createElement('button');\n      button.className = 'example';\n      button.type = 'button';\n      button.textContent = example.name;\n      button.addEventListener('click', () => { selectedExample = index; renderExample(); });\n      exampleNav.appendChild(button);\n    });\n    renderExample();\n  </script>\n</body>\n</html>",
         "sourceAnchors": [
           {
             "id": "core-v-cores-current-catalog",
@@ -620,7 +634,7 @@
             "title": "CVA6 documentation: CORE-V nomenclature",
             "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
             "locator": "CORE-V Nomenclature",
-            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
+            "claimSupported": "CVA6 documents derived core-name fields and a CV32A65X design. Its naming figure labels the width field ILEN; this course distinguishes that notation from the ISA definitions of XLEN and ILEN."
           },
           {
             "id": "cva6-current-configurations",
@@ -642,6 +656,13 @@
             "url": "https://open-src-soc.org/2022-05/media/slides/4th-RISC-V-Meeting-2022-05-04-14h40-Davide-Schiavone.pdf",
             "locator": "slide 4",
             "claimSupported": "The historical public deck decomposes CV32E40P into family, word length, class, identity, and modifier fields."
+          },
+          {
+            "id": "riscv-isa-widths",
+            "title": "RISC-V ISA: register width and instruction length",
+            "url": "https://docs.riscv.org/reference/isa/v20240411/unpriv/intro.html",
+            "locator": "RISC-V ISA Overview; Base Instruction-Length Encoding",
+            "claimSupported": "XLEN is integer-register width. ILEN is maximum instruction length; RV32/RV64 are not instruction encoding lengths."
           }
         ]
       },
@@ -654,7 +675,8 @@
         "cva6-current-nomenclature",
         "cva6-current-configurations",
         "cva6-current-releases",
-        "core-v-historical-naming"
+        "core-v-historical-naming",
+        "riscv-isa-widths"
       ],
       "actions": [
         {
@@ -664,7 +686,8 @@
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-core-v-names-decoder-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-decoder-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-decoder-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-decoder-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,
@@ -780,7 +803,8 @@
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-core-v-names-workflow-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-workflow-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-workflow-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-workflow-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,
@@ -883,6 +907,35 @@
             "points": 1
           },
           {
+            "id": "core-v-names-en-q5",
+            "type": "single",
+            "question": "Does the 64 in an RV64 core name mean that every instruction is 64 bits long?",
+            "options": [
+              {
+                "label": "No. XLEN is 64; base instructions are 32 bits, and compressed instructions can be 16 bits.",
+                "value": "A"
+              },
+              {
+                "label": "Yes. Register width and instruction length are always identical.",
+                "value": "B"
+              },
+              {
+                "label": "No. It means there are 64 integer registers.",
+                "value": "C"
+              },
+              {
+                "label": "Yes. RV64 excludes 16-bit compressed instructions.",
+                "value": "D"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "analysis": "XLEN is the integer-register width. ILEN is the maximum instruction length supported by an implementation, a separate concept.",
+            "hasAnswer": true,
+            "points": 1
+          },
+          {
             "id": "core-v-names-en-q4",
             "type": "multiple",
             "question": "Which identifiers belong in a release-level identity check in addition to the human-readable name?",
@@ -919,11 +972,12 @@
         {
           "id": "scene-core-v-names-quiz-speech",
           "type": "speech",
-          "text": "The checkpoint now tests practical classification and lookup. First separate the family or code base from a named core. Then decode CV32E20 without turning the part number into a complete specification. Identify CORE-V-XIF as the defining integration path of CV32E40X. Finally select the three identity CSRs that belong in a release-level hardware check.",
+          "text": "The checkpoint tests practical classification and lookup. Separate the family or code base from a named core. Decode CV32E20 without turning the part number into a complete specification. Identify CORE-V-XIF as the integration path of CV32E40X. Distinguish integer-register width from instruction length. Finally, select the three identity CSRs that belong in a release-level hardware check.",
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-core-v-names-quiz-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-quiz-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-quiz-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-quiz-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,
@@ -976,7 +1030,7 @@
             "title": "CVA6 documentation: CORE-V nomenclature",
             "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
             "locator": "CORE-V Nomenclature",
-            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
+            "claimSupported": "CVA6 documents derived core-name fields and a CV32A65X design. Its naming figure labels the width field ILEN; this course distinguishes that notation from the ISA definitions of XLEN and ILEN."
           }
         ],
         "speakerNotes": "The engineering method is now compact. First classify the label. Second decode only the fields that the current project or clearly marked historical grammar supports. Third resolve the name to a configuration table and user manual before claiming ISA, privilege, interface, issue width, or maturity. Fourth pin the repository release and the three identity CSRs. With that method, CVE2, CV32E20, the CV32E40 siblings, and CVA6 become a navigable product system rather than a list of cryptic names."
@@ -994,7 +1048,8 @@
           "voice": "alexchen-en",
           "speed": 0.85,
           "audioId": "tts_scene-core-v-names-summary-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-summary-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-en/audio/tts_scene-core-v-names-summary-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-en/subtitles/tts_scene-core-v-names-summary-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,

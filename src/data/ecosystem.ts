@@ -237,7 +237,7 @@ export const ecosystemEntries: EcosystemEntry[] = [
   {
     id: "openroad",
     name: "The OpenROAD Project",
-    url: "https://theopenroadproject.org/",
+    url: "https://openroad.org/",
     category: "projects",
     entityType: { en: "EDA project", zh: "EDA 项目" },
     summary: {
@@ -465,7 +465,7 @@ export const ecosystemEntries: EcosystemEntry[] = [
   {
     id: "openrpdk28",
     name: "OpenRPDK28",
-    url: "https://github.com/RIOSMPW/OpenRPDK28",
+    url: "https://github.com/RIOSLaboratory/OpenRPDK28",
     category: "pdk",
     entityType: { en: "Academic PDK template", zh: "学术 PDK 模板" },
     relationship: {

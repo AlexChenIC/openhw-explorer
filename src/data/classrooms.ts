@@ -155,9 +155,7 @@ export const classroomTracks: ClassroomTrack[] = [
   },
 ];
 
-// Prototype packages remain available by direct link so the classroom player
-// and older course work can still be evaluated. Only lessons with status
-// "published" belong to the reviewed public catalog.
+// Prototype records are authoring history, never public course registrations.
 export const classroomSeries: ClassroomSeries[] = [
   {
     id: "cva6-from-zero",
@@ -171,8 +169,8 @@ export const classroomSeries: ClassroomSeries[] = [
       zh: "在打开大型 RTL 目录之前，先建立 CVA6 的资料、边界、配置和架构地图。",
     },
     description: {
-      en: "A nine-unit deep-dive roadmap retained for future production. One bilingual format preview remains available, while the first public release focuses on shorter OpenHW Essentials lessons.",
-      zh: "为后续制作保留的九单元深度课程路线。目前保留一节中英双语形式预览，首发阶段则优先完成更短的 OpenHW 核心概念课程。",
+      en: "A nine-unit deep-dive roadmap for future production. The first public release focuses on shorter OpenHW Essentials lessons.",
+      zh: "为后续制作保留的九单元深度课程路线。首发阶段优先完成更短的 OpenHW 核心概念课程。",
     },
     audience: {
       en: "Learners who know basic RISC-V concepts and want to read CVA6 like an engineer.",
@@ -180,7 +178,6 @@ export const classroomSeries: ClassroomSeries[] = [
     },
     level: { en: "Starter to intermediate", zh: "入门到进阶" },
     estimatedHours: 13,
-    prototypeLessonId: "cva6-u01-l01-what-is-cva6",
     units: [
       {
         id: "u01-orientation",
@@ -342,7 +339,6 @@ export const classroomSeries: ClassroomSeries[] = [
     level: { en: "Starter", zh: "入门" },
     estimatedHours: 0.75,
     targetDurationMinutes: [6, 10],
-    prototypeLessonId: "openhw-u01-l01-industrial-adoption",
     units: [
       {
         id: "u01-core-v-names",
@@ -462,7 +458,7 @@ export const classroomSeries: ClassroomSeries[] = [
         language: "en",
         durationMinutes: 7,
         slideCount: 10,
-        quizCount: 4,
+        quizCount: 5,
         level: { en: "Starter", zh: "入门" },
         title: {
           en: "How to read CORE-V core names",
@@ -722,7 +718,8 @@ export function getClassroomIdForLocale(lesson: ClassroomLesson, locale: string)
 }
 
 export function hasPublishedLesson(lesson: ClassroomLesson) {
-  return Boolean(lesson.classroomId || lesson.classroomIds?.en || lesson.classroomIds?.zh);
+  return lesson.status === "published" && lesson.role === "catalog" &&
+    Boolean(lesson.classroomId || lesson.classroomIds?.en || lesson.classroomIds?.zh);
 }
 
 export function lessonUsesClassroomId(lesson: ClassroomLesson, classroomId: string) {

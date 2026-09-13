@@ -42,3 +42,5 @@ tools/TrendRadar/
 # TypeScript
 *.tsbuildinfo
 next-env.d.ts
+# Local health reports are uploaded as CI artifacts, not published content.
+/reports/

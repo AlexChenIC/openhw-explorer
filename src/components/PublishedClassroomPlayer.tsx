@@ -44,15 +44,6 @@ function audioPath(classroomId: string, audioUrl?: string) {
   return file ? `/classroom-assets/${classroomId}/audio/${file}` : "";
 }
 
-function captionPath(classroomId: string, audioUrl?: string) {
-  if (!audioUrl) return "";
-  const file = audioUrl
-    .split("/")
-    .pop()
-    ?.replace(/\.[^.]+$/, ".vtt");
-  return file ? `/classroom-assets/${classroomId}/subtitles/${file}` : "";
-}
-
 function assetPath(asset?: PublishedClassroomAsset) {
   if (!asset?.src) return "";
   if (asset.src.startsWith("/openhw-assets/")) return `/classroom-assets${asset.src}`;
@@ -521,7 +512,7 @@ export function PublishedClassroomPlayer({
   const scene = scenes[sceneIndex] ?? scenes[0];
   const action = scene ? getPrimaryAction(scene) : undefined;
   const audio = audioPath(classroom.id, action?.audioUrl);
-  const captions = captionPath(classroom.id, action?.audioUrl);
+  const captions = action?.captionUrl || "";
   const sourceAnchors = scene?.content.sourceAnchors ?? [];
   const zh = locale === "zh";
 

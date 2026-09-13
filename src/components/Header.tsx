@@ -8,6 +8,7 @@ import { useTheme } from "@/lib/theme";
 import { features } from "@/lib/features";
 import { BrandLockup } from "@/components/BrandMark";
 import { localeOptions, type SiteLocale } from "@/lib/locales";
+import { localeHref } from "@/lib/locale-href";
 
 export function Header() {
   const t = useTranslations("header");
@@ -18,7 +19,8 @@ export function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const switchLocale = (newLocale: SiteLocale) => {
-    router.replace(pathname, { locale: newLocale });
+    router.replace(localeHref(pathname, window.location.search, window.location.hash, newLocale), { locale: newLocale });
+    setIsMobileMenuOpen(false);
   };
 
   return (

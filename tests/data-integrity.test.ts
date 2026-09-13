@@ -161,11 +161,9 @@ describe("learning hub release boundaries", () => {
     );
   });
 
-  it("keeps retained player prototypes outside the reviewed catalog", () => {
+  it("does not expose retired prototypes through the public catalog", () => {
     const prototypes = classroomSeries.flatMap(getPrototypeLessons);
 
-    expect(prototypes).toHaveLength(2);
-    expect(prototypes.every((lesson) => lesson.status === "prototype")).toBe(true);
-    expect(prototypes.some((lesson) => lesson.id.includes("cva6"))).toBe(true);
+    expect(prototypes).toHaveLength(0);
   });
 });

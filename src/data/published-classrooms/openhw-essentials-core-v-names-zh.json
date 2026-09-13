@@ -6,7 +6,7 @@
     "name": "如何读懂 CORE-V 内核命名",
     "description": "一门技术短课：理解 CORE-V 家族名称、料号、配置和机器可读身份。",
     "createdAt": 1785758400000,
-    "updatedAt": 1787306139266,
+    "updatedAt": 1785758400000,
     "language": "zh-CN",
     "style": "openhw-signal-technical",
     "courseTemplateId": "openhw-essentials-microcourse",
@@ -56,7 +56,7 @@
             "title": "CVA6 documentation: CORE-V nomenclature",
             "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
             "locator": "CORE-V Nomenclature",
-            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
+            "claimSupported": "CVA6 documents derived core-name fields and a CV32A65X design. Its naming figure labels the width field ILEN; this course distinguishes that notation from the ISA definitions of XLEN and ILEN."
           },
           {
             "id": "cv32e20-current-specification",
@@ -81,7 +81,8 @@
           "voice": "alexchen-zh",
           "speed": 0.9,
           "audioId": "tts_scene-core-v-names-title-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-title-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-title-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-title-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,
@@ -150,7 +151,7 @@
             "title": "CVA6 documentation: CORE-V nomenclature",
             "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
             "locator": "CORE-V Nomenclature",
-            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
+            "claimSupported": "CVA6 documents derived core-name fields and a CV32A65X design. Its naming figure labels the width field ILEN; this course distinguishes that notation from the ISA definitions of XLEN and ILEN."
           }
         ],
         "speakerNotes": "第一步不是拆字符，而是识别对象层级。CVE2 既是紧凑的家族标签，也是承载 RTL 的仓库；当前具名处理器是 CV32E20。CVE4 则是几个四级内核的家族分组，CV32E40P、CV32E40X 和 CV32E40S 分别位于不同仓库。CVA6 是一个高度参数化的代码库，可以形成多种三十二位和六十四位内核。料号会进一步缩小范围，但配置表和发布标签还会继续限定实现。"
@@ -168,7 +169,8 @@
           "voice": "alexchen-zh",
           "speed": 0.9,
           "audioId": "tts_scene-core-v-names-evidence-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-evidence-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-evidence-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-evidence-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,
@@ -218,7 +220,7 @@
             },
             {
               "context": "当前 CVA6 文档",
-              "pattern": "CV | ILEN | 类别 | 流水级数 | 产品标识",
+              "pattern": "CV | 架构位宽（XLEN）| 类别 | 流水级数 | 产品标识",
               "example": "CV | 64 | A | 6 | 0",
               "engineeringUse": "用于 CVA6 仓库衍生内核的当前权威语法。"
             },
@@ -230,7 +232,7 @@
             }
           ],
           "note": "2、4、5、6 等数字经常暴露流水线深度，但后缀含义仍是项目相关的。",
-          "narration": "OpenHW 早期命名资料使用五个字段：家族、字长、类别、身份和可选修饰符。其中身份字段把流水线长度与产品特征编号组合起来。当前 CVA6 文档给出了相关但更明确的结构：C V、指令长度、类别、流水级数和产品标识。这两种语法都能帮助我们拆解名称，却不能不加判断地套用到所有当前仓库。对于具体内核，最终权威仍然是它的当前手册。这样可以避免把历史命名习惯误当成永久、通用的技术规格。"
+          "narration": "早期命名资料使用家族、字长、类别、身份和可选修饰符。当前 CVA6 文档把流水级数与产品标识分开。这里特别要注意位宽的记号：虽然命名图使用了 ILEN，但这些名称中的三十二或六十四，表示整数寄存器的架构位宽，也就是 RISC-V 规范中的 XLEN，并不表示每条指令的长度。六十四位架构仍然使用三十二位基础指令编码，也可以支持十六位压缩指令。规范中的 ILEN 则表示实现支持的最大指令长度。阅读命名图时，需要把这两个不同的概念区分开。"
         },
         "assets": [],
         "sourceAnchors": [
@@ -252,7 +254,7 @@
             "title": "CVA6 documentation: CORE-V nomenclature",
             "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
             "locator": "CORE-V Nomenclature",
-            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
+            "claimSupported": "CVA6 documents derived core-name fields and a CV32A65X design. Its naming figure labels the width field ILEN; this course distinguishes that notation from the ISA definitions of XLEN and ILEN."
           },
           {
             "id": "core-v-cores-current-catalog",
@@ -260,25 +262,34 @@
             "url": "https://github.com/openhwgroup/core-v-cores",
             "locator": "CORE-V Repositories; CORE-V Core Names and Releases",
             "claimSupported": "Current family groupings, representative core characteristics, and the role of mvendorid, marchid, and mimpid."
+          },
+          {
+            "id": "riscv-isa-widths",
+            "title": "RISC-V ISA: register width and instruction length",
+            "url": "https://docs.riscv.org/reference/isa/v20240411/unpriv/intro.html",
+            "locator": "RISC-V ISA Overview; Base Instruction-Length Encoding",
+            "claimSupported": "XLEN is integer-register width. ILEN is maximum instruction length; RV32/RV64 are not instruction encoding lengths."
           }
         ],
-        "speakerNotes": "OpenHW 早期命名资料使用五个字段：家族、字长、类别、身份和可选修饰符。其中身份字段把流水线长度与产品特征编号组合起来。当前 CVA6 文档给出了相关但更明确的结构：C V、指令长度、类别、流水级数和产品标识。这两种语法都能帮助我们拆解名称，却不能不加判断地套用到所有当前仓库。对于具体内核，最终权威仍然是它的当前手册。这样可以避免把历史命名习惯误当成永久、通用的技术规格。"
+        "speakerNotes": "早期命名资料使用家族、字长、类别、身份和可选修饰符。当前 CVA6 文档把流水级数与产品标识分开。这里特别要注意位宽的记号：虽然命名图使用了 ILEN，但这些名称中的三十二或六十四，表示整数寄存器的架构位宽，也就是 RISC-V 规范中的 XLEN，并不表示每条指令的长度。六十四位架构仍然使用三十二位基础指令编码，也可以支持十六位压缩指令。规范中的 ILEN 则表示实现支持的最大指令长度。阅读命名图时，需要把这两个不同的概念区分开。"
       },
       "sourceAnchors": [
         "core-v-historical-naming",
         "core-v-historical-core-names-deck",
         "cva6-current-nomenclature",
-        "core-v-cores-current-catalog"
+        "core-v-cores-current-catalog",
+        "riscv-isa-widths"
       ],
       "actions": [
         {
           "id": "scene-core-v-names-rules-speech",
           "type": "speech",
-          "text": "OpenHW 早期命名资料使用五个字段：家族、字长、类别、身份和可选修饰符。其中身份字段把流水线长度与产品特征编号组合起来。当前 CVA6 文档给出了相关但更明确的结构：C V、指令长度、类别、流水级数和产品标识。这两种语法都能帮助我们拆解名称，却不能不加判断地套用到所有当前仓库。对于具体内核，最终权威仍然是它的当前手册。这样可以避免把历史命名习惯误当成永久、通用的技术规格。",
+          "text": "早期命名资料使用家族、字长、类别、身份和可选修饰符。当前 CVA6 文档把流水级数与产品标识分开。这里特别要注意位宽的记号：虽然命名图使用了 ILEN，但这些名称中的三十二或六十四，表示整数寄存器的架构位宽，也就是 RISC-V 规范中的 XLEN，并不表示每条指令的长度。六十四位架构仍然使用三十二位基础指令编码，也可以支持十六位压缩指令。规范中的 ILEN 则表示实现支持的最大指令长度。阅读命名图时，需要把这两个不同的概念区分开。",
           "voice": "alexchen-zh",
           "speed": 0.9,
           "audioId": "tts_scene-core-v-names-rules-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-rules-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-rules-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-rules-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,
@@ -357,7 +368,8 @@
           "voice": "alexchen-zh",
           "speed": 0.9,
           "audioId": "tts_scene-core-v-names-project-vs-product-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-project-vs-product-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-project-vs-product-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-project-vs-product-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,
@@ -468,7 +480,8 @@
           "voice": "alexchen-zh",
           "speed": 0.9,
           "audioId": "tts_scene-core-v-names-examples-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-examples-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-examples-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-examples-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,
@@ -530,7 +543,7 @@
             "title": "CVA6 documentation: CORE-V nomenclature",
             "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
             "locator": "CORE-V Nomenclature",
-            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
+            "claimSupported": "CVA6 documents derived core-name fields and a CV32A65X design. Its naming figure labels the width field ILEN; this course distinguishes that notation from the ISA definitions of XLEN and ILEN."
           },
           {
             "id": "cva6-current-configurations",
@@ -563,7 +576,8 @@
           "voice": "alexchen-zh",
           "speed": 0.9,
           "audioId": "tts_scene-core-v-names-limits-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-limits-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-limits-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-limits-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,
@@ -578,7 +592,7 @@
       "content": {
         "type": "interactive",
         "url": "",
-        "html": "<!doctype html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>选择一个内核，再逐项查看字段</title>\n  <style>\n    :root { color-scheme: dark; --ink:#eef6ff; --muted:#9eb0c7; --line:#29405d; --panel:#101c2d; --panel2:#15253a; --blue:#5aa9ff; --cyan:#51d4c7; --gold:#f0bd5a; --bg:#07111f; }\n    * { box-sizing:border-box; }\n    html, body { width:100%; height:100%; margin:0; overflow:hidden; background:var(--bg); color:var(--ink); font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,\"PingFang SC\",\"Microsoft YaHei\",Arial,sans-serif; }\n    body { background-image:linear-gradient(rgba(81,212,199,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(81,212,199,.055) 1px,transparent 1px); background-size:34px 34px; }\n    main { width:100%; height:100%; display:grid; grid-template-rows:auto auto 1fr auto; gap:16px; padding:clamp(20px,3.5vw,42px); }\n    header { border-bottom:1px solid var(--line); padding-bottom:14px; }\n    .eyebrow { margin:0 0 6px; color:var(--cyan); font-size:12px; font-weight:850; text-transform:uppercase; letter-spacing:.12em; }\n    h1 { margin:0; font-size:clamp(28px,3.8vw,48px); line-height:1.05; }\n    .subtitle { margin:7px 0 0; color:var(--muted); font-size:clamp(14px,1.4vw,18px); }\n    .examples { display:flex; gap:8px; overflow-x:auto; padding-bottom:3px; }\n    button { font:inherit; }\n    .example { flex:0 0 auto; border:1px solid var(--line); background:#0c1829; color:var(--muted); min-height:40px; padding:7px 13px; font-weight:800; cursor:pointer; }\n    .example[aria-pressed=\"true\"] { border-color:var(--blue); background:#153252; color:#fff; }\n    .workspace { min-height:0; display:grid; grid-template-columns:minmax(0,1.12fr) minmax(270px,.88fr); gap:16px; }\n    .name-panel, .detail { min-height:0; border:1px solid var(--line); background:linear-gradient(145deg,var(--panel),var(--panel2)); padding:clamp(17px,2.4vw,27px); }\n    .name-panel { display:grid; align-content:center; gap:18px; }\n    .name-note { color:var(--muted); font-size:13px; font-weight:700; }\n    .tokens { display:flex; flex-wrap:wrap; gap:8px; align-items:stretch; }\n    .token { border:1px solid #315172; border-bottom:4px solid var(--blue); background:#0b1727; color:#fff; padding:13px 14px 10px; font-size:clamp(22px,3.5vw,42px); font-weight:900; cursor:pointer; min-width:64px; }\n    .token:nth-child(2n) { border-bottom-color:var(--cyan); }\n    .token:nth-child(3n) { border-bottom-color:var(--gold); }\n    .token[aria-pressed=\"true\"] { background:#eaf4ff; color:#07111f; border-color:#eaf4ff; }\n    .detail { display:grid; align-content:center; gap:10px; }\n    .detail-label { color:var(--cyan); font-size:12px; font-weight:850; text-transform:uppercase; letter-spacing:.1em; }\n    .detail-token { font-size:clamp(38px,6vw,72px); font-weight:950; line-height:1; }\n    .detail-text { color:#c6d3e2; font-size:clamp(15px,1.65vw,21px); line-height:1.42; }\n    .caution { border-left:3px solid var(--gold); background:rgba(240,189,90,.09); padding:10px 13px; color:#f4dba4; font-size:13px; line-height:1.35; }\n    footer { display:flex; justify-content:space-between; gap:16px; color:#8296ae; font-size:11px; border-top:1px solid var(--line); padding-top:10px; }\n    .history { color:var(--gold); font-weight:800; }\n    @media (max-width:680px) {\n      html, body { overflow:auto; }\n      main { height:auto; min-height:100%; display:flex; flex-direction:column; padding:22px 18px; }\n      .workspace { display:flex; flex-direction:column; }\n      .name-panel, .detail { min-height:210px; }\n      .token { font-size:28px; }\n      footer { flex-direction:column; gap:5px; }\n    }\n  </style>\n</head>\n<body>\n  <main>\n    <header><p class=\"eyebrow\">交互式字段解码器</p><h1>选择一个内核，再逐项查看字段</h1><p class=\"subtitle\">解码器会区分当前文档事实与历史字段解释。</p></header>\n    <nav class=\"examples\" aria-label=\"内核名称\"></nav>\n    <section class=\"workspace\">\n      <article class=\"name-panel\"><div class=\"name-note\"></div><div class=\"tokens\"></div><div class=\"caution\">字段只是导航线索；把它写成设计结论以前，请打开对应的当前手册。</div></article>\n      <aside class=\"detail\" aria-live=\"polite\"><div class=\"detail-label\"></div><div class=\"detail-token\"></div><div class=\"detail-text\"></div></aside>\n    </section>\n    <footer><span>OpenHW 当前手册 · CORE-V 产品目录 · 历史命名资料</span><span class=\"history\"></span></footer>\n  </main>\n  <script>\n    const examples = [{\"name\":\"CVE2\",\"note\":\"家族与仓库标签\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"E\",\"label\":\"类别\",\"detail\":\"嵌入式方向。\"},{\"token\":\"2\",\"label\":\"流水线家族\",\"detail\":\"当前目录与手册记录为两级流水线。\"}]},{\"name\":\"CV32E20\",\"note\":\"CVE2 的具名内核\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"32\",\"label\":\"位宽\",\"detail\":\"32 位指令/寄存器架构。\"},{\"token\":\"E\",\"label\":\"类别\",\"detail\":\"嵌入式 MCU 类别。\"},{\"token\":\"2\",\"label\":\"流水线\",\"detail\":\"两级：IF 与合并的 ID/EX。\"},{\"token\":\"0\",\"label\":\"特定身份\",\"detail\":\"尾部身份/产品字段；具体语义以当前规格为准。\"}]},{\"name\":\"CV32E40P\",\"note\":\"来自 PULP 路线的四级内核\",\"historical\":true,\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"32\",\"label\":\"位宽\",\"detail\":\"32 位内核。\"},{\"token\":\"E\",\"label\":\"类别\",\"detail\":\"嵌入式类别。\"},{\"token\":\"4\",\"label\":\"流水线\",\"detail\":\"四级顺序执行流水线。\"},{\"token\":\"0\",\"label\":\"特定身份\",\"detail\":\"历史字段方案中的产品特定身份。\"},{\"token\":\"P\",\"label\":\"修饰符\",\"detail\":\"历史 PULP 路线线索；当前行为由 CV32E40P 手册定义。\"}]},{\"name\":\"CV32E40X\",\"note\":\"带 CORE-V-XIF 的四级内核\",\"tokens\":[{\"token\":\"CV32E4\",\"label\":\"共同前缀\",\"detail\":\"32 位、嵌入式、四级流水线家族。\"},{\"token\":\"0\",\"label\":\"特定身份\",\"detail\":\"产品特定身份字段。\"},{\"token\":\"X\",\"label\":\"变体线索\",\"detail\":\"当前手册记录 CORE-V-XIF；X 不表示强制内置向量单元。\"}]},{\"name\":\"CV32E40S\",\"note\":\"面向安全的四级兄弟核\",\"tokens\":[{\"token\":\"CV32E4\",\"label\":\"共同前缀\",\"detail\":\"32 位、嵌入式、四级流水线家族。\"},{\"token\":\"0\",\"label\":\"特定身份\",\"detail\":\"产品特定身份字段。\"},{\"token\":\"S\",\"label\":\"变体线索\",\"detail\":\"把读者导向面向安全的 CV32E40S 手册。\"}]},{\"name\":\"CVA6\",\"note\":\"仓库与可配置家族\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"A\",\"label\":\"类别方向\",\"detail\":\"仓库名中的应用级方向。\"},{\"token\":\"6\",\"label\":\"流水线\",\"detail\":\"六级流水线家族。\"}]},{\"name\":\"CV64A60\",\"note\":\"当前 CVA6 命名文档的正式示例\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"64\",\"label\":\"ILEN\",\"detail\":\"64 位指令长度。\"},{\"token\":\"A\",\"label\":\"类别\",\"detail\":\"应用级。\"},{\"token\":\"6\",\"label\":\"流水线\",\"detail\":\"六级流水线。\"},{\"token\":\"0\",\"label\":\"产品标识\",\"detail\":\"当前命名示例中的产品标识 0。\"}]},{\"name\":\"CV32A60AX\",\"note\":\"CVA6 当前配置\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"32\",\"label\":\"ILEN\",\"detail\":\"32 位指令长度。\"},{\"token\":\"A\",\"label\":\"类别字段\",\"detail\":\"当前配置表把它定义为应用级。\"},{\"token\":\"6\",\"label\":\"流水线\",\"detail\":\"六级流水线家族。\"},{\"token\":\"0AX\",\"label\":\"产品标识\",\"detail\":\"把剩余字段作为已记录的产品/配置标签；配置表确认 CV-X-IF。\"}]},{\"name\":\"CV32A65X\",\"note\":\"当前文档索引中的 CVA6 具体内核\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"32\",\"label\":\"ILEN\",\"detail\":\"三十二位指令长度。\"},{\"token\":\"A\",\"label\":\"类别\",\"detail\":\"应用级。\"},{\"token\":\"6\",\"label\":\"流水线\",\"detail\":\"继承自 CVA6 代码库的六级家族。\"},{\"token\":\"5X\",\"label\":\"产品标识\",\"detail\":\"当前索引链接了独立的 CV32A65X 设计文档，具体微架构应以该文档为准。\"}]}];\n    const exampleNav = document.querySelector('.examples');\n    const tokens = document.querySelector('.tokens');\n    const note = document.querySelector('.name-note');\n    const detailLabel = document.querySelector('.detail-label');\n    const detailToken = document.querySelector('.detail-token');\n    const detailText = document.querySelector('.detail-text');\n    const history = document.querySelector('.history');\n    let selectedExample = 0;\n    let selectedToken = 0;\n\n    function renderDetail() {\n      const item = examples[selectedExample].tokens[selectedToken];\n      detailLabel.textContent = item.label;\n      detailToken.textContent = item.token;\n      detailText.textContent = item.detail;\n      [...tokens.children].forEach((button, index) => button.setAttribute('aria-pressed', String(index === selectedToken)));\n    }\n\n    function renderExample() {\n      const example = examples[selectedExample];\n      note.textContent = example.note;\n      history.textContent = example.historical ? '包含历史字段解释' : '';\n      tokens.replaceChildren(...example.tokens.map((item, index) => {\n        const button = document.createElement('button');\n        button.className = 'token';\n        button.type = 'button';\n        button.textContent = item.token;\n        button.addEventListener('click', () => { selectedToken = index; renderDetail(); });\n        return button;\n      }));\n      [...exampleNav.children].forEach((button, index) => button.setAttribute('aria-pressed', String(index === selectedExample)));\n      selectedToken = 0;\n      renderDetail();\n    }\n\n    examples.forEach((example, index) => {\n      const button = document.createElement('button');\n      button.className = 'example';\n      button.type = 'button';\n      button.textContent = example.name;\n      button.addEventListener('click', () => { selectedExample = index; renderExample(); });\n      exampleNav.appendChild(button);\n    });\n    renderExample();\n  </script>\n</body>\n</html>",
+        "html": "<!doctype html>\n<html lang=\"zh-CN\">\n<head>\n  <meta charset=\"utf-8\" />\n  <meta name=\"viewport\" content=\"width=device-width, initial-scale=1\" />\n  <title>选择一个内核，再逐项查看字段</title>\n  <style>\n    :root { color-scheme: dark; --ink:#eef6ff; --muted:#9eb0c7; --line:#29405d; --panel:#101c2d; --panel2:#15253a; --blue:#5aa9ff; --cyan:#51d4c7; --gold:#f0bd5a; --bg:#07111f; }\n    * { box-sizing:border-box; }\n    html, body { width:100%; height:100%; margin:0; overflow:hidden; background:var(--bg); color:var(--ink); font-family:Inter,ui-sans-serif,-apple-system,BlinkMacSystemFont,\"PingFang SC\",\"Microsoft YaHei\",Arial,sans-serif; }\n    body { background-image:linear-gradient(rgba(81,212,199,.055) 1px,transparent 1px),linear-gradient(90deg,rgba(81,212,199,.055) 1px,transparent 1px); background-size:34px 34px; }\n    main { width:100%; height:100%; display:grid; grid-template-rows:auto auto 1fr auto; gap:16px; padding:clamp(20px,3.5vw,42px); }\n    header { border-bottom:1px solid var(--line); padding-bottom:14px; }\n    .eyebrow { margin:0 0 6px; color:var(--cyan); font-size:12px; font-weight:850; text-transform:uppercase; letter-spacing:.12em; }\n    h1 { margin:0; font-size:clamp(28px,3.8vw,48px); line-height:1.05; }\n    .subtitle { margin:7px 0 0; color:var(--muted); font-size:clamp(14px,1.4vw,18px); }\n    .examples { display:flex; gap:8px; overflow-x:auto; padding-bottom:3px; }\n    button { font:inherit; }\n    .example { flex:0 0 auto; border:1px solid var(--line); background:#0c1829; color:var(--muted); min-height:40px; padding:7px 13px; font-weight:800; cursor:pointer; }\n    .example[aria-pressed=\"true\"] { border-color:var(--blue); background:#153252; color:#fff; }\n    .workspace { min-height:0; display:grid; grid-template-columns:minmax(0,1.12fr) minmax(270px,.88fr); gap:16px; }\n    .name-panel, .detail { min-height:0; border:1px solid var(--line); background:linear-gradient(145deg,var(--panel),var(--panel2)); padding:clamp(17px,2.4vw,27px); }\n    .name-panel { display:grid; align-content:center; gap:18px; }\n    .name-note { color:var(--muted); font-size:13px; font-weight:700; }\n    .tokens { display:flex; flex-wrap:wrap; gap:8px; align-items:stretch; }\n    .token { border:1px solid #315172; border-bottom:4px solid var(--blue); background:#0b1727; color:#fff; padding:13px 14px 10px; font-size:clamp(22px,3.5vw,42px); font-weight:900; cursor:pointer; min-width:64px; }\n    .token:nth-child(2n) { border-bottom-color:var(--cyan); }\n    .token:nth-child(3n) { border-bottom-color:var(--gold); }\n    .token[aria-pressed=\"true\"] { background:#eaf4ff; color:#07111f; border-color:#eaf4ff; }\n    .detail { display:grid; align-content:center; gap:10px; }\n    .detail-label { color:var(--cyan); font-size:12px; font-weight:850; text-transform:uppercase; letter-spacing:.1em; }\n    .detail-token { font-size:clamp(38px,6vw,72px); font-weight:950; line-height:1; }\n    .detail-text { color:#c6d3e2; font-size:clamp(15px,1.65vw,21px); line-height:1.42; }\n    .caution { border-left:3px solid var(--gold); background:rgba(240,189,90,.09); padding:10px 13px; color:#f4dba4; font-size:13px; line-height:1.35; }\n    footer { display:flex; justify-content:space-between; gap:16px; color:#8296ae; font-size:11px; border-top:1px solid var(--line); padding-top:10px; }\n    .history { color:var(--gold); font-weight:800; }\n    @media (max-width:680px) {\n      html, body { overflow:auto; }\n      main { height:auto; min-height:100%; display:flex; flex-direction:column; padding:22px 18px; }\n      .workspace { display:flex; flex-direction:column; }\n      .name-panel, .detail { min-height:210px; }\n      .token { font-size:28px; }\n      footer { flex-direction:column; gap:5px; }\n    }\n  </style>\n</head>\n<body>\n  <main>\n    <header><p class=\"eyebrow\">交互式字段解码器</p><h1>选择一个内核，再逐项查看字段</h1><p class=\"subtitle\">解码器会区分当前文档事实与历史字段解释。</p></header>\n    <nav class=\"examples\" aria-label=\"内核名称\"></nav>\n    <section class=\"workspace\">\n      <article class=\"name-panel\"><div class=\"name-note\"></div><div class=\"tokens\"></div><div class=\"caution\">字段只是导航线索；把它写成设计结论以前，请打开对应的当前手册。</div></article>\n      <aside class=\"detail\" aria-live=\"polite\"><div class=\"detail-label\"></div><div class=\"detail-token\"></div><div class=\"detail-text\"></div></aside>\n    </section>\n    <footer><span>OpenHW 当前手册 · CORE-V 产品目录 · 历史命名资料</span><span class=\"history\"></span></footer>\n  </main>\n  <script>\n    const examples = [{\"name\":\"CVE2\",\"note\":\"家族与仓库标签\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"E\",\"label\":\"类别\",\"detail\":\"嵌入式方向。\"},{\"token\":\"2\",\"label\":\"流水线家族\",\"detail\":\"当前目录与手册记录为两级流水线。\"}]},{\"name\":\"CV32E20\",\"note\":\"CVE2 的具名内核\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"32\",\"label\":\"位宽\",\"detail\":\"32 位指令/寄存器架构。\"},{\"token\":\"E\",\"label\":\"类别\",\"detail\":\"嵌入式 MCU 类别。\"},{\"token\":\"2\",\"label\":\"流水线\",\"detail\":\"两级：IF 与合并的 ID/EX。\"},{\"token\":\"0\",\"label\":\"特定身份\",\"detail\":\"尾部身份/产品字段；具体语义以当前规格为准。\"}]},{\"name\":\"CV32E40P\",\"note\":\"来自 PULP 路线的四级内核\",\"historical\":true,\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"32\",\"label\":\"位宽\",\"detail\":\"32 位内核。\"},{\"token\":\"E\",\"label\":\"类别\",\"detail\":\"嵌入式类别。\"},{\"token\":\"4\",\"label\":\"流水线\",\"detail\":\"四级顺序执行流水线。\"},{\"token\":\"0\",\"label\":\"特定身份\",\"detail\":\"历史字段方案中的产品特定身份。\"},{\"token\":\"P\",\"label\":\"修饰符\",\"detail\":\"历史 PULP 路线线索；当前行为由 CV32E40P 手册定义。\"}]},{\"name\":\"CV32E40X\",\"note\":\"带 CORE-V-XIF 的四级内核\",\"tokens\":[{\"token\":\"CV32E4\",\"label\":\"共同前缀\",\"detail\":\"32 位、嵌入式、四级流水线家族。\"},{\"token\":\"0\",\"label\":\"特定身份\",\"detail\":\"产品特定身份字段。\"},{\"token\":\"X\",\"label\":\"变体线索\",\"detail\":\"当前手册记录 CORE-V-XIF；X 不表示强制内置向量单元。\"}]},{\"name\":\"CV32E40S\",\"note\":\"面向安全的四级兄弟核\",\"tokens\":[{\"token\":\"CV32E4\",\"label\":\"共同前缀\",\"detail\":\"32 位、嵌入式、四级流水线家族。\"},{\"token\":\"0\",\"label\":\"特定身份\",\"detail\":\"产品特定身份字段。\"},{\"token\":\"S\",\"label\":\"变体线索\",\"detail\":\"把读者导向面向安全的 CV32E40S 手册。\"}]},{\"name\":\"CVA6\",\"note\":\"仓库与可配置家族\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"A\",\"label\":\"类别方向\",\"detail\":\"仓库名中的应用级方向。\"},{\"token\":\"6\",\"label\":\"流水线\",\"detail\":\"六级流水线家族。\"}]},{\"name\":\"CV64A60\",\"note\":\"当前 CVA6 命名文档的正式示例\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"64\",\"label\":\"XLEN\",\"detail\":\"64 位整数寄存器架构，不是 64 位指令。基础指令编码为 32 位，也可支持 16 位压缩指令。\"},{\"token\":\"A\",\"label\":\"类别\",\"detail\":\"应用级。\"},{\"token\":\"6\",\"label\":\"流水线\",\"detail\":\"六级流水线。\"},{\"token\":\"0\",\"label\":\"产品标识\",\"detail\":\"当前命名示例中的产品标识 0。\"}]},{\"name\":\"CV32A60AX\",\"note\":\"CVA6 当前配置\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"32\",\"label\":\"XLEN\",\"detail\":\"32 位整数寄存器架构；指令编码长度是另一个属性。\"},{\"token\":\"A\",\"label\":\"类别字段\",\"detail\":\"当前配置表把它定义为应用级。\"},{\"token\":\"6\",\"label\":\"流水线\",\"detail\":\"六级流水线家族。\"},{\"token\":\"0AX\",\"label\":\"产品标识\",\"detail\":\"把剩余字段作为已记录的产品/配置标签；配置表确认 CV-X-IF。\"}]},{\"name\":\"CV32A65X\",\"note\":\"当前文档索引中的 CVA6 具体内核\",\"tokens\":[{\"token\":\"CV\",\"label\":\"家族\",\"detail\":\"OpenHW CORE-V 处理器家族。\"},{\"token\":\"32\",\"label\":\"XLEN\",\"detail\":\"32 位整数寄存器架构；指令编码长度是另一个属性。\"},{\"token\":\"A\",\"label\":\"类别\",\"detail\":\"应用级。\"},{\"token\":\"6\",\"label\":\"流水线\",\"detail\":\"继承自 CVA6 代码库的六级家族。\"},{\"token\":\"5X\",\"label\":\"产品标识\",\"detail\":\"当前索引链接了独立的 CV32A65X 设计文档，具体微架构应以该文档为准。\"}]}];\n    const exampleNav = document.querySelector('.examples');\n    const tokens = document.querySelector('.tokens');\n    const note = document.querySelector('.name-note');\n    const detailLabel = document.querySelector('.detail-label');\n    const detailToken = document.querySelector('.detail-token');\n    const detailText = document.querySelector('.detail-text');\n    const history = document.querySelector('.history');\n    let selectedExample = 0;\n    let selectedToken = 0;\n\n    function renderDetail() {\n      const item = examples[selectedExample].tokens[selectedToken];\n      detailLabel.textContent = item.label;\n      detailToken.textContent = item.token;\n      detailText.textContent = item.detail;\n      [...tokens.children].forEach((button, index) => button.setAttribute('aria-pressed', String(index === selectedToken)));\n    }\n\n    function renderExample() {\n      const example = examples[selectedExample];\n      note.textContent = example.note;\n      history.textContent = example.historical ? '包含历史字段解释' : '';\n      tokens.replaceChildren(...example.tokens.map((item, index) => {\n        const button = document.createElement('button');\n        button.className = 'token';\n        button.type = 'button';\n        button.textContent = item.token;\n        button.addEventListener('click', () => { selectedToken = index; renderDetail(); });\n        return button;\n      }));\n      [...exampleNav.children].forEach((button, index) => button.setAttribute('aria-pressed', String(index === selectedExample)));\n      selectedToken = 0;\n      renderDetail();\n    }\n\n    examples.forEach((example, index) => {\n      const button = document.createElement('button');\n      button.className = 'example';\n      button.type = 'button';\n      button.textContent = example.name;\n      button.addEventListener('click', () => { selectedExample = index; renderExample(); });\n      exampleNav.appendChild(button);\n    });\n    renderExample();\n  </script>\n</body>\n</html>",
         "sourceAnchors": [
           {
             "id": "core-v-cores-current-catalog",
@@ -620,7 +634,7 @@
             "title": "CVA6 documentation: CORE-V nomenclature",
             "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
             "locator": "CORE-V Nomenclature",
-            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
+            "claimSupported": "CVA6 documents derived core-name fields and a CV32A65X design. Its naming figure labels the width field ILEN; this course distinguishes that notation from the ISA definitions of XLEN and ILEN."
           },
           {
             "id": "cva6-current-configurations",
@@ -642,6 +656,13 @@
             "url": "https://open-src-soc.org/2022-05/media/slides/4th-RISC-V-Meeting-2022-05-04-14h40-Davide-Schiavone.pdf",
             "locator": "slide 4",
             "claimSupported": "The historical public deck decomposes CV32E40P into family, word length, class, identity, and modifier fields."
+          },
+          {
+            "id": "riscv-isa-widths",
+            "title": "RISC-V ISA: register width and instruction length",
+            "url": "https://docs.riscv.org/reference/isa/v20240411/unpriv/intro.html",
+            "locator": "RISC-V ISA Overview; Base Instruction-Length Encoding",
+            "claimSupported": "XLEN is integer-register width. ILEN is maximum instruction length; RV32/RV64 are not instruction encoding lengths."
           }
         ]
       },
@@ -654,7 +675,8 @@
         "cva6-current-nomenclature",
         "cva6-current-configurations",
         "cva6-current-releases",
-        "core-v-historical-naming"
+        "core-v-historical-naming",
+        "riscv-isa-widths"
       ],
       "actions": [
         {
@@ -664,7 +686,8 @@
           "voice": "alexchen-zh",
           "speed": 0.9,
           "audioId": "tts_scene-core-v-names-decoder-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-decoder-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-decoder-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-decoder-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,
@@ -780,7 +803,8 @@
           "voice": "alexchen-zh",
           "speed": 0.9,
           "audioId": "tts_scene-core-v-names-workflow-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-workflow-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-workflow-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-workflow-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,
@@ -883,6 +907,35 @@
             "points": 1
           },
           {
+            "id": "core-v-names-zh-q5",
+            "type": "single",
+            "question": "RV64 内核名称中的 64，是否意味着每条指令都长 64 位？",
+            "options": [
+              {
+                "label": "不是。XLEN 为 64；基础指令为 32 位，压缩指令可以是 16 位。",
+                "value": "A"
+              },
+              {
+                "label": "是。寄存器位宽与指令长度始终相同。",
+                "value": "B"
+              },
+              {
+                "label": "不是。它表示有 64 个整数寄存器。",
+                "value": "C"
+              },
+              {
+                "label": "是。RV64 不允许 16 位压缩指令。",
+                "value": "D"
+              }
+            ],
+            "answer": [
+              "A"
+            ],
+            "analysis": "XLEN 表示整数寄存器位宽。ILEN 表示实现支持的最大指令长度，两者是不同概念。",
+            "hasAnswer": true,
+            "points": 1
+          },
+          {
             "id": "core-v-names-zh-q4",
             "type": "multiple",
             "question": "除了人类可读名称，发布级身份核对还应检查哪些 CSR？",
@@ -919,11 +972,12 @@
         {
           "id": "scene-core-v-names-quiz-speech",
           "type": "speech",
-          "text": "这组题检查真正的工程阅读能力。第一题区分家族或代码库与具名内核；第二题要求在不过度推断的前提下拆解 CV32E20；第三题识别 CV32E40X 的关键集成路径 CORE-V-XIF；最后一题选择发布级硬件身份核对所需的三个 CSR。作答时必须把料号与当前手册、配置表和发布身份连起来，而不是凭字母形状猜功能；还要能够说明下一步应检查哪份文档、哪一行配置和哪一个发布标签。",
+          "text": "这组题检查工程阅读能力。首先区分家族或代码库与具名内核，再在不过度推断的前提下拆解 CV32E20。识别 CV32E40X 的集成路径 CORE-V-XIF，并区分整数寄存器位宽与指令长度。最后选择发布级硬件身份核对所需的三个 CSR。作答时把料号与当前手册、配置表和发布身份连起来，不要凭字母猜功能。",
           "voice": "alexchen-zh",
           "speed": 0.9,
           "audioId": "tts_scene-core-v-names-quiz-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-quiz-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-quiz-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-quiz-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,
@@ -976,7 +1030,7 @@
             "title": "CVA6 documentation: CORE-V nomenclature",
             "url": "https://github.com/openhwgroup/cva6/blob/master/docs/index.rst",
             "locator": "CORE-V Nomenclature",
-            "claimSupported": "CVA6 is a repository/code base, A6 denotes application class plus a six-stage pipeline, derived core names use CV, ILEN, class, pipeline stages, and a product identifier, and the current index links a dedicated CV32A65X design document."
+            "claimSupported": "CVA6 documents derived core-name fields and a CV32A65X design. Its naming figure labels the width field ILEN; this course distinguishes that notation from the ISA definitions of XLEN and ILEN."
           }
         ],
         "speakerNotes": "把方法压缩成四步。第一，判断标签属于哪一层。第二，只拆解当前项目文档或明确标注的历史语法所支持的字段。第三，在声称 ISA、特权级、接口、发射宽度或成熟度以前，把名称解析到具体配置表和用户手册。第四，固定仓库发布和三个身份 CSR。采用这套方法以后，CVE2、CV32E20、CV32E40 兄弟核以及 CVA6 会成为可以导航的产品体系，而不是一串难懂缩写。"
@@ -994,7 +1048,8 @@
           "voice": "alexchen-zh",
           "speed": 0.9,
           "audioId": "tts_scene-core-v-names-summary-speech",
-          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-summary-speech.mp3"
+          "audioUrl": "/api/classroom-media/openhw-essentials-core-v-names-zh/audio/tts_scene-core-v-names-summary-speech.mp3",
+          "captionUrl": "/classroom-assets/openhw-essentials-core-v-names-zh/subtitles/tts_scene-core-v-names-summary-speech.vtt"
         }
       ],
       "createdAt": 1785758400000,

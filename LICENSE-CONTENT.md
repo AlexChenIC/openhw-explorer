@@ -19,6 +19,9 @@ This includes, unless a file states otherwise:
 - `scripts/` and build, lint, test, and framework configuration
 - `messages/`
 - `src/data/projects.ts`, `src/data/filters.ts`, `src/data/resources.ts`,
+  `src/data/ecosystem.ts`, `src/data/industry-landscape.ts`,
+  `src/data/pdk-details.ts`, `src/data/industry-headquarters.ts`,
+  `src/data/classroom-routes.ts`,
   `src/data/github-stats.json`, `src/data/project-profile-meta.json`,
   `src/data/news-candidates.json`, `src/data/news-source-groups.json`, and
   `src/data/news-topic-rules.json`
@@ -26,6 +29,10 @@ This includes, unless a file states otherwise:
 
 You may use, reproduce, modify, and distribute these materials under the
 Apache-2.0 terms.
+
+The ecosystem and industry directories are explicitly included as navigator
+data (clarified 2026-09-13). Third-party logos and source works retain their
+own terms; this clarification does not narrow any historical grant.
 
 ## 2. Original Learning and Editorial Content - Rights Reserved
 

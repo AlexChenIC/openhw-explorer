@@ -189,6 +189,11 @@ type ClassroomContentProps = {
 };
 
 const collectionIcons = [BookOpenText, Route, Library] as const;
+const chineseTags: Record<string, string> = {
+  "processor core": "处理器内核", "processor IP": "处理器 IP", verification: "验证",
+  "open source": "开源", adoption: "工程应用", repository: "仓库", governance: "治理",
+  nomenclature: "命名规则", "RTL reading": "RTL 阅读",
+};
 
 const defaultLessonVisual = {
   image: "/classroom/course-marks/core-v.png",
@@ -443,7 +448,7 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
                             key={tag}
                             className="rounded-md bg-[var(--bg-muted)] px-2.5 py-1 text-xs text-[var(--text-tertiary)]"
                           >
-                            {tag}
+                            {resolvedLocale === "zh" ? chineseTags[tag] || tag : tag}
                           </span>
                         ))}
                       </div>
