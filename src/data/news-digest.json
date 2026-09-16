@@ -1,17 +1,17 @@
 {
   "weekOf": "2026-09-16",
-  "generatedAt": "2026-09-16T03:19:33.549Z",
+  "generatedAt": "2026-09-16T12:43:37.935Z",
   "stats": {
-    "totalRelevant": 113,
+    "totalRelevant": 117,
     "totalSources": 38,
     "topTags": [
       {
         "tag": "RISC-V",
-        "count": 39
+        "count": 40
       },
       {
         "tag": "EDA",
-        "count": 34
+        "count": 37
       },
       {
         "tag": "Security",
@@ -19,11 +19,11 @@
       },
       {
         "tag": "Verification",
-        "count": 28
+        "count": 29
       },
       {
         "tag": "Open Hardware",
-        "count": 21
+        "count": 24
       }
     ]
   },
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 42,
+      "count": 43,
       "items": [
         {
           "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
@@ -212,7 +212,7 @@
         "zh": "产业动态"
       },
       "icon": "trending",
-      "count": 7,
+      "count": 8,
       "items": [
         {
           "title": "FOSSi publishes Bucket functional-coverage tooling update",
@@ -239,6 +239,18 @@
           "publishedAt": "2026-08-31"
         },
         {
+          "title": "FOSSi publishes ShapeIC talk on LUT-based analog IC exploration",
+          "titleZh": "FOSSi 发布 ShapeIC 讲座，介绍基于查找表的模拟 IC 探索",
+          "url": "https://www.youtube.com/watch?v=0YLB8wuWlx0",
+          "source": "FOSSi Foundation Videos",
+          "tags": [
+            "FOSSi",
+            "ShapeIC",
+            "Analog IC"
+          ],
+          "publishedAt": "2026-09-13"
+        },
+        {
           "title": "Antmicro joins the OpenROAD Initiative to support open-source silicon design tooling",
           "titleZh": "Antmicro 加入 OpenROAD Initiative，支持开源硅设计工具生态",
           "url": "https://antmicro.com/blog/2026/07/antmicro-joins-the-openroad-initiative",
@@ -249,18 +261,6 @@
             "OpenROAD Initiative"
           ],
           "publishedAt": "2026-07-27"
-        },
-        {
-          "title": "Qualcomm joins CHIPS Alliance as a Platinum member for open-source chip design",
-          "titleZh": "Qualcomm 以 Platinum member 身份加入 CHIPS Alliance，推动开源芯片设计",
-          "url": "https://www.chipsalliance.org/news/qualcomm-new-member-blog/",
-          "source": "CHIPS Alliance Blog",
-          "tags": [
-            "CHIPS Alliance",
-            "Qualcomm",
-            "Open Silicon"
-          ],
-          "publishedAt": "2026-07-16"
         }
       ]
     },
@@ -271,7 +271,7 @@
         "zh": "硬件与嵌入式"
       },
       "icon": "circuit",
-      "count": 13,
+      "count": 15,
       "items": [
         {
           "title": "FOSSi publishes Verilator talk on closing SystemVerilog support gaps",
@@ -783,6 +783,36 @@
       "summaryZh": "CHIPS Alliance 发布 Caliptra 2.1 MCU Runtime SDK 初始版本，提供基于 Tock 的 Rust 信任根参考运行时。SDK 包含可复用的 capsule 组件、硬件抽象接口、参考驱动、用户态 API、协议栈、参考应用和主机工具，以及供特定 SoC 集成使用的模拟器与 FPGA 参考平台。"
     },
     {
+      "title": "FOSSi publishes Borg talk on a libre-toolchain open GPU tapeout",
+      "url": "https://www.youtube.com/watch?v=mkUBi4e1VdA",
+      "source": "FOSSi Foundation Videos",
+      "publishedAt": "2026-09-13",
+      "addedAt": "2026-09-13T10:57:57Z",
+      "summary": "FOSSi Foundation published Andreas Wendleder's Borg talk. The official abstract describes a small RISC-V SoC driving a tile-based FP16 GPU, built end-to-end with libre tools including Chisel, Yosys, LibreLane/OpenROAD, Verilator, and Nix, and submitted as an ASIC tapeout while exposing and fixing upstream toolchain issues.",
+      "author": "",
+      "relevanceScore": 12,
+      "tags": [
+        "FOSSi",
+        "RISC-V",
+        "GPU",
+        "Tape-out",
+        "Open Hardware",
+        "Libre EDA",
+        "Chisel",
+        "Yosys",
+        "OpenROAD",
+        "Verilator",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 6,
+      "titleZh": "FOSSi 发布 Borg 讲座，展示基于自由工具链的开源 GPU 流片",
+      "summaryZh": "FOSSi Foundation 发布了 Andreas Wendleder 关于 Borg 的讲座。官方摘要介绍了一个小型 RISC-V SoC 驱动的 tile-based FP16 GPU，使用 Chisel、Yosys、LibreLane/OpenROAD、Verilator 和 Nix 等自由工具端到端构建，并作为 ASIC 流片提交，同时暴露并修复了上游工具链问题。"
+    },
+    {
       "title": "OpenHW TV publishes a practical webinar on open RISC-V verification",
       "url": "https://www.youtube.com/watch?v=pH2zvi_x5wM",
       "source": "OpenHW TV",
@@ -812,6 +842,34 @@
       "summaryZh": "OpenHW TV 发布 PlanV Tech 关于 RISC-V 与高可信芯片开放验证的线上讲座。内容串联 Verilator 的 UVM 支持、CORE-V-VERIF 等工业级验证环境、新兴形式化验证框架，以及从 RTL 验证到经过形式化验证的设备驱动和可信嵌入式系统的端到端信任。"
     },
     {
+      "title": "FOSSi publishes ShapeIC talk on LUT-based analog IC exploration",
+      "url": "https://www.youtube.com/watch?v=0YLB8wuWlx0",
+      "source": "FOSSi Foundation Videos",
+      "publishedAt": "2026-09-13",
+      "addedAt": "2026-09-13T10:58:44Z",
+      "summary": "FOSSi Foundation published Daniel Arevalos' ShapeIC talk. The official abstract presents ShapeIC as an open-source project for fast analog integrated-circuit design-space exploration, using lookup-table characterization of devices and circuit primitives to reduce repeated full circuit simulation during hierarchical transistor sizing.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "FOSSi",
+        "ShapeIC",
+        "Analog IC",
+        "Open Hardware",
+        "EDA",
+        "SPICE",
+        "Design Exploration",
+        "Silicon",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 7,
+      "titleZh": "FOSSi 发布 ShapeIC 讲座，介绍基于查找表的模拟 IC 探索",
+      "summaryZh": "FOSSi Foundation 发布了 Daniel Arevalos 关于 ShapeIC 的讲座。官方摘要将 ShapeIC 描述为一个用于快速模拟集成电路设计空间探索的开源项目，通过对器件和电路基元进行查找表表征，在分层晶体管尺寸探索中减少重复的完整电路仿真。"
+    },
+    {
       "title": "OpenHW TV introduces RISC-V System-on-Chip Design with CORE-V Wally",
       "url": "https://www.youtube.com/watch?v=844k7CObghY",
       "source": "OpenHW TV",
@@ -839,6 +897,35 @@
       "highlightRank": 7,
       "titleZh": "OpenHW TV 介绍基于 CORE-V Wally 的 RISC-V SoC 设计课程",
       "summaryZh": "OpenHW TV 发布 David Harris 教授与 Rose Thompson 博士的线上讲座，介绍 RISC-V System-on-Chip Design 及围绕 CORE-V Wally 的实践课程。录制内容以开源 SoC 平台为基础，涉及 RV32I/RV64I、支持 Linux 的虚拟内存、缓存、分支预测和 RISC-V 扩展，以及仿真、分析、扩展设计和 FPGA 实践。"
+    },
+    {
+      "title": "FOSSi publishes SpiceBind talk connecting SPICE and RTL verification",
+      "url": "https://www.youtube.com/watch?v=X9tjylQ0Rv4",
+      "source": "FOSSi Foundation Videos",
+      "publishedAt": "2026-09-13",
+      "addedAt": "2026-09-13T10:56:44Z",
+      "summary": "FOSSi Foundation published Tomasz Hemperek's SpiceBind talk. The official abstract frames SpiceBind as a project that connects ngspice to a VPI-capable HDL simulator, placing it in the growing open-source analog/mixed-signal verification stack alongside open PDKs, circuit simulators, design tools, and libraries.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "FOSSi",
+        "SpiceBind",
+        "SPICE",
+        "ngspice",
+        "RTL",
+        "Verification",
+        "VPI",
+        "AMS",
+        "EDA",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 8,
+      "titleZh": "FOSSi 发布 SpiceBind 讲座，连接 SPICE 与 RTL 验证流程",
+      "summaryZh": "FOSSi Foundation 发布了 Tomasz Hemperek 关于 SpiceBind 的讲座。官方摘要将 SpiceBind 描述为一个把 ngspice 连接到支持 VPI 的 HDL 仿真器的项目，并把它放在开放 PDK、电路仿真器、设计工具和库共同发展的开源模拟/混合信号验证体系中。"
     },
     {
       "title": "Antmicro introduces Faultergeist for SEU fault injection in Verilator",
@@ -898,6 +985,34 @@
       "highlightRank": 9,
       "titleZh": "OpenTitan Earl Grey 2 增加低功耗 I3C controller/target IP",
       "summaryZh": "lowRISC 介绍了 OpenTitan Earl Grey 2 的 I3C 接口：SDR 原始比特率最高 12.5 Mbps，HDR-DDR 最高 25 Mbps。这里指原始比特率，并非扣除协议开销后的有效吞吐量；文章还说明了低功耗运行与 SCL 驱动控制。"
+    },
+    {
+      "title": "FOSSi publishes Spire talk on HDL-level optimization intent",
+      "url": "https://www.youtube.com/watch?v=9N2l1K45lFk",
+      "source": "FOSSi Foundation Videos",
+      "publishedAt": "2026-09-13",
+      "addedAt": "2026-09-13T10:58:36Z",
+      "summary": "FOSSi Foundation published Felix Arnold's Spire talk. The official abstract describes Spire as a Python-embedded HDL that lets designers express optimization intent in source code and apply transformations such as arithmetic architecture selection and fusion, FSM minimization, and ABC-backed logic optimization.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "FOSSi",
+        "Spire",
+        "HDL",
+        "Python",
+        "Logic Optimization",
+        "ABC",
+        "EDA",
+        "Open Hardware",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 9,
+      "titleZh": "FOSSi 发布 Spire 讲座，探索在 HDL 中表达优化意图",
+      "summaryZh": "FOSSi Foundation 发布了 Felix Arnold 关于 Spire 的讲座。官方摘要介绍 Spire 是一种嵌入 Python 的 HDL，让设计者在源代码中表达优化意图，并应用算术结构选择与融合、FSM 最小化以及基于 ABC 的逻辑优化等转换。"
     },
     {
       "title": "CIRCT firtool 1.155.0 updates HW, LLHD, ESI, Moore, FIRRTL, and RTG flows",

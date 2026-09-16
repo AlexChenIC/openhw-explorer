@@ -155,6 +155,129 @@
       }
     },
     {
+      "title": "FOSSi publishes Borg talk on a libre-toolchain open GPU tapeout",
+      "titleZh": "FOSSi 发布 Borg 讲座，展示基于自由工具链的开源 GPU 流片",
+      "url": "https://www.youtube.com/watch?v=mkUBi4e1VdA",
+      "source": "FOSSi Foundation Videos",
+      "addedAt": "2026-09-13T10:57:57Z",
+      "summary": "FOSSi Foundation published Andreas Wendleder's Borg talk. The official abstract describes a small RISC-V SoC driving a tile-based FP16 GPU, built end-to-end with libre tools including Chisel, Yosys, LibreLane/OpenROAD, Verilator, and Nix, and submitted as an ASIC tapeout while exposing and fixing upstream toolchain issues.",
+      "summaryZh": "FOSSi Foundation 发布了 Andreas Wendleder 关于 Borg 的讲座。官方摘要介绍了一个小型 RISC-V SoC 驱动的 tile-based FP16 GPU，使用 Chisel、Yosys、LibreLane/OpenROAD、Verilator 和 Nix 等自由工具端到端构建，并作为 ASIC 流片提交，同时暴露并修复了上游工具链问题。",
+      "tags": [
+        "FOSSi",
+        "RISC-V",
+        "GPU",
+        "Tape-out",
+        "Open Hardware",
+        "Libre EDA",
+        "Chisel",
+        "Yosys",
+        "OpenROAD",
+        "Verilator",
+        "Talk"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "highlightRank": 6,
+      "publishedAt": "2026-09-13",
+      "dateEvidence": {
+        "url": "https://www.youtube.com/watch?v=mkUBi4e1VdA",
+        "locator": "yt-dlp timestamp/upload_date",
+        "checkedAt": "2026-09-16"
+      }
+    },
+    {
+      "title": "FOSSi publishes ShapeIC talk on LUT-based analog IC exploration",
+      "titleZh": "FOSSi 发布 ShapeIC 讲座，介绍基于查找表的模拟 IC 探索",
+      "url": "https://www.youtube.com/watch?v=0YLB8wuWlx0",
+      "source": "FOSSi Foundation Videos",
+      "addedAt": "2026-09-13T10:58:44Z",
+      "summary": "FOSSi Foundation published Daniel Arevalos' ShapeIC talk. The official abstract presents ShapeIC as an open-source project for fast analog integrated-circuit design-space exploration, using lookup-table characterization of devices and circuit primitives to reduce repeated full circuit simulation during hierarchical transistor sizing.",
+      "summaryZh": "FOSSi Foundation 发布了 Daniel Arevalos 关于 ShapeIC 的讲座。官方摘要将 ShapeIC 描述为一个用于快速模拟集成电路设计空间探索的开源项目，通过对器件和电路基元进行查找表表征，在分层晶体管尺寸探索中减少重复的完整电路仿真。",
+      "tags": [
+        "FOSSi",
+        "ShapeIC",
+        "Analog IC",
+        "Open Hardware",
+        "EDA",
+        "SPICE",
+        "Design Exploration",
+        "Silicon",
+        "Talk"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "highlightRank": 7,
+      "publishedAt": "2026-09-13",
+      "dateEvidence": {
+        "url": "https://www.youtube.com/watch?v=0YLB8wuWlx0",
+        "locator": "yt-dlp timestamp/upload_date",
+        "checkedAt": "2026-09-16"
+      }
+    },
+    {
+      "title": "FOSSi publishes SpiceBind talk connecting SPICE and RTL verification",
+      "titleZh": "FOSSi 发布 SpiceBind 讲座，连接 SPICE 与 RTL 验证流程",
+      "url": "https://www.youtube.com/watch?v=X9tjylQ0Rv4",
+      "source": "FOSSi Foundation Videos",
+      "addedAt": "2026-09-13T10:56:44Z",
+      "summary": "FOSSi Foundation published Tomasz Hemperek's SpiceBind talk. The official abstract frames SpiceBind as a project that connects ngspice to a VPI-capable HDL simulator, placing it in the growing open-source analog/mixed-signal verification stack alongside open PDKs, circuit simulators, design tools, and libraries.",
+      "summaryZh": "FOSSi Foundation 发布了 Tomasz Hemperek 关于 SpiceBind 的讲座。官方摘要将 SpiceBind 描述为一个把 ngspice 连接到支持 VPI 的 HDL 仿真器的项目，并把它放在开放 PDK、电路仿真器、设计工具和库共同发展的开源模拟/混合信号验证体系中。",
+      "tags": [
+        "FOSSi",
+        "SpiceBind",
+        "SPICE",
+        "ngspice",
+        "RTL",
+        "Verification",
+        "VPI",
+        "AMS",
+        "EDA",
+        "Talk"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "highlightRank": 8,
+      "publishedAt": "2026-09-13",
+      "dateEvidence": {
+        "url": "https://www.youtube.com/watch?v=X9tjylQ0Rv4",
+        "locator": "yt-dlp timestamp/upload_date",
+        "checkedAt": "2026-09-16"
+      }
+    },
+    {
+      "title": "FOSSi publishes Spire talk on HDL-level optimization intent",
+      "titleZh": "FOSSi 发布 Spire 讲座，探索在 HDL 中表达优化意图",
+      "url": "https://www.youtube.com/watch?v=9N2l1K45lFk",
+      "source": "FOSSi Foundation Videos",
+      "addedAt": "2026-09-13T10:58:36Z",
+      "summary": "FOSSi Foundation published Felix Arnold's Spire talk. The official abstract describes Spire as a Python-embedded HDL that lets designers express optimization intent in source code and apply transformations such as arithmetic architecture selection and fusion, FSM minimization, and ABC-backed logic optimization.",
+      "summaryZh": "FOSSi Foundation 发布了 Felix Arnold 关于 Spire 的讲座。官方摘要介绍 Spire 是一种嵌入 Python 的 HDL，让设计者在源代码中表达优化意图，并应用算术结构选择与融合、FSM 最小化以及基于 ABC 的逻辑优化等转换。",
+      "tags": [
+        "FOSSi",
+        "Spire",
+        "HDL",
+        "Python",
+        "Logic Optimization",
+        "ABC",
+        "EDA",
+        "Open Hardware",
+        "Talk"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "highlightRank": 9,
+      "publishedAt": "2026-09-13",
+      "dateEvidence": {
+        "url": "https://www.youtube.com/watch?v=9N2l1K45lFk",
+        "locator": "yt-dlp timestamp/upload_date",
+        "checkedAt": "2026-09-16"
+      }
+    },
+    {
       "title": "FOSSi publishes coconext talk on a faster cocotb-style verification flow",
       "titleZh": "FOSSi 发布 coconext 讲座，探索更快的 cocotb 风格验证流程",
       "url": "https://www.youtube.com/watch?v=iOHab5YW76I",
