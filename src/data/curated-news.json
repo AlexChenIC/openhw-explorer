@@ -3,6 +3,158 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "FOSSi publishes Verilator talk on closing SystemVerilog support gaps",
+      "titleZh": "FOSSi 发布 Verilator 讲座，聚焦补齐 SystemVerilog 支持缺口",
+      "url": "https://www.youtube.com/watch?v=ZsNfJP_w2zg",
+      "source": "FOSSi Foundation Videos",
+      "addedAt": "2026-09-13T12:06:37Z",
+      "summary": "FOSSi Foundation published Krzysztof Bieganski's Verilator talk. The video abstract reports progress toward broader verification support, including experimental four-state logic, improved constrained-random stimulus generation, remaining UVM scheduling and bug-fix work, SVA nearing feature completeness, and coverage-tooling updates.",
+      "summaryZh": "FOSSi Foundation 发布了 Krzysztof Bieganski 关于 Verilator 的讲座。视频摘要说明了扩展验证能力的进展，包括实验分支中的四态逻辑支持、受约束随机激励生成质量改进、UVM 调度与缺陷修复、SVA 接近功能完整，以及覆盖率工具相关更新。",
+      "tags": [
+        "FOSSi",
+        "Verilator",
+        "SystemVerilog",
+        "UVM",
+        "SVA",
+        "Coverage",
+        "Verification",
+        "Open Hardware",
+        "EDA",
+        "Talk"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "highlightRank": 1,
+      "publishedAt": "2026-09-13",
+      "dateEvidence": {
+        "url": "https://www.youtube.com/watch?v=ZsNfJP_w2zg",
+        "locator": "yt-dlp timestamp/upload_date",
+        "checkedAt": "2026-09-16"
+      }
+    },
+    {
+      "title": "FOSSi publishes GVSoC talk on event-driven many-core simulation",
+      "titleZh": "FOSSi 发布 GVSoC 讲座，介绍事件驱动的多核系统仿真",
+      "url": "https://www.youtube.com/watch?v=4gus3F2NOZw",
+      "source": "FOSSi Foundation Videos",
+      "addedAt": "2026-09-13T12:05:54Z",
+      "summary": "FOSSi Foundation published Rafael Medina Morillas's GVSoC talk. The abstract describes GVSoC as a configurable event-driven simulator for IoT processors and complex SoCs, using C++ models and Python configuration for faster prototyping, design exploration, full-platform many-core simulation, and integration with other simulators.",
+      "summaryZh": "FOSSi Foundation 发布了 Rafael Medina Morillas 关于 GVSoC 的讲座。视频摘要将 GVSoC 描述为面向 IoT 处理器和复杂 SoC 的可配置事件驱动仿真器，通过 C++ 模型和 Python 配置支持更快的原型设计、设计空间探索、完整平台多核仿真以及与其他仿真器集成。",
+      "tags": [
+        "FOSSi",
+        "GVSoC",
+        "Simulation",
+        "Many-core",
+        "SoC",
+        "C++",
+        "Python",
+        "Open Hardware",
+        "EDA",
+        "Talk"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "highlightRank": 2,
+      "publishedAt": "2026-09-13",
+      "dateEvidence": {
+        "url": "https://www.youtube.com/watch?v=4gus3F2NOZw",
+        "locator": "yt-dlp timestamp/upload_date",
+        "checkedAt": "2026-09-16"
+      }
+    },
+    {
+      "title": "FOSSi publishes Spade HDL talk with RISC-V core and RTL project examples",
+      "titleZh": "FOSSi 发布 Spade HDL 讲座，展示 RISC-V 内核与 RTL 项目案例",
+      "url": "https://www.youtube.com/watch?v=PEPsO_Q_tCA",
+      "source": "FOSSi Foundation Videos",
+      "addedAt": "2026-09-13T12:05:16Z",
+      "summary": "FOSSi Foundation published Frans Skarman's Spade HDL talk. The abstract shifts from language introduction to concrete projects built with Spade, including RISC-V cores, Ethernet and camera-stack work, and a pure-RTL UI library.",
+      "summaryZh": "FOSSi Foundation 发布了 Frans Skarman 关于 Spade HDL 的讲座。视频摘要不再侧重语言本身，而是展示用 Spade 构建的项目，包括 RISC-V 内核、以太网与摄像头栈，以及纯 RTL UI 库。",
+      "tags": [
+        "FOSSi",
+        "Spade",
+        "HDL",
+        "RISC-V",
+        "RTL",
+        "Ethernet",
+        "Open Hardware",
+        "EDA",
+        "Talk"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "highlightRank": 3,
+      "publishedAt": "2026-09-13",
+      "dateEvidence": {
+        "url": "https://www.youtube.com/watch?v=PEPsO_Q_tCA",
+        "locator": "yt-dlp timestamp/upload_date",
+        "checkedAt": "2026-09-16"
+      }
+    },
+    {
+      "title": "FOSSi publishes FuseSoC roadmap talk for IP and EDA-flow management",
+      "titleZh": "FOSSi 发布 FuseSoC 路线图讲座，面向 IP 与 EDA 流程管理",
+      "url": "https://www.youtube.com/watch?v=FB7tBPpeGnw",
+      "source": "FOSSi Foundation Videos",
+      "addedAt": "2026-09-13T12:03:39Z",
+      "summary": "FOSSi Foundation published Olof Kindgren's FuseSoC and Edalize roadmap talk. The abstract frames FuseSoC as a widely used IP-management solution with a public core registry and describes Edalize as an EDA-flow manager supporting more than 50 tools, then outlines planned features for managing, building, simulating, and analyzing larger designs.",
+      "summaryZh": "FOSSi Foundation 发布了 Olof Kindgren 关于 FuseSoC 与 Edalize 路线图的讲座。视频摘要将 FuseSoC 定位为广泛使用的 IP 管理方案，拥有公开 IP core 注册表，并介绍 Edalize 作为支持 50 多种工具的 EDA 流程管理器，后续方向聚焦大型设计的管理、构建、仿真与分析。",
+      "tags": [
+        "FOSSi",
+        "FuseSoC",
+        "Edalize",
+        "IP Management",
+        "EDA",
+        "Simulation",
+        "Open Hardware",
+        "Talk"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "highlightRank": 4,
+      "publishedAt": "2026-09-13",
+      "dateEvidence": {
+        "url": "https://www.youtube.com/watch?v=FB7tBPpeGnw",
+        "locator": "yt-dlp timestamp/upload_date",
+        "checkedAt": "2026-09-16"
+      }
+    },
+    {
+      "title": "FOSSi publishes VeeR and Verilator talk on open fault-injection tooling",
+      "titleZh": "FOSSi 发布 VeeR 与 Verilator 讲座，介绍开放故障注入工具",
+      "url": "https://www.youtube.com/watch?v=YK1CpucgUKw",
+      "source": "FOSSi Foundation Videos",
+      "addedAt": "2026-09-13T12:01:16Z",
+      "summary": "FOSSi Foundation published Maciej Dudek's talk on radiation hardening and fault injection. The abstract covers ongoing Triple Modular Redundancy work for the CHIPS Alliance VeeR-EL2 open-source RISC-V core and new open Verilator-based tooling used to inject faults and verify the VeeR-EL2 TMR configuration.",
+      "summaryZh": "FOSSi Foundation 发布了 Maciej Dudek 关于抗辐射加固与故障注入的讲座。视频摘要介绍了 CHIPS Alliance VeeR-EL2 开源 RISC-V 内核的三模冗余配置工作，以及围绕 Verilator 构建的开放故障注入工具，用于验证 VeeR-EL2 TMR 配置。",
+      "tags": [
+        "FOSSi",
+        "VeeR-EL2",
+        "Verilator",
+        "Fault Injection",
+        "Radiation Hardening",
+        "TMR",
+        "RISC-V",
+        "Verification",
+        "Open Hardware",
+        "Talk"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "highlightRank": 5,
+      "publishedAt": "2026-09-13",
+      "dateEvidence": {
+        "url": "https://www.youtube.com/watch?v=YK1CpucgUKw",
+        "locator": "yt-dlp timestamp/upload_date",
+        "checkedAt": "2026-09-16"
+      }
+    },
+    {
       "title": "FOSSi publishes coconext talk on a faster cocotb-style verification flow",
       "titleZh": "FOSSi 发布 coconext 讲座，探索更快的 cocotb 风格验证流程",
       "url": "https://www.youtube.com/watch?v=iOHab5YW76I",

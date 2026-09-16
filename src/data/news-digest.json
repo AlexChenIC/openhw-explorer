@@ -1,29 +1,29 @@
 {
-  "weekOf": "2026-09-13",
-  "generatedAt": "2026-09-13T11:53:09.295Z",
+  "weekOf": "2026-09-16",
+  "generatedAt": "2026-09-16T03:19:33.549Z",
   "stats": {
-    "totalRelevant": 108,
+    "totalRelevant": 113,
     "totalSources": 38,
     "topTags": [
       {
         "tag": "RISC-V",
-        "count": 37
+        "count": 39
+      },
+      {
+        "tag": "EDA",
+        "count": 34
       },
       {
         "tag": "Security",
         "count": 31
       },
       {
-        "tag": "EDA",
-        "count": 30
-      },
-      {
         "tag": "Verification",
-        "count": 26
+        "count": 28
       },
       {
-        "tag": "Root of Trust",
-        "count": 20
+        "tag": "Open Hardware",
+        "count": 21
       }
     ]
   },
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 40,
+      "count": 42,
       "items": [
         {
           "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
@@ -109,6 +109,18 @@
           "publishedAt": "2026-09-07"
         },
         {
+          "title": "FOSSi publishes Spade HDL talk with RISC-V core and RTL project examples",
+          "titleZh": "FOSSi 发布 Spade HDL 讲座，展示 RISC-V 内核与 RTL 项目案例",
+          "url": "https://www.youtube.com/watch?v=PEPsO_Q_tCA",
+          "source": "FOSSi Foundation Videos",
+          "tags": [
+            "FOSSi",
+            "Spade",
+            "HDL"
+          ],
+          "publishedAt": "2026-09-13"
+        },
+        {
           "title": "OpenTitan starts Peppermint, an integrated RoT for constrained SoCs",
           "titleZh": "OpenTitan 启动面向资源受限 SoC 的 Peppermint 集成式信任根",
           "url": "https://lowrisc.org/news/opentitan-project-kicks-off-the-peppermint-integrated-root-of-trust-for-area-constrained-socs/",
@@ -121,28 +133,16 @@
           "publishedAt": "2026-08-25"
         },
         {
-          "title": "OpenHW TV publishes a practical webinar on open RISC-V verification",
-          "titleZh": "OpenHW TV 发布开放 RISC-V 验证实务讲座",
-          "url": "https://www.youtube.com/watch?v=pH2zvi_x5wM",
-          "source": "OpenHW TV",
+          "title": "FOSSi publishes VeeR and Verilator talk on open fault-injection tooling",
+          "titleZh": "FOSSi 发布 VeeR 与 Verilator 讲座，介绍开放故障注入工具",
+          "url": "https://www.youtube.com/watch?v=YK1CpucgUKw",
+          "source": "FOSSi Foundation Videos",
           "tags": [
-            "OpenHW",
-            "OpenHW TV",
-            "RISC-V"
+            "FOSSi",
+            "VeeR-EL2",
+            "Verilator"
           ],
-          "publishedAt": "2026-07-29"
-        },
-        {
-          "title": "OpenHW TV introduces RISC-V System-on-Chip Design with CORE-V Wally",
-          "titleZh": "OpenHW TV 介绍基于 CORE-V Wally 的 RISC-V SoC 设计课程",
-          "url": "https://www.youtube.com/watch?v=844k7CObghY",
-          "source": "OpenHW TV",
-          "tags": [
-            "OpenHW",
-            "OpenHW TV",
-            "CORE-V"
-          ],
-          "publishedAt": "2026-08-28"
+          "publishedAt": "2026-09-13"
         }
       ]
     },
@@ -271,8 +271,20 @@
         "zh": "硬件与嵌入式"
       },
       "icon": "circuit",
-      "count": 10,
+      "count": 13,
       "items": [
+        {
+          "title": "FOSSi publishes Verilator talk on closing SystemVerilog support gaps",
+          "titleZh": "FOSSi 发布 Verilator 讲座，聚焦补齐 SystemVerilog 支持缺口",
+          "url": "https://www.youtube.com/watch?v=ZsNfJP_w2zg",
+          "source": "FOSSi Foundation Videos",
+          "tags": [
+            "FOSSi",
+            "Verilator",
+            "SystemVerilog"
+          ],
+          "publishedAt": "2026-09-13"
+        },
         {
           "title": "FOSSi publishes coconext talk on a faster cocotb-style verification flow",
           "titleZh": "FOSSi 发布 coconext 讲座，探索更快的 cocotb 风格验证流程",
@@ -286,6 +298,18 @@
           "publishedAt": "2026-09-11"
         },
         {
+          "title": "FOSSi publishes GVSoC talk on event-driven many-core simulation",
+          "titleZh": "FOSSi 发布 GVSoC 讲座，介绍事件驱动的多核系统仿真",
+          "url": "https://www.youtube.com/watch?v=4gus3F2NOZw",
+          "source": "FOSSi Foundation Videos",
+          "tags": [
+            "FOSSi",
+            "GVSoC",
+            "Simulation"
+          ],
+          "publishedAt": "2026-09-13"
+        },
+        {
           "title": "FOSSi publishes Doppio talk on Java and Scala circuit verification",
           "titleZh": "FOSSi 发布 Doppio 讲座，探索 Java 与 Scala 电路验证",
           "url": "https://www.youtube.com/watch?v=tUl_Th5di_k",
@@ -296,30 +320,6 @@
             "Verification"
           ],
           "publishedAt": "2026-09-11"
-        },
-        {
-          "title": "Antmicro introduces Faultergeist for SEU fault injection in Verilator",
-          "titleZh": "Antmicro 推出面向 Verilator 的单粒子翻转故障注入工具 Faultergeist",
-          "url": "https://antmicro.com/blog/2026/08/SEU-vulnerability-testing-with-Faultergeist",
-          "source": "Antmicro Blog",
-          "tags": [
-            "Antmicro",
-            "Faultergeist",
-            "Verilator"
-          ],
-          "publishedAt": "2026-08-19"
-        },
-        {
-          "title": "Antmicro adds host-controller support to the CHIPS Alliance open-source I3C Core",
-          "titleZh": "Antmicro 为 CHIPS Alliance 开源 I3C Core 加入 host-controller 支持",
-          "url": "https://antmicro.com/blog/2026/06/i3c-core-host-controller-support",
-          "source": "Antmicro Blog",
-          "tags": [
-            "Antmicro",
-            "CHIPS Alliance",
-            "I3C"
-          ],
-          "publishedAt": "2026-06-16"
         }
       ]
     },
@@ -348,6 +348,35 @@
     }
   ],
   "items": [
+    {
+      "title": "FOSSi publishes Verilator talk on closing SystemVerilog support gaps",
+      "url": "https://www.youtube.com/watch?v=ZsNfJP_w2zg",
+      "source": "FOSSi Foundation Videos",
+      "publishedAt": "2026-09-13",
+      "addedAt": "2026-09-13T12:06:37Z",
+      "summary": "FOSSi Foundation published Krzysztof Bieganski's Verilator talk. The video abstract reports progress toward broader verification support, including experimental four-state logic, improved constrained-random stimulus generation, remaining UVM scheduling and bug-fix work, SVA nearing feature completeness, and coverage-tooling updates.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "FOSSi",
+        "Verilator",
+        "SystemVerilog",
+        "UVM",
+        "SVA",
+        "Coverage",
+        "Verification",
+        "Open Hardware",
+        "EDA",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 1,
+      "titleZh": "FOSSi 发布 Verilator 讲座，聚焦补齐 SystemVerilog 支持缺口",
+      "summaryZh": "FOSSi Foundation 发布了 Krzysztof Bieganski 关于 Verilator 的讲座。视频摘要说明了扩展验证能力的进展，包括实验分支中的四态逻辑支持、受约束随机激励生成质量改进、UVM 调度与缺陷修复、SVA 接近功能完整，以及覆盖率工具相关更新。"
+    },
     {
       "title": "FOSSi publishes coconext talk on a faster cocotb-style verification flow",
       "url": "https://www.youtube.com/watch?v=iOHab5YW76I",
@@ -434,6 +463,35 @@
       "highlightRank": 1,
       "titleZh": "Caliptra Runtime/FMC 1.3.0 增加 MLDSA 后量子支持",
       "summaryZh": "CHIPS Alliance 发布 Caliptra Runtime/FMC 1.3.0，加入后量子密码算法 MLDSA 的软件支持。发布说明列出后量子密码种子初始化、MLDSA 签名验证、面向 Caliptra Core 下游固件的证明机制，以及 Rust 1.95 工具链更新。"
+    },
+    {
+      "title": "FOSSi publishes GVSoC talk on event-driven many-core simulation",
+      "url": "https://www.youtube.com/watch?v=4gus3F2NOZw",
+      "source": "FOSSi Foundation Videos",
+      "publishedAt": "2026-09-13",
+      "addedAt": "2026-09-13T12:05:54Z",
+      "summary": "FOSSi Foundation published Rafael Medina Morillas's GVSoC talk. The abstract describes GVSoC as a configurable event-driven simulator for IoT processors and complex SoCs, using C++ models and Python configuration for faster prototyping, design exploration, full-platform many-core simulation, and integration with other simulators.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "FOSSi",
+        "GVSoC",
+        "Simulation",
+        "Many-core",
+        "SoC",
+        "C++",
+        "Python",
+        "Open Hardware",
+        "EDA",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 2,
+      "titleZh": "FOSSi 发布 GVSoC 讲座，介绍事件驱动的多核系统仿真",
+      "summaryZh": "FOSSi Foundation 发布了 Rafael Medina Morillas 关于 GVSoC 的讲座。视频摘要将 GVSoC 描述为面向 IoT 处理器和复杂 SoC 的可配置事件驱动仿真器，通过 C++ 模型和 Python 配置支持更快的原型设计、设计空间探索、完整平台多核仿真以及与其他仿真器集成。"
     },
     {
       "title": "FOSSi publishes Bucket functional-coverage tooling update",
@@ -551,6 +609,34 @@
       "summaryZh": "cocotb 2.1.0 包含实验性 pytest 插件、Python 3.14 支持、Verilator SAIF 跟踪支持、Questa QIS/Qrun 运行器支持，以及 xfail、skipif 等更丰富的测试控制；同时修复调度器、回调、JUnit 输出和仿真器集成中的问题。"
     },
     {
+      "title": "FOSSi publishes Spade HDL talk with RISC-V core and RTL project examples",
+      "url": "https://www.youtube.com/watch?v=PEPsO_Q_tCA",
+      "source": "FOSSi Foundation Videos",
+      "publishedAt": "2026-09-13",
+      "addedAt": "2026-09-13T12:05:16Z",
+      "summary": "FOSSi Foundation published Frans Skarman's Spade HDL talk. The abstract shifts from language introduction to concrete projects built with Spade, including RISC-V cores, Ethernet and camera-stack work, and a pure-RTL UI library.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "FOSSi",
+        "Spade",
+        "HDL",
+        "RISC-V",
+        "RTL",
+        "Ethernet",
+        "Open Hardware",
+        "EDA",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 3,
+      "titleZh": "FOSSi 发布 Spade HDL 讲座，展示 RISC-V 内核与 RTL 项目案例",
+      "summaryZh": "FOSSi Foundation 发布了 Frans Skarman 关于 Spade HDL 的讲座。视频摘要不再侧重语言本身，而是展示用 Spade 构建的项目，包括 RISC-V 内核、以太网与摄像头栈，以及纯 RTL UI 库。"
+    },
+    {
       "title": "Antmicro publishes OpenROAD workflows for peak, glitch, and scoped power analysis",
       "url": "https://antmicro.com/blog/2026/08/peak-glitch-scoped-power-estimation-with-openroad",
       "source": "Antmicro Blog",
@@ -609,6 +695,62 @@
       "highlightRank": 4,
       "titleZh": "OpenTitan 启动面向资源受限 SoC 的 Peppermint 集成式信任根",
       "summaryZh": "lowRISC 宣布启动 OpenTitan 新顶层设计 Peppermint，面向可穿戴设备、物联网终端和微控制器等面积、成本与功耗受限的 SoC。该集成式信任根计划承担安全启动、固件更新及主 SoC 的密码运算请求；设计工作预计在 2026 年下半年进行，软件与验证预计于 2027 年上半年完成。"
+    },
+    {
+      "title": "FOSSi publishes FuseSoC roadmap talk for IP and EDA-flow management",
+      "url": "https://www.youtube.com/watch?v=FB7tBPpeGnw",
+      "source": "FOSSi Foundation Videos",
+      "publishedAt": "2026-09-13",
+      "addedAt": "2026-09-13T12:03:39Z",
+      "summary": "FOSSi Foundation published Olof Kindgren's FuseSoC and Edalize roadmap talk. The abstract frames FuseSoC as a widely used IP-management solution with a public core registry and describes Edalize as an EDA-flow manager supporting more than 50 tools, then outlines planned features for managing, building, simulating, and analyzing larger designs.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "FOSSi",
+        "FuseSoC",
+        "Edalize",
+        "IP Management",
+        "EDA",
+        "Simulation",
+        "Open Hardware",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 4,
+      "titleZh": "FOSSi 发布 FuseSoC 路线图讲座，面向 IP 与 EDA 流程管理",
+      "summaryZh": "FOSSi Foundation 发布了 Olof Kindgren 关于 FuseSoC 与 Edalize 路线图的讲座。视频摘要将 FuseSoC 定位为广泛使用的 IP 管理方案，拥有公开 IP core 注册表，并介绍 Edalize 作为支持 50 多种工具的 EDA 流程管理器，后续方向聚焦大型设计的管理、构建、仿真与分析。"
+    },
+    {
+      "title": "FOSSi publishes VeeR and Verilator talk on open fault-injection tooling",
+      "url": "https://www.youtube.com/watch?v=YK1CpucgUKw",
+      "source": "FOSSi Foundation Videos",
+      "publishedAt": "2026-09-13",
+      "addedAt": "2026-09-13T12:01:16Z",
+      "summary": "FOSSi Foundation published Maciej Dudek's talk on radiation hardening and fault injection. The abstract covers ongoing Triple Modular Redundancy work for the CHIPS Alliance VeeR-EL2 open-source RISC-V core and new open Verilator-based tooling used to inject faults and verify the VeeR-EL2 TMR configuration.",
+      "author": "",
+      "relevanceScore": 9,
+      "tags": [
+        "FOSSi",
+        "VeeR-EL2",
+        "Verilator",
+        "Fault Injection",
+        "Radiation Hardening",
+        "TMR",
+        "RISC-V",
+        "Verification",
+        "Open Hardware",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "highlightRank": 5,
+      "titleZh": "FOSSi 发布 VeeR 与 Verilator 讲座，介绍开放故障注入工具",
+      "summaryZh": "FOSSi Foundation 发布了 Maciej Dudek 关于抗辐射加固与故障注入的讲座。视频摘要介绍了 CHIPS Alliance VeeR-EL2 开源 RISC-V 内核的三模冗余配置工作，以及围绕 Verilator 构建的开放故障注入工具，用于验证 VeeR-EL2 TMR 配置。"
     },
     {
       "title": "Caliptra MCU Runtime SDK 2.1.0 publishes a Rust/Tock RoT reference runtime",
