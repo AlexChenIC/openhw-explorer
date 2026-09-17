@@ -3,6 +3,85 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "Chisel 7.14.0 deprecates implicit truncation and adds explicit width-control APIs",
+      "titleZh": "Chisel 7.14.0 弃用隐式截断，并加入显式位宽控制 API",
+      "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.14.0",
+      "source": "CHIPS Alliance / Chisel",
+      "addedAt": "2026-09-17T06:52:00Z",
+      "summary": "CHIPS Alliance released Chisel 7.14.0 with a notable migration signal for hardware designers: implicit truncation is deprecated through firtool warnings, while new APIs add domain helpers, an LTL always operator, wide logical operators, Option support for Connectable, and an explicit truncating connection operator.",
+      "summaryZh": "CHIPS Alliance 发布 Chisel 7.14.0，对硬件设计者给出重要迁移信号：通过 firtool 警告弃用隐式截断，同时新增 domain 辅助 API、LTL always 操作符、宽逻辑操作符、Connectable 的 Option 支持，以及显式截断连接操作符。",
+      "tags": [
+        "CHIPS Alliance",
+        "Chisel",
+        "CIRCT",
+        "FIRRTL",
+        "Hardware Construction",
+        "EDA",
+        "Open Hardware"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "publishedAt": "2026-08-13",
+      "dateEvidence": {
+        "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.14.0",
+        "locator": "GitHub release publishedAt 2026-08-13T03:51:41Z",
+        "checkedAt": "2026-09-17"
+      }
+    },
+    {
+      "title": "Yosys 0.69 removes legacy synthesis options and adds a SystemVerilog 2023 flag",
+      "titleZh": "Yosys 0.69 移除旧综合选项，并新增 SystemVerilog 2023 标志",
+      "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.69",
+      "source": "YosysHQ / Yosys",
+      "addedAt": "2026-09-17T06:52:00Z",
+      "summary": "YosysHQ released Yosys 0.69 with cleanup that affects synthesis scripts: legacy abc, coolrunner2, greenpak4, nlutmap, retiming, abc9, abc2, and logger stderr options were removed, while the Verific frontend gained a -sv2023 flag for SystemVerilog 2023 support.",
+      "summaryZh": "YosysHQ 发布 Yosys 0.69，对综合脚本有迁移影响：移除了旧的 abc、coolrunner2、greenpak4、nlutmap、retiming、abc9、abc2 与 logger stderr 相关选项，同时 Verific 前端新增 -sv2023 标志以支持 SystemVerilog 2023。",
+      "tags": [
+        "Yosys",
+        "SystemVerilog",
+        "Synthesis",
+        "EDA",
+        "Open Hardware"
+      ],
+      "sourceTier": "trusted",
+      "language": "en",
+      "reviewStatus": "curated",
+      "publishedAt": "2026-09-09",
+      "dateEvidence": {
+        "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.69",
+        "locator": "GitHub release publishedAt 2026-09-09T05:58:40Z",
+        "checkedAt": "2026-09-17"
+      }
+    },
+    {
+      "title": "CIRCT firtool 1.157.0 improves ESI cosimulation, FIRRTL, Moore, and synthesis flows",
+      "titleZh": "CIRCT firtool 1.157.0 改进 ESI 协同仿真、FIRRTL、Moore 与综合流程",
+      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.157.0",
+      "source": "LLVM / CIRCT",
+      "addedAt": "2026-09-17T06:52:00Z",
+      "summary": "LLVM's CIRCT project released firtool 1.157.0 with ESI cosimulation build improvements for Verilator FST tracing, FIRRTL initial-value and inliner updates, Moore lowering fixes, ImportVerilog type checking, and circt-synth datapath simplifications.",
+      "summaryZh": "LLVM 的 CIRCT 项目发布 firtool 1.157.0，包含面向 Verilator FST tracing 的 ESI 协同仿真构建改进、FIRRTL 初始值与内联器更新、Moore 降低修复、ImportVerilog 类型检查，以及 circt-synth 数据通路简化。",
+      "tags": [
+        "CIRCT",
+        "firtool",
+        "FIRRTL",
+        "Verilator",
+        "SystemVerilog",
+        "EDA",
+        "Open Hardware"
+      ],
+      "sourceTier": "trusted",
+      "language": "en",
+      "reviewStatus": "curated",
+      "publishedAt": "2026-08-22",
+      "dateEvidence": {
+        "url": "https://github.com/llvm/circt/releases/tag/firtool-1.157.0",
+        "locator": "GitHub release publishedAt 2026-08-22T21:51:05Z",
+        "checkedAt": "2026-09-17"
+      }
+    },
+    {
       "title": "FOSSi publishes Verilator talk on closing SystemVerilog support gaps",
       "titleZh": "FOSSi 发布 Verilator 讲座，聚焦补齐 SystemVerilog 支持缺口",
       "url": "https://www.youtube.com/watch?v=ZsNfJP_w2zg",

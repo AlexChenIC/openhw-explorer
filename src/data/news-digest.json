@@ -1,17 +1,17 @@
 {
-  "weekOf": "2026-09-16",
-  "generatedAt": "2026-09-16T12:43:37.935Z",
+  "weekOf": "2026-09-17",
+  "generatedAt": "2026-09-17T06:40:28.574Z",
   "stats": {
-    "totalRelevant": 117,
-    "totalSources": 38,
+    "totalRelevant": 120,
+    "totalSources": 41,
     "topTags": [
       {
-        "tag": "RISC-V",
+        "tag": "EDA",
         "count": 40
       },
       {
-        "tag": "EDA",
-        "count": 37
+        "tag": "RISC-V",
+        "count": 40
       },
       {
         "tag": "Security",
@@ -23,7 +23,7 @@
       },
       {
         "tag": "Open Hardware",
-        "count": 24
+        "count": 27
       }
     ]
   },
@@ -271,7 +271,7 @@
         "zh": "硬件与嵌入式"
       },
       "icon": "circuit",
-      "count": 15,
+      "count": 18,
       "items": [
         {
           "title": "FOSSi publishes Verilator talk on closing SystemVerilog support gaps",
@@ -1099,6 +1099,79 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "Chisel 7.14.0 deprecates implicit truncation and adds explicit width-control APIs",
+      "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.14.0",
+      "source": "CHIPS Alliance / Chisel",
+      "publishedAt": "2026-08-13",
+      "addedAt": "2026-09-17T06:52:00Z",
+      "summary": "CHIPS Alliance released Chisel 7.14.0 with a notable migration signal for hardware designers: implicit truncation is deprecated through firtool warnings, while new APIs add domain helpers, an LTL always operator, wide logical operators, Option support for Connectable, and an explicit truncating connection operator.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CHIPS Alliance",
+        "Chisel",
+        "CIRCT",
+        "FIRRTL",
+        "Hardware Construction",
+        "EDA",
+        "Open Hardware"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Chisel 7.14.0 弃用隐式截断，并加入显式位宽控制 API",
+      "summaryZh": "CHIPS Alliance 发布 Chisel 7.14.0，对硬件设计者给出重要迁移信号：通过 firtool 警告弃用隐式截断，同时新增 domain 辅助 API、LTL always 操作符、宽逻辑操作符、Connectable 的 Option 支持，以及显式截断连接操作符。"
+    },
+    {
+      "title": "Yosys 0.69 removes legacy synthesis options and adds a SystemVerilog 2023 flag",
+      "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.69",
+      "source": "YosysHQ / Yosys",
+      "publishedAt": "2026-09-09",
+      "addedAt": "2026-09-17T06:52:00Z",
+      "summary": "YosysHQ released Yosys 0.69 with cleanup that affects synthesis scripts: legacy abc, coolrunner2, greenpak4, nlutmap, retiming, abc9, abc2, and logger stderr options were removed, while the Verific frontend gained a -sv2023 flag for SystemVerilog 2023 support.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Yosys",
+        "SystemVerilog",
+        "Synthesis",
+        "EDA",
+        "Open Hardware"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Yosys 0.69 移除旧综合选项，并新增 SystemVerilog 2023 标志",
+      "summaryZh": "YosysHQ 发布 Yosys 0.69，对综合脚本有迁移影响：移除了旧的 abc、coolrunner2、greenpak4、nlutmap、retiming、abc9、abc2 与 logger stderr 相关选项，同时 Verific 前端新增 -sv2023 标志以支持 SystemVerilog 2023。"
+    },
+    {
+      "title": "CIRCT firtool 1.157.0 improves ESI cosimulation, FIRRTL, Moore, and synthesis flows",
+      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.157.0",
+      "source": "LLVM / CIRCT",
+      "publishedAt": "2026-08-22",
+      "addedAt": "2026-09-17T06:52:00Z",
+      "summary": "LLVM's CIRCT project released firtool 1.157.0 with ESI cosimulation build improvements for Verilator FST tracing, FIRRTL initial-value and inliner updates, Moore lowering fixes, ImportVerilog type checking, and circt-synth datapath simplifications.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CIRCT",
+        "firtool",
+        "FIRRTL",
+        "Verilator",
+        "SystemVerilog",
+        "EDA",
+        "Open Hardware"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "CIRCT firtool 1.157.0 改进 ESI 协同仿真、FIRRTL、Moore 与综合流程",
+      "summaryZh": "LLVM 的 CIRCT 项目发布 firtool 1.157.0，包含面向 Verilator FST tracing 的 ESI 协同仿真构建改进、FIRRTL 初始值与内联器更新、Moore 降低修复、ImportVerilog 类型检查，以及 circt-synth 数据通路简化。"
     },
     {
       "title": "RISER details an FPGA-assisted RISC-V microserver prototype",
@@ -3439,6 +3512,7 @@
     "CHIPS Alliance / Caliptra MCU SW (GitHub)",
     "CHIPS Alliance / Caliptra SW (GitHub)",
     "CHIPS Alliance / Caliptra Subsystem (GitHub)",
+    "CHIPS Alliance / Chisel",
     "CHIPS Alliance / Chisel (GitHub)",
     "CHIPS Alliance Blog",
     "Chipyard (GitHub)",
@@ -3446,6 +3520,7 @@
     "FOSSi Foundation / Latch-Up 2026",
     "FOSSi Foundation Videos",
     "Fraunhofer AISEC",
+    "LLVM / CIRCT",
     "LLVM / CIRCT (GitHub)",
     "MLCommons",
     "Open Compute Project",
@@ -3462,6 +3537,7 @@
     "Tom's Hardware / The Information",
     "UC Berkeley / Gemmini (GitHub)",
     "YosysHQ (GitHub)",
+    "YosysHQ / Yosys",
     "YosysHQ / Yosys (GitHub)",
     "arXiv / KTH, LLNL, BSC",
     "cocotb (GitHub)",
