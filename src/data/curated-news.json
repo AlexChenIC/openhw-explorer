@@ -3,6 +3,34 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "FOSSi publishes RIVET talk on a Chisel Ethernet MAC generator for RISC-V SoCs",
+      "titleZh": "FOSSi 发布 RIVET 演讲：面向 RISC-V SoC 的 Chisel 以太网 MAC 生成器",
+      "url": "https://www.youtube.com/watch?v=fmQoILwFpm4",
+      "source": "FOSSi Foundation Videos",
+      "addedAt": "2026-09-18T06:56:00Z",
+      "summary": "FOSSi Foundation published Vladimir Milovanovic's ORConf 2026 talk on RIVET, a Chisel-based Ethernet MAC generator for RISC-V systems. The talk and linked project materials describe multi-rate MAC interfaces, DMA, ARP, IPv4, UDP, TileLink, AXI4-Stream, cocotb/Verilator testing, and Chipyard-oriented integration for network-capable ASIC and FPGA prototypes.",
+      "summaryZh": "FOSSi Foundation 发布 Vladimir Milovanovic 在 ORConf 2026 的 RIVET 演讲，介绍面向 RISC-V 系统的 Chisel 以太网 MAC 生成器。演讲与关联项目材料涵盖多速率 MAC 接口、DMA、ARP、IPv4、UDP、TileLink、AXI4-Stream、cocotb/Verilator 测试，以及面向 Chipyard 的集成，用于构建具备网络能力的 ASIC 与 FPGA 原型。",
+      "tags": [
+        "FOSSi Foundation",
+        "ORConf",
+        "RIVET",
+        "Chisel",
+        "RISC-V",
+        "Chipyard",
+        "Networking",
+        "Open Hardware"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "publishedAt": "2026-09-13",
+      "dateEvidence": {
+        "url": "https://www.youtube.com/watch?v=fmQoILwFpm4",
+        "locator": "YouTube upload_date 20260913 from FOSSi Foundation video metadata; repository and NLnet project pages checked for technical scope",
+        "checkedAt": "2026-09-18"
+      }
+    },
+    {
       "title": "Chisel 7.14.0 deprecates implicit truncation and adds explicit width-control APIs",
       "titleZh": "Chisel 7.14.0 弃用隐式截断，并加入显式位宽控制 API",
       "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.14.0",
