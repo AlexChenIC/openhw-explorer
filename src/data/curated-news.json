@@ -3,6 +3,32 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "Google joins the OpenROAD Initiative as a principal member",
+      "titleZh": "Google 以最高会员层级加入 OpenROAD Initiative",
+      "url": "https://opensource.googleblog.com/2026/08/%20google-joins-the-openroad-initiative-as-principal-member-to-accelerate-open-source-silicon-innovation.html",
+      "source": "Google Open Source Blog",
+      "addedAt": "2026-09-22T06:30:00Z",
+      "summary": "Google announced that it formally joined the OpenROAD Initiative as a principal member, with Aaron Cunningham appointed to the ORI Governing Board. The announcement frames the membership around neutral open-source EDA stewardship, ecosystem growth, workforce development, CI/CD strengthening, PDK enablement, and improving the OpenROAD user experience.",
+      "summaryZh": "Google 宣布正式以最高会员层级加入 OpenROAD Initiative，并任命 Aaron Cunningham 进入 ORI 治理委员会。公告将这一会员资格定位于支持中立的开源 EDA 治理、生态增长、人才培养、CI/CD 强化、PDK 使能与 OpenROAD 使用体验改进。",
+      "tags": [
+        "OpenROAD",
+        "Open EDA",
+        "Google",
+        "Governance",
+        "Silicon Design",
+        "Open Hardware"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "publishedAt": "2026-08-11",
+      "dateEvidence": {
+        "url": "https://opensource.googleblog.com/2026/08/%20google-joins-the-openroad-initiative-as-principal-member-to-accelerate-open-source-silicon-innovation.html",
+        "locator": "Google Open Source Blog post dated Tuesday, August 11, 2026; OpenROAD Initiative site checked for principal-member news listing and mission context",
+        "checkedAt": "2026-09-22"
+      }
+    },
+    {
       "title": "FOSSi publishes RIVET talk on a Chisel Ethernet MAC generator for RISC-V SoCs",
       "titleZh": "FOSSi 发布 RIVET 演讲：面向 RISC-V SoC 的 Chisel 以太网 MAC 生成器",
       "url": "https://www.youtube.com/watch?v=fmQoILwFpm4",
