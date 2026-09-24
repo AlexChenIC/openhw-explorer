@@ -1,8 +1,8 @@
 {
-  "weekOf": "2026-09-22",
-  "generatedAt": "2026-09-22T06:41:41.920Z",
+  "weekOf": "2026-09-24",
+  "generatedAt": "2026-09-24T02:14:38.348Z",
   "stats": {
-    "totalRelevant": 122,
+    "totalRelevant": 123,
     "totalSources": 42,
     "topTags": [
       {
@@ -15,14 +15,14 @@
       },
       {
         "tag": "Security",
-        "count": 31
-      },
-      {
-        "tag": "Verification",
-        "count": 29
+        "count": 32
       },
       {
         "tag": "Open Hardware",
+        "count": 30
+      },
+      {
+        "tag": "Verification",
         "count": 29
       }
     ]
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 44,
+      "count": 45,
       "items": [
         {
           "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
@@ -1099,6 +1099,32 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "lowRISC frames open silicon stewardship around the European Cyber Resilience Act",
+      "url": "https://lowrisc.org/news/pioneering-secure-by-design-in-the-age-of-the-european-cra/",
+      "source": "lowRISC Newsroom",
+      "publishedAt": "2026-09-22",
+      "addedAt": "2026-09-24T01:40:00Z",
+      "summary": "lowRISC published a secure-by-design analysis of how the European Cyber Resilience Act affects open silicon maintainers and downstream integrators. The post connects CRA obligations to OpenTitan, Ibex, CHERI-Mocha, COSMIC, GitHub security advisories, SBOM and HBOM work, and Eclipse Foundation Open Regulatory Compliance guidance.",
+      "author": "",
+      "relevanceScore": 7,
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "Ibex",
+        "Security",
+        "Governance",
+        "Cyber Resilience Act",
+        "Open Silicon",
+        "Open Hardware"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "lowRISC 从欧洲《网络韧性法案》视角梳理开放硅安全治理",
+      "summaryZh": "lowRISC 发布 secure-by-design 分析，讨论欧洲《网络韧性法案》对开放硅维护者与下游集成方的影响。文章将 CRA 义务与 OpenTitan、Ibex、CHERI-Mocha、COSMIC、GitHub 安全公告、SBOM/HBOM 工作以及 Eclipse Foundation Open Regulatory Compliance 指南联系起来。"
     },
     {
       "title": "Google joins the OpenROAD Initiative as a principal member",
