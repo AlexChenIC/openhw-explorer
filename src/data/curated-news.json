@@ -3,6 +3,34 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "lowRISC frames open silicon stewardship around the European Cyber Resilience Act",
+      "titleZh": "lowRISC 从欧洲《网络韧性法案》视角梳理开放硅安全治理",
+      "url": "https://lowrisc.org/news/pioneering-secure-by-design-in-the-age-of-the-european-cra/",
+      "source": "lowRISC Newsroom",
+      "addedAt": "2026-09-25T11:55:00Z",
+      "summary": "lowRISC published a secure-by-design analysis of how the European Cyber Resilience Act affects open silicon maintainers and downstream integrators. The post connects CRA obligations to OpenTitan, Ibex, CHERI-Mocha, COSMIC, GitHub security advisories, SBOM and HBOM work, and Eclipse Foundation Open Regulatory Compliance guidance.",
+      "summaryZh": "lowRISC 发布 secure-by-design 分析，讨论欧洲《网络韧性法案》对开放硅维护者与下游集成方的影响。文章将 CRA 义务与 OpenTitan、Ibex、CHERI-Mocha、COSMIC、GitHub 安全公告、SBOM/HBOM 工作以及 Eclipse Foundation Open Regulatory Compliance 指南联系起来。",
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "Ibex",
+        "Security",
+        "Governance",
+        "Cyber Resilience Act",
+        "Open Silicon",
+        "Open Hardware"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "publishedAt": "2026-09-22",
+      "dateEvidence": {
+        "url": "https://lowrisc.org/news/pioneering-secure-by-design-in-the-age-of-the-european-cra/",
+        "locator": "lowRISC Newsroom post metadata datePublished 2026-09-22T08:00:00+00:00 and visible date September 22nd, 2026; checked against the article's OpenTitan, Ibex, CHERI-Mocha, COSMIC, GitHub Security Advisory, SBOM/HBOM, and CRA implementation references",
+        "checkedAt": "2026-09-25"
+      }
+    },
+    {
       "title": "Google joins the OpenROAD Initiative as a principal member",
       "titleZh": "Google 以最高会员层级加入 OpenROAD Initiative",
       "url": "https://opensource.googleblog.com/2026/08/%20google-joins-the-openroad-initiative-as-principal-member-to-accelerate-open-source-silicon-innovation.html",
