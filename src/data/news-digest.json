@@ -1,13 +1,13 @@
 {
-  "weekOf": "2026-09-25",
-  "generatedAt": "2026-09-25T12:04:41.087Z",
+  "weekOf": "2026-09-27",
+  "generatedAt": "2026-09-27T01:01:32.892Z",
   "stats": {
-    "totalRelevant": 123,
-    "totalSources": 42,
+    "totalRelevant": 125,
+    "totalSources": 43,
     "topTags": [
       {
         "tag": "RISC-V",
-        "count": 41
+        "count": 43
       },
       {
         "tag": "EDA",
@@ -19,7 +19,7 @@
       },
       {
         "tag": "Open Hardware",
-        "count": 30
+        "count": 31
       },
       {
         "tag": "Verification",
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 45,
+      "count": 47,
       "items": [
         {
           "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
@@ -1099,6 +1099,58 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "RISC-V International publishes Monte Cimone v3 HPC benchmark snapshot",
+      "url": "https://riscv.org/blog/monte-cimone-v3-where-risc-v-stands-in-high-performance-computing/",
+      "source": "RISC-V International news",
+      "publishedAt": "2026-09-23",
+      "addedAt": "2026-09-27T01:00:59Z",
+      "summary": "RISC-V International published a Monte Cimone v3 project snapshot for RISC-V high-performance computing. The post describes an SG2044-based cluster testbed evaluated with HPL and STREAM plus power measurements, reporting 3.08 GFLOPs/W, about 10x MCv1 energy efficiency, and peak-efficiency comparisons against Intel Sapphire Rapids and NVIDIA Grace CPU Superchip systems.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "RISC-V",
+        "HPC",
+        "Benchmarking",
+        "SOPHGO",
+        "SG2044",
+        "Energy Efficiency",
+        "Open Hardware",
+        "Ecosystem"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "RISC-V International 发布 Monte Cimone v3 高性能计算基准快照",
+      "summaryZh": "RISC-V International 发布 Monte Cimone v3 项目快照，聚焦 RISC-V 高性能计算。文章介绍了基于 SG2044 的集群测试平台，使用 HPL、STREAM 与功耗测量进行评估，并报告 3.08 GFLOPs/W、约为 MCv1 十倍的能效，以及在峰值能效点与 Intel Sapphire Rapids 和 NVIDIA Grace CPU Superchip 系统的对比。"
+    },
+    {
+      "title": "CPython adds riscv64 Linux as an officially supported Tier 3 platform",
+      "url": "https://blog.python.org/2026/08/riscv-now-officially-supported/",
+      "source": "Python Insider",
+      "publishedAt": "2026-08-24",
+      "addedAt": "2026-09-27T01:00:59Z",
+      "summary": "The Python core development blog announced that RISC-V is now officially supported by CPython as a Tier 3 platform. The announcement credits community work, RISE-provided real RISC-V hardware for CPython buildbots, and ongoing plans to improve RISC-V CI, with PEP 11 listing riscv64-unknown-linux-gnu under Tier 3 support.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "RISC-V",
+        "CPython",
+        "Python",
+        "RISE",
+        "Software Ecosystem",
+        "Buildbots",
+        "Open Source",
+        "Ecosystem"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "CPython 将 riscv64 Linux 纳入官方 Tier 3 支持平台",
+      "summaryZh": "Python 核心开发团队博客宣布 RISC-V 已成为 CPython 官方 Tier 3 支持平台。公告提到社区贡献、RISE 为 CPython buildbot 提供真实 RISC-V 硬件，以及继续改进 RISC-V CI 的计划；PEP 11 也已将 riscv64-unknown-linux-gnu 列入 Tier 3 支持。"
     },
     {
       "title": "lowRISC frames open silicon stewardship around the European Cyber Resilience Act",
@@ -3605,6 +3657,7 @@
     "OpenHW Foundation / Eclipse Foundation Canada",
     "OpenHW Foundation News",
     "OpenHW TV",
+    "Python Insider",
     "RISC-V Architecture Tests (GitHub)",
     "RISC-V ISA Manual (GitHub)",
     "RISC-V International",
