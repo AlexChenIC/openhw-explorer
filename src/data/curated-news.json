@@ -3,6 +3,62 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "RISC-V International publishes Monte Cimone v3 HPC benchmark snapshot",
+      "titleZh": "RISC-V International 发布 Monte Cimone v3 高性能计算基准快照",
+      "url": "https://riscv.org/blog/monte-cimone-v3-where-risc-v-stands-in-high-performance-computing/",
+      "source": "RISC-V International news",
+      "addedAt": "2026-09-27T01:00:59Z",
+      "summary": "RISC-V International published a Monte Cimone v3 project snapshot for RISC-V high-performance computing. The post describes an SG2044-based cluster testbed evaluated with HPL and STREAM plus power measurements, reporting 3.08 GFLOPs/W, about 10x MCv1 energy efficiency, and peak-efficiency comparisons against Intel Sapphire Rapids and NVIDIA Grace CPU Superchip systems.",
+      "summaryZh": "RISC-V International 发布 Monte Cimone v3 项目快照，聚焦 RISC-V 高性能计算。文章介绍了基于 SG2044 的集群测试平台，使用 HPL、STREAM 与功耗测量进行评估，并报告 3.08 GFLOPs/W、约为 MCv1 十倍的能效，以及在峰值能效点与 Intel Sapphire Rapids 和 NVIDIA Grace CPU Superchip 系统的对比。",
+      "tags": [
+        "RISC-V",
+        "HPC",
+        "Benchmarking",
+        "SOPHGO",
+        "SG2044",
+        "Energy Efficiency",
+        "Open Hardware",
+        "Ecosystem"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "publishedAt": "2026-09-23",
+      "dateEvidence": {
+        "url": "https://riscv.org/blog/monte-cimone-v3-where-risc-v-stands-in-high-performance-computing/",
+        "locator": "RISC-V International post metadata Published Time 2026-09-23T11:21:41-07:00; linked official RISC-V International video metadata upload_date 20260923",
+        "checkedAt": "2026-09-27"
+      }
+    },
+    {
+      "title": "CPython adds riscv64 Linux as an officially supported Tier 3 platform",
+      "titleZh": "CPython 将 riscv64 Linux 纳入官方 Tier 3 支持平台",
+      "url": "https://blog.python.org/2026/08/riscv-now-officially-supported/",
+      "source": "Python Insider",
+      "addedAt": "2026-09-27T01:00:59Z",
+      "summary": "The Python core development blog announced that RISC-V is now officially supported by CPython as a Tier 3 platform. The announcement credits community work, RISE-provided real RISC-V hardware for CPython buildbots, and ongoing plans to improve RISC-V CI, with PEP 11 listing riscv64-unknown-linux-gnu under Tier 3 support.",
+      "summaryZh": "Python 核心开发团队博客宣布 RISC-V 已成为 CPython 官方 Tier 3 支持平台。公告提到社区贡献、RISE 为 CPython buildbot 提供真实 RISC-V 硬件，以及继续改进 RISC-V CI 的计划；PEP 11 也已将 riscv64-unknown-linux-gnu 列入 Tier 3 支持。",
+      "tags": [
+        "RISC-V",
+        "CPython",
+        "Python",
+        "RISE",
+        "Software Ecosystem",
+        "Buildbots",
+        "Open Source",
+        "Ecosystem"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "publishedAt": "2026-08-24",
+      "dateEvidence": {
+        "url": "https://blog.python.org/2026/08/riscv-now-officially-supported/",
+        "locator": "Python Insider time element datetime 2026-08-24T00:00:00.000Z; PEP 11 checked for riscv64-unknown-linux-gnu in Tier 3",
+        "checkedAt": "2026-09-27"
+      }
+    },
+    {
       "title": "lowRISC frames open silicon stewardship around the European Cyber Resilience Act",
       "titleZh": "lowRISC 从欧洲《网络韧性法案》视角梳理开放硅安全治理",
       "url": "https://lowrisc.org/news/pioneering-secure-by-design-in-the-age-of-the-european-cra/",
