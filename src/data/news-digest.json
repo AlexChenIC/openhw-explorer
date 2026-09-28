@@ -1,25 +1,25 @@
 {
-  "weekOf": "2026-09-27",
-  "generatedAt": "2026-09-27T01:01:32.892Z",
+  "weekOf": "2026-09-28",
+  "generatedAt": "2026-09-28T03:58:52.378Z",
   "stats": {
-    "totalRelevant": 125,
+    "totalRelevant": 130,
     "totalSources": 43,
     "topTags": [
       {
         "tag": "RISC-V",
-        "count": 43
+        "count": 44
       },
       {
         "tag": "EDA",
-        "count": 40
+        "count": 41
+      },
+      {
+        "tag": "Open Hardware",
+        "count": 32
       },
       {
         "tag": "Security",
         "count": 32
-      },
-      {
-        "tag": "Open Hardware",
-        "count": 31
       },
       {
         "tag": "Verification",
@@ -35,7 +35,7 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 38,
+      "count": 39,
       "items": [
         {
           "title": "Caliptra runtime/FMC 1.3.0 adds MLDSA post-quantum support",
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 47,
+      "count": 48,
       "items": [
         {
           "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
@@ -153,8 +153,32 @@
         "zh": "AI 与加速器"
       },
       "icon": "brain",
-      "count": 12,
+      "count": 14,
       "items": [
+        {
+          "title": "MLPerf Training adds an LLM post-training benchmark for agentic software tasks",
+          "titleZh": "MLPerf Training 新增面向智能体软件任务的 LLM 后训练基准",
+          "url": "https://mlcommons.org/2026/09/mlperf-training-llm-post-training/",
+          "source": "MLCommons",
+          "tags": [
+            "MLCommons",
+            "MLPerf",
+            "Benchmarking"
+          ],
+          "publishedAt": "2026-09-24"
+        },
+        {
+          "title": "Antmicro releases Zephelin 1.0.0 with live Zephyr tracing and multi-SoC analysis",
+          "titleZh": "Antmicro 发布 Zephelin 1.0.0，支持 Zephyr 实时追踪与多 SoC 分析",
+          "url": "https://antmicro.com/blog/2026/09/zephelin-and-trace-viewer-1-0-release",
+          "source": "Antmicro Blog",
+          "tags": [
+            "Antmicro",
+            "Zephyr",
+            "Tracing"
+          ],
+          "publishedAt": "2026-09-09"
+        },
         {
           "title": "MLCommons opens Edge Agentic Inference submissions for MLPerf Inference v6.1",
           "titleZh": "MLCommons 为 MLPerf Inference v6.1 开放 Edge Agentic Inference 提交",
@@ -178,30 +202,6 @@
             "AI Compiler"
           ],
           "publishedAt": ""
-        },
-        {
-          "title": "Antmicro runs Gemma 4 on its open hardware Jetson AGX Thor baseboard with Kenning",
-          "titleZh": "Antmicro 在开源 Jetson AGX Thor baseboard 上用 Kenning 运行 Gemma 4",
-          "url": "https://antmicro.com/blog/2026/06/open-source-driven-gemma-4-integration-and-deployment",
-          "source": "Antmicro Blog",
-          "tags": [
-            "Antmicro",
-            "Open Hardware",
-            "Jetson AGX Thor"
-          ],
-          "publishedAt": "2026-06-18"
-        },
-        {
-          "title": "MLCommons publishes MLPerf Training v6.0 results for sparse MoE workloads",
-          "titleZh": "MLCommons 发布 MLPerf Training v6.0 结果，聚焦 sparse MoE workload",
-          "url": "https://mlcommons.org/2026/06/mlperf-training-v6-0-results/",
-          "source": "MLCommons",
-          "tags": [
-            "MLCommons",
-            "MLPerf",
-            "Training"
-          ],
-          "publishedAt": "2026-06-16"
         }
       ]
     },
@@ -212,7 +212,7 @@
         "zh": "产业动态"
       },
       "icon": "trending",
-      "count": 9,
+      "count": 10,
       "items": [
         {
           "title": "FOSSi publishes Bucket functional-coverage tooling update",
@@ -251,16 +251,16 @@
           "publishedAt": "2026-09-13"
         },
         {
-          "title": "Google joins the OpenROAD Initiative as a principal member",
-          "titleZh": "Google 以最高会员层级加入 OpenROAD Initiative",
-          "url": "https://opensource.googleblog.com/2026/08/%20google-joins-the-openroad-initiative-as-principal-member-to-accelerate-open-source-silicon-innovation.html",
-          "source": "Google Open Source Blog",
+          "title": "FOSSi issue 100 wraps ORConf 2026 and FuseSoC's 15-year milestone",
+          "titleZh": "FOSSi 第 100 期回顾 ORConf 2026 与 FuseSoC 十五周年",
+          "url": "https://fossi-foundation.org/blog/2026-09-21-ecl100",
+          "source": "FOSSi Foundation",
           "tags": [
-            "OpenROAD",
-            "Open EDA",
-            "Google"
+            "FOSSi",
+            "ORConf",
+            "Open Silicon"
           ],
-          "publishedAt": "2026-08-11"
+          "publishedAt": "2026-09-21"
         }
       ]
     },
@@ -1099,6 +1099,136 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "RISC-V International profiles Openchip's BER10 sovereign application processor",
+      "url": "https://riscv.org/blog/v-questions-with-openchips-cesc-guim-and-marc-fernandez/",
+      "source": "RISC-V International news",
+      "publishedAt": "2026-09-17",
+      "addedAt": "2026-09-28T04:10:00Z",
+      "summary": "RISC-V International published a five-question profile of Openchip's BER10 project. The article describes BER10 as a European RISC-V application processor that taped out in under two years, booted an operating system without requiring a respin, and combines a 64-bit Linux-capable processor, vector unit, coherent fabric, memory/interconnect subsystem, and management tile.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "RISC-V",
+        "Openchip",
+        "BER10",
+        "Silicon",
+        "Application Processor",
+        "Vector",
+        "Europe",
+        "Ecosystem"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "RISC-V International 解析 Openchip BER10 主权应用处理器",
+      "summaryZh": "RISC-V International 发布了对 Openchip BER10 项目的五问访谈。文章将 BER10 描述为欧洲 RISC-V 应用处理器：不到两年完成流片、无需重新流片即可启动操作系统，并集成 64 位 Linux 能力处理器、向量单元、一致性互连、内存/互连子系统和管理 tile。"
+    },
+    {
+      "title": "MLPerf Training adds an LLM post-training benchmark for agentic software tasks",
+      "url": "https://mlcommons.org/2026/09/mlperf-training-llm-post-training/",
+      "source": "MLCommons",
+      "publishedAt": "2026-09-24",
+      "addedAt": "2026-09-28T04:10:00Z",
+      "summary": "MLCommons introduced the first MLPerf Training LLM post-training benchmark, planned for the v6.1 submission round in October 2026. The benchmark uses RLVR on software-engineering tasks with Qwen 3.5 397B, R2E-Gym environments, OpenHands agent rollouts, pass@4 validation, and a reference implementation built around NeMo-RL, vLLM, Ray, and Apptainer sandboxes.",
+      "author": "",
+      "relevanceScore": 6,
+      "tags": [
+        "MLCommons",
+        "MLPerf",
+        "Benchmarking",
+        "LLM",
+        "Post-Training",
+        "Agentic AI",
+        "R2E-Gym",
+        "OpenHands"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "MLPerf Training 新增面向智能体软件任务的 LLM 后训练基准",
+      "summaryZh": "MLCommons 推出首个 MLPerf Training LLM 后训练基准，计划纳入 2026 年 10 月的 v6.1 提交轮次。该基准围绕软件工程任务使用 RLVR，采用 Qwen 3.5 397B、R2E-Gym 环境、OpenHands 智能体 rollout、pass@4 验证指标，以及基于 NeMo-RL、vLLM、Ray 和 Apptainer 沙箱的参考实现。"
+    },
+    {
+      "title": "Apache TVM 0.27.0 advances Relax, TIRx CUDA, WebGPU, and frontend support",
+      "url": "https://github.com/apache/tvm/releases/tag/v0.27.0",
+      "source": "Apache TVM (GitHub)",
+      "publishedAt": "2026-09-25",
+      "addedAt": "2026-09-28T04:10:00Z",
+      "summary": "Apache TVM published v0.27.0 with a large release-note set spanning AI compiler and runtime work. Highlights include shared-KV attention and PagedAttentionKVCache checkpoint primitives, TIRx CUDA/PTX updates through PTX ISA 9.4 and CUDA 13.4 target support, WebGPU and Web runtime improvements, LLVM 23 compatibility, Jetson AGX Thor target tagging, and many ONNX, PyTorch, Relax, DLight, and symbolic-shape fixes.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Apache TVM",
+        "AI Compiler",
+        "MLIR",
+        "CUDA",
+        "PTX",
+        "WebGPU",
+        "Relax",
+        "Runtime"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Apache TVM 0.27.0 推进 Relax、TIRx CUDA、WebGPU 与前端支持",
+      "summaryZh": "Apache TVM 发布 v0.27.0，发布说明覆盖大量 AI 编译器和运行时改进。重点包括 shared-KV attention 与 PagedAttentionKVCache checkpoint 原语、TIRx CUDA/PTX 更新至 PTX ISA 9.4 与 CUDA 13.4 目标支持、WebGPU/Web 运行时改进、LLVM 23 兼容、Jetson AGX Thor 目标标记，以及多项 ONNX、PyTorch、Relax、DLight 和符号形状修复。"
+    },
+    {
+      "title": "Antmicro releases Zephelin 1.0.0 with live Zephyr tracing and multi-SoC analysis",
+      "url": "https://antmicro.com/blog/2026/09/zephelin-and-trace-viewer-1-0-release",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-09-09",
+      "addedAt": "2026-09-28T04:10:00Z",
+      "summary": "Antmicro announced Zephelin 1.0.0 for profiling Zephyr RTOS applications. The release adds live tracing from boards, unified delivery of instrumentation and tracing data over UART, GDB, or USB backends, Trace Viewer support for multiple flamegraphs across threads, runs, applications, and heterogeneous SoCs, plus VS Code integration for viewing captured traces.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Antmicro",
+        "Zephyr",
+        "Tracing",
+        "Embedded",
+        "Open Hardware",
+        "AI",
+        "microTVM",
+        "Tooling"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Antmicro 发布 Zephelin 1.0.0，支持 Zephyr 实时追踪与多 SoC 分析",
+      "summaryZh": "Antmicro 发布用于分析 Zephyr RTOS 应用的 Zephelin 1.0.0。该版本新增板端实时追踪，将 instrumentation 与 tracing 数据统一通过 UART、GDB 或 USB 后端传输，并让 Trace Viewer 支持跨线程、运行、应用和异构 SoC 的多 flamegraph 分析，同时提供 VS Code 集成查看采集到的 trace。"
+    },
+    {
+      "title": "FOSSi issue 100 wraps ORConf 2026 and FuseSoC's 15-year milestone",
+      "url": "https://fossi-foundation.org/blog/2026-09-21-ecl100",
+      "source": "FOSSi Foundation",
+      "publishedAt": "2026-09-21",
+      "addedAt": "2026-09-28T04:10:00Z",
+      "summary": "FOSSi Foundation published El Correo Libre issue 100. The issue records ORConf 2026 as the largest ORConf yet, with almost 200 registered attendees, more than 60 presentations, and recordings on the FOSSi YouTube channel, and it also marks FuseSoC's fifteenth anniversary as an open-source package manager and build-flow tool for FPGA and ASIC projects.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "FOSSi",
+        "ORConf",
+        "Open Silicon",
+        "FuseSoC",
+        "EDA",
+        "FPGA",
+        "ASIC",
+        "Community"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "FOSSi 第 100 期回顾 ORConf 2026 与 FuseSoC 十五周年",
+      "summaryZh": "FOSSi Foundation 发布 El Correo Libre 第 100 期。该期记录 ORConf 2026 成为迄今最大规模的 ORConf，约 200 人注册、超过 60 场报告，并在 FOSSi YouTube 频道公开录像；同时回顾 FuseSoC 作为 FPGA 与 ASIC 项目开源包管理和构建流程工具的十五周年。"
     },
     {
       "title": "RISC-V International publishes Monte Cimone v3 HPC benchmark snapshot",
