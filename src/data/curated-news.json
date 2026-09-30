@@ -3,6 +3,62 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "Caliptra firmware 2.1.3 tightens runtime security, cryptography, and recovery flows",
+      "titleZh": "Caliptra 固件 2.1.3 强化运行时安全、密码学与恢复流程",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/fw-2.1.3",
+      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
+      "addedAt": "2026-09-30T04:15:00Z",
+      "summary": "CHIPS Alliance published Caliptra firmware 2.1.3 as a combined runtime and FMC release. The notes add vendor-authorized debug artifact support, active debug-policy reporting in FW_INFO, Encryption Engine self-test plumbing, ML-KEM and OCP-LOCK API updates, OCP recovery-image tooling, FPGA external I3C host boot testing, and security fixes for AES-XTS key generation, mailbox key-usage checks, PL0 privilege checks, and PCR access.",
+      "summaryZh": "CHIPS Alliance 发布 Caliptra 固件 2.1.3，作为 runtime 与 FMC 的联合版本。发布说明新增 vendor-authorized debug artifact 支持、FW_INFO 中的 active debug policy 报告、Encryption Engine 自测试接口、ML-KEM 与 OCP-LOCK API 更新、OCP recovery image 工具、FPGA 外部 I3C host boot 测试，并修复 AES-XTS 密钥生成、mailbox key-usage 检查、PL0 权限检查和 PCR 访问控制等安全问题。",
+      "tags": [
+        "Caliptra",
+        "CHIPS Alliance",
+        "Root of Trust",
+        "Firmware",
+        "Security",
+        "Cryptography",
+        "FPGA",
+        "I3C"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "publishedAt": "2026-09-28",
+      "dateEvidence": {
+        "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/fw-2.1.3",
+        "locator": "GitHub release published_at 2026-09-28T21:11:12Z; tag fw-2.1.3",
+        "checkedAt": "2026-09-30"
+      }
+    },
+    {
+      "title": "Antmicro documents Kokkos-based GPU acceleration for OpenROAD global placement",
+      "titleZh": "Antmicro 详解 OpenROAD 全局布局的 Kokkos GPU 加速实现",
+      "url": "https://antmicro.com/blog/2026/09/improved-gpu-acceleration-of-placement-in-openroad",
+      "source": "Antmicro Blog",
+      "addedAt": "2026-09-30T04:15:00Z",
+      "summary": "Antmicro published a technical OpenROAD update on migrating global-placement acceleration from a CUDA-specific path toward a Kokkos-based implementation. The article explains how Kokkos execution and memory spaces improve backend portability, why determinism required some single-threaded tradeoffs, and how benchmark data on the ariane133 design still shows substantial runtime gains for the RTL-to-GDS flow.",
+      "summaryZh": "Antmicro 发布 OpenROAD 技术更新，介绍将全局布局加速从 CUDA 专用路径迁移到基于 Kokkos 的实现。文章说明 Kokkos 的 execution space 与 memory space 如何提升后端可移植性、为什么为了保持确定性需要部分单线程取舍，并基于 ariane133 设计的基准数据展示 RTL-to-GDS 流程仍可获得显著运行时间收益。",
+      "tags": [
+        "Antmicro",
+        "OpenROAD",
+        "EDA",
+        "ASIC",
+        "Physical Design",
+        "GPU",
+        "Kokkos",
+        "RTL-to-GDS"
+      ],
+      "sourceTier": "trusted",
+      "language": "en",
+      "reviewStatus": "curated",
+      "publishedAt": "2026-09-25",
+      "dateEvidence": {
+        "url": "https://antmicro.com/blog/2026/09/improved-gpu-acceleration-of-placement-in-openroad",
+        "locator": "Antmicro page metadata Published Time 2026-09-25T00:00:00.000Z",
+        "checkedAt": "2026-09-30"
+      }
+    },
+    {
       "title": "RISC-V International profiles Openchip's BER10 sovereign application processor",
       "titleZh": "RISC-V International 解析 Openchip BER10 主权应用处理器",
       "url": "https://riscv.org/blog/v-questions-with-openchips-cesc-guim-and-marc-fernandez/",
