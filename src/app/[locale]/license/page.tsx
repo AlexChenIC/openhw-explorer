@@ -29,6 +29,9 @@ const copy = {
       "Earlier Apache-2.0 grants remain valid. Upstream logos, diagrams, papers, screenshots, and other third-party works remain governed by their respective owners and terms.",
     fullTerms: "Read the complete license scope",
     attributions: "Review third-party attributions",
+    notices: "Software and font license notices",
+    independent:
+      "OpenHW Explorer is an independent community project, not an official OpenHW Foundation website.",
   },
   zh: {
     title: "许可与内容权利",
@@ -48,6 +51,8 @@ const copy = {
       "过去已经授予的 Apache-2.0 许可继续有效。上游 logo、图表、论文、第三方网站截图及其他第三方作品继续适用各自权利人的条款。",
     fullTerms: "查看完整许可范围",
     attributions: "查看第三方来源说明",
+    notices: "软件与字体许可告知",
+    independent: "OpenHW Explorer 是独立社区项目，并非 OpenHW Foundation 官方网站。",
   },
 } as const;
 
@@ -97,6 +102,9 @@ export default async function LicensePage({ params }: LicensePageProps) {
               </div>
               <h1 className="page-title max-w-3xl">{text.title}</h1>
               <p className="page-subtitle max-w-3xl">{text.intro}</p>
+              <p className="mt-4 text-sm leading-7 text-[var(--text-tertiary)]">
+                {text.independent}
+              </p>
             </div>
 
             <div className="border-y border-[var(--border)]">
@@ -118,7 +126,16 @@ export default async function LicensePage({ params }: LicensePageProps) {
               ))}
             </div>
 
-            <div className="flex flex-col gap-3 py-9 sm:flex-row">
+            <div className="flex flex-col flex-wrap gap-3 py-9 sm:flex-row">
+              <a
+                href="/third-party-notices.txt"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center justify-center gap-2 rounded-md border border-[var(--border)] px-4 py-2.5 text-sm font-semibold text-[var(--text-secondary)] hover:text-[var(--primary)]"
+              >
+                {text.notices}
+                <ExternalLink className="h-4 w-4" />
+              </a>
               <a
                 href={licenseUrl}
                 target="_blank"

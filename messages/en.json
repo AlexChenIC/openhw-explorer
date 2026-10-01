@@ -127,7 +127,7 @@
     "cards": {
       "classroom": {
         "title": "OpenHW Learning Hub",
-        "description": "Start with five focused lessons, then move into original deep dives and selected OpenHW learning material.",
+        "description": "Start with three bilingual experiences: the OpenHW Foundation, CORE-V names, and a CVA6 project guide.",
         "cta": "Open Learning Hub"
       },
       "pathway": {
@@ -149,12 +149,15 @@
   },
   "footer": {
     "openHWGitHub": "OpenHW GitHub",
-    "officialWebsite": "Official Website",
+    "officialWebsite": "OpenHW Foundation website",
     "documentation": "Documentation",
     "linkedin": "LinkedIn",
     "licensing": "Licensing",
     "linksLabel": "Project and OpenHW links",
-    "creatorName": "Alex Chen"
+    "creatorName": "Alex Chen",
+    "independent": "OpenHW Explorer is an independent community project and is not an official OpenHW Foundation website.",
+    "feedback": "Feedback ↗",
+    "projectGithub": "Project GitHub"
   },
   "projectDetail": {
     "home": "Home",
@@ -294,7 +297,7 @@
     },
     "disclaimer": {
       "title": "Independent project",
-      "content": "OpenHW Explorer is not affiliated with, endorsed by, or sponsored by the OpenHW Foundation or its member organizations. Project information is compiled from public sources and may change after review. For authoritative information, use the official project repositories and OpenHW documentation."
+      "content": "OpenHW Explorer is maintained independently by its creator and is not an official OpenHW Foundation product. No endorsement by the Foundation or its members is implied. Information is compiled from public sources and may change after review; use official project repositories and documentation for authoritative information."
     },
     "approach": {
       "eyebrow": "Editorial approach",
@@ -315,8 +318,8 @@
     },
     "author": {
       "eyebrow": "Maintainer",
-      "title": "Maintained by Alex Chen",
-      "bio": "Alex Chen maintains OpenHW Explorer as an independent project alongside his work in the OpenHW ecosystem. The site grew from a practical need to organize public project information, verify important claims against primary sources, and make OpenHW and RISC-V material easier to navigate.",
+      "title": "Created and maintained by Junchao Chen (Alex Chen)",
+      "bio": "Maintained independently alongside his work at OpenHW Foundation.",
       "connectLinkedIn": "Connect on LinkedIn"
     },
     "privacy": {

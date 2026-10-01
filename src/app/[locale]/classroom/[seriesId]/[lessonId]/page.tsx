@@ -4,14 +4,12 @@ import { redirect } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ClassroomLessonContent } from "@/components/ClassroomLessonContent";
+import { getClassroomBaseUrl, hasPublishedLesson, getLocalizedText } from "@/data/classrooms";
 import {
-  classroomSeries,
-  getClassroomBaseUrl,
-  hasPublishedLesson,
-  getLessonById,
-  getLocalizedText,
-  getSeriesById,
-} from "@/data/classrooms";
+  getPublicClassroomSeries,
+  getPublicSeriesById,
+  getPublicLessonById,
+} from "@/data/classroom-publication";
 import { SITE_URL } from "@/lib/site-url";
 
 type LessonPageProps = {
@@ -19,23 +17,21 @@ type LessonPageProps = {
 };
 
 export function generateStaticParams() {
-  return classroomSeries.flatMap((series) =>
-    series.lessons
-      .filter(hasPublishedLesson)
-      .flatMap((lesson) =>
-        ["en", "zh"].map((locale) => ({
-          locale,
-          seriesId: series.id,
-          lessonId: lesson.id,
-        })),
-      ),
+  return getPublicClassroomSeries().flatMap((series) =>
+    series.lessons.filter(hasPublishedLesson).flatMap((lesson) =>
+      ["en", "zh"].map((locale) => ({
+        locale,
+        seriesId: series.id,
+        lessonId: lesson.id,
+      })),
+    ),
   );
 }
 
 export async function generateMetadata({ params }: LessonPageProps): Promise<Metadata> {
   const { locale, seriesId, lessonId } = await params;
-  const lesson = getLessonById(seriesId, lessonId);
-  if (!lesson) return {};
+  const lesson = getPublicLessonById(seriesId, lessonId);
+  if (!lesson) return { robots: { index: false, follow: true } };
 
   const resolvedLocale = locale === "zh" ? "zh" : "en";
   const title = getLocalizedText(lesson.title, resolvedLocale);
@@ -62,8 +58,8 @@ export async function generateMetadata({ params }: LessonPageProps): Promise<Met
 export default async function ClassroomLessonPage({ params }: LessonPageProps) {
   const { locale, seriesId, lessonId } = await params;
   setRequestLocale(locale);
-  const series = getSeriesById(seriesId);
-  const lesson = getLessonById(seriesId, lessonId);
+  const series = getPublicSeriesById(seriesId);
+  const lesson = getPublicLessonById(seriesId, lessonId);
 
   if (!series || !lesson || !hasPublishedLesson(lesson)) {
     redirect(`/${locale === "zh" ? "zh" : "en"}/classroom`);

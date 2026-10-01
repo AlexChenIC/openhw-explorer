@@ -4,25 +4,17 @@ import { redirect } from "next/navigation";
 import { Footer } from "@/components/Footer";
 import { Header } from "@/components/Header";
 import { PublishedClassroomPlayer } from "@/components/PublishedClassroomPlayer";
-import { classroomSeries, getClassroomIdForLocale, getLocalizedText, lessonUsesClassroomId } from "@/data/classrooms";
-import { getPublishedClassroom, getPublishedClassroomIds } from "@/data/published-classrooms";
+import { getClassroomIdForLocale, getLocalizedText } from "@/data/classrooms";
+import { getPublishedClassroom } from "@/data/published-classrooms";
+import { getPublicClassroomIds, getPublicLessonByClassroomId } from "@/data/classroom-publication";
 import { SITE_URL } from "@/lib/site-url";
 
 type ClassroomPlayerPageProps = {
   params: Promise<{ locale: string; classroomId: string }>;
 };
 
-function getLessonByClassroomId(classroomId: string) {
-  for (const series of classroomSeries) {
-    const lesson = series.lessons.find((item) => lessonUsesClassroomId(item, classroomId));
-    if (lesson) return { lesson, series };
-  }
-
-  return null;
-}
-
 export function generateStaticParams() {
-  return getPublishedClassroomIds().flatMap((classroomId) =>
+  return getPublicClassroomIds().flatMap((classroomId) =>
     ["en", "zh"].map((locale) => ({
       locale,
       classroomId,
@@ -34,9 +26,10 @@ export async function generateMetadata({ params }: ClassroomPlayerPageProps): Pr
   const { locale, classroomId } = await params;
   const resolvedLocale = locale === "zh" ? "zh" : "en";
   const classroom = getPublishedClassroom(classroomId);
-  if (!classroom) return {};
+  if (!classroom || !getPublicLessonByClassroomId(classroomId))
+    return { robots: { index: false, follow: true } };
 
-  const match = getLessonByClassroomId(classroomId);
+  const match = getPublicLessonByClassroomId(classroomId);
   const title = match ? getLocalizedText(match.lesson.title, resolvedLocale) : classroom.stage.name;
   const description = match
     ? getLocalizedText(match.lesson.summary, resolvedLocale)
@@ -66,11 +59,11 @@ export default async function ClassroomPlayerPage({ params }: ClassroomPlayerPag
   const resolvedLocale = locale === "zh" ? "zh" : "en";
   const classroom = getPublishedClassroom(classroomId);
 
-  if (!classroom) {
+  if (!classroom || !getPublicLessonByClassroomId(classroomId)) {
     redirect(`/${resolvedLocale}/classroom`);
   }
 
-  const match = getLessonByClassroomId(classroomId);
+  const match = getPublicLessonByClassroomId(classroomId);
   const localizedId = match && getClassroomIdForLocale(match.lesson, resolvedLocale);
   if (localizedId && localizedId !== classroomId) {
     redirect(`/${resolvedLocale}/classroom-player/${localizedId}`);

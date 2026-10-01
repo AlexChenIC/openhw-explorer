@@ -112,7 +112,7 @@ export function Header() {
 
           {/* GitHub button - desktop */}
           <a
-            href="https://github.com/openhwgroup"
+            href="https://github.com/openhwfoundation"
             target="_blank"
             rel="noopener noreferrer"
             aria-label={t("aria.openGithub")}
@@ -179,7 +179,7 @@ export function Header() {
               {t("about")}
             </Link>
             <a
-              href="https://github.com/openhwgroup"
+              href="https://github.com/openhwfoundation"
               target="_blank"
               rel="noopener noreferrer"
               className="flex items-center gap-2 px-3 py-2.5 text-[var(--text-secondary)] text-sm font-medium hover:text-[var(--text-primary)] hover:bg-[var(--bg-subtle-hover)] rounded-lg transition-all"

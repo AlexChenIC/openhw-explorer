@@ -202,3 +202,11 @@ Locally cached slide extracts are used for source-based explanation inside the p
 - `p06-how-to-collaborate.png`: 2024 deck, page 14
 - `p07-digital-sovereignty.png`: 2024 deck, page 16
 - `p08-mcu-devkit.png`: 2024 deck, page 19
+
+## Software and font notices (Public Preview)
+
+The public Licensing page links to [complete bundled notices](../public/third-party-notices.txt), generated from installed production dependency license/copyright files by scripts/build-third-party-notices.mjs. It includes nested bundled notices, Inter (OFL-1.1) and Feather portions of Lucide (MIT), and retains server/build dependency notices separately from any claim of browser distribution. Optional binaries for uninstalled platforms are outside this installation inventory. Regenerate after npm ci when the lockfile changes.
+
+@vercel/analytics 1.6.1 is used without source edits under MPL-2.0. The corresponding source is available at https://github.com/vercel/analytics/tree/0028584e514ba508911b9b64bb691616ae63b2e6 (tag 1.6.1); original covered files retain their license. Inter and Feather license texts are preserved in docs/licenses/.
+
+This addition does not certify Foundation/CORE-V trademark permission or the original teaching-deck license; those remain human review items recorded in the Public Preview checklist.

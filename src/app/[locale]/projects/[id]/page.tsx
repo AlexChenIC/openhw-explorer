@@ -14,7 +14,7 @@ import { Footer } from "@/components/Footer";
 import { getProjectKnowledge, getKnowledgeSummary } from "@/data/knowledge";
 import { serializeJsonLd } from "@/lib/seo";
 import { SITE_URL } from "@/lib/site-url";
-import { projectGuides } from "@/data/classroom-project-guides";
+import { getPublicSeriesById } from "@/data/classroom-publication";
 import { getLocalizedText, hasPublishedLesson } from "@/data/classrooms";
 import { features } from "@/lib/features";
 
@@ -76,7 +76,7 @@ export default async function ProjectPage({ params }: Props) {
   const knowledgeSummary = getKnowledgeSummary(project.id);
   const githubStats = getGitHubStats(project.id);
   const guide = features.classroomCoursesEnabled
-    ? projectGuides.lessons.find(
+    ? getPublicSeriesById("project-guides")?.lessons.find(
         (lesson) => lesson.projectId === project.id && hasPublishedLesson(lesson),
       )
     : undefined;

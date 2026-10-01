@@ -1,0 +1,25 @@
+name: Suggest an improvement
+description: Suggest a project, learning topic, resource, or usability improvement.
+title: "[Suggestion] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        English and Chinese suggestions are welcome. This issue will be public.
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: Your suggestion / 你的建议
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: Who would it help, and how? / 对谁有帮助，能解决什么问题？
+    validations:
+      required: true
+  - type: textarea
+    id: sources
+    attributes:
+      label: Useful public sources / 相关公开资料
+      description: Optional links to projects, documentation, or learning material.

@@ -59,7 +59,7 @@
         },
         {
           "label": "CVA6 Tier CI Dashboard",
-          "url": "https://openhwgroup.github.io/cva6/",
+          "url": "https://openhwfoundation.github.io/cva6/",
           "note": "latest status, coverage matrix, trends, and run history for the reference, Tier 1, and Tier 2 GitHub Actions workflows"
         },
         {
@@ -78,7 +78,7 @@
         "https://github.com/orgs/openhwgroup/projects/3/views/7",
         "https://github.com/openhwgroup/cva6-sdk",
         "https://riscv-ci.pages.thales-invia.fr/dashboard/dashboard_cva6.html",
-        "https://openhwgroup.github.io/cva6/",
+        "https://openhwfoundation.github.io/cva6/",
         "https://doi.org/10.1109/TVLSI.2019.2926114",
         "https://github.com/openhwgroup/cva6/blob/49b5fa9e/core/include/cv32a60x_config_pkg.sv",
         "https://github.com/openhwgroup/cva6/blob/49b5fa9e/core/include/cv32a65x_config_pkg.sv",

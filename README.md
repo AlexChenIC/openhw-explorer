@@ -1,7 +1,7 @@
 # OpenHW Explorer
 
 A bilingual, source-backed navigator for 40 OpenHW repositories, technical
-resources, ecosystem news, and future human-reviewed learning material.
+resources, ecosystem news, and introductory learning material.
 
 ---
 
@@ -65,6 +65,24 @@ Type definitions are in `src/types/index.ts`. To add a project, append an entry 
 
 ## Release Notes
 
+The Summit Public Preview exposes three bilingual learning experiences in order:
+OpenHW Foundation, CORE-V names, and the CVA6 project guide. CVA6 retains its
+Demo label and pending review status. Planned courses and Industry Landscape
+data remain in the repository but are withdrawn from public navigation and routes.
+
+Publication controls are build-time environment variables:
+
+- `NEXT_PUBLIC_ENABLE_PUBLIC_PREVIEW`: defaults to `true`; `false` restores the
+  broader catalog presentation. This does not approve or publish planned lessons.
+- `NEXT_PUBLIC_ENABLE_INDUSTRY_LANDSCAPE`: defaults to `false`; only `true`
+  restores the Industry entry point, route and sitemap entry.
+- `NEXT_PUBLIC_ENABLE_CLASSROOM_COURSES`: defaults to `true`; `false` withdraws
+  course detail and player routes as an emergency control.
+
+Rebuild and redeploy after changing these values. See
+[the Public Preview checklist](docs/public-preview-checklist.md) for validation,
+rollback instructions and human review gates.
+
 Before promoting OpenHW Explorer as a formal public 1.0 release, review
 `docs/release-1.0-preflight.md`. That checklist records the required decisions
 around brand naming, trademark posture, copyright/license scope, professional
@@ -81,6 +99,9 @@ domain setup, third-party attribution, and future paid-course flexibility.
   terms and the boundaries documented below.
 
 See [LICENSE-CONTENT.md](LICENSE-CONTENT.md) for the exact scope of each.
+Full software/font notices are served at `/third-party-notices.txt`. After changing
+dependencies, run `npm ci` and `npm run build:third-party-notices`, then review and
+commit the generated notice file.
 
 OpenHW Explorer is an independent project and is not an official OpenHW
 Foundation site.

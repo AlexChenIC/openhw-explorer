@@ -1,0 +1,27 @@
+name: Report incorrect or outdated information
+description: Report a factual error, translation problem, broken link, or website bug.
+title: "[Correction] "
+body:
+  - type: markdown
+    attributes:
+      value: |
+        English and Chinese reports are welcome. This issue will be public.
+  - type: input
+    id: page
+    attributes:
+      label: Page or lesson / 页面或课程
+      placeholder: Paste the OpenHW Explorer URL
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: What is incorrect or not working? / 哪里有误或无法使用？
+      description: For a website bug, include the steps, device, and expected result if possible.
+    validations:
+      required: true
+  - type: textarea
+    id: evidence
+    attributes:
+      label: Supporting sources / 参考来源
+      description: Optional public documentation, repository links, or screenshots.

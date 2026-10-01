@@ -21,7 +21,7 @@ This includes, unless a file states otherwise:
 - `src/data/projects.ts`, `src/data/filters.ts`, `src/data/resources.ts`,
   `src/data/ecosystem.ts`, `src/data/industry-landscape.ts`,
   `src/data/pdk-details.ts`, `src/data/industry-headquarters.ts`,
-  `src/data/classroom-routes.ts`,
+  `src/data/classroom-routes.ts`, `src/data/classroom-publication.ts`,
   `src/data/github-stats.json`, `src/data/project-profile-meta.json`,
   `src/data/news-candidates.json`, `src/data/news-source-groups.json`, and
   `src/data/news-topic-rules.json`

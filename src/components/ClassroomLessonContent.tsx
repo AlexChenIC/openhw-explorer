@@ -16,6 +16,8 @@ import {
   type ClassroomSeries,
 } from "@/data/classrooms";
 import { getPublishedClassroom } from "@/data/published-classrooms";
+import { externalLinks } from "@/data/external-links";
+import { SITE_URL } from "@/lib/site-url";
 import { PublishedClassroomPlayer } from "@/components/PublishedClassroomPlayer";
 
 const copy = {
@@ -186,6 +188,27 @@ export function ClassroomLessonContent({
               : "The public release package for this lesson has not been synced into OpenHW Explorer yet."}
           </section>
         )}
+        <p className="mt-6 text-sm leading-7 text-[var(--text-tertiary)]">
+          <a
+            href={
+              externalLinks.feedbackIssues +
+              "?" +
+              new URLSearchParams({
+                template: "incorrect-information.yml",
+                title: "[Correction] " + getLocalizedText(lesson.title, resolvedLocale),
+                page: SITE_URL + "/" + resolvedLocale + "/classroom/" + series.id + "/" + lesson.id,
+              }).toString()
+            }
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex min-h-11 items-center gap-2 hover:text-[var(--primary)]"
+          >
+            {resolvedLocale === "zh"
+              ? "发现过时或错误信息？在 GitHub 反馈"
+              : "Found outdated or incorrect information? Report it on GitHub"}
+            <ExternalLink className="h-4 w-4" />
+          </a>
+        </p>
       </div>
     </div>
   );
