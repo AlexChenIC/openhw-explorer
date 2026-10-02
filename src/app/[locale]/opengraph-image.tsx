@@ -1,5 +1,11 @@
 import { ImageResponse } from "next/og";
 
+export const dynamic = "force-static";
+
+export function generateStaticParams() {
+  return ["en", "zh"].map((locale) => ({ locale }));
+}
+
 export const alt = "OpenHW Explorer — Navigate open-source RISC-V hardware projects";
 export const size = { width: 1200, height: 630 };
 export const contentType = "image/png";
