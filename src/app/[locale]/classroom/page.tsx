@@ -4,7 +4,6 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ClassroomContent } from "@/components/ClassroomContent";
 import { SITE_URL } from "@/lib/site-url";
-import { features } from "@/lib/features";
 import { publishedNewsletterUsername } from "@/lib/newsletter";
 
 type ClassroomPageProps = {
@@ -15,11 +14,11 @@ const metadataCopy = {
   en: {
     title: "OpenHW Learning Hub",
     description:
-      "Short, source-checked OpenHW lessons, original technical deep dives, and selected public learning material.",
+      "Interactive OpenHW lessons and project guides, with slides, narration, exercises and primary-source references.",
   },
   zh: {
-    title: "OpenHW 学习中心",
-    description: "从来源可追溯的 OpenHW 短课开始，逐步进入原创技术深度课和精选公开学习资料。",
+    title: "OpenHW 学习园地",
+    description: "通过交互式课程与项目导览学习 OpenHW，结合幻灯片、讲解、练习及一手资料。",
   },
 } as const;
 
@@ -28,11 +27,7 @@ export async function generateMetadata({ params }: ClassroomPageProps): Promise<
   const resolvedLocale = locale === "zh" ? "zh" : "en";
   const copy = metadataCopy[resolvedLocale];
 
-  const description = features.publicPreviewEnabled
-    ? resolvedLocale === "zh"
-      ? "三项中英文学习体验：OpenHW Foundation、CORE-V 内核命名与 CVA6 项目导览。"
-      : "Three bilingual learning experiences: the OpenHW Foundation, CORE-V core names, and a CVA6 project guide."
-    : copy.description;
+  const description = copy.description;
 
   return {
     title: copy.title,
