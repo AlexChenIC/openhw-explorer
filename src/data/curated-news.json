@@ -3,6 +3,61 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "CIRCT firtool 1.161.0 expands AXI4, SystemVerilog, and ImportVerilog support",
+      "titleZh": "CIRCT firtool 1.161.0 扩展 AXI4、SystemVerilog 与 ImportVerilog 支持",
+      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.161.0",
+      "source": "LLVM / CIRCT (GitHub)",
+      "addedAt": "2026-10-02T00:36:17Z",
+      "summary": "LLVM CIRCT published firtool 1.161.0 with a dense set of hardware-compiler changes. The release adds AXI4 cut and clock-domain-crossing operations, core SystemVerilog net and var type support, MOS switch primitive handling in ImportVerilog, FIRRTL optimizer preservation for register initial values, PyCDE type-alias fixes, and ESI channel updates.",
+      "summaryZh": "LLVM CIRCT 发布 firtool 1.161.0，包含一组密集的硬件编译器更新。该版本新增 AXI4 cut 与 clock-domain-crossing 操作、SystemVerilog net/var 核心类型支持、ImportVerilog 对 MOS switch primitive 的处理、FIRRTL 优化器对寄存器初值的保留、PyCDE type alias 修复以及 ESI channel 更新。",
+      "tags": [
+        "CIRCT",
+        "firtool",
+        "LLVM",
+        "EDA",
+        "SystemVerilog",
+        "FIRRTL",
+        "AXI4",
+        "ImportVerilog"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "publishedAt": "2026-10-01",
+      "dateEvidence": {
+        "url": "https://github.com/llvm/circt/releases/tag/firtool-1.161.0",
+        "locator": "GitHub release published_at 2026-10-01T18:15:19Z; tag firtool-1.161.0",
+        "checkedAt": "2026-10-02"
+      }
+    },
+    {
+      "title": "Chisel 7.16.0 adds Cat literal preservation and a chiseltest verify reimplementation",
+      "titleZh": "Chisel 7.16.0 新增 Cat literal 保留与 chiseltest verify 重实现",
+      "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.16.0",
+      "source": "CHIPS Alliance / Chisel (GitHub)",
+      "addedAt": "2026-10-02T00:36:17Z",
+      "summary": "CHIPS Alliance released Chisel 7.16.0 with HDL authoring and verification improvements. The release preserves literals in Cat, adds a basic reimplementation of chiseltest's verify function, fixes Scala 2 public constructor vals and DynamicContext leakage on exceptions, improves hardware connection diagnostics, and updates the bundled CIRCT dependency through firtool 1.160.0.",
+      "summaryZh": "CHIPS Alliance 发布 Chisel 7.16.0，带来 HDL 编写与验证改进。该版本在 Cat 中保留 literal，加入 chiseltest verify 函数的基础重实现，修复 Scala 2 public constructor vals 与异常路径中的 DynamicContext 泄漏，改进硬件连接诊断，并将捆绑的 CIRCT 依赖更新到 firtool 1.160.0。",
+      "tags": [
+        "Chisel",
+        "CHIPS Alliance",
+        "HDL",
+        "Verification",
+        "Scala",
+        "CIRCT",
+        "EDA"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "publishedAt": "2026-10-01",
+      "dateEvidence": {
+        "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.16.0",
+        "locator": "GitHub release published_at 2026-10-01T05:12:05Z; tag v7.16.0",
+        "checkedAt": "2026-10-02"
+      }
+    },
+    {
       "title": "Caliptra firmware 2.1.3 tightens runtime security, cryptography, and recovery flows",
       "titleZh": "Caliptra 固件 2.1.3 强化运行时安全、密码学与恢复流程",
       "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/fw-2.1.3",
