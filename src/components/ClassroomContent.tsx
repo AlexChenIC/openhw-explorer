@@ -29,10 +29,8 @@ import {
 
 const copy = {
   en: {
-    eyebrow: "Learning Hub",
-    title: "Learn OpenHW, one clear idea at a time.",
-    subtitle:
-      "Short, source-checked lessons today. Deeper processor courses and selected OpenHW learning material over time.",
+    eyebrow: "Interactive learning",
+    title: "OpenHW Learning Hub",
     navLabel: "Learning collections",
     collections: [
       {
@@ -115,9 +113,8 @@ const copy = {
     },
   },
   zh: {
-    eyebrow: "学习园地",
-    title: "一次讲清一个 OpenHW 概念。",
-    subtitle: "从短小、来源可追溯的课程开始，逐步扩展到处理器深度课和精选 OpenHW 学习资料。",
+    eyebrow: "交互式学习",
+    title: "OpenHW 学习园地",
     navLabel: "学习内容",
     collections: [
       {
@@ -285,8 +282,6 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
         ...copy[resolvedLocale],
         ...(resolvedLocale === "zh"
           ? {
-              subtitle:
-                "三项中英文学习体验：认识 OpenHW Foundation，读懂 CORE-V 命名，再进入 CVA6 的内核、配置与系统。",
               essentialsBody: "两节聚焦入门课，先认识组织，再理解内核命名。",
               language: "EN / 中文",
               communityTitle: "建议下一门课程",
@@ -297,8 +292,6 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
               ],
             }
           : {
-              subtitle:
-                "Three bilingual learning experiences: understand the OpenHW Foundation, read CORE-V names, then explore CVA6 cores, configurations and systems.",
               essentialsBody:
                 "Two focused introductions: understand the organization, then read core names.",
               language: "EN / 中文",
@@ -348,12 +341,9 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
             <GraduationCap className="h-4 w-4" />
             {text.eyebrow}
           </div>
-          <h1 className="max-w-4xl text-4xl font-bold leading-tight text-[var(--text-primary)] sm:text-5xl lg:text-6xl">
+          <h1 className="max-w-4xl text-4xl font-bold leading-tight text-[var(--text-primary)] sm:text-5xl">
             {text.title}
           </h1>
-          <p className="mt-5 max-w-3xl text-base leading-8 text-[var(--text-secondary)] sm:text-lg">
-            {text.subtitle}
-          </p>
         </section>
 
         {publicSeries.length > 0 && (
