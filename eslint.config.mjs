@@ -8,6 +8,7 @@ export default defineConfig([
     "node_modules/**",
     "out/**",
     "dist/**",
+    "build/**",
     ".wrangler/**",
     "cloudflare-env.d.ts",
   ]),

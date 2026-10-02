@@ -37,6 +37,7 @@
   ],
   "exclude": [
     "node_modules",
+    "build",
     "cloudflare-worker.ts",
     "cloudflare-env.d.ts",
     "vite.config.ts"

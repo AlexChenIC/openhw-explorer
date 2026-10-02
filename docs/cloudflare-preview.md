@@ -1,11 +1,68 @@
 # Cloudflare evaluation deployment
 
-This branch adds an independent Cloudflare Workers test deployment of the public
-site. The existing Vercel deployment remains the production entry point.
+This branch adds independent Cloudflare Pages and Workers test deployments of the
+public site. The existing Vercel deployment remains the production entry point.
 
-Test URL: https://openhw-explorer-test.junchao-chen-sc.workers.dev/zh/classroom
+Pages test URL: https://openhw-explorer-test.pages.dev/zh/classroom
 
-## Build and deploy
+The Pages deployment is the direct comparison with the user's working
+`qiushi-review.pages.dev` static site. The two Cloudflare hostnames must be tested
+on the same Mainland China connection; success from another network does not
+establish Mainland reachability.
+
+## Pages static build and deploy
+
+```sh
+npm ci
+npm run build:pages
+npm run start:pages
+# One-time project creation; --force explicitly selects Pages, not Workers:
+npx wrangler pages project create openhw-explorer-test --production-branch pages-preview --force
+npm run deploy:pages
+```
+
+The Pages project's production branch is `pages-preview`; this publishes only to
+the isolated test project, not the main Vercel production site.
+
+- Next.js exports HTML, client JavaScript, CSS, course assets, social cards and the
+  news-status snapshot into `out/`. No Pages Functions or Worker is uploaded.
+- The build uses an ignored copy under `build/pages-source`, excluding the runtime
+  locale proxy, catch-all and disabled Industry page. The original source routes
+  remain available for Next.js and Workers.
+- Known withdrawn courses, wrong-language player URLs and default-language entry
+  points use generated Pages `_redirects`. Unknown paths return a real 404.
+  Browser-language detection is replaced by a deterministic English root redirect.
+- Only correctly localized public players are exported. Social cards, sitemap and
+  robots have explicit static generation. Images are served without a runtime
+  optimizer. Analytics is disabled; all test responses receive noindex headers,
+  with the existing production canonicals retained.
+- Wrangler runs in a temporary directory to isolate it from Vinext's generated
+  Worker configuration. For local development only, a temporary asset passthrough
+  avoids Wrangler's built-in shim resolving the unrelated Worker config. It is
+  never included in the uploaded output.
+- Current Wrangler automatically delegates some new Pages commands to Workers.
+  The explicit `--force` selection keeps this comparison on actual Pages hosting.
+- This target uses the cached repository data and has no runtime database or paid
+  bindings. Static Pages requests are free and unlimited; file and build limits
+  still apply. No plan upgrade or domain purchase is performed.
+- This deployment does not add a service worker or offline mode. Offline support
+  is a separate feature and would still require a successful first visit.
+
+Both the local emulator and the tested Pages edge returned a full 200 response
+to an audio Range request. The browser successfully played and sought within a
+fully buffered short clip (40.6 seconds). Do not claim 206 support for this target;
+test first-play and seeking under slow Mainland connections before release.
+
+Pages references:
+- https://developers.cloudflare.com/pages/framework-guides/nextjs/deploy-a-static-nextjs-site/
+- https://nextjs.org/docs/app/guides/static-exports
+- https://developers.cloudflare.com/pages/configuration/redirects/
+- https://developers.cloudflare.com/pages/functions/pricing/
+- https://developers.cloudflare.com/pages/platform/limits/
+
+Workers test URL: https://openhw-explorer-test.junchao-chen-sc.workers.dev/zh/classroom
+
+## Workers build and deploy
 
 Use Node 22 or later, install the lockfile, and authenticate Wrangler to the intended
 account. No credentials belong in this repository.
@@ -56,10 +113,11 @@ configuration, so a fresh Next.js checkout does not require generated Worker typ
 - The Satori transitive `fflate` dependency is constrained to the patched 0.7.x
   release. Third-party notices are regenerated with complete license text.
 
-The prerenderer reports eight `RSC handler returned 307` entries: two withdrawn
-Industry routes and six player URLs with the wrong locale. These are deliberate
-runtime redirects, not eight broken public course pages. The API route and catch-all
-route are not prerendered. Runtime HTTP checks must still verify those redirects.
+The initial Worker snapshot reported eight `RSC handler returned 307` entries:
+two withdrawn Industry routes and six player URLs with the wrong locale.
+The static parameter list now excludes the six wrong-language player routes;
+their runtime redirects remain. The API route and catch-all are not prerendered.
+Runtime HTTP checks must still verify redirects.
 
 ## Cost and release boundary
 
