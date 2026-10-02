@@ -1,5 +1,5 @@
 import { describe, expect, it } from "vitest";
-import { existsSync, readFileSync } from "node:fs";
+import { existsSync, readFileSync, readdirSync } from "node:fs";
 import { join } from "node:path";
 import { projectGuides } from "@/data/classroom-project-guides";
 import { hasPublishedLesson, getClassroomIdForLocale } from "@/data/classrooms";
@@ -30,7 +30,7 @@ describe("CVA6 project guide demo", () => {
       expect(classroom.stage.releaseStage).toBe("demo");
       expect(classroom.stage.language).toBe(locale === "zh" ? "zh-CN" : "en-US");
       expect(classroom.scenes).toHaveLength(lesson.slideCount);
-      expect(classroom.scenes.map((s) => s.order)).toEqual([0, 1, 2, 3, 4, 5, 6, 7, 8]);
+      expect(classroom.scenes.map((s) => s.order)).toEqual(Array.from({ length: 12 }, (_, i) => i));
       expect(new Set(classroom.scenes.map((s) => s.id)).size).toBe(lesson.slideCount);
       const questions = classroom.scenes.flatMap((s) => s.content.questions || []);
       expect(questions).toHaveLength(lesson.quizCount);
@@ -44,7 +44,9 @@ describe("CVA6 project guide demo", () => {
       for (const scene of classroom.scenes) {
         expect(scene.content.sourceAnchors?.length).toBeGreaterThan(0);
         for (const anchor of scene.content.sourceAnchors || []) {
-          expect(anchor.url).toMatch(/^https:\/\/(github\.com|openhwfoundation\.github\.io)\//);
+          expect(new URL(anchor.url!).hostname).toMatch(
+            /^(github\.com|docs\.openhwgroup\.org|www\.linkedin\.com|riscv-europe\.org|iis-people\.ee\.ethz\.ch)$/,
+          );
           expect(anchor.locator).toBeTruthy();
           expect(anchor.claimSupported).toBeTruthy();
         }
@@ -52,7 +54,7 @@ describe("CVA6 project guide demo", () => {
         expect(speeches).toHaveLength(1);
         for (const action of speeches) {
           expect(action.text!.length).toBeGreaterThanOrEqual(180);
-          expect(action.text!.length).toBeLessThanOrEqual(520);
+          expect(action.text!.length).toBeLessThanOrEqual(800);
           const audio = join(
             process.cwd(),
             "public/classroom-assets",
@@ -71,7 +73,28 @@ describe("CVA6 project guide demo", () => {
       expect(config.type).toBe("interactive");
       for (const name of ["CV32A60X", "CV32A65X", "cv64a6_imafdc_sv39_config_pkg.sv"])
         expect(config.content.html).toContain(name);
-      expect(config.content.html).toContain("49b5fa9e2f5a803cd52f8430d8e8818089e68865");
+      expect(config.content.html).toContain("81245a47fad8fe1a5d562d953ef2662e099def76");
+      const mediaDir = join(process.cwd(), "public/classroom-assets", id);
+      expect(readdirSync(join(mediaDir, "audio")).filter((f) => f.endsWith(".mp3"))).toHaveLength(
+        12,
+      );
+      expect(
+        readdirSync(join(mediaDir, "subtitles")).filter((f) => f.endsWith(".vtt")),
+      ).toHaveLength(12);
+      const evidence = classroom.scenes.find((s) => s.id === "scene-cva6-intro-evidence")!;
+      expect(evidence.type).toBe("interactive");
+      expect(evidence.content.html).toContain('aria-live="polite"');
+      expect(evidence.content.sourceAnchors?.some((a) => a.id === "cv32a60x-trl5")).toBe(true);
+      const release = classroom.scenes.find((s) => s.id === "scene-cva6-intro-release")!;
+      expect(JSON.stringify(release.content)).toContain("cv32a60x-v6.0.0");
+      expect(JSON.stringify(release.content)).toContain("b1f80bd7cff3");
+      const applications = classroom.scenes.find((s) => s.id === "scene-cva6-intro-applications")!;
+      expect(applications.content.sourceAnchors?.map((a) => a.id)).toEqual([
+        "bosch-tristan",
+        "thales-astral",
+        "eth-basilisk",
+        "pulp-occamy",
+      ]);
       expect(JSON.stringify(classroom)).not.toMatch(
         /drive\.google|docs\.google|localhost|127\.0\.0\.1/,
       );

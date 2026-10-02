@@ -1,30 +1,38 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:02.473
-Read the core as cooperating blocks.
+00:00:00.000 --> 00:00:01.617
+Start inside the core.
 
 2
-00:00:02.473 --> 00:00:06.662
-The frontend fetches instructions and decode interprets them.
+00:00:01.617 --> 00:00:06.907
+The frontend obtains instructions, and decode identifies the operations.
 
 3
-00:00:06.662 --> 00:00:13.393
-Issue checks dependencies and resource availability, while the scoreboard tracks outstanding work.
+00:00:06.907 --> 00:00:11.904
+Issue checks whether operands and execution resources are available.
 
 4
-00:00:13.393 --> 00:00:18.888
-Execution units return results, and commit updates architectural state in order.
+00:00:11.904 --> 00:00:16.533
+A scoreboard tracks outstanding instructions and their results.
 
 5
-00:00:18.888 --> 00:00:23.490
-Caches, control registers and exception handling support this path.
+00:00:16.533 --> 00:00:21.603
+Execution units then perform arithmetic, branches or memory accesses.
 
 6
-00:00:23.490 --> 00:00:26.855
-Address translation depends on the configuration.
+00:00:21.603 --> 00:00:30.126
+Commit controls when instructions retire and their effects become architectural state, including exception handling.
 
 7
-00:00:26.855 --> 00:00:33.380
-These four groups are a reading map, not four pipeline stages or a cycle-accurate timing model.
+00:00:30.126 --> 00:00:36.886
+These boxes describe responsibilities, rather than promising a fixed number of clock cycles.
+
+8
+00:00:36.886 --> 00:00:44.234
+Outside them, a usable system still needs memory, interconnect, interrupts, debug and boot software.
+
+9
+00:00:44.234 --> 00:00:53.860
+Keeping that boundary visible helps you decide whether a question belongs in the core configuration or in the surrounding platform.
 

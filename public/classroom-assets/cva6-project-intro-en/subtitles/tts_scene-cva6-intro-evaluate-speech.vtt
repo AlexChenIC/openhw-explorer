@@ -1,0 +1,34 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.755
+Turn your reading into a short evaluation record.
+
+2
+00:00:03.755 --> 00:00:11.342
+Name the configuration and commit, then record the derived parameters that matter to your workload.
+
+3
+00:00:11.342 --> 00:00:16.093
+Add the platform, software versions and relevant test results.
+
+4
+00:00:16.093 --> 00:00:22.147
+State the gaps, and choose one next experiment that would change your decision.
+
+5
+00:00:22.147 --> 00:00:32.876
+For example, a controller project might first check interrupt behavior on its board; a Linux host might first establish a reproducible boot.
+
+6
+00:00:32.876 --> 00:00:35.251
+Keep roadmap information dated.
+
+7
+00:00:35.251 --> 00:00:44.371
+The July fifteenth, twenty twenty-six roadmap discusses CV64A60AX verification and dual-core lockstep integration work.
+
+8
+00:00:44.371 --> 00:00:54.180
+Those entries help identify active engineering work, while completed capabilities still need release or implementation evidence.
+

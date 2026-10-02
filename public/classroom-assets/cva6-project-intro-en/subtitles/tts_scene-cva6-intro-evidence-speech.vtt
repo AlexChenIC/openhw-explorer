@@ -1,26 +1,34 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:04.855
-Verification results become useful when their scope is explicit.
+00:00:00.000 --> 00:00:02.104
+Try the four evidence cards.
 
 2
-00:00:04.855 --> 00:00:08.952
-Record the commit, configuration, simulator and tests.
+00:00:02.104 --> 00:00:06.762
+Each gives you a reported result and two possible conclusions.
 
 3
-00:00:08.952 --> 00:00:13.352
-Open the job details rather than relying on a green badge.
+00:00:06.762 --> 00:00:12.998
+Choose the conclusion that keeps the useful information while preserving its scope.
 
 4
-00:00:13.352 --> 00:00:25.869
-A smoke regression can expose basic breakage, but passing it does not establish full functional coverage, production qualification or correctness in your own system.
+00:00:12.998 --> 00:00:22.690
+An architectural test pass, a named maturity release, Linux running on silicon, and a safety argument answer different questions.
 
 5
-00:00:25.869 --> 00:00:30.497
-The tier CI page is a useful starting point for run evidence.
+00:00:22.690 --> 00:00:25.394
+One cannot silently replace another.
 
 6
-00:00:30.497 --> 00:00:37.780
-This lesson maps those entry points; it does not claim to have built or qualified the processor.
+00:00:25.394 --> 00:00:37.040
+In particular, adding a safety mechanism or using an operating system with certification material does not automatically certify a new processor or system.
+
+7
+00:00:37.040 --> 00:00:39.744
+Read the feedback after each choice.
+
+8
+00:00:39.744 --> 00:00:51.540
+When a claim seems too broad, ask for the missing target, version, environment or assessment, rather than discarding the evidence that is actually available.
 

@@ -1,10 +1,10 @@
 {
   "id": "cva6-project-intro-zh",
-  "createdAt": 1789300800000,
+  "createdAt": 1790913600000,
   "stage": {
     "id": "cva6-project-intro-zh",
-    "name": "CVA6：从处理器内核到系统",
-    "description": "对照真实配置，理解内核数据通路，并找到平台集成和验证代码的入口。",
+    "name": "CVA6：能力、系统与工程证据",
+    "description": "对照真实配置，理解执行过程，并判断软件支持、工程成熟度和应用案例的证据范围。",
     "language": "zh-CN",
     "style": "openhw-signal-technical",
     "courseTemplateId": "project-introduction",
@@ -13,15 +13,15 @@
     "agentIds": [
       "default-1"
     ],
-    "createdAt": 1789300800000,
-    "updatedAt": 1789300800000
+    "createdAt": 1790913600000,
+    "updatedAt": 1790913600000
   },
   "scenes": [
     {
       "id": "scene-cva6-intro-scope",
       "stageId": "cva6-project-intro-zh",
       "type": "html-slide",
-      "title": "CVA6：从处理器内核到系统",
+      "title": "怎样判断 CVA6 是否适合你的任务",
       "order": 0,
       "content": {
         "type": "html-slide",
@@ -32,58 +32,42 @@
         "content": {
           "kicker": "项目导览 / CVA6",
           "title": "CVA6",
-          "subtitle": "从处理器内核到系统",
+          "subtitle": "能力、系统与工程证据",
           "chips": [
-            "RISC-V",
             "32 / 64 位",
-            "可配置 RTL"
+            "可配置 RTL",
+            "资料快照 · 2026-10-02"
           ],
-          "thesis": "同一套代码，不同配置。构建系统，还需要集成。"
+          "thesis": "学习目标：写出一条明确配置、系统范围和证据来源的工程判断。"
         },
         "assets": [],
         "sourceAnchors": [
           {
+            "id": "cva6-manual",
+            "title": "CVA6 user manual · Introduction",
+            "url": "https://docs.openhwgroup.org/projects/cva6-user-manual/01_cva6_user/Introduction.html",
+            "locator": "Introduction and core description; retrieved 2026-10-02; work-in-progress manual",
+            "claimSupported": "32/64-bit family with configuration-dependent MMU, PMP, floating point and caches; FPGA/ASIC integration. Package examples below use pinned code, not the evolving manual table."
+          },
+          {
             "id": "cva6-repo",
-            "title": "CVA6 repository",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/README.md",
-            "locator": "Overview, folder structure, quick setup",
-            "claimSupported": "Processor RTL is distinct from the APU testbench, verification and software integration."
-          },
-          {
-            "id": "cva6-cv32a60x",
-            "title": "CV32A60X configuration",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a60x_config_pkg.sv",
-            "locator": "CVA6ConfigXlen; cva6_cfg",
-            "claimSupported": "XLEN 32; SuperscalarEn 0; MmuPresent/RVS/RVU/RVA/RVF/RVD 0."
-          },
-          {
-            "id": "cva6-cv32a65x",
-            "title": "CV32A65X configuration",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a65x_config_pkg.sv",
-            "locator": "CVA6ConfigXlen; cva6_cfg",
-            "claimSupported": "XLEN 32; SuperscalarEn 1; MmuPresent/RVS/RVU/RVA/RVF/RVD 0."
-          },
-          {
-            "id": "cva6-rv64-config",
-            "title": "cv64a6_imafdc_sv39 configuration",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv64a6_imafdc_sv39_config_pkg.sv",
-            "locator": "CVA6ConfigXlen; MMU/ISA constants; cva6_cfg",
-            "claimSupported": "XLEN 64; SuperscalarEn 0; MMU/S/U/A/F/D enabled in this concrete package; its filename is not an exhaustive extension list."
+            "title": "CVA6 repository · pinned snapshot",
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/README.md",
+            "locator": "README; core/, corev_apu/, verif/",
+            "claimSupported": "Configurable processor RTL, APU integration and verification are distinct parts of the project."
           }
         ],
-        "speakerNotes": "CVA6 不是一颗规格固定的芯片，而是一套可配置的 RISC-V 处理器代码。它既有面向嵌入式的配置，也有面向应用处理的配置。判断它是否适合你的任务，需要分开三个问题：内核负责什么，选中的配置具备什么能力，以及系统还需要配上什么。本课会对照真实参数文件，梳理主要数据通路，再定位平台软件和验证的入口。目标不是一次读完所有源码，而是让学生和工程师都能带着明确的问题，选择下一份值得深入阅读的资料。"
+        "speakerNotes": "假设团队正在为嵌入式控制器，或者 Linux 主机选择处理器。有人说，CVA6 支持这个需求。你接下来应该检查什么？CVA6 是一个可配置的 RISC-V 处理器家族，仅凭名字，还不能确定具体实现的指令集功能、存储系统和工程成熟度。这一课会带你对照三份真实配置，分析一段简单的执行过程，再把软件支持和应用案例与各自的证据对应起来。学完后，你应该能够写出这样的判断：哪个配置，用在什么系统中，目前有哪些结果可以支持这个选择。"
       },
       "sourceAnchors": [
-        "cva6-repo",
-        "cva6-cv32a60x",
-        "cva6-cv32a65x",
-        "cva6-rv64-config"
+        "cva6-manual",
+        "cva6-repo"
       ],
       "actions": [
         {
           "id": "scene-cva6-intro-scope-speech",
           "type": "speech",
-          "text": "CVA6 不是一颗规格固定的芯片，而是一套可配置的 RISC-V 处理器代码。它既有面向嵌入式的配置，也有面向应用处理的配置。判断它是否适合你的任务，需要分开三个问题：内核负责什么，选中的配置具备什么能力，以及系统还需要配上什么。本课会对照真实参数文件，梳理主要数据通路，再定位平台软件和验证的入口。目标不是一次读完所有源码，而是让学生和工程师都能带着明确的问题，选择下一份值得深入阅读的资料。",
+          "text": "假设团队正在为嵌入式控制器，或者 Linux 主机选择处理器。有人说，CVA6 支持这个需求。你接下来应该检查什么？CVA6 是一个可配置的 RISC-V 处理器家族，仅凭名字，还不能确定具体实现的指令集功能、存储系统和工程成熟度。这一课会带你对照三份真实配置，分析一段简单的执行过程，再把软件支持和应用案例与各自的证据对应起来。学完后，你应该能够写出这样的判断：哪个配置，用在什么系统中，目前有哪些结果可以支持这个选择。",
           "voice": "cosyvoice3:openhw-lecturer-zh",
           "speed": 0.9,
           "audioId": "tts_scene-cva6-intro-scope-speech",
@@ -91,77 +75,74 @@
           "captionUrl": "/classroom-assets/cva6-project-intro-zh/subtitles/tts_scene-cva6-intro-scope-speech.vtt"
         }
       ],
-      "createdAt": 1789300800000,
-      "updatedAt": 1789300800000
+      "createdAt": 1790913600000,
+      "updatedAt": 1790913600000
     },
     {
       "id": "scene-cva6-intro-core-map",
       "stageId": "cva6-project-intro-zh",
       "type": "html-slide",
-      "title": "内核的功能地图",
+      "title": "从指令进入内核，到架构状态更新",
       "order": 1,
       "content": {
         "type": "html-slide",
         "slideKit": "openhw-signal-technical",
-        "slot": "sourceMap",
+        "slot": "processFlow",
         "theme": "light",
         "locale": "zh-CN",
         "content": {
-          "kicker": "内核内部",
-          "title": "从指令到体系结构状态",
-          "subtitle": "按功能分组，不是逐周期流水线时序图。",
-          "cards": [
+          "kicker": "内核功能图",
+          "title": "指令如何变成架构状态",
+          "subtitle": "按功能划分，不表示逐周期的流水线时序。",
+          "steps": [
             {
-              "label": "前端与译码",
-              "title": "获取并解释",
-              "body": "获取指令、选择下一条程序地址，并译码操作。",
-              "tone": "blue"
+              "badge": "01",
+              "title": "取指与译码",
+              "body": "取得指令，识别要执行的操作。"
             },
             {
-              "label": "发射与记分牌",
-              "title": "检查就绪条件",
-              "body": "跟踪操作数、在途指令和可用执行单元。",
-              "tone": "teal"
+              "badge": "02",
+              "title": "发射与记分牌",
+              "body": "检查操作数、资源和在途指令。"
             },
             {
-              "label": "执行与提交",
-              "title": "计算，再退休",
-              "body": "功能单元产生结果；提交阶段按序更新体系结构状态。",
-              "tone": "gold"
+              "badge": "03",
+              "title": "执行",
+              "body": "运算、分支与访存单元产生结果。"
             },
             {
-              "label": "配套逻辑",
-              "title": "存储与控制",
-              "body": "缓存、按配置启用的地址转换、CSR 状态、异常与重定向。",
-              "tone": "red"
+              "badge": "04",
+              "title": "提交",
+              "body": "按序退休，控制架构状态更新。"
             }
-          ]
+          ],
+          "takeaway": "内核之外，还要集成存储器、互连、中断、调试和启动软件。"
         },
         "assets": [],
         "sourceAnchors": [
           {
             "id": "cva6-architecture",
-            "title": "CVA6 architecture and modules",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/docs/design/design-manual/source/architecture.adoc",
-            "locator": "Architecture and Modules",
-            "claimSupported": "Frontend, decode, issue, execute and commit cooperate with caches, CSR state and control. The diagram is a functional map, not a cycle-accurate six-stage schedule."
+            "title": "CVA6 functional architecture",
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/docs/design/design-manual/source/architecture.adoc",
+            "locator": "Architecture; Modules",
+            "claimSupported": "Frontend, decode, issue, execution and commit form a functional map. This is not a fixed cycle-accurate pipeline drawing."
           },
           {
             "id": "cva6-issue",
-            "title": "CVA6 issue-stage design",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/docs/03_cva6_design/issue_stage.md",
-            "locator": "Issue, Read Operands, Scoreboard",
-            "claimSupported": "Instructions issue in program order, while independent functional units may return results in a different order. The scoreboard tracks outstanding instructions and data."
+            "title": "Issue and scoreboard",
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/docs/03_cva6_design/issue_stage.md",
+            "locator": "Issue; Read Operands; Scoreboard",
+            "claimSupported": "Ordered issue with operand/resource checks; independent functional units can return results in a different order. The load/add illustration is conceptual, without cycle or performance claims."
           },
           {
             "id": "cva6-commit",
-            "title": "CVA6 commit-stage design",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/docs/03_cva6_design/commit_stage.rst",
+            "title": "Commit stage",
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/docs/03_cva6_design/commit_stage.rst",
             "locator": "Commit Stage",
-            "claimSupported": "Commit retires instructions, updates architectural state and handles exceptions."
+            "claimSupported": "Retirement controls architectural state updates and exception handling."
           }
         ],
-        "speakerNotes": "先把内核看成一组协作的功能模块。前端获取指令，译码解释操作；发射逻辑检查依赖和资源，记分牌跟踪尚未完成的指令。执行单元返回结果，提交阶段再按顺序更新体系结构状态。缓存、控制状态寄存器以及异常处理，支撑这条主路径。地址转换是否存在，则取决于具体配置。这里的四组模块是一张阅读地图，不是在说处理器只有四级流水线，也不是逐周期的时序模型。后续阅读代码时，可以用这张地图定位模块各自的职责。"
+        "speakerNotes": "先从内核内部看起。前端取得指令，译码确定操作类型。发射逻辑检查操作数和执行资源是否就绪；记分牌跟踪已经发射的指令及其结果。接着，不同执行单元完成算术、分支或访存操作。提交阶段控制指令何时退休、结果何时更新架构状态，并处理异常。这些方框表达的是功能分工，不承诺每项工作固定占用几个时钟周期。要构成可用系统，内核外部还需要存储器、互连、中断、调试和启动软件。明确这个边界，才能判断一个问题应当在内核配置里解决，还是应当在外围平台中解决。"
       },
       "sourceAnchors": [
         "cva6-architecture",
@@ -172,7 +153,7 @@
         {
           "id": "scene-cva6-intro-core-map-speech",
           "type": "speech",
-          "text": "先把内核看成一组协作的功能模块。前端获取指令，译码解释操作；发射逻辑检查依赖和资源，记分牌跟踪尚未完成的指令。执行单元返回结果，提交阶段再按顺序更新体系结构状态。缓存、控制状态寄存器以及异常处理，支撑这条主路径。地址转换是否存在，则取决于具体配置。这里的四组模块是一张阅读地图，不是在说处理器只有四级流水线，也不是逐周期的时序模型。后续阅读代码时，可以用这张地图定位模块各自的职责。",
+          "text": "先从内核内部看起。前端取得指令，译码确定操作类型。发射逻辑检查操作数和执行资源是否就绪；记分牌跟踪已经发射的指令及其结果。接着，不同执行单元完成算术、分支或访存操作。提交阶段控制指令何时退休、结果何时更新架构状态，并处理异常。这些方框表达的是功能分工，不承诺每项工作固定占用几个时钟周期。要构成可用系统，内核外部还需要存储器、互连、中断、调试和启动软件。明确这个边界，才能判断一个问题应当在内核配置里解决，还是应当在外围平台中解决。",
           "voice": "cosyvoice3:openhw-lecturer-zh",
           "speed": 0.9,
           "audioId": "tts_scene-cva6-intro-core-map-speech",
@@ -180,47 +161,47 @@
           "captionUrl": "/classroom-assets/cva6-project-intro-zh/subtitles/tts_scene-cva6-intro-core-map-speech.vtt"
         }
       ],
-      "createdAt": 1789300800000,
-      "updatedAt": 1789300800000
+      "createdAt": 1790913600000,
+      "updatedAt": 1790913600000
     },
     {
       "id": "scene-cva6-intro-configurations",
       "stageId": "cva6-project-intro-zh",
       "type": "interactive",
-      "title": "三种配置，不同能力",
+      "title": "对照三个具体配置",
       "order": 2,
       "content": {
         "type": "interactive",
-        "html": "<!doctype html><html lang=\"zh-CN\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>CVA6 配置对照</title><style>\n    *{box-sizing:border-box;letter-spacing:0}html,body{margin:0;background:#f5f7fa;color:#182128;font-family:system-ui,-apple-system,\"PingFang SC\",sans-serif}main{padding:24px;max-width:1080px;margin:auto}header p{font-size:12px;color:#11664e;font-weight:700;margin:0 0 8px}h1{font-size:26px;line-height:1.25;margin:0 0 18px}nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}button{font:600 14px system-ui;border:1px solid #a8b5c4;border-radius:6px;padding:10px 14px;color:#293848;background:white;cursor:pointer;min-height:44px}button[aria-pressed=true]{color:white;background:#145dbc;border-color:#145dbc}button:focus-visible,a:focus-visible{outline:3px solid #bb6713;outline-offset:3px}.layout{display:grid;grid-template-columns:1fr 1.25fr;gap:24px}.chip{border:2px solid #145dbc;border-radius:8px;padding:20px;background:#fff;display:flex;flex-direction:column;justify-content:center;gap:12px}.chip h2{font-size:22px;margin:0;overflow-wrap:anywhere}.file{font:12px/1.7 ui-monospace,monospace;overflow-wrap:anywhere;color:#4c5b69}.ports{display:flex;gap:10px;height:36px}.port{display:flex;align-items:center;justify-content:center;background:#dceee6;color:#09543e;flex:1;font-size:13px;font-weight:700;border-radius:4px}dl{margin:0}dl div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid #d0d7df;padding:9px 0;font-size:14px}dt{color:#475564}dd{font-weight:700;margin:0;text-align:right}.note{margin:20px 0 10px;font-size:14px;line-height:1.7;color:#445260}footer{border-top:1px solid #c6d0dc;padding-top:12px;font-size:12px;line-height:1.7;overflow-wrap:anywhere}a{color:#145dbc}footer p{margin:6px 0}@media(max-width:600px){main{padding:18px}.layout{grid-template-columns:1fr}.chip{padding:16px}h1{font-size:26px}}\n  </style></head><body><main><header><p>配置快照 / 2026-09-13</p><h1>同一家族，能力取决于配置</h1></header><nav aria-label=\"选择配置\"><button type=\"button\" data-index=\"0\" aria-pressed=\"true\">CV32A60X</button><button type=\"button\" data-index=\"1\" aria-pressed=\"false\">CV32A65X</button><button type=\"button\" data-index=\"2\" aria-pressed=\"false\">RV64 / Sv39 example</button></nav><div class=\"layout\"><section class=\"chip\" aria-live=\"polite\"><h2 id=\"name\"></h2><div class=\"file\" id=\"file\"></div><div class=\"ports\" id=\"ports\"></div></section><dl><div><dt>整数寄存器宽度</dt><dd id=\"v0\"></dd></div><div><dt>发射端口</dt><dd id=\"v1\"></dd></div><div><dt>内存管理单元</dt><dd id=\"v2\"></dd></div><div><dt>监督态 / 用户态</dt><dd id=\"v3\"></dd></div><div><dt>A 原子扩展</dt><dd id=\"v4\"></dd></div><div><dt>F / D 浮点</dt><dd id=\"v5\"></dd></div></dl></div><p class=\"note\">这里只列出部分参数，不是完整 ISA 清单或产品目录。MMU 与 S/U 开启，也不等于整个系统已经能启动 Linux。</p><footer>core/include/ · build_config_pkg.sv / NrIssuePorts<p>CVA6 commit 49b5fa9e2f5a · 图示表示发射宽度，不是实际吞吐率。</p></footer></main><script>\n    const rows=[{\"name\":\"CV32A60X\",\"file\":\"cv32a60x_config_pkg.sv\",\"xlen\":32,\"issue\":1,\"mmu\":false,\"su\":false,\"a\":false,\"fd\":false,\"source\":\"a60\",\"url\":\"https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a60x_config_pkg.sv\"},{\"name\":\"CV32A65X\",\"file\":\"cv32a65x_config_pkg.sv\",\"xlen\":32,\"issue\":2,\"mmu\":false,\"su\":false,\"a\":false,\"fd\":false,\"source\":\"a65\",\"url\":\"https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a65x_config_pkg.sv\"},{\"name\":\"RV64 / Sv39 example\",\"file\":\"cv64a6_imafdc_sv39_config_pkg.sv\",\"xlen\":64,\"issue\":1,\"mmu\":true,\"su\":true,\"a\":true,\"fd\":true,\"source\":\"rv64\",\"url\":\"https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv64a6_imafdc_sv39_config_pkg.sv\"}];\n    const enabled=[\"关闭\",\"开启\"];\n    function select(index){const c=rows[index];document.querySelector('#name').textContent=c.name;document.querySelector('#file').textContent=c.file;const values=[c.xlen+' bit',String(c.issue),enabled[+c.mmu],enabled[+c.su],enabled[+c.a],enabled[+c.fd]];values.forEach((v,i)=>document.querySelector('#v'+i).textContent=v);const ports=document.querySelector('#ports');ports.replaceChildren();for(let i=0;i<c.issue;i++){const port=document.createElement('span');port.className='port';port.textContent=\"发射端口 \"+(i+1);ports.append(port)}document.querySelectorAll('button').forEach((b)=>b.setAttribute('aria-pressed',String(Number(b.dataset.index)===index)));}\n    document.querySelectorAll('button').forEach((b)=>b.addEventListener('click',()=>select(Number(b.dataset.index))));select(0);\n  </script></body></html>",
+        "html": "<!doctype html><html lang=\"zh-CN\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>CVA6 配置对照</title><style>\n    *{box-sizing:border-box;letter-spacing:0}html,body{margin:0;background:#f5f7fa;color:#182128;font-family:system-ui,-apple-system,\"PingFang SC\",sans-serif}main{padding:24px;max-width:1080px;margin:auto}header p{font-size:12px;color:#11664e;font-weight:700;margin:0 0 8px}h1{font-size:26px;line-height:1.25;margin:0 0 18px}nav{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:20px}button{font:600 14px system-ui;border:1px solid #a8b5c4;border-radius:6px;padding:10px 14px;color:#293848;background:white;cursor:pointer;min-height:44px}button[aria-pressed=true]{color:white;background:#145dbc;border-color:#145dbc}button:focus-visible,a:focus-visible{outline:3px solid #bb6713;outline-offset:3px}.layout{display:grid;grid-template-columns:1fr 1.25fr;gap:24px}.chip{border:2px solid #145dbc;border-radius:8px;padding:20px;background:#fff;display:flex;flex-direction:column;justify-content:center;gap:12px}.chip h2{font-size:22px;margin:0;overflow-wrap:anywhere}.file{font:12px/1.7 ui-monospace,monospace;overflow-wrap:anywhere;color:#4c5b69}.ports{display:flex;gap:10px;height:36px}.port{display:flex;align-items:center;justify-content:center;background:#dceee6;color:#09543e;flex:1;font-size:13px;font-weight:700;border-radius:4px}dl{margin:0}dl div{display:flex;justify-content:space-between;align-items:baseline;gap:12px;border-bottom:1px solid #d0d7df;padding:9px 0;font-size:14px}dt{color:#475564}dd{font-weight:700;margin:0;text-align:right}.note{margin:20px 0 10px;font-size:14px;line-height:1.7;color:#445260}footer{border-top:1px solid #c6d0dc;padding-top:12px;font-size:12px;line-height:1.7;overflow-wrap:anywhere}a{color:#145dbc}footer p{margin:6px 0}@media(max-width:600px){main{padding:18px}.layout{grid-template-columns:1fr}.chip{padding:16px}h1{font-size:26px}}\n  </style></head><body><main><header><p>配置快照 / 2026-10-02</p><h1>同一家族，能力取决于配置</h1></header><nav aria-label=\"选择配置\"><button type=\"button\" data-index=\"0\" aria-pressed=\"true\">CV32A60X</button><button type=\"button\" data-index=\"1\" aria-pressed=\"false\">CV32A65X</button><button type=\"button\" data-index=\"2\" aria-pressed=\"false\">RV64 / Sv39</button></nav><div class=\"layout\"><section class=\"chip\" aria-live=\"polite\"><h2 id=\"name\"></h2><div class=\"file\" id=\"file\"></div><div class=\"ports\" id=\"ports\"></div></section><dl><div><dt>整数寄存器宽度</dt><dd id=\"v0\"></dd></div><div><dt>发射端口</dt><dd id=\"v1\"></dd></div><div><dt>内存管理单元</dt><dd id=\"v2\"></dd></div><div><dt>监督态 / 用户态</dt><dd id=\"v3\"></dd></div><div><dt>A 原子扩展</dt><dd id=\"v4\"></dd></div><div><dt>F / D 浮点</dt><dd id=\"v5\"></dd></div><div><dt>有效提交端口</dt><dd id=\"v6\"></dd></div><div><dt>PMP 条目数</dt><dd id=\"v7\"></dd></div></dl></div><p class=\"note\">这里只列出部分参数，不是完整 ISA 清单或产品目录。MMU 与 S/U 开启，也不等于整个系统已经能启动 Linux。</p><footer>core/include/ · build_config_pkg.sv / NrIssuePorts + NrCommitPorts<p>CVA6 commit 81245a47fad8 · 图示表示发射宽度，不是实际吞吐率。</p></footer></main><script>\n    const rows=[{\"name\":\"CV32A60X\",\"file\":\"cv32a60x_config_pkg.sv\",\"xlen\":32,\"issue\":1,\"commit\":1,\"pmp\":0,\"mmu\":false,\"su\":false,\"a\":false,\"fd\":false,\"source\":\"a60\",\"url\":\"https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/core/include/cv32a60x_config_pkg.sv\"},{\"name\":\"CV32A65X\",\"file\":\"cv32a65x_config_pkg.sv\",\"xlen\":32,\"issue\":2,\"commit\":2,\"pmp\":8,\"mmu\":false,\"su\":false,\"a\":false,\"fd\":false,\"source\":\"a65\",\"url\":\"https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/core/include/cv32a65x_config_pkg.sv\"},{\"name\":\"RV64 / Sv39\",\"file\":\"cv64a6_imafdc_sv39_config_pkg.sv\",\"xlen\":64,\"issue\":1,\"commit\":2,\"pmp\":8,\"mmu\":true,\"su\":true,\"a\":true,\"fd\":true,\"source\":\"rv64\",\"url\":\"https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/core/include/cv64a6_imafdc_sv39_config_pkg.sv\"}];\n    const enabled=[\"关闭\",\"开启\"];\n    function select(index){const c=rows[index];document.querySelector('#name').textContent=c.name;document.querySelector('#file').textContent=c.file;const values=[c.xlen+' bit',String(c.issue),enabled[+c.mmu],enabled[+c.su],enabled[+c.a],enabled[+c.fd],String(c.commit),String(c.pmp)];values.forEach((v,i)=>document.querySelector('#v'+i).textContent=v);const ports=document.querySelector('#ports');ports.replaceChildren();for(let i=0;i<c.issue;i++){const port=document.createElement('span');port.className='port';port.textContent=\"发射端口 \"+(i+1);ports.append(port)}document.querySelectorAll('button').forEach((b)=>b.setAttribute('aria-pressed',String(Number(b.dataset.index)===index)));}\n    document.querySelectorAll('button').forEach((b)=>b.addEventListener('click',()=>select(Number(b.dataset.index))));select(0);\n  </script></body></html>",
         "url": "",
         "sourceAnchors": [
           {
             "id": "cva6-cv32a60x",
             "title": "CV32A60X configuration",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a60x_config_pkg.sv",
-            "locator": "CVA6ConfigXlen; cva6_cfg",
-            "claimSupported": "XLEN 32; SuperscalarEn 0; MmuPresent/RVS/RVU/RVA/RVF/RVD 0."
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/core/include/cv32a60x_config_pkg.sv",
+            "locator": "CVA6ConfigXlen; cva6_cfg: SuperscalarEn, NrCommitPorts, MmuPresent, RVS, RVU, RVA, RVF, RVD, NrPMPEntries",
+            "claimSupported": "At this snapshot: XLEN 32; SuperscalarEn=0; commit ports=1; MMU/S/U/A/F/D=0; PMP entries=0. This snapshot is separate from the TRL5 release tag."
           },
           {
             "id": "cva6-cv32a65x",
             "title": "CV32A65X configuration",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a65x_config_pkg.sv",
-            "locator": "CVA6ConfigXlen; cva6_cfg",
-            "claimSupported": "XLEN 32; SuperscalarEn 1; MmuPresent/RVS/RVU/RVA/RVF/RVD 0."
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/core/include/cv32a65x_config_pkg.sv",
+            "locator": "CVA6ConfigXlen; cva6_cfg; combine with build_config_pkg.sv",
+            "claimSupported": "XLEN 32; SuperscalarEn=1; raw NrCommitPorts=1 is overridden to 2 by build_config; MMU/S/U/A/F/D=0; PMP entries=8."
           },
           {
             "id": "cva6-rv64-config",
-            "title": "cv64a6_imafdc_sv39 configuration",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv64a6_imafdc_sv39_config_pkg.sv",
-            "locator": "CVA6ConfigXlen; MMU/ISA constants; cva6_cfg",
-            "claimSupported": "XLEN 64; SuperscalarEn 0; MMU/S/U/A/F/D enabled in this concrete package; its filename is not an exhaustive extension list."
+            "title": "RV64 / Sv39 example configuration",
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/core/include/cv64a6_imafdc_sv39_config_pkg.sv",
+            "locator": "CVA6ConfigXlen; ISA constants; cva6_cfg",
+            "claimSupported": "XLEN 64; SuperscalarEn=0; commit ports=2; MMU/S/U/A/F/D enabled; PMP entries=8. This is one package, not a universal RV64 specification."
           },
           {
             "id": "cva6-build-config",
-            "title": "Derived configuration",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/build_config_pkg.sv",
-            "locator": "build_config: NrIssuePorts and NrCommitPorts",
-            "claimSupported": "SuperscalarEn derives one or two issue ports; issue and commit width are separate quantities."
+            "title": "Derived issue and commit widths",
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/core/include/build_config_pkg.sv",
+            "locator": "build_config: cfg.NrCommitPorts and cfg.NrIssuePorts",
+            "claimSupported": "SuperscalarEn selects 1 or 2 issue ports and overrides commit ports to 2 when enabled. Effective issue/commit widths are 1/1, 2/2 and 1/2 in the three examples; these are not measured IPC."
           }
         ]
       },
@@ -234,7 +215,7 @@
         {
           "id": "scene-cva6-intro-configurations-speech",
           "type": "speech",
-          "text": "对照这里的三份参数快照。CV32A60X 只有一个发射端口，CV32A65X 则启用两个；两者都是三十二位，而且没有启用内存管理单元，也没有监督态和用户态。选出的六十四位配置启用了这些功能，以及原子操作和浮点扩展，但仍是单发射。因此，不能从家族名称直接推断所有能力。这不是一张完整产品目录，而是三份具体参数包的对照。逐个切换配置，再打开对应源码，便能核对每一项数值，而不用依赖一句笼统的介绍。",
+          "text": "请依次选择三个配置，观察参数变化。在这份源码快照中，两种三十二位配置都没有开启内存管理单元、监督态和用户态，也没有开启原子与浮点扩展。它们的发射宽度不同：CV32A60X 有一个发射端口，CV32A65X 有两个。这里的六十四位示例则开启了所列出的应用处理功能。还要留意，提交宽度是另一个参数。配置构建逻辑会覆盖某些原始字段，例如为超标量配置设置两个提交端口。因此，应当把参数包和派生逻辑结合起来读。端口数量表示源码中的能力上限，实际吞吐率仍然取决于程序和各种停顿。",
           "voice": "cosyvoice3:openhw-lecturer-zh",
           "speed": 0.9,
           "audioId": "tts_scene-cva6-intro-configurations-speech",
@@ -242,102 +223,15 @@
           "captionUrl": "/classroom-assets/cva6-project-intro-zh/subtitles/tts_scene-cva6-intro-configurations-speech.vtt"
         }
       ],
-      "createdAt": 1789300800000,
-      "updatedAt": 1789300800000
+      "createdAt": 1790913600000,
+      "updatedAt": 1790913600000
     },
     {
       "id": "scene-cva6-intro-issue",
       "stageId": "cva6-project-intro-zh",
       "type": "html-slide",
-      "title": "顺序发射，不等于一次只做一件事",
+      "title": "区分发射、完成和退休",
       "order": 3,
-      "content": {
-        "type": "html-slide",
-        "slideKit": "openhw-signal-technical",
-        "slot": "twoColumnExplain",
-        "theme": "light",
-        "locale": "zh-CN",
-        "content": {
-          "kicker": "微架构",
-          "title": "发射顺序与完成顺序并不相同",
-          "subtitle": "两条独立操作可以重叠执行，而不需要乱序发射。",
-          "columns": [
-            {
-              "label": "概念示例",
-              "title": "先加载，再独立加法",
-              "bullets": [
-                "加载可能等待存储系统返回数据。",
-                "独立加法在获准发射后可以执行。",
-                "加法结果可能更早返回。"
-              ]
-            },
-            {
-              "label": "内核保持的约束",
-              "title": "按程序顺序发射与退休",
-              "bullets": [
-                "记分牌跟踪在途指令和结果。",
-                "依赖或功能单元忙会阻塞发射。",
-                "结果先返回，也不等于先退休。"
-              ]
-            }
-          ],
-          "anchor": {
-            "label": "宽度不等于吞吐率",
-            "text": "两个发射端口表示最大发射宽度，不保证每周期完成两条指令。"
-          }
-        },
-        "assets": [],
-        "sourceAnchors": [
-          {
-            "id": "cva6-issue",
-            "title": "CVA6 issue-stage design",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/docs/03_cva6_design/issue_stage.md",
-            "locator": "Issue, Read Operands, Scoreboard",
-            "claimSupported": "Instructions issue in program order, while independent functional units may return results in a different order. The scoreboard tracks outstanding instructions and data."
-          },
-          {
-            "id": "cva6-build-config",
-            "title": "Derived configuration",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/build_config_pkg.sv",
-            "locator": "build_config: NrIssuePorts and NrCommitPorts",
-            "claimSupported": "SuperscalarEn derives one or two issue ports; issue and commit width are separate quantities."
-          },
-          {
-            "id": "cva6-commit",
-            "title": "CVA6 commit-stage design",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/docs/03_cva6_design/commit_stage.rst",
-            "locator": "Commit Stage",
-            "claimSupported": "Commit retires instructions, updates architectural state and handles exceptions."
-          }
-        ],
-        "speakerNotes": "假设一条加载指令后面，是一条与它无关的加法。如果存储访问较慢，加法结果可能先返回。这并不意味着 CVA6 变成了乱序发射处理器。记分牌跟踪各条在途指令，提交阶段维护体系结构的顺序。数据依赖、执行单元被占用，以及访存延迟，都会降低实际吞吐率。同样，两个发射端口只是一项结构能力，不等于每周期稳定完成两条指令。阅读性能描述时，要把发射宽度、结果完成和最终退休分开，避免用一个数字替代整条执行路径。"
-      },
-      "sourceAnchors": [
-        "cva6-issue",
-        "cva6-build-config",
-        "cva6-commit"
-      ],
-      "actions": [
-        {
-          "id": "scene-cva6-intro-issue-speech",
-          "type": "speech",
-          "text": "假设一条加载指令后面，是一条与它无关的加法。如果存储访问较慢，加法结果可能先返回。这并不意味着 CVA6 变成了乱序发射处理器。记分牌跟踪各条在途指令，提交阶段维护体系结构的顺序。数据依赖、执行单元被占用，以及访存延迟，都会降低实际吞吐率。同样，两个发射端口只是一项结构能力，不等于每周期稳定完成两条指令。阅读性能描述时，要把发射宽度、结果完成和最终退休分开，避免用一个数字替代整条执行路径。",
-          "voice": "cosyvoice3:openhw-lecturer-zh",
-          "speed": 0.9,
-          "audioId": "tts_scene-cva6-intro-issue-speech",
-          "audioUrl": "/api/classroom-media/cva6-project-intro-zh/audio/tts_scene-cva6-intro-issue-speech.mp3",
-          "captionUrl": "/classroom-assets/cva6-project-intro-zh/subtitles/tts_scene-cva6-intro-issue-speech.vtt"
-        }
-      ],
-      "createdAt": 1789300800000,
-      "updatedAt": 1789300800000
-    },
-    {
-      "id": "scene-cva6-intro-system",
-      "stageId": "cva6-project-intro-zh",
-      "type": "html-slide",
-      "title": "内核不是一台可启动的计算机",
-      "order": 4,
       "content": {
         "type": "html-slide",
         "slideKit": "openhw-signal-technical",
@@ -345,84 +239,171 @@
         "theme": "light",
         "locale": "zh-CN",
         "content": {
-          "kicker": "系统边界",
-          "title": "CVA6 内核之外，还需要什么？",
-          "subtitle": "面向 Linux 系统的概念流程，不是所有配置的固定组成。",
+          "kicker": "执行示例",
+          "title": "后面的加法，可能先于前面的加载完成",
+          "subtitle": "假设操作数独立、资源可用；这里不指定固定延迟。",
           "steps": [
             {
               "badge": "01",
-              "title": "内核",
-              "body": "选择具备目标软件所需功能的配置。"
+              "title": "一 · 发射加载",
+              "body": "较早的加载指令开始访问存储器。"
             },
             {
               "badge": "02",
-              "title": "平台",
-              "body": "连接存储、互连、中断、启动与外设接口。"
+              "title": "二 · 发射加法",
+              "body": "较晚的独立加法进入运算单元。"
             },
             {
               "badge": "03",
-              "title": "软件",
-              "body": "准备固件、启动软件、内核和板级描述。"
+              "title": "三 · 接收结果",
+              "body": "加载还在等待，加法结果可能已经返回。"
             },
             {
               "badge": "04",
-              "title": "验证",
-              "body": "在目标平台检查完整软硬件组合。"
+              "title": "四 · 按序退休",
+              "body": "提交时仍保持先前指令的程序顺序。"
             }
           ],
-          "takeaway": "corev_apu、CVA6 SDK 与 PULP Cheshire 是相关入口，不是 CVA6 的不同叫法。"
+          "takeaway": "顺序发射可以与不同顺序的完成并存。两个发射端口不保证 IPC 等于二。"
         },
         "assets": [],
         "sourceAnchors": [
           {
-            "id": "cva6-repo",
-            "title": "CVA6 repository",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/README.md",
-            "locator": "Overview, folder structure, quick setup",
-            "claimSupported": "Processor RTL is distinct from the APU testbench, verification and software integration."
+            "id": "cva6-issue",
+            "title": "Issue and scoreboard",
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/docs/03_cva6_design/issue_stage.md",
+            "locator": "Issue; Read Operands; Scoreboard",
+            "claimSupported": "Ordered issue with operand/resource checks; independent functional units can return results in a different order. The load/add illustration is conceptual, without cycle or performance claims."
           },
           {
-            "id": "cva6-sdk",
-            "title": "CVA6 SDK",
-            "url": "https://github.com/openhwgroup/cva6-sdk",
-            "locator": "README: Overview; Requirements; Getting started",
-            "claimSupported": "A board-specific Linux software flow is a separate project from the CPU RTL."
+            "id": "cva6-commit",
+            "title": "Commit stage",
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/docs/03_cva6_design/commit_stage.rst",
+            "locator": "Commit Stage",
+            "claimSupported": "Retirement controls architectural state updates and exception handling."
           },
           {
-            "id": "cheshire",
-            "title": "PULP Cheshire host platform",
-            "url": "https://github.com/pulp-platform/cheshire",
-            "locator": "README: purpose and Getting Started links",
-            "claimSupported": "A separately maintained Linux-capable host platform built around CVA6, developed in the PULP project."
+            "id": "cva6-build-config",
+            "title": "Derived issue and commit widths",
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/core/include/build_config_pkg.sv",
+            "locator": "build_config: cfg.NrCommitPorts and cfg.NrIssuePorts",
+            "claimSupported": "SuperscalarEn selects 1 or 2 issue ports and overrides commit ports to 2 when enabled. Effective issue/commit widths are 1/1, 2/2 and 1/2 in the three examples; these are not measured IPC."
           }
         ],
-        "speakerNotes": "一颗内核不能独自启动完整的 Linux 系统。它需要合适的配置，还需要存储、中断、外设和匹配的软件栈。CVA6 仓库里包含应用处理单元环境；独立的 CVA6 SDK 项目提供面向具体开发板的 Linux 软件流程；PULP 项目中的 Cheshire 则是另一套围绕 CVA6 构建的主机平台。这些东西彼此相关，但不是同一个对象。应当把有文档支持的平台与软件配套选择，而不能把打开内存管理单元，当成已经完成了系统集成。"
+        "speakerNotes": "来看一条加载指令，后面跟着一条与它无关的加法。加载先发射，但存储器可能需要多个周期才能响应。如果操作数和资源都已就绪，后面的加法可以继续发射，并先返回结果。记分牌负责把结果对应到各自的指令。退休仍然保持程序顺序，因此，结果已经可用，与指令已经退休，是不同的状态。这就解释了为什么顺序发射和不同顺序的完成能够同时存在。判断性能也要保持这种区分：两个发射端口提供了宽度，但数据依赖、资源冲突、分支和访存延迟，决定了实际程序能利用多少。"
       },
       "sourceAnchors": [
-        "cva6-repo",
-        "cva6-sdk",
-        "cheshire"
+        "cva6-issue",
+        "cva6-commit",
+        "cva6-build-config"
       ],
       "actions": [
         {
-          "id": "scene-cva6-intro-system-speech",
+          "id": "scene-cva6-intro-issue-speech",
           "type": "speech",
-          "text": "一颗内核不能独自启动完整的 Linux 系统。它需要合适的配置，还需要存储、中断、外设和匹配的软件栈。CVA6 仓库里包含应用处理单元环境；独立的 CVA6 SDK 项目提供面向具体开发板的 Linux 软件流程；PULP 项目中的 Cheshire 则是另一套围绕 CVA6 构建的主机平台。这些东西彼此相关，但不是同一个对象。应当把有文档支持的平台与软件配套选择，而不能把打开内存管理单元，当成已经完成了系统集成。",
+          "text": "来看一条加载指令，后面跟着一条与它无关的加法。加载先发射，但存储器可能需要多个周期才能响应。如果操作数和资源都已就绪，后面的加法可以继续发射，并先返回结果。记分牌负责把结果对应到各自的指令。退休仍然保持程序顺序，因此，结果已经可用，与指令已经退休，是不同的状态。这就解释了为什么顺序发射和不同顺序的完成能够同时存在。判断性能也要保持这种区分：两个发射端口提供了宽度，但数据依赖、资源冲突、分支和访存延迟，决定了实际程序能利用多少。",
           "voice": "cosyvoice3:openhw-lecturer-zh",
           "speed": 0.9,
-          "audioId": "tts_scene-cva6-intro-system-speech",
-          "audioUrl": "/api/classroom-media/cva6-project-intro-zh/audio/tts_scene-cva6-intro-system-speech.mp3",
-          "captionUrl": "/classroom-assets/cva6-project-intro-zh/subtitles/tts_scene-cva6-intro-system-speech.vtt"
+          "audioId": "tts_scene-cva6-intro-issue-speech",
+          "audioUrl": "/api/classroom-media/cva6-project-intro-zh/audio/tts_scene-cva6-intro-issue-speech.mp3",
+          "captionUrl": "/classroom-assets/cva6-project-intro-zh/subtitles/tts_scene-cva6-intro-issue-speech.vtt"
         }
       ],
-      "createdAt": 1789300800000,
-      "updatedAt": 1789300800000
+      "createdAt": 1790913600000,
+      "updatedAt": 1790913600000
     },
     {
-      "id": "scene-cva6-intro-source-map",
+      "id": "scene-cva6-intro-systems",
       "stageId": "cva6-project-intro-zh",
       "type": "html-slide",
-      "title": "下一步，去仓库哪里读？",
+      "title": "让内核配置与软件平台匹配",
+      "order": 4,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "twoColumnExplain",
+        "theme": "light",
+        "locale": "zh-CN",
+        "content": {
+          "kicker": "系统集成",
+          "title": "先选软件路径，再核对平台条件",
+          "subtitle": "操作系统运行在一台完整集成的机器上。",
+          "columns": [
+            {
+              "label": "嵌入式路径",
+              "title": "裸机 / 实时操作系统",
+              "bullets": [
+                "核对具体 ISA、ABI 和特权级要求。",
+                "匹配中断、定时器、地址映射与板级支持。",
+                "ThreadX 新增 RV32 CVA6 支持：2026-06-08 发布。"
+              ]
+            },
+            {
+              "label": "应用主机路径",
+              "title": "能够运行 Linux 的系统",
+              "bullets": [
+                "选择适合的内核与存储配置。",
+                "集成启动固件、内核与设备树。",
+                "从 CVA6 SDK 或 Cheshire 的具体平台入手。"
+              ]
+            }
+          ],
+          "anchor": {
+            "label": "必须能回答的问题",
+            "text": "这个结果来自哪块板、哪个配置和哪个软件版本？"
+          }
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-sdk",
+            "title": "CVA6 SDK",
+            "url": "https://github.com/openhwfoundation/cva6-sdk",
+            "locator": "README: Linux software flow and board targets; retrieved 2026-10-02",
+            "claimSupported": "A usable Linux system requires matching platform and boot/software integration beyond CPU configuration flags."
+          },
+          {
+            "id": "cheshire",
+            "title": "Cheshire host platform",
+            "url": "https://github.com/pulp-platform/cheshire",
+            "locator": "README: Overview and Getting Started; retrieved 2026-10-02",
+            "claimSupported": "Linux-capable CVA6 host platform developed in PULP; separate integration project."
+          },
+          {
+            "id": "threadx-cva6",
+            "title": "ThreadX: RV32 CVA6 support",
+            "url": "https://github.com/eclipse-threadx/threadx/releases/tag/v6.5.1.202602_rel",
+            "locator": "New RISC-V Hardware Platforms; release published 2026-06-08",
+            "claimSupported": "Release lists OpenHW CVA6 RISC-V 32-bit support. The release tag includes 202602 but its publication date is June 8. Software port support does not establish CPU safety certification."
+          }
+        ],
+        "speakerNotes": "面向嵌入式任务，先检查软件移植层：指令集、调用约定、中断处理和板级支持，都必须与硬件匹配。一个具体例子是二零二六年六月八日发布的 ThreadX 版本，它增加了三十二位 CVA6 支持。版本标签里虽然含有二月，但实际发布日期是六月。面向 Linux 主机，则需要合适的内核能力，以及存储器、启动固件、操作系统内核和设备树的共同配合。CVA6 SDK 与独立维护的 Cheshire 平台，都是可以继续阅读的入口。无论走哪条路径，一项软件支持声明，都应当落实到兼容的平台和版本。"
+      },
+      "sourceAnchors": [
+        "cva6-sdk",
+        "cheshire",
+        "threadx-cva6"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-intro-systems-speech",
+          "type": "speech",
+          "text": "面向嵌入式任务，先检查软件移植层：指令集、调用约定、中断处理和板级支持，都必须与硬件匹配。一个具体例子是二零二六年六月八日发布的 ThreadX 版本，它增加了三十二位 CVA6 支持。版本标签里虽然含有二月，但实际发布日期是六月。面向 Linux 主机，则需要合适的内核能力，以及存储器、启动固件、操作系统内核和设备树的共同配合。CVA6 SDK 与独立维护的 Cheshire 平台，都是可以继续阅读的入口。无论走哪条路径，一项软件支持声明，都应当落实到兼容的平台和版本。",
+          "voice": "cosyvoice3:openhw-lecturer-zh",
+          "speed": 0.9,
+          "audioId": "tts_scene-cva6-intro-systems-speech",
+          "audioUrl": "/api/classroom-media/cva6-project-intro-zh/audio/tts_scene-cva6-intro-systems-speech.mp3",
+          "captionUrl": "/classroom-assets/cva6-project-intro-zh/subtitles/tts_scene-cva6-intro-systems-speech.vtt"
+        }
+      ],
+      "createdAt": 1790913600000,
+      "updatedAt": 1790913600000
+    },
+    {
+      "id": "scene-cva6-intro-verification",
+      "stageId": "cva6-project-intro-zh",
+      "type": "html-slide",
+      "title": "理解不同验证方法各自检查什么",
       "order": 5,
       "content": {
         "type": "html-slide",
@@ -431,32 +412,32 @@
         "theme": "light",
         "locale": "zh-CN",
         "content": {
-          "kicker": "仓库地图",
-          "title": "四类问题，四个入口",
-          "subtitle": "从问题出发，不必一开始就打开全部 RTL。",
+          "kicker": "验证方法",
+          "title": "让不同检查共同构成证据",
+          "subtitle": "一个结果应当附带目标、版本、工具、测试与剩余缺口。",
           "cards": [
             {
-              "label": "配置能力",
-              "title": "core/include/",
-              "body": "先读选中的配置包，再读 build_config_pkg.sv 的派生参数。",
+              "label": "激励",
+              "title": "让行为发生",
+              "body": "定向测试与 riscv-dv 为所选目标构造场景。",
               "tone": "blue"
             },
             {
-              "label": "微架构",
-              "title": "core/",
-              "body": "结合设计文档，追踪 issue_stage.sv 与 commit_stage.sv。",
+              "label": "检查",
+              "title": "比较预期与实际",
+              "body": "测试平台和参考模型帮助发现行为差异。",
               "tone": "teal"
             },
             {
-              "label": "平台集成",
-              "title": "corev_apu/",
-              "body": "查看处理器外围的平台与测试台。",
+              "label": "覆盖率",
+              "title": "检查测到了哪里",
+              "body": "结合验证计划、功能与代码覆盖率以及排除项。",
               "tone": "gold"
             },
             {
-              "label": "验证流程",
-              "title": "verif/",
-              "body": "先读验证 README，再从 regress/ 选择对应配置的冒烟脚本。",
+              "label": "架构测试",
+              "title": "检查 ISA 要求",
+              "body": "ACT4 检查所选架构行为，仍需额外的处理器验证。",
               "tone": "red"
             }
           ]
@@ -464,133 +445,174 @@
         "assets": [],
         "sourceAnchors": [
           {
-            "id": "cva6-repo",
-            "title": "CVA6 repository",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/README.md",
-            "locator": "Overview, folder structure, quick setup",
-            "claimSupported": "Processor RTL is distinct from the APU testbench, verification and software integration."
-          },
-          {
-            "id": "cva6-cv32a65x",
-            "title": "CV32A65X configuration",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a65x_config_pkg.sv",
-            "locator": "CVA6ConfigXlen; cva6_cfg",
-            "claimSupported": "XLEN 32; SuperscalarEn 1; MmuPresent/RVS/RVU/RVA/RVF/RVD 0."
-          },
-          {
-            "id": "cva6-smoke",
-            "title": "CV32A65X smoke regression",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/verif/regress/smoke-tests-cv32a65x.sh",
-            "locator": "Configuration-specific regression script",
-            "claimSupported": "A concrete smoke-test entry point; a passing smoke run is not full coverage or sign-off. The obsolete generic smoke-tests.sh is not used."
-          },
-          {
             "id": "cva6-verif",
             "title": "CVA6 verification environment",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/verif/README.md",
-            "locator": "Directories; Environment variables",
-            "claimSupported": "The verification subtree separates BSP, regression scripts, simulation, testbench and tests; DV_TARGET/DV_SIMULATORS select configuration and simulation flow."
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/verif/README.md",
+            "locator": "Directories; Verification plan; Environment variables",
+            "claimSupported": "UVM testbench, riscv-dv simulation flow, BSP/tests/regressions, selectable target and simulator; coverage plan requires configuration and tool context."
+          },
+          {
+            "id": "riscv-act4",
+            "title": "RISC-V Architectural Certification Tests",
+            "url": "https://github.com/riscv/riscv-arch-test",
+            "locator": "README opening paragraphs; ACT4 requirements; retrieved 2026-10-02",
+            "claimSupported": "ACT4 configures and generates architectural tests for a DUT. Upstream explicitly requires additional processor verification. This course makes no assertion that a CVA6 target has passed ACT4 certification."
           }
         ],
-        "speakerNotes": "如果想判断功能，先读内核目录下的配置包和派生参数；如果想理解调度与状态更新，就结合设计文档，追踪发射和提交模块。系统集成的问题，应进入应用处理单元目录；测试问题，则从验证目录中的冒烟回归入口开始。比较这些文件前，先固定仓库版本，避免把不同时间的文档和代码混在一起。最好的第一项任务，是解释清楚一个参数，再沿源码找到它影响的逻辑，而不是试图一次理解所有模块。这样每一步都能留下可复查的结论。"
+        "speakerNotes": "验证包含几类不同的工作。测试程序产生激励；测试平台和参考模型帮助比较预期与实际结果；覆盖率则回答计划中的场景和实现结构被测到了多少，还有哪些缺口。CVA6 的验证目录分别组织了板级支持、仿真、测试和回归脚本，并且明确选择目标配置与仿真工具。架构测试又有自己的范围，主要检查指令集规范要求的行为。ACT4 是相关框架，但其文档也明确要求额外的处理器验证。本课并没有宣称某个 CVA6 构建已经通过 ACT4 认证。看到绿色结果时，应该继续打开运行记录，确认究竟测了什么。"
       },
       "sourceAnchors": [
-        "cva6-repo",
-        "cva6-cv32a65x",
-        "cva6-smoke",
-        "cva6-verif"
+        "cva6-verif",
+        "riscv-act4"
       ],
       "actions": [
         {
-          "id": "scene-cva6-intro-source-map-speech",
+          "id": "scene-cva6-intro-verification-speech",
           "type": "speech",
-          "text": "如果想判断功能，先读内核目录下的配置包和派生参数；如果想理解调度与状态更新，就结合设计文档，追踪发射和提交模块。系统集成的问题，应进入应用处理单元目录；测试问题，则从验证目录中的冒烟回归入口开始。比较这些文件前，先固定仓库版本，避免把不同时间的文档和代码混在一起。最好的第一项任务，是解释清楚一个参数，再沿源码找到它影响的逻辑，而不是试图一次理解所有模块。这样每一步都能留下可复查的结论。",
+          "text": "验证包含几类不同的工作。测试程序产生激励；测试平台和参考模型帮助比较预期与实际结果；覆盖率则回答计划中的场景和实现结构被测到了多少，还有哪些缺口。CVA6 的验证目录分别组织了板级支持、仿真、测试和回归脚本，并且明确选择目标配置与仿真工具。架构测试又有自己的范围，主要检查指令集规范要求的行为。ACT4 是相关框架，但其文档也明确要求额外的处理器验证。本课并没有宣称某个 CVA6 构建已经通过 ACT4 认证。看到绿色结果时，应该继续打开运行记录，确认究竟测了什么。",
           "voice": "cosyvoice3:openhw-lecturer-zh",
           "speed": 0.9,
-          "audioId": "tts_scene-cva6-intro-source-map-speech",
-          "audioUrl": "/api/classroom-media/cva6-project-intro-zh/audio/tts_scene-cva6-intro-source-map-speech.mp3",
-          "captionUrl": "/classroom-assets/cva6-project-intro-zh/subtitles/tts_scene-cva6-intro-source-map-speech.vtt"
+          "audioId": "tts_scene-cva6-intro-verification-speech",
+          "audioUrl": "/api/classroom-media/cva6-project-intro-zh/audio/tts_scene-cva6-intro-verification-speech.mp3",
+          "captionUrl": "/classroom-assets/cva6-project-intro-zh/subtitles/tts_scene-cva6-intro-verification-speech.vtt"
         }
       ],
-      "createdAt": 1789300800000,
-      "updatedAt": 1789300800000
+      "createdAt": 1790913600000,
+      "updatedAt": 1790913600000
     },
     {
-      "id": "scene-cva6-intro-evidence",
+      "id": "scene-cva6-intro-release",
       "stageId": "cva6-project-intro-zh",
       "type": "html-slide",
-      "title": "怎样阅读验证结果？",
+      "title": "准确解读 CV32A60X 的 TRL5 发布",
       "order": 6,
       "content": {
         "type": "html-slide",
         "slideKit": "openhw-signal-technical",
-        "slot": "checklist",
+        "slot": "twoColumnExplain",
         "theme": "light",
         "locale": "zh-CN",
         "content": {
-          "kicker": "工程证据",
-          "title": "绿色结果，也有适用范围",
-          "subtitle": "记录足够的上下文，才能复现结论。",
-          "items": [
+          "kicker": "有明确范围的成熟度证据",
+          "title": "TRL5 对应的是一次具体发布",
+          "subtitle": "cv32a60x-v6.0.0 · 发布于 2025-04-23",
+          "columns": [
             {
-              "title": "版本与配置",
-              "body": "测试的是哪次提交、哪个参数包？"
+              "label": "发布说明的范围",
+              "title": "仅限 CV32A60X",
+              "bullets": [
+                "采用 OBI 接口的流水线层次",
+                "没有缓存；PMP 条目数为零",
+                "关闭 Zifencei",
+                "改进覆盖率和 lint 检查结果"
+              ]
             },
             {
-              "title": "环境与测试集",
-              "body": "用了哪个仿真器、参考模型和测试组合？"
-            },
-            {
-              "title": "结果与缺口",
-              "body": "通过、跳过还是失败？还有哪些内容不在覆盖范围内？"
+              "label": "你的评估记录",
+              "title": "引用时保留这些条件",
+              "bullets": [
+                "固定发布标签与提交版本。",
+                "列出配置和集成发生的变化。",
+                "为增加的功能寻找新证据。",
+                "单独评估安全保证要求。"
+              ]
             }
           ],
-          "takeaway": "冒烟测试通过是有用证据，但不等于完整验证、生产认证，或对你的系统作出保证。"
+          "anchor": {
+            "label": "发布提交",
+            "text": "b1f80bd7cff3 · 与本课配置对照所用快照不同"
+          }
         },
         "assets": [],
         "sourceAnchors": [
           {
-            "id": "cva6-smoke",
-            "title": "CV32A65X smoke regression",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/verif/regress/smoke-tests-cv32a65x.sh",
-            "locator": "Configuration-specific regression script",
-            "claimSupported": "A concrete smoke-test entry point; a passing smoke run is not full coverage or sign-off. The obsolete generic smoke-tests.sh is not used."
+            "id": "cv32a60x-trl5",
+            "title": "CV32A60X TRL5 release · 2025-04-23",
+            "url": "https://github.com/openhwfoundation/cva6/releases/tag/cv32a60x-v6.0.0",
+            "locator": "Release body; tag commit b1f80bd7cff3a94e5191aad96dc3a22f87d0a517",
+            "claimSupported": "Release explicitly contains only CV32A60X: pipeline hierarchy with OBI interface, no caches, no PMP entries, Zifencei disabled; improved coverage and lint. TRL5 scope is this release configuration."
           },
           {
-            "id": "cva6-tier-ci",
-            "title": "CVA6 tier CI",
-            "url": "https://openhwfoundation.github.io/cva6/",
-            "locator": "Dashboard run and configuration information",
-            "claimSupported": "An entry point to inspect CI evidence; results must be read in the context of commit, target, simulator and tests."
-          },
-          {
-            "id": "cva6-repo",
-            "title": "CVA6 repository",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/README.md",
-            "locator": "Overview, folder structure, quick setup",
-            "claimSupported": "Processor RTL is distinct from the APU testbench, verification and software integration."
-          },
-          {
-            "id": "cva6-verif",
-            "title": "CVA6 verification environment",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/verif/README.md",
-            "locator": "Directories; Environment variables",
-            "claimSupported": "The verification subtree separates BSP, regression scripts, simulation, testbench and tests; DV_TARGET/DV_SIMULATORS select configuration and simulation flow."
+            "id": "cva6-cv32a60x",
+            "title": "CV32A60X configuration",
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/core/include/cv32a60x_config_pkg.sv",
+            "locator": "CVA6ConfigXlen; cva6_cfg: SuperscalarEn, NrCommitPorts, MmuPresent, RVS, RVU, RVA, RVF, RVD, NrPMPEntries",
+            "claimSupported": "At this snapshot: XLEN 32; SuperscalarEn=0; commit ports=1; MMU/S/U/A/F/D=0; PMP entries=0. This snapshot is separate from the TRL5 release tag."
           }
         ],
-        "speakerNotes": "验证结果必须带着范围来读。先记录代码提交、配置、仿真器和测试集合，再进入具体作业详情，不要只看绿色标记。冒烟回归能够发现一些基础问题，但通过它，并不能证明完整功能覆盖、生产认证，或你的系统集成一定正确。分层持续集成页面可以作为查看运行证据的入口；每一项结果仍要回到对应环境核对。本课是在建立这些入口之间的联系，并没有声称已经替你完成处理器构建、完整验证或工程签核。"
+        "speakerNotes": "来看一个明确的成熟度声明。二零二五年四月二十三日的发布，明确说明这是达到技术成熟度五级的 CV32A60X 配置。它的范围包括 OBI 接口、没有缓存、没有物理内存保护条目，以及关闭指令获取栅栏扩展。发布说明还列出了覆盖率和静态检查方面的改进。引用这个结果时，应当保留完整的适用范围。前面配置对照使用的是另一份源码快照；另一个分支上出现同名配置，并不自动继承这次发布的证据。如果你增加功能或改变系统集成，就要确定哪些部分需要重新验证。安全认证则有独立的评估过程和证据要求。"
       },
       "sourceAnchors": [
-        "cva6-smoke",
-        "cva6-tier-ci",
-        "cva6-repo",
-        "cva6-verif"
+        "cv32a60x-trl5",
+        "cva6-cv32a60x"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-intro-release-speech",
+          "type": "speech",
+          "text": "来看一个明确的成熟度声明。二零二五年四月二十三日的发布，明确说明这是达到技术成熟度五级的 CV32A60X 配置。它的范围包括 OBI 接口、没有缓存、没有物理内存保护条目，以及关闭指令获取栅栏扩展。发布说明还列出了覆盖率和静态检查方面的改进。引用这个结果时，应当保留完整的适用范围。前面配置对照使用的是另一份源码快照；另一个分支上出现同名配置，并不自动继承这次发布的证据。如果你增加功能或改变系统集成，就要确定哪些部分需要重新验证。安全认证则有独立的评估过程和证据要求。",
+          "voice": "cosyvoice3:openhw-lecturer-zh",
+          "speed": 0.9,
+          "audioId": "tts_scene-cva6-intro-release-speech",
+          "audioUrl": "/api/classroom-media/cva6-project-intro-zh/audio/tts_scene-cva6-intro-release-speech.mp3",
+          "captionUrl": "/classroom-assets/cva6-project-intro-zh/subtitles/tts_scene-cva6-intro-release-speech.vtt"
+        }
+      ],
+      "createdAt": 1790913600000,
+      "updatedAt": 1790913600000
+    },
+    {
+      "id": "scene-cva6-intro-evidence",
+      "stageId": "cva6-project-intro-zh",
+      "type": "interactive",
+      "title": "练习把结论限定在证据范围内",
+      "order": 7,
+      "content": {
+        "type": "interactive",
+        "html": "<!doctype html><html lang=\"zh-CN\"><head><meta charset=\"utf-8\"><meta name=\"viewport\" content=\"width=device-width,initial-scale=1\"><title>证据判断练习</title><style>\n  *{box-sizing:border-box}body{margin:0;background:#f5f7fa;color:#182128;font-family:system-ui,-apple-system,\"PingFang SC\",sans-serif}main{max-width:1080px;margin:auto;padding:24px}header p{color:#11664e;font-size:12px;font-weight:700}h1{font-size:26px;line-height:1.3;margin:10px 0 18px}nav{display:flex;flex-wrap:wrap;gap:8px}button{font:600 14px/1.5 system-ui;background:white;color:#293848;border:1px solid #a8b5c4;border-radius:6px;padding:10px 14px;min-height:44px;cursor:pointer;text-align:left}nav button[aria-pressed=true]{background:#145dbc;color:white;border-color:#145dbc}button:focus-visible{outline:3px solid #bb6713;outline-offset:3px}.claim{margin:22px 0 16px;padding:18px;border-left:4px solid #145dbc;background:white;font-size:19px;line-height:1.5}.choices{display:grid;grid-template-columns:1fr 1fr;gap:12px}.choices button{padding:18px;min-height:80px}.choices button[aria-pressed=true]{border:2px solid #145dbc;background:#edf3ff}#feedback{margin-top:18px;padding:18px;background:#e4f1eb;border-radius:6px;font-size:16px;line-height:1.7;min-height:92px}#progress{font-size:13px;color:#475564;line-height:1.5}footer{margin-top:18px;border-top:1px solid #c6d0dc;padding-top:12px;font-size:12px;color:#475564}@media(max-width:600px){main{padding:18px}.choices{grid-template-columns:1fr}h1{font-size:25px}}\n  </style></head><body><main><header><p>证据练习 / 四种判断</p><h1>哪一个结论保留了证据的适用范围？</h1></header><nav aria-label=\"选择证据卡片\"><button type=\"button\" data-card=\"0\" aria-pressed=\"true\">架构测试</button><button type=\"button\" data-card=\"1\" aria-pressed=\"false\">TRL5 发布</button><button type=\"button\" data-card=\"2\" aria-pressed=\"false\">硅片与 Linux</button><button type=\"button\" data-card=\"3\" aria-pressed=\"false\">安全声明</button></nav><p class=\"claim\" id=\"claim\"></p><div class=\"choices\"><button type=\"button\" id=\"a\" aria-pressed=\"false\"></button><button type=\"button\" id=\"b\" aria-pressed=\"false\"></button></div><div id=\"feedback\" role=\"status\" aria-live=\"polite\"></div><p id=\"progress\"></p><footer>判断练习，不代表本课执行了测试或认证。各项事实的出处见播放器资料面板。</footer></main><script>\n  const cases=[{\"label\":\"架构测试\",\"claim\":\"某个有记录的 CVA6 构建通过了一套架构测试。\",\"yes\":\"该配置在记录的环境中通过了所选测试。\",\"no\":\"整个处理器家族已经得到完整验证。\",\"feedback\":\"记录目标配置、代码版本、测试集与环境。架构测试检查特定 ISA 行为；微架构、系统集成和覆盖率仍需其他验证。\"},{\"label\":\"TRL5 发布\",\"claim\":\"cv32a60x-v6.0.0 发布说明宣告达到 TRL5。\",\"yes\":\"这项声明适用于该次 CV32A60X 发布。\",\"no\":\"当前所有 CVA6 配置都自动继承 TRL5。\",\"feedback\":\"发布说明明确限定了配置。切换分支、打开新功能或改用其他配置，都需要相应的证据。\"},{\"label\":\"硅片与 Linux\",\"claim\":\"Basilisk 公布了硅片测量结果与 Linux 演示。\",\"yes\":\"这一集成实现已有硅片和软件运行证据。\",\"no\":\"任意新 CVA6 开发板都已无需集成即可使用。\",\"feedback\":\"硅片和启动结果是有价值的系统证据。换用存储系统、开发板或软件栈，会引入新的集成与验证工作。\"},{\"label\":\"安全声明\",\"claim\":\"某个设计加入锁步，或使用带有认证资料的实时操作系统。\",\"yes\":\"继续索取目标系统的需求、证据与评估结论。\",\"no\":\"这些组成部分会自动认证 CVA6 处理器。\",\"feedback\":\"安全机制或其他组件的证书，不能自动认证新的处理器或系统。需要检查实际配置、安全分析及适用的保证证据。\"}];let current=0;const answers={};\n  const empty=\"请选择一个结论，然后阅读解释。\";\n  function render(){const c=cases[current];document.querySelector('#claim').textContent=c.claim;const correctFirst=current%2===0;document.querySelector('#a').textContent=correctFirst?c.yes:c.no;document.querySelector('#b').textContent=correctFirst?c.no:c.yes;document.querySelectorAll('[data-card]').forEach(b=>b.setAttribute('aria-pressed',String(Number(b.dataset.card)===current)));const answer=answers[current];['a','b'].forEach(k=>document.querySelector('#'+k).setAttribute('aria-pressed',String(answer===k)));const correct=answer===(correctFirst?'a':'b');document.querySelector('#feedback').textContent=answer?((correct?\"范围准确。 \":\"这项结论超出了证据范围。 \")+c.feedback):empty;document.querySelector('#progress').textContent=\"已尝试卡片：\"+Object.keys(answers).length+' / '+cases.length;}\n  document.querySelectorAll('[data-card]').forEach(b=>b.addEventListener('click',()=>{current=Number(b.dataset.card);render()}));['a','b'].forEach(k=>document.querySelector('#'+k).addEventListener('click',()=>{answers[current]=k;render()}));render();\n  </script></body></html>",
+        "url": "",
+        "sourceAnchors": [
+          {
+            "id": "riscv-act4",
+            "title": "RISC-V Architectural Certification Tests",
+            "url": "https://github.com/riscv/riscv-arch-test",
+            "locator": "README opening paragraphs; ACT4 requirements; retrieved 2026-10-02",
+            "claimSupported": "ACT4 configures and generates architectural tests for a DUT. Upstream explicitly requires additional processor verification. This course makes no assertion that a CVA6 target has passed ACT4 certification."
+          },
+          {
+            "id": "cv32a60x-trl5",
+            "title": "CV32A60X TRL5 release · 2025-04-23",
+            "url": "https://github.com/openhwfoundation/cva6/releases/tag/cv32a60x-v6.0.0",
+            "locator": "Release body; tag commit b1f80bd7cff3a94e5191aad96dc3a22f87d0a517",
+            "claimSupported": "Release explicitly contains only CV32A60X: pipeline hierarchy with OBI interface, no caches, no PMP entries, Zifencei disabled; improved coverage and lint. TRL5 scope is this release configuration."
+          },
+          {
+            "id": "eth-basilisk",
+            "title": "Basilisk project and silicon measurements",
+            "url": "https://iis-people.ee.ethz.ch/~phsauter/basilisk/",
+            "locator": "Overview; Measurements; Linux boot demonstration; retrieved 2026-10-02",
+            "claimSupported": "CVA6/Cheshire Linux-capable system implemented using IHP 130 nm and an open flow; project publishes silicon measurements. Evidence belongs to this implementation."
+          },
+          {
+            "id": "cva6-roadmap",
+            "title": "CVA6 Roadmap · edited 2026-07-15",
+            "url": "https://github.com/openhwfoundation/cva6/wiki/CVA6-Roadmap",
+            "locator": "CV64A60AX verification; DCLS work; roadmap page version date",
+            "claimSupported": "A dated work plan includes CV64A60AX verification and dual-core lockstep integration work. Planned or ongoing work does not establish a completed release."
+          }
+        ]
+      },
+      "sourceAnchors": [
+        "riscv-act4",
+        "cv32a60x-trl5",
+        "eth-basilisk",
+        "cva6-roadmap"
       ],
       "actions": [
         {
           "id": "scene-cva6-intro-evidence-speech",
           "type": "speech",
-          "text": "验证结果必须带着范围来读。先记录代码提交、配置、仿真器和测试集合，再进入具体作业详情，不要只看绿色标记。冒烟回归能够发现一些基础问题，但通过它，并不能证明完整功能覆盖、生产认证，或你的系统集成一定正确。分层持续集成页面可以作为查看运行证据的入口；每一项结果仍要回到对应环境核对。本课是在建立这些入口之间的联系，并没有声称已经替你完成处理器构建、完整验证或工程签核。",
+          "text": "现在试试四张证据卡片。每张卡片给出一项已报告的结果，以及两个可能的结论。请选择既保留有用信息，又符合原始范围的结论。架构测试通过、具名版本的成熟度发布、硅片上运行 Linux，以及安全保证论证，回答的是不同问题，不能互相替代。尤其是，增加某种安全机制，或者使用带有认证材料的操作系统，并不会自动认证一颗新的处理器或整个系统。选择后请阅读反馈。如果一项结论范围过大，应该追问缺少的目标、版本、环境或评估材料，同时保留已有证据真正能够支持的部分。",
           "voice": "cosyvoice3:openhw-lecturer-zh",
           "speed": 0.9,
           "audioId": "tts_scene-cva6-intro-evidence-speech",
@@ -598,164 +620,372 @@
           "captionUrl": "/classroom-assets/cva6-project-intro-zh/subtitles/tts_scene-cva6-intro-evidence-speech.vtt"
         }
       ],
-      "createdAt": 1789300800000,
-      "updatedAt": 1789300800000
+      "createdAt": 1790913600000,
+      "updatedAt": 1790913600000
+    },
+    {
+      "id": "scene-cva6-intro-applications",
+      "stageId": "cva6-project-intro-zh",
+      "type": "html-slide",
+      "title": "从四个案例理解 CVA6 的系统角色",
+      "order": 8,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "sourceMap",
+        "theme": "light",
+        "locale": "zh-CN",
+        "content": {
+          "kicker": "应用证据",
+          "title": "同时看清系统角色和已展示阶段",
+          "subtitle": "公开一手资料 · 核对日期 2026-10-02",
+          "cards": [
+            {
+              "label": "BOSCH / TRISTAN",
+              "title": "工业雷达与 AI 演示",
+              "body": "定制 CVA6 配合加速功能；未来汽车集成和认证仍在探索。",
+              "tone": "blue"
+            },
+            {
+              "label": "THALES / ASTRAL",
+              "title": "面向航天的实验性 SoC",
+              "body": "多个 CVA6、OpenTitan 与向量加速；2025 年公开介绍。",
+              "tone": "teal"
+            },
+            {
+              "label": "ETH / BASILISK",
+              "title": "可运行 Linux 的硅片",
+              "body": "CVA6 / Cheshire、IHP 130 纳米开放流程，以及测量与启动演示。",
+              "tone": "gold"
+            },
+            {
+              "label": "PULP / OCCAMY",
+              "title": "可运行 Linux 的管理核",
+              "body": "CVA6 承担管理角色，多核计算加速器采用 Snitch 集群。",
+              "tone": "red"
+            }
+          ]
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "bosch-tristan",
+            "title": "TRISTAN: Bosch CVA6 demonstration",
+            "url": "https://www.linkedin.com/posts/tristan-kdt_riscv-riscv-openhardware-activity-7473283411911008256-R-BM",
+            "locator": "Public project announcement: Bosch demo, dedicated accelerators/custom ISA, next steps; retrieved 2026-10-02",
+            "claimSupported": "Industrial radar/AI demonstration using customized CVA6 and acceleration; certification and future automotive integration are described as exploration, not achieved production qualification."
+          },
+          {
+            "id": "thales-astral",
+            "title": "Thales: experimental ASTRAL SoC · 2025",
+            "url": "https://riscv-europe.org/summit/2025/media/proceedings/2025-05-14-RISC-V-Summit-Europe-09h00-QUENDT-slides.pdf",
+            "locator": "Slide 6 / PDF page 6: Experimental SoC ASTRAL",
+            "claimSupported": "Space-oriented experimental SoC combining multiple CVA6 cores, OpenTitan and vector acceleration. Source does not establish flight qualification or in-orbit deployment."
+          },
+          {
+            "id": "eth-basilisk",
+            "title": "Basilisk project and silicon measurements",
+            "url": "https://iis-people.ee.ethz.ch/~phsauter/basilisk/",
+            "locator": "Overview; Measurements; Linux boot demonstration; retrieved 2026-10-02",
+            "claimSupported": "CVA6/Cheshire Linux-capable system implemented using IHP 130 nm and an open flow; project publishes silicon measurements. Evidence belongs to this implementation."
+          },
+          {
+            "id": "pulp-occamy",
+            "title": "Occamy: manager and accelerator",
+            "url": "https://github.com/pulp-platform/occamy",
+            "locator": "README opening description; retrieved 2026-10-02",
+            "claimSupported": "CVA6 is the Linux-capable manager; the many-core floating-point accelerator is based on Snitch clusters. Accelerator core counts must not be relabeled as CVA6 counts."
+          }
+        ],
+        "speakerNotes": "四个案例展示了不同的系统角色。TRISTAN 项目介绍了 Bosch 基于定制 CVA6 和加速功能的工业雷达与人工智能演示，未来集成和认证仍属于探索方向。Thales 将 ASTRAL 介绍为面向航天的实验性系统，组合多个 CVA6、OpenTitan 和向量加速。Basilisk 提供了另一类证据：它将 CVA6 与 Cheshire 集成，采用开放设计流程和一百三十纳米工艺，并公布了硅片测量与 Linux 演示。在 Occamy 中，CVA6 是能够运行 Linux 的管理核，多核计算加速器则使用 Snitch 集群。引用每个案例时，都应当同时说明处理器的角色，以及已经展示到什么阶段。"
+      },
+      "sourceAnchors": [
+        "bosch-tristan",
+        "thales-astral",
+        "eth-basilisk",
+        "pulp-occamy"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-intro-applications-speech",
+          "type": "speech",
+          "text": "四个案例展示了不同的系统角色。TRISTAN 项目介绍了 Bosch 基于定制 CVA6 和加速功能的工业雷达与人工智能演示，未来集成和认证仍属于探索方向。Thales 将 ASTRAL 介绍为面向航天的实验性系统，组合多个 CVA6、OpenTitan 和向量加速。Basilisk 提供了另一类证据：它将 CVA6 与 Cheshire 集成，采用开放设计流程和一百三十纳米工艺，并公布了硅片测量与 Linux 演示。在 Occamy 中，CVA6 是能够运行 Linux 的管理核，多核计算加速器则使用 Snitch 集群。引用每个案例时，都应当同时说明处理器的角色，以及已经展示到什么阶段。",
+          "voice": "cosyvoice3:openhw-lecturer-zh",
+          "speed": 0.9,
+          "audioId": "tts_scene-cva6-intro-applications-speech",
+          "audioUrl": "/api/classroom-media/cva6-project-intro-zh/audio/tts_scene-cva6-intro-applications-speech.mp3",
+          "captionUrl": "/classroom-assets/cva6-project-intro-zh/subtitles/tts_scene-cva6-intro-applications-speech.vtt"
+        }
+      ],
+      "createdAt": 1790913600000,
+      "updatedAt": 1790913600000
+    },
+    {
+      "id": "scene-cva6-intro-evaluate",
+      "stageId": "cva6-project-intro-zh",
+      "type": "html-slide",
+      "title": "把资料整理成可复现的评估记录",
+      "order": 9,
+      "content": {
+        "type": "html-slide",
+        "slideKit": "openhw-signal-technical",
+        "slot": "checklist",
+        "theme": "light",
+        "locale": "zh-CN",
+        "content": {
+          "kicker": "工程交接",
+          "title": "写出一个可以继续工作的起点",
+          "subtitle": "用于仿真、FPGA 启动或深入设计评审之前。",
+          "items": [
+            {
+              "title": "目标与版本",
+              "body": "写明参数包、派生参数和固定提交。"
+            },
+            {
+              "title": "系统与任务",
+              "body": "记录开发板、地址映射、软件和工作负载。"
+            },
+            {
+              "title": "检查与缺口",
+              "body": "链接测试记录、覆盖率、假设和未解决失败。"
+            },
+            {
+              "title": "下一项实验",
+              "body": "选择一项会影响决策的缺失结果。"
+            }
+          ],
+          "takeaway": "路线图快照 · 2026-07-15：CV64A60AX 验证和锁步集成属于工作项，不代表已完成的发布。"
+        },
+        "assets": [],
+        "sourceAnchors": [
+          {
+            "id": "cva6-cv32a65x",
+            "title": "CV32A65X configuration",
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/core/include/cv32a65x_config_pkg.sv",
+            "locator": "CVA6ConfigXlen; cva6_cfg; combine with build_config_pkg.sv",
+            "claimSupported": "XLEN 32; SuperscalarEn=1; raw NrCommitPorts=1 is overridden to 2 by build_config; MMU/S/U/A/F/D=0; PMP entries=8."
+          },
+          {
+            "id": "cva6-build-config",
+            "title": "Derived issue and commit widths",
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/core/include/build_config_pkg.sv",
+            "locator": "build_config: cfg.NrCommitPorts and cfg.NrIssuePorts",
+            "claimSupported": "SuperscalarEn selects 1 or 2 issue ports and overrides commit ports to 2 when enabled. Effective issue/commit widths are 1/1, 2/2 and 1/2 in the three examples; these are not measured IPC."
+          },
+          {
+            "id": "cva6-verif",
+            "title": "CVA6 verification environment",
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/verif/README.md",
+            "locator": "Directories; Verification plan; Environment variables",
+            "claimSupported": "UVM testbench, riscv-dv simulation flow, BSP/tests/regressions, selectable target and simulator; coverage plan requires configuration and tool context."
+          },
+          {
+            "id": "cva6-roadmap",
+            "title": "CVA6 Roadmap · edited 2026-07-15",
+            "url": "https://github.com/openhwfoundation/cva6/wiki/CVA6-Roadmap",
+            "locator": "CV64A60AX verification; DCLS work; roadmap page version date",
+            "claimSupported": "A dated work plan includes CV64A60AX verification and dual-core lockstep integration work. Planned or ongoing work does not establish a completed release."
+          }
+        ],
+        "speakerNotes": "把刚才的阅读整理成一份简短评估记录。先写清配置和提交版本，再列出与任务有关的派生参数。补充平台、软件版本和已有测试结果，说明缺口，并选择一项能够影响决策的下一步实验。例如，控制器项目可以先检查目标开发板上的中断行为；Linux 主机项目可以先建立可复现的启动流程。路线图信息还需要保留日期。二零二六年七月十五日的路线图讨论了 CV64A60AX 验证和双核锁步集成工作。这能帮助你了解正在推进的工程方向；至于已经完成的能力，仍然需要相应的发布或实现证据。"
+      },
+      "sourceAnchors": [
+        "cva6-cv32a65x",
+        "cva6-build-config",
+        "cva6-verif",
+        "cva6-roadmap"
+      ],
+      "actions": [
+        {
+          "id": "scene-cva6-intro-evaluate-speech",
+          "type": "speech",
+          "text": "把刚才的阅读整理成一份简短评估记录。先写清配置和提交版本，再列出与任务有关的派生参数。补充平台、软件版本和已有测试结果，说明缺口，并选择一项能够影响决策的下一步实验。例如，控制器项目可以先检查目标开发板上的中断行为；Linux 主机项目可以先建立可复现的启动流程。路线图信息还需要保留日期。二零二六年七月十五日的路线图讨论了 CV64A60AX 验证和双核锁步集成工作。这能帮助你了解正在推进的工程方向；至于已经完成的能力，仍然需要相应的发布或实现证据。",
+          "voice": "cosyvoice3:openhw-lecturer-zh",
+          "speed": 0.9,
+          "audioId": "tts_scene-cva6-intro-evaluate-speech",
+          "audioUrl": "/api/classroom-media/cva6-project-intro-zh/audio/tts_scene-cva6-intro-evaluate-speech.mp3",
+          "captionUrl": "/classroom-assets/cva6-project-intro-zh/subtitles/tts_scene-cva6-intro-evaluate-speech.vtt"
+        }
+      ],
+      "createdAt": 1790913600000,
+      "updatedAt": 1790913600000
     },
     {
       "id": "scene-cva6-intro-quiz",
       "stageId": "cva6-project-intro-zh",
       "type": "quiz",
-      "title": "检验你的工程判断",
-      "order": 7,
+      "title": "完成四个工程判断",
+      "order": 10,
       "content": {
         "type": "quiz",
         "questions": [
           {
             "id": "cva6-zh-q1",
             "type": "single",
-            "question": "哪一项符合本课对照的配置？",
+            "question": "CV32A65X 派生出两个发射端口。哪项判断成立？",
             "options": [
               {
-                "label": "所有 CVA6 配置都是单发射。",
+                "label": "所有程序都能持续达到每周期两条指令。",
                 "value": "A"
               },
               {
-                "label": "CV32A65X 启用两个发射端口，但没有 MMU 和 S/U 模式。",
+                "label": "该配置有两个发射端口，实际 IPC 仍需工作负载证据。",
                 "value": "B"
               },
               {
-                "label": "所有 64 位 CVA6 配置都是双发射。",
+                "label": "它必然带有 MMU。",
                 "value": "C"
               },
               {
-                "label": "本课对照的两个 32 位参数包都启用了 MMU。",
+                "label": "所有 RV64 配置都是双发射。",
                 "value": "D"
               }
             ],
             "answer": [
               "B"
             ],
-            "analysis": "CV32A65X 设置 SuperscalarEn=1，关闭 MMU/S/U；build_config 据此派生两个发射端口。",
+            "analysis": "发射宽度是能力上限。数据依赖、资源、分支与存储行为共同决定实际吞吐率。",
             "hasAnswer": true,
             "points": 1
           },
           {
             "id": "cva6-zh-q2",
             "type": "single",
-            "question": "选好面向 Linux 的内核配置后，还需要什么？",
+            "question": "报告引用 cv32a60x-v6.0.0 达到 TRL5。你可以沿用什么？",
             "options": [
               {
-                "label": "只需要换一个处理器名字。",
+                "label": "整个家族都已获得安全认证。",
                 "value": "A"
               },
               {
-                "label": "不需要其他工作，CPU RTL 就是完整计算机。",
+                "label": "新增缓存的变体已经完成鉴定。",
                 "value": "B"
               },
               {
-                "label": "匹配的平台、启动软件与系统验证。",
+                "label": "关于该次 CV32A60X 发布的有限定条件的声明。",
                 "value": "C"
               },
               {
-                "label": "只要换编译器，不必考虑板级硬件。",
+                "label": "之后所有分支都保证具备同样的证据。",
                 "value": "D"
               }
             ],
             "answer": [
               "C"
             ],
-            "analysis": "CPU 能力只是必要条件；平台集成和配套软件仍然是独立工作。",
+            "analysis": "发布明确限定了配置。引用成熟度时，应保留标签、功能范围和相应证据。",
             "hasAnswer": true,
             "points": 1
           },
           {
             "id": "cva6-zh-q3",
             "type": "single",
-            "question": "冒烟回归通过，能证明什么？",
+            "question": "Basilisk 已在硅片上启动 Linux，你的新板使用另一套存储系统。应如何判断？",
             "options": [
               {
-                "label": "执行的测试在记录的环境中通过。",
+                "label": "Basilisk 是有用的系统证据，新板仍需集成与验证。",
                 "value": "A"
               },
               {
-                "label": "所有配置都已完成生产认证。",
+                "label": "新板已经完成鉴定。",
                 "value": "B"
               },
               {
-                "label": "硬件已不存在任何错误。",
+                "label": "新板不需要启动固件。",
                 "value": "C"
               },
               {
-                "label": "实现已经达到你的频率和面积目标。",
+                "label": "Basilisk 的性能数字可以直接套用。",
                 "value": "D"
               }
             ],
             "answer": [
               "A"
             ],
-            "analysis": "证据只适用于所选版本、配置、工具与测试；覆盖率和工程签核还需要更多证据。",
+            "analysis": "系统证据属于具体实现。改变存储系统、开发板或软件，会带来新的集成与验证问题。",
+            "hasAnswer": true,
+            "points": 1
+          },
+          {
+            "id": "cva6-zh-q4",
+            "type": "single",
+            "question": "在 Occamy 中，CVA6 承担哪种角色？",
+            "options": [
+              {
+                "label": "多核加速器里的每一个计算核。",
+                "value": "A"
+              },
+              {
+                "label": "唯一的浮点加速器。",
+                "value": "B"
+              },
+              {
+                "label": "自动完成安全认证的控制器。",
+                "value": "C"
+              },
+              {
+                "label": "可运行 Linux 的管理核，配合基于 Snitch 的加速器。",
+                "value": "D"
+              }
+            ],
+            "answer": [
+              "D"
+            ],
+            "analysis": "项目把 CVA6 管理核与基于 Snitch 集群的多核加速器相连接。应当分别理解它们的角色和核心数量。",
             "hasAnswer": true,
             "points": 1
           }
         ],
         "sourceAnchors": [
           {
-            "id": "cva6-cv32a60x",
-            "title": "CV32A60X configuration",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a60x_config_pkg.sv",
-            "locator": "CVA6ConfigXlen; cva6_cfg",
-            "claimSupported": "XLEN 32; SuperscalarEn 0; MmuPresent/RVS/RVU/RVA/RVF/RVD 0."
-          },
-          {
             "id": "cva6-cv32a65x",
             "title": "CV32A65X configuration",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a65x_config_pkg.sv",
-            "locator": "CVA6ConfigXlen; cva6_cfg",
-            "claimSupported": "XLEN 32; SuperscalarEn 1; MmuPresent/RVS/RVU/RVA/RVF/RVD 0."
-          },
-          {
-            "id": "cva6-rv64-config",
-            "title": "cv64a6_imafdc_sv39 configuration",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv64a6_imafdc_sv39_config_pkg.sv",
-            "locator": "CVA6ConfigXlen; MMU/ISA constants; cva6_cfg",
-            "claimSupported": "XLEN 64; SuperscalarEn 0; MMU/S/U/A/F/D enabled in this concrete package; its filename is not an exhaustive extension list."
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/core/include/cv32a65x_config_pkg.sv",
+            "locator": "CVA6ConfigXlen; cva6_cfg; combine with build_config_pkg.sv",
+            "claimSupported": "XLEN 32; SuperscalarEn=1; raw NrCommitPorts=1 is overridden to 2 by build_config; MMU/S/U/A/F/D=0; PMP entries=8."
           },
           {
             "id": "cva6-build-config",
-            "title": "Derived configuration",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/build_config_pkg.sv",
-            "locator": "build_config: NrIssuePorts and NrCommitPorts",
-            "claimSupported": "SuperscalarEn derives one or two issue ports; issue and commit width are separate quantities."
+            "title": "Derived issue and commit widths",
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/core/include/build_config_pkg.sv",
+            "locator": "build_config: cfg.NrCommitPorts and cfg.NrIssuePorts",
+            "claimSupported": "SuperscalarEn selects 1 or 2 issue ports and overrides commit ports to 2 when enabled. Effective issue/commit widths are 1/1, 2/2 and 1/2 in the three examples; these are not measured IPC."
           },
           {
-            "id": "cva6-sdk",
-            "title": "CVA6 SDK",
-            "url": "https://github.com/openhwgroup/cva6-sdk",
-            "locator": "README: Overview; Requirements; Getting started",
-            "claimSupported": "A board-specific Linux software flow is a separate project from the CPU RTL."
+            "id": "cv32a60x-trl5",
+            "title": "CV32A60X TRL5 release · 2025-04-23",
+            "url": "https://github.com/openhwfoundation/cva6/releases/tag/cv32a60x-v6.0.0",
+            "locator": "Release body; tag commit b1f80bd7cff3a94e5191aad96dc3a22f87d0a517",
+            "claimSupported": "Release explicitly contains only CV32A60X: pipeline hierarchy with OBI interface, no caches, no PMP entries, Zifencei disabled; improved coverage and lint. TRL5 scope is this release configuration."
           },
           {
-            "id": "cva6-smoke",
-            "title": "CV32A65X smoke regression",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/verif/regress/smoke-tests-cv32a65x.sh",
-            "locator": "Configuration-specific regression script",
-            "claimSupported": "A concrete smoke-test entry point; a passing smoke run is not full coverage or sign-off. The obsolete generic smoke-tests.sh is not used."
+            "id": "eth-basilisk",
+            "title": "Basilisk project and silicon measurements",
+            "url": "https://iis-people.ee.ethz.ch/~phsauter/basilisk/",
+            "locator": "Overview; Measurements; Linux boot demonstration; retrieved 2026-10-02",
+            "claimSupported": "CVA6/Cheshire Linux-capable system implemented using IHP 130 nm and an open flow; project publishes silicon measurements. Evidence belongs to this implementation."
+          },
+          {
+            "id": "pulp-occamy",
+            "title": "Occamy: manager and accelerator",
+            "url": "https://github.com/pulp-platform/occamy",
+            "locator": "README opening description; retrieved 2026-10-02",
+            "claimSupported": "CVA6 is the Linux-capable manager; the many-core floating-point accelerator is based on Snitch clusters. Accelerator core counts must not be relabeled as CVA6 counts."
           }
         ]
       },
       "sourceAnchors": [
-        "cva6-cv32a60x",
         "cva6-cv32a65x",
-        "cva6-rv64-config",
         "cva6-build-config",
-        "cva6-sdk",
-        "cva6-smoke"
+        "cv32a60x-trl5",
+        "eth-basilisk",
+        "pulp-occamy"
       ],
       "actions": [
         {
           "id": "scene-cva6-intro-quiz-speech",
           "type": "speech",
-          "text": "下面把刚才的区别用到三个判断里。第一，关于两种嵌入式配置，哪一句话与参数文件一致？第二，选好了应用级内核配置后，还缺哪些工作？第三，冒烟回归成功，究竟能证明什么？可以随时回看资料链接，不需要凭记忆作答。这节课不是要求你背下所有扩展位，而是让你习惯把一句技术描述，连接到真正支持它的配置、系统边界和测试证据。答题后再读解析，确认自己理解的是适用范围，而不只是记住了选项。",
+          "text": "接下来，请完成四个判断，选择能够从给定证据中成立的表述。即使第一次就答对，也请阅读解释。题目分别涉及发射宽度与性能、成熟度发布的范围、系统证据能否直接迁移，以及处理器在大型芯片中的角色。你不需要背下每一个参数，但要知道，在作出判断之前应当检查什么。如果还有疑问，可以回到配置对照或证据卡片，再重新尝试。最后的源码任务会使用同样的思路，把课堂里的判断落实到你自己能够追溯的文件和版本上。",
           "voice": "cosyvoice3:openhw-lecturer-zh",
           "speed": 0.9,
           "audioId": "tts_scene-cva6-intro-quiz-speech",
@@ -763,15 +993,15 @@
           "captionUrl": "/classroom-assets/cva6-project-intro-zh/subtitles/tts_scene-cva6-intro-quiz-speech.vtt"
         }
       ],
-      "createdAt": 1789300800000,
-      "updatedAt": 1789300800000
+      "createdAt": 1790913600000,
+      "updatedAt": 1790913600000
     },
     {
       "id": "scene-cva6-intro-next",
       "stageId": "cva6-project-intro-zh",
       "type": "html-slide",
-      "title": "你的第一个 CVA6 源码任务",
-      "order": 8,
+      "title": "完成你的第一份源码评估记录",
+      "order": 11,
       "content": {
         "type": "html-slide",
         "slideKit": "openhw-signal-technical",
@@ -780,51 +1010,59 @@
         "locale": "zh-CN",
         "content": {
           "kicker": "下一步",
-          "title": "做出一条能够追溯的判断",
+          "title": "写出一条别人能够复现的判断",
           "takeaways": [
-            "家族不等于配置，配置不等于系统。",
-            "分清发射宽度、结果完成与指令退休。",
-            "每一条能力或测试结论，都要对应具体资料。"
+            "选择参数包，并继续追踪派生参数。",
+            "把软件运行结果放回完整系统中理解。",
+            "让成熟度和应用结论保持在证据范围内。"
           ],
-          "nextStep": "打开 CV32A65X，找到 SuperscalarEn，再追踪 build_config_pkg.sv 中的 NrIssuePorts。",
-          "closing": "然后返回 CVA6 项目页，继续阅读文档、SDK 或 CI。"
+          "nextStep": "打开 CV32A65X → 找到 SuperscalarEn → 在 build_config_pkg.sv 追踪 NrIssuePorts 与 NrCommitPorts。",
+          "closing": "记录提交版本、实际宽度、一项缺失结果，以及下一步实验。"
         },
         "assets": [],
         "sourceAnchors": [
           {
             "id": "cva6-cv32a65x",
             "title": "CV32A65X configuration",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/cv32a65x_config_pkg.sv",
-            "locator": "CVA6ConfigXlen; cva6_cfg",
-            "claimSupported": "XLEN 32; SuperscalarEn 1; MmuPresent/RVS/RVU/RVA/RVF/RVD 0."
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/core/include/cv32a65x_config_pkg.sv",
+            "locator": "CVA6ConfigXlen; cva6_cfg; combine with build_config_pkg.sv",
+            "claimSupported": "XLEN 32; SuperscalarEn=1; raw NrCommitPorts=1 is overridden to 2 by build_config; MMU/S/U/A/F/D=0; PMP entries=8."
           },
           {
             "id": "cva6-build-config",
-            "title": "Derived configuration",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/core/include/build_config_pkg.sv",
-            "locator": "build_config: NrIssuePorts and NrCommitPorts",
-            "claimSupported": "SuperscalarEn derives one or two issue ports; issue and commit width are separate quantities."
+            "title": "Derived issue and commit widths",
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/core/include/build_config_pkg.sv",
+            "locator": "build_config: cfg.NrCommitPorts and cfg.NrIssuePorts",
+            "claimSupported": "SuperscalarEn selects 1 or 2 issue ports and overrides commit ports to 2 when enabled. Effective issue/commit widths are 1/1, 2/2 and 1/2 in the three examples; these are not measured IPC."
           },
           {
-            "id": "cva6-repo",
-            "title": "CVA6 repository",
-            "url": "https://github.com/openhwgroup/cva6/blob/49b5fa9e2f5a803cd52f8430d8e8818089e68865/README.md",
-            "locator": "Overview, folder structure, quick setup",
-            "claimSupported": "Processor RTL is distinct from the APU testbench, verification and software integration."
+            "id": "cv32a60x-trl5",
+            "title": "CV32A60X TRL5 release · 2025-04-23",
+            "url": "https://github.com/openhwfoundation/cva6/releases/tag/cv32a60x-v6.0.0",
+            "locator": "Release body; tag commit b1f80bd7cff3a94e5191aad96dc3a22f87d0a517",
+            "claimSupported": "Release explicitly contains only CV32A60X: pipeline hierarchy with OBI interface, no caches, no PMP entries, Zifencei disabled; improved coverage and lint. TRL5 scope is this release configuration."
+          },
+          {
+            "id": "cva6-verif",
+            "title": "CVA6 verification environment",
+            "url": "https://github.com/openhwfoundation/cva6/blob/81245a47fad8fe1a5d562d953ef2662e099def76/verif/README.md",
+            "locator": "Directories; Verification plan; Environment variables",
+            "claimSupported": "UVM testbench, riscv-dv simulation flow, BSP/tests/regressions, selectable target and simulator; coverage plan requires configuration and tool context."
           }
         ],
-        "speakerNotes": "从一个小而可复查的源码任务开始。打开资料中链接的 CV32A65X 参数包，找到超标量使能位，再进入派生配置，确认它如何决定发射端口数量。接着检查内存管理和特权模式的开关。这样得到的，是针对某个源码快照的精确结论，而不是一句套用整个家族的模糊描述。之后回到项目页，按照自己的目标继续学习架构、软件或者验证。这种先固定对象、再追踪证据的阅读方式，才是后续深入 CVA6 课程的可靠起点。"
+        "speakerNotes": "请从资料面板打开 CV32A65X 参数包，找到超标量开关和原始提交端口字段。接着打开配置构建文件，追踪两种宽度是怎样派生出来的。把最终数值和提交标识一起记下来，再补充一条关于目标系统的描述，以及你仍然需要的一项证据。这样，你就得到了一份简短、可复现的工程记录。然后根据缺失的结果，继续阅读验证、平台软件或应用资料。希望你保留的习惯是：一条有用的能力判断，能够说清具体配置、系统边界，以及其他人可以打开检查的证据。"
       },
       "sourceAnchors": [
         "cva6-cv32a65x",
         "cva6-build-config",
-        "cva6-repo"
+        "cv32a60x-trl5",
+        "cva6-verif"
       ],
       "actions": [
         {
           "id": "scene-cva6-intro-next-speech",
           "type": "speech",
-          "text": "从一个小而可复查的源码任务开始。打开资料中链接的 CV32A65X 参数包，找到超标量使能位，再进入派生配置，确认它如何决定发射端口数量。接着检查内存管理和特权模式的开关。这样得到的，是针对某个源码快照的精确结论，而不是一句套用整个家族的模糊描述。之后回到项目页，按照自己的目标继续学习架构、软件或者验证。这种先固定对象、再追踪证据的阅读方式，才是后续深入 CVA6 课程的可靠起点。",
+          "text": "请从资料面板打开 CV32A65X 参数包，找到超标量开关和原始提交端口字段。接着打开配置构建文件，追踪两种宽度是怎样派生出来的。把最终数值和提交标识一起记下来，再补充一条关于目标系统的描述，以及你仍然需要的一项证据。这样，你就得到了一份简短、可复现的工程记录。然后根据缺失的结果，继续阅读验证、平台软件或应用资料。希望你保留的习惯是：一条有用的能力判断，能够说清具体配置、系统边界，以及其他人可以打开检查的证据。",
           "voice": "cosyvoice3:openhw-lecturer-zh",
           "speed": 0.9,
           "audioId": "tts_scene-cva6-intro-next-speech",
@@ -832,8 +1070,8 @@
           "captionUrl": "/classroom-assets/cva6-project-intro-zh/subtitles/tts_scene-cva6-intro-next-speech.vtt"
         }
       ],
-      "createdAt": 1789300800000,
-      "updatedAt": 1789300800000
+      "createdAt": 1790913600000,
+      "updatedAt": 1790913600000
     }
   ]
 }
