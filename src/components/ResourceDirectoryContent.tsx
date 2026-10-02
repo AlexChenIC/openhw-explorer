@@ -35,6 +35,7 @@ import {
   type ResourceCategoryId,
   type ResourceKind,
 } from "@/data/resources";
+import { features } from "@/lib/features";
 import { industryCompanies } from "@/data/industry-landscape";
 
 const copy = {
@@ -136,7 +137,17 @@ function localized<T extends { en: string; zh: string }>(value: T, locale: "en" 
 
 export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentProps) {
   const resolvedLocale = locale === "zh" ? "zh" : "en";
-  const t = copy[resolvedLocale];
+  const t = {
+    ...copy[resolvedLocale],
+    ...(!features.industryLandscapeEnabled
+      ? {
+          subtitle:
+            resolvedLocale === "zh"
+              ? "查找技术资料，浏览开源组织与项目。"
+              : "Find technical references and explore open hardware organizations and projects.",
+        }
+      : {}),
+  };
   const [resourceMode, setResourceMode] = useState<"technical" | "ecosystem">("technical");
   const [ecosystemFilter, setEcosystemFilter] = useState<"all" | EcosystemCategoryId>("all");
   const [resourceCategory, setResourceCategory] = useState<ResourceCategoryId>("standards-docs");
@@ -170,15 +181,21 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
             </p>
           </div>
 
-          <aside className="grid grid-cols-3 border-y border-[var(--border)] py-5 lg:border-y-0 lg:border-l lg:py-1 lg:pl-8">
+          <aside
+            className={`grid ${features.industryLandscapeEnabled ? "grid-cols-3" : "grid-cols-2"} border-y border-[var(--border)] py-5 lg:border-y-0 lg:border-l lg:py-1 lg:pl-8`}
+          >
             <Stat value={resourceDirectoryLinks.length} label={t.statsResources} />
             <Stat value={ecosystemEntries.length} label={t.statsEcosystem} bordered />
-            <Stat value={industryCompanies.length} label={t.statsIndustry} bordered />
+            {features.industryLandscapeEnabled && (
+              <Stat value={industryCompanies.length} label={t.statsIndustry} bordered />
+            )}
           </aside>
         </section>
 
         <section id="resource-explorer" aria-label={t.resourceViews} className="scroll-mt-28">
-          <div className="grid w-full gap-1.5 rounded-lg border border-[var(--border)] bg-[var(--bg-subtle)] p-1.5 sm:grid-cols-3">
+          <div
+            className={`grid w-full gap-1.5 rounded-lg border border-[var(--border)] bg-[var(--bg-subtle)] p-1.5 ${features.industryLandscapeEnabled ? "sm:grid-cols-3" : "sm:grid-cols-2"}`}
+          >
             <div role="tablist" aria-label={t.resourceViews} className="contents">
               <ResourceModeButton
                 id="technical-mode-tab"
@@ -201,13 +218,15 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
                 onClick={() => setResourceMode("ecosystem")}
               />
             </div>
-            <ResourceModeLink
-              href={`/${resolvedLocale}/resources/industry`}
-              icon={Building2}
-              label={t.industryMode}
-              description={t.industryModeDescription}
-              count={industryCompanies.length}
-            />
+            {features.industryLandscapeEnabled && (
+              <ResourceModeLink
+                href={`/${resolvedLocale}/resources/industry`}
+                icon={Building2}
+                label={t.industryMode}
+                description={t.industryModeDescription}
+                count={industryCompanies.length}
+              />
+            )}
           </div>
 
           <div
@@ -574,9 +593,15 @@ type EcosystemCardProps = {
 function EcosystemCard({ entry, locale, cta }: EcosystemCardProps) {
   const category = ecosystemCategories.find((item) => item.id === entry.category)!;
   const pdk = pdkDetails[entry.id];
-  const detailLabels = locale === "zh"
-    ? { contents: "公开内容", license: "许可", tools: "上游工具支持", manufacturing: "制造条件" }
-    : { contents: "Public files", license: "License", tools: "Upstream tool support", manufacturing: "Manufacturing" };
+  const detailLabels =
+    locale === "zh"
+      ? { contents: "公开内容", license: "许可", tools: "上游工具支持", manufacturing: "制造条件" }
+      : {
+          contents: "Public files",
+          license: "License",
+          tools: "Upstream tool support",
+          manufacturing: "Manufacturing",
+        };
 
   return (
     <article className="flex h-full flex-col overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--bg-card)]">
@@ -664,10 +689,21 @@ function EcosystemCard({ entry, locale, cta }: EcosystemCardProps) {
           </dl>
           <ul className="mt-3 space-y-2">
             {pdk.sources.map((source) => (
-              <li key={source.url}><a className="text-[var(--primary)] underline" href={source.url} target="_blank" rel="noopener noreferrer">{source.title}</a></li>
+              <li key={source.url}>
+                <a
+                  className="text-[var(--primary)] underline"
+                  href={source.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  {source.title}
+                </a>
+              </li>
             ))}
           </ul>
-          <p className="mt-3">{locale === "zh" ? "资料核对" : "Sources reviewed"}: {pdk.checkedAt}</p>
+          <p className="mt-3">
+            {locale === "zh" ? "资料核对" : "Sources reviewed"}: {pdk.checkedAt}
+          </p>
         </details>
       )}
     </article>

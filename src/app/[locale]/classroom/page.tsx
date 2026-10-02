@@ -4,6 +4,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ClassroomContent } from "@/components/ClassroomContent";
 import { SITE_URL } from "@/lib/site-url";
+import { features } from "@/lib/features";
 import { publishedNewsletterUsername } from "@/lib/newsletter";
 
 type ClassroomPageProps = {
@@ -27,12 +28,18 @@ export async function generateMetadata({ params }: ClassroomPageProps): Promise<
   const resolvedLocale = locale === "zh" ? "zh" : "en";
   const copy = metadataCopy[resolvedLocale];
 
+  const description = features.publicPreviewEnabled
+    ? resolvedLocale === "zh"
+      ? "三项中英文学习体验：OpenHW Foundation、CORE-V 内核命名与 CVA6 项目导览。"
+      : "Three bilingual learning experiences: the OpenHW Foundation, CORE-V core names, and a CVA6 project guide."
+    : copy.description;
+
   return {
     title: copy.title,
-    description: copy.description,
+    description,
     openGraph: {
       title: `${copy.title} | OpenHW Explorer`,
-      description: copy.description,
+      description,
     },
     alternates: {
       canonical: `${SITE_URL}/${locale}/classroom`,
@@ -47,7 +54,9 @@ export async function generateMetadata({ params }: ClassroomPageProps): Promise<
 export default async function ClassroomPage({ params }: ClassroomPageProps) {
   const { locale } = await params;
   setRequestLocale(locale);
-  const newsletterUsername = publishedNewsletterUsername(process.env.NEXT_PUBLIC_BUTTONDOWN_USERNAME);
+  const newsletterUsername = publishedNewsletterUsername(
+    process.env.NEXT_PUBLIC_BUTTONDOWN_USERNAME,
+  );
 
   return (
     <div className="page-wrapper">

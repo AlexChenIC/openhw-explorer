@@ -4,7 +4,8 @@ import { redirect } from "next/navigation";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { ClassroomSeriesContent } from "@/components/ClassroomSeriesContent";
-import { classroomSeries, getLocalizedText, getSeriesById } from "@/data/classrooms";
+import { getLocalizedText } from "@/data/classrooms";
+import { getPublicClassroomSeries, getPublicSeriesById } from "@/data/classroom-publication";
 import { SITE_URL } from "@/lib/site-url";
 
 type SeriesPageProps = {
@@ -12,7 +13,7 @@ type SeriesPageProps = {
 };
 
 export function generateStaticParams() {
-  return classroomSeries.flatMap((series) =>
+  return getPublicClassroomSeries().flatMap((series) =>
     ["en", "zh"].map((locale) => ({
       locale,
       seriesId: series.id,
@@ -22,8 +23,8 @@ export function generateStaticParams() {
 
 export async function generateMetadata({ params }: SeriesPageProps): Promise<Metadata> {
   const { locale, seriesId } = await params;
-  const series = getSeriesById(seriesId);
-  if (!series) return {};
+  const series = getPublicSeriesById(seriesId);
+  if (!series) return { robots: { index: false, follow: true } };
 
   const resolvedLocale = locale === "zh" ? "zh" : "en";
   const title = getLocalizedText(series.title, resolvedLocale);
@@ -49,7 +50,7 @@ export async function generateMetadata({ params }: SeriesPageProps): Promise<Met
 export default async function ClassroomSeriesPage({ params }: SeriesPageProps) {
   const { locale, seriesId } = await params;
   setRequestLocale(locale);
-  const series = getSeriesById(seriesId);
+  const series = getPublicSeriesById(seriesId);
 
   if (!series) {
     redirect(`/${locale === "zh" ? "zh" : "en"}/classroom`);

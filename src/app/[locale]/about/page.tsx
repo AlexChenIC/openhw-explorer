@@ -5,12 +5,14 @@ import {
   ExternalLink,
   FileCheck2,
   Linkedin,
+  Github,
   LockKeyhole,
   Network,
   ShieldCheck,
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
+import { externalLinks } from "@/data/external-links";
 import { SITE_URL } from "@/lib/site-url";
 
 type AboutPageProps = {
@@ -140,16 +142,28 @@ async function AboutContent() {
               </h2>
               <p className="mt-3 leading-7 text-[var(--text-secondary)]">{t("author.bio")}</p>
             </div>
-            <a
-              href="https://www.linkedin.com/in/junchaocheneu/"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex min-h-10 w-fit items-center gap-2 rounded-md bg-[#0a66c2] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#084f96]"
-            >
-              <Linkedin className="h-4 w-4" />
-              {t("author.connectLinkedIn")}
-              <ExternalLink className="h-3.5 w-3.5" />
-            </a>
+            <div className="flex flex-wrap gap-3">
+              <a
+                href="https://github.com/AlexChenIC"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 w-fit items-center gap-2 rounded-md border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text-primary)] hover:text-[var(--primary)]"
+              >
+                <Github className="h-4 w-4" />
+                GitHub
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+              <a
+                href={externalLinks.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-10 w-fit items-center gap-2 rounded-md bg-[#0a66c2] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#084f96]"
+              >
+                <Linkedin className="h-4 w-4" />
+                {t("author.connectLinkedIn")}
+                <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+            </div>
           </div>
         </section>
       </div>

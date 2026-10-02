@@ -18,14 +18,15 @@
     "fetch-news-candidates": "node scripts/fetch-news-candidates.mjs",
     "build-news": "node scripts/build-news-digest.mjs",
     "prebuild": "node scripts/prebuild-fetch-github-data.mjs",
-    "test": "vitest run"
+    "test": "vitest run",
+    "build:third-party-notices": "node scripts/build-third-party-notices.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
     "fast-xml-parser": "^5.11.1",
     "fuse.js": "^7.1.0",
     "lucide-react": "^0.400.0",
-    "next": "^16.3.5",
+    "next": "^16.3.6",
     "next-intl": "^4.13.1",
     "react": "^19.2.7",
     "react-dom": "^19.2.7"
@@ -37,7 +38,7 @@
     "@types/react-dom": "^19.2.3",
     "better-sqlite3": "^12.6.2",
     "eslint": "^9.39.4",
-    "eslint-config-next": "^16.3.5",
+    "eslint-config-next": "^16.3.6",
     "eslint-config-prettier": "^10.1.8",
     "prettier": "^3.8.1",
     "tailwindcss": "^4.0.0",

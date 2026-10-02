@@ -19,7 +19,9 @@ export async function generateMetadata({ params }: HomePageProps): Promise<Metad
   return {
     title: "OpenHW Explorer - Navigate Open-Source RISC-V Hardware Projects",
     description:
-      "Explore OpenHW Foundation open-source RISC-V projects. Browse processor cores, verification tools, SoC platforms, IP components, and learning resources with smart filtering.",
+      locale === "zh"
+        ? "独立社区项目，帮助你探索 OpenHW 开源 RISC-V 处理器、验证环境、SoC、IP 与学习资源。"
+        : "An independent community project for exploring OpenHW open-source RISC-V cores, verification tools, SoC platforms, IP, and learning resources.",
     alternates: {
       canonical: `${SITE_URL}/${locale}`,
       languages: {
@@ -40,7 +42,7 @@ export default async function Home({ params }: HomePageProps) {
     name: "OpenHW Explorer",
     url: SITE_URL,
     description:
-      "A community-friendly navigator to explore the OpenHW Foundation's open-source RISC-V hardware IP projects.",
+      "An independent community navigator to explore the OpenHW Foundation's open-source RISC-V hardware IP projects.",
     author: {
       "@type": "Person",
       name: "Alex Chen",

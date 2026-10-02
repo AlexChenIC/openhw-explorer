@@ -17,12 +17,10 @@ import {
 } from "lucide-react";
 import { Link } from "@/lib/routing";
 import { externalLinks } from "@/data/external-links";
-import { projectGuides } from "@/data/classroom-project-guides";
+import { getPublicClassroomSeries } from "@/data/classroom-publication";
 import { features } from "@/lib/features";
 import {
   getCatalogLessons,
-  getDevelopmentClassroomSeries,
-  getFeaturedClassroomSeries,
   getLocalizedText,
   getPrototypeLesson,
   hasPublishedLesson,
@@ -282,13 +280,51 @@ const lessonVisuals = {
 
 export function ClassroomContent({ locale, newsletterUsername }: ClassroomContentProps) {
   const resolvedLocale = locale === "zh" ? "zh" : "en";
-  const text = copy[resolvedLocale];
-  const releaseSeries = getFeaturedClassroomSeries().find(
-    (series) => series.id === "openhw-foundations",
-  );
-  const developmentSeries = getDevelopmentClassroomSeries();
+  const text = features.publicPreviewEnabled
+    ? {
+        ...copy[resolvedLocale],
+        ...(resolvedLocale === "zh"
+          ? {
+              subtitle:
+                "三项中英文学习体验：认识 OpenHW Foundation，读懂 CORE-V 命名，再进入 CVA6 的内核、配置与系统。",
+              essentialsBody: "两节聚焦入门课，先认识组织，再理解内核命名。",
+              language: "EN / 中文",
+              communityTitle: "建议下一门课程",
+              communityBody: "告诉我们哪项学习内容最能帮助你。",
+              collections: [
+                { id: "essentials", title: "核心概念", description: "组织与内核命名" },
+                { id: "project-guides", title: "项目导览", description: "内核、配置与系统" },
+              ],
+            }
+          : {
+              subtitle:
+                "Three bilingual learning experiences: understand the OpenHW Foundation, read CORE-V names, then explore CVA6 cores, configurations and systems.",
+              essentialsBody:
+                "Two focused introductions: understand the organization, then read core names.",
+              language: "EN / 中文",
+              communityTitle: "Suggest the next lesson",
+              communityBody: "Tell us which learning material would help you most.",
+              collections: [
+                {
+                  id: "essentials",
+                  title: "Essentials",
+                  description: "Organization and core names",
+                },
+                {
+                  id: "project-guides",
+                  title: "Project guides",
+                  description: "Cores, configurations and systems",
+                },
+              ],
+            }),
+      }
+    : copy[resolvedLocale];
+  const publicSeries = getPublicClassroomSeries();
+  const projectGuides = publicSeries.find((series) => series.id === "project-guides");
+  const releaseSeries = publicSeries.find((series) => series.id === "openhw-foundations");
+  const developmentSeries = publicSeries.filter((series) => series.visibility === "development");
   const releaseLessons = releaseSeries ? getCatalogLessons(releaseSeries) : [];
-  const prototypeEntries = [...getFeaturedClassroomSeries(), ...developmentSeries]
+  const prototypeEntries = publicSeries
     .map((series) => ({ series, lesson: getPrototypeLesson(series) }))
     .filter(
       (
@@ -320,31 +356,33 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
           </p>
         </section>
 
-        <nav
-          aria-label={text.navLabel}
-          className="grid border-y border-[var(--border)] sm:grid-cols-2 lg:grid-cols-4 sm:divide-x sm:divide-[var(--border)]"
-        >
-          {text.collections.map((collection, index) => {
-            const Icon = collectionIcons[index];
-            return (
-              <a
-                key={collection.id}
-                href={`#${collection.id}`}
-                className="group flex min-h-24 items-center gap-4 border-b border-[var(--border)] px-1 py-5 transition-colors last:border-b-0 hover:text-[var(--primary)] sm:border-b-0 sm:px-6"
-              >
-                <Icon className="h-5 w-5 shrink-0 text-[var(--primary)]" />
-                <span>
-                  <span className="block text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--primary)]">
-                    {collection.title}
+        {publicSeries.length > 0 && (
+          <nav
+            aria-label={text.navLabel}
+            className={`grid border-y border-[var(--border)] sm:grid-cols-2 ${features.publicPreviewEnabled ? "" : "lg:grid-cols-4"} sm:divide-x sm:divide-[var(--border)]`}
+          >
+            {text.collections.map((collection, index) => {
+              const Icon = collectionIcons[index];
+              return (
+                <a
+                  key={collection.id}
+                  href={`#${collection.id}`}
+                  className="group flex min-h-24 items-center gap-4 border-b border-[var(--border)] px-1 py-5 transition-colors last:border-b-0 hover:text-[var(--primary)] sm:border-b-0 sm:px-6"
+                >
+                  <Icon className="h-5 w-5 shrink-0 text-[var(--primary)]" />
+                  <span>
+                    <span className="block text-sm font-semibold text-[var(--text-primary)] group-hover:text-[var(--primary)]">
+                      {collection.title}
+                    </span>
+                    <span className="mt-1 block text-xs text-[var(--text-tertiary)]">
+                      {collection.description}
+                    </span>
                   </span>
-                  <span className="mt-1 block text-xs text-[var(--text-tertiary)]">
-                    {collection.description}
-                  </span>
-                </span>
-              </a>
-            );
-          })}
-        </nav>
+                </a>
+              );
+            })}
+          </nav>
+        )}
 
         {releaseSeries && (
           <section id="essentials" className="scroll-mt-28 py-14 lg:py-20">
@@ -499,7 +537,7 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
           </section>
         )}
 
-        {features.classroomCoursesEnabled && (
+        {projectGuides && (
           <section
             id="project-guides"
             className="scroll-mt-28 border-t border-[var(--border)] py-12"
@@ -553,47 +591,62 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
           </section>
         )}
 
-        <section className="grid border-y border-[var(--border)] lg:grid-cols-2 lg:divide-x lg:divide-[var(--border)]">
-          <div id="deep-dives" className="scroll-mt-28 py-12 lg:pr-12">
-            <p className="text-xs font-semibold uppercase text-[var(--primary)]">
-              {text.deepDiveKicker}
-            </p>
-            <h2 className="mt-3 text-2xl font-semibold text-[var(--text-primary)]">
-              {text.deepDiveTitle}
+        {features.publicPreviewEnabled && publicSeries.length > 0 && (
+          <article className="mb-12 rounded-lg border border-[var(--border)] bg-[var(--bg-card)] p-6">
+            <h2 className="text-xl font-semibold text-[var(--text-secondary)]">
+              {resolvedLocale === "zh" ? "更多课程正在准备中。" : "More lessons are on the way."}
             </h2>
-            <p className="mt-4 max-w-xl text-sm leading-7 text-[var(--text-secondary)]">
-              {text.deepDiveBody}
+            <p className="mt-3 text-sm leading-7 text-[var(--text-tertiary)]">
+              {resolvedLocale === "zh"
+                ? "新课程将在完成技术与编辑审核后加入。"
+                : "New lessons will appear after technical and editorial review."}
             </p>
-            {developmentSeries[0] && (
+          </article>
+        )}
+
+        {!features.publicPreviewEnabled && (
+          <section className="grid border-y border-[var(--border)] lg:grid-cols-2 lg:divide-x lg:divide-[var(--border)]">
+            <div id="deep-dives" className="scroll-mt-28 py-12 lg:pr-12">
+              <p className="text-xs font-semibold uppercase text-[var(--primary)]">
+                {text.deepDiveKicker}
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold text-[var(--text-primary)]">
+                {text.deepDiveTitle}
+              </h2>
+              <p className="mt-4 max-w-xl text-sm leading-7 text-[var(--text-secondary)]">
+                {text.deepDiveBody}
+              </p>
+              {developmentSeries[0] && (
+                <Link
+                  href={`/classroom/${developmentSeries[0].id}`}
+                  className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--primary)] hover:text-[var(--primary-dark)]"
+                >
+                  {text.viewRoadmap}
+                  <ArrowRight className="h-4 w-4" />
+                </Link>
+              )}
+            </div>
+
+            <div id="openhw-library" className="scroll-mt-28 py-12 lg:pl-12">
+              <p className="text-xs font-semibold uppercase text-[var(--primary)]">
+                {text.libraryKicker}
+              </p>
+              <h2 className="mt-3 text-2xl font-semibold text-[var(--text-primary)]">
+                {text.libraryTitle}
+              </h2>
+              <p className="mt-4 max-w-xl text-sm leading-7 text-[var(--text-secondary)]">
+                {text.libraryBody}
+              </p>
               <Link
-                href={`/classroom/${developmentSeries[0].id}`}
+                href="/resources"
                 className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--primary)] hover:text-[var(--primary-dark)]"
               >
-                {text.viewRoadmap}
+                {text.browseResources}
                 <ArrowRight className="h-4 w-4" />
               </Link>
-            )}
-          </div>
-
-          <div id="openhw-library" className="scroll-mt-28 py-12 lg:pl-12">
-            <p className="text-xs font-semibold uppercase text-[var(--primary)]">
-              {text.libraryKicker}
-            </p>
-            <h2 className="mt-3 text-2xl font-semibold text-[var(--text-primary)]">
-              {text.libraryTitle}
-            </h2>
-            <p className="mt-4 max-w-xl text-sm leading-7 text-[var(--text-secondary)]">
-              {text.libraryBody}
-            </p>
-            <Link
-              href="/resources"
-              className="mt-6 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--primary)] hover:text-[var(--primary-dark)]"
-            >
-              {text.browseResources}
-              <ArrowRight className="h-4 w-4" />
-            </Link>
-          </div>
-        </section>
+            </div>
+          </section>
+        )}
 
         {prototypeEntries.length > 0 && (
           <section className="py-12 lg:py-16">
@@ -644,56 +697,66 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
             </p>
           </div>
 
-          <div className="mt-9 grid gap-8 lg:grid-cols-2 lg:divide-x lg:divide-[var(--border)]">
-            <div className="lg:pr-12">
-              <Mail className="h-5 w-5 text-[var(--primary)]" />
-              <h3 className="mt-4 text-lg font-semibold text-[var(--text-primary)]">
-                {text.subscribeTitle}
-              </h3>
-              <p className="mt-2 max-w-xl text-sm leading-7 text-[var(--text-secondary)]">
-                {text.subscribeBody}
-              </p>
-
-              {newsletterAction ? (
-                <form action={newsletterAction} method="post" className="mt-5 max-w-xl">
-                  <label
-                    htmlFor="learning-hub-email"
-                    className="text-xs font-semibold text-[var(--text-secondary)]"
-                  >
-                    {text.emailLabel}
-                  </label>
-                  <div className="mt-2 flex flex-col gap-3 sm:flex-row">
-                    <input
-                      id="learning-hub-email"
-                      name="email"
-                      type="email"
-                      autoComplete="email"
-                      required
-                      placeholder={text.emailPlaceholder}
-                      className="min-h-11 min-w-0 flex-1 border border-[var(--border)] bg-[var(--bg-card)] px-3 text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-tertiary)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20"
-                    />
-                    <button
-                      type="submit"
-                      className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 bg-[var(--primary)] px-5 text-sm font-semibold text-white transition-colors hover:bg-[var(--primary-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-dark)]"
-                    >
-                      {text.subscribeAction}
-                      <ArrowRight className="h-4 w-4" />
-                    </button>
-                  </div>
-                  <input type="hidden" name="embed" value="1" />
-                </form>
-              ) : (
-                <p className="mt-5 text-sm font-semibold text-[var(--text-tertiary)]">
-                  {text.subscriptionsSoon}
+          <div
+            className={`mt-9 grid gap-8 ${features.publicPreviewEnabled ? "max-w-2xl" : "lg:grid-cols-2 lg:divide-x lg:divide-[var(--border)]"}`}
+          >
+            {!features.publicPreviewEnabled && (
+              <div className="lg:pr-12">
+                <Mail className="h-5 w-5 text-[var(--primary)]" />
+                <h3 className="mt-4 text-lg font-semibold text-[var(--text-primary)]">
+                  {text.subscribeTitle}
+                </h3>
+                <p className="mt-2 max-w-xl text-sm leading-7 text-[var(--text-secondary)]">
+                  {text.subscribeBody}
                 </p>
-              )}
 
-              <p className="mt-3 max-w-xl text-xs leading-5 text-[var(--text-tertiary)]">
-                {text.subscribeNote}
-              </p>
-            </div>
+                {newsletterAction ? (
+                  <form action={newsletterAction} method="post" className="mt-5 max-w-xl">
+                    <label
+                      htmlFor="learning-hub-email"
+                      className="text-xs font-semibold text-[var(--text-secondary)]"
+                    >
+                      {text.emailLabel}
+                    </label>
+                    <div className="mt-2 flex flex-col gap-3 sm:flex-row">
+                      <input
+                        id="learning-hub-email"
+                        name="email"
+                        type="email"
+                        autoComplete="email"
+                        required
+                        placeholder={text.emailPlaceholder}
+                        className="min-h-11 min-w-0 flex-1 border border-[var(--border)] bg-[var(--bg-card)] px-3 text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-tertiary)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20"
+                      />
+                      <button
+                        type="submit"
+                        className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 bg-[var(--primary)] px-5 text-sm font-semibold text-white transition-colors hover:bg-[var(--primary-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-dark)]"
+                      >
+                        {text.subscribeAction}
+                        <ArrowRight className="h-4 w-4" />
+                      </button>
+                    </div>
+                    <input type="hidden" name="embed" value="1" />
+                  </form>
+                ) : (
+                  <p className="mt-5 text-sm font-semibold text-[var(--text-tertiary)]">
+                    {text.subscriptionsSoon}
+                  </p>
+                )}
 
-            <div className="border-t border-[var(--border)] pt-8 lg:border-t-0 lg:pl-12 lg:pt-0">
+                <p className="mt-3 max-w-xl text-xs leading-5 text-[var(--text-tertiary)]">
+                  {text.subscribeNote}
+                </p>
+              </div>
+            )}
+
+            <div
+              className={
+                features.publicPreviewEnabled
+                  ? ""
+                  : "border-t border-[var(--border)] pt-8 lg:border-t-0 lg:pl-12 lg:pt-0"
+              }
+            >
               <MessageSquareText className="h-5 w-5 text-[var(--primary)]" />
               <h3 className="mt-4 text-lg font-semibold text-[var(--text-primary)]">
                 {text.requestTitle}

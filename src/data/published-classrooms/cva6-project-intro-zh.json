@@ -559,7 +559,7 @@
           {
             "id": "cva6-tier-ci",
             "title": "CVA6 tier CI",
-            "url": "https://openhwgroup.github.io/cva6/",
+            "url": "https://openhwfoundation.github.io/cva6/",
             "locator": "Dashboard run and configuration information",
             "claimSupported": "An entry point to inspect CI evidence; results must be read in the context of commit, target, simulator and tests."
           },

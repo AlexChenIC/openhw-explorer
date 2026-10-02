@@ -28,3 +28,7 @@ each governed by their own license terms:
 Repository data sourced from GitHub API under GitHub's Terms of Service.
 Project descriptions and metadata are attributed to their respective
 upstream repositories and organizations.
+
+Full bundled software and font license/copyright notices are included in
+public/third-party-notices.txt and linked from the website Licensing page.
+Regenerate after dependency changes with npm run build:third-party-notices.

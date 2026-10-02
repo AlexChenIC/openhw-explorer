@@ -1,3 +1,5 @@
+import { redirect } from "next/navigation";
+import { features } from "@/lib/features";
 import type { Metadata } from "next";
 import { setRequestLocale } from "next-intl/server";
 import { Footer } from "@/components/Footer";
@@ -25,6 +27,7 @@ type IndustryPageProps = {
 export async function generateMetadata({ params }: IndustryPageProps): Promise<Metadata> {
   const { locale } = await params;
   const resolvedLocale = locale === "zh" ? "zh" : "en";
+  if (!features.industryLandscapeEnabled) return { robots: { index: false, follow: true } };
   const copy = metadataCopy[resolvedLocale];
 
   return {
@@ -42,6 +45,7 @@ export async function generateMetadata({ params }: IndustryPageProps): Promise<M
 
 export default async function IndustryPage({ params }: IndustryPageProps) {
   const { locale } = await params;
+  if (!features.industryLandscapeEnabled) redirect(`/${locale === "zh" ? "zh" : "en"}/resources`);
   setRequestLocale(locale);
 
   return (

@@ -44,7 +44,7 @@ describe("CVA6 project guide demo", () => {
       for (const scene of classroom.scenes) {
         expect(scene.content.sourceAnchors?.length).toBeGreaterThan(0);
         for (const anchor of scene.content.sourceAnchors || []) {
-          expect(anchor.url).toMatch(/^https:\/\/(github\.com|openhwgroup\.github\.io)\//);
+          expect(anchor.url).toMatch(/^https:\/\/(github\.com|openhwfoundation\.github\.io)\//);
           expect(anchor.locator).toBeTruthy();
           expect(anchor.claimSupported).toBeTruthy();
         }

@@ -127,7 +127,7 @@
     "cards": {
       "classroom": {
         "title": "OpenHW 学习中心",
-        "description": "从五节聚焦短课开始，再进入原创深度课和精选 OpenHW 学习资料。",
+        "description": "从 OpenHW Foundation、CORE-V 命名和 CVA6 项目导览三个中英文学习体验开始。",
         "cta": "进入学习中心"
       },
       "pathway": {
@@ -149,12 +149,15 @@
   },
   "footer": {
     "openHWGitHub": "OpenHW GitHub",
-    "officialWebsite": "官方网站",
+    "officialWebsite": "OpenHW Foundation 网站",
     "documentation": "文档中心",
     "linkedin": "LinkedIn",
     "licensing": "许可说明",
     "linksLabel": "项目与 OpenHW 链接",
-    "creatorName": "Alex Chen"
+    "creatorName": "Alex Chen",
+    "independent": "OpenHW Explorer 是独立社区项目，并非 OpenHW Foundation 官方网站。",
+    "feedback": "反馈 ↗",
+    "projectGithub": "项目 GitHub"
   },
   "projectDetail": {
     "home": "首页",
@@ -294,7 +297,7 @@
     },
     "disclaimer": {
       "title": "独立项目",
-      "content": "OpenHW Explorer 与 OpenHW Foundation 及其成员组织没有官方隶属、背书或赞助关系。站内项目信息依据公开来源整理，在核对后仍可能发生变化；权威信息请以项目官方仓库和 OpenHW 官方文档为准。"
+      "content": "OpenHW Explorer 由创建者独立维护，并非 OpenHW Foundation 官方产品，也不代表该组织或其成员的背书。站内信息依据公开来源整理，核查后仍可能发生变化；权威信息请以官方项目仓库和文档为准。"
     },
     "approach": {
       "eyebrow": "整理方式",
@@ -315,8 +318,8 @@
     },
     "author": {
       "eyebrow": "维护者",
-      "title": "由 Alex Chen 维护",
-      "bio": "Alex Chen 在参与 OpenHW 生态相关工作的同时，独立维护 OpenHW Explorer。这个项目源于一个实际需求：把公开的项目信息整理清楚，依据一手来源核对重要判断，并让 OpenHW 与 RISC-V 资料更容易被找到和理解。",
+      "title": "由 Junchao Chen（Alex Chen）创建并维护",
+      "bio": "在 OpenHW Foundation 工作的同时，独立维护本项目。",
       "connectLinkedIn": "在 LinkedIn 联系"
     },
     "privacy": {

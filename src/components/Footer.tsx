@@ -27,6 +27,23 @@ export function Footer() {
                 <span>{t("licensing")}</span>
               </Link>
               <a
+                href={externalLinks.projectGithub}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center gap-1.5 text-[13px] text-[var(--text-secondary)] hover:text-[var(--primary)]"
+              >
+                <Github className="h-4 w-4" />
+                {t("projectGithub")}
+              </a>
+              <a
+                href={externalLinks.feedbackChooser}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex min-h-11 items-center text-[13px] text-[var(--text-secondary)] hover:text-[var(--primary)]"
+              >
+                {t("feedback")}
+              </a>
+              <a
                 href={externalLinks.github}
                 target="_blank"
                 rel="noopener noreferrer"
@@ -72,6 +89,9 @@ export function Footer() {
             </a>
           </div>
         </div>
+        <p className="mt-4 max-w-3xl text-xs leading-6 text-[var(--text-tertiary)]">
+          {t("independent")}
+        </p>
       </div>
     </footer>
   );

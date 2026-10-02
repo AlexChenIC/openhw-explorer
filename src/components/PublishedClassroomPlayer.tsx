@@ -13,7 +13,6 @@ import {
   ListChecks,
   Maximize2,
   Minimize2,
-  PlayCircle,
 } from "lucide-react";
 import type {
   PublishedClassroom,
@@ -606,11 +605,11 @@ export function PublishedClassroomPlayer({
           <span className="hidden h-4 w-px bg-[var(--border)] sm:block" />
           <span>{scene.title}</span>
         </div>
-        <div className="flex items-center gap-2">
+        <div className="flex flex-wrap items-center gap-2">
           <button
             type="button"
             onClick={toggleFullscreen}
-            className="inline-flex items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--bg-card)] px-3 py-2 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:bg-[var(--bg-card-hover)]"
+            className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--bg-card)] px-3 py-2 text-sm font-semibold text-[var(--text-primary)] transition-colors hover:bg-[var(--bg-card-hover)]"
           >
             {isFullscreen ? <Minimize2 className="h-4 w-4" /> : <Maximize2 className="h-4 w-4" />}
             {isFullscreen ? (zh ? "退出全屏" : "Exit") : zh ? "全屏" : "Fullscreen"}
@@ -619,7 +618,7 @@ export function PublishedClassroomPlayer({
             type="button"
             onClick={() => setSceneIndex((value) => Math.max(0, value - 1))}
             disabled={sceneIndex === 0}
-            className="inline-flex items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--bg-card)] px-3 py-2 text-sm font-semibold text-[var(--text-primary)] disabled:cursor-not-allowed disabled:opacity-40"
+            className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-lg border border-[var(--border)] bg-[var(--bg-card)] px-3 py-2 text-sm font-semibold text-[var(--text-primary)] disabled:cursor-not-allowed disabled:opacity-40"
           >
             <ChevronLeft className="h-4 w-4" />
             {zh ? "上一页" : "Prev"}
@@ -628,7 +627,7 @@ export function PublishedClassroomPlayer({
             type="button"
             onClick={() => setSceneIndex((value) => Math.min(scenes.length - 1, value + 1))}
             disabled={sceneIndex === scenes.length - 1}
-            className="inline-flex items-center gap-2 rounded-lg bg-[var(--primary)] px-3 py-2 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-40"
+            className="inline-flex min-h-11 shrink-0 items-center gap-2 rounded-lg bg-[var(--primary)] px-3 py-2 text-sm font-semibold text-white disabled:cursor-not-allowed disabled:opacity-40"
           >
             {zh ? "下一页" : "Next"}
             <ChevronRight className="h-4 w-4" />
@@ -709,15 +708,13 @@ export function PublishedClassroomPlayer({
                 ? zh
                   ? "练习"
                   : "Quiz"
-                : isProjectGuide
-                  ? scene.type === "interactive"
-                    ? zh
-                      ? "交互"
-                      : "Interactive"
-                    : zh
-                      ? "讲解"
-                      : "Explanation"
-                  : scene.content.slot || "slide"}
+                : scene.type === "interactive"
+                  ? zh
+                    ? "交互"
+                    : "Interactive"
+                  : zh
+                    ? "讲解"
+                    : "Explanation"}
             </div>
           </div>
 
@@ -751,15 +748,6 @@ export function PublishedClassroomPlayer({
                 ))}
               </div>
             </details>
-          )}
-
-          {!isProjectGuide && (
-            <div className="mt-4 flex items-center gap-2 rounded-xl border border-[var(--primary)]/20 bg-[var(--primary)]/10 p-3 text-xs leading-5 text-slate-700">
-              <PlayCircle className="h-4 w-4 flex-none text-[var(--primary)]" />
-              {zh
-                ? "这是 OpenHW Explorer 内置发布播放器，用于公开页面稳定播放。"
-                : "This is the built-in OpenHW Explorer player for stable public playback."}
-            </div>
           )}
         </aside>
       </div>

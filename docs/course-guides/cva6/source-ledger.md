@@ -76,6 +76,6 @@ Checked 2026-09-13. Parameter examples are pinned to CVA6 commit `49b5fa9e2f5a80
 
 ## CVA6 tier CI
 
-- Source: https://openhwgroup.github.io/cva6/
+- Source: https://openhwfoundation.github.io/cva6/
 - Locator: Dashboard run and configuration information
 - Supports: An entry point to inspect CI evidence; results must be read in the context of commit, target, simulator and tests.

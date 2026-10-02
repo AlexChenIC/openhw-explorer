@@ -1,5 +1,6 @@
 import type { MetadataRoute } from "next";
-import { getFeaturedClassroomSeries, hasPublishedLesson } from "@/data/classrooms";
+import { hasPublishedLesson } from "@/data/classrooms";
+import { getPublicClassroomSeries } from "@/data/classroom-publication";
 import { projects } from "@/data/projects";
 import { features } from "@/lib/features";
 import { SITE_URL } from "@/lib/site-url";
@@ -39,12 +40,16 @@ export default function sitemap(): MetadataRoute.Sitemap {
       changeFrequency: "weekly" as const,
       priority: 0.8,
     },
-    {
-      url: `${SITE_URL}/${locale}/resources/industry`,
-      lastModified: new Date(),
-      changeFrequency: "monthly" as const,
-      priority: 0.6,
-    },
+    ...(features.industryLandscapeEnabled
+      ? [
+          {
+            url: `${SITE_URL}/${locale}/resources/industry`,
+            lastModified: new Date(),
+            changeFrequency: "monthly" as const,
+            priority: 0.6,
+          },
+        ]
+      : []),
     ...(features.newsEnabled
       ? [
           {
@@ -57,24 +62,26 @@ export default function sitemap(): MetadataRoute.Sitemap {
       : []),
   ]);
 
-  const classroomPages = getFeaturedClassroomSeries().flatMap((series) =>
-    locales.flatMap((locale) => [
-      {
-        url: `${SITE_URL}/${locale}/classroom/${series.id}`,
-        lastModified: new Date(),
-        changeFrequency: "weekly" as const,
-        priority: 0.7,
-      },
-      ...series.lessons
-        .filter((lesson) => lesson.status === "published" && hasPublishedLesson(lesson))
-        .map((lesson) => ({
-          url: `${SITE_URL}/${locale}/classroom/${series.id}/${lesson.id}`,
+  const classroomPages = getPublicClassroomSeries()
+    .filter((series) => series.visibility === "featured")
+    .flatMap((series) =>
+      locales.flatMap((locale) => [
+        {
+          url: `${SITE_URL}/${locale}/classroom/${series.id}`,
           lastModified: new Date(),
           changeFrequency: "weekly" as const,
-          priority: 0.6,
-        })),
-    ]),
-  );
+          priority: 0.7,
+        },
+        ...series.lessons
+          .filter((lesson) => lesson.status === "published" && hasPublishedLesson(lesson))
+          .map((lesson) => ({
+            url: `${SITE_URL}/${locale}/classroom/${series.id}/${lesson.id}`,
+            lastModified: new Date(),
+            changeFrequency: "weekly" as const,
+            priority: 0.6,
+          })),
+      ]),
+    );
 
   // Project detail pages
   const projectPages = projects.flatMap((project) =>

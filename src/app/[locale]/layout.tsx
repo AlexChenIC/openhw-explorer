@@ -19,13 +19,13 @@ const inter = Inter({
 });
 
 const SITE_DESCRIPTION = {
-  en: "A community-friendly navigator to explore the OpenHW Foundation's open-source RISC-V hardware IP projects, documentation, and tools.",
-  zh: "一个社区构建的 OpenHW Foundation 开源 RISC-V 硬件 IP 项目导航站，涵盖处理器核心、验证工具、SoC 平台与学习资源。",
+  en: "An independent community navigator to explore the OpenHW Foundation's open-source RISC-V hardware IP projects, documentation, and tools.",
+  zh: "一个独立社区项目，为 OpenHW Foundation 开源 RISC-V 硬件 IP 项目导航站，涵盖处理器核心、验证工具、SoC 平台与学习资源。",
 } as const;
 
 const OG_DESCRIPTION = {
-  en: "Explore OpenHW open-source RISC-V projects. Browse processor cores, verification tools, SoC platforms, and more.",
-  zh: "浏览 OpenHW 开源 RISC-V 项目：处理器核心、验证工具、SoC 平台等。",
+  en: "An independent community guide to OpenHW open-source RISC-V projects. Browse processor cores, verification tools, SoC platforms, and more.",
+  zh: "独立社区导航，浏览 OpenHW 开源 RISC-V 项目：处理器核心、验证工具、SoC 平台等。",
 } as const;
 
 type Props = {
