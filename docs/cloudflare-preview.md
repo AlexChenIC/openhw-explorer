@@ -12,6 +12,7 @@ account. No credentials belong in this repository.
 
 ```sh
 npm ci
+npm run typecheck:cloudflare
 npm run build:vinext
 npm run start:vinext
 # After checking the local preview:
@@ -34,6 +35,9 @@ npm run lint
 npm run check:data-quality
 npm run build
 ```
+
+The Cloudflare entry and generated platform declarations use a separate TypeScript
+configuration, so a fresh Next.js checkout does not require generated Worker types.
 
 ## Runtime choices
 

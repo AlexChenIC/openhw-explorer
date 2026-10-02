@@ -36,6 +36,9 @@
     ".next/dev/types/**/*.ts"
   ],
   "exclude": [
-    "node_modules"
+    "node_modules",
+    "cloudflare-worker.ts",
+    "cloudflare-env.d.ts",
+    "vite.config.ts"
   ]
 }
