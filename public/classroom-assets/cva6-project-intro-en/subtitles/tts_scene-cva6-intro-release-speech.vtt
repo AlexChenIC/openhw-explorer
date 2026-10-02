@@ -1,0 +1,38 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.893
+Here is a concrete maturity statement.
+
+2
+00:00:02.893 --> 00:00:13.093
+The April twenty-third, twenty twenty-five release is explicitly a CV32A60X configuration release for technology readiness level five.
+
+3
+00:00:13.093 --> 00:00:23.445
+Its scope includes an OBI interface, no caches, no physical memory protection entries, and a disabled instruction-fetch fence extension.
+
+4
+00:00:23.445 --> 00:00:28.089
+The release also describes improvements to coverage and lint.
+
+5
+00:00:28.089 --> 00:00:31.819
+Preserve that whole scope when citing the result.
+
+6
+00:00:31.819 --> 00:00:37.832
+The package comparison earlier in this course uses a different source snapshot.
+
+7
+00:00:37.832 --> 00:00:45.749
+The same configuration name on another branch does not automatically carry the release evidence forward.
+
+8
+00:00:45.749 --> 00:00:51.839
+If you add features or change integration, identify what must be verified again.
+
+9
+00:00:51.839 --> 00:00:57.700
+Safety certification is a separate assessment with its own required evidence.
+

@@ -1,22 +1,30 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:04.848
-CVA6 is a configurable RISC-V processor code base, not one fixed chip.
+00:00:00.000 --> 00:00:06.275
+Suppose your team is choosing a processor for an embedded controller or a Linux host.
 
 2
-00:00:04.848 --> 00:00:09.972
-Its family includes both embedded and application-oriented configurations.
+00:00:06.275 --> 00:00:08.712
+Someone says, “CVA6 supports it.”
 
 3
-00:00:09.972 --> 00:00:19.114
-To evaluate it, separate three questions: what the core does, which configuration you selected, and what surrounds it in the system.
+00:00:08.712 --> 00:00:10.631
+What would you check next?
 
 4
-00:00:19.114 --> 00:00:27.909
-We will compare actual parameter files, follow the main data path, and identify where platform software and verification enter.
+00:00:10.631 --> 00:00:14.101
+CVA6 is a configurable RISC-V processor family.
 
 5
-00:00:27.909 --> 00:00:33.380
-You can then choose a useful next source without reading the entire repository.
+00:00:14.101 --> 00:00:22.665
+Its name alone does not select the instruction set features, memory system or maturity level of your implementation.
+
+6
+00:00:22.665 --> 00:00:33.813
+In this guide, we will read three real configurations, follow a short execution example, and connect software and application claims to their evidence.
+
+7
+00:00:33.813 --> 00:00:43.780
+By the end, you should be able to write a useful evaluation statement: which configuration, in which system, supported by which result.
 

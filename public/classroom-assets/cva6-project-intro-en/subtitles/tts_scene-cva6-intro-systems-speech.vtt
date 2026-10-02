@@ -1,0 +1,26 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:11.152
+For an embedded task, begin with the software port: its instruction set, calling convention, interrupt handling and board support must match your hardware.
+
+2
+00:00:11.152 --> 00:00:19.929
+A concrete example is the ThreadX release published on June eighth, twenty twenty-six, which adds support for 32-bit CVA6.
+
+3
+00:00:19.929 --> 00:00:24.533
+Its tag contains February, but that is not its publication date.
+
+4
+00:00:24.533 --> 00:00:33.023
+For a Linux host, select suitable core facilities and integrate memory, boot firmware, the kernel and the device tree.
+
+5
+00:00:33.023 --> 00:00:39.642
+The CVA6 SDK and the separately maintained Cheshire platform provide useful starting points.
+
+6
+00:00:39.642 --> 00:00:47.700
+In either path, a software support statement becomes actionable when it names a compatible platform and version.
+

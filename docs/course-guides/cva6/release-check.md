@@ -1,18 +1,20 @@
-# CVA6 project guide demo: release check
+# CVA6 project guide v2: release check
 
-Date: 2026-09-13. This is an explicitly labelled demo requested for public evaluation, not a completed long-form CVA6 curriculum.
+Date: 2026-10-02. Status: **Demo / review-ready**. This revision replaces the 2026-09-13 nine-scene guide.
 
 ## Checked
 
-- Thirteen public sources, including three configuration packages pinned to CVA6 `49b5fa9e2f5a803cd52f8430d8e8818089e68865` and the derived issue-port relation.
-- Bilingual scene order, source anchors and three multiple-choice answers agree.
-- Nine scenes and nine narration/caption tracks in each language. No private Drive files or access-controlled links are distributed.
-- Local package validation, site tests, lint, data-quality checks and production build.
-- Desktop/mobile course, project and Learning Hub routes; configuration selection by keyboard; quiz feedback; language switching; audio playback and caption delivery.
-- Retired prototypes remain unregistered; demo routes are excluded from the sitemap and marked `noindex`.
+- Configuration source pinned to CVA6 `81245a47fad8fe1a5d562d953ef2662e099def76`; effective issue and commit widths traced through `build_config`.
+- CV32A60X TRL5 evidence separately pinned to `cv32a60x-v6.0.0` / `b1f80bd7cff3a94e5191aad96dc3a22f87d0a517`, with its configuration restrictions stated.
+- Twelve aligned scenes, two interactive activities, four questions and twelve narration/caption pairs per language.
+- Public primary-source ledger and original teaching visuals; no private source files or access-controlled links distributed.
+- 57 education tests and 79 site tests pass. Site lint, data-quality checks, TypeScript and production build pass.
+- Both language editions checked at desktop and mobile widths; configuration and evidence interactions, quiz feedback, source display and locale switching exercised.
+- All 48 media assets served correctly and matched exported hashes. English and Mandarin production-build audio playback verified locally.
+- Demo routes remain excluded from the sitemap and marked `noindex`.
 
-## Audio and remaining approval
+See [PRODUCTION-AUDIT.md](./PRODUCTION-AUDIT.md) for exact checks and limits, [audio-manifest.json](./audio-manifest.json) for final media digests, and [TTS-PROVENANCE.md](./TTS-PROVENANCE.md) for synthesis provenance.
 
-English uses the existing Qwen3-TTS MLX Aiden voice; Chinese uses the existing CosyVoice3 synthetic lecturer. Local ASR spot checks and full-clip transcript comparisons supplement, but do not replace, listening by a human. Caption timestamps are sentence-length-weighted estimates within the measured clip duration, not forced alignment.
+## Remaining approval
 
-Alex's editorial review, full listening review and decision on expanding the format are pending. No hardware simulation, performance measurement, qualification or upstream test execution is claimed.
+Human technical/editorial review, full listening and subtitle readability/timing acceptance are pending; see [review-checklist.md](./review-checklist.md). ASR and signal measurements support this review but do not replace it. Caption timing is duration-weighted, not word-level forced alignment. No CPU simulation, performance measurement, qualification or upstream test execution is claimed. The public production site has not been updated by this task.

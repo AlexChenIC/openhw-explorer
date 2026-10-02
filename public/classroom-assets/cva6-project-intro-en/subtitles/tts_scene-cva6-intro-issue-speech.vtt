@@ -1,30 +1,34 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:03.323
-Consider a load followed by an independent add.
+00:00:00.000 --> 00:00:03.989
+Consider a load followed by an independent addition.
 
 2
-00:00:03.323 --> 00:00:07.211
-If memory is slow, the add may return its result first.
+00:00:03.989 --> 00:00:09.282
+The load issues first, but memory may take several cycles to respond.
 
 3
-00:00:07.211 --> 00:00:11.170
-That does not make CVA6 an out-of-order-issue processor.
+00:00:09.282 --> 00:00:18.027
+If operands and resources are ready, the later addition can issue and return its result before the load completes.
 
 4
-00:00:11.170 --> 00:00:17.744
-The scoreboard tracks each outstanding instruction, and commit preserves architectural order.
+00:00:18.027 --> 00:00:22.553
+The scoreboard associates each result with its instruction.
 
 5
-00:00:17.744 --> 00:00:22.905
-Dependencies, occupied units and memory delays can all reduce throughput.
+00:00:22.553 --> 00:00:30.915
+Retirement preserves program order, so a result becoming available is different from an instruction retiring.
 
 6
-00:00:22.905 --> 00:00:29.196
-Likewise, two issue ports are a structural capability, not a guaranteed instruction rate.
+00:00:30.915 --> 00:00:36.514
+This is why ordered issue and differently ordered completion can coexist.
 
 7
-00:00:29.196 --> 00:00:35.700
-Keep issue width, result completion and retirement separate when reading performance claims.
+00:00:36.514 --> 00:00:42.728
+Now apply the same care to performance: two issue ports describe available width.
+
+8
+00:00:42.728 --> 00:00:51.780
+Dependencies, resource conflicts, branches and memory delays determine how much of that width a real workload can use.
 

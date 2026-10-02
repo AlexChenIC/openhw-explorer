@@ -28,7 +28,7 @@ describe("Summit Public Preview publication boundary", () => {
     expect(series.flatMap((item) => item.lessons.map((lesson) => lesson.title.en))).toEqual([
       "What is the OpenHW Foundation?",
       "How to read CORE-V core names",
-      "CVA6: From Core to System",
+      "CVA6: Capabilities, Systems and Evidence",
     ]);
     expect(series[0].units).toHaveLength(2);
     expect(series[1].lessons[0].status).toBe("demo");

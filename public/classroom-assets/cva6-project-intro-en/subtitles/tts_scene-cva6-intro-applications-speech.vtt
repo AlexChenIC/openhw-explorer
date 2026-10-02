@@ -1,0 +1,26 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.839
+Four examples show different roles.
+
+2
+00:00:02.839 --> 00:00:18.978
+The TRISTAN project describes a Bosch industrial radar and artificial intelligence demonstration using customized CVA6 and acceleration, while future integration and certification remain exploratory.
+
+3
+00:00:18.978 --> 00:00:29.196
+Thales presented ASTRAL as an experimental, space-oriented system with multiple CVA6 cores, OpenTitan and vector acceleration.
+
+4
+00:00:29.196 --> 00:00:44.524
+Basilisk provides a different kind of evidence: a Linux-capable CVA6 and Cheshire system, made with an open design flow on a one-hundred-thirty-nanometer process, with silicon measurements.
+
+5
+00:00:44.524 --> 00:00:52.715
+In Occamy, CVA6 is the Linux-capable manager; the many-core compute accelerator uses Snitch clusters.
+
+6
+00:00:52.715 --> 00:01:00.420
+For each case, carry both the processor’s role and the demonstrated stage into your evaluation.
+

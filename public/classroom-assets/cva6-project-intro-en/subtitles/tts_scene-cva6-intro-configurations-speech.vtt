@@ -1,30 +1,34 @@
 WEBVTT
 
 1
-00:00:00.000 --> 00:00:02.950
-Compare the three source snapshots.
+00:00:00.000 --> 00:00:04.113
+Select each configuration and compare the values.
 
 2
-00:00:02.950 --> 00:00:07.165
-CV32A60X has one issue port; CV32A65X enables two.
+00:00:04.113 --> 00:00:15.528
+In this source snapshot, both 32-bit examples disable the memory management unit, supervisor and user modes, atomics and floating point.
 
 3
-00:00:07.165 --> 00:00:13.486
-Both are 32-bit configurations without an MMU or supervisor and user modes.
+00:00:15.528 --> 00:00:22.159
+Their issue widths differ: CV32A60X has one issue port, while CV32A65X has two.
 
 4
-00:00:13.486 --> 00:00:23.601
-The selected 64-bit example enables those facilities, plus atomic and floating-point extensions, but has one issue port.
+00:00:22.159 --> 00:00:28.034
+The 64-bit example enables the listed application-oriented facilities.
 
 5
-00:00:23.601 --> 00:00:27.562
-A family name does not determine every feature.
+00:00:28.034 --> 00:00:31.811
+Notice that commit width is a separate value.
 
 6
-00:00:27.562 --> 00:00:33.547
-These are concrete parameter packages, not an exhaustive product table.
+00:00:31.811 --> 00:00:41.044
+The configuration builder can override a raw package field: it gives the superscalar example two commit ports.
 
 7
-00:00:33.547 --> 00:00:39.700
-Select each configuration and follow its source link to check the values.
+00:00:41.044 --> 00:00:47.339
+Always read the selected package together with derived configuration logic.
+
+8
+00:00:47.339 --> 00:00:56.740
+These are source-level capability limits; actual instruction throughput still depends on the program and stalls.
 
