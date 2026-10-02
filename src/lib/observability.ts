@@ -24,6 +24,7 @@ function sanitizePayload(payload?: TrackPayload): Record<string, TrackValue> | u
 }
 
 export function trackEvent(eventName: string, payload?: TrackPayload) {
+  if (process.env.NEXT_PUBLIC_VERCEL_ANALYTICS === "0") return;
   if (typeof window === "undefined") return;
 
   try {
