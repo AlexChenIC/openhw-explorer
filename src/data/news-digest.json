@@ -1,17 +1,17 @@
 {
-  "weekOf": "2026-09-30",
-  "generatedAt": "2026-09-30T03:50:12.908Z",
+  "weekOf": "2026-10-02",
+  "generatedAt": "2026-10-02T00:36:46.934Z",
   "stats": {
-    "totalRelevant": 132,
+    "totalRelevant": 134,
     "totalSources": 43,
     "topTags": [
       {
-        "tag": "RISC-V",
+        "tag": "EDA",
         "count": 44
       },
       {
-        "tag": "EDA",
-        "count": 42
+        "tag": "RISC-V",
+        "count": 44
       },
       {
         "tag": "Security",
@@ -23,7 +23,7 @@
       },
       {
         "tag": "Verification",
-        "count": 29
+        "count": 30
       }
     ]
   },
@@ -35,7 +35,7 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 40,
+      "count": 42,
       "items": [
         {
           "title": "Caliptra runtime/FMC 1.3.0 adds MLDSA post-quantum support",
@@ -1099,6 +1099,57 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "CIRCT firtool 1.161.0 expands AXI4, SystemVerilog, and ImportVerilog support",
+      "url": "https://github.com/llvm/circt/releases/tag/firtool-1.161.0",
+      "source": "LLVM / CIRCT (GitHub)",
+      "publishedAt": "2026-10-01",
+      "addedAt": "2026-10-02T00:36:17Z",
+      "summary": "LLVM CIRCT published firtool 1.161.0 with a dense set of hardware-compiler changes. The release adds AXI4 cut and clock-domain-crossing operations, core SystemVerilog net and var type support, MOS switch primitive handling in ImportVerilog, FIRRTL optimizer preservation for register initial values, PyCDE type-alias fixes, and ESI channel updates.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "CIRCT",
+        "firtool",
+        "LLVM",
+        "EDA",
+        "SystemVerilog",
+        "FIRRTL",
+        "AXI4",
+        "ImportVerilog"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "CIRCT firtool 1.161.0 扩展 AXI4、SystemVerilog 与 ImportVerilog 支持",
+      "summaryZh": "LLVM CIRCT 发布 firtool 1.161.0，包含一组密集的硬件编译器更新。该版本新增 AXI4 cut 与 clock-domain-crossing 操作、SystemVerilog net/var 核心类型支持、ImportVerilog 对 MOS switch primitive 的处理、FIRRTL 优化器对寄存器初值的保留、PyCDE type alias 修复以及 ESI channel 更新。"
+    },
+    {
+      "title": "Chisel 7.16.0 adds Cat literal preservation and a chiseltest verify reimplementation",
+      "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.16.0",
+      "source": "CHIPS Alliance / Chisel (GitHub)",
+      "publishedAt": "2026-10-01",
+      "addedAt": "2026-10-02T00:36:17Z",
+      "summary": "CHIPS Alliance released Chisel 7.16.0 with HDL authoring and verification improvements. The release preserves literals in Cat, adds a basic reimplementation of chiseltest's verify function, fixes Scala 2 public constructor vals and DynamicContext leakage on exceptions, improves hardware connection diagnostics, and updates the bundled CIRCT dependency through firtool 1.160.0.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Chisel",
+        "CHIPS Alliance",
+        "HDL",
+        "Verification",
+        "Scala",
+        "CIRCT",
+        "EDA"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Chisel 7.16.0 新增 Cat literal 保留与 chiseltest verify 重实现",
+      "summaryZh": "CHIPS Alliance 发布 Chisel 7.16.0，带来 HDL 编写与验证改进。该版本在 Cat 中保留 literal，加入 chiseltest verify 函数的基础重实现，修复 Scala 2 public constructor vals 与异常路径中的 DynamicContext 泄漏，改进硬件连接诊断，并将捆绑的 CIRCT 依赖更新到 firtool 1.160.0。"
     },
     {
       "title": "Caliptra firmware 2.1.3 tightens runtime security, cryptography, and recovery flows",
