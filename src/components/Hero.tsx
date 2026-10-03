@@ -1,6 +1,6 @@
 "use client";
 
-import { Compass, GraduationCap, Search } from "lucide-react";
+import { ArrowRight, BookOpenText, Compass, GraduationCap, Newspaper, Search } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/lib/routing";
 import { trackEvent } from "@/lib/observability";
@@ -85,25 +85,54 @@ export function Hero() {
         </p>
 
         {/* CTA Buttons */}
-        <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
-          <a
-            href="#projects"
-            onClick={() => trackEvent("hero_cta_clicked", { target: "projects" })}
-            className="flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3.5 rounded-lg bg-[var(--primary)] hover:bg-[var(--primary-dark)] transition-all shadow-lg shadow-[var(--primary)]/20 hover:shadow-xl hover:shadow-[var(--primary)]/30"
+        <div className="flex w-full flex-col items-center gap-3 sm:w-auto sm:gap-4">
+          <div className="flex flex-col sm:flex-row items-center gap-3 sm:gap-4 w-full sm:w-auto">
+            <a
+              href="#projects"
+              onClick={() => trackEvent("hero_cta_clicked", { target: "projects" })}
+              className="flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3.5 rounded-lg bg-[var(--primary)] hover:bg-[var(--primary-dark)] transition-all shadow-lg shadow-[var(--primary)]/20 hover:shadow-xl hover:shadow-[var(--primary)]/30"
+            >
+              <Search className="w-[18px] h-[18px] text-white" />
+              <span className="text-white text-base font-semibold">{t("exploreProjects")}</span>
+            </a>
+            <Link
+              href="/classroom"
+              onClick={() => trackEvent("hero_cta_clicked", { target: "classroom" })}
+              className="flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3.5 rounded-lg border border-[var(--border)] hover:bg-[var(--bg-card)] hover:border-[var(--text-tertiary)] transition-all backdrop-blur-sm"
+            >
+              <GraduationCap className="w-[18px] h-[18px] text-[var(--text-primary)]" />
+              <span className="text-[var(--text-primary)] text-base font-semibold">
+                {t("startLearning")}
+              </span>
+            </Link>
+          </div>
+          <nav
+            aria-label={t("moreLinks")}
+            className="flex flex-wrap items-center justify-center gap-x-6 gap-y-1 sm:gap-x-8"
           >
-            <Search className="w-[18px] h-[18px] text-white" />
-            <span className="text-white text-base font-semibold">{t("exploreProjects")}</span>
-          </a>
-          <Link
-            href="/classroom"
-            onClick={() => trackEvent("hero_cta_clicked", { target: "classroom" })}
-            className="flex items-center justify-center gap-2 w-full sm:w-auto px-7 py-3.5 rounded-lg border border-[var(--border)] hover:bg-[var(--bg-card)] hover:border-[var(--text-tertiary)] transition-all backdrop-blur-sm"
-          >
-            <GraduationCap className="w-[18px] h-[18px] text-[var(--text-primary)]" />
-            <span className="text-[var(--text-primary)] text-base font-semibold">
-              {t("startLearning")}
-            </span>
-          </Link>
+            <Link
+              href="/resources"
+              onClick={() => trackEvent("hero_cta_clicked", { target: "resources" })}
+              className="group inline-flex min-h-11 items-center gap-2 rounded-md px-1 text-sm font-medium text-[var(--text-secondary)] transition-colors hover:text-[var(--primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-dark)]"
+            >
+              <BookOpenText className="h-4 w-4" aria-hidden="true" />
+              <span className="group-hover:underline group-hover:underline-offset-4">
+                {t("resources")}
+              </span>
+              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+            </Link>
+            <Link
+              href="/news"
+              onClick={() => trackEvent("hero_cta_clicked", { target: "news" })}
+              className="group inline-flex min-h-11 items-center gap-2 rounded-md px-1 text-sm font-medium text-[var(--text-secondary)] transition-colors hover:text-[var(--primary)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-dark)]"
+            >
+              <Newspaper className="h-4 w-4" aria-hidden="true" />
+              <span className="group-hover:underline group-hover:underline-offset-4">
+                {t("latestNews")}
+              </span>
+              <ArrowRight className="h-3.5 w-3.5" aria-hidden="true" />
+            </Link>
+          </nav>
         </div>
       </div>
     </section>
