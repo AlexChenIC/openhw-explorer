@@ -43,7 +43,10 @@
     "subtitle": "Explore OpenHW projects, interactive lessons, and curated RISC-V resources.",
     "subtitleLine2": "Start from the right project, concept, or course path.",
     "exploreProjects": "Explore Projects",
-    "startLearning": "Start Learning"
+    "startLearning": "Start Learning",
+    "moreLinks": "More ways to explore",
+    "resources": "Resources",
+    "latestNews": "Latest News"
   },
   "projects": {
     "title": "Project Directory",

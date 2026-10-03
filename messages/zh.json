@@ -43,7 +43,10 @@
     "subtitle": "探索 OpenHW 项目、交互式课程和精选 RISC-V 资源。",
     "subtitleLine2": "从合适的项目、概念或课程路径开始。",
     "exploreProjects": "探索项目",
-    "startLearning": "开始学习"
+    "startLearning": "开始学习",
+    "moreLinks": "更多探索入口",
+    "resources": "资源库",
+    "latestNews": "最新资讯"
   },
   "projects": {
     "title": "项目目录",
