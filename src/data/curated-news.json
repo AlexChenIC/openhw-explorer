@@ -86,6 +86,35 @@
       }
     },
     {
+      "title": "Renode 1.17.0 expands platform simulation, GUI, and co-simulation workflows",
+      "titleZh": "Renode 1.17.0 扩展平台仿真、图形界面与协同仿真工作流",
+      "url": "https://antmicro.com/blog/2026/09/renode-1-17-0-release",
+      "source": "Antmicro Blog",
+      "addedAt": "2026-10-04T06:25:10Z",
+      "summary": "Antmicro announced Renode 1.17.0, a release of its open-source simulation framework for hardware/software co-development and scalable testing. The article highlights new platform coverage including NXP i.MX 8M Plus, Toyota RAMN, NXP S32K88 improvements, and Google Coral NPU support, plus a new GUI, SystemC and external-control API improvements, Zephyr and U-Boot dashboard updates, and a migration from Mono to dotnet-based multiplatform packaging.",
+      "summaryZh": "Antmicro 发布 Renode 1.17.0，这是其面向硬件/软件协同开发和可扩展测试的开源仿真框架版本。文章重点介绍新增 NXP i.MX 8M Plus、Toyota RAMN、NXP S32K88 改进和 Google Coral NPU 支持，并包含新的图形界面、SystemC 与 external-control API 改进、Zephyr/U-Boot dashboard 更新，以及从 Mono 迁移到基于 dotnet 的多平台打包。",
+      "tags": [
+        "Antmicro",
+        "Renode",
+        "Simulation",
+        "Co-simulation",
+        "SystemC",
+        "Zephyr",
+        "RISC-V",
+        "Coral NPU",
+        "Tooling"
+      ],
+      "sourceTier": "trusted",
+      "language": "en",
+      "reviewStatus": "curated",
+      "publishedAt": "2026-09-28",
+      "dateEvidence": {
+        "url": "https://antmicro.com/blog/2026/09/renode-1-17-0-release",
+        "locator": "Antmicro page metadata Published Time 2026-09-28T00:00:00.000Z; linked Renode GitHub release tag v1.17.0 published 2026-09-07T20:55:43Z",
+        "checkedAt": "2026-10-04"
+      }
+    },
+    {
       "title": "Antmicro documents Kokkos-based GPU acceleration for OpenROAD global placement",
       "titleZh": "Antmicro 详解 OpenROAD 全局布局的 Kokkos GPU 加速实现",
       "url": "https://antmicro.com/blog/2026/09/improved-gpu-acceleration-of-placement-in-openroad",

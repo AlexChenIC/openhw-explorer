@@ -1,16 +1,16 @@
 {
-  "weekOf": "2026-10-02",
-  "generatedAt": "2026-10-02T00:36:46.934Z",
+  "weekOf": "2026-10-04",
+  "generatedAt": "2026-10-04T06:25:42.346Z",
   "stats": {
-    "totalRelevant": 134,
+    "totalRelevant": 135,
     "totalSources": 43,
     "topTags": [
       {
-        "tag": "EDA",
-        "count": 44
+        "tag": "RISC-V",
+        "count": 45
       },
       {
-        "tag": "RISC-V",
+        "tag": "EDA",
         "count": 44
       },
       {
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 48,
+      "count": 49,
       "items": [
         {
           "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
@@ -1176,6 +1176,33 @@
       "curated": true,
       "titleZh": "Caliptra 固件 2.1.3 强化运行时安全、密码学与恢复流程",
       "summaryZh": "CHIPS Alliance 发布 Caliptra 固件 2.1.3，作为 runtime 与 FMC 的联合版本。发布说明新增 vendor-authorized debug artifact 支持、FW_INFO 中的 active debug policy 报告、Encryption Engine 自测试接口、ML-KEM 与 OCP-LOCK API 更新、OCP recovery image 工具、FPGA 外部 I3C host boot 测试，并修复 AES-XTS 密钥生成、mailbox key-usage 检查、PL0 权限检查和 PCR 访问控制等安全问题。"
+    },
+    {
+      "title": "Renode 1.17.0 expands platform simulation, GUI, and co-simulation workflows",
+      "url": "https://antmicro.com/blog/2026/09/renode-1-17-0-release",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-09-28",
+      "addedAt": "2026-10-04T06:25:10Z",
+      "summary": "Antmicro announced Renode 1.17.0, a release of its open-source simulation framework for hardware/software co-development and scalable testing. The article highlights new platform coverage including NXP i.MX 8M Plus, Toyota RAMN, NXP S32K88 improvements, and Google Coral NPU support, plus a new GUI, SystemC and external-control API improvements, Zephyr and U-Boot dashboard updates, and a migration from Mono to dotnet-based multiplatform packaging.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Antmicro",
+        "Renode",
+        "Simulation",
+        "Co-simulation",
+        "SystemC",
+        "Zephyr",
+        "RISC-V",
+        "Coral NPU",
+        "Tooling"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Renode 1.17.0 扩展平台仿真、图形界面与协同仿真工作流",
+      "summaryZh": "Antmicro 发布 Renode 1.17.0，这是其面向硬件/软件协同开发和可扩展测试的开源仿真框架版本。文章重点介绍新增 NXP i.MX 8M Plus、Toyota RAMN、NXP S32K88 改进和 Google Coral NPU 支持，并包含新的图形界面、SystemC 与 external-control API 改进、Zephyr/U-Boot dashboard 更新，以及从 Mono 迁移到基于 dotnet 的多平台打包。"
     },
     {
       "title": "Antmicro documents Kokkos-based GPU acceleration for OpenROAD global placement",
