@@ -19,23 +19,36 @@
     "build-news": "node scripts/build-news-digest.mjs",
     "prebuild": "node scripts/prebuild-fetch-github-data.mjs",
     "test": "vitest run",
-    "build:third-party-notices": "node scripts/build-third-party-notices.mjs"
+    "build:third-party-notices": "node scripts/build-third-party-notices.mjs",
+    "dev:vinext": "vite dev --port 3001",
+    "typecheck:cloudflare": "wrangler types cloudflare-env.d.ts && tsc --noEmit --project tsconfig.cloudflare.json",
+    "build:vinext": "wrangler types cloudflare-env.d.ts && NEXT_PUBLIC_DEPLOYMENT_PREVIEW=1 NEXT_PUBLIC_VERCEL_ANALYTICS=0 vite build",
+    "start:vinext": "wrangler dev --config dist/server/wrangler.json",
+    "deploy:vinext": "npm run build:vinext && wrangler deploy --config dist/server/wrangler.json",
+    "build:pages": "node scripts/build-cloudflare-pages.mjs",
+    "start:pages": "node scripts/run-cloudflare-pages.mjs dev",
+    "deploy:pages": "npm run build:pages && node scripts/run-cloudflare-pages.mjs deploy"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",
+    "@vinext/cloudflare": "^1.0.1",
     "fast-xml-parser": "^5.11.1",
     "fuse.js": "^7.1.0",
     "lucide-react": "^0.400.0",
     "next": "^16.3.6",
     "next-intl": "^4.13.1",
     "react": "^19.2.7",
-    "react-dom": "^19.2.7"
+    "react-dom": "^19.2.7",
+    "react-server-dom-webpack": "^19.3.0"
   },
   "devDependencies": {
+    "@cloudflare/vite-plugin": "^1.62.4",
     "@tailwindcss/postcss": "^4.0.0",
     "@types/node": "^20.0.0",
     "@types/react": "^19.2.17",
     "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react": "^6.1.1",
+    "@vitejs/plugin-rsc": "^0.5.35",
     "better-sqlite3": "^12.6.2",
     "eslint": "^9.39.4",
     "eslint-config-next": "^16.3.6",
@@ -43,6 +56,15 @@
     "prettier": "^3.8.1",
     "tailwindcss": "^4.0.0",
     "typescript": "^5.0.0",
-    "vitest": "^4.1.10"
+    "vinext": "1.0.1",
+    "vite": "^8.3.2",
+    "vitest": "^4.1.10",
+    "wrangler": "4.146.0"
+  },
+  "type": "module",
+  "overrides": {
+    "satori": {
+      "fflate": "^0.7.5"
+    }
   }
 }

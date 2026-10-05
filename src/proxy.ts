@@ -9,7 +9,11 @@ import {
 } from "@/data/classroom-publication";
 import { getClassroomIdForLocale } from "@/data/classrooms";
 
-const handleIntlRouting = createMiddleware(routing);
+const handleIntlRouting = createMiddleware({
+  ...routing,
+  // Preview snapshots must not retain prerender-server origins in Link headers.
+  alternateLinks: process.env.NEXT_PUBLIC_DEPLOYMENT_PREVIEW !== "1",
+});
 
 export default function proxy(request: NextRequest) {
   const industryMatch = request.nextUrl.pathname.match(/^\/(en|zh)\/resources\/industry\/?$/);

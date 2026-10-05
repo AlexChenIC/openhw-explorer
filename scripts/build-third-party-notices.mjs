@@ -111,7 +111,9 @@ const intro = [
 ].join("\n");
 writeFileSync(
   "public/third-party-notices.txt",
-  intro + "\n" + readFileSync("LICENSE", "utf8") + blocks.join("\n") + "\n",
+  (intro + "\n" + readFileSync("LICENSE", "utf8") + blocks.join("\n") + "\n")
+    .replace(/\r\n/g, "\n")
+    .replace(/[\t ]+$/gm, ""),
 );
 console.log(
   "Wrote public/third-party-notices.txt: " + covered.size + " packages plus Inter/Feather notices.",
