@@ -4,7 +4,7 @@ import { createHash } from "node:crypto";
 import { dirname, join } from "node:path";
 import { fileURLToPath } from "node:url";
 import { XMLParser } from "fast-xml-parser";
-import { assertNewsSnapshot } from "./lib/pages-export.mjs";
+import { assertNewsSnapshot, courseAudioUrl } from "./lib/pages-export.mjs";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const base = process.env.PAGES_VERIFY_URL || "https://openhw-explorer-test.pages.dev";
@@ -82,7 +82,7 @@ try {
       }
       return null;
     }
-    const url = audio(course);
+    const url = courseAudioUrl(course.id, audio(course));
     if (!url) throw new Error(`No public course audio for ${locale}`);
     const response = await request(url);
     const bytes = Buffer.from(await response.arrayBuffer());

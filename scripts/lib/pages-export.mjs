@@ -1,5 +1,12 @@
 import ts from "typescript";
 
+// Course packages retain operator URLs; the public player serves cached assets.
+export function courseAudioUrl(classroomId, sourceUrl) {
+  if (!classroomId || !sourceUrl) return null;
+  const file = new URL(sourceUrl, "https://openhw-explorer.invalid").pathname.split("/").pop();
+  return file ? `/classroom-assets/${classroomId}/audio/${file}` : null;
+}
+
 // Parse route exports before modifying the disposable static-build copy.
 export function forceStaticRoute(source, filename) {
   const parsed = ts.createSourceFile(

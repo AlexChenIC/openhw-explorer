@@ -3,6 +3,7 @@ import {
   forceStaticRoute,
   assertNewsSnapshot,
   withLocaleStaticParams,
+  courseAudioUrl,
 } from "../scripts/lib/pages-export.mjs";
 
 afterEach(() => {
@@ -11,6 +12,12 @@ afterEach(() => {
 });
 
 describe("Pages build isolation", () => {
+  it("verifies public audio rather than the package's operator API URL", () => {
+    expect(courseAudioUrl("names-en", "/api/classroom-media/names-en/audio/scene.mp3")).toBe(
+      "/classroom-assets/names-en/audio/scene.mp3",
+    );
+    expect(courseAudioUrl("names-en", null)).toBeNull();
+  });
   it("adds a static export without rewriting the existing route", () => {
     const source = 'export default function Page() { return "dynamic"; }\n';
     expect(forceStaticRoute(source, "page.ts")).toBe(
