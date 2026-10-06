@@ -110,7 +110,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <FeedbackButton />
           </NextIntlClientProvider>
           <ClientObservability />
-          <Analytics />
+          {process.env.NEXT_PUBLIC_VERCEL_ANALYTICS !== "0" && <Analytics />}
         </ThemeProvider>
       </body>
     </html>
