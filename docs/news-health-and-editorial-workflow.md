@@ -9,6 +9,20 @@
 
 All-source failure preserves the last good candidate file and exits nonzero. Partial failure is explicitly degraded. A valid empty feed is not a broken feed. No editorial change leaves generatedAt unchanged.
 
+## Completed review record
+
+The page distinguishes the latest included source publication date, the digest content update date, and the most recent completed editorial check. A check with no selected items is recorded without rebuilding or redating the digest:
+
+```bash
+npm run record-news-review -- --checked-on 2026-10-06 --outcome no_new_items --candidate-count 52 --added-count 0
+```
+
+Use the actual completed review date in Asia/Shanghai and actual candidate/added counts. For a review that adds items, run build-news first, then record with outcome `published` and the number added. Never record a completed check for an aborted review or an all-source collection failure. Partial source coverage must be disclosed in the PR; “no new items selected” does not assert that no news exists.
+
+The command writes only src/data/news-review-status.json, bound to digest.generatedAt. A later digest invalidates the previous outcome until another review is recorded. The API exposes lastCheckedOn, lastCheckOutcome and lastCheckAddedCount alongside its existing fields. The initial October 6 record reflects the completed daily editorial pass: 52 candidates, zero new items selected.
+
+The daily task opens a status-only PR on no-selection days and includes the status with curated-news.json/news-digest.json on publication days. Both follow the same validation, preview, merge and production verification requirements. Candidate collection and read-only health checks must never advance the editorial review date.
+
 ## Date and event policy
 
 - publishedAt is the source publication date, not the date an editor found a link.

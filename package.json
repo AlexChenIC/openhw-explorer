@@ -17,6 +17,7 @@
     "fetch-data": "node scripts/fetch-github-data.mjs",
     "fetch-news-candidates": "node scripts/fetch-news-candidates.mjs",
     "build-news": "node scripts/build-news-digest.mjs",
+    "record-news-review": "node scripts/record-news-review.mjs",
     "prebuild": "node scripts/prebuild-fetch-github-data.mjs",
     "test": "vitest run",
     "build:third-party-notices": "node scripts/build-third-party-notices.mjs"
