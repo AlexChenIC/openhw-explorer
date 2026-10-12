@@ -119,6 +119,13 @@ const RSS_SOURCES = [
     defaultTags: ["Apache TVM", "AI Compiler"],
     defaultScore: 1,
   },
+  {
+    name: "Open Compute Project News",
+    url: "https://www.opencompute.org/feed/",
+    sourceTier: "official",
+    defaultTags: ["OCP", "Open Compute Project"],
+    defaultScore: 2,
+  },
 ];
 
 const HTML_SOURCES = [
@@ -129,14 +136,6 @@ const HTML_SOURCES = [
     sourceTier: "official",
     defaultTags: ["OpenHW", "Eclipse Foundation", "RISC-V"],
     defaultScore: 4,
-  },
-  {
-    name: "Open Compute Project Blog",
-    url: "https://www.opencompute.org/blog",
-    parser: "ocp",
-    sourceTier: "official",
-    defaultTags: ["OCP", "Open Compute Project"],
-    defaultScore: 0,
   },
   {
     name: "CHIPS Alliance Blog",
@@ -728,43 +727,6 @@ function parseLowriscNews(html, source) {
     .filter(Boolean);
 }
 
-function parseOcpBlog(html, source) {
-  const blocks = html.match(/<article class="news-article panel[\s\S]*?<\/article>/gi) || [];
-  return blocks
-    .map((block) => {
-      const titleMatch = block.match(
-        /news-article__title">\s*<a href="([^"]+)"[^>]*>([\s\S]*?)<\/a>/i,
-      );
-      const dateMatch = block.match(/<time>([\s\S]*?)<\/time>/i);
-      const summaryMatch = block.match(
-        /<section class="news-article__body">([\s\S]*?)<\/section>/i,
-      );
-      const tagMatches = [...block.matchAll(/blog\/category\/[^"]+">([^<]+)<\/a>/gi)].map((match) =>
-        stripHtml(match[1]),
-      );
-
-      if (!titleMatch) return null;
-
-      return candidateFromRaw(
-        {
-          title: titleMatch[2],
-          url: titleMatch[1],
-          publishedAt: dateMatch ? dateMatch[1] : "",
-          summary: summaryMatch ? summaryMatch[1] : "",
-          tags: tagMatches,
-        },
-        {
-          source: source.name,
-          sourceType: "web-page",
-          sourceTier: source.sourceTier,
-          tags: source.defaultTags,
-          defaultScore: source.defaultScore,
-        },
-      );
-    })
-    .filter(Boolean);
-}
-
 function getOpenHwReposFromProjects() {
   const content = readFileSync(PROJECTS_FILE, "utf-8");
   const repos = [
@@ -816,7 +778,6 @@ async function collectHtmlCandidates() {
         openhw: /<article class="elementor-post/g,
         chips: /<article class=(?:"blog-post"|blog-post)[ >]/g,
         lowrisc: /<h6 class="wp-block-post-title">/g,
-        ocp: /<article class="news-article panel/g,
       };
       const parsed = [...html.matchAll(markers[source.parser])].length;
       if (!parsed) throw new Error("Expected article listing not found");
@@ -826,8 +787,6 @@ async function collectHtmlCandidates() {
         all.push(...parseChipsBlog(html, source));
       } else if (source.parser === "lowrisc") {
         all.push(...parseLowriscNews(html, source));
-      } else if (source.parser === "ocp") {
-        all.push(...parseOcpBlog(html, source));
       }
       if (all.length === before) throw new Error("Article listing found but no valid entries parsed");
       recordSource(source.name, source.url, parsed, all.length - before);
