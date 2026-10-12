@@ -135,13 +135,15 @@ await writeFile(
     "\n  X-Robots-Tag: noindex, nofollow\n/en/opengraph-image\n  Content-Type: image/png\n/zh/opengraph-image\n  Content-Type: image/png\n/api/news-status\n  Content-Type: application/json; charset=utf-8\n  Cache-Control: no-cache\n",
 );
 const digest = JSON.parse(await readFile(join(root, "src/data/news-digest.json"), "utf8"));
+const reviewStatus = JSON.parse(await readFile(join(root, "src/data/news-review-status.json"), "utf8"));
 assertNewsSnapshot(
   JSON.parse(await readFile(join(stagedOutput, "api/news-status"), "utf8")),
   digest,
   commit,
+  reviewStatus,
 );
 await rm(output, { recursive: true, force: true });
 await cp(stagedOutput, output, { recursive: true });
 console.log(
-  `Pages output ready at out/ for commit ${commit}. No server functions; existing test hostname retained.`,
+  `Pages output ready at out/ for commit ${commit}. Static assets ready for the primary and conference QR addresses.`,
 );

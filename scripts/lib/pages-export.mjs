@@ -1,4 +1,5 @@
 import ts from "typescript";
+import { resolveNewsReviewStatus } from "../../src/lib/news-review-status.mjs";
 
 // Course packages retain operator URLs; the public player serves cached assets.
 export function courseAudioUrl(classroomId, sourceUrl) {
@@ -60,7 +61,7 @@ export function withLocaleStaticParams(source, filename) {
   );
 }
 
-export function assertNewsSnapshot(actual, digest, expectedCommit) {
+export function assertNewsSnapshot(actual, digest, expectedCommit, reviewStatus) {
   if (
     actual.editorialUpdatedAt !== digest.generatedAt ||
     actual.itemCount !== digest.items.length
@@ -75,4 +76,12 @@ export function assertNewsSnapshot(actual, digest, expectedCommit) {
       .at(-1) || null;
   if (actual.latestSourceDate !== latest) throw new Error("Pages latest source date differs");
   if (actual.commit !== expectedCommit) throw new Error("Pages deployment commit differs");
+  if (reviewStatus !== undefined) {
+    const review = resolveNewsReviewStatus(reviewStatus, digest.generatedAt);
+    if (actual.lastCheckedOn !== (review?.checkedOn || null) ||
+        actual.lastCheckOutcome !== (review?.outcome || null) ||
+        actual.lastCheckAddedCount !== (review?.addedCount ?? null)) {
+      throw new Error("Pages editorial review status differs");
+    }
+  }
 }

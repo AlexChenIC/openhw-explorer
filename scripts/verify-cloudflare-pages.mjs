@@ -7,11 +7,12 @@ import { XMLParser } from "fast-xml-parser";
 import { assertNewsSnapshot, courseAudioUrl } from "./lib/pages-export.mjs";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
-const base = process.env.PAGES_VERIFY_URL || "https://openhw-explorer-test.pages.dev";
+const base = process.env.PAGES_VERIFY_URL || "https://openhw-explorer.pages.dev";
 const commit =
   process.env.DEPLOYMENT_GIT_SHA ||
   execFileSync("git", ["rev-parse", "HEAD"], { cwd: root, encoding: "utf8" }).trim();
 const digest = JSON.parse(await readFile(join(root, "src/data/news-digest.json"), "utf8"));
+const reviewStatus = JSON.parse(await readFile(join(root, "src/data/news-review-status.json"), "utf8"));
 const report = { checkedAt: new Date().toISOString(), base, commit, checks: [] };
 async function request(path, options = {}) {
   const url = new URL(path, base);
@@ -40,7 +41,7 @@ try {
     if (!response.ok) throw new Error(`Status endpoint returned ${response.status}`);
     live = await response.json();
     try {
-      assertNewsSnapshot(live, digest, commit);
+      assertNewsSnapshot(live, digest, commit, reviewStatus);
       break;
     } catch (error) {
       if (attempt === 11) throw error;
