@@ -5,7 +5,7 @@ import { spawnSync } from "node:child_process";
 import { describe, expect, it } from "vitest";
 
 describe("collector failure and last-good protection", () => {
-  for (const mode of ["timeout", "429", "invalid", "broken-xml", "empty", "atom", "partial", "duplicates"]) {
+  for (const mode of ["timeout", "429", "invalid", "broken-xml", "empty", "atom", "partial", "duplicates", "ocp-feed"]) {
     it(mode, () => {
       const root = process.cwd();
       const dir = mkdtempSync(join(tmpdir(), "openhw-news-test-"));
@@ -33,6 +33,10 @@ describe("collector failure and last-good protection", () => {
           expect(result.status, result.stderr).toBe(0);
           expect(health.status, JSON.stringify(health)).toBe(mode === "partial" ? "degraded" : "ok");
           expect(JSON.parse(output).items).toHaveLength(["empty", "atom"].includes(mode) ? 0 : 1);
+          if (mode === "ocp-feed") {
+            expect(JSON.parse(output).items[0]).toMatchObject({ source: "Open Compute Project News", sourceType: "rss", sourceTier: "official", relevanceScore: 2 });
+            expect(health.sources.find((source) => source.source === "Open Compute Project News")).toMatchObject({ url: "https://www.opencompute.org/feed/", status: "ok", parsed: 1 });
+          }
           const repeat = run();
           expect(repeat.status).toBe(0);
           expect(readFileSync(file, "utf8")).toBe(output);

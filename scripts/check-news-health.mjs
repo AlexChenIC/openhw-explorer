@@ -1,7 +1,9 @@
 import { readFileSync } from "node:fs";
 import { atomicJson } from "./lib/news-collection-health.mjs";
+import { editorialReviewHealth } from "./lib/news-editorial-health.mjs";
 
 const digest = JSON.parse(readFileSync(new URL("../src/data/news-digest.json", import.meta.url)));
+const review = JSON.parse(readFileSync(new URL("../src/data/news-review-status.json", import.meta.url)));
 const collection = JSON.parse(readFileSync(new URL("../reports/news-collection-health.json", import.meta.url)));
 const report = { checkedAt: new Date().toISOString(), collection: collection.status, errors: [], warnings: [] };
 const sources = collection.sources || [];
@@ -17,6 +19,9 @@ try {
   if (live.editorialUpdatedAt !== digest.generatedAt || live.itemCount !== digest.items.length) {
     report.errors.push("Production news does not match this main-branch checkout. Check Vercel deployment.");
   }
+  report.editorialReview = editorialReviewHealth(digest.generatedAt, review, live);
+  report.errors.push(...report.editorialReview.errors);
+  report.warnings.push(...report.editorialReview.warnings);
   const age = (Date.now() - Date.parse(live.editorialUpdatedAt)) / 86400000;
   if (!Number.isFinite(age)) report.errors.push("Production editorial timestamp is invalid.");
   else if (age > 7) report.warnings.push(`Last editorial change was ${Math.floor(age)} days ago. This may be a valid no-news interval; review the local curation task, not the timestamp alone.`);
