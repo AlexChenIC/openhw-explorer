@@ -1,4 +1,4 @@
-const createNextIntlPlugin = require("next-intl/plugin");
+import createNextIntlPlugin from "next-intl/plugin";
 
 const withNextIntl = createNextIntlPlugin("./src/lib/i18n.ts");
 
@@ -41,6 +41,9 @@ const nextConfig = {
       {
         source: "/(.*)",
         headers: [
+          ...(process.env.NEXT_PUBLIC_DEPLOYMENT_PREVIEW === "1"
+            ? [{ key: "X-Robots-Tag", value: "noindex, nofollow" }]
+            : []),
           { key: "Content-Security-Policy", value: contentSecurityPolicy },
           { key: "X-Content-Type-Options", value: "nosniff" },
           { key: "X-Frame-Options", value: "DENY" },
@@ -52,4 +55,4 @@ const nextConfig = {
   },
 };
 
-module.exports = withNextIntl(nextConfig);
+export default withNextIntl(nextConfig);

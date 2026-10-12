@@ -1,0 +1,19 @@
+{
+  "$schema": "node_modules/wrangler/config-schema.json",
+  "name": "openhw-explorer-test",
+  "workers_dev": true,
+  "compatibility_date": "2026-10-02",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "main": "cloudflare-worker.ts",
+  "assets": {
+    "directory": "dist/client",
+    "not_found_handling": "none",
+    "binding": "ASSETS",
+    "run_worker_first": [
+      "/_vinext/static-cache/*",
+      "/classroom-assets/*"
+    ]
+  }
+}

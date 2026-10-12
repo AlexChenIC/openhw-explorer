@@ -11,6 +11,9 @@ import { ClientObservability } from "@/components/ClientObservability";
 import { FeedbackButton } from "@/components/FeedbackButton";
 import "../globals.css";
 
+// All public content is a build-time snapshot; locale comes from route params.
+export const dynamic = "force-static";
+
 const inter = Inter({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
@@ -110,7 +113,7 @@ export default async function LocaleLayout({ children, params }: Props) {
             <FeedbackButton />
           </NextIntlClientProvider>
           <ClientObservability />
-          <Analytics />
+          {process.env.NEXT_PUBLIC_VERCEL_ANALYTICS !== "0" && <Analytics />}
         </ThemeProvider>
       </body>
     </html>

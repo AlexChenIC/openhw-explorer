@@ -1,0 +1,5 @@
+{
+  "extends": "./tsconfig.json",
+  "include": ["cloudflare-worker.ts", "cloudflare-env.d.ts", "vite.config.ts", "src/lib/media-range.ts"],
+  "exclude": ["node_modules"]
+}
