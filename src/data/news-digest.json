@@ -1,8 +1,8 @@
 {
-  "weekOf": "2026-10-12",
-  "generatedAt": "2026-10-12T15:11:58.708Z",
+  "weekOf": "2026-10-13",
+  "generatedAt": "2026-10-12T23:17:56.563Z",
   "stats": {
-    "totalRelevant": 141,
+    "totalRelevant": 142,
     "totalSources": 44,
     "topTags": [
       {
@@ -14,12 +14,12 @@
         "count": 45
       },
       {
-        "tag": "Security",
+        "tag": "Open Hardware",
         "count": 36
       },
       {
-        "tag": "Open Hardware",
-        "count": 35
+        "tag": "Security",
+        "count": 36
       },
       {
         "tag": "Verification",
@@ -153,8 +153,20 @@
         "zh": "AI 与加速器"
       },
       "icon": "brain",
-      "count": 18,
+      "count": 19,
       "items": [
+        {
+          "title": "OCP maps open specifications for AI data centers, networking, and chiplets",
+          "titleZh": "OCP 梳理 AI 数据中心、网络与 chiplet 开放规范进展",
+          "url": "https://www.opencompute.org/news/realizing-the-ocp-open-data-center-ecosystem-vision/",
+          "source": "Open Compute Project News",
+          "tags": [
+            "OCP",
+            "Open Hardware",
+            "AI Infrastructure"
+          ],
+          "publishedAt": "2026-10-12"
+        },
         {
           "title": "OCP launches Nexus for conversational discovery of open hardware resources",
           "titleZh": "OCP 发布 Nexus，以对话方式探索开源硬件资源",
@@ -190,18 +202,6 @@
             "Benchmarking"
           ],
           "publishedAt": "2026-09-24"
-        },
-        {
-          "title": "Antmicro releases Zephelin 1.0.0 with live Zephyr tracing and multi-SoC analysis",
-          "titleZh": "Antmicro 发布 Zephelin 1.0.0，支持 Zephyr 实时追踪与多 SoC 分析",
-          "url": "https://antmicro.com/blog/2026/09/zephelin-and-trace-viewer-1-0-release",
-          "source": "Antmicro Blog",
-          "tags": [
-            "Antmicro",
-            "Zephyr",
-            "Tracing"
-          ],
-          "publishedAt": "2026-09-09"
         }
       ]
     },
@@ -1099,6 +1099,30 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "OCP maps open specifications for AI data centers, networking, and chiplets",
+      "url": "https://www.opencompute.org/news/realizing-the-ocp-open-data-center-ecosystem-vision/",
+      "source": "Open Compute Project News",
+      "publishedAt": "2026-10-12",
+      "addedAt": "2026-10-12T23:17:52.325919Z",
+      "summary": "The Open Compute Project Foundation published a technical progress report linking specifications and white papers for data-center power, cooling, telemetry, Ethernet scale-up networking, and chiplet systems. It highlights ESUN, SUE-T, Foundation Chiplet System Architecture, and BoW.Flexi 1.0, alongside open rack designs. The report identifies further work on co-optimizing silicon and facility infrastructure and on open platforms for inference beyond hyperscale campuses. This is a roadmap and reference roundup; the linked specifications have their own earlier publication dates.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "OCP",
+        "Open Hardware",
+        "AI Infrastructure",
+        "Specification",
+        "Chiplets",
+        "Networking"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "OCP 梳理 AI 数据中心、网络与 chiplet 开放规范进展",
+      "summaryZh": "Open Compute Project Foundation 发布技术进展综述，集中链接数据中心供电、冷却、遥测、以太网 scale-up 网络及 chiplet 系统的规范和白皮书。文章梳理 ESUN、SUE-T、Foundation Chiplet System Architecture、BoW.Flexi 1.0 和开放机架设计，并指出芯片与设施基础架构协同优化、以及面向超大规模数据中心之外推理部署的开放平台仍需推进。该文是路线图与参考资料综述，所链接规范各有其较早的发布日期。"
     },
     {
       "title": "OCP launches Nexus for conversational discovery of open hardware resources",
