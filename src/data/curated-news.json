@@ -3,6 +3,113 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "OCP launches Nexus for conversational discovery of open hardware resources",
+      "titleZh": "OCP 发布 Nexus，以对话方式探索开源硬件资源",
+      "url": "https://www.opencompute.org/news/open-compute-project-foundation-launches-ocp-nexus-to-make-15-years-of-open-hardware-knowledge-easier-to-explore/",
+      "source": "Open Compute Project News",
+      "addedAt": "2026-10-12T15:11:58.566383Z",
+      "summary": "The Open Compute Project Foundation announced OCP Nexus, an AI assistant for finding specifications, reference designs, white papers, and Summit material. According to OCP, responses link to supporting sources, and the initial release also helps users explore technical sessions and event schedules. Nexus was developed with NineTwoThree AI Studio using Google Gemini models. OCP says visitors can explore it without an account, with higher chat limits for registered member organizations.",
+      "summaryZh": "Open Compute Project Foundation 发布 OCP Nexus，帮助用户以对话方式查找规范、参考设计、白皮书和峰会资料。OCP 表示，回答会链接到支持其内容的原始来源；初始版本还可辅助探索技术议程和会议安排。Nexus 由 OCP 与 NineTwoThree AI Studio 合作开发，使用 Google Gemini 模型。官方说明访客无需账号即可探索，已注册的成员组织用户可获得更高对话额度。",
+      "tags": [
+        "OCP",
+        "Open Hardware",
+        "AI",
+        "Technical Resources",
+        "Knowledge Discovery"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "publishedAt": "2026-10-12",
+      "dateEvidence": {
+        "url": "https://www.opencompute.org/news/open-compute-project-foundation-launches-ocp-nexus-to-make-15-years-of-open-hardware-knowledge-easier-to-explore/",
+        "locator": "Official article metadata datePublished 2026-10-12T15:00:00+00:00; official RSS publishedAt matches; launch announcement verified on the canonical article",
+        "checkedAt": "2026-10-12"
+      }
+    },
+    {
+      "title": "Caliptra MCU SDK 2.1.1 expands SPDM 1.4 and post-quantum attestation support",
+      "titleZh": "Caliptra MCU SDK 2.1.1 扩展 SPDM 1.4 与后量子证明支持",
+      "url": "https://github.com/chipsalliance/caliptra-mcu-sw/releases/tag/rt-sdk-2.1.1",
+      "source": "CHIPS Alliance / Caliptra MCU SW (GitHub)",
+      "summary": "CHIPS Alliance released Caliptra MCU SDK 2.1.1. The release adds SPDM 1.4 support for ML-DSA certificate chains and ML-KEM key exchange, extends owner authorization manifest handling, and supports ML-DSA-87 signed OCP EAT attestation tokens. It also fixes recovery boot hangs, stalled MCTP transfers, mailbox response copying, and firmware updates involving owner artifacts. The changes target firmware integration and recovery reliability.",
+      "summaryZh": "CHIPS Alliance 发布 Caliptra MCU SDK 2.1.1。该版本为 SPDM 1.4 增加 ML-DSA 证书链与 ML-KEM 密钥交换支持，扩展所有者授权清单处理，并支持以 ML-DSA-87 签名的 OCP EAT 证明令牌。同时修复恢复启动挂起、MCTP 传输停滞、mailbox 响应复制及包含所有者制品的固件更新问题。上述内容属于固件与集成更新。",
+      "tags": [
+        "Caliptra",
+        "CHIPS Alliance",
+        "Root of Trust",
+        "Security",
+        "Firmware",
+        "SPDM",
+        "ML-DSA",
+        "ML-KEM"
+      ],
+      "publishedAt": "2026-10-10",
+      "dateEvidence": {
+        "url": "https://github.com/chipsalliance/caliptra-mcu-sw/releases/tag/rt-sdk-2.1.1",
+        "locator": "GitHub release published_at 2026-10-10T00:44:28Z; tag rt-sdk-2.1.1; draft=false; prerelease=false",
+        "checkedAt": "2026-10-12"
+      },
+      "addedAt": "2026-10-12T15:09:27.109886Z",
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated"
+    },
+    {
+      "title": "Caliptra ROM 2.1.3 and firmware 2.1.4 strengthen image validation and authorization",
+      "titleZh": "Caliptra ROM 2.1.3 与固件 2.1.4 强化镜像校验和授权",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rom-2.1.3-1",
+      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
+      "summary": "CHIPS Alliance published a combined Caliptra ROM, runtime, and FMC release. ROM 2.1.3 strengthens image bounds and entry-point validation, authenticates manifest fields from a protected snapshot, supports DMA hashing for images larger than 1 MiB, and clears intermediate ML-KEM secret data. Firmware 2.1.4 adds owner-only authorization manifests and optional device UEID binding for SoC manifests. The release also makes a post-load runtime digest mismatch fatal during update reset.",
+      "summaryZh": "CHIPS Alliance 发布 Caliptra ROM、runtime 与 FMC 联合版本。ROM 2.1.3 强化镜像边界和入口点校验，从受保护快照认证清单字段，支持超过 1 MiB 镜像的 DMA 哈希，并清除 ML-KEM 中间秘密数据。固件 2.1.4 新增仅由所有者授权的清单，以及 SoC 清单与可选设备 UEID 的绑定。更新复位过程中，加载后的 runtime 摘要不匹配也被改为致命错误。",
+      "tags": [
+        "Caliptra",
+        "CHIPS Alliance",
+        "Root of Trust",
+        "Firmware",
+        "ROM",
+        "Security",
+        "SoC"
+      ],
+      "publishedAt": "2026-10-09",
+      "dateEvidence": {
+        "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rom-2.1.3-1",
+        "locator": "GitHub release published_at 2026-10-09T04:52:53Z; tag rom-2.1.3-1; draft=false; prerelease=false",
+        "checkedAt": "2026-10-12"
+      },
+      "addedAt": "2026-10-12T15:09:27.109886Z",
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated"
+    },
+    {
+      "title": "OCP introduces OSPA switch platform architecture draft for public review",
+      "titleZh": "OCP 介绍面向公开评审的 OSPA 交换机平台架构草案",
+      "url": "https://www.opencompute.org/news/introducing-ospa-unifying-the-switch-platform-layer-for-open-networking/",
+      "source": "Open Compute Project News",
+      "summary": "The Open Compute Project introduced the Open Switch Platform Architecture (OSPA), an effort initiated by Meta, Microsoft, and Alibaba to standardize switch platform management. The Revision 1.0.0 candidate is undergoing OCP Foundation review. Its scope covers power, hardware access and inventory, environmental control, firmware recovery, debugging, and security. Proposed mechanisms include host-centered management, PCIe-connected I/O bridge FPGAs, and a hierarchical hardware inventory model. Routing and forwarding management are outside the specification scope.",
+      "summaryZh": "Open Compute Project 介绍 Open Switch Platform Architecture（OSPA），由 Meta、Microsoft 和 Alibaba 发起，旨在标准化交换机平台管理。Revision 1.0.0 candidate 正在接受 OCP Foundation 评审。草案范围涵盖电源、硬件访问与清单、环境控制、固件恢复、调试和安全，提出以主机为中心的管理、通过 PCIe 连接的 I/O bridge FPGA，以及层级化硬件清单模型。路由和转发管理不在该规范范围内。",
+      "tags": [
+        "OCP",
+        "Open Hardware",
+        "Networking",
+        "Switch",
+        "Specification",
+        "FPGA",
+        "Security"
+      ],
+      "publishedAt": "2026-10-08",
+      "dateEvidence": {
+        "url": "https://www.opencompute.org/feed/",
+        "locator": "Official RSS item link matches the canonical news URL; pubDate Thu, 08 Oct 2026 16:44:16 +0000; article describes Revision 1.0.0 candidate under Foundation review",
+        "checkedAt": "2026-10-12"
+      },
+      "addedAt": "2026-10-12T15:09:27.109886Z",
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated"
+    },
+    {
       "title": "CIRCT firtool 1.161.0 expands AXI4, SystemVerilog, and ImportVerilog support",
       "titleZh": "CIRCT firtool 1.161.0 扩展 AXI4、SystemVerilog 与 ImportVerilog 支持",
       "url": "https://github.com/llvm/circt/releases/tag/firtool-1.161.0",
