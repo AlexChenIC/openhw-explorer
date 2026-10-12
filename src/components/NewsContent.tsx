@@ -22,9 +22,11 @@ import {
   Wrench,
 } from "lucide-react";
 import newsDigest from "@/data/news-digest.json";
+import newsReviewStatus from "@/data/news-review-status.json";
 import newsSourceGroups from "@/data/news-source-groups.json";
 import newsTopicRules from "@/data/news-topic-rules.json";
 import { newsSortDate, newsDateLabel } from "@/lib/news-dates";
+import { resolveNewsReviewStatus } from "@/lib/news-review-status.mjs";
 
 interface NewsItem {
   title: string;
@@ -334,6 +336,7 @@ function PageHeader({ latestItem }: { latestItem?: NewsItem } = {}) {
   const t = useTranslations("news");
   const locale = useLocale();
   const latestDate = latestItem?.publishedAt;
+  const review = resolveNewsReviewStatus(newsReviewStatus, digest.generatedAt);
 
   return (
     <header className="mb-8 border-b border-[var(--border)] pb-7">
@@ -345,6 +348,12 @@ function PageHeader({ latestItem }: { latestItem?: NewsItem } = {}) {
           <CalendarDays className="h-3.5 w-3.5" />
           {t("updatedAt", { date: formatFullDate(digest.generatedAt || digest.weekOf, locale) })}
         </span>
+        {review && (
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-[var(--border)] bg-[var(--bg-subtle)] px-3 py-1 text-xs text-[var(--text-tertiary)]">
+            <SearchCheck className="h-3.5 w-3.5" />
+            {t("lastChecked", { date: formatFullDate(review.checkedOn, locale) })}
+          </span>
+        )}
       </div>
       <h1 className="max-w-3xl text-4xl font-bold leading-tight text-[var(--text-primary)] sm:text-5xl">
         {t("title")}
@@ -357,6 +366,12 @@ function PageHeader({ latestItem }: { latestItem?: NewsItem } = {}) {
           {t("latestPublicSignal", { date: formatFullDate(latestDate, locale) })}
         </p>
       )}
+      <p className="mt-2 flex items-start gap-1.5 text-sm text-[var(--text-secondary)]">
+        <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0" aria-hidden="true" />
+        {review
+          ? t(review.outcome === "no_new_items" ? "reviewNoNewItems" : "reviewPublished", { count: review.addedCount })
+          : t("reviewStatusUnavailable")}
+      </p>
     </header>
   );
 }

@@ -652,6 +652,65 @@
       }
     },
     {
+      "title": "FOSSi publishes NotSoTiny talk on living RTL benchmarks from Tiny Tapeout designs",
+      "titleZh": "FOSSi 发布 NotSoTiny 讲座，介绍基于 Tiny Tapeout 设计的动态 RTL 基准",
+      "url": "https://www.youtube.com/watch?v=zt_Q15PWs5Y",
+      "source": "FOSSi Foundation Videos",
+      "addedAt": "2026-10-09T01:23:09Z",
+      "summary": "FOSSi Foundation published Razine Moundir Ghorab's ORConf 2026 talk on NotSoTiny, a living benchmark for evaluating LLM-generated RTL. The official abstract describes an automated pipeline that ingests fresh Tiny Tapeout designs, removes duplicates, and builds module-completion tasks checked with formal verification and linting to reduce benchmark contamination.",
+      "summaryZh": "FOSSi Foundation 发布 Razine Moundir Ghorab 在 ORConf 2026 的 NotSoTiny 讲座，介绍用于评估 LLM 生成 RTL 的动态基准。官方摘要描述了一个自动化流程，会持续摄取新的 Tiny Tapeout 设计、去除重复项，并生成通过形式验证与 lint 检查的模块补全任务，以降低基准污染。",
+      "tags": [
+        "FOSSi",
+        "Tiny Tapeout",
+        "RTL",
+        "Benchmark",
+        "Formal Verification",
+        "AI for Hardware",
+        "Open Hardware",
+        "EDA",
+        "Talk"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "publishedAt": "2026-09-13",
+      "dateEvidence": {
+        "url": "https://www.youtube.com/watch?v=zt_Q15PWs5Y",
+        "locator": "yt-dlp upload_date 20260913; official FOSSi Foundation video description",
+        "checkedAt": "2026-10-09"
+      }
+    },
+    {
+      "title": "FOSSi publishes RTLForge, Chipchamp, and Alwavelets talk on agentic chip-design tools",
+      "titleZh": "FOSSi 发布 RTLForge、Chipchamp 与 Alwavelets 讲座，聚焦 agentic 芯片设计工具",
+      "url": "https://www.youtube.com/watch?v=nAyHOr0wuAM",
+      "source": "FOSSi Foundation Videos",
+      "addedAt": "2026-10-09T01:23:09Z",
+      "summary": "FOSSi Foundation published Riadh Ben Abdelhamid's ORConf 2026 talk on three open agentic tools for chip design and verification. The official abstract describes RTLForge as an LLM-orchestrated, verification-grounded RTL design pipeline, Chipchamp as an agentic terminal harness for RTL and open-source EDA flows, and Alwavelets as a terminal VCD/FST waveform viewer that can expose debugging workflows through MCP.",
+      "summaryZh": "FOSSi Foundation 发布 Riadh Ben Abdelhamid 在 ORConf 2026 的讲座，介绍三个面向芯片设计与验证的开放 agentic 工具。官方摘要将 RTLForge 描述为由 LLM 编排、以验证为基础的 RTL 设计流程，Chipchamp 是面向 RTL 与开源 EDA 流程的终端式 agentic harness，Alwavelets 则是可在终端运行并通过 MCP 暴露调试流程的 VCD/FST 波形查看器。",
+      "tags": [
+        "FOSSi",
+        "RTLForge",
+        "Chipchamp",
+        "Alwavelets",
+        "RTL",
+        "Verification",
+        "AI for Hardware",
+        "EDA",
+        "Waveform Debugging",
+        "Talk"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "publishedAt": "2026-09-13",
+      "dateEvidence": {
+        "url": "https://www.youtube.com/watch?v=nAyHOr0wuAM",
+        "locator": "yt-dlp upload_date 20260913; official FOSSi Foundation video description",
+        "checkedAt": "2026-10-09"
+      }
+    },
+    {
       "title": "FOSSi publishes Borg talk on a libre-toolchain open GPU tapeout",
       "titleZh": "FOSSi 发布 Borg 讲座，展示基于自由工具链的开源 GPU 流片",
       "url": "https://www.youtube.com/watch?v=mkUBi4e1VdA",

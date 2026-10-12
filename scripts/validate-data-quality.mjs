@@ -3,12 +3,14 @@
 import { existsSync, readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { resolveNewsReviewStatus, shanghaiDate } from "../src/lib/news-review-status.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
 
 const GITHUB_STATS_FILE = join(ROOT, "src/data/github-stats.json");
 const NEWS_DIGEST_FILE = join(ROOT, "src/data/news-digest.json");
+const NEWS_REVIEW_STATUS_FILE = join(ROOT, "src/data/news-review-status.json");
 const NEWS_TOPIC_RULES_FILE = join(ROOT, "src/data/news-topic-rules.json");
 const PROJECTS_FILE = join(ROOT, "src/data/projects.ts");
 const PROJECT_PROFILE_META_FILE = join(ROOT, "src/data/project-profile-meta.json");
@@ -216,6 +218,14 @@ function validateNewsDigest() {
   const now = Date.now();
   const maxAgeMs = DAYS_TO_INCLUDE * 24 * 60 * 60 * 1000;
   const data = readJson(NEWS_DIGEST_FILE);
+
+  const status = readJson(NEWS_REVIEW_STATUS_FILE);
+  const review = resolveNewsReviewStatus(status, status?.digestUpdatedAt);
+  if (!review || review.checkedOn > shanghaiDate(new Date())) {
+    errors.push("news-review-status has an invalid date, outcome or count");
+  } else if (!resolveNewsReviewStatus(status, data.generatedAt)) {
+    warnings.push("news-review-status does not cover the current digest; record the completed review");
+  }
 
   if (!isPlainObject(data)) {
     errors.push("news-digest root must be an object");

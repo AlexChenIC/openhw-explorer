@@ -1,29 +1,29 @@
 {
-  "weekOf": "2026-10-04",
-  "generatedAt": "2026-10-04T06:25:42.346Z",
+  "weekOf": "2026-10-09",
+  "generatedAt": "2026-10-09T01:24:01.549Z",
   "stats": {
-    "totalRelevant": 135,
+    "totalRelevant": 137,
     "totalSources": 43,
     "topTags": [
+      {
+        "tag": "EDA",
+        "count": 46
+      },
       {
         "tag": "RISC-V",
         "count": 45
       },
       {
-        "tag": "EDA",
-        "count": 44
+        "tag": "Open Hardware",
+        "count": 33
       },
       {
         "tag": "Security",
         "count": 33
       },
       {
-        "tag": "Open Hardware",
-        "count": 32
-      },
-      {
         "tag": "Verification",
-        "count": 30
+        "count": 31
       }
     ]
   },
@@ -153,7 +153,7 @@
         "zh": "AI 与加速器"
       },
       "icon": "brain",
-      "count": 14,
+      "count": 16,
       "items": [
         {
           "title": "MLPerf Training adds an LLM post-training benchmark for agentic software tasks",
@@ -180,28 +180,28 @@
           "publishedAt": "2026-09-09"
         },
         {
-          "title": "MLCommons opens Edge Agentic Inference submissions for MLPerf Inference v6.1",
-          "titleZh": "MLCommons 为 MLPerf Inference v6.1 开放 Edge Agentic Inference 提交",
-          "url": "https://mlcommons.org/2026/07/mlperf-inference-v61-edge-agentic/",
-          "source": "MLCommons",
+          "title": "FOSSi publishes NotSoTiny talk on living RTL benchmarks from Tiny Tapeout designs",
+          "titleZh": "FOSSi 发布 NotSoTiny 讲座，介绍基于 Tiny Tapeout 设计的动态 RTL 基准",
+          "url": "https://www.youtube.com/watch?v=zt_Q15PWs5Y",
+          "source": "FOSSi Foundation Videos",
           "tags": [
-            "MLCommons",
-            "MLPerf",
-            "Agentic AI"
+            "FOSSi",
+            "Tiny Tapeout",
+            "RTL"
           ],
-          "publishedAt": "2026-07-09"
+          "publishedAt": "2026-09-13"
         },
         {
-          "title": "Apache TVM introduces TIRx as an open hardware-native DSL for frontier ML kernels",
-          "titleZh": "Apache TVM 推出 TIRx：面向前沿 ML kernel 的开放硬件原生 DSL",
-          "url": "https://tvm.apache.org/2026/06/22/tirx",
-          "source": "Apache TVM Blog",
+          "title": "FOSSi publishes RTLForge, Chipchamp, and Alwavelets talk on agentic chip-design tools",
+          "titleZh": "FOSSi 发布 RTLForge、Chipchamp 与 Alwavelets 讲座，聚焦 agentic 芯片设计工具",
+          "url": "https://www.youtube.com/watch?v=nAyHOr0wuAM",
+          "source": "FOSSi Foundation Videos",
           "tags": [
-            "Apache TVM",
-            "TIRx",
-            "AI Compiler"
+            "FOSSi",
+            "RTLForge",
+            "Chipchamp"
           ],
-          "publishedAt": ""
+          "publishedAt": "2026-09-13"
         }
       ]
     },
@@ -1560,6 +1560,61 @@
       "curated": true,
       "titleZh": "CIRCT firtool 1.157.0 改进 ESI 协同仿真、FIRRTL、Moore 与综合流程",
       "summaryZh": "LLVM 的 CIRCT 项目发布 firtool 1.157.0，包含面向 Verilator FST tracing 的 ESI 协同仿真构建改进、FIRRTL 初始值与内联器更新、Moore 降低修复、ImportVerilog 类型检查，以及 circt-synth 数据通路简化。"
+    },
+    {
+      "title": "FOSSi publishes NotSoTiny talk on living RTL benchmarks from Tiny Tapeout designs",
+      "url": "https://www.youtube.com/watch?v=zt_Q15PWs5Y",
+      "source": "FOSSi Foundation Videos",
+      "publishedAt": "2026-09-13",
+      "addedAt": "2026-10-09T01:23:09Z",
+      "summary": "FOSSi Foundation published Razine Moundir Ghorab's ORConf 2026 talk on NotSoTiny, a living benchmark for evaluating LLM-generated RTL. The official abstract describes an automated pipeline that ingests fresh Tiny Tapeout designs, removes duplicates, and builds module-completion tasks checked with formal verification and linting to reduce benchmark contamination.",
+      "author": "",
+      "relevanceScore": 6,
+      "tags": [
+        "FOSSi",
+        "Tiny Tapeout",
+        "RTL",
+        "Benchmark",
+        "Formal Verification",
+        "AI for Hardware",
+        "Open Hardware",
+        "EDA",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "FOSSi 发布 NotSoTiny 讲座，介绍基于 Tiny Tapeout 设计的动态 RTL 基准",
+      "summaryZh": "FOSSi Foundation 发布 Razine Moundir Ghorab 在 ORConf 2026 的 NotSoTiny 讲座，介绍用于评估 LLM 生成 RTL 的动态基准。官方摘要描述了一个自动化流程，会持续摄取新的 Tiny Tapeout 设计、去除重复项，并生成通过形式验证与 lint 检查的模块补全任务，以降低基准污染。"
+    },
+    {
+      "title": "FOSSi publishes RTLForge, Chipchamp, and Alwavelets talk on agentic chip-design tools",
+      "url": "https://www.youtube.com/watch?v=nAyHOr0wuAM",
+      "source": "FOSSi Foundation Videos",
+      "publishedAt": "2026-09-13",
+      "addedAt": "2026-10-09T01:23:09Z",
+      "summary": "FOSSi Foundation published Riadh Ben Abdelhamid's ORConf 2026 talk on three open agentic tools for chip design and verification. The official abstract describes RTLForge as an LLM-orchestrated, verification-grounded RTL design pipeline, Chipchamp as an agentic terminal harness for RTL and open-source EDA flows, and Alwavelets as a terminal VCD/FST waveform viewer that can expose debugging workflows through MCP.",
+      "author": "",
+      "relevanceScore": 6,
+      "tags": [
+        "FOSSi",
+        "RTLForge",
+        "Chipchamp",
+        "Alwavelets",
+        "RTL",
+        "Verification",
+        "AI for Hardware",
+        "EDA",
+        "Waveform Debugging",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "FOSSi 发布 RTLForge、Chipchamp 与 Alwavelets 讲座，聚焦 agentic 芯片设计工具",
+      "summaryZh": "FOSSi Foundation 发布 Riadh Ben Abdelhamid 在 ORConf 2026 的讲座，介绍三个面向芯片设计与验证的开放 agentic 工具。官方摘要将 RTLForge 描述为由 LLM 编排、以验证为基础的 RTL 设计流程，Chipchamp 是面向 RTL 与开源 EDA 流程的终端式 agentic harness，Alwavelets 则是可在终端运行并通过 MCP 暴露调试流程的 VCD/FST 波形查看器。"
     },
     {
       "title": "RISER details an FPGA-assisted RISC-V microserver prototype",
