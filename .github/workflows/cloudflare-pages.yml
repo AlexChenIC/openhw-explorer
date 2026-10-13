@@ -54,6 +54,8 @@ jobs:
           --commit-hash "$GITHUB_SHA" --commit-dirty=false
       - name: Verify primary Pages snapshot
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        env:
+          PAGES_EXPECT_REDIRECT_TO: https://openhwexplorer.com
         run: npm run verify:pages
       - name: Verify public custom domain
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
