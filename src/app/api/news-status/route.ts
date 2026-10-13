@@ -13,6 +13,6 @@ export function GET() {
     lastCheckOutcome: review?.outcome || null,
     lastCheckAddedCount: review?.addedCount ?? null,
     latestSourceDate: digest.items.map((item) => item.publishedAt).filter(Boolean).sort().at(-1) || null,
-    commit: process.env.VERCEL_GIT_COMMIT_SHA || null,
+    commit: process.env.DEPLOYMENT_GIT_SHA || process.env.VERCEL_GIT_COMMIT_SHA || null,
   });
 }

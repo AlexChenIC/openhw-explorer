@@ -20,7 +20,9 @@
     "record-news-review": "node scripts/record-news-review.mjs",
     "prebuild": "node scripts/prebuild-fetch-github-data.mjs",
     "test": "vitest run",
-    "build:third-party-notices": "node scripts/build-third-party-notices.mjs"
+    "build:third-party-notices": "node scripts/build-third-party-notices.mjs",
+    "build:pages": "node scripts/build-cloudflare-pages.mjs",
+    "verify:pages": "node scripts/verify-cloudflare-pages.mjs"
   },
   "dependencies": {
     "@vercel/analytics": "^1.6.1",

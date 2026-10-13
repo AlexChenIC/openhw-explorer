@@ -15,10 +15,13 @@ type ClassroomPlayerPageProps = {
 
 export function generateStaticParams() {
   return getPublicClassroomIds().flatMap((classroomId) =>
-    ["en", "zh"].map((locale) => ({
-      locale,
-      classroomId,
-    })),
+    ["en", "zh"]
+      .filter((locale) => {
+        if (process.env.PAGES_STATIC_EXPORT !== "1") return true;
+        const match = getPublicLessonByClassroomId(classroomId);
+        return match && getClassroomIdForLocale(match.lesson, locale) === classroomId;
+      })
+      .map((locale) => ({ locale, classroomId })),
   );
 }
 
