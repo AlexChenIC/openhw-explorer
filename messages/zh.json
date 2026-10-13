@@ -329,7 +329,7 @@
     },
     "privacy": {
       "title": "隐私说明",
-      "content": "OpenHW Explorer 不设用户账号，也不会主动要求访问者提交个人信息。站点使用 Vercel Web Analytics 处理匿名、聚合的页面访问统计和有限的结构化客户端错误信号；Vercel 还会依据其条款处理常规托管请求数据。本站不设置追踪 Cookie；浏览器 localStorage 仅记住显示偏好，反馈入口会打开 GitHub Issues。"
+      "content": "OpenHW Explorer 不设用户账号。正式 .com 网站托管于 Cloudflare Pages，使用 Cloudflare Web Analytics 汇总访问量与页面性能；Vercel 镜像使用 Vercel Web Analytics 和有限的结构化客户端错误信号。托管服务商还会依据各自条款处理常规请求数据。本站不设置追踪 Cookie；浏览器 localStorage 记住显示偏好。若通过邮箱、LinkedIn 联系 Alex，或公开提交 GitHub Issue，你自愿提供的信息会由对应服务处理。"
     }
   },
   "contributePage": {
