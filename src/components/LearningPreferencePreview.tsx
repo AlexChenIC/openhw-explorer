@@ -1,16 +1,13 @@
 "use client";
 
 import { useState, type FormEvent } from "react";
-import { ArrowRight, Check, Github, Linkedin, Mail, MessageSquareText } from "lucide-react";
-import { contactEmail, externalLinks } from "@/data/external-links";
+import { ArrowRight, Check } from "lucide-react";
 
 const copy = {
   zh: {
     preview: "本地设计预览 · 内容不会发送",
     kicker: "一起完善学习园地",
     title: "你下一步想学什么？",
-    intro:
-      "用半分钟告诉 Alex 哪种课程最能帮助你。你的建议会帮助安排后续课程，选题仍会结合技术价值与制作时间。",
     depth: "你最希望哪种课程形式？",
     single: "选一项",
     formats: [
@@ -57,23 +54,13 @@ const copy = {
     note: "本版本仅展示交互，不联网提交，也不保存填写内容。正式版计划无需注册即可提交。",
     error: "请至少选择一个技术方向。",
     confirmation: "提交确认界面预览",
-    confirmationNote: "你的内容尚未发送。正式版会在后台实际保存成功后显示确认信息。",
+    confirmationNote: "你的内容尚未发送。正式版会在成功接收建议后显示确认信息。",
     edit: "继续修改建议",
-    author: "由 Alex Chen 维护",
-    authorBody:
-      "我会结合读者反馈与 OpenHW 工程经验，逐步制作中英文课程。也欢迎直接联系我，交流你的学习目标。",
-    linkedin: "在 LinkedIn 与 Alex 交流",
-    github: "公开提出课程建议",
-    planning: "关于课程安排",
-    planningBody:
-      "这是一份学习需求反馈，不是课程上线承诺。如果你的问题涉及具体项目，写出仓库、工具或遇到的困难会更有帮助。",
   },
   en: {
     preview: "Local design preview · nothing is sent",
     kicker: "Help shape the Learning Hub",
     title: "What would you like to learn next?",
-    intro:
-      "Tell Alex what would help you most. It takes about 30 seconds. Your suggestions will inform future courses alongside technical value and available time.",
     depth: "Which course format would help you most?",
     single: "Choose one",
     formats: [
@@ -123,16 +110,8 @@ const copy = {
     error: "Please choose at least one technical direction.",
     confirmation: "Submission confirmation preview",
     confirmationNote:
-      "Nothing has been sent. The public version will confirm only after your suggestion has been saved successfully.",
+      "Nothing has been sent. The public version will confirm only after your suggestion has been received successfully.",
     edit: "Keep editing",
-    author: "Maintained by Alex Chen",
-    authorBody:
-      "I develop bilingual courses informed by reader feedback and OpenHW engineering experience. You are also welcome to contact me about your learning goals.",
-    linkedin: "Talk to Alex on LinkedIn",
-    github: "Suggest a course publicly",
-    planning: "About course planning",
-    planningBody:
-      "This is a request for learning feedback, not a promise to publish a course. For a project-specific question, naming the repository, tools or difficulty will help.",
   },
 } as const;
 
@@ -179,11 +158,7 @@ export function LearningPreferencePreview({ locale }: { locale: "en" | "zh" }) {
       >
         {text.title}
       </h2>
-      <p className="mt-4 max-w-3xl text-sm leading-7 text-[var(--text-secondary)] sm:text-base">
-        {text.intro}
-      </p>
-
-      <div className="mt-10 grid items-start gap-10 lg:grid-cols-[minmax(0,1fr)_280px] lg:gap-12">
+      <div className="mt-8 max-w-4xl">
         <form
           onSubmit={handleSubmit}
           onChange={() => {
@@ -379,45 +354,6 @@ export function LearningPreferencePreview({ locale }: { locale: "en" | "zh" }) {
             </div>
           )}
         </form>
-
-        <aside className="border-t border-[var(--border)] pt-8 lg:border-t-0 lg:border-l lg:pl-8 lg:pt-0">
-          <MessageSquareText className="h-5 w-5 text-[var(--primary)]" aria-hidden="true" />
-          <h3 className="mt-4 text-base font-semibold text-[var(--text-primary)]">{text.author}</h3>
-          <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)]">{text.authorBody}</p>
-          <div className="mt-5 space-y-2">
-            <a
-              href={externalLinks.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--primary)]"
-            >
-              <Linkedin className="h-4 w-4 shrink-0" aria-hidden="true" />
-              {text.linkedin}
-            </a>
-            <a
-              href={externalLinks.email}
-              className="flex min-h-11 items-center gap-2 text-sm text-[var(--text-secondary)]"
-            >
-              <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
-              <span className="break-all">{contactEmail}</span>
-            </a>
-            <a
-              href={externalLinks.courseRequests}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex min-h-11 items-center gap-2 text-sm text-[var(--text-secondary)]"
-            >
-              <Github className="h-4 w-4 shrink-0" aria-hidden="true" />
-              {text.github}
-            </a>
-          </div>
-          <div className="mt-7 border-t border-[var(--border)] pt-5">
-            <h3 className="text-sm font-semibold text-[var(--text-primary)]">{text.planning}</h3>
-            <p className="mt-2 text-xs leading-6 text-[var(--text-secondary)]">
-              {text.planningBody}
-            </p>
-          </div>
-        </aside>
       </div>
     </section>
   );
