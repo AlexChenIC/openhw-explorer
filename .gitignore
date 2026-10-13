@@ -44,3 +44,8 @@ tools/TrendRadar/
 next-env.d.ts
 # Local health reports are uploaded as CI artifacts, not published content.
 /reports/
+
+# Worker local credentials and generated runtime types
+.wrangler/
+.dev.vars*
+workers/**/worker-configuration.d.ts

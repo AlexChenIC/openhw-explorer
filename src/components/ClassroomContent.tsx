@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { LearningPreferenceForm } from "@/components/LearningPreferenceForm";
 import {
   ArrowRight,
   BookOpenText,
@@ -676,144 +677,151 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
           </section>
         )}
 
-        <section className="border-y border-[var(--border)] py-12 lg:py-16">
-          <p className="text-xs font-semibold uppercase text-[var(--primary)]">
-            {text.communityKicker}
-          </p>
-          <div className="mt-3 max-w-3xl">
-            <h2 className="text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl">
-              {text.communityTitle}
-            </h2>
-            <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)] sm:text-base">
-              {text.communityBody}
+        {process.env.NEXT_PUBLIC_ENABLE_LEARNING_FEEDBACK !== "false" ? (
+          <LearningPreferenceForm
+            locale={resolvedLocale}
+            preview={process.env.NEXT_PUBLIC_LEARNING_FEEDBACK_PREVIEW === "1"}
+          />
+        ) : (
+          <section className="border-y border-[var(--border)] py-12 lg:py-16">
+            <p className="text-xs font-semibold uppercase text-[var(--primary)]">
+              {text.communityKicker}
             </p>
-          </div>
-
-          <div
-            className={`mt-9 grid gap-8 ${features.publicPreviewEnabled ? "max-w-2xl" : "lg:grid-cols-2 lg:divide-x lg:divide-[var(--border)]"}`}
-          >
-            {!features.publicPreviewEnabled && (
-              <div className="lg:pr-12">
-                <Mail className="h-5 w-5 text-[var(--primary)]" />
-                <h3 className="mt-4 text-lg font-semibold text-[var(--text-primary)]">
-                  {text.subscribeTitle}
-                </h3>
-                <p className="mt-2 max-w-xl text-sm leading-7 text-[var(--text-secondary)]">
-                  {text.subscribeBody}
-                </p>
-
-                {newsletterAction ? (
-                  <form action={newsletterAction} method="post" className="mt-5 max-w-xl">
-                    <label
-                      htmlFor="learning-hub-email"
-                      className="text-xs font-semibold text-[var(--text-secondary)]"
-                    >
-                      {text.emailLabel}
-                    </label>
-                    <div className="mt-2 flex flex-col gap-3 sm:flex-row">
-                      <input
-                        id="learning-hub-email"
-                        name="email"
-                        type="email"
-                        autoComplete="email"
-                        required
-                        placeholder={text.emailPlaceholder}
-                        className="min-h-11 min-w-0 flex-1 border border-[var(--border)] bg-[var(--bg-card)] px-3 text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-tertiary)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20"
-                      />
-                      <button
-                        type="submit"
-                        className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 bg-[var(--primary)] px-5 text-sm font-semibold text-white transition-colors hover:bg-[var(--primary-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-dark)]"
-                      >
-                        {text.subscribeAction}
-                        <ArrowRight className="h-4 w-4" />
-                      </button>
-                    </div>
-                    <input type="hidden" name="embed" value="1" />
-                  </form>
-                ) : (
-                  <p className="mt-5 text-sm font-semibold text-[var(--text-tertiary)]">
-                    {text.subscriptionsSoon}
-                  </p>
-                )}
-
-                <p className="mt-3 max-w-xl text-xs leading-5 text-[var(--text-tertiary)]">
-                  {text.subscribeNote}
-                </p>
-              </div>
-            )}
-
-            <div
-              className={
-                features.publicPreviewEnabled
-                  ? ""
-                  : "border-t border-[var(--border)] pt-8 lg:border-t-0 lg:pl-12 lg:pt-0"
-              }
-            >
-              <MessageSquareText className="h-5 w-5 text-[var(--primary)]" />
-              <h3 className="mt-4 text-lg font-semibold text-[var(--text-primary)]">
-                {text.requestTitle}
-              </h3>
-              <p className="mt-2 max-w-xl text-sm leading-7 text-[var(--text-secondary)]">
-                {text.requestBody}
-              </p>
-
-              <div className="mt-5 divide-y divide-[var(--border)] border-y border-[var(--border)]">
-                <a
-                  href={externalLinks.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex min-h-16 items-center justify-between gap-4 py-3 text-sm font-semibold text-[var(--text-primary)] hover:text-[var(--primary)]"
-                >
-                  <span className="inline-flex items-center gap-3">
-                    <MessageSquareText className="h-4 w-4 text-[var(--primary)]" />
-                    <span>
-                      <span className="block">{text.privateAction}</span>
-                      <span className="mt-0.5 block text-xs font-normal text-[var(--text-tertiary)]">
-                        {text.privateMeta}
-                      </span>
-                    </span>
-                  </span>
-                  <ExternalLink className="h-4 w-4 shrink-0" />
-                </a>
-                <a
-                  href={externalLinks.email}
-                  className="group flex min-h-16 items-center justify-between gap-4 py-3 text-sm font-semibold text-[var(--text-primary)] hover:text-[var(--primary)]"
-                >
-                  <span className="inline-flex min-w-0 items-center gap-3">
-                    <Mail className="h-4 w-4 shrink-0 text-[var(--primary)]" aria-hidden="true" />
-                    <span className="min-w-0">
-                      <span className="block">{text.emailAction}</span>
-                      <span className="mt-0.5 block break-all text-xs font-normal text-[var(--text-tertiary)]">
-                        {contactEmail}
-                      </span>
-                    </span>
-                  </span>
-                  <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
-                </a>
-                <a
-                  href={externalLinks.courseRequests}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="group flex min-h-16 items-center justify-between gap-4 py-3 text-sm font-semibold text-[var(--text-primary)] hover:text-[var(--primary)]"
-                >
-                  <span className="inline-flex items-center gap-3">
-                    <Github className="h-4 w-4 text-[var(--primary)]" />
-                    <span>
-                      <span className="block">{text.publicAction}</span>
-                      <span className="mt-0.5 block text-xs font-normal text-[var(--text-tertiary)]">
-                        {text.publicMeta}
-                      </span>
-                    </span>
-                  </span>
-                  <ExternalLink className="h-4 w-4 shrink-0" />
-                </a>
-              </div>
-              <p className="mt-3 text-xs leading-5 text-[var(--text-tertiary)]">
-                {text.publicNote}
+            <div className="mt-3 max-w-3xl">
+              <h2 className="text-2xl font-semibold text-[var(--text-primary)] sm:text-3xl">
+                {text.communityTitle}
+              </h2>
+              <p className="mt-3 text-sm leading-7 text-[var(--text-secondary)] sm:text-base">
+                {text.communityBody}
               </p>
             </div>
-          </div>
-        </section>
+
+            <div
+              className={`mt-9 grid gap-8 ${features.publicPreviewEnabled ? "max-w-2xl" : "lg:grid-cols-2 lg:divide-x lg:divide-[var(--border)]"}`}
+            >
+              {!features.publicPreviewEnabled && (
+                <div className="lg:pr-12">
+                  <Mail className="h-5 w-5 text-[var(--primary)]" />
+                  <h3 className="mt-4 text-lg font-semibold text-[var(--text-primary)]">
+                    {text.subscribeTitle}
+                  </h3>
+                  <p className="mt-2 max-w-xl text-sm leading-7 text-[var(--text-secondary)]">
+                    {text.subscribeBody}
+                  </p>
+
+                  {newsletterAction ? (
+                    <form action={newsletterAction} method="post" className="mt-5 max-w-xl">
+                      <label
+                        htmlFor="learning-hub-email"
+                        className="text-xs font-semibold text-[var(--text-secondary)]"
+                      >
+                        {text.emailLabel}
+                      </label>
+                      <div className="mt-2 flex flex-col gap-3 sm:flex-row">
+                        <input
+                          id="learning-hub-email"
+                          name="email"
+                          type="email"
+                          autoComplete="email"
+                          required
+                          placeholder={text.emailPlaceholder}
+                          className="min-h-11 min-w-0 flex-1 border border-[var(--border)] bg-[var(--bg-card)] px-3 text-sm text-[var(--text-primary)] outline-none transition-colors placeholder:text-[var(--text-tertiary)] focus:border-[var(--primary)] focus:ring-2 focus:ring-[var(--primary)]/20"
+                        />
+                        <button
+                          type="submit"
+                          className="inline-flex min-h-11 shrink-0 items-center justify-center gap-2 bg-[var(--primary)] px-5 text-sm font-semibold text-white transition-colors hover:bg-[var(--primary-dark)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[var(--primary)] focus-visible:ring-offset-2 focus-visible:ring-offset-[var(--bg-dark)]"
+                        >
+                          {text.subscribeAction}
+                          <ArrowRight className="h-4 w-4" />
+                        </button>
+                      </div>
+                      <input type="hidden" name="embed" value="1" />
+                    </form>
+                  ) : (
+                    <p className="mt-5 text-sm font-semibold text-[var(--text-tertiary)]">
+                      {text.subscriptionsSoon}
+                    </p>
+                  )}
+
+                  <p className="mt-3 max-w-xl text-xs leading-5 text-[var(--text-tertiary)]">
+                    {text.subscribeNote}
+                  </p>
+                </div>
+              )}
+
+              <div
+                className={
+                  features.publicPreviewEnabled
+                    ? ""
+                    : "border-t border-[var(--border)] pt-8 lg:border-t-0 lg:pl-12 lg:pt-0"
+                }
+              >
+                <MessageSquareText className="h-5 w-5 text-[var(--primary)]" />
+                <h3 className="mt-4 text-lg font-semibold text-[var(--text-primary)]">
+                  {text.requestTitle}
+                </h3>
+                <p className="mt-2 max-w-xl text-sm leading-7 text-[var(--text-secondary)]">
+                  {text.requestBody}
+                </p>
+
+                <div className="mt-5 divide-y divide-[var(--border)] border-y border-[var(--border)]">
+                  <a
+                    href={externalLinks.linkedin}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex min-h-16 items-center justify-between gap-4 py-3 text-sm font-semibold text-[var(--text-primary)] hover:text-[var(--primary)]"
+                  >
+                    <span className="inline-flex items-center gap-3">
+                      <MessageSquareText className="h-4 w-4 text-[var(--primary)]" />
+                      <span>
+                        <span className="block">{text.privateAction}</span>
+                        <span className="mt-0.5 block text-xs font-normal text-[var(--text-tertiary)]">
+                          {text.privateMeta}
+                        </span>
+                      </span>
+                    </span>
+                    <ExternalLink className="h-4 w-4 shrink-0" />
+                  </a>
+                  <a
+                    href={externalLinks.email}
+                    className="group flex min-h-16 items-center justify-between gap-4 py-3 text-sm font-semibold text-[var(--text-primary)] hover:text-[var(--primary)]"
+                  >
+                    <span className="inline-flex min-w-0 items-center gap-3">
+                      <Mail className="h-4 w-4 shrink-0 text-[var(--primary)]" aria-hidden="true" />
+                      <span className="min-w-0">
+                        <span className="block">{text.emailAction}</span>
+                        <span className="mt-0.5 block break-all text-xs font-normal text-[var(--text-tertiary)]">
+                          {contactEmail}
+                        </span>
+                      </span>
+                    </span>
+                    <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
+                  </a>
+                  <a
+                    href={externalLinks.courseRequests}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="group flex min-h-16 items-center justify-between gap-4 py-3 text-sm font-semibold text-[var(--text-primary)] hover:text-[var(--primary)]"
+                  >
+                    <span className="inline-flex items-center gap-3">
+                      <Github className="h-4 w-4 text-[var(--primary)]" />
+                      <span>
+                        <span className="block">{text.publicAction}</span>
+                        <span className="mt-0.5 block text-xs font-normal text-[var(--text-tertiary)]">
+                          {text.publicMeta}
+                        </span>
+                      </span>
+                    </span>
+                    <ExternalLink className="h-4 w-4 shrink-0" />
+                  </a>
+                </div>
+                <p className="mt-3 text-xs leading-5 text-[var(--text-tertiary)]">
+                  {text.publicNote}
+                </p>
+              </div>
+            </div>
+          </section>
+        )}
       </div>
     </div>
   );

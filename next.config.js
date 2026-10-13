@@ -19,7 +19,7 @@ const contentSecurityPolicy = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https:",
   "font-src 'self' data:",
-  "connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com https://cloudflareinsights.com",
+  "connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com https://cloudflareinsights.com https://openhwexplorer.com/api/learning-feedback",
   "media-src 'self'",
   "frame-ancestors 'none'",
   "base-uri 'self'",

@@ -3,7 +3,13 @@ import nextCoreWebVitals from "eslint-config-next/core-web-vitals";
 import prettier from "eslint-config-prettier";
 
 export default defineConfig([
-  globalIgnores([".next/**", "node_modules/**", "out/**", "build/**"]),
+  globalIgnores([
+    ".next/**",
+    "node_modules/**",
+    "out/**",
+    "build/**",
+    "workers/**/worker-configuration.d.ts",
+  ]),
   ...nextCoreWebVitals,
   prettier,
   {
