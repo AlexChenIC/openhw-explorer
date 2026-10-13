@@ -7,12 +7,13 @@ import {
   Linkedin,
   Github,
   LockKeyhole,
+  Mail,
   Network,
   ShieldCheck,
 } from "lucide-react";
 import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
-import { externalLinks } from "@/data/external-links";
+import { contactEmail, externalLinks } from "@/data/external-links";
 import { SITE_URL } from "@/lib/site-url";
 
 type AboutPageProps = {
@@ -162,6 +163,14 @@ async function AboutContent() {
                 <Linkedin className="h-4 w-4" />
                 {t("author.connectLinkedIn")}
                 <ExternalLink className="h-3.5 w-3.5" />
+              </a>
+              <a
+                href={externalLinks.email}
+                aria-label={`${t("author.contactEmail")}: ${contactEmail}`}
+                className="inline-flex min-h-11 w-fit items-center gap-2 rounded-md border border-[var(--border)] px-4 py-2 text-sm font-semibold text-[var(--text-primary)] hover:text-[var(--primary)]"
+              >
+                <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
+                <span className="break-all">{contactEmail}</span>
               </a>
             </div>
           </div>
