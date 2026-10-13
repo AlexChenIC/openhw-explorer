@@ -1,6 +1,6 @@
 # Cloudflare Pages mirror publication
 
-Public canonical domain: https://openhwexplorer.com, attached to the `openhw-explorer` Pages project. `www.openhwexplorer.com` redirects to it while preserving paths and query strings. The https://openhw-explorer.pages.dev and older https://openhw-explorer-test.pages.dev addresses are also published from the same artifact so existing conference QR links continue to work. Both are actual Pages projects with production branch `pages-preview`. Vercel remains available.
+Public canonical domain: https://openhwexplorer.com, attached to the `openhw-explorer` Pages project. A zone-level Cloudflare Redirect Rule sends `www.openhwexplorer.com` to it while preserving paths and query strings; Pages `_redirects` cannot match source hostnames. The https://openhw-explorer.pages.dev and older https://openhw-explorer-test.pages.dev addresses are also published from the same artifact so existing conference QR links continue to work. Both are actual Pages projects with production branch `pages-preview`. Vercel remains available.
 
 ## Publication flow
 
