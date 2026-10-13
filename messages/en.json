@@ -329,7 +329,7 @@
     },
     "privacy": {
       "title": "Privacy",
-      "content": "OpenHW Explorer has no user accounts and does not ask visitors to submit personal information. It uses Vercel Web Analytics for anonymous, aggregate page-view statistics and limited, structured client-error signals; Vercel also processes ordinary hosting request data under its own terms. This site does not set tracking cookies. Browser localStorage remembers display preferences, and feedback opens GitHub Issues."
+      "content": "OpenHW Explorer has no user accounts. The public .com site is hosted on Cloudflare Pages and uses Cloudflare Web Analytics for aggregate traffic and page-performance statistics. The Vercel mirror uses Vercel Web Analytics and limited, structured client-error signals. Hosting providers also process ordinary request data under their own terms. This site does not set tracking cookies; browser localStorage remembers display preferences. If you contact Alex by email or LinkedIn, or submit a public GitHub issue, the information you choose to provide is processed by the relevant service."
     }
   },
   "contributePage": {

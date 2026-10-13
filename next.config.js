@@ -4,11 +4,13 @@ const withNextIntl = createNextIntlPlugin("./src/lib/i18n.ts");
 
 // 'unsafe-inline' script-src is required by the inline ThemeScript and JSON-LD blocks;
 // va.vercel-scripts.com serves the Vercel Analytics debug script outside production.
+// Pages injects the Cloudflare Web Analytics beacon after it is enabled in Metrics.
 const scriptSources = [
   "'self'",
   "'unsafe-inline'",
   ...(process.env.NODE_ENV === "development" ? ["'unsafe-eval'"] : []),
   "https://va.vercel-scripts.com",
+  "https://static.cloudflareinsights.com/beacon.min.js",
 ].join(" ");
 
 const contentSecurityPolicy = [
@@ -17,7 +19,7 @@ const contentSecurityPolicy = [
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: https:",
   "font-src 'self' data:",
-  "connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com",
+  "connect-src 'self' https://va.vercel-scripts.com https://vitals.vercel-insights.com https://cloudflareinsights.com",
   "media-src 'self'",
   "frame-ancestors 'none'",
   "base-uri 'self'",
