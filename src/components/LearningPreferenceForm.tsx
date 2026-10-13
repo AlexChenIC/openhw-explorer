@@ -52,6 +52,13 @@ const copy = {
     contactNote: "可留下邮箱，仅用于这条建议的后续沟通。无需填写姓名，也不会自动订阅。",
     email: "联系邮箱",
     action: "预览提交效果",
+    submit: "提交建议",
+    sending: "正在提交…",
+    privateNote: "建议仅发送给 Alex，不公开展示。无需注册；联系邮箱选填，不会自动订阅。",
+    received: "建议已提交，谢谢！",
+    receivedNote: "你的建议已被接收并交由邮件服务发送给 Alex，不会公开展示。",
+    rateLimit: "提交较频繁，请稍等一分钟再试。",
+    sendError: "暂时无法提交，填写内容已保留。请稍后重试，或发邮件至 hello@openhwexplorer.com。",
     note: "本版本仅展示交互，不联网提交，也不保存填写内容。正式版计划无需注册即可提交。",
     error: "请至少选择一个技术方向。",
     confirmation: "提交确认界面预览",
@@ -107,6 +114,16 @@ const copy = {
       "Leave an email for follow-up about this suggestion. No name is needed, and this does not subscribe you to updates.",
     email: "Contact email",
     action: "Preview submission",
+    submit: "Send suggestion",
+    sending: "Sending…",
+    privateNote:
+      "Your suggestion is sent privately to Alex and is not displayed publicly. No account is needed; an email is optional and does not subscribe you to updates.",
+    received: "Suggestion received. Thank you!",
+    receivedNote:
+      "Your suggestion has been accepted by the email service for delivery to Alex. It will not be displayed publicly.",
+    rateLimit: "Too many submissions. Please wait a minute and try again.",
+    sendError:
+      "We could not send your suggestion. Your entries are still here. Please try again later or email hello@openhwexplorer.com.",
     note: "This version demonstrates the interaction only. Nothing is sent or saved. The planned public form will not require registration.",
     error: "Please choose at least one technical direction.",
     confirmation: "Submission confirmation preview",
@@ -118,12 +135,19 @@ const copy = {
 
 type Submission = { format: string; topics: string[]; problem: string; email: string };
 
-export function LearningPreferencePreview({ locale }: { locale: "en" | "zh" }) {
+export function LearningPreferenceForm({
+  locale,
+  preview = false,
+}: {
+  locale: "en" | "zh";
+  preview?: boolean;
+}) {
   const text = copy[locale];
   const [error, setError] = useState("");
+  const [sending, setSending] = useState(false);
   const [submission, setSubmission] = useState<Submission | null>(null);
 
-  function handleSubmit(event: FormEvent<HTMLFormElement>) {
+  async function handleSubmit(event: FormEvent<HTMLFormElement>) {
     event.preventDefault();
     const form = event.currentTarget;
     const data = new FormData(form);
@@ -135,12 +159,42 @@ export function LearningPreferencePreview({ locale }: { locale: "en" | "zh" }) {
       return;
     }
     setError("");
-    setSubmission({
+    const suggestion = {
       format: String(data.get("format") ?? ""),
       topics,
       problem: String(data.get("problem") ?? "").trim(),
       email: String(data.get("contact") ?? "").trim(),
-    });
+    };
+    if (preview) {
+      setSubmission(suggestion);
+      return;
+    }
+    if (sending || submission) return;
+    setSending(true);
+    try {
+      const response = await fetch("https://openhwexplorer.com/api/learning-feedback", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        credentials: "omit",
+        signal: AbortSignal.timeout(20000),
+        body: JSON.stringify({ ...suggestion, locale, website: String(data.get("website") ?? "") }),
+      });
+      const result = await response.json();
+      if (
+        !response.ok ||
+        result.ok !== true ||
+        result.code !== "accepted" ||
+        typeof result.id !== "string"
+      ) {
+        setError(response.status === 429 ? text.rateLimit : text.sendError);
+        return;
+      }
+      setSubmission(suggestion);
+    } catch {
+      setError(text.sendError);
+    } finally {
+      setSending(false);
+    }
   }
 
   return (
@@ -149,9 +203,11 @@ export function LearningPreferencePreview({ locale }: { locale: "en" | "zh" }) {
       aria-labelledby="learning-feedback-title"
       className="scroll-mt-24 border-t border-[var(--border)] py-12 lg:py-16"
     >
-      <p className="mb-7 w-fit rounded-md border border-[var(--border)] bg-[var(--bg-card)] px-3 py-2 text-xs font-medium text-[var(--text-secondary)]">
-        {text.preview}
-      </p>
+      {preview && (
+        <p className="mb-7 w-fit rounded-md border border-[var(--border)] bg-[var(--bg-card)] px-3 py-2 text-xs font-medium text-[var(--text-secondary)]">
+          {text.preview}
+        </p>
+      )}
       <p className="text-xs font-semibold text-[var(--primary)]">{text.kicker}</p>
       <h2
         id="learning-feedback-title"
@@ -166,9 +222,17 @@ export function LearningPreferencePreview({ locale }: { locale: "en" | "zh" }) {
             setSubmission(null);
             setError("");
           }}
+          aria-busy={sending}
           className="min-w-0 space-y-8"
         >
-          <fieldset>
+          <input
+            name="website"
+            tabIndex={-1}
+            autoComplete="off"
+            aria-hidden="true"
+            className="hidden"
+          />
+          <fieldset disabled={sending}>
             <legend className="mb-4 flex flex-wrap items-baseline gap-3 text-base font-semibold text-[var(--text-primary)]">
               <span className="font-mono text-sm text-[var(--primary)]">01</span>
               {text.depth}
@@ -208,7 +272,7 @@ export function LearningPreferencePreview({ locale }: { locale: "en" | "zh" }) {
             </div>
           </fieldset>
 
-          <fieldset aria-describedby={error ? "learning-feedback-error" : undefined}>
+          <fieldset disabled={sending}>
             <legend className="mb-4 flex flex-wrap items-baseline gap-3 text-base font-semibold text-[var(--text-primary)]">
               <span className="font-mono text-sm text-[var(--primary)]">02</span>
               {text.topic}
@@ -232,15 +296,6 @@ export function LearningPreferencePreview({ locale }: { locale: "en" | "zh" }) {
                 </label>
               ))}
             </div>
-            {error && (
-              <p
-                id="learning-feedback-error"
-                role="alert"
-                className="mt-3 text-sm text-[var(--text-primary)]"
-              >
-                {error}
-              </p>
-            )}
           </fieldset>
 
           <div>
@@ -256,6 +311,7 @@ export function LearningPreferencePreview({ locale }: { locale: "en" | "zh" }) {
             <textarea
               id="learning-feedback-problem"
               name="problem"
+              disabled={sending}
               rows={3}
               maxLength={1000}
               placeholder={text.placeholder}
@@ -283,6 +339,7 @@ export function LearningPreferencePreview({ locale }: { locale: "en" | "zh" }) {
               id="learning-feedback-contact"
               type="email"
               name="contact"
+              disabled={sending}
               autoComplete="email"
               maxLength={254}
               placeholder="you@example.com"
@@ -291,15 +348,25 @@ export function LearningPreferencePreview({ locale }: { locale: "en" | "zh" }) {
           </details>
 
           <div>
+            {error && (
+              <p
+                id="learning-feedback-error"
+                role="alert"
+                className="mb-4 text-sm leading-6 text-[var(--text-primary)]"
+              >
+                {error}
+              </p>
+            )}
             <button
               type="submit"
-              className="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-lg bg-[var(--primary)] px-6 text-sm font-semibold text-white hover:bg-[var(--primary-dark)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--primary)] sm:w-auto"
+              disabled={sending || !!submission}
+              className="inline-flex min-h-12 w-full items-center justify-center gap-3 rounded-lg bg-[var(--primary)] px-6 text-sm font-semibold text-white hover:bg-[var(--primary-dark)] focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--primary)] sm:w-auto disabled:cursor-not-allowed disabled:opacity-60"
             >
-              {text.action}
+              {preview ? text.action : sending ? text.sending : text.submit}
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </button>
             <p className="mt-3 max-w-xl text-xs leading-6 text-[var(--text-secondary)]">
-              {text.note}
+              {preview ? text.note : text.privateNote}
             </p>
           </div>
 
@@ -308,9 +375,11 @@ export function LearningPreferencePreview({ locale }: { locale: "en" | "zh" }) {
               role="status"
               className="rounded-xl border border-[var(--primary)]/30 bg-[var(--primary)]/5 p-5"
             >
-              <p className="font-semibold text-[var(--text-primary)]">{text.confirmation}</p>
+              <p className="font-semibold text-[var(--text-primary)]">
+                {preview ? text.confirmation : text.received}
+              </p>
               <p className="mt-2 text-sm leading-6 text-[var(--text-secondary)]">
-                {text.confirmationNote}
+                {preview ? text.confirmationNote : text.receivedNote}
               </p>
               <dl className="mt-4 space-y-3 text-sm">
                 <div>

@@ -1,5 +1,5 @@
 import Image from "next/image";
-import { LearningPreferencePreview } from "@/components/LearningPreferencePreview";
+import { LearningPreferenceForm } from "@/components/LearningPreferenceForm";
 import {
   ArrowRight,
   BookOpenText,
@@ -677,8 +677,11 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
           </section>
         )}
 
-        {process.env.NEXT_PUBLIC_LEARNING_FEEDBACK_PREVIEW === "1" ? (
-          <LearningPreferencePreview locale={resolvedLocale} />
+        {process.env.NEXT_PUBLIC_ENABLE_LEARNING_FEEDBACK !== "false" ? (
+          <LearningPreferenceForm
+            locale={resolvedLocale}
+            preview={process.env.NEXT_PUBLIC_LEARNING_FEEDBACK_PREVIEW === "1"}
+          />
         ) : (
           <section className="border-y border-[var(--border)] py-12 lg:py-16">
             <p className="text-xs font-semibold uppercase text-[var(--primary)]">

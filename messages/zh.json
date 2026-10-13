@@ -329,7 +329,7 @@
     },
     "privacy": {
       "title": "隐私说明",
-      "content": "OpenHW Explorer 不设用户账号。正式 .com 网站托管于 Cloudflare Pages，使用 Cloudflare Web Analytics 汇总访问量与页面性能；Vercel 镜像使用 Vercel Web Analytics 和有限的结构化客户端错误信号。托管服务商还会依据各自条款处理常规请求数据。本站不设置追踪 Cookie；浏览器 localStorage 记住显示偏好。若通过邮箱、LinkedIn 联系 Alex，或公开提交 GitHub Issue，你自愿提供的信息会由对应服务处理。"
+      "content": "OpenHW Explorer 不设用户账号。正式 .com 网站托管于 Cloudflare Pages，使用 Cloudflare Web Analytics 汇总访问量与页面性能；Vercel 镜像使用 Vercel Web Analytics 和有限的结构化客户端错误信号。托管服务商还会依据各自条款处理常规请求数据。本站不设置追踪 Cookie；浏览器 localStorage 记住显示偏好。若通过邮箱、LinkedIn 联系 Alex，或公开提交 GitHub Issue，你自愿提供的信息会由对应服务处理。 课程需求表单会经 Cloudflare 私密发送至 Alex 的邮箱，包含你选择的方向、问题和自愿提供的联系邮箱，不在网站公开展示，也不会自动订阅。本站不建立反馈数据库；内容保留在 Alex 的邮箱中，仅用于课程规划与后续沟通。"
     }
   },
   "contributePage": {
