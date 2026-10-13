@@ -1,9 +1,9 @@
 "use client";
 
-import { Github, ExternalLink, Linkedin, Scale } from "lucide-react";
+import { Github, ExternalLink, Linkedin, Mail, Scale } from "lucide-react";
 import { useTranslations } from "next-intl";
 import { Link } from "@/lib/routing";
-import { externalLinks } from "@/data/external-links";
+import { contactEmail, externalLinks } from "@/data/external-links";
 import { BrandLockup } from "@/components/BrandMark";
 
 export function Footer() {
@@ -73,19 +73,29 @@ export function Footer() {
             </nav>
           </div>
 
-          <div className="flex items-center gap-3 border-t border-[var(--border)] pt-4 md:border-l md:border-t-0 md:pl-6 md:pt-0">
-            <span className="text-sm font-semibold text-[var(--text-primary)]">
-              {t("creatorName")}
-            </span>
+          <div className="flex shrink-0 flex-col items-start gap-2 border-t border-[var(--border)] pt-4 md:border-l md:border-t-0 md:pl-6 md:pt-0">
+            <div className="flex items-center gap-3">
+              <span className="text-sm font-semibold text-[var(--text-primary)]">
+                {t("creatorName")}
+              </span>
+              <a
+                href={externalLinks.linkedin}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--linkedin)] transition-colors hover:text-[var(--linkedin-hover)]"
+              >
+                <Linkedin className="h-4 w-4" />
+                <span>{t("linkedin")}</span>
+                <ExternalLink className="h-3 w-3" />
+              </a>
+            </div>
             <a
-              href={externalLinks.linkedin}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1.5 text-sm font-semibold text-[var(--linkedin)] transition-colors hover:text-[var(--linkedin-hover)]"
+              href={externalLinks.email}
+              aria-label={`${t("email")}: ${contactEmail}`}
+              className="inline-flex min-h-11 items-center gap-2 text-sm text-[var(--text-secondary)] hover:text-[var(--primary)]"
             >
-              <Linkedin className="h-4 w-4" />
-              <span>{t("linkedin")}</span>
-              <ExternalLink className="h-3 w-3" />
+              <Mail className="h-4 w-4 shrink-0" aria-hidden="true" />
+              <span className="break-all">{contactEmail}</span>
             </a>
           </div>
         </div>

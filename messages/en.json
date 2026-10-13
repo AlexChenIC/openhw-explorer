@@ -158,6 +158,7 @@
     "licensing": "Licensing",
     "linksLabel": "Project and OpenHW links",
     "creatorName": "Alex Chen",
+    "email": "Email Alex Chen",
     "independent": "OpenHW Explorer is an independent community project and is not an official OpenHW Foundation website.",
     "feedback": "Feedback ↗",
     "projectGithub": "Project GitHub"
@@ -323,7 +324,8 @@
       "eyebrow": "Maintainer",
       "title": "Created and maintained by Junchao Chen (Alex Chen)",
       "bio": "Maintained independently alongside his work at OpenHW Foundation.",
-      "connectLinkedIn": "Connect on LinkedIn"
+      "connectLinkedIn": "Connect on LinkedIn",
+      "contactEmail": "Email Alex Chen"
     },
     "privacy": {
       "title": "Privacy",

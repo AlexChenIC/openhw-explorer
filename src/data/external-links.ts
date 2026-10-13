@@ -1,6 +1,9 @@
 // Kept in its own module so lightweight components (Footer, FeedbackButton)
 // don't pull the full resources directory into the client bundle.
+export const contactEmail = "hello@openhwexplorer.com";
+
 export const externalLinks = {
+  email: `mailto:${contactEmail}`,
   projectGithub: "https://github.com/AlexChenIC/openhw-explorer",
   feedbackChooser: "https://github.com/AlexChenIC/openhw-explorer/issues/new/choose",
   feedbackIssues: "https://github.com/AlexChenIC/openhw-explorer/issues/new",

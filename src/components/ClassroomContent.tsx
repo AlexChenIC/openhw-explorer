@@ -16,7 +16,7 @@ import {
   ShieldCheck,
 } from "lucide-react";
 import { Link } from "@/lib/routing";
-import { externalLinks } from "@/data/external-links";
+import { contactEmail, externalLinks } from "@/data/external-links";
 import { getPublicClassroomSeries } from "@/data/classroom-publication";
 import { features } from "@/lib/features";
 import {
@@ -100,6 +100,7 @@ const copy = {
       "Send Alex a private message, or open a public request so other learners can add context.",
     privateAction: "Message Alex privately",
     privateMeta: "via LinkedIn",
+    emailAction: "Email Alex · suggestions and corrections",
     publicAction: "Post a public course request",
     publicMeta: "on GitHub",
     publicNote: "GitHub requests are visible to everyone.",
@@ -179,6 +180,7 @@ const copy = {
     requestBody: "可以私下告诉 Alex，也可以公开提出建议，让其他学习者补充需求。",
     privateAction: "私信 Alex",
     privateMeta: "通过 LinkedIn",
+    emailAction: "邮件联系 Alex · 课程建议与纠错",
     publicAction: "公开提交课程建议",
     publicMeta: "通过 GitHub",
     publicNote: "GitHub 中的建议对所有人公开。",
@@ -772,6 +774,21 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
                     </span>
                   </span>
                   <ExternalLink className="h-4 w-4 shrink-0" />
+                </a>
+                <a
+                  href={externalLinks.email}
+                  className="group flex min-h-16 items-center justify-between gap-4 py-3 text-sm font-semibold text-[var(--text-primary)] hover:text-[var(--primary)]"
+                >
+                  <span className="inline-flex min-w-0 items-center gap-3">
+                    <Mail className="h-4 w-4 shrink-0 text-[var(--primary)]" aria-hidden="true" />
+                    <span className="min-w-0">
+                      <span className="block">{text.emailAction}</span>
+                      <span className="mt-0.5 block break-all text-xs font-normal text-[var(--text-tertiary)]">
+                        {contactEmail}
+                      </span>
+                    </span>
+                  </span>
+                  <ArrowRight className="h-4 w-4 shrink-0" aria-hidden="true" />
                 </a>
                 <a
                   href={externalLinks.courseRequests}
