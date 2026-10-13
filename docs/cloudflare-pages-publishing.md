@@ -1,6 +1,6 @@
 # Cloudflare Pages mirror publication
 
-Primary Pages address: https://openhw-explorer.pages.dev. The older https://openhw-explorer-test.pages.dev address is also published from the same artifact so existing conference QR links continue to work. Both are actual Pages projects with production branch `pages-preview`. Vercel remains available. A purchased custom domain can later be attached to the primary Pages project.
+Public canonical domain: https://openhwexplorer.com, attached to the `openhw-explorer` Pages project. `www.openhwexplorer.com` redirects to it while preserving paths and query strings. The https://openhw-explorer.pages.dev and older https://openhw-explorer-test.pages.dev addresses are also published from the same artifact so existing conference QR links continue to work. Both are actual Pages projects with production branch `pages-preview`. Vercel remains available.
 
 ## Publication flow
 
@@ -19,7 +19,7 @@ Curated news still follows its source-checked PR workflow. Candidate collection 
 
 `npm run build:pages` builds a disposable copy under ignored `build/pages-source/`, leaving the normal Next.js build unchanged. Server-only locale proxy/catch-all routes are replaced by exact Pages redirects; unknown paths still return 404. Withdrawn courses and the disabled Industry section remain withdrawn. Only correctly localized players are statically exported.
 
-The Pages mirrors serve HTML, JS, images, course media and a build-time `/api/news-status` JSON snapshot without Pages Functions or a database. Statistics and news come from committed JSON files; the build does not independently refresh editorial data. Vercel Analytics is disabled for Pages only. Mirror noindex headers and Vercel canonical URLs are intentionally retained until the final public domain is selected. A runtime-backed endpoint added later requires a separate Pages compatibility decision.
+The Pages sites serve HTML, JS, images, course media and a build-time `/api/news-status` JSON snapshot without Pages Functions or a database. Statistics and news come from committed JSON files; the build does not independently refresh editorial data. Vercel Analytics is disabled for Pages only. Canonical, language-alternate and sitemap URLs use `https://openhwexplorer.com`. Host-specific noindex headers remain on Pages production mirrors and preview hostnames, while the public domain can be indexed. Individual Demo courses retain their metadata noindex and sitemap exclusion. The CI verifies all three Pages addresses, including canonical URLs and the www redirect. A runtime-backed endpoint added later requires a separate Pages compatibility decision.
 
 ## One-time activation
 

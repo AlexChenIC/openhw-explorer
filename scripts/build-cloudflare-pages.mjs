@@ -125,14 +125,18 @@ async function visit(path = "") {
   }
 }
 await visit();
-await writeFile(join(stagedOutput, "_redirects"), [...new Set(redirects)].join("\n") + "\n");
+await writeFile(
+  join(stagedOutput, "_redirects"),
+  "https://www.openhwexplorer.com/* https://openhwexplorer.com/:splat 301\n" +
+    [...new Set(redirects)].join("\n") + "\n",
+);
 const config = createRequire(import.meta.url)(join(root, "next.config.js"));
 const headers = (await config.headers())[0].headers;
 await writeFile(
   join(stagedOutput, "_headers"),
   "/*\n" +
     headers.map(({ key, value }) => "  " + key + ": " + value).join("\n") +
-    "\n  X-Robots-Tag: noindex, nofollow\n/en/opengraph-image\n  Content-Type: image/png\n/zh/opengraph-image\n  Content-Type: image/png\n/api/news-status\n  Content-Type: application/json; charset=utf-8\n  Cache-Control: no-cache\n",
+    "\nhttps://:project.pages.dev/*\n  X-Robots-Tag: noindex, nofollow\nhttps://:version.:project.pages.dev/*\n  X-Robots-Tag: noindex, nofollow\n/en/opengraph-image\n  Content-Type: image/png\n/zh/opengraph-image\n  Content-Type: image/png\n/api/news-status\n  Content-Type: application/json; charset=utf-8\n  Cache-Control: no-cache\n",
 );
 const digest = JSON.parse(await readFile(join(root, "src/data/news-digest.json"), "utf8"));
 const reviewStatus = JSON.parse(await readFile(join(root, "src/data/news-review-status.json"), "utf8"));

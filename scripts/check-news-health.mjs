@@ -12,7 +12,7 @@ if (!sources.length || success / sources.length < 0.5) report.errors.push("Fewer
 else if (success < sources.length) report.warnings.push(`${sources.length - success} sources failed; inspect the collection artifact.`);
 
 try {
-  const response = await fetch("https://openhw-explorer.vercel.app/api/news-status", { signal: AbortSignal.timeout(30000), cache: "no-store" });
+  const response = await fetch("https://openhwexplorer.com/api/news-status", { signal: AbortSignal.timeout(30000), cache: "no-store" });
   if (!response.ok) throw new Error(`Production status returned HTTP ${response.status}`);
   const live = await response.json();
   report.production = live;
