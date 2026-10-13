@@ -127,8 +127,7 @@ async function visit(path = "") {
 await visit();
 await writeFile(
   join(stagedOutput, "_redirects"),
-  "https://www.openhwexplorer.com/* https://openhwexplorer.com/:splat 301\n" +
-    [...new Set(redirects)].join("\n") + "\n",
+  [...new Set(redirects)].join("\n") + "\n",
 );
 const config = createRequire(import.meta.url)(join(root, "next.config.js"));
 const headers = (await config.headers())[0].headers;
