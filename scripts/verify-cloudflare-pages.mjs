@@ -8,7 +8,8 @@ import { assertNewsSnapshot, courseAudioUrl } from "./lib/pages-export.mjs";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const base = process.env.PAGES_VERIFY_URL || "https://openhw-explorer.pages.dev";
-const isMirror = new URL(base).hostname.endsWith(".pages.dev");
+const redirectTarget = process.env.PAGES_EXPECT_REDIRECT_TO;
+const isMirror = new URL(base).hostname.endsWith(".pages.dev") && !redirectTarget;
 const commit =
   process.env.DEPLOYMENT_GIT_SHA ||
   execFileSync("git", ["rev-parse", "HEAD"], { cwd: root, encoding: "utf8" }).trim();
@@ -21,7 +22,22 @@ async function request(path, options = {}) {
   let last;
   for (let attempt = 0; attempt < 5; attempt++) {
     try {
-      const response = await fetch(url, {
+      let destination = url;
+      if (redirectTarget) {
+        const redirect = await fetch(url, {
+          redirect: "manual",
+          signal: AbortSignal.timeout(20000),
+          cache: "no-store",
+        });
+        destination = new URL(url.pathname + url.search, redirectTarget);
+        if (redirect.status !== 301 || redirect.headers.get("location") !== destination.href) {
+          throw new Error(`Wrong Pages domain redirect: ${path}`);
+        }
+        if (!report.checks.some((check) => check.redirectSource === url.href)) {
+          report.checks.push({ redirectSource: url.href, status: 301, target: destination.href });
+        }
+      }
+      const response = await fetch(destination, {
         ...options,
         signal: AbortSignal.timeout(20000),
         cache: "no-store",
