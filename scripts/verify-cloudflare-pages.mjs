@@ -8,6 +8,7 @@ import { assertNewsSnapshot, courseAudioUrl } from "./lib/pages-export.mjs";
 
 const root = dirname(dirname(fileURLToPath(import.meta.url)));
 const base = process.env.PAGES_VERIFY_URL || "https://openhw-explorer.pages.dev";
+const isMirror = new URL(base).hostname.endsWith(".pages.dev");
 const commit =
   process.env.DEPLOYMENT_GIT_SHA ||
   execFileSync("git", ["rev-parse", "HEAD"], { cwd: root, encoding: "utf8" }).trim();
@@ -63,8 +64,16 @@ try {
     if (response.status !== 200 || !html.includes("<h1")) {
       throw new Error(`Missing page content: ${route}`);
     }
-    if (!response.headers.get("x-robots-tag")?.includes("noindex")) {
+    const noindex = response.headers.get("x-robots-tag")?.includes("noindex");
+    if (isMirror && !noindex) {
       throw new Error(`Missing mirror noindex header: ${route}`);
+    }
+    if (!isMirror && noindex) {
+      throw new Error(`Public domain has a mirror noindex header: ${route}`);
+    }
+    const canonical = html.match(/<link[^>]+rel="canonical"[^>]+href="([^"]+)"/);
+    if (!canonical || canonical[1] !== `https://openhwexplorer.com${route}`) {
+      throw new Error(`Wrong canonical URL: ${route}`);
     }
     report.checks.push({ path: route, status: response.status });
   }
@@ -105,6 +114,15 @@ try {
   const missing = await request("/not-a-real-openhw-route", { redirect: "manual" });
   if (missing.status !== 404) throw new Error("Unknown route must return 404");
   report.checks.push({ path: "/not-a-real-openhw-route", status: 404 });
+  if (!isMirror) {
+    const url = new URL("https://www.openhwexplorer.com/zh/news?source=domain-check");
+    const response = await fetch(url, { redirect: "manual", signal: AbortSignal.timeout(20000) });
+    if (response.status !== 301 || response.headers.get("location") !==
+      "https://openhwexplorer.com/zh/news?source=domain-check") {
+      throw new Error("www redirect must preserve path and query");
+    }
+    report.checks.push({ path: url.href, status: 301, target: response.headers.get("location") });
+  }
   report.passed = true;
   console.log(
     `Pages verified: commit ${commit}, ${live.itemCount} news items, ${report.checks.length} page/media/redirect checks.`,

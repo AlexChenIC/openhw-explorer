@@ -21,6 +21,7 @@ jobs:
     env:
       DEPLOYMENT_GIT_SHA: ${{ github.sha }}
       NEXT_PUBLIC_ENABLE_NEWS: "true"
+      NEXT_PUBLIC_SITE_URL: https://openhwexplorer.com
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
         with:
@@ -53,6 +54,11 @@ jobs:
           --commit-hash "$GITHUB_SHA" --commit-dirty=false
       - name: Verify primary Pages snapshot
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        run: npm run verify:pages
+      - name: Verify public custom domain
+        if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+        env:
+          PAGES_VERIFY_URL: https://openhwexplorer.com
         run: npm run verify:pages
       - name: Publish existing conference QR address
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'

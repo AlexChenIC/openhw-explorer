@@ -1,4 +1,4 @@
-export const DEFAULT_SITE_URL = "https://openhw-explorer.vercel.app";
+export const DEFAULT_SITE_URL = "https://openhwexplorer.com";
 
 export function resolveSiteUrl(value: string | undefined): string {
   const normalized = value?.trim();
