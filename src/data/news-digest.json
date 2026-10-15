@@ -1,17 +1,17 @@
 {
-  "weekOf": "2026-10-13",
-  "generatedAt": "2026-10-12T23:17:56.563Z",
+  "weekOf": "2026-10-15",
+  "generatedAt": "2026-10-15T01:34:58.486Z",
   "stats": {
-    "totalRelevant": 142,
+    "totalRelevant": 146,
     "totalSources": 44,
     "topTags": [
       {
         "tag": "EDA",
-        "count": 46
+        "count": 48
       },
       {
         "tag": "RISC-V",
-        "count": 45
+        "count": 46
       },
       {
         "tag": "Open Hardware",
@@ -23,7 +23,7 @@
       },
       {
         "tag": "Verification",
-        "count": 31
+        "count": 32
       }
     ]
   },
@@ -35,7 +35,7 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 44,
+      "count": 45,
       "items": [
         {
           "title": "Caliptra runtime/FMC 1.3.0 adds MLDSA post-quantum support",
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 49,
+      "count": 50,
       "items": [
         {
           "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
@@ -153,8 +153,20 @@
         "zh": "AI 与加速器"
       },
       "icon": "brain",
-      "count": 19,
+      "count": 20,
       "items": [
+        {
+          "title": "MLPerf Endpoints 1.0 opens submissions with mandatory provisioned-power measurement",
+          "titleZh": "MLPerf Endpoints 1.0 开放提交，新增强制功率测量要求",
+          "url": "https://mlcommons.org/2026/10/open-submissions-endpoints-v1-0/",
+          "source": "MLCommons",
+          "tags": [
+            "MLPerf",
+            "MLCommons",
+            "Benchmarking"
+          ],
+          "publishedAt": "2026-10-13"
+        },
         {
           "title": "OCP maps open specifications for AI data centers, networking, and chiplets",
           "titleZh": "OCP 梳理 AI 数据中心、网络与 chiplet 开放规范进展",
@@ -190,18 +202,6 @@
             "Networking"
           ],
           "publishedAt": "2026-10-08"
-        },
-        {
-          "title": "MLPerf Training adds an LLM post-training benchmark for agentic software tasks",
-          "titleZh": "MLPerf Training 新增面向智能体软件任务的 LLM 后训练基准",
-          "url": "https://mlcommons.org/2026/09/mlperf-training-llm-post-training/",
-          "source": "MLCommons",
-          "tags": [
-            "MLCommons",
-            "MLPerf",
-            "Benchmarking"
-          ],
-          "publishedAt": "2026-09-24"
         }
       ]
     },
@@ -271,7 +271,7 @@
         "zh": "硬件与嵌入式"
       },
       "icon": "circuit",
-      "count": 19,
+      "count": 20,
       "items": [
         {
           "title": "FOSSi publishes Verilator talk on closing SystemVerilog support gaps",
@@ -1099,6 +1099,99 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "Yosys 0.70 adds shared-adder constant multiplication and optimization barriers",
+      "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.70",
+      "source": "YosysHQ / Yosys (GitHub)",
+      "publishedAt": "2026-10-13",
+      "addedAt": "2026-10-15T01:34:26.374605Z",
+      "summary": "Yosys 0.70 introduces the mcm pass to replace constant multipliers with shared adder graphs. It also adds the experimental optbarriers pass and barrier options for flatten and prep, alongside new options for alumacc, rmports, and ltp. The release removes read_xaiger2. These are synthesis-flow capabilities; the release notes do not establish a general area or timing improvement.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Yosys",
+        "EDA",
+        "Synthesis",
+        "Open Source"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Yosys 0.70 新增共享加法器常数乘法与优化屏障",
+      "summaryZh": "Yosys 0.70 引入 mcm pass，将常数乘法器替换为共享加法器图；同时新增实验性 optbarriers pass，以及 flatten、prep 的屏障选项，并扩展 alumacc、rmports 和 ltp 的选项。该版本移除 read_xaiger2。这些更新提供新的综合流程能力，发布说明未给出普遍适用的面积或时序提升结论。"
+    },
+    {
+      "title": "RISC-V ISA Explorer report details configuration building and encoding checks",
+      "url": "https://riscv.org/blog/my-risc-v-mentorship-the-problems-nobody-assigned-me/",
+      "source": "RISC-V International news",
+      "publishedAt": "2026-10-13",
+      "addedAt": "2026-10-15T01:34:26.374605Z",
+      "summary": "RISC-V International published a mentorship engineering report on ISA Explorer. Its Configuration Builder resolves extension dependencies, generates -march strings, exports configurations, and tracks divergence from a selected profile. The Extension Sandbox checks proposed instruction encodings against the catalog and exports design artifacts. The linked implementation PRs were merged in August and September; this October report documents existing capabilities rather than a new ISA ratification or release.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "RISC-V",
+        "ISA",
+        "Developer Tools",
+        "Instruction Encoding",
+        "Verification"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "RISC-V ISA Explorer 报告详解配置构建与指令编码检查",
+      "summaryZh": "RISC-V International 发布 ISA Explorer 导师项目工程报告。Configuration Builder 可解析扩展依赖、生成 -march 字符串、导出配置，并跟踪配置相对所选 profile 的偏离；Extension Sandbox 可将拟议指令编码与目录比对，检查冲突并导出设计资料。文中对应实现 PR 已于 8 月和 9 月合并，本次 10 月报告介绍既有能力，不代表新的 ISA 批准或版本发布。"
+    },
+    {
+      "title": "MLPerf Endpoints 1.0 opens submissions with mandatory provisioned-power measurement",
+      "url": "https://mlcommons.org/2026/10/open-submissions-endpoints-v1-0/",
+      "source": "MLCommons",
+      "publishedAt": "2026-10-13",
+      "addedAt": "2026-10-15T01:34:26.374605Z",
+      "summary": "MLCommons opened submissions for MLPerf Endpoints 1.0, an open framework for measuring inference systems through live APIs across varying loads. It reports concurrency, tokens per second per user, system throughput, and 90th-percentile time to first token. Version 1.0 adds mandatory provisioned-power measurement and rolling submissions with peer review and audits. MLCommons expects the first 1.0 results in November; this announcement does not publish those results.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "MLPerf",
+        "MLCommons",
+        "Benchmarking",
+        "AI Infrastructure",
+        "Inference",
+        "Power Measurement"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "MLPerf Endpoints 1.0 开放提交，新增强制功率测量要求",
+      "summaryZh": "MLCommons 开放 MLPerf Endpoints 1.0 提交。该开放框架通过在线 API，在不同负载下测量推理系统，报告并发量、每用户每秒 token 数、系统吞吐量和首 token 延迟的第 90 百分位。1.0 版要求提供 provisioned power 测量数据，并支持经同行评审和审计的滚动提交。MLCommons 预计首批 1.0 结果于 11 月发布，本次公告并未发布这些结果。"
+    },
+    {
+      "title": "ORConf recording introduces gdscheck for open GDSII design-rule checking",
+      "url": "https://www.youtube.com/watch?v=7BK667ssIjY",
+      "source": "FOSSi Foundation Videos",
+      "publishedAt": "2026-09-13",
+      "addedAt": "2026-10-15T01:34:26.374605Z",
+      "summary": "In this ORConf 2026 recording, Daniel Schultz introduces gdscheck, an open-source Rust DRC engine for GDSII layouts. It uses declarative YAML rule decks, parallel geometry checks, and KLayout-compatible .lyrdb reports. The talk describes per-rule regression patterns and remaining sign-off gaps. The project remains experimental, with incomplete coverage and results not qualified for tape-out. This previously missing recording was uploaded on September 13, not today.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "FOSSi",
+        "ORConf",
+        "EDA",
+        "DRC",
+        "Physical Verification",
+        "Rust"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "ORConf 录像介绍开源 GDSII 设计规则检查工具 gdscheck",
+      "summaryZh": "在这段 ORConf 2026 录像中，Daniel Schultz 介绍面向 GDSII 版图的开源 Rust DRC 引擎 gdscheck，包括声明式 YAML 规则集、并行几何检查和兼容 KLayout 的 .lyrdb 报告。演讲还讨论逐规则回归测试图形及签核能力缺口。该项目仍处于实验阶段，规则覆盖不完整，结果尚不具备流片签核资格。本次补收的录像上传于 9 月 13 日，并非今日发布。"
     },
     {
       "title": "OCP maps open specifications for AI data centers, networking, and chiplets",
