@@ -3,6 +3,32 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "Renode expands SystemC co-simulation with direct memory access and TrustZone context",
+      "titleZh": "Renode 扩展 SystemC 联合仿真，支持直接内存访问与 TrustZone 上下文",
+      "url": "https://antmicro.com/blog/2026/10/systemc-improvements-in-renode",
+      "source": "Antmicro Blog",
+      "summary": "Antmicro documents Renode’s expanded SystemC integration, developed with Analog Devices. Direct Memory Interface support bypasses TLM transport calls for memory access, while debug transport enables inspection without normal transaction side effects. Payload extensions carry Cortex-M TrustZone security context. The bridge also supports multiple Renode CPU cores and CPU signals, and a native connection can host Renode alongside the SystemC kernel in one process. The article links implementation commits and examples.",
+      "summaryZh": "Antmicro 介绍了与 Analog Devices 合作完善的 Renode SystemC 集成。Direct Memory Interface 支持绕过 TLM 传输调用访问内存，调试传输接口支持在不触发常规事务副作用的情况下检查内存。载荷扩展可传递 Cortex-M TrustZone 安全上下文；桥接层支持多个 Renode CPU 核与 CPU 信号，原生连接还可让 Renode 与 SystemC 内核在同一进程中运行。文章附有实现提交与示例。",
+      "tags": [
+        "Renode",
+        "SystemC",
+        "Co-simulation",
+        "Verification",
+        "TrustZone",
+        "Open Source"
+      ],
+      "sourceTier": "trusted",
+      "publishedAt": "2026-10-15",
+      "dateEvidence": {
+        "url": "https://antmicro.com/blog/2026/10/systemc-improvements-in-renode",
+        "locator": "Canonical Antmicro article: visible October 15, 2026 publication date; article:published_time and JSON-LD datePublished 2026-10-15T00:00:00.000Z. Full article and linked DMI, debug transport, TrustZone payload and native transport implementations inspected.",
+        "checkedAt": "2026-10-16"
+      },
+      "addedAt": "2026-10-16T01:30:18.058142Z",
+      "language": "en",
+      "reviewStatus": "curated"
+    },
+    {
       "title": "Yosys 0.70 adds shared-adder constant multiplication and optimization barriers",
       "titleZh": "Yosys 0.70 新增共享加法器常数乘法与优化屏障",
       "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.70",
