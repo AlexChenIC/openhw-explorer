@@ -1,0 +1,82 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:07.758
+CVA6 executes instructions, while the platform connects memory, interrupts,
+
+2
+00:00:07.758 --> 00:00:10.034
+debug and peripherals.
+
+3
+00:00:10.034 --> 00:00:17.999
+The toolchain compiles and links binaries matching the ISA, ABI and platform;
+
+4
+00:00:17.999 --> 00:00:22.964
+it is a build tool, not a runtime handoff stage.
+
+5
+00:00:22.964 --> 00:00:30.825
+Bare-metal, RTOS and conventional Linux environments need different support.
+
+6
+00:00:30.825 --> 00:00:37.549
+In the pinned SDK Genesys2 example, BootROM loads later software,
+
+7
+00:00:37.549 --> 00:00:43.652
+OpenSBI supplies machine-mode services, U-Boot loads Linux,
+
+8
+00:00:43.652 --> 00:00:47.066
+and the kernel starts user space.
+
+9
+00:00:47.066 --> 00:00:53.375
+This is a control-handoff sequence: OpenSBI remains resident.
+
+10
+00:00:53.375 --> 00:00:59.685
+The QEMU route skips U-Boot and is not CVA6 RTL verification.
+
+11
+00:00:59.685 --> 00:01:08.581
+The dts label denotes device-tree source; the kernel normally receives a compiled DTB.
+
+12
+00:01:08.581 --> 00:01:13.443
+The ext4 label is a generic filesystem example.
+
+13
+00:01:13.443 --> 00:01:21.615
+This SDK FIT actually packages u-boot.dtb and a rootfs.cpio.gz initial ramdisk,
+
+14
+00:01:21.615 --> 00:01:26.270
+so ext4 must not be described as its default.
+
+15
+00:01:26.270 --> 00:01:34.338
+The maintainer-listed targets are cv32a6_ima_sv32_fpga and cv64a6_imafdc_sv39;
+
+16
+00:01:34.338 --> 00:01:39.407
+this course has not rerun their boot experiments.
+
+17
+00:01:39.407 --> 00:01:44.786
+Hardware icons and connections describe composition.
+
+18
+00:01:44.786 --> 00:01:51.095
+DDR, AXI, PLIC and JTAG are examples, not universal features.
+
+19
+00:01:51.095 --> 00:01:57.612
+Copying a Linux image cannot establish support for a new board;
+
+20
+00:01:57.612 --> 00:02:05.060
+configuration and dependency changes still require compatibility checks.
+

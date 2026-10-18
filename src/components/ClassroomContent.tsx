@@ -459,7 +459,9 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
                         </span>
                         <span className="inline-flex items-center gap-1.5 text-[var(--text-tertiary)]">
                           <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />
-                          {lesson.durationMinutes} min
+                          {lesson.durationMinutesByLocale?.[resolvedLocale] ??
+                            lesson.durationMinutes}{" "}
+                          min
                         </span>
                       </div>
 
@@ -550,10 +552,12 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
                   </div>
                   <div className="flex flex-1 flex-col p-6">
                     <div className="flex items-center justify-between text-xs font-medium text-[var(--text-secondary)]">
-                      <span>{text.statuses.demo}</span>
+                      <span>{text.statuses[lesson.status]}</span>
                       <span className="inline-flex items-center gap-1.5">
                         <Clock3 className="h-3.5 w-3.5" aria-hidden="true" />
-                        {lesson.durationMinutes} min · EN / 中文
+                        {lesson.durationMinutesByLocale?.[resolvedLocale] ??
+                          lesson.durationMinutes}{" "}
+                        min · EN / 中文
                       </span>
                     </div>
                     <h3 className="mt-4 text-xl font-semibold leading-snug text-[var(--text-primary)]">
@@ -574,7 +578,13 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
                       href={`/classroom/${lesson.seriesId}/${lesson.id}`}
                       className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--primary)]"
                     >
-                      {resolvedLocale === "zh" ? "体验示范课" : "Explore the demo"}
+                      {lesson.status === "published"
+                        ? resolvedLocale === "zh"
+                          ? "开始学习"
+                          : "Start learning"
+                        : resolvedLocale === "zh"
+                          ? "体验示范课"
+                          : "Explore the demo"}
                       <ArrowRight className="h-4 w-4" aria-hidden="true" />
                     </Link>
                   </div>

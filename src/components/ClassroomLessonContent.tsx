@@ -125,7 +125,8 @@ export function ClassroomLessonContent({
             <div className="grid grid-cols-3 gap-2 text-xs text-[var(--text-tertiary)]">
               <div className="rounded-md border border-[var(--border)] bg-[var(--bg-subtle)] p-3">
                 <Clock3 className="mb-2 h-4 w-4 text-[var(--primary)]" />
-                {lesson.durationMinutes} {t.minutes}
+                {lesson.durationMinutesByLocale?.[resolvedLocale] ?? lesson.durationMinutes}{" "}
+                {t.minutes}
               </div>
               <div className="rounded-md border border-[var(--border)] bg-[var(--bg-subtle)] p-3">
                 <Layers3 className="mb-2 h-4 w-4 text-[var(--primary)]" />

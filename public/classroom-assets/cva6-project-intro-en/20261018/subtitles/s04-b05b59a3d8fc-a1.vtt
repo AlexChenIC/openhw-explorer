@@ -1,0 +1,82 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.649
+These columns come from one pinned source snapshot.
+
+2
+00:00:04.649 --> 00:00:09.481
+The CV32A60X example is 32-bit and machine-mode only.
+
+3
+00:00:09.481 --> 00:00:15.133
+It has no MMU, disables the F and D floating-point extensions,
+
+4
+00:00:15.133 --> 00:00:18.506
+and sets the PMP-entry count to zero.
+
+5
+00:00:18.506 --> 00:00:22.426
+The RV64, Sv39 example enables translation,
+
+6
+00:00:22.426 --> 00:00:29.354
+three privilege modes and floating-point extensions, with eight PMP entries.
+
+7
+00:00:29.354 --> 00:00:37.285
+M, S and U mean machine, supervisor and user mode, distinguishing execution privileges.
+
+8
+00:00:37.285 --> 00:00:43.393
+Shared source can therefore produce different feature combinations.
+
+9
+00:00:43.393 --> 00:00:47.587
+Selecting an MMU is about address translation;
+
+10
+00:00:47.587 --> 00:00:54.059
+enabling floating point is about the instructions software can execute.
+
+11
+00:00:54.059 --> 00:00:59.894
+These are separate decisions, not a single advanced-core switch.
+
+12
+00:00:59.894 --> 00:01:03.358
+You do not need to memorize the table.
+
+13
+00:01:03.358 --> 00:01:10.377
+Ask what your software requires and what the configuration actually supplies.
+
+14
+00:01:10.377 --> 00:01:18.309
+The explorer also offers a dual-issue example; issue width is not measured performance.
+
+15
+00:01:18.309 --> 00:01:24.599
+The CV32A60X TRL5 release discussed later has a separate named scope.
+
+16
+00:01:24.599 --> 00:01:29.521
+Keep that release distinct from these source examples.
+
+17
+00:01:29.521 --> 00:01:36.906
+The right column is specifically cv64a6_imafdc_sv39, not all RV64 configurations.
+
+18
+00:01:36.906 --> 00:01:41.646
+Zero PMP entries does not mean no system protection.
+
+19
+00:01:41.646 --> 00:01:46.842
+Shared source does not make arbitrary combinations valid;
+
+20
+00:01:46.842 --> 00:01:54.500
+implementation parameters alone do not establish full architectural CSR conformance.
+

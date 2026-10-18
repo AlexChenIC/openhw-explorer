@@ -1,0 +1,82 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:06.216
+Start with the system task, rather than asking which name sounds most powerful.
+
+2
+00:00:06.216 --> 00:00:11.488
+Embedded control needs a dedicated program and platform interfaces,
+
+3
+00:00:11.488 --> 00:00:13.219
+memory and interrupts.
+
+4
+00:00:13.219 --> 00:00:16.682
+GPIO, UART and SPI are platform peripherals,
+
+5
+00:00:16.682 --> 00:00:20.931
+not features automatically contained in the CVA6 core.
+
+6
+00:00:20.931 --> 00:00:27.776
+PMP is a physical-memory protection mechanism; its settings are held in dedicated CSRs.
+
+7
+00:00:27.776 --> 00:00:32.340
+CSR is a broader category of control and status registers,
+
+8
+00:00:32.340 --> 00:00:36.117
+not a second independent memory-protection unit.
+
+9
+00:00:36.117 --> 00:00:40.287
+Here, a Linux host means a conventional paged system,
+
+10
+00:00:40.287 --> 00:00:45.796
+requiring suitable privilege modes, MMU translation and boot software.
+
+11
+00:00:45.796 --> 00:00:48.707
+Cheshire is a named platform example.
+
+12
+00:00:48.707 --> 00:00:54.451
+Accelerator management needs coordinating software and system interfaces.
+
+13
+00:00:54.451 --> 00:00:59.172
+CV-X-IF extends instruction execution through a coprocessor;
+
+14
+00:00:59.172 --> 00:01:04.287
+mentioning it does not establish that Occamy uses this interface.
+
+15
+00:01:04.287 --> 00:01:10.346
+Occamy illustrates a CVA6 manager working with a separate Snitch accelerator.
+
+16
+00:01:10.346 --> 00:01:14.359
+The SDK and FPGA flow are development entry points,
+
+17
+00:01:14.359 --> 00:01:19.788
+not proof that every illustrated control application has been tested.
+
+18
+00:01:19.788 --> 00:01:24.195
+For FPGA prototypes or ASIC integrations, configuration,
+
+19
+00:01:24.195 --> 00:01:27.342
+platform and software must fit together.
+
+20
+00:01:27.342 --> 00:01:29.860
+Next, compare actual parameters.
+

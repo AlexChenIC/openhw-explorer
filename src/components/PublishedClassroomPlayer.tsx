@@ -1,6 +1,8 @@
 "use client";
 
 import Image from "next/image";
+import { Cva6OverviewPlayer } from "./Cva6OverviewPlayer";
+import { isVisualClassroom } from "@/lib/visual-course";
 import { useEffect, useMemo, useRef, useState } from "react";
 import {
   BookOpen,
@@ -512,7 +514,7 @@ function SlideBody({
   );
 }
 
-export function PublishedClassroomPlayer({
+function LegacyPublishedClassroomPlayer({
   classroom,
   locale,
   standalone = false,
@@ -753,4 +755,16 @@ export function PublishedClassroomPlayer({
       </div>
     </div>
   );
+}
+
+export function PublishedClassroomPlayer(props: PublishedClassroomPlayerProps) {
+  if (isVisualClassroom(props.classroom)) {
+    return (
+      <Cva6OverviewPlayer
+        classroom={props.classroom}
+        locale={props.locale === "zh" ? "zh" : "en"}
+      />
+    );
+  }
+  return <LegacyPublishedClassroomPlayer {...props} />;
 }

@@ -1,0 +1,90 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.630
+You now have a map: CVA6 is configurable RISC-V core IP;
+
+2
+00:00:04.630 --> 00:00:10.996
+configuration selects features, platform and software make a runnable system,
+
+3
+00:00:10.996 --> 00:00:14.220
+and conclusions need suitable evidence.
+
+4
+00:00:14.220 --> 00:00:16.369
+Choose a path by interest.
+
+5
+00:00:16.369 --> 00:00:22.653
+For architecture, read the Introduction for IP and configuration boundaries,
+
+6
+00:00:22.653 --> 00:00:27.448
+then the design modules, tracing data for one instruction.
+
+7
+00:00:27.448 --> 00:00:34.062
+Historical baselines, work-in-progress sections and placeholder chapters are not
+
+8
+00:00:34.062 --> 00:00:36.790
+complete guides to every variant.
+
+9
+00:00:36.790 --> 00:00:43.238
+For systems, start with an SDK-listed board and configuration, match versions,
+
+10
+00:00:43.238 --> 00:00:49.770
+and record your environment, commands, build and boot logs, including failures.
+
+11
+00:00:49.770 --> 00:00:55.640
+That is your next experiment, not one already completed by this course.
+
+12
+00:00:55.640 --> 00:01:01.344
+For verification, read the verif README and choose targets and tools.
+
+13
+00:01:01.344 --> 00:01:05.147
+Separate tests, coverage plans and regression;
+
+14
+00:01:05.147 --> 00:01:12.092
+its VCS-specific coverage-plan flow is not a promise of identical operation in other
+
+15
+00:01:12.092 --> 00:01:12.588
+tools.
+
+16
+00:01:12.588 --> 00:01:19.367
+Before contributing, read the repository’s current guide and choose documentation,
+
+17
+00:01:19.367 --> 00:01:22.922
+a small reproduction or a test improvement.
+
+18
+00:01:22.922 --> 00:01:26.229
+Preserve versions when sources disagree.
+
+19
+00:01:26.229 --> 00:01:32.677
+The links lead to official materials, while these learning paths are my course
+
+20
+00:01:32.677 --> 00:01:36.976
+recommendations, not an officially certified course.
+
+21
+00:01:36.976 --> 00:01:43.425
+A small optional exercise is to find an MMU or PMP field and explain it in one
+
+22
+00:01:43.425 --> 00:01:46.980
+configuration- and version-scoped sentence.
+
