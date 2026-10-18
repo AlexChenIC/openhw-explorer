@@ -1,0 +1,14 @@
+{
+  "date": "2026-10-18",
+  "timezone": "Asia/Shanghai",
+  "scope": "Replace the stable bilingual CVA6 overview and publish via the existing Vercel and Cloudflare Pages pipelines.",
+  "userStatement": "OK，好的，谢谢。我认为整体还不错，请你进行后续步骤，就是来发布上线",
+  "publicationApproved": true,
+  "overallUserFeedback": "positive",
+  "detailedTechnicalReview": "not separately attested",
+  "detailedVisualReview": "not separately attested",
+  "detailedQuizReview": "not separately attested",
+  "fullAudioListening": "not separately attested",
+  "captionTimingAcceptance": "not separately attested",
+  "decision": "Proceed under explicit user publication authorization; retain automated evidence and prior checklists without inventing individual approvals."
+}

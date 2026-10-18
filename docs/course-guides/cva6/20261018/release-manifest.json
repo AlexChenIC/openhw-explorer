@@ -1,0 +1,477 @@
+{
+  "release": "20261018",
+  "authorizedOn": "2026-10-18",
+  "sourceVersion": "step6-audio-v0.2",
+  "packages": [
+    {
+      "id": "cva6-project-intro-en",
+      "scenes": 13,
+      "packageSha256": "6e5928468b80b70ccf576a8d3bbf509bd9492791fe4460b08a932e627e073ea9",
+      "durationSeconds": 1264.1000000000001
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "scenes": 13,
+      "packageSha256": "6274a5a39099995ff9021dc6e198c666002ad9715d1cb2cc255eb3f83b27dffc",
+      "durationSeconds": 923.6999999999998
+    }
+  ],
+  "assets": [
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/audio/s01-da40f6e0d500-a1.mp3",
+      "bytes": 1336365,
+      "sha256": "cad61b2048642887b90d3198db08088e720d29dcebdafb434d974e469a924b01"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/subtitles/s01-da40f6e0d500-a1.vtt",
+      "bytes": 1573,
+      "sha256": "d4ab98fd9245afd18165f090082c3392b2363d82982afc7c249f8dba9e4f503c"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/media/cva6-s01-en-v1.png",
+      "bytes": 1456699,
+      "sha256": "83f9559046239ac4b424ca004f88502ed78301190908eb3468146bf0d1388af4"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/audio/s02-667f1c413210-a1.mp3",
+      "bytes": 955053,
+      "sha256": "159b63071b7156006fc30676471175bca90cbcc08e93e896ef13755a76447527"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/subtitles/s02-667f1c413210-a1.vtt",
+      "bytes": 1183,
+      "sha256": "7650bacace669c45631622f58e5762152e545370172d02af2a30c191e0b377f4"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/media/cva6-s02-en-v1.png",
+      "bytes": 1505688,
+      "sha256": "9c8905e08ba8028dd112c60399560a07b8c7688d2e1c8cd39d7424099bd66031"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/audio/s03-09f433bdae08-a1.mp3",
+      "bytes": 1438893,
+      "sha256": "85a81e1496cba0e9413d77a4ae7fc2cc967e1cbee03ef5effa8769f555051b0e"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/subtitles/s03-09f433bdae08-a1.vtt",
+      "bytes": 1841,
+      "sha256": "1084d19558f97b83e29f87ec87748ab8fafe50b5adf2981fcc13d3c7edeab93e"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/media/cva6-s03-en-v1.png",
+      "bytes": 1637352,
+      "sha256": "a0c68afc69dc381e6c3a42c94f5891f123c44293de571025b32dbecd281053d1"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/audio/s04-b05b59a3d8fc-a1.mp3",
+      "bytes": 1832877,
+      "sha256": "d68b7d3f1e068865b2656281d2a95eb48184c131218e8a9b1363baad4258e91f"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/subtitles/s04-b05b59a3d8fc-a1.vtt",
+      "bytes": 1955,
+      "sha256": "f2b1bcf4f818a72d4bf479f051425af4d32e6b0d9d9ad130d0db6bdfa6350a5c"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/media/cva6-s04-en-v1.png",
+      "bytes": 1536152,
+      "sha256": "da5eb99659a99e5d0f50376a6629a5a12d77e5a0c9483375055f0470d47b8611"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/audio/s05-c5838cd983ba-a1.mp3",
+      "bytes": 1605165,
+      "sha256": "d7d6b0ec67eeb7a4443bd2846d054f58548a02745b12e5c2f621f9c0f98378c3"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/subtitles/s05-c5838cd983ba-a1.vtt",
+      "bytes": 2050,
+      "sha256": "450ab2e6cdaf9c39f15c3478e4e8bbfa7bff1076efba1fc94600fe4c23e4d7bf"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/media/cva6-s05-en-v2.png",
+      "bytes": 277800,
+      "sha256": "b18ce339349faada737662dda25d9ce05c007124f333e4819934d078053b9530"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/audio/s06-95f8ebff0f37-a1.mp3",
+      "bytes": 1697325,
+      "sha256": "09b96957a9e2264eb3386aa653476d59a0c75742cabf5e50d8f5ad8641c81487"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/subtitles/s06-95f8ebff0f37-a1.vtt",
+      "bytes": 1907,
+      "sha256": "ba6058912e57a7915257289c61aab6615adfa00acd8a66416b046c781293e6b8"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/media/cva6-s06-en-v2.png",
+      "bytes": 280241,
+      "sha256": "695c5a737c43d216dff731566248d61c2e77c77259a62317b9b162b8a4770548"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/audio/s07-d347da41756d-a1.mp3",
+      "bytes": 1532205,
+      "sha256": "731bbdec8c528ff3eb9be3459696333a483800c4d6339e3ca0c1086454bdaa52"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/subtitles/s07-d347da41756d-a1.vtt",
+      "bytes": 1781,
+      "sha256": "5b763514389ab8890aacb41f9c03146ff28cf5ac8cf575a7555b8f47a5d2bb9a"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/media/cva6-s07-en-v1.png",
+      "bytes": 1606986,
+      "sha256": "978c5cda5251bf09eb3410c096d07acf828413cb832a5d4b5fa03013cc24943e"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/audio/s08-743bbd06846c-a1.mp3",
+      "bytes": 2001837,
+      "sha256": "b3f93d0b47091d258daffc9e7ebf43e9b7ed36ae917cb78cb0561fd8fcb9b5a2"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/subtitles/s08-743bbd06846c-a1.vtt",
+      "bytes": 1908,
+      "sha256": "4b759d10396c809813662ac7629709ded59df3e5d0f9d4b9ec528d53762867ae"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/media/cva6-s08-en-v1.png",
+      "bytes": 1660449,
+      "sha256": "428006790878042ab0ef2f3f60f463f6dda889d2f6368b3b6e6659828a9f6f6e"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/audio/s09-abb0742af3fe-a1.mp3",
+      "bytes": 1963437,
+      "sha256": "6d2abcc69c5ee3f85a864e20434e51abd02a997580a1a742ee94953405c4b074"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/subtitles/s09-abb0742af3fe-a1.vtt",
+      "bytes": 1953,
+      "sha256": "3e4b9af02b71c69c378ad9760c2b7569d740a90e299ad6c5b1dab9c451ded60b"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/media/cva6-s09-en-v1.png",
+      "bytes": 1837839,
+      "sha256": "94f082bc2d1b80dd3b1c58ddb95f323c24e24e95fc6b23825563dd707d5678c2"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/audio/s10-477bb1019580-a1.mp3",
+      "bytes": 1650093,
+      "sha256": "87aa87d8cc3a0325ec61a89b020553f1d7e85839e76c43323e0bae25a651ef96"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/subtitles/s10-477bb1019580-a1.vtt",
+      "bytes": 1980,
+      "sha256": "edbfbaf402830833b048bbad7ef4ac350bd2ff44e19d684dd59bb3d7fd13d1cc"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/media/cva6-s10-en-v1.png",
+      "bytes": 1804485,
+      "sha256": "694e999ea18a625409c189a349a3dd611c5d8b65de7ab8824378f4e2c647c715"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/audio/s12-af93a7ad17ed-a1.mp3",
+      "bytes": 2138925,
+      "sha256": "bcf577a7ed9fdf3cfda4b99d12343df0b05bba8eab2b3b904ca54a51804295cf"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/subtitles/s12-af93a7ad17ed-a1.vtt",
+      "bytes": 2190,
+      "sha256": "9eb003566cb0ab99d87eadab1d8bf76450ec18da6f16f4365b513f08284cc4fc"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/media/cva6-s12-en-v1.png",
+      "bytes": 1890373,
+      "sha256": "b10bc68028aaaf1761e874bc46b105478ccdd931d238ef709294ac9ea3a57a26"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/audio/s13-7a90a393aba8-a1.mp3",
+      "bytes": 373677,
+      "sha256": "d8a403fa11382230e5a80fdfa605a53789aeced4c69c14b95f191f5d76d328c7"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/subtitles/s13-7a90a393aba8-a1.vtt",
+      "bytes": 518,
+      "sha256": "ec674606165ba803bb9929aa273c5e272b0091016161be05a38f38c89c585899"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/audio/s14-d3e07c6acddc-a1.mp3",
+      "bytes": 1712685,
+      "sha256": "aa51d601a5ae6db73891df0e21352f2b44270d9d0b138700e6b51957ce55b8f9"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/subtitles/s14-d3e07c6acddc-a1.vtt",
+      "bytes": 2065,
+      "sha256": "254077461bc4d9a525315ea3299a7838ae448994b608979ead73fcd6140b20ab"
+    },
+    {
+      "id": "cva6-project-intro-en",
+      "path": "/classroom-assets/cva6-project-intro-en/20261018/media/cva6-s14-en-v1.png",
+      "bytes": 1783770,
+      "sha256": "3d89b465d33ca27b184113b6d62244025a79ba9eaf58e88de274aaaa363a3164"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/audio/s01-ce551cb62148-a1.mp3",
+      "bytes": 1019565,
+      "sha256": "108e428e3904ccedb1bd0673d927057747ba2f46818e8f07611ccba8aedf5cdb"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/subtitles/s01-ce551cb62148-a1.vtt",
+      "bytes": 1438,
+      "sha256": "62468ac2b0025900c64ebaa79e15fca9313028039fd8838e13870a132f40a627"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/media/cva6-s01-zh-v1.png",
+      "bytes": 1427908,
+      "sha256": "20bc22da619dc73dbafdb042072f34be419e5947536e08f9645ad3a751bf24b5"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/audio/s02-d4f86c55fce8-a1.mp3",
+      "bytes": 691245,
+      "sha256": "fc89971b69a38a0378febb9c2266f66ab7f89199f60e545dc256d2029023bc54"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/subtitles/s02-d4f86c55fce8-a1.vtt",
+      "bytes": 991,
+      "sha256": "ba47192b57bcc483e17268c8211aeafea9c47e3f0cf66c1ed3023c0f0997976a"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/media/cva6-s02-zh-v1.png",
+      "bytes": 1507928,
+      "sha256": "34610d1876c8018a31312501f6ad4aa2f658a40aaee73e4ee0345df65b4bc313"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/audio/s03-ac47b4de12a5-a1.mp3",
+      "bytes": 1139373,
+      "sha256": "63ba2322298f26ccd00d013f5ab634cb94848de2ab19787a24bb87620c91804a"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/subtitles/s03-ac47b4de12a5-a1.vtt",
+      "bytes": 1677,
+      "sha256": "8c35d551ac0c5537f84769a407feefe256b2408ef83474548931050bb96f32ca"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/media/cva6-s03-zh-v1.png",
+      "bytes": 1560983,
+      "sha256": "8c362608a9181e24cad43427a909c1fddd71812778e16ce3fe7abb91c6281596"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/audio/s04-d3faf8841366-a1.mp3",
+      "bytes": 1268013,
+      "sha256": "a5aa7b2b6ca6328b105f59f209579b38fa50df5b17c4eef8bdf166747a14eb0e"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/subtitles/s04-d3faf8841366-a1.vtt",
+      "bytes": 1754,
+      "sha256": "f67147453f87fc9949f7a788f843afb1b20ff868ded6d7934734d74e44fcbdac"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/media/cva6-s04-zh-v1.png",
+      "bytes": 1487355,
+      "sha256": "9f51abcb044ec602d2c64e6d951a46dc2b9333f9feb6d1647a33b03694e44fe3"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/audio/s05-946a8f1a1abf-a1.mp3",
+      "bytes": 1143213,
+      "sha256": "c8a40d9bcffc3111c6850a17678bd3b76ca401e71f0e1b6cebfd0ea92ebde20d"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/subtitles/s05-946a8f1a1abf-a1.vtt",
+      "bytes": 1629,
+      "sha256": "b891f1ead4d796c25bc98e4b544f10775bb22976e615d810f5a24a3a1c451a22"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/media/cva6-s05-zh-v2.png",
+      "bytes": 298677,
+      "sha256": "cb2a39265e4672866d2f5e876e4ce49d83351a908a7304bea9337bce1a9b6d77"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/audio/s06-5ef3ee5f687d-a1.mp3",
+      "bytes": 1299117,
+      "sha256": "70ea1e1c565eabd2054775e3d4732f091bc1134cc06a1dd8bd8ef3fa247aa7eb"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/subtitles/s06-5ef3ee5f687d-a1.vtt",
+      "bytes": 1755,
+      "sha256": "a5a0478251c36645f4f4beecd008920cde3ad6a569a55b5d8015cb92136a6bc3"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/media/cva6-s06-zh-v2.png",
+      "bytes": 315413,
+      "sha256": "6381bcb2c505c6703ae0dcf555b62bdfc6f5ce3f5b38ddfdbd9b494cf17df27b"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/audio/s07-df65ae46351f-a1.mp3",
+      "bytes": 1153197,
+      "sha256": "ff5ff67255b3201b6ca606bb6446ebdb2bdcaa3c7910cebc01c6801eeae33466"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/subtitles/s07-df65ae46351f-a1.vtt",
+      "bytes": 1680,
+      "sha256": "b18da564ca437ff1524047d6689d5c77d40df25ef68f7c8f11425c062041e4b7"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/media/cva6-s07-zh-v1.png",
+      "bytes": 1553366,
+      "sha256": "bebc77aa7c06100b7d76b0df7122d239ad4efc04d0005bb9b826b97309e0c218"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/audio/s08-8cd65b3908c9-a1.mp3",
+      "bytes": 1476525,
+      "sha256": "80687254bd690e5d7dd44a6caebc8c607d9d5eb4aac2496fe4d4b47164138d77"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/subtitles/s08-8cd65b3908c9-a1.vtt",
+      "bytes": 1831,
+      "sha256": "2f81f086afff8763e3f432d1f93b3bd9ec72554ba6a31e096f8eac24d54d28b0"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/media/cva6-s08-zh-v1.png",
+      "bytes": 1565227,
+      "sha256": "6dbdf793a575f6010a36e43d4a6941ca405b59eff1d6dcf3ab59982c70a104f9"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/audio/s09-aac3ad7c2b1c-a1.mp3",
+      "bytes": 1307565,
+      "sha256": "8b5d96a7dbab4ff4e1609f1a2c75a3f768dc0b0ae424b0b4e8c4b49cad22c032"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/subtitles/s09-aac3ad7c2b1c-a1.vtt",
+      "bytes": 1797,
+      "sha256": "056382d59992a9c3f6cfbcff73b959580c923587c6be743ac6eecd12f3be3efe"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/media/cva6-s09-zh-v1.png",
+      "bytes": 1728856,
+      "sha256": "a8bdc0ab1508a2a1e23c68d63f46170c4f08c05cad3fc64d2d1822f1242b363d"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/audio/s10-afe4347ddd86-a1.mp3",
+      "bytes": 1329837,
+      "sha256": "88b80811584349a6cff0c981c5bec2d2c250fd3e24624065a165507a57c2c5ff"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/subtitles/s10-afe4347ddd86-a1.vtt",
+      "bytes": 1821,
+      "sha256": "27f2b9bf8ad3ab3945d30da862a52427a5f7e9dafbf01efb5c61bface3b304cc"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/media/cva6-s10-zh-v1.png",
+      "bytes": 1612662,
+      "sha256": "8f34ff7958bbd4b845fea1ffe22784790c2895663022b39399e58da5af229f22"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/audio/s12-1d76ee0b2faf-a1.mp3",
+      "bytes": 1379373,
+      "sha256": "3d534730ea6736c835ee3d6dc70a82df2f61b26c8ebcde2b596ffa407cb14a6a"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/subtitles/s12-1d76ee0b2faf-a1.vtt",
+      "bytes": 1973,
+      "sha256": "245c06f0ed49dee0c39f7b31c6f9a97f62e9b5576816b795ee91129daf6c3bf5"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/media/cva6-s12-zh-v1.png",
+      "bytes": 1718594,
+      "sha256": "3d5ec1b2b1f5709bcf8103f172c91b75c4f1a2ae004b336f10bba5488ae78178"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/audio/s13-836b2a172381-a1.mp3",
+      "bytes": 273837,
+      "sha256": "261db8bc37ee18e3ae6b3bc519ca7aba0e49aceb5ef7e460935a771d3cfda78b"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/subtitles/s13-836b2a172381-a1.vtt",
+      "bytes": 383,
+      "sha256": "312b0090fc2140e2c93a4fe09faf62ab523dc08a255681e9586086948a12c53f"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/audio/s14-cc92022dd96e-a1.mp3",
+      "bytes": 1311405,
+      "sha256": "aec4abb4cc46e7d1ed70a8b3994238076bd7d90062c344f3d1a57bb41579ebac"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/subtitles/s14-cc92022dd96e-a1.vtt",
+      "bytes": 1879,
+      "sha256": "123fdb7b258e8340bc12131821ddfdb911616988fa8fe32dc43b83a20228ead6"
+    },
+    {
+      "id": "cva6-project-intro-zh",
+      "path": "/classroom-assets/cva6-project-intro-zh/20261018/media/cva6-s14-zh-v1.png",
+      "bytes": 1688064,
+      "sha256": "b95df6bd9f81012d44ccffa047c037517c078e675223dee1e03de4feabdfe8a2"
+    }
+  ]
+}

@@ -14,6 +14,7 @@ export type PublishedClassroomAction = {
   text?: string;
   audioUrl?: string;
   captionUrl?: string;
+  captionCues?: Array<{ start: number; end: number; text: string }>;
 };
 
 export type PublishedClassroomAsset = {
@@ -31,6 +32,7 @@ export type PublishedClassroomQuestion = {
   options: Array<{ label: string; value: string }>;
   answer: string[];
   analysis?: string;
+  optionFeedback?: Record<string, string>;
 };
 
 export type PublishedClassroomSourceAnchor = {
@@ -53,6 +55,7 @@ export type PublishedClassroomScene = {
     content?: Record<string, unknown>;
     assets?: PublishedClassroomAsset[];
     html?: string;
+    widgetHtml?: string;
     locale?: string;
     sourceAnchors?: PublishedClassroomSourceAnchor[];
     questions?: PublishedClassroomQuestion[];
@@ -71,7 +74,9 @@ export type PublishedClassroom = {
     language?: string;
     courseTemplateName?: string;
     courseTemplateId?: string;
-    releaseStage?: "demo";
+    releaseStage?: "demo" | "published";
+    releaseVersion?: string;
+    durationSeconds?: number;
   };
   scenes: PublishedClassroomScene[];
 };

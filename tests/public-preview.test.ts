@@ -22,7 +22,7 @@ async function loadPublication(preview = "true", courses = "true", industry = "f
 }
 
 describe("Summit Public Preview publication boundary", () => {
-  it("offers Foundation, names and CVA6 in order, retaining Demo approval status", async () => {
+  it("offers Foundation, names and CVA6 in order, including the approved CVA6 overview", async () => {
     const publication = await loadPublication();
     const series = publication.getPublicClassroomSeries();
     expect(series.flatMap((item) => item.lessons.map((lesson) => lesson.title.en))).toEqual([
@@ -31,7 +31,7 @@ describe("Summit Public Preview publication boundary", () => {
       "CVA6: Capabilities, Systems and Evidence",
     ]);
     expect(series[0].units).toHaveLength(2);
-    expect(series[1].lessons[0].status).toBe("demo");
+    expect(series[1].lessons[0].status).toBe("published");
     expect(publication.getPublicClassroomIds()).toHaveLength(6);
     expect(publication.getPublicSeriesById("cva6-from-zero")).toBeUndefined();
     expect(
@@ -73,7 +73,7 @@ describe("Summit Public Preview publication boundary", () => {
     const urls = sitemap().map((entry) => entry.url);
     expect(urls.some((url) => url.includes("/resources/industry"))).toBe(false);
     expect(urls.some((url) => url.includes("cva6-from-zero"))).toBe(false);
-    expect(urls.some((url) => url.includes("cva6-introduction"))).toBe(false); // Demo remains noindex.
+    expect(urls.filter((url) => url.includes("cva6-introduction"))).toHaveLength(2); // Approved lesson detail pages are indexable.
     expect(urls.filter((url) => /\/classroom\/openhw-foundations\/[^/]+$/.test(url))).toHaveLength(
       4,
     );

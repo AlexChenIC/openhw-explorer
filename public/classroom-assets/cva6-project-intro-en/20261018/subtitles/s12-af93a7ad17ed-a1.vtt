@@ -1,0 +1,94 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:07.520
+This page groups the July fifteenth, 2026 roadmap into software compatibility,
+
+2
+00:00:07.520 --> 00:00:13.690
+cache and compute subsystems, and reliability with verification.
+
+3
+00:00:13.690 --> 00:00:21.595
+Expanded bullets are teaching summaries, not individual official commitments or an
+
+4
+00:00:21.595 --> 00:00:24.198
+October delivery checklist.
+
+5
+00:00:24.198 --> 00:00:29.693
+Software profiles mean RISC-V ISA compatibility profiles.
+
+6
+00:00:29.693 --> 00:00:34.706
+Concrete entries include RVB23 and RVA23 objectives,
+
+7
+00:00:34.706 --> 00:00:39.623
+Zephyr repository integration and a bare-metal SDK.
+
+8
+00:00:39.623 --> 00:00:46.468
+They do not establish support for every operating system and toolchain.
+
+9
+00:00:46.468 --> 00:00:54.566
+Cache work concerns HPDCache, HPICache, platform integration and optional hardening,
+
+10
+00:00:54.566 --> 00:00:59.869
+not arbitrary cache hierarchies or universal coherence.
+
+11
+00:00:59.869 --> 00:01:06.328
+Read the vector headings as vector-support and ARA-connection work:
+
+12
+00:01:06.328 --> 00:01:12.594
+the roadmap discusses reconnecting ARA, possibly through CV-X-IF.
+
+13
+00:01:12.594 --> 00:01:19.439
+That does not establish vector-extension support in every CVA6 variant.
+
+14
+00:01:19.439 --> 00:01:24.163
+Multicore directions include CV-TCCC and Culsans;
+
+15
+00:01:24.163 --> 00:01:28.791
+coordination and scheduling are learning topics,
+
+16
+00:01:28.791 --> 00:01:34.190
+not fixed core counts or hardware scheduling guarantees.
+
+17
+00:01:34.190 --> 00:01:38.528
+DCLS, cache hardening, selected verification,
+
+18
+00:01:38.528 --> 00:01:44.023
+new CI and SSoT tool alignment also have distinct status.
+
+19
+00:01:44.023 --> 00:01:50.868
+No family-wide safety certification or verification completion follows.
+
+20
+00:01:50.868 --> 00:01:57.713
+For an entry, find its implementation, tests, release or system record.
+
+21
+00:01:57.713 --> 00:02:06.100
+The four evidence categories are my teaching framework, not an official quality ladder.
+
+22
+00:02:06.100 --> 00:02:09.667
+Completed work and plans can coexist.
+
+23
+00:02:09.667 --> 00:02:13.620
+Four questions now check these judgments.
+

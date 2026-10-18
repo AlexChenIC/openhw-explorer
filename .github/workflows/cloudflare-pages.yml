@@ -56,12 +56,16 @@ jobs:
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         env:
           PAGES_EXPECT_REDIRECT_TO: https://openhwexplorer.com
-        run: npm run verify:pages
+        run: |
+          npm run verify:pages
+          node scripts/verify-cva6-overview.mjs --base https://openhw-explorer.pages.dev --expected-commit "$GITHUB_SHA"
       - name: Verify public custom domain
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         env:
           PAGES_VERIFY_URL: https://openhwexplorer.com
-        run: npm run verify:pages
+        run: |
+          npm run verify:pages
+          node scripts/verify-cva6-overview.mjs --base https://openhwexplorer.com --expected-commit "$GITHUB_SHA"
       - name: Verify private feedback service
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         run: |
@@ -79,4 +83,6 @@ jobs:
         if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
         env:
           PAGES_VERIFY_URL: https://openhw-explorer-test.pages.dev
-        run: npm run verify:pages
+        run: |
+          npm run verify:pages
+          node scripts/verify-cva6-overview.mjs --base https://openhw-explorer-test.pages.dev --expected-commit "$GITHUB_SHA"

@@ -1,0 +1,66 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.692
+If you want a RISC-V processor design that you can study,
+
+2
+00:00:04.692 --> 00:00:10.782
+modify and integrate into a system, CVA6 offers a concrete starting point.
+
+3
+00:00:10.782 --> 00:00:15.145
+It is a configurable open-source processor-IP family,
+
+4
+00:00:15.145 --> 00:00:20.165
+with 32-bit and 64-bit variants sharing SystemVerilog source.
+
+5
+00:00:20.165 --> 00:00:26.915
+IP means a reusable hardware design: the core executes instructions, while memory,
+
+6
+00:00:26.915 --> 00:00:30.618
+peripherals and software complete the system.
+
+7
+00:00:30.618 --> 00:00:36.462
+We will see embedded control, Linux hosting and accelerator management.
+
+8
+00:00:36.462 --> 00:00:43.047
+Those uses are possibilities supported by specific configurations and platforms.
+
+9
+00:00:43.047 --> 00:00:46.504
+They are not guarantees for every variant.
+
+10
+00:00:46.504 --> 00:00:53.582
+This overview answers three questions: what is CVA6, how does it process instructions,
+
+11
+00:00:53.582 --> 00:00:55.969
+and where can you learn more?
+
+12
+00:00:55.969 --> 00:01:01.484
+By the end, you should be able to distinguish a core from a system,
+
+13
+00:01:01.484 --> 00:01:08.562
+read a configuration example, and identify the evidence needed for a capability claim.
+
+14
+00:01:08.562 --> 00:01:12.842
+I created this community course for OpenHW Explorer,
+
+15
+00:01:12.842 --> 00:01:17.452
+interpreting official documentation and project records.
+
+16
+00:01:17.452 --> 00:01:23.460
+Detailed architecture and verification topics are left for later lessons.
+

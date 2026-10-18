@@ -43,6 +43,7 @@ export interface ClassroomLesson {
   skillId: string;
   language: ClassroomLocale;
   durationMinutes: number;
+  durationMinutesByLocale?: Partial<Record<"en" | "zh", number>>;
   slideCount: number;
   quizCount: number;
   level: LocalizedText;

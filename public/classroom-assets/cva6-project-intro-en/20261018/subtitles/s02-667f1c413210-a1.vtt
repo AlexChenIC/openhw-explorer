@@ -1,0 +1,54 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.112
+Place these names at different levels.
+
+2
+00:00:03.112 --> 00:00:09.336
+RISC-V is an instruction-set architecture: it defines instructions and their
+
+3
+00:00:09.336 --> 00:00:11.465
+software-visible behavior.
+
+4
+00:00:11.465 --> 00:00:15.724
+OpenHW organizes collaboration around open hardware,
+
+5
+00:00:15.724 --> 00:00:21.047
+and CORE-V is its portfolio of open cores and companion projects.
+
+6
+00:00:21.047 --> 00:00:25.470
+CVA6 is one processor-core family implementing RISC-V.
+
+7
+00:00:25.470 --> 00:00:31.038
+Following the diagram, parameters define a particular configuration;
+
+8
+00:00:31.038 --> 00:00:35.788
+platform hardware and software then turn it into a system.
+
+9
+00:00:35.788 --> 00:00:42.504
+CV64A6 evolved from Ariane, developed at ETH Zürich and the University of Bologna.
+
+10
+00:00:42.504 --> 00:00:44.224
+RV32 was added later.
+
+11
+00:00:44.224 --> 00:00:51.103
+The ISA, portfolio, core and development board therefore describe different objects.
+
+12
+00:00:51.103 --> 00:00:57.982
+The Foundation and CORE-V naming courses provide more background on the organization
+
+13
+00:00:57.982 --> 00:00:59.620
+and its terminology.
+

@@ -154,8 +154,8 @@ export function ClassroomSeriesContent({ locale, series }: ClassroomSeriesConten
             <p className="mt-3 max-w-3xl text-sm leading-7 text-[var(--text-secondary)]">
               {series.id === "project-guides"
                 ? resolvedLocale === "zh"
-                  ? "示范课已开放体验，仍待编辑与完整语音审核。"
-                  : "The demo is open for feedback; editorial and full-audio approval are pending."
+                  ? "从概览课程开始，理解 CVA6 的用途、架构和工程证据，再选择深入学习的方向。"
+                  : "Start with the overview to understand CVA6 use cases, architecture and engineering evidence, then choose a direction for deeper study."
                 : t.releaseNote}
             </p>
             <div className="mt-8 divide-y divide-[var(--border)] border-y border-[var(--border)]">
@@ -191,7 +191,8 @@ export function ClassroomSeriesContent({ locale, series }: ClassroomSeriesConten
                         {getStatusLabel(lesson.status)}
                       </span>
                       <span>
-                        {lesson.durationMinutes} {t.minutes}
+                        {lesson.durationMinutesByLocale?.[resolvedLocale] ?? lesson.durationMinutes}{" "}
+                        {t.minutes}
                       </span>
                     </div>
                   </article>

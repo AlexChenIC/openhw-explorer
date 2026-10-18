@@ -1,0 +1,86 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:06.339
+Inspecting an open design is only part of assessing confidence.
+
+2
+00:00:06.339 --> 00:00:13.584
+Tests check particular behaviors, a reference model supports comparison,
+
+3
+00:00:13.584 --> 00:00:21.634
+a coverage plan defines goals, and regressions check for problems after changes.
+
+4
+00:00:21.634 --> 00:00:24.552
+These activities reduce risk.
+
+5
+00:00:24.552 --> 00:00:29.583
+Reference-model agreement is not exhaustive proof,
+
+6
+00:00:29.583 --> 00:00:35.520
+and regression does not guarantee that defects never recur.
+
+7
+00:00:35.520 --> 00:00:40.652
+Interpret coverage with its plan, target and tools;
+
+8
+00:00:40.652 --> 00:00:47.494
+the pinned verif documentation scopes its coverage-plan flow to VCS.
+
+9
+00:00:47.494 --> 00:00:55.041
+The named example is cv32a60x-v6.0.0, released on April twenty-third, 2025.
+
+10
+00:00:55.041 --> 00:01:02.185
+The publisher states TRL5 for a specific configuration: OBI, no caches,
+
+11
+00:01:02.185 --> 00:01:06.110
+zero PMP entries and disabled Zifencei.
+
+12
+00:01:06.110 --> 00:01:14.361
+The release resolves to b1f80bd, while our general verification reading comes from
+
+13
+00:01:14.361 --> 00:01:15.166
+81245a4.
+
+14
+00:01:15.166 --> 00:01:22.008
+The review questions are not the complete historical release report.
+
+15
+00:01:22.008 --> 00:01:29.756
+TRL5 neither transfers automatically to the family nor represents independent
+
+16
+00:01:29.756 --> 00:01:32.674
+certification by this course.
+
+17
+00:01:32.674 --> 00:01:38.309
+Zero PMP entries does not exclude all system protection.
+
+18
+00:01:38.309 --> 00:01:45.252
+A changed cache or interface requires reassessing goals and evidence.
+
+19
+00:01:45.252 --> 00:01:53.302
+Likewise, a merged implementation does not establish which options were enabled,
+
+20
+00:01:53.302 --> 00:01:56.623
+tests covered, or systems booted.
+
+21
+00:01:56.623 --> 00:02:02.660
+Preserve configuration, version and evidence scope together.
+

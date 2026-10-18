@@ -1,0 +1,90 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:03.365
+Follow the instruction path across the top.
+
+2
+00:00:03.365 --> 00:00:10.253
+The frontend selects fetch addresses and uses branch prediction to help maintain supply.
+
+3
+00:00:10.253 --> 00:00:13.618
+Decode identifies operations and registers.
+
+4
+00:00:13.618 --> 00:00:17.845
+Issue checks operand and execution-resource readiness,
+
+5
+00:00:17.845 --> 00:00:22.463
+while the scoreboard tracks instructions and their results.
+
+6
+00:00:22.463 --> 00:00:27.707
+Execution handles integer operations, branches and memory accesses,
+
+7
+00:00:27.707 --> 00:00:30.524
+returning results to the scoreboard.
+
+8
+00:00:30.524 --> 00:00:35.690
+Floating-point and coprocessor interfaces depend on configuration;
+
+9
+00:00:35.690 --> 00:00:39.994
+the coprocessor itself is not built into every variant.
+
+10
+00:00:39.994 --> 00:00:46.647
+Commit then updates architectural registers and CSRs in program order and coordinates
+
+11
+00:00:46.647 --> 00:00:49.073
+relevant stores and exceptions.
+
+12
+00:00:49.073 --> 00:00:54.787
+Outside the core, the platform supplies memory, interconnect, interrupts,
+
+13
+00:00:54.787 --> 00:00:56.509
+debug and peripherals.
+
+14
+00:00:56.509 --> 00:01:02.144
+Fetching instructions and loading program data create different traffic,
+
+15
+00:01:02.144 --> 00:01:06.762
+using the selected memory support and platform connections.
+
+16
+00:01:06.762 --> 00:01:11.223
+Debug is not the destination of an ordinary data request.
+
+17
+00:01:11.223 --> 00:01:15.136
+Cache, translation and bus details are simplified,
+
+18
+00:01:15.136 --> 00:01:20.067
+and crossed lines without a junction do not denote connections.
+
+19
+00:01:20.067 --> 00:01:24.841
+This is a responsibility diagram, not a complete RTL netlist.
+
+20
+00:01:24.841 --> 00:01:30.164
+The historical six-stage description refers to an original baseline;
+
+21
+00:01:30.164 --> 00:01:33.686
+box counts specify neither stages nor cycles.
+
+22
+00:01:33.686 --> 00:01:40.260
+Next, two instructions make the distinction between waiting and committing concrete.
+

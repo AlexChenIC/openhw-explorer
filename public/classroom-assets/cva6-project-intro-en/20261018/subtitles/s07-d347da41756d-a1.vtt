@@ -1,0 +1,82 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:04.865
+Separate three questions when software accesses memory.
+
+2
+00:00:04.865 --> 00:00:08.756
+A cache holds reusable instructions or data,
+
+3
+00:00:08.756 --> 00:00:13.709
+helping avoid repeated accesses to more distant storage.
+
+4
+00:00:13.709 --> 00:00:21.139
+In a paged system, the MMU uses page tables to translate virtual addresses and check
+
+5
+00:00:21.139 --> 00:00:22.643
+page permissions.
+
+6
+00:00:22.643 --> 00:00:29.541
+PMP controls read, write and execute permissions for physical-address regions;
+
+7
+00:00:29.541 --> 00:00:34.406
+its effect also depends on privilege mode and settings.
+
+8
+00:00:34.406 --> 00:00:40.420
+Our RV64, Sv39 source example includes an MMU and eight PMP entries.
+
+9
+00:00:40.420 --> 00:00:43.781
+Those describe different capabilities.
+
+10
+00:00:43.781 --> 00:00:48.734
+Reusing a value may avoid another distant-memory access,
+
+11
+00:00:48.734 --> 00:00:53.688
+while mapping and permissions remain separate questions.
+
+12
+00:00:53.688 --> 00:00:58.906
+A cache hit does not establish that an access is permitted.
+
+13
+00:00:58.906 --> 00:01:03.240
+The parallel comparison teaches responsibilities,
+
+14
+00:01:03.240 --> 00:01:07.839
+rather than three fixed serial hardware checkpoints.
+
+15
+00:01:07.839 --> 00:01:15.446
+Their presence and integration must still be checked in the selected configuration and
+
+16
+00:01:15.446 --> 00:01:16.065
+system.
+
+17
+00:01:16.065 --> 00:01:20.841
+Sv39 is one RV64 paging mode; Sv32 is an RV32 example,
+
+18
+00:01:20.841 --> 00:01:24.909
+while Bare does not perform paged translation.
+
+19
+00:01:24.909 --> 00:01:30.659
+PMP needs effective-privilege, entry-matching and setting checks.
+
+20
+00:01:30.659 --> 00:01:35.700
+Its implementation count is not a conformance conclusion.
+

@@ -1,0 +1,82 @@
+WEBVTT
+
+1
+00:00:00.000 --> 00:00:02.633
+Consider the two instructions.
+
+2
+00:00:02.633 --> 00:00:09.040
+The load reads a 32-bit word from the address in x10, producing a new x5.
+
+3
+00:00:09.040 --> 00:00:13.428
+The add combines that value with x7 to produce x6.
+
+4
+00:00:13.428 --> 00:00:18.869
+Assume a valid word-aligned address, a memory value of twelve,
+
+5
+00:00:18.869 --> 00:00:23.784
+x7 ready with value three, and no exceptions or flushes.
+
+6
+00:00:23.784 --> 00:00:28.787
+Decode can identify register numbers before data returns,
+
+7
+00:00:28.787 --> 00:00:32.912
+but cannot supply a result that does not exist.
+
+8
+00:00:32.912 --> 00:00:39.055
+The add needs the new x5 from the load: a read-after-write dependency.
+
+9
+00:00:39.055 --> 00:00:45.374
+A free integer unit cannot replace that missing operand with the old x5.
+
+10
+00:00:45.374 --> 00:00:53.010
+In this RV32 single-issue baseline, the scoreboard tracks readiness and can forward the
+
+11
+00:00:53.010 --> 00:00:54.414
+returned twelve.
+
+12
+00:00:54.414 --> 00:01:00.821
+The x5 equals twelve label on the ALU input denotes an available operand,
+
+13
+00:01:00.821 --> 00:01:06.262
+not proof that the architectural register has already changed.
+
+14
+00:01:06.262 --> 00:01:11.177
+With the conditions satisfied, the add produces fifteen.
+
+15
+00:01:11.177 --> 00:01:15.917
+Both completed instructions still pass through commit;
+
+16
+00:01:15.917 --> 00:01:23.552
+after normal retirement in program order, architectural x5 is twelve and x6 is fifteen.
+
+17
+00:01:23.552 --> 00:01:28.379
+The dashed load path does not make retirement optional.
+
+18
+00:01:28.379 --> 00:01:35.400
+These are conceptual events, not fixed cycles or a guaranteed forwarding window.
+
+19
+00:01:35.400 --> 00:01:38.648
+Cache and bus details are simplified.
+
+20
+00:01:38.648 --> 00:01:46.020
+Advance the states to separate result availability from architectural-state updates.
+
