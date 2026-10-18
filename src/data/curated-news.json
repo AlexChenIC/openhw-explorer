@@ -3,6 +3,57 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "Caliptra ROM 2.0.4 strengthens debug-image authorization and firmware loading",
+      "titleZh": "Caliptra ROM 2.0.4 加强调试镜像授权与固件加载校验",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rom-2.0.4",
+      "source": "CHIPS Alliance / Caliptra SW (GitHub)",
+      "summary": "Caliptra ROM 2.0.4 adds authorization checks for debug-marked firmware images, requiring subsystem mode, asserted debug intent, and platform permission. The release strengthens FMC size, offset, and firmware-layout validation and uses verified image offsets during cold boot and update reset. It also runs the CSRNG known-answer self-test before CFI initialization consumes random output and records subsystem/passive mode in DeviceStatus measurements. These changes target the 2.0 ROM line.",
+      "summaryZh": "Caliptra ROM 2.0.4 为带调试标记的固件镜像增加授权检查，要求处于子系统模式、已声明调试意图且获得平台许可。该版本加强 FMC 大小、偏移及固件布局校验，并在冷启动和更新复位加载中使用已验证的镜像偏移；同时将 CSRNG 已知答案自检提前至 CFI 初始化使用随机输出之前，并在 DeviceStatus 度量中记录子系统／被动模式。这些更新面向 2.0 ROM 分支。",
+      "tags": [
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "Firmware",
+        "ROM"
+      ],
+      "sourceTier": "official",
+      "publishedAt": "2026-10-16",
+      "dateEvidence": {
+        "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rom-2.0.4",
+        "locator": "GitHub release published_at 2026-10-16T19:41:59Z; tag rom-2.0.4; draft=false; prerelease=false. Full ROM-specific release notes and comparison rom-2.0.3-1...rom-2.0.4 inspected; debug-artifact, FMC bounds, early CSRNG KAT and DeviceStatus changes cross-checked.",
+        "checkedAt": "2026-10-18"
+      },
+      "addedAt": "2026-10-18T07:39:22.905708Z",
+      "language": "en",
+      "reviewStatus": "curated"
+    },
+    {
+      "title": "HPDcache 6.1.0 adds read-only configuration and cache-consistency fixes",
+      "titleZh": "HPDcache 6.1.0 新增只读配置并修复缓存一致性问题",
+      "url": "https://github.com/openhwfoundation/cv-hpdcache/releases/tag/v6.1.0",
+      "source": "OpenHW / HPDcache (GitHub)",
+      "summary": "OpenHW released HPDcache 6.1.0 with a read-only configuration and fixes for non-cacheable accesses, cache-management operations, and LR/SC reservations. Dirty cached lines are flushed before conflicting non-cacheable accesses; cache-management operations wait in the replay table for pending transactions to commit. The release also improves recovery from detected, uncorrected SRAM errors in write-through-only configurations. It packages earlier merged changes rather than dating their implementation to release day.",
+      "summaryZh": "OpenHW 发布 HPDcache 6.1.0，新增只读配置，并修复不可缓存访问、缓存管理操作和 LR/SC 保留状态的处理。与不可缓存访问冲突的脏缓存行会先被刷回；缓存管理操作在重放表中等待未完成事务提交。该版本还改进了仅直写配置中对已检测但未纠正 SRAM 错误的恢复。这次发布汇集此前已合并的改动，各项实现并非均在发布当天完成。",
+      "tags": [
+        "OpenHW",
+        "HPDcache",
+        "Cache",
+        "RISC-V",
+        "Verification",
+        "SoC/IP"
+      ],
+      "sourceTier": "official",
+      "publishedAt": "2026-10-16",
+      "dateEvidence": {
+        "url": "https://github.com/openhwfoundation/cv-hpdcache/releases/tag/v6.1.0",
+        "locator": "GitHub release published_at 2026-10-16T16:26:22Z; tag v6.1.0; draft=false; prerelease=false. Full release notes and merged PR131 (WT-only recovery), PR135 (non-cacheable dirty-line flush), PR147 (read-only), PR148 (CMO ordering), PR154 (LR/SC) inspected; implementation merges predate release.",
+        "checkedAt": "2026-10-18"
+      },
+      "addedAt": "2026-10-18T07:39:22.905708Z",
+      "language": "en",
+      "reviewStatus": "curated"
+    },
+    {
       "title": "Renode expands SystemC co-simulation with direct memory access and TrustZone context",
       "titleZh": "Renode 扩展 SystemC 联合仿真，支持直接内存访问与 TrustZone 上下文",
       "url": "https://antmicro.com/blog/2026/10/systemc-improvements-in-renode",
