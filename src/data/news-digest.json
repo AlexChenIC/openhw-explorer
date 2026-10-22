@@ -1,9 +1,9 @@
 {
-  "weekOf": "2026-10-18",
-  "generatedAt": "2026-10-18T07:39:23.050Z",
+  "weekOf": "2026-10-22",
+  "generatedAt": "2026-10-22T02:48:24.099Z",
   "stats": {
-    "totalRelevant": 149,
-    "totalSources": 45,
+    "totalRelevant": 153,
+    "totalSources": 49,
     "topTags": [
       {
         "tag": "EDA",
@@ -11,15 +11,15 @@
       },
       {
         "tag": "RISC-V",
-        "count": 47
-      },
-      {
-        "tag": "Security",
-        "count": 37
+        "count": 48
       },
       {
         "tag": "Open Hardware",
-        "count": 36
+        "count": 40
+      },
+      {
+        "tag": "Security",
+        "count": 38
       },
       {
         "tag": "Verification",
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 50,
+      "count": 51,
       "items": [
         {
           "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
@@ -153,8 +153,20 @@
         "zh": "AI 与加速器"
       },
       "icon": "brain",
-      "count": 20,
+      "count": 21,
       "items": [
+        {
+          "title": "Marvell, Microsoft and Oracle form OCP integrated-HSM working group",
+          "titleZh": "Marvell、微软与甲骨文成立 OCP 集成式 HSM 工作组",
+          "url": "https://investor.marvell.com/news-events/press-releases/detail/1038/marvell-microsoft-and-oracle-establish-ocp-working-group-to-standardize-data-center-hardware-security",
+          "source": "Marvell / Open Compute Project",
+          "tags": [
+            "OCP",
+            "Security",
+            "HSM"
+          ],
+          "publishedAt": "2026-10-13"
+        },
         {
           "title": "MLPerf Endpoints 1.0 opens submissions with mandatory provisioned-power measurement",
           "titleZh": "MLPerf Endpoints 1.0 开放提交，新增强制功率测量要求",
@@ -190,18 +202,6 @@
             "AI"
           ],
           "publishedAt": "2026-10-12"
-        },
-        {
-          "title": "OCP introduces OSPA switch platform architecture draft for public review",
-          "titleZh": "OCP 介绍面向公开评审的 OSPA 交换机平台架构草案",
-          "url": "https://www.opencompute.org/news/introducing-ospa-unifying-the-switch-platform-layer-for-open-networking/",
-          "source": "Open Compute Project News",
-          "tags": [
-            "OCP",
-            "Open Hardware",
-            "Networking"
-          ],
-          "publishedAt": "2026-10-08"
         }
       ]
     },
@@ -271,7 +271,7 @@
         "zh": "硬件与嵌入式"
       },
       "icon": "circuit",
-      "count": 21,
+      "count": 23,
       "items": [
         {
           "title": "FOSSi publishes Verilator talk on closing SystemVerilog support gaps",
@@ -1099,6 +1099,101 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "SoCMake report details modular RISC-V SoCs for radiation-harsh environments",
+      "url": "https://riscv.org/blog/socmake-modular-risc-v-socs-for-radiation-harsh-and-safety-critical-environments/",
+      "source": "RISC-V International / CERN",
+      "publishedAt": "2026-10-20",
+      "addedAt": "2026-10-22T02:48:23.956579Z",
+      "summary": "RISC-V International published a CERN project report on SOCRATES/SoCMake and the TriglaV radiation-hardened prototype ASIC. The work targets control and local data processing in high-energy physics, using techniques such as triple modular redundancy and memory protection. The linked open-source SoCMake project unifies hardware and software build flows with CMake; this is a technical status report, rather than a new chip release.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "RISC-V",
+        "CERN",
+        "SoCMake",
+        "SoC",
+        "Fault Tolerance",
+        "Open Hardware"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "SoCMake 技术报告介绍面向强辐射环境的模块化 RISC-V SoC",
+      "summaryZh": "RISC-V International 发布 CERN 项目技术报告，介绍 SOCRATES/SoCMake 生态与 TriglaV 抗辐射原型 ASIC。该工作面向高能物理实验中的控制与本地数据处理，采用三模冗余、存储器保护等技术。报告链接的开源 SoCMake 项目以 CMake 统一硬件和软件构建流程；本次内容是技术进展报告，并非新芯片发布。"
+    },
+    {
+      "title": "Marvell, Microsoft and Oracle form OCP integrated-HSM working group",
+      "url": "https://investor.marvell.com/news-events/press-releases/detail/1038/marvell-microsoft-and-oracle-establish-ocp-working-group-to-standardize-data-center-hardware-security",
+      "source": "Marvell / Open Compute Project",
+      "publishedAt": "2026-10-13",
+      "addedAt": "2026-10-22T02:48:23.956579Z",
+      "summary": "Marvell, Microsoft and Oracle announced an OCP Security Track working group to define open specifications for server-integrated hardware security modules. Its scope covers secure key caching, cryptographic key lifecycle management, a hardware security boundary and attestation. The announcement targets an initial draft around the 2026 OCP Global Summit, with version 1.0 to follow; it does not announce a completed standard or a newly certified implementation.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "OCP",
+        "Security",
+        "HSM",
+        "Specification",
+        "Governance",
+        "Open Hardware"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Marvell、微软与甲骨文成立 OCP 集成式 HSM 工作组",
+      "summaryZh": "Marvell、微软与甲骨文宣布在 OCP 安全方向成立工作组，为服务器集成式硬件安全模块制定开放规范，涵盖安全密钥缓存、密码密钥生命周期管理、硬件安全边界与证明机制。公告计划在 2026 OCP 全球峰会前后推出初稿，随后形成 1.0 版；本次进展是标准化协作启动，并非正式标准完成或新实现通过认证。"
+    },
+    {
+      "title": "Meta introduces IcePack liquid-cooled racks and 102.4-Tbps IceCube switches",
+      "url": "https://engineering.fb.com/2026/10/12/open-source/ocp-summit-2026-powering-ai-with-open-innovations-in-scale-up-scale-out-and-scale-across-networks/",
+      "source": "Meta Engineering",
+      "publishedAt": "2026-10-12",
+      "addedAt": "2026-10-22T02:48:23.956579Z",
+      "summary": "Meta introduced IcePack, its first liquid-cooled networking rack, and IceCube switch blades at OCP Summit 2026. IceCube provides 128×800G non-blocking switching capacity, with Broadcom Tomahawk6C and NVIDIA Spectrum-6 variants running the open-source FBOSS network operating system. IcePack uses the OCP ORV3-HPRv1 rack standard. The article also describes open networking contributions; future scale-up designs remain previews.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "OCP",
+        "Networking",
+        "FBOSS",
+        "Liquid Cooling",
+        "Open Hardware"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Meta 介绍 IcePack 液冷网络机架与 102.4 Tbps IceCube 交换平台",
+      "summaryZh": "Meta 在 2026 OCP 峰会介绍首代液冷网络机架 IcePack 及 IceCube 交换刀片。IceCube 提供 128×800G 无阻塞交换容量，分别采用 Broadcom Tomahawk6C 或 NVIDIA Spectrum-6 芯片，并运行开源 FBOSS 网络操作系统。IcePack 采用 OCP ORV3-HPRv1 机架标准。原文同时介绍开放网络贡献，其中未来的 scale-up 设计仍处于预览阶段。"
+    },
+    {
+      "title": "NVIDIA contributes Vera Rubin rack and compute-tray designs to OCP",
+      "url": "https://blogs.nvidia.com/blog/ocp-global-summit-vera-rubin-scale-ai-factories/",
+      "source": "NVIDIA Blog",
+      "publishedAt": "2026-10-12",
+      "addedAt": "2026-10-22T02:48:23.956579Z",
+      "summary": "NVIDIA announced contributions of Vera Rubin rack and compute-tray designs to OCP through its MGX architecture. The updated MGX 1.2 specification adds rack-scale blind-mate liquid cooling, interoperable rack interconnect infrastructure, a liquid-cooled 5,000A busbar and native 19-inch equipment support. The contribution concerns system infrastructure designs; it does not make the underlying processor or accelerator RTL open source.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "OCP",
+        "MGX",
+        "NVIDIA",
+        "Data Center",
+        "Liquid Cooling",
+        "Open Hardware"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "NVIDIA 向 OCP 贡献 Vera Rubin 机架与计算托盘设计",
+      "summaryZh": "NVIDIA 宣布通过 MGX 架构向 OCP 贡献 Vera Rubin 机架与计算托盘设计。更新后的 MGX 1.2 规范加入机架级盲插液冷、可互操作的机架互连基础设施、液冷 5,000A 母排及原生 19 英寸设备支持。此次贡献面向系统基础设施设计，不代表底层处理器或加速器 RTL 已经开源。"
     },
     {
       "title": "Caliptra ROM 2.0.4 strengthens debug-image authorization and firmware loading",
@@ -4254,6 +4349,9 @@
     "LLVM / CIRCT",
     "LLVM / CIRCT (GitHub)",
     "MLCommons",
+    "Marvell / Open Compute Project",
+    "Meta Engineering",
+    "NVIDIA Blog",
     "Open Compute Project",
     "Open Compute Project News",
     "OpenHW / CVA6 (GitHub)",
@@ -4265,6 +4363,7 @@
     "RISC-V Architecture Tests (GitHub)",
     "RISC-V ISA Manual (GitHub)",
     "RISC-V International",
+    "RISC-V International / CERN",
     "RISC-V International news",
     "RISC-V Summit Europe 2026",
     "Tenstorrent / TT-Metalium (GitHub)",
