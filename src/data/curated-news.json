@@ -3,6 +3,33 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "lowRISC details CHERIoT integration for OpenTitan owner firmware",
+      "titleZh": "lowRISC 详解面向 OpenTitan 所有者固件的 CHERIoT 集成方案",
+      "url": "https://lowrisc.org/news/memory-safety-where-it-matters-most-cheri-for-opentitan/",
+      "source": "lowRISC Newsroom",
+      "publishedAt": "2026-10-22",
+      "summary": "lowRISC published a technical report on adding CHERIoT capability-based memory protection and compartmentalization to OpenTitan. The design retains the existing ePMP-protected ROM and ROM_EXT boot flow, with an optional one-time switch to CHERI mode before Silicon Owner firmware begins. lowRISC reports a representative hardened dual-ISA core area increase from about 197 to 244 kGE; this is a core estimate, not a whole-chip measurement. Integration is underway, with completion expected in early 2027.",
+      "summaryZh": "lowRISC 发布技术报告，详解为 OpenTitan 引入基于 CHERIoT 能力机制的内存保护与分区隔离方案。设计保留现有基于 ePMP 的 ROM 和 ROM_EXT 安全启动流程，可在执行 Silicon Owner（芯片所有者）固件前一次性切换至 CHERI 模式。lowRISC 给出的代表性面积估算显示，加固后的双指令集处理器核约从 197 增至 244 kGE；这是处理器核估算，并非整芯片实测。集成工作正在推进，预计于 2027 年初完成。",
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "CHERIoT",
+        "Memory Safety",
+        "Root of Trust",
+        "Security",
+        "RISC-V"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "dateEvidence": {
+        "url": "https://lowrisc.org/news/memory-safety-where-it-matters-most-cheri-for-opentitan/",
+        "locator": "Official canonical article title and article:published_time/JSON-LD datePublished 2026-10-22T08:00:00+00:00. Full \"From argument to silicon\" section verifies optional one-time CHERI-mode handoff before owner BL0 with ROM/ROM_EXT/ePMP flow retained and early2027 target; area section reports representative hardened dual-ISA core197to244kGE. Linked April11,2025 standalone-core synthesis article is older supporting methodology, not a new release or whole-chip measurement.",
+        "checkedAt": "2026-10-23"
+      },
+      "addedAt": "2026-10-23T01:11:48.379412Z"
+    },
+    {
       "title": "SoCMake report details modular RISC-V SoCs for radiation-harsh environments",
       "titleZh": "SoCMake 技术报告介绍面向强辐射环境的模块化 RISC-V SoC",
       "url": "https://riscv.org/blog/socmake-modular-risc-v-socs-for-radiation-harsh-and-safety-critical-environments/",
