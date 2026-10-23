@@ -1,16 +1,16 @@
 {
-  "weekOf": "2026-10-22",
-  "generatedAt": "2026-10-22T02:48:24.099Z",
+  "weekOf": "2026-10-23",
+  "generatedAt": "2026-10-23T01:12:03.783Z",
   "stats": {
-    "totalRelevant": 153,
+    "totalRelevant": 154,
     "totalSources": 49,
     "topTags": [
       {
-        "tag": "EDA",
-        "count": 48
+        "tag": "RISC-V",
+        "count": 49
       },
       {
-        "tag": "RISC-V",
+        "tag": "EDA",
         "count": 48
       },
       {
@@ -19,7 +19,7 @@
       },
       {
         "tag": "Security",
-        "count": 38
+        "count": 39
       },
       {
         "tag": "Verification",
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 51,
+      "count": 52,
       "items": [
         {
           "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
@@ -1099,6 +1099,31 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "lowRISC details CHERIoT integration for OpenTitan owner firmware",
+      "url": "https://lowrisc.org/news/memory-safety-where-it-matters-most-cheri-for-opentitan/",
+      "source": "lowRISC Newsroom",
+      "publishedAt": "2026-10-22",
+      "addedAt": "2026-10-23T01:11:48.379412Z",
+      "summary": "lowRISC published a technical report on adding CHERIoT capability-based memory protection and compartmentalization to OpenTitan. The design retains the existing ePMP-protected ROM and ROM_EXT boot flow, with an optional one-time switch to CHERI mode before Silicon Owner firmware begins. lowRISC reports a representative hardened dual-ISA core area increase from about 197 to 244 kGE; this is a core estimate, not a whole-chip measurement. Integration is underway, with completion expected in early 2027.",
+      "author": "",
+      "relevanceScore": 7,
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "CHERIoT",
+        "Memory Safety",
+        "Root of Trust",
+        "Security",
+        "RISC-V"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "lowRISC 详解面向 OpenTitan 所有者固件的 CHERIoT 集成方案",
+      "summaryZh": "lowRISC 发布技术报告，详解为 OpenTitan 引入基于 CHERIoT 能力机制的内存保护与分区隔离方案。设计保留现有基于 ePMP 的 ROM 和 ROM_EXT 安全启动流程，可在执行 Silicon Owner（芯片所有者）固件前一次性切换至 CHERI 模式。lowRISC 给出的代表性面积估算显示，加固后的双指令集处理器核约从 197 增至 244 kGE；这是处理器核估算，并非整芯片实测。集成工作正在推进，预计于 2027 年初完成。"
     },
     {
       "title": "SoCMake report details modular RISC-V SoCs for radiation-harsh environments",
