@@ -3,6 +3,34 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "OCP recording details open Caliptra design-verification infrastructure",
+      "titleZh": "OCP 技术录像详解 Caliptra 开源设计验证基础设施",
+      "url": "https://www.youtube.com/watch?v=R6UvzJ1YRVI",
+      "source": "Open Compute Project / lowRISC / Google",
+      "publishedAt": "2026-10-15",
+      "summary": "In this OCP Global Summit recording, lowRISC and Google describe design-verification work for Caliptra 2.2, including reuse of OpenTitan block-level testbenches, VeeR and I3C verification, and shared regression and coverage infrastructure. The SHA3_CTRL example explicitly leaves Caliptra-specific wrapper code untested by the ported environment. This is an incremental verification report, not completed security certification; the previously missing recording was uploaded on October 15.",
+      "summaryZh": "在这段 OCP Global Summit 技术录像中，lowRISC 与 Google 介绍面向 Caliptra 2.2 的设计验证工作，包括复用 OpenTitan 模块级测试平台、VeeR 与 I3C 验证，以及共享的回归测试与覆盖率基础设施。演示明确指出，移植后的 SHA3_CTRL 验证环境尚未测试 Caliptra 专用封装代码。本次内容是逐步推进的验证进展报告，并非已完成的安全认证；补收录像上传于 10 月 15 日。",
+      "tags": [
+        "Caliptra",
+        "OpenTitan",
+        "Verification",
+        "UVM",
+        "Root of Trust",
+        "Security",
+        "Open Hardware",
+        "Talk"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "dateEvidence": {
+        "url": "https://www.youtube.com/watch?v=R6UvzJ1YRVI",
+        "locator": "Official Open Compute Project channel UCXtmeGWbySLShhGV8ooyMzA; yt-dlp upload_date20261015, duration1178s. Official OCP2026 recorded-content row credits Andreas Kurth(lowRISC) and Zachary Halvorsen(Google), links this video and original slides. Full official description and complete16-page slide text reviewed; slides5/8 visually checked. Slides7/9 verify VeeR/I3C; slide8 explicitly excludes Caliptra-specific SHA3_CTRL wrapper tests; slide12 shared DVSim/UVM infrastructure. Upload date is source publication, not a Caliptra2.2 release date.",
+        "checkedAt": "2026-10-24"
+      },
+      "addedAt": "2026-10-24T02:09:04.803460Z"
+    },
+    {
       "title": "lowRISC details CHERIoT integration for OpenTitan owner firmware",
       "titleZh": "lowRISC 详解面向 OpenTitan 所有者固件的 CHERIoT 集成方案",
       "url": "https://lowrisc.org/news/memory-safety-where-it-matters-most-cheri-for-opentitan/",
