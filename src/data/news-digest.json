@@ -1,9 +1,9 @@
 {
-  "weekOf": "2026-10-23",
-  "generatedAt": "2026-10-23T01:12:03.783Z",
+  "weekOf": "2026-10-24",
+  "generatedAt": "2026-10-24T02:09:05.004Z",
   "stats": {
-    "totalRelevant": 154,
-    "totalSources": 49,
+    "totalRelevant": 155,
+    "totalSources": 50,
     "topTags": [
       {
         "tag": "RISC-V",
@@ -15,15 +15,15 @@
       },
       {
         "tag": "Open Hardware",
-        "count": 40
+        "count": 41
       },
       {
         "tag": "Security",
-        "count": 39
+        "count": 40
       },
       {
         "tag": "Verification",
-        "count": 34
+        "count": 35
       }
     ]
   },
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 52,
+      "count": 53,
       "items": [
         {
           "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
@@ -1099,6 +1099,32 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "OCP recording details open Caliptra design-verification infrastructure",
+      "url": "https://www.youtube.com/watch?v=R6UvzJ1YRVI",
+      "source": "Open Compute Project / lowRISC / Google",
+      "publishedAt": "2026-10-15",
+      "addedAt": "2026-10-24T02:09:04.803460Z",
+      "summary": "In this OCP Global Summit recording, lowRISC and Google describe design-verification work for Caliptra 2.2, including reuse of OpenTitan block-level testbenches, VeeR and I3C verification, and shared regression and coverage infrastructure. The SHA3_CTRL example explicitly leaves Caliptra-specific wrapper code untested by the ported environment. This is an incremental verification report, not completed security certification; the previously missing recording was uploaded on October 15.",
+      "author": "",
+      "relevanceScore": 8,
+      "tags": [
+        "Caliptra",
+        "OpenTitan",
+        "Verification",
+        "UVM",
+        "Root of Trust",
+        "Security",
+        "Open Hardware",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "OCP 技术录像详解 Caliptra 开源设计验证基础设施",
+      "summaryZh": "在这段 OCP Global Summit 技术录像中，lowRISC 与 Google 介绍面向 Caliptra 2.2 的设计验证工作，包括复用 OpenTitan 模块级测试平台、VeeR 与 I3C 验证，以及共享的回归测试与覆盖率基础设施。演示明确指出，移植后的 SHA3_CTRL 验证环境尚未测试 Caliptra 专用封装代码。本次内容是逐步推进的验证进展报告，并非已完成的安全认证；补收录像上传于 10 月 15 日。"
     },
     {
       "title": "lowRISC details CHERIoT integration for OpenTitan owner firmware",
@@ -4378,6 +4404,7 @@
     "Meta Engineering",
     "NVIDIA Blog",
     "Open Compute Project",
+    "Open Compute Project / lowRISC / Google",
     "Open Compute Project News",
     "OpenHW / CVA6 (GitHub)",
     "OpenHW / HPDcache (GitHub)",
