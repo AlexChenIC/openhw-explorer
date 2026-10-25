@@ -3,6 +3,34 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "OCP talk explains USB streaming boot for Caliptra Subsystem 2.2",
+      "titleZh": "OCP 技术录像详解 Caliptra Subsystem 2.2 的 USB 流式启动设计",
+      "url": "https://www.youtube.com/watch?v=yW-9tqqf3tU",
+      "source": "Open Compute Project / Microsoft / NXP",
+      "publishedAt": "2026-10-16",
+      "summary": "In an OCP Global Summit recording uploaded on October 16, Microsoft and NXP explain the USB 2.0 streaming-boot design for Caliptra Subsystem 2.2. An embedded virtual hub shares one physical USB link between root-of-trust recovery and integrator-defined runtime functions, while retaining I3C and AXI boot options. The MCU manages the hub and Device 0; the SoC manages Device 1. The slides invite validation and describe v2.2 as forthcoming, making this an architecture and integration report rather than a completed release.",
+      "summaryZh": "在 10 月 16 日上传的 OCP Global Summit 技术录像中，Microsoft 与 NXP 介绍 Caliptra Subsystem 2.2 的 USB 2.0 流式启动设计。内嵌虚拟 hub 通过一条物理 USB 链路承载信任根恢复与集成方定义的运行时功能，同时保留 I3C 和 AXI 启动选项。MCU 管理 hub 与 Device 0，SoC 管理 Device 1。幻灯片邀请社区参与验证，并注明 v2.2 即将推出；本次报道是架构与集成方案介绍，并非已完成的正式发布。",
+      "tags": [
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "USB",
+        "Firmware",
+        "SoC/IP",
+        "Open Hardware",
+        "Talk"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "dateEvidence": {
+        "url": "https://www.youtube.com/watch?v=yW-9tqqf3tU",
+        "locator": "Official Open Compute Project channel UCXtmeGWbySLShhGV8ooyMzA; upload_date20261016, duration841s. Full official title/description reviewed; OCP recorded-content index links Microsoft Caleb Whitehead and NXP Bart Vertenten, this video and original17-page speaker slides. Full slide text reviewed; pages4/7 visually inspected: USB option retaining I3C/AXI, virtual hub and two devices; page14 MCU hub/Device0 vs SoC Device1 ownership; page16 validation invitation and v2.2 coming soon. Repository release list independently checked, no2.2 release listed. Upload date retained separately from today's editorial review.",
+        "checkedAt": "2026-10-25"
+      },
+      "addedAt": "2026-10-25T12:01:44.899224Z"
+    },
+    {
       "title": "OCP recording details open Caliptra design-verification infrastructure",
       "titleZh": "OCP 技术录像详解 Caliptra 开源设计验证基础设施",
       "url": "https://www.youtube.com/watch?v=R6UvzJ1YRVI",

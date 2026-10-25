@@ -1,9 +1,9 @@
 {
-  "weekOf": "2026-10-24",
-  "generatedAt": "2026-10-24T02:09:05.004Z",
+  "weekOf": "2026-10-25",
+  "generatedAt": "2026-10-25T12:01:53.357Z",
   "stats": {
-    "totalRelevant": 155,
-    "totalSources": 50,
+    "totalRelevant": 156,
+    "totalSources": 51,
     "topTags": [
       {
         "tag": "RISC-V",
@@ -15,11 +15,11 @@
       },
       {
         "tag": "Open Hardware",
-        "count": 41
+        "count": 42
       },
       {
         "tag": "Security",
-        "count": 40
+        "count": 41
       },
       {
         "tag": "Verification",
@@ -153,8 +153,20 @@
         "zh": "AI 与加速器"
       },
       "icon": "brain",
-      "count": 21,
+      "count": 22,
       "items": [
+        {
+          "title": "OCP talk explains USB streaming boot for Caliptra Subsystem 2.2",
+          "titleZh": "OCP 技术录像详解 Caliptra Subsystem 2.2 的 USB 流式启动设计",
+          "url": "https://www.youtube.com/watch?v=yW-9tqqf3tU",
+          "source": "Open Compute Project / Microsoft / NXP",
+          "tags": [
+            "Caliptra",
+            "Root of Trust",
+            "Security"
+          ],
+          "publishedAt": "2026-10-16"
+        },
         {
           "title": "Marvell, Microsoft and Oracle form OCP integrated-HSM working group",
           "titleZh": "Marvell、微软与甲骨文成立 OCP 集成式 HSM 工作组",
@@ -188,18 +200,6 @@
             "OCP",
             "Open Hardware",
             "AI Infrastructure"
-          ],
-          "publishedAt": "2026-10-12"
-        },
-        {
-          "title": "OCP launches Nexus for conversational discovery of open hardware resources",
-          "titleZh": "OCP 发布 Nexus，以对话方式探索开源硬件资源",
-          "url": "https://www.opencompute.org/news/open-compute-project-foundation-launches-ocp-nexus-to-make-15-years-of-open-hardware-knowledge-easier-to-explore/",
-          "source": "Open Compute Project News",
-          "tags": [
-            "OCP",
-            "Open Hardware",
-            "AI"
           ],
           "publishedAt": "2026-10-12"
         }
@@ -1099,6 +1099,32 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "OCP talk explains USB streaming boot for Caliptra Subsystem 2.2",
+      "url": "https://www.youtube.com/watch?v=yW-9tqqf3tU",
+      "source": "Open Compute Project / Microsoft / NXP",
+      "publishedAt": "2026-10-16",
+      "addedAt": "2026-10-25T12:01:44.899224Z",
+      "summary": "In an OCP Global Summit recording uploaded on October 16, Microsoft and NXP explain the USB 2.0 streaming-boot design for Caliptra Subsystem 2.2. An embedded virtual hub shares one physical USB link between root-of-trust recovery and integrator-defined runtime functions, while retaining I3C and AXI boot options. The MCU manages the hub and Device 0; the SoC manages Device 1. The slides invite validation and describe v2.2 as forthcoming, making this an architecture and integration report rather than a completed release.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "USB",
+        "Firmware",
+        "SoC/IP",
+        "Open Hardware",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "OCP 技术录像详解 Caliptra Subsystem 2.2 的 USB 流式启动设计",
+      "summaryZh": "在 10 月 16 日上传的 OCP Global Summit 技术录像中，Microsoft 与 NXP 介绍 Caliptra Subsystem 2.2 的 USB 2.0 流式启动设计。内嵌虚拟 hub 通过一条物理 USB 链路承载信任根恢复与集成方定义的运行时功能，同时保留 I3C 和 AXI 启动选项。MCU 管理 hub 与 Device 0，SoC 管理 Device 1。幻灯片邀请社区参与验证，并注明 v2.2 即将推出；本次报道是架构与集成方案介绍，并非已完成的正式发布。"
     },
     {
       "title": "OCP recording details open Caliptra design-verification infrastructure",
@@ -4404,6 +4430,7 @@
     "Meta Engineering",
     "NVIDIA Blog",
     "Open Compute Project",
+    "Open Compute Project / Microsoft / NXP",
     "Open Compute Project / lowRISC / Google",
     "Open Compute Project News",
     "OpenHW / CVA6 (GitHub)",
