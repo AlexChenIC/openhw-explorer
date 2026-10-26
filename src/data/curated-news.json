@@ -3,6 +3,33 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "OCP talk details Adam’s Bridge 3.0 architectural masking for PQC",
+      "titleZh": "OCP 技术录像详解 Adam’s Bridge 3.0 的后量子密码架构级掩码",
+      "url": "https://www.youtube.com/watch?v=j9tT2x9P3Kc",
+      "source": "Open Compute Project / Microsoft",
+      "publishedAt": "2026-10-16",
+      "summary": "In an OCP recording uploaded on October 16, Microsoft explains Adam’s Bridge 3.0’s architectural masking for ML-DSA and ML-KEM. The design uses transform linearity to process random shares in separate NTT/INTT datapaths, with configurable Keccak masking. The slides discuss logic-area savings versus larger share memories and report FPGA TVLA leakage tests scoped to the tested operations. This is an architecture and evaluation report; the public repository’s latest listed release at review time is v2.0.3.",
+      "summaryZh": "在 10 月 16 日上传的 OCP 技术录像中，Microsoft 介绍 Adam’s Bridge 3.0 面向 ML-DSA 与 ML-KEM 的架构级掩码。设计利用变换的线性性质，在独立的 NTT/INTT 数据通路中处理随机拆分的份额，并提供可配置的 Keccak 掩码。幻灯片讨论了逻辑面积缩减与份额存储容量增加之间的取舍，并报告了针对所测运算的 FPGA TVLA 泄漏测试。这是一份架构与评估报告；审稿时公开仓库列出的最新正式版本仍为 v2.0.3。",
+      "tags": [
+        "PQC",
+        "ML-DSA",
+        "ML-KEM",
+        "Security",
+        "SoC/IP",
+        "Open Hardware",
+        "Talk"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "dateEvidence": {
+        "url": "https://www.youtube.com/watch?v=j9tT2x9P3Kc",
+        "locator": "Official Open Compute Project channel UCXtmeGWbySLShhGV8ooyMzA; upload_date=20261016, duration=983s. Full official title/description and OCP recorded-content index identify Microsoft speakers Mojtaba Bisheh-Niasar and Kiran Upadhyayula. All 18 original slide pages read; pages 6,13,15,16 visually checked: separate random-share NTT/INTT datapaths, configurable Keccak masking, FPGA Welch t-test experiment and operation-scoped TVLA result. Pages 8–9 document logic/SRAM tradeoff; broad security guarantees and numerical area claims omitted. Public GitHub release list independently read: newest v2.0.3, no v3.0 release. Recording upload date is distinct from today’s editorial review.",
+        "checkedAt": "2026-10-26"
+      },
+      "addedAt": "2026-10-26T00:29:57.917012Z"
+    },
+    {
       "title": "OCP talk explains USB streaming boot for Caliptra Subsystem 2.2",
       "titleZh": "OCP 技术录像详解 Caliptra Subsystem 2.2 的 USB 流式启动设计",
       "url": "https://www.youtube.com/watch?v=yW-9tqqf3tU",
