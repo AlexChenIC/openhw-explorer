@@ -1,9 +1,9 @@
 {
-  "weekOf": "2026-10-25",
-  "generatedAt": "2026-10-25T12:01:53.357Z",
+  "weekOf": "2026-10-26",
+  "generatedAt": "2026-10-26T00:29:58.016Z",
   "stats": {
-    "totalRelevant": 156,
-    "totalSources": 51,
+    "totalRelevant": 157,
+    "totalSources": 52,
     "topTags": [
       {
         "tag": "RISC-V",
@@ -15,11 +15,11 @@
       },
       {
         "tag": "Open Hardware",
-        "count": 42
+        "count": 43
       },
       {
         "tag": "Security",
-        "count": 41
+        "count": 42
       },
       {
         "tag": "Verification",
@@ -153,8 +153,20 @@
         "zh": "AI 与加速器"
       },
       "icon": "brain",
-      "count": 22,
+      "count": 23,
       "items": [
+        {
+          "title": "OCP talk details Adam’s Bridge 3.0 architectural masking for PQC",
+          "titleZh": "OCP 技术录像详解 Adam’s Bridge 3.0 的后量子密码架构级掩码",
+          "url": "https://www.youtube.com/watch?v=j9tT2x9P3Kc",
+          "source": "Open Compute Project / Microsoft",
+          "tags": [
+            "PQC",
+            "ML-DSA",
+            "ML-KEM"
+          ],
+          "publishedAt": "2026-10-16"
+        },
         {
           "title": "OCP talk explains USB streaming boot for Caliptra Subsystem 2.2",
           "titleZh": "OCP 技术录像详解 Caliptra Subsystem 2.2 的 USB 流式启动设计",
@@ -190,18 +202,6 @@
             "Benchmarking"
           ],
           "publishedAt": "2026-10-13"
-        },
-        {
-          "title": "OCP maps open specifications for AI data centers, networking, and chiplets",
-          "titleZh": "OCP 梳理 AI 数据中心、网络与 chiplet 开放规范进展",
-          "url": "https://www.opencompute.org/news/realizing-the-ocp-open-data-center-ecosystem-vision/",
-          "source": "Open Compute Project News",
-          "tags": [
-            "OCP",
-            "Open Hardware",
-            "AI Infrastructure"
-          ],
-          "publishedAt": "2026-10-12"
         }
       ]
     },
@@ -1099,6 +1099,31 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "OCP talk details Adam’s Bridge 3.0 architectural masking for PQC",
+      "url": "https://www.youtube.com/watch?v=j9tT2x9P3Kc",
+      "source": "Open Compute Project / Microsoft",
+      "publishedAt": "2026-10-16",
+      "addedAt": "2026-10-26T00:29:57.917012Z",
+      "summary": "In an OCP recording uploaded on October 16, Microsoft explains Adam’s Bridge 3.0’s architectural masking for ML-DSA and ML-KEM. The design uses transform linearity to process random shares in separate NTT/INTT datapaths, with configurable Keccak masking. The slides discuss logic-area savings versus larger share memories and report FPGA TVLA leakage tests scoped to the tested operations. This is an architecture and evaluation report; the public repository’s latest listed release at review time is v2.0.3.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "PQC",
+        "ML-DSA",
+        "ML-KEM",
+        "Security",
+        "SoC/IP",
+        "Open Hardware",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "OCP 技术录像详解 Adam’s Bridge 3.0 的后量子密码架构级掩码",
+      "summaryZh": "在 10 月 16 日上传的 OCP 技术录像中，Microsoft 介绍 Adam’s Bridge 3.0 面向 ML-DSA 与 ML-KEM 的架构级掩码。设计利用变换的线性性质，在独立的 NTT/INTT 数据通路中处理随机拆分的份额，并提供可配置的 Keccak 掩码。幻灯片讨论了逻辑面积缩减与份额存储容量增加之间的取舍，并报告了针对所测运算的 FPGA TVLA 泄漏测试。这是一份架构与评估报告；审稿时公开仓库列出的最新正式版本仍为 v2.0.3。"
     },
     {
       "title": "OCP talk explains USB streaming boot for Caliptra Subsystem 2.2",
@@ -4430,6 +4455,7 @@
     "Meta Engineering",
     "NVIDIA Blog",
     "Open Compute Project",
+    "Open Compute Project / Microsoft",
     "Open Compute Project / Microsoft / NXP",
     "Open Compute Project / lowRISC / Google",
     "Open Compute Project News",
