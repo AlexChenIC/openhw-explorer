@@ -1,9 +1,9 @@
 {
-  "weekOf": "2026-10-26",
-  "generatedAt": "2026-10-26T00:29:58.016Z",
+  "weekOf": "2026-10-28",
+  "generatedAt": "2026-10-28T01:48:35.964Z",
   "stats": {
-    "totalRelevant": 157,
-    "totalSources": 52,
+    "totalRelevant": 159,
+    "totalSources": 54,
     "topTags": [
       {
         "tag": "RISC-V",
@@ -15,15 +15,15 @@
       },
       {
         "tag": "Open Hardware",
-        "count": 43
+        "count": 44
       },
       {
         "tag": "Security",
-        "count": 42
+        "count": 43
       },
       {
         "tag": "Verification",
-        "count": 35
+        "count": 36
       }
     ]
   },
@@ -153,8 +153,20 @@
         "zh": "AI 与加速器"
       },
       "icon": "brain",
-      "count": 23,
+      "count": 24,
       "items": [
+        {
+          "title": "OCP panel examines chiplet interoperability, validation, and production testing",
+          "titleZh": "OCP 圆桌探讨 chiplet 互操作、验证与量产测试",
+          "url": "https://www.youtube.com/watch?v=0zoBWwt_itQ",
+          "source": "Open Compute Project / Arm / imec / OpenChip",
+          "tags": [
+            "OCP",
+            "Chiplets",
+            "Interoperability"
+          ],
+          "publishedAt": "2026-10-27"
+        },
         {
           "title": "OCP talk details Adam’s Bridge 3.0 architectural masking for PQC",
           "titleZh": "OCP 技术录像详解 Adam’s Bridge 3.0 的后量子密码架构级掩码",
@@ -188,18 +200,6 @@
             "OCP",
             "Security",
             "HSM"
-          ],
-          "publishedAt": "2026-10-13"
-        },
-        {
-          "title": "MLPerf Endpoints 1.0 opens submissions with mandatory provisioned-power measurement",
-          "titleZh": "MLPerf Endpoints 1.0 开放提交，新增强制功率测量要求",
-          "url": "https://mlcommons.org/2026/10/open-submissions-endpoints-v1-0/",
-          "source": "MLCommons",
-          "tags": [
-            "MLPerf",
-            "MLCommons",
-            "Benchmarking"
           ],
           "publishedAt": "2026-10-13"
         }
@@ -330,8 +330,20 @@
         "zh": "社区与工具"
       },
       "icon": "users",
-      "count": 1,
+      "count": 2,
       "items": [
+        {
+          "title": "Caliptra Runtime/FMC 1.3.1 adds an attestation command and PCR access controls",
+          "titleZh": "Caliptra Runtime/FMC 1.3.1 新增证明命令并收紧 PCR 访问权限",
+          "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rt-1.3.1",
+          "source": "CHIPS Alliance / Caliptra",
+          "tags": [
+            "Caliptra",
+            "Root of Trust",
+            "Security"
+          ],
+          "publishedAt": "2026-10-27"
+        },
         {
           "title": "CHIPS Alliance launches the SV Tools Project for SystemVerilog/UVM codebases",
           "titleZh": "CHIPS Alliance 推出 SV Tools Project，聚合 SystemVerilog/UVM 开源工具",
@@ -1099,6 +1111,53 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "Caliptra Runtime/FMC 1.3.1 adds an attestation command and PCR access controls",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rt-1.3.1",
+      "source": "CHIPS Alliance / Caliptra",
+      "publishedAt": "2026-10-27",
+      "addedAt": "2026-10-28T01:48:35.736139Z",
+      "summary": "Caliptra released Runtime/FMC 1.3.1 with a new GET_ATTESTED_PQ_CSR mailbox command. The release restricts EXTEND_PCR to PL0 callers and allows PL0 callers to extend PCR31. It also updates DPE to version 0.14 with a TCB-info size fix and includes entropy-source power handling and CSRNG command synchronization fixes. These changes are documented for the 1.3.1 firmware release.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "Firmware",
+        "Release"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Caliptra Runtime/FMC 1.3.1 新增证明命令并收紧 PCR 访问权限",
+      "summaryZh": "Caliptra 发布 Runtime/FMC 1.3.1，新增 GET_ATTESTED_PQ_CSR 邮箱命令。该版本将 EXTEND_PCR 限制为仅允许 PL0 调用方使用，并允许 PL0 调用方扩展 PCR31；同时将 DPE 更新至 0.14，纳入 TCB 信息大小修复，以及熵源电源处理和 CSRNG 命令同步修复。上述变更针对 1.3.1 固件版本。"
+    },
+    {
+      "title": "OCP panel examines chiplet interoperability, validation, and production testing",
+      "url": "https://www.youtube.com/watch?v=0zoBWwt_itQ",
+      "source": "Open Compute Project / Arm / imec / OpenChip",
+      "publishedAt": "2026-10-27",
+      "addedAt": "2026-10-28T01:48:35.736139Z",
+      "summary": "In an OCP recording uploaded on October 27, Arm, imec and OpenChip discuss what multi-vendor chiplet systems need beyond die-to-die links: interface contracts, late binding, trust between dies and coordinated firmware. The panel examines pre- and post-silicon compliance, wafer- and package-level characterization, and the gap between first silicon and volume manufacturing. The speakers frame scalable qualification and production testing as work still needed.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "OCP",
+        "Chiplets",
+        "Interoperability",
+        "Verification",
+        "Open Hardware",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "OCP 圆桌探讨 chiplet 互操作、验证与量产测试",
+      "summaryZh": "在 10 月 27 日上传的 OCP 录像中，Arm、imec 与 OpenChip 讨论多供应商 chiplet 系统除裸片间链路之外的需求：接口契约、后期绑定、裸片间信任及固件协同。圆桌进一步分析流片前后的一致性验证、晶圆级与封装级特性表征，以及从首颗芯片到规模量产之间的差距。与会者将可扩展的合格性验证和量产测试视为仍需推进的工作。"
     },
     {
       "title": "OCP talk details Adam’s Bridge 3.0 architectural masking for PQC",
@@ -4435,6 +4494,7 @@
     "Apache TVM Blog",
     "Apache TVM FFI (GitHub)",
     "CHIPS Alliance",
+    "CHIPS Alliance / Caliptra",
     "CHIPS Alliance / Caliptra (GitHub)",
     "CHIPS Alliance / Caliptra MCU SW (GitHub)",
     "CHIPS Alliance / Caliptra SW (GitHub)",
@@ -4455,6 +4515,7 @@
     "Meta Engineering",
     "NVIDIA Blog",
     "Open Compute Project",
+    "Open Compute Project / Arm / imec / OpenChip",
     "Open Compute Project / Microsoft",
     "Open Compute Project / Microsoft / NXP",
     "Open Compute Project / lowRISC / Google",
