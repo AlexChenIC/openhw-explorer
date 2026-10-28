@@ -3,6 +3,57 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "Caliptra Runtime/FMC 1.3.1 adds an attestation command and PCR access controls",
+      "titleZh": "Caliptra Runtime/FMC 1.3.1 新增证明命令并收紧 PCR 访问权限",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rt-1.3.1",
+      "source": "CHIPS Alliance / Caliptra",
+      "publishedAt": "2026-10-27",
+      "summary": "Caliptra released Runtime/FMC 1.3.1 with a new GET_ATTESTED_PQ_CSR mailbox command. The release restricts EXTEND_PCR to PL0 callers and allows PL0 callers to extend PCR31. It also updates DPE to version 0.14 with a TCB-info size fix and includes entropy-source power handling and CSRNG command synchronization fixes. These changes are documented for the 1.3.1 firmware release.",
+      "summaryZh": "Caliptra 发布 Runtime/FMC 1.3.1，新增 GET_ATTESTED_PQ_CSR 邮箱命令。该版本将 EXTEND_PCR 限制为仅允许 PL0 调用方使用，并允许 PL0 调用方扩展 PCR31；同时将 DPE 更新至 0.14，纳入 TCB 信息大小修复，以及熵源电源处理和 CSRNG 命令同步修复。上述变更针对 1.3.1 固件版本。",
+      "tags": [
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "Firmware",
+        "Release"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "addedAt": "2026-10-28T01:48:35.736139Z",
+      "dateEvidence": {
+        "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rt-1.3.1",
+        "locator": "Original chipsalliance/caliptra-sw GitHub release rt-1.3.1; published_at=2026-10-27T18:17:44Z, prerelease=false, draft=false. Full Runtime/FMC 1.3.1 release notes read: GET_ATTESTED_PQ_CSR, PL0-only EXTEND_PCR and PCR31 permission, DPE0.14/TCB-info size fix, entropy_src dynamic power handling and CSRNG readiness/completion synchronization. No vulnerability, hardware qualification or applicability to2.x inferred.",
+        "checkedAt": "2026-10-28"
+      }
+    },
+    {
+      "title": "OCP panel examines chiplet interoperability, validation, and production testing",
+      "titleZh": "OCP 圆桌探讨 chiplet 互操作、验证与量产测试",
+      "url": "https://www.youtube.com/watch?v=0zoBWwt_itQ",
+      "source": "Open Compute Project / Arm / imec / OpenChip",
+      "publishedAt": "2026-10-27",
+      "summary": "In an OCP recording uploaded on October 27, Arm, imec and OpenChip discuss what multi-vendor chiplet systems need beyond die-to-die links: interface contracts, late binding, trust between dies and coordinated firmware. The panel examines pre- and post-silicon compliance, wafer- and package-level characterization, and the gap between first silicon and volume manufacturing. The speakers frame scalable qualification and production testing as work still needed.",
+      "summaryZh": "在 10 月 27 日上传的 OCP 录像中，Arm、imec 与 OpenChip 讨论多供应商 chiplet 系统除裸片间链路之外的需求：接口契约、后期绑定、裸片间信任及固件协同。圆桌进一步分析流片前后的一致性验证、晶圆级与封装级特性表征，以及从首颗芯片到规模量产之间的差距。与会者将可扩展的合格性验证和量产测试视为仍需推进的工作。",
+      "tags": [
+        "OCP",
+        "Chiplets",
+        "Interoperability",
+        "Verification",
+        "Open Hardware",
+        "Talk"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "addedAt": "2026-10-28T01:48:35.736139Z",
+      "dateEvidence": {
+        "url": "https://www.youtube.com/watch?v=0zoBWwt_itQ",
+        "locator": "Official Open Compute Project channel UCXtmeGWbySLShhGV8ooyMzA; upload_date=20261027, duration=2233s. Original title Panel The European Chip Ecosystem A Clear Path Forward. Official OCP Global Summit recorded-content agenda and video description identify Bart Plackle(imec), Kevin Devey(OpenChip), Mark Knight(Arm). Full English captions read, including interface contracts/late binding, die trust and firmware, pre/post-silicon compliance and wafer/package characterization/volume test. Automated captions contain transcription errors; speaker names corroborated with official metadata. No FCSA1.1 release date or completed interoperability/qualification claim.",
+        "checkedAt": "2026-10-28"
+      }
+    },
+    {
       "title": "OCP talk details Adam’s Bridge 3.0 architectural masking for PQC",
       "titleZh": "OCP 技术录像详解 Adam’s Bridge 3.0 的后量子密码架构级掩码",
       "url": "https://www.youtube.com/watch?v=j9tT2x9P3Kc",
