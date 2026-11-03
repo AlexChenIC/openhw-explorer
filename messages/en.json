@@ -180,7 +180,7 @@
     "knowledge": {
       "title": "Knowledge Base",
       "papers": "Academic Papers",
-      "papersCount": "{count} paper(s)",
+      "papersCount": "{count, plural, one {# paper} other {# papers}}",
       "industry": "Verified Industry Adoption",
       "industryCount": "{count} verified adoption(s)",
       "involvement": "Contributors & Lineage",

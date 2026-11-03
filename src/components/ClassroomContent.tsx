@@ -1,4 +1,5 @@
 import Image from "next/image";
+import type { ReactNode } from "react";
 import { LearningPreferenceForm } from "@/components/LearningPreferenceForm";
 import {
   ArrowRight,
@@ -278,6 +279,30 @@ const lessonVisuals = {
   },
 } as const;
 
+export function CourseCard({
+  href,
+  titleId,
+  children,
+}: {
+  href?: string;
+  titleId: string;
+  children: ReactNode;
+}) {
+  const className =
+    "group flex h-full min-w-0 flex-col overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--bg-card)]";
+  return href ? (
+    <Link
+      href={href}
+      aria-labelledby={titleId}
+      className={`${className} transition-[border-color,box-shadow,transform] hover:-translate-y-0.5 hover:border-[var(--primary)] hover:shadow-lg focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[var(--primary)]`}
+    >
+      {children}
+    </Link>
+  ) : (
+    <article className={className}>{children}</article>
+  );
+}
+
 export function ClassroomContent({ locale, newsletterUsername }: ClassroomContentProps) {
   const resolvedLocale = locale === "zh" ? "zh" : "en";
   const text = features.publicPreviewEnabled
@@ -423,13 +448,10 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
                   lessonVisuals[lesson.id as keyof typeof lessonVisuals] ?? defaultLessonVisual;
 
                 return (
-                  <article
+                  <CourseCard
                     key={lesson.id}
-                    className={`group flex h-full min-w-0 flex-col overflow-hidden rounded-lg border bg-[var(--bg-card)] transition-[border-color,box-shadow,transform] ${
-                      isAvailable
-                        ? "border-[var(--border)] hover:-translate-y-0.5 hover:border-[var(--primary)] hover:shadow-lg"
-                        : "border-[var(--border)]"
-                    }`}
+                    href={isAvailable ? `/classroom/${releaseSeries.id}/${lesson.id}` : undefined}
+                    titleId={`course-${lesson.id}`}
                   >
                     <div className="relative flex h-40 items-center justify-center overflow-hidden border-b border-[var(--border)] bg-white px-10 py-6">
                       <Image
@@ -465,18 +487,12 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
                         </span>
                       </div>
 
-                      {isAvailable ? (
-                        <Link
-                          href={`/classroom/${releaseSeries.id}/${lesson.id}`}
-                          className="mt-5 text-xl font-semibold leading-snug text-[var(--text-primary)] hover:text-[var(--primary)]"
-                        >
-                          {title}
-                        </Link>
-                      ) : (
-                        <h3 className="mt-5 text-xl font-semibold leading-snug text-[var(--text-primary)]">
-                          {title}
-                        </h3>
-                      )}
+                      <h3
+                        id={`course-${lesson.id}`}
+                        className={`mt-5 text-xl font-semibold leading-snug text-[var(--text-primary)] ${isAvailable ? "group-hover:text-[var(--primary)]" : ""}`}
+                      >
+                        {title}
+                      </h3>
                       <p className="mt-3 line-clamp-4 text-sm leading-6 text-[var(--text-secondary)]">
                         {getLocalizedText(lesson.summary, resolvedLocale)}
                       </p>
@@ -511,13 +527,10 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
 
                       <div className="mt-auto border-t border-[var(--border)] pt-5">
                         {isAvailable ? (
-                          <Link
-                            href={`/classroom/${releaseSeries.id}/${lesson.id}`}
-                            className="inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-[var(--primary)] hover:text-[var(--primary-dark)]"
-                          >
+                          <span className="inline-flex min-h-10 items-center gap-2 text-sm font-semibold text-[var(--primary)]">
                             {text.startLesson}
                             <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                          </Link>
+                          </span>
                         ) : (
                           <span className="inline-flex min-h-10 items-center text-sm font-semibold text-[var(--text-tertiary)]">
                             {text.plannedLesson}
@@ -525,7 +538,7 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
                         )}
                       </div>
                     </div>
-                  </article>
+                  </CourseCard>
                 );
               })}
             </div>
@@ -542,9 +555,10 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
             </h2>
             <div className="mt-6 grid gap-5 md:grid-cols-2 xl:grid-cols-3">
               {projectGuides.lessons.filter(hasPublishedLesson).map((lesson) => (
-                <article
+                <CourseCard
                   key={lesson.id}
-                  className="flex min-w-0 flex-col overflow-hidden rounded-lg border border-[var(--border)] bg-[var(--bg-card)]"
+                  href={`/classroom/${lesson.seriesId}/${lesson.id}`}
+                  titleId={`course-${lesson.id}`}
                 >
                   <div className="flex h-40 items-center justify-center gap-5 border-b border-[var(--border)] bg-white px-6 text-[#145dbc]">
                     <Cpu className="h-14 w-14" strokeWidth={1.5} aria-hidden="true" />
@@ -560,13 +574,11 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
                         min · EN / 中文
                       </span>
                     </div>
-                    <h3 className="mt-4 text-xl font-semibold leading-snug text-[var(--text-primary)]">
-                      <Link
-                        href={`/classroom/${lesson.seriesId}/${lesson.id}`}
-                        className="hover:text-[var(--primary)]"
-                      >
-                        {getLocalizedText(lesson.title, resolvedLocale)}
-                      </Link>
+                    <h3
+                      id={`course-${lesson.id}`}
+                      className="mt-4 text-xl font-semibold leading-snug text-[var(--text-primary)] group-hover:text-[var(--primary)]"
+                    >
+                      {getLocalizedText(lesson.title, resolvedLocale)}
                     </h3>
                     <p className="mt-3 text-sm leading-6 text-[var(--text-secondary)]">
                       {getLocalizedText(lesson.summary, resolvedLocale)}
@@ -574,10 +586,7 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
                     <p className="mt-4 text-xs text-[var(--text-tertiary)]">
                       {lesson.slideCount} {text.slidesLabel} · {lesson.quizCount} {text.checksLabel}
                     </p>
-                    <Link
-                      href={`/classroom/${lesson.seriesId}/${lesson.id}`}
-                      className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--primary)]"
-                    >
+                    <span className="mt-5 inline-flex min-h-11 items-center gap-2 text-sm font-semibold text-[var(--primary)]">
                       {lesson.status === "published"
                         ? resolvedLocale === "zh"
                           ? "开始学习"
@@ -586,9 +595,9 @@ export function ClassroomContent({ locale, newsletterUsername }: ClassroomConten
                           ? "体验示范课"
                           : "Explore the demo"}
                       <ArrowRight className="h-4 w-4" aria-hidden="true" />
-                    </Link>
+                    </span>
                   </div>
-                </article>
+                </CourseCard>
               ))}
             </div>
           </section>

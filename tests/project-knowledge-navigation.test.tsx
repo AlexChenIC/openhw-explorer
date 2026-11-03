@@ -35,7 +35,9 @@ describe("Project knowledge resource navigation", () => {
         expect(html).toMatch(/<section id="academic-papers" tabindex="-1"/);
         expect(html).toContain("scroll-mt-28");
         expect(html).toContain('aria-expanded="true"');
-        expect(html).toContain(locale === "zh" ? `${count} 篇论文` : `${count} paper(s)`);
+        expect(html).toContain(
+          locale === "zh" ? `${count} 篇论文` : `${count} ${count === 1 ? "paper" : "papers"}`,
+        );
         const controlledId = html.match(/aria-controls="([^"]+)"/)?.[1];
         expect(controlledId).toBeTruthy();
         expect(html).toContain(`<div id="${controlledId}"`);
