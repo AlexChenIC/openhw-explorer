@@ -67,4 +67,18 @@ describe("ecosystem directory", () => {
     expect(byId.get("skywater-sky130")?.entityType.en).toContain("Foundry-linked");
     expect(byId.get("globalfoundries-gf180mcu")?.entityType.en).toContain("Foundry-linked");
   });
+
+  it("lists retroSoC once as an external SoC platform without broadening its maturity claims", () => {
+    const matches = ecosystemEntries.filter((entry) => entry.id === "retrosoc");
+    expect(matches).toHaveLength(1);
+    const entry = matches[0];
+    expect(entry.category).toBe("projects");
+    expect(entry.url).toBe("https://github.com/retroSoC/retroSoC");
+    expect(entry.entityType).toEqual({ en: "Open-source SoC platform", zh: "开源 SoC 平台" });
+    expect(entry.focus).toEqual(["RISC-V", "SoC", "Open EDA"]);
+    expect(entry.logo).toBe("/ecosystem/retrosoc.png");
+    expect(entry.summary.en).toContain("selected configuration");
+    expect(entry.summary.zh).toContain("所选配置");
+    expect(entry.summary.en).not.toMatch(/OpenHW|CVA6|production.ready|silicon.proven/i);
+  });
 });

@@ -41,11 +41,18 @@ Official asset sources:
 - RIOS Lab: https://www.rioslab.org/
 - ChipFoundry: https://chipfoundry.io/
 - Chipyard: https://chipyard.readthedocs.io/
+- retroSoC: https://github.com/retroSoC/retroSoC; organization mark from https://avatars.githubusercontent.com/u/195835341?v=4, used unmodified for project identification under https://github.com/retroSoC/brand/blob/main/TRADEMARKS.md.
 - YosysHQ: https://github.com/YosysHQ
 - iEDA: https://ieda.oscc.cc/
 - One Student One Chip: https://ysyx.oscc.cc/
 
 The Technical Library reuses a small subset of these official marks where a stable project identity is useful. Other technical links use category icons rather than third-party commercial marks.
+
+### retroSoC review (2026-11-03)
+
+The directory describes the SoC integration, peripheral IP, firmware and verification workflows documented in the main repository README: https://github.com/retroSoC/retroSoC#platform-overview. It links the main repository rather than relying on the older organization profile's roadmap. Current Mini and Tiny integration flows differ; Std and Pro remain roadmap products. No completed CVA6 integration, universal PDK qualification, silicon signoff or production readiness is claimed. CI badges do not establish physical or silicon qualification: https://github.com/retroSoC/retroSoC#validation-and-reproducibility.
+
+The main repository identifies its license as Mulan PSL v2 and records third-party terms separately. The logo is governed by the project's trademark policy, not by the RTL license. This listing reproduces no source code, changes no official mark, and implies no OpenHW affiliation or endorsement. The entry was reviewed independently; the directory-wide review date is not advanced.
 
 ## Learning Hub Course Marks
 
