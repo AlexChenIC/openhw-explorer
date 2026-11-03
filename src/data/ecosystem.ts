@@ -309,6 +309,20 @@ export const ecosystemEntries: EcosystemEntry[] = [
     logo: "/ecosystem/chipyard.png",
   },
   {
+    id: "retrosoc",
+    name: "retroSoC",
+    url: "https://github.com/retroSoC/retroSoC",
+    category: "projects",
+    entityType: { en: "Open-source SoC platform", zh: "开源 SoC 平台" },
+    summary: {
+      en: "Open-source RISC-V SoC platform with SystemVerilog integration, peripheral IP, firmware, and verification flows for studying system design and exploring open EDA. Capabilities depend on the selected configuration and its validation status.",
+      zh: "提供 SystemVerilog SoC 集成、外设 IP、固件和验证流程的开源 RISC-V 平台，可作为学习系统设计与探索开源 EDA 的参考。具体能力取决于所选配置及其验证状态。",
+    },
+    region: { en: "China", zh: "中国" },
+    focus: ["RISC-V", "SoC", "Open EDA"],
+    logo: "/ecosystem/retrosoc.png",
+  },
+  {
     id: "yosyshq",
     name: "YosysHQ",
     url: "https://github.com/YosysHQ",
