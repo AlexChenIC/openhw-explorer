@@ -4,7 +4,7 @@ import { pdkDetails } from "@/data/pdk-details";
 
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import { useEffect, useSyncExternalStore, type KeyboardEvent } from "react";
 import {
   Boxes,
   Building2,
@@ -25,7 +25,6 @@ import {
   ecosystemCategories,
   ecosystemEntries,
   ecosystemVerifiedAt,
-  type EcosystemCategoryId,
   type EcosystemEntry,
 } from "@/data/ecosystem";
 import {
@@ -37,6 +36,33 @@ import {
 } from "@/data/resources";
 import { features } from "@/lib/features";
 import { industryCompanies } from "@/data/industry-landscape";
+import {
+  parseResourceNavigation,
+  resourceNavigationHref,
+  type ResourceMode,
+  type ResourceNavigation,
+} from "@/lib/resource-navigation";
+
+const resourceLocationEvent = "openhw:resource-location";
+
+function subscribeResourceLocation(onChange: () => void) {
+  window.addEventListener("popstate", onChange);
+  window.addEventListener("hashchange", onChange);
+  window.addEventListener(resourceLocationEvent, onChange);
+  return () => {
+    window.removeEventListener("popstate", onChange);
+    window.removeEventListener("hashchange", onChange);
+    window.removeEventListener(resourceLocationEvent, onChange);
+  };
+}
+
+function getResourceLocation() {
+  return window.location.href;
+}
+
+function getServerResourceLocation() {
+  return "";
+}
 
 const copy = {
   en: {
@@ -148,9 +174,48 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
         }
       : {}),
   };
-  const [resourceMode, setResourceMode] = useState<"technical" | "ecosystem">("technical");
-  const [ecosystemFilter, setEcosystemFilter] = useState<"all" | EcosystemCategoryId>("all");
-  const [resourceCategory, setResourceCategory] = useState<ResourceCategoryId>("standards-docs");
+  const location = useSyncExternalStore(
+    subscribeResourceLocation,
+    getResourceLocation,
+    getServerResourceLocation,
+  );
+  const currentUrl = location ? new URL(location) : null;
+  const hash = currentUrl?.hash ?? "";
+  const navigation = parseResourceNavigation(currentUrl?.search ?? "", hash);
+  const { mode: resourceMode, group: ecosystemFilter, task: resourceCategory } = navigation;
+
+  function navigateResources(update: Partial<ResourceNavigation>) {
+    const { pathname, search, hash } = window.location;
+    const next = { ...parseResourceNavigation(search, hash), ...update };
+    const href = resourceNavigationHref(pathname, search, hash, next);
+    if (href === `${pathname}${search}${hash}`) return;
+    window.history.pushState(null, "", href);
+    window.dispatchEvent(new Event(resourceLocationEvent));
+  }
+
+  function handleTabKeyDown(event: KeyboardEvent<HTMLButtonElement>, mode: ResourceMode) {
+    if (event.altKey || event.ctrlKey || event.metaKey) return;
+    let next: ResourceMode;
+    if (event.key === "ArrowRight" || event.key === "ArrowLeft") {
+      next = mode === "technical" ? "ecosystem" : "technical";
+    } else if (event.key === "Home") next = "technical";
+    else if (event.key === "End") next = "ecosystem";
+    else return;
+    event.preventDefault();
+    navigateResources({ mode: next });
+    document.getElementById(`${next}-mode-tab`)?.focus({ preventScroll: true });
+  }
+
+  useEffect(() => {
+    if (!["#ecosystem", "#technical-library", "#resource-explorer"].includes(hash)) return;
+    // Wait until React has revealed the requested panel; keep its tabs visible too.
+    const frame = window.requestAnimationFrame(() => {
+      document
+        .getElementById("resource-explorer")
+        ?.scrollIntoView({ block: "start", behavior: "instant" });
+    });
+    return () => window.cancelAnimationFrame(frame);
+  }, [hash, resourceMode]);
 
   const visibleEcosystemEntries =
     ecosystemFilter === "all"
@@ -205,7 +270,8 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
                 description={t.technicalModeDescription}
                 count={resourceDirectoryLinks.length}
                 active={resourceMode === "technical"}
-                onClick={() => setResourceMode("technical")}
+                onClick={() => navigateResources({ mode: "technical" })}
+                onKeyDown={(event) => handleTabKeyDown(event, "technical")}
               />
               <ResourceModeButton
                 id="ecosystem-mode-tab"
@@ -215,7 +281,8 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
                 description={t.ecosystemModeDescription}
                 count={ecosystemEntries.length}
                 active={resourceMode === "ecosystem"}
-                onClick={() => setResourceMode("ecosystem")}
+                onClick={() => navigateResources({ mode: "ecosystem" })}
+                onKeyDown={(event) => handleTabKeyDown(event, "ecosystem")}
               />
             </div>
             {features.industryLandscapeEnabled && (
@@ -233,6 +300,7 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
             id="ecosystem"
             role="tabpanel"
             aria-labelledby="ecosystem-mode-tab"
+            tabIndex={0}
             hidden={resourceMode !== "ecosystem"}
             className="mt-9"
           >
@@ -267,7 +335,7 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
                 active={ecosystemFilter === "all"}
                 label={t.allOrganizations}
                 count={ecosystemEntries.length}
-                onClick={() => setEcosystemFilter("all")}
+                onClick={() => navigateResources({ group: "all" })}
               />
               {ecosystemCategories.map((category) => {
                 const count = ecosystemEntries.filter(
@@ -279,7 +347,7 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
                     active={ecosystemFilter === category.id}
                     label={localized(category.shortTitle, resolvedLocale)}
                     count={count}
-                    onClick={() => setEcosystemFilter(category.id)}
+                    onClick={() => navigateResources({ group: category.id })}
                   />
                 );
               })}
@@ -316,6 +384,7 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
             id="technical-library"
             role="tabpanel"
             aria-labelledby="technical-mode-tab"
+            tabIndex={0}
             hidden={resourceMode !== "technical"}
             className="mt-9"
           >
@@ -349,7 +418,7 @@ export function ResourceDirectoryContent({ locale }: ResourceDirectoryContentPro
                     key={category.id}
                     type="button"
                     aria-pressed={active}
-                    onClick={() => setResourceCategory(category.id)}
+                    onClick={() => navigateResources({ task: category.id })}
                     className={`group flex min-h-16 items-center gap-3 rounded-lg border px-3 py-3 text-left transition ${
                       active
                         ? "border-[var(--primary)] bg-[var(--primary)] text-white shadow-sm"
@@ -478,6 +547,7 @@ type ResourceModeButtonProps = {
   count: number;
   active: boolean;
   onClick: () => void;
+  onKeyDown: (event: KeyboardEvent<HTMLButtonElement>) => void;
 };
 
 function ResourceModeButton({
@@ -489,6 +559,7 @@ function ResourceModeButton({
   count,
   active,
   onClick,
+  onKeyDown,
 }: ResourceModeButtonProps) {
   return (
     <button
@@ -497,8 +568,10 @@ function ResourceModeButton({
       role="tab"
       aria-selected={active}
       aria-controls={panelId}
+      tabIndex={active ? 0 : -1}
       onClick={onClick}
-      className={`flex min-h-24 items-center gap-4 rounded-md px-4 py-4 text-left transition ${
+      onKeyDown={onKeyDown}
+      className={`flex min-h-24 items-center gap-4 rounded-md px-4 py-4 text-left transition focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)] ${
         active
           ? "bg-[var(--primary)] text-white shadow-sm"
           : "text-[var(--text-primary)] hover:bg-[var(--bg-card-hover)]"

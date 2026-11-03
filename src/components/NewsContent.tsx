@@ -10,6 +10,7 @@ import {
   CalendarDays,
   CheckCircle2,
   Clock3,
+  ArrowDownWideNarrow,
   Cpu,
   ExternalLink,
   Eye,
@@ -400,7 +401,7 @@ function TagList({ tags, limit = 4 }: { tags: string[]; limit?: number }) {
       {tags.slice(0, limit).map((tag) => (
         <span
           key={tag}
-          className="rounded border border-[var(--primary)]/10 bg-[var(--primary)]/5 px-1.5 py-0.5 text-[10px] font-medium text-[var(--primary)]"
+          className="rounded bg-[var(--bg-subtle)] px-1.5 py-0.5 text-[10px] font-medium text-[var(--text-secondary)]"
         >
           {tag}
         </span>
@@ -656,7 +657,7 @@ function NewsTimeline({ items, activeTopic }: { items: NewsItem[]; activeTopic: 
         </div>
         <span className="inline-flex items-center gap-1.5 text-xs text-[var(--text-tertiary)]">
           {t("latestFirst")}
-          <ArrowRight className="h-3.5 w-3.5" />
+          <ArrowDownWideNarrow className="h-3.5 w-3.5" aria-hidden="true" />
         </span>
       </div>
 

@@ -23,6 +23,7 @@ import { ProjectGlyph } from "./ProjectGlyph";
 import type { GitHubRepoStats } from "@/data/projects";
 import { externalLinks } from "@/data/external-links";
 import { trackEvent } from "@/lib/observability";
+import { projectCategoryHref } from "@/lib/project-links";
 
 interface ProjectKnowledgeSummary {
   papersCount: number;
@@ -505,12 +506,14 @@ export function ProjectDetail({
             </h3>
             <div className="flex flex-wrap gap-2">
               {project.category.map((cat) => (
-                <span
+                <Link
                   key={cat}
-                  className="px-3 py-1.5 rounded-lg bg-[var(--primary)]/10 text-[var(--primary)] text-xs font-medium"
+                  href={projectCategoryHref(cat, returnQuery)}
+                  className="inline-flex min-h-11 items-center gap-1.5 rounded-md border border-[var(--border)] px-3 py-2 text-xs font-medium text-[var(--primary)] hover:border-[var(--primary)] hover:bg-[var(--bg-subtle)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)]"
                 >
                   {tf(`categories.${cat}`)}
-                </span>
+                  <ChevronRight className="h-3.5 w-3.5" aria-hidden="true" />
+                </Link>
               ))}
             </div>
           </div>
@@ -540,7 +543,7 @@ export function ProjectDetail({
                 {project.suitableFor.map((role) => (
                   <span
                     key={role}
-                    className="px-3 py-1.5 rounded-lg bg-[var(--green)]/10 text-[var(--green)] text-xs font-medium"
+                    className="text-xs leading-6 text-[var(--text-secondary)]"
                   >
                     {tf(`roles.${role}`)}
                   </span>
@@ -559,7 +562,7 @@ export function ProjectDetail({
                 {project.coreType.map((type) => (
                   <span
                     key={type}
-                    className="px-3 py-1.5 rounded-lg bg-[var(--orange)]/10 text-[var(--orange)] text-xs font-medium"
+                    className="text-xs leading-6 text-[var(--text-secondary)]"
                   >
                     {tf(`coreTypes.${type}`)}
                   </span>
@@ -578,7 +581,7 @@ export function ProjectDetail({
                 {project.verificationType.map((type) => (
                   <span
                     key={type}
-                    className="px-3 py-1.5 rounded-lg bg-[var(--purple)]/10 text-[var(--purple)] text-xs font-medium"
+                    className="text-xs leading-6 text-[var(--text-secondary)]"
                   >
                     {tf(`verificationTypes.${type}`)}
                   </span>
