@@ -6,6 +6,7 @@
 import { writeFileSync, readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { spawn } from "child_process";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -14,6 +15,7 @@ const OUTPUT_FILE = join(ROOT, "src/data/github-stats.json");
 const GITHUB_TOKEN = process.env.GITHUB_TOKEN || "";
 const ORG = "openhwgroup";
 const RECENT_COMMIT_WINDOW_DAYS = 28;
+const REQUEST_TIMEOUT_MS = 10_000;
 
 // All repos tracked in projects.ts (extracted from github URLs)
 const REPOS = [
@@ -86,7 +88,7 @@ async function fetchWithRetry(url, options = {}, attempts = 3) {
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
-      return await fetch(url, options);
+      return await fetchWithCurl(url, options);
     } catch (error) {
       lastError = error;
       if (attempt < attempts) {
@@ -95,6 +97,64 @@ async function fetchWithRetry(url, options = {}, attempts = 3) {
     }
   }
   throw lastError;
+}
+
+function fetchWithCurl(url, options = {}) {
+  return new Promise((resolve, reject) => {
+    const curl = spawn("curl", ["--config", "-"], { stdio: ["pipe", "pipe", "pipe"] });
+    const stdout = [];
+    const stderr = [];
+    curl.stdout.on("data", (chunk) => stdout.push(chunk));
+    curl.stderr.on("data", (chunk) => stderr.push(chunk));
+    curl.on("error", reject);
+    curl.on("close", (code) => {
+      if (code !== 0) {
+        reject(new Error(`curl failed (${code}): ${Buffer.concat(stderr).toString().trim()}`));
+        return;
+      }
+
+      let remaining = Buffer.concat(stdout).toString();
+      let headerBlock = "";
+      while (remaining.startsWith("HTTP/")) {
+        const boundary = remaining.match(/\r?\n\r?\n/);
+        if (!boundary || boundary.index === undefined) break;
+        headerBlock = remaining.slice(0, boundary.index);
+        remaining = remaining.slice(boundary.index + boundary[0].length);
+      }
+      const [statusLine, ...headerLines] = headerBlock.split(/\r?\n/);
+      const status = Number(statusLine?.match(/^HTTP\/\S+\s+(\d+)/)?.[1]);
+      if (!Number.isInteger(status)) {
+        reject(new Error(`Could not parse curl response headers for ${url}`));
+        return;
+      }
+      const headerMap = new Map();
+      for (const line of headerLines) {
+        const separator = line.indexOf(":");
+        if (separator > 0) {
+          headerMap.set(line.slice(0, separator).toLowerCase(), line.slice(separator + 1).trim());
+        }
+      }
+      resolve({
+        ok: status >= 200 && status < 300,
+        status,
+        headers: { get: (name) => headerMap.get(name.toLowerCase()) || null },
+        json: async () => JSON.parse(remaining),
+      });
+    });
+
+    const requestHeaders = { ...headers, ...(options.headers || {}) };
+    const config = [
+      "silent",
+      "show-error",
+      "location",
+      "connect-timeout = 5",
+      `max-time = ${REQUEST_TIMEOUT_MS / 1000}`,
+      "dump-header = \"-\"",
+      ...Object.entries(requestHeaders).map(([name, value]) => `header = ${JSON.stringify(`${name}: ${value}`)}`),
+      `url = ${JSON.stringify(url)}`,
+    ].join("\n");
+    curl.stdin.end(`${config}\n`);
+  });
 }
 
 async function fetchJSON(url) {
