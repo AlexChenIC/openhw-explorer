@@ -1,4 +1,3 @@
-import { createElement } from "react";
 import { renderToStaticMarkup } from "react-dom/server";
 import { NextIntlClientProvider } from "next-intl";
 import { describe, expect, it } from "vitest";
@@ -9,20 +8,14 @@ import zh from "../messages/zh.json";
 
 function renderKnowledge(id: string, locale: "en" | "zh", baseline = false) {
   return renderToStaticMarkup(
-    createElement(
-      NextIntlClientProvider,
-      {
-        locale,
-        messages: locale === "zh" ? zh : en,
-        timeZone: "UTC",
-      },
-      createElement(ProjectKnowledgeSection, {
-        knowledge: getProjectKnowledge(id),
-        summary: null,
-        stats: null,
-        launchStage: baseline ? "baseline" : undefined,
-      }),
-    ),
+    <NextIntlClientProvider locale={locale} messages={locale === "zh" ? zh : en} timeZone="UTC">
+      <ProjectKnowledgeSection
+        knowledge={getProjectKnowledge(id)}
+        summary={null}
+        stats={null}
+        launchStage={baseline ? "baseline" : undefined}
+      />
+    </NextIntlClientProvider>,
   );
 }
 
