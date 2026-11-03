@@ -12,6 +12,7 @@ import {
   ChevronDown,
   ChevronUp,
   Activity,
+  ArrowDown,
 } from "lucide-react";
 import { useLocale, useTranslations } from "next-intl";
 import type { Project, ProjectKnowledge } from "@/types";
@@ -39,12 +40,13 @@ interface ProjectKnowledgeSectionProps {
 
 export function ProjectKnowledgeSection({
   knowledge,
-  summary,
   stats,
   launchStage,
 }: ProjectKnowledgeSectionProps) {
   const t = useTranslations("projectDetail");
   const locale = useLocale();
+  const [papersOpen, setPapersOpen] = useState(true);
+  const papersCount = knowledge?.academicPapers?.length ?? 0;
   const isBaseline = launchStage === "baseline";
 
   if (isBaseline) {
@@ -73,31 +75,37 @@ export function ProjectKnowledgeSection({
         />
       )}
 
-      {/* Knowledge Base — summary badge only shown when papers exist */}
-      {summary && summary.papersCount > 0 && (
-        <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl p-5">
-          <h3 className="text-sm font-semibold text-[var(--text-primary)] mb-3 flex items-center gap-2">
+      {papersCount > 0 && (
+        <nav
+          aria-label={t("knowledge.title")}
+          className="flex flex-wrap items-center gap-x-4 gap-y-2 border-b border-[var(--border)] pb-3"
+        >
+          <span className="text-sm font-semibold text-[var(--text-primary)] flex items-center gap-2">
             <BookOpen className="w-4 h-4 text-[var(--primary)]" />
             {t("knowledge.title")}
-          </h3>
-          <div className="flex flex-wrap gap-3">
-            <StatBadge
-              icon={<FileText className="w-3 h-3" />}
-              label={t("knowledge.papersCount", { count: summary.papersCount })}
-              color="var(--primary)"
-            />
-          </div>
-        </div>
+          </span>
+          <a
+            href="#academic-papers"
+            onClick={() => setPapersOpen(true)}
+            className="inline-flex min-h-11 items-center gap-2 rounded-md px-3 text-sm font-medium text-[var(--primary)] hover:bg-[var(--bg-subtle)] hover:underline underline-offset-4 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)]"
+          >
+            <FileText className="w-4 h-4" aria-hidden="true" />
+            {t("knowledge.papersCount", { count: papersCount })}
+            <ArrowDown className="w-3.5 h-3.5" aria-hidden="true" />
+          </a>
+        </nav>
       )}
 
       <div className="space-y-4">
         {/* Academic Papers */}
         {knowledge && knowledge.academicPapers && knowledge.academicPapers.length > 0 && (
           <CollapsibleSection
+            id="academic-papers"
             title={t("knowledge.papers")}
             icon={<FileText className="w-4 h-4" />}
             color="var(--primary)"
-            defaultOpen
+            isOpen={papersOpen}
+            onToggle={() => setPapersOpen((open) => !open)}
           >
             <div className="space-y-2">
               {knowledge.academicPapers.map((paper, i) => (
@@ -211,52 +219,40 @@ function ActivityCard({
   );
 }
 
-function StatBadge({
-  icon,
-  label,
-  color,
-}: {
-  icon: React.ReactNode;
-  label: string;
-  color: string;
-}) {
-  return (
-    <span
-      className="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-md text-xs font-medium"
-      style={{ backgroundColor: `${color}10`, color }}
-    >
-      {icon}
-      {label}
-    </span>
-  );
-}
-
 function CollapsibleSection({
+  id,
   title,
   icon,
   color,
-  defaultOpen = false,
+  isOpen,
+  onToggle,
   children,
 }: {
+  id: string;
   title: string;
   icon: React.ReactNode;
   color: string;
-  defaultOpen?: boolean;
+  isOpen: boolean;
+  onToggle: () => void;
   children: React.ReactNode;
 }) {
-  const [isOpen, setIsOpen] = useState(defaultOpen);
   const sectionId = useId();
   const buttonId = `${sectionId}-button`;
   const contentId = `${sectionId}-content`;
 
   return (
-    <div className="bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden">
+    <section
+      id={id}
+      tabIndex={-1}
+      aria-labelledby={buttonId}
+      className="scroll-mt-28 bg-[var(--bg-card)] border border-[var(--border)] rounded-xl overflow-hidden focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[var(--primary)]"
+    >
       <button
         type="button"
         id={buttonId}
         aria-expanded={isOpen}
         aria-controls={contentId}
-        onClick={() => setIsOpen(!isOpen)}
+        onClick={onToggle}
         className="flex items-center gap-2 w-full px-5 py-3.5 text-left hover:bg-[var(--bg-subtle)] transition-colors"
       >
         <span style={{ color }}>{icon}</span>
@@ -267,11 +263,9 @@ function CollapsibleSection({
           <ChevronDown className="w-4 h-4 text-[var(--text-tertiary)]" />
         )}
       </button>
-      {isOpen && (
-        <div id={contentId} role="region" aria-labelledby={buttonId} className="px-5 pb-4">
-          {children}
-        </div>
-      )}
-    </div>
+      <div id={contentId} hidden={!isOpen} className="px-5 pb-4">
+        {children}
+      </div>
+    </section>
   );
 }
