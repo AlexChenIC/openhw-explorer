@@ -3,6 +3,103 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "Antmicro explains UniGen2 constrained randomization in Verilator",
+      "titleZh": "Antmicro 详解 Verilator 的 UniGen2 约束随机化",
+      "url": "https://antmicro.com/blog/2026/11/improving-constrained-randomization-in-Verilator",
+      "source": "Antmicro",
+      "publishedAt": "2026-11-02",
+      "summary": "Antmicro explains Verilator’s UniGen2 sampler, using randomized XOR partitions and cached batches to improve constrained-random sampling. The implementation was merged upstream in August; this November article reports distribution benchmarks and explains its limits. It targets plain rand variables, falls back for cases including randc and solve-before ordering, and caps XOR equations at ten; the large-space fallback is outside the paper’s near-uniformity guarantee.",
+      "summaryZh": "Antmicro 介绍 Verilator 的 UniGen2 采样器，通过随机 XOR 划分和批量缓存改进约束随机采样。实现已于 8 月合入上游，本文于 11 月发布分布基准结果并说明限制。该方案面向普通 rand 变量，遇到 randc、solve-before 顺序约束等情况时回退；XOR 方程数上限为 10，大解空间回退路径不具备论文的近均匀性保证。",
+      "tags": [
+        "Verilator",
+        "Verification",
+        "SystemVerilog",
+        "EDA"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "addedAt": "2026-11-04T00:55:21.947691+00:00",
+      "dateEvidence": {
+        "url": "https://antmicro.com/blog/2026/11/improving-constrained-randomization-in-Verilator",
+        "locator": "Full original article published_time November 2, 2026; original Verilator PR8042 merged_at August27. Article and full PR body read, including large-space guarantee exclusion. Benchmark claims attributed; not independently rerun.",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
+      "title": "UberDDR4 documents an open DDR4 controller, verification flow and Linux demo",
+      "titleZh": "UberDDR4 详解开放 DDR4 控制器、验证流程与 Linux 演示",
+      "url": "https://www.openiphub.com/post/uberddr4-the-open-source-ddr4-controller",
+      "source": "Angelo Jacobo / Open IP Hub",
+      "publishedAt": "2026-09-23",
+      "summary": "Angelo Jacobo documents UberDDR4, a GPLv3 DDR4 controller and PHY with a Wishbone interface and a DFI 3.1 controller–PHY interface. The author reports 28 formal tasks and 26 behavioral simulation tests passing, plus DDR4-2400 bring-up and a LiteX/VexRiscv Linux demo on an ALINX AXKU3 UltraScale+ board. These are project-reported results for the documented configuration; other boards require integration and validation.",
+      "summaryZh": "Angelo Jacobo 介绍采用 GPLv3 许可的 UberDDR4 DDR4 控制器与 PHY，提供 Wishbone 接口及 DFI 3.1 控制器—PHY 接口。作者报告 28 项形式验证任务、26 项行为仿真测试通过，并在 ALINX AXKU3 UltraScale+ 板上完成 DDR4-2400 调试及 LiteX/VexRiscv Linux 演示。这些结果来自项目方，适用于文中配置；其他板卡仍需集成与验证。",
+      "tags": [
+        "DDR4",
+        "FPGA",
+        "Verification",
+        "RISC-V",
+        "Open Source"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "addedAt": "2026-11-02T01:48:43.745841+00:00",
+      "dateEvidence": {
+        "url": "https://www.openiphub.com/post/uberddr4-the-open-source-ddr4-controller",
+        "locator": "Original HTML article:published_time and BlogPosting datePublished=2026-09-23T01:02:40.000Z. Full article and original repository README read; formal/simulation counts and board demo are author reports, not independently rerun. Rediscovered through FOSSi ECL101; retain original date.",
+        "checkedAt": "2026-11-02"
+      }
+    },
+    {
+      "title": "wafer.space profiles a native 3.3V GF180MCU standard-cell library",
+      "titleZh": "wafer.space 介绍面向 GF180MCU 的原生 3.3V 标准单元库",
+      "url": "https://www.crowdsupply.com/wafer-space/gf180mcu-run-3/updates/a-need-for-speed-tholins-own-standard-cell-library",
+      "source": "wafer.space / Crowd Supply",
+      "publishedAt": "2026-09-30",
+      "summary": "wafer.space profiles Tholin’s open GF180MCU standard-cell library, with 85 placeable cells and characterization data targeting native 3.3V operation. Its inverter timing comparison comes from Liberty tables at the typical 25°C corner, rather than measured silicon. The article explicitly says the library is incomplete and not yet silicon-proven; it describes designs submitted to Run 2, not successful returned chips.",
+      "summaryZh": "wafer.space 介绍 Tholin 开发的开放 GF180MCU 标准单元库，包含 85 个可放置单元及表征数据，面向原生 3.3V 工作电压。文中的反相器时序对比来自典型工艺角、25°C 条件下的 Liberty 表，而非硅片实测。文章明确指出该库尚未完整，也未获硅片验证；所列案例是已提交 Run 2 的设计，并非已成功回片的芯片。",
+      "tags": [
+        "GF180MCU",
+        "Open Silicon",
+        "EDA",
+        "Standard Cells"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "addedAt": "2026-11-02T01:48:43.745841+00:00",
+      "dateEvidence": {
+        "url": "https://www.crowdsupply.com/wafer-space/gf180mcu-run-3/updates/a-need-for-speed-tholins-own-standard-cell-library",
+        "locator": "Original HTML badge-calendar shows Sep 30, 2026; author Kristaps Jurkans. Full first-party wafer.space campaign update and AvalonSemiconductors original README read; incomplete/not silicon-proven and Liberty-only comparison retained.",
+        "checkedAt": "2026-11-02"
+      }
+    },
+    {
+      "title": "zSST recreates Voodoo Graphics on an FPGA with documented memory-system design",
+      "titleZh": "zSST 在 FPGA 上重现 Voodoo Graphics，并公开存储系统设计",
+      "url": "https://nand2mario.github.io/posts/2026/zsst-voodoo/",
+      "source": "nand2mario",
+      "publishedAt": "2026-09-07",
+      "summary": "nand2mario documents zSST, a SystemVerilog implementation of the SST-1 programming model, and its integration with z486 XL on a Xilinx KV260. The write-up explains texture caches, replay queues and ordered retirement used to tolerate shared-DDR latency. The author reports Tomb Raider running with its original 3dfx renderer; game testing remains concentrated on that title, and later Voodoo generations are outside the current scope.",
+      "summaryZh": "nand2mario 详解采用 SystemVerilog 实现 SST-1 编程模型的 zSST，以及它与 z486 XL 在 Xilinx KV260 上的集成。文章说明如何利用纹理缓存、重放队列与按序提交应对共享 DDR 的延迟。作者展示 Tomb Raider 使用原版 3dfx 渲染器运行；游戏测试仍集中于该作品，后续 Voodoo 世代不在当前实现范围内。",
+      "tags": [
+        "FPGA",
+        "GPU",
+        "SystemVerilog",
+        "Open Source"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "addedAt": "2026-11-02T01:48:43.745841+00:00",
+      "dateEvidence": {
+        "url": "https://nand2mario.github.io/posts/2026/zsst-voodoo/",
+        "locator": "Original HTML time element September 07, 2026. Full original design article and repository README read; author hardware demo distinguished from simulation throughput. Material archive omission discovered via October27 ECL101, not newly released November2.",
+        "checkedAt": "2026-11-02"
+      }
+    },
+    {
       "title": "Caliptra Runtime/FMC 1.3.1 adds an attestation command and PCR access controls",
       "titleZh": "Caliptra Runtime/FMC 1.3.1 新增证明命令并收紧 PCR 访问权限",
       "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/rt-1.3.1",
