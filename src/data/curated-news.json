@@ -3,6 +3,30 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "Antmicro explains UniGen2 constrained randomization in Verilator",
+      "titleZh": "Antmicro 详解 Verilator 的 UniGen2 约束随机化",
+      "url": "https://antmicro.com/blog/2026/11/improving-constrained-randomization-in-Verilator",
+      "source": "Antmicro",
+      "publishedAt": "2026-11-02",
+      "summary": "Antmicro explains Verilator’s UniGen2 sampler, using randomized XOR partitions and cached batches to improve constrained-random sampling. The implementation was merged upstream in August; this November article reports distribution benchmarks and explains its limits. It targets plain rand variables, falls back for cases including randc and solve-before ordering, and caps XOR equations at ten; the large-space fallback is outside the paper’s near-uniformity guarantee.",
+      "summaryZh": "Antmicro 介绍 Verilator 的 UniGen2 采样器，通过随机 XOR 划分和批量缓存改进约束随机采样。实现已于 8 月合入上游，本文于 11 月发布分布基准结果并说明限制。该方案面向普通 rand 变量，遇到 randc、solve-before 顺序约束等情况时回退；XOR 方程数上限为 10，大解空间回退路径不具备论文的近均匀性保证。",
+      "tags": [
+        "Verilator",
+        "Verification",
+        "SystemVerilog",
+        "EDA"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "addedAt": "2026-11-04T00:55:21.947691+00:00",
+      "dateEvidence": {
+        "url": "https://antmicro.com/blog/2026/11/improving-constrained-randomization-in-Verilator",
+        "locator": "Full original article published_time November 2, 2026; original Verilator PR8042 merged_at August27. Article and full PR body read, including large-space guarantee exclusion. Benchmark claims attributed; not independently rerun.",
+        "checkedAt": "2026-11-04"
+      }
+    },
+    {
       "title": "UberDDR4 documents an open DDR4 controller, verification flow and Linux demo",
       "titleZh": "UberDDR4 详解开放 DDR4 控制器、验证流程与 Linux 演示",
       "url": "https://www.openiphub.com/post/uberddr4-the-open-source-ddr4-controller",
