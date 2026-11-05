@@ -3,8 +3,8 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
-      "title": "OCP opens elections for leaders of all 12 top-level projects",
-      "titleZh": "OCP 启动全部 12 个顶层项目的负责人选举",
+      "title": "OCP opens leadership nominations across all 12 top-level projects",
+      "titleZh": "OCP 开放全部 12 个顶层项目负责人提名",
       "url": "https://www.opencompute.org/news/call-for-nominations-ocp-top-level-project-leads/",
       "source": "Open Compute Project Foundation",
       "publishedAt": "2026-11-04",

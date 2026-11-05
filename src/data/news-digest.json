@@ -1,6 +1,6 @@
 {
   "weekOf": "2026-11-05",
-  "generatedAt": "2026-11-05T00:35:56.931Z",
+  "generatedAt": "2026-11-05T00:38:28.160Z",
   "stats": {
     "totalRelevant": 164,
     "totalSources": 59,
@@ -156,8 +156,8 @@
       "count": 25,
       "items": [
         {
-          "title": "OCP opens elections for leaders of all 12 top-level projects",
-          "titleZh": "OCP 启动全部 12 个顶层项目的负责人选举",
+          "title": "OCP opens leadership nominations across all 12 top-level projects",
+          "titleZh": "OCP 开放全部 12 个顶层项目负责人提名",
           "url": "https://www.opencompute.org/news/call-for-nominations-ocp-top-level-project-leads/",
           "source": "Open Compute Project Foundation",
           "tags": [
@@ -1113,7 +1113,7 @@
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
     },
     {
-      "title": "OCP opens elections for leaders of all 12 top-level projects",
+      "title": "OCP opens leadership nominations across all 12 top-level projects",
       "url": "https://www.opencompute.org/news/call-for-nominations-ocp-top-level-project-leads/",
       "source": "Open Compute Project Foundation",
       "publishedAt": "2026-11-04",
@@ -1130,7 +1130,7 @@
       "sourceTier": "official",
       "reviewStatus": "curated",
       "curated": true,
-      "titleZh": "OCP 启动全部 12 个顶层项目的负责人选举",
+      "titleZh": "OCP 开放全部 12 个顶层项目负责人提名",
       "summaryZh": "OCP 开放全部 12 个顶层项目的负责人提名，职责涵盖项目章程、路线图及贡献协调。提名于 11 月 18 日截止，各项目社区将于 11 月 20 日至 12 月 20 日开展选举。新负责人于 2027 年 1 月开始两年任期，为贡献者参与项目方向治理提供明确渠道。"
     },
     {
