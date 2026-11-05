@@ -3,6 +3,29 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "OCP opens elections for leaders of all 12 top-level projects",
+      "titleZh": "OCP 启动全部 12 个顶层项目的负责人选举",
+      "url": "https://www.opencompute.org/news/call-for-nominations-ocp-top-level-project-leads/",
+      "source": "Open Compute Project Foundation",
+      "publishedAt": "2026-11-04",
+      "summary": "OCP has opened nominations for leaders of all 12 top-level projects, whose responsibilities include charters, roadmaps and contributions. Nominations close November 18; elections run November 20–December 20 among the respective project communities. The new two-year terms begin in January 2027, offering contributors a defined route to help shape project direction.",
+      "summaryZh": "OCP 开放全部 12 个顶层项目的负责人提名，职责涵盖项目章程、路线图及贡献协调。提名于 11 月 18 日截止，各项目社区将于 11 月 20 日至 12 月 20 日开展选举。新负责人于 2027 年 1 月开始两年任期，为贡献者参与项目方向治理提供明确渠道。",
+      "tags": [
+        "OCP",
+        "Open Hardware",
+        "Governance"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "addedAt": "2026-11-05T00:35:20.275412+00:00",
+      "dateEvidence": {
+        "url": "https://www.opencompute.org/news/call-for-nominations-ocp-top-level-project-leads/",
+        "locator": "Original HTML canonical, article:published_time and JSON-LD datePublished 2026-11-04T16:42:06+00:00; full original article read, including nomination/election dates and two-year term.",
+        "checkedAt": "2026-11-05"
+      }
+    },
+    {
       "title": "Antmicro explains UniGen2 constrained randomization in Verilator",
       "titleZh": "Antmicro 详解 Verilator 的 UniGen2 约束随机化",
       "url": "https://antmicro.com/blog/2026/11/improving-constrained-randomization-in-Verilator",
