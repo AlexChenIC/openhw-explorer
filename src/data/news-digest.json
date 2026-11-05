@@ -1,9 +1,9 @@
 {
-  "weekOf": "2026-11-04",
-  "generatedAt": "2026-11-04T00:55:22.056Z",
+  "weekOf": "2026-11-05",
+  "generatedAt": "2026-11-05T00:38:28.160Z",
   "stats": {
-    "totalRelevant": 163,
-    "totalSources": 58,
+    "totalRelevant": 164,
+    "totalSources": 59,
     "topTags": [
       {
         "tag": "EDA",
@@ -15,7 +15,7 @@
       },
       {
         "tag": "Open Hardware",
-        "count": 44
+        "count": 45
       },
       {
         "tag": "Security",
@@ -153,8 +153,20 @@
         "zh": "AI 与加速器"
       },
       "icon": "brain",
-      "count": 24,
+      "count": 25,
       "items": [
+        {
+          "title": "OCP opens leadership nominations across all 12 top-level projects",
+          "titleZh": "OCP 开放全部 12 个顶层项目负责人提名",
+          "url": "https://www.opencompute.org/news/call-for-nominations-ocp-top-level-project-leads/",
+          "source": "Open Compute Project Foundation",
+          "tags": [
+            "OCP",
+            "Open Hardware",
+            "Governance"
+          ],
+          "publishedAt": "2026-11-04"
+        },
         {
           "title": "OCP panel examines chiplet interoperability, validation, and production testing",
           "titleZh": "OCP 圆桌探讨 chiplet 互操作、验证与量产测试",
@@ -190,18 +202,6 @@
             "Security"
           ],
           "publishedAt": "2026-10-16"
-        },
-        {
-          "title": "Marvell, Microsoft and Oracle form OCP integrated-HSM working group",
-          "titleZh": "Marvell、微软与甲骨文成立 OCP 集成式 HSM 工作组",
-          "url": "https://investor.marvell.com/news-events/press-releases/detail/1038/marvell-microsoft-and-oracle-establish-ocp-working-group-to-standardize-data-center-hardware-security",
-          "source": "Marvell / Open Compute Project",
-          "tags": [
-            "OCP",
-            "Security",
-            "HSM"
-          ],
-          "publishedAt": "2026-10-13"
         }
       ]
     },
@@ -1111,6 +1111,27 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "OCP opens leadership nominations across all 12 top-level projects",
+      "url": "https://www.opencompute.org/news/call-for-nominations-ocp-top-level-project-leads/",
+      "source": "Open Compute Project Foundation",
+      "publishedAt": "2026-11-04",
+      "addedAt": "2026-11-05T00:35:20.275412+00:00",
+      "summary": "OCP has opened nominations for leaders of all 12 top-level projects, whose responsibilities include charters, roadmaps and contributions. Nominations close November 18; elections run November 20–December 20 among the respective project communities. The new two-year terms begin in January 2027, offering contributors a defined route to help shape project direction.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "OCP",
+        "Open Hardware",
+        "Governance"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "OCP 开放全部 12 个顶层项目负责人提名",
+      "summaryZh": "OCP 开放全部 12 个顶层项目的负责人提名，职责涵盖项目章程、路线图及贡献协调。提名于 11 月 18 日截止，各项目社区将于 11 月 20 日至 12 月 20 日开展选举。新负责人于 2027 年 1 月开始两年任期，为贡献者参与项目方向治理提供明确渠道。"
     },
     {
       "title": "Antmicro explains UniGen2 constrained randomization in Verilator",
@@ -4610,6 +4631,7 @@
     "Open Compute Project / Microsoft",
     "Open Compute Project / Microsoft / NXP",
     "Open Compute Project / lowRISC / Google",
+    "Open Compute Project Foundation",
     "Open Compute Project News",
     "OpenHW / CVA6 (GitHub)",
     "OpenHW / HPDcache (GitHub)",
