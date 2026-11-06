@@ -3,6 +3,30 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "OCP maps AI data center power, cooling and grid-integration work",
+      "titleZh": "OCP 梳理 AI 数据中心供电、冷却与电网协同技术",
+      "url": "https://www.opencompute.org/news/the-infrastructure-challenges-of-ai-data-centers-and-how-ai-could-help-manage-them/",
+      "source": "Open Compute Project",
+      "publishedAt": "2026-11-05",
+      "summary": "OCP’s technical guide connects predictive cooling, load flexibility and carbon-aware scheduling with its data center workstreams. It links Summit recordings and documents on LVDC power distribution, grid-disturbance performance and energy storage, offering an engineering reading path rather than announcing a new specification release.",
+      "summaryZh": "OCP 技术指南将预测式冷却、负载灵活性及碳感知调度与其数据中心工作组相联系，并汇集低压直流配电、电网扰动性能及储能相关的峰会录播和文档，为工程师提供技术阅读路径；本文并非新规范发布公告。",
+      "tags": [
+        "OCP",
+        "AI",
+        "Power",
+        "Open Hardware"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "addedAt": "2026-11-06T02:28:55.955458+00:00",
+      "dateEvidence": {
+        "url": "https://www.opencompute.org/news/the-infrastructure-challenges-of-ai-data-centers-and-how-ai-could-help-manage-them/",
+        "locator": "Original HTML article:published_time 2026-11-05T13:42:31+00:00; canonical and full original text verified. Technical reading guide, no independent benchmark validation or new specification-release claim.",
+        "checkedAt": "2026-11-06"
+      }
+    },
+    {
       "title": "OCP opens leadership nominations across all 12 top-level projects",
       "titleZh": "OCP 开放全部 12 个顶层项目负责人提名",
       "url": "https://www.opencompute.org/news/call-for-nominations-ocp-top-level-project-leads/",
