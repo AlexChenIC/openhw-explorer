@@ -1,8 +1,8 @@
 {
-  "weekOf": "2026-11-05",
-  "generatedAt": "2026-11-05T00:38:28.160Z",
+  "weekOf": "2026-11-06",
+  "generatedAt": "2026-11-06T02:29:56.673Z",
   "stats": {
-    "totalRelevant": 164,
+    "totalRelevant": 165,
     "totalSources": 59,
     "topTags": [
       {
@@ -15,7 +15,7 @@
       },
       {
         "tag": "Open Hardware",
-        "count": 45
+        "count": 46
       },
       {
         "tag": "Security",
@@ -153,8 +153,20 @@
         "zh": "AI 与加速器"
       },
       "icon": "brain",
-      "count": 25,
+      "count": 26,
       "items": [
+        {
+          "title": "OCP maps AI data center power, cooling and grid-integration work",
+          "titleZh": "OCP 梳理 AI 数据中心供电、冷却与电网协同技术",
+          "url": "https://www.opencompute.org/news/the-infrastructure-challenges-of-ai-data-centers-and-how-ai-could-help-manage-them/",
+          "source": "Open Compute Project",
+          "tags": [
+            "OCP",
+            "AI",
+            "Power"
+          ],
+          "publishedAt": "2026-11-05"
+        },
         {
           "title": "OCP opens leadership nominations across all 12 top-level projects",
           "titleZh": "OCP 开放全部 12 个顶层项目负责人提名",
@@ -188,18 +200,6 @@
             "PQC",
             "ML-DSA",
             "ML-KEM"
-          ],
-          "publishedAt": "2026-10-16"
-        },
-        {
-          "title": "OCP talk explains USB streaming boot for Caliptra Subsystem 2.2",
-          "titleZh": "OCP 技术录像详解 Caliptra Subsystem 2.2 的 USB 流式启动设计",
-          "url": "https://www.youtube.com/watch?v=yW-9tqqf3tU",
-          "source": "Open Compute Project / Microsoft / NXP",
-          "tags": [
-            "Caliptra",
-            "Root of Trust",
-            "Security"
           ],
           "publishedAt": "2026-10-16"
         }
@@ -1111,6 +1111,28 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "OCP maps AI data center power, cooling and grid-integration work",
+      "url": "https://www.opencompute.org/news/the-infrastructure-challenges-of-ai-data-centers-and-how-ai-could-help-manage-them/",
+      "source": "Open Compute Project",
+      "publishedAt": "2026-11-05",
+      "addedAt": "2026-11-06T02:28:55.955458+00:00",
+      "summary": "OCP’s technical guide connects predictive cooling, load flexibility and carbon-aware scheduling with its data center workstreams. It links Summit recordings and documents on LVDC power distribution, grid-disturbance performance and energy storage, offering an engineering reading path rather than announcing a new specification release.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "OCP",
+        "AI",
+        "Power",
+        "Open Hardware"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "OCP 梳理 AI 数据中心供电、冷却与电网协同技术",
+      "summaryZh": "OCP 技术指南将预测式冷却、负载灵活性及碳感知调度与其数据中心工作组相联系，并汇集低压直流配电、电网扰动性能及储能相关的峰会录播和文档，为工程师提供技术阅读路径；本文并非新规范发布公告。"
     },
     {
       "title": "OCP opens leadership nominations across all 12 top-level projects",
