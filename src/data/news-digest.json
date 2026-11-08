@@ -1,17 +1,17 @@
 {
-  "weekOf": "2026-11-06",
-  "generatedAt": "2026-11-06T02:29:56.673Z",
+  "weekOf": "2026-11-08",
+  "generatedAt": "2026-11-08T14:39:33.983Z",
   "stats": {
-    "totalRelevant": 165,
+    "totalRelevant": 167,
     "totalSources": 59,
     "topTags": [
       {
         "tag": "EDA",
-        "count": 50
+        "count": 52
       },
       {
         "tag": "RISC-V",
-        "count": 50
+        "count": 52
       },
       {
         "tag": "Open Hardware",
@@ -23,7 +23,7 @@
       },
       {
         "tag": "Verification",
-        "count": 38
+        "count": 40
       }
     ]
   },
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 54,
+      "count": 56,
       "items": [
         {
           "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
@@ -1111,6 +1111,50 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "Antmicro documents RISCV-DV support in Verilator for open RISC-V verification",
+      "url": "https://antmicro.com/blog/2026/11/riscv-dv-compatibility-in-verilator-for-faster-agentic-verification",
+      "source": "Antmicro",
+      "publishedAt": "2026-11-06",
+      "addedAt": "2026-11-08T14:39:33.881325+00:00",
+      "summary": "Antmicro details constrained-randomization and runtime changes that let RISCV-DV generate RISC-V tests using Verilator instead of a proprietary SystemVerilog simulator. The article links successful upstream CI and describes nested array constraints, dynamic-array handling and randomization fixes, providing an engineering guide to an open verification flow.",
+      "author": "",
+      "relevanceScore": 8,
+      "tags": [
+        "RISC-V",
+        "Verilator",
+        "Verification",
+        "EDA"
+      ],
+      "language": "en",
+      "sourceTier": "trusted",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Antmicro 详解 Verilator 支持 RISCV-DV 的开源 RISC-V 验证流程",
+      "summaryZh": "Antmicro 介绍了约束随机化与运行时改进，使 RISCV-DV 可使用 Verilator 生成 RISC-V 测试，无需专有 SystemVerilog 仿真器。文章链接了成功的上游 CI，并说明嵌套数组约束、动态数组处理及随机化修复，为开源验证流程提供工程参考。"
+    },
+    {
+      "title": "FOSSi GSoC roundup documents Linux checkpoint restore and hardware debugging work",
+      "url": "https://fossi-foundation.org/blog/2026-09-14-gsoc-final",
+      "source": "FOSSi Foundation",
+      "publishedAt": "2026-09-14",
+      "addedAt": "2026-11-08T14:37:39.820690+00:00",
+      "summary": "FOSSi’s end-of-summer report gathers work on QEMU-to-OpenPiton/Verilator Linux checkpoint restore, Surfer memory inspection and cycle-by-cycle counterexamples in circt-bmc. The linked MinimumLinuxBoot report explains architectural-state restoration through a RISC-V M-mode stub. These are contributor project reports; the cited CVA6 virtual-memory extension PR is closed without merge.",
+      "author": "",
+      "relevanceScore": 11,
+      "tags": [
+        "FOSSi",
+        "Verification",
+        "EDA",
+        "RISC-V"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "FOSSi GSoC 总结介绍 Linux 检查点恢复与硬件调试成果",
+      "summaryZh": "FOSSi 夏季项目总结汇集了从 QEMU 向 OpenPiton/Verilator 恢复 Linux 检查点、Surfer 内存查看及 circt-bmc 逐周期反例调试工作。文中链接的 MinimumLinuxBoot 报告说明了通过 RISC-V M 模式恢复程序还原体系结构状态的方法。这些内容属于贡献者项目报告；其中引用的 CVA6 虚拟内存扩展 PR 已关闭且未合并。"
     },
     {
       "title": "OCP maps AI data center power, cooling and grid-integration work",
