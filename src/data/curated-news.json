@@ -3,6 +3,54 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "Antmicro documents RISCV-DV support in Verilator for open RISC-V verification",
+      "titleZh": "Antmicro 详解 Verilator 支持 RISCV-DV 的开源 RISC-V 验证流程",
+      "url": "https://antmicro.com/blog/2026/11/riscv-dv-compatibility-in-verilator-for-faster-agentic-verification",
+      "source": "Antmicro",
+      "publishedAt": "2026-11-06",
+      "summary": "Antmicro details constrained-randomization and runtime changes that let RISCV-DV generate RISC-V tests using Verilator instead of a proprietary SystemVerilog simulator. The article links successful upstream CI and describes nested array constraints, dynamic-array handling and randomization fixes, providing an engineering guide to an open verification flow.",
+      "summaryZh": "Antmicro 介绍了约束随机化与运行时改进，使 RISCV-DV 可使用 Verilator 生成 RISC-V 测试，无需专有 SystemVerilog 仿真器。文章链接了成功的上游 CI，并说明嵌套数组约束、动态数组处理及随机化修复，为开源验证流程提供工程参考。",
+      "tags": [
+        "RISC-V",
+        "Verilator",
+        "Verification",
+        "EDA"
+      ],
+      "sourceTier": "trusted",
+      "language": "en",
+      "reviewStatus": "curated",
+      "addedAt": "2026-11-08T14:39:33.881325+00:00",
+      "dateEvidence": {
+        "url": "https://antmicro.com/blog/2026/11/riscv-dv-compatibility-in-verilator-for-faster-agentic-verification",
+        "locator": "Full original article, canonical, article:published_time and datePublished November6 verified. Linked upstream RISCV-DV CI40704441284 conclusion success; Verilator PR8243 merged September21. No independent speedup, universal ISA coverage or local execution claim.",
+        "checkedAt": "2026-11-08"
+      }
+    },
+    {
+      "title": "FOSSi GSoC roundup documents Linux checkpoint restore and hardware debugging work",
+      "titleZh": "FOSSi GSoC 总结介绍 Linux 检查点恢复与硬件调试成果",
+      "url": "https://fossi-foundation.org/blog/2026-09-14-gsoc-final",
+      "source": "FOSSi Foundation",
+      "publishedAt": "2026-09-14",
+      "summary": "FOSSi’s end-of-summer report gathers work on QEMU-to-OpenPiton/Verilator Linux checkpoint restore, Surfer memory inspection and cycle-by-cycle counterexamples in circt-bmc. The linked MinimumLinuxBoot report explains architectural-state restoration through a RISC-V M-mode stub. These are contributor project reports; the cited CVA6 virtual-memory extension PR is closed without merge.",
+      "summaryZh": "FOSSi 夏季项目总结汇集了从 QEMU 向 OpenPiton/Verilator 恢复 Linux 检查点、Surfer 内存查看及 circt-bmc 逐周期反例调试工作。文中链接的 MinimumLinuxBoot 报告说明了通过 RISC-V M 模式恢复程序还原体系结构状态的方法。这些内容属于贡献者项目报告；其中引用的 CVA6 虚拟内存扩展 PR 已关闭且未合并。",
+      "tags": [
+        "FOSSi",
+        "Verification",
+        "EDA",
+        "RISC-V"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "addedAt": "2026-11-08T14:37:39.820690+00:00",
+      "dateEvidence": {
+        "url": "https://fossi-foundation.org/blog/2026-09-14-gsoc-final",
+        "locator": "Full original article by Dan Ruelas-Petrisko dated September 14, 2026; original HTML embedded content date 2026-09-14. Linked MinimumLinuxBoot full report read; GitHub cva6 PR3384 closed/merged_at=null verified. Materially missing retrospective, not a November release.",
+        "checkedAt": "2026-11-08"
+      }
+    },
+    {
       "title": "OCP maps AI data center power, cooling and grid-integration work",
       "titleZh": "OCP 梳理 AI 数据中心供电、冷却与电网协同技术",
       "url": "https://www.opencompute.org/news/the-infrastructure-challenges-of-ai-data-centers-and-how-ai-could-help-manage-them/",
