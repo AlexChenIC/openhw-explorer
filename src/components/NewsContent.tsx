@@ -416,7 +416,7 @@ function NewsSummary({ item }: { item: NewsItem }) {
       <p className={long && !expanded ? "line-clamp-3" : ""}>{summary}</p>
       {long && (
         <button type="button" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}
-          className="mt-1 text-xs font-semibold text-[var(--primary)] hover:underline">
+          className="mt-1 text-xs font-semibold text-[var(--news-accent)] hover:underline">
           {locale.startsWith("zh") ? (expanded ? "收起" : "完整摘要") : (expanded ? "Show less" : "Full summary")}
         </button>
       )}
@@ -459,7 +459,7 @@ function StoryCard({
       }`}
     >
       {label && (
-        <div className="mb-3 text-[10px] font-semibold uppercase tracking-wide text-[var(--primary)]">
+        <div className="mb-3 text-[10px] font-semibold uppercase tracking-wide text-[var(--news-accent)]">
           {label}
         </div>
       )}
@@ -483,7 +483,7 @@ function StoryCard({
         <NewsSummary item={item} />
       )}
       {recommendation && (
-        <div className="mt-3 border-l-2 border-[var(--primary)] pl-3">
+        <div className="mt-3 border-l-2 border-[var(--news-accent)] pl-3">
           <p className="text-xs leading-6 text-[var(--text-secondary)]">
             {recommendation.reason[locale.startsWith("zh") ? "zh" : "en"]}
           </p>
@@ -504,7 +504,7 @@ function StoryCard({
 function EmptyBriefCard({ label, message }: { label: string; message: string }) {
   return (
     <article className="min-w-0 rounded-lg border border-[var(--border)] bg-[var(--bg-card)] p-4">
-      <h3 className="mb-3 text-[10px] font-semibold uppercase tracking-wide text-[var(--primary)]">{label}</h3>
+      <h3 className="mb-3 text-[10px] font-semibold uppercase tracking-wide text-[var(--news-accent)]">{label}</h3>
       <p className="text-sm leading-relaxed text-[var(--text-secondary)]">{message}</p>
     </article>
   );
