@@ -452,6 +452,8 @@
     "pulseGapHint": "最近信息与本期之间（天）",
     "latestSignal": "最新收录新闻",
     "editorSignal": "编辑推荐",
+    "pickReviewedOn": "审核于 {date}",
+    "pickUntil": "于 {date} 到期",
     "toolchainSignal": "工具链观察",
     "monitoredLanes": "监控范围",
     "monitoredGroups": "{count} 个方向",

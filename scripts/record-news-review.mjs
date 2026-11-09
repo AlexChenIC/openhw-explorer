@@ -2,6 +2,7 @@
 
 import { readFileSync, writeFileSync } from "node:fs";
 import { resolveNewsReviewStatus, shanghaiDate } from "../src/lib/news-review-status.mjs";
+import { editorPickErrors } from "../src/lib/news-editor-pick.mjs";
 
 const flags = ["--checked-on", "--outcome", "--candidate-count", "--added-count"];
 const args = process.argv.slice(2);
@@ -15,6 +16,11 @@ for (let i = 0; i < args.length; i += 2) {
 if (values.size !== flags.length) throw new Error("All four review flags are required.");
 
 const digest = JSON.parse(readFileSync(new URL("../src/data/news-digest.json", import.meta.url), "utf8"));
+const editorPick = JSON.parse(readFileSync(new URL("../src/data/news-editor-pick.json", import.meta.url), "utf8"));
+if (editorPickErrors(editorPick, digest.items, digest.generatedAt).length ||
+    editorPick.reviewedOn !== values.get("--checked-on")) {
+  throw new Error("Complete the editor-pick review for this day and digest before recording the daily news review (see docs/news-editorial-policy.md).");
+}
 const record = resolveNewsReviewStatus({
   checkedOn: values.get("--checked-on"),
   outcome: values.get("--outcome"),

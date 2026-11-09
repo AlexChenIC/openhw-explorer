@@ -1,6 +1,8 @@
 import digest from "@/data/news-digest.json";
 import status from "@/data/news-review-status.json";
+import editorPick from "@/data/news-editor-pick.json";
 import { resolveNewsReviewStatus } from "@/lib/news-review-status.mjs";
+import { editorPickSnapshot } from "@/lib/news-editor-pick.mjs";
 
 export const dynamic = "force-static";
 
@@ -13,6 +15,7 @@ export function GET() {
     lastCheckOutcome: review?.outcome || null,
     lastCheckAddedCount: review?.addedCount ?? null,
     latestSourceDate: digest.items.map((item) => item.publishedAt).filter(Boolean).sort().at(-1) || null,
+    ...editorPickSnapshot(editorPick, digest.items, digest.generatedAt),
     commit: process.env.DEPLOYMENT_GIT_SHA || process.env.VERCEL_GIT_COMMIT_SHA || null,
   });
 }

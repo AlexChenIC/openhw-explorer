@@ -63,6 +63,15 @@ describe("Pages build isolation", () => {
     vi.stubEnv("DEPLOYMENT_GIT_SHA", "");
     expect((await GET().json()).commit).toBe("vercel-commit");
   });
+  it("rejects a deployment with a stale editor-pick record", () => {
+    const digest = { generatedAt: "2026-11-08T00:00:00Z", items: [{ publishedAt: "2026-11-06" }] };
+    const pick = { version: 1, reviewedOn: "2026-11-09", digestUpdatedAt: digest.generatedAt,
+      pick: null, noPickReason: { en: "No eligible item merits a recommendation.", zh: "当前没有适合推荐的已核验新闻。" } };
+    const actual = { editorialUpdatedAt: digest.generatedAt, itemCount: 1, latestSourceDate: "2026-11-06", commit: "abc",
+      editorPickReviewedOn: "2026-11-09", editorPickUrl: null, editorPickExpiresOn: null };
+    expect(() => assertNewsSnapshot(actual, digest, "abc", undefined, pick)).not.toThrow();
+    expect(() => assertNewsSnapshot({ ...actual, editorPickReviewedOn: "2026-11-08" }, digest, "abc", undefined, pick)).toThrow("editor pick review differs");
+  });
   it("rejects a stale review record even when digest dates and counts match", () => {
     const digest = { generatedAt: "2026-10-09T01:24:01.549Z", items: [{ publishedAt: "2026-10-01" }] };
     const review = {

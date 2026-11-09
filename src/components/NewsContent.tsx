@@ -1,6 +1,6 @@
 "use client";
 
-import { useMemo, useState } from "react";
+import { useMemo, useState, useSyncExternalStore } from "react";
 import { useLocale, useTranslations } from "next-intl";
 import {
   type LucideIcon,
@@ -24,10 +24,25 @@ import {
 } from "lucide-react";
 import newsDigest from "@/data/news-digest.json";
 import newsReviewStatus from "@/data/news-review-status.json";
+import newsEditorPick from "@/data/news-editor-pick.json";
 import newsSourceGroups from "@/data/news-source-groups.json";
 import newsTopicRules from "@/data/news-topic-rules.json";
 import { newsSortDate, newsDateLabel } from "@/lib/news-dates";
-import { resolveNewsReviewStatus } from "@/lib/news-review-status.mjs";
+import { resolveNewsReviewStatus, shanghaiDate } from "@/lib/news-review-status.mjs";
+import { resolveEditorPick } from "@/lib/news-editor-pick.mjs";
+
+function subscribeEditorialDay(onChange: () => void) {
+  const timer = window.setInterval(onChange, 60000);
+  window.addEventListener("focus", onChange);
+  document.addEventListener("visibilitychange", onChange);
+  return () => {
+    window.clearInterval(timer);
+    window.removeEventListener("focus", onChange);
+    document.removeEventListener("visibilitychange", onChange);
+  };
+}
+function getEditorialDay() { return shanghaiDate(new Date()); }
+function getServerEditorialDay() { return ""; }
 
 interface NewsItem {
   title: string;
@@ -446,10 +461,12 @@ function StoryCard({
   item,
   label,
   prominent = false,
+  recommendation,
 }: {
   item: NewsItem;
   label?: string;
   prominent?: boolean;
+  recommendation?: NonNullable<ReturnType<typeof resolveEditorPick>>;
 }) {
   const t = useTranslations("news");
   const locale = useLocale();
@@ -484,6 +501,18 @@ function StoryCard({
       {getLocalizedSummary(item, locale) && (
         <NewsSummary item={item} />
       )}
+      {recommendation && (
+        <div className="mt-3 border-l-2 border-[var(--primary)] pl-3">
+          <p className="text-xs leading-6 text-[var(--text-secondary)]">
+            {recommendation.reason[locale.startsWith("zh") ? "zh" : "en"]}
+          </p>
+          <p className="mt-1 text-[10px] leading-5 text-[var(--text-tertiary)]">
+            {t("pickReviewedOn", { date: formatFullDate(recommendation.reviewedOn, locale) })}
+            {" · "}
+            {t("pickUntil", { date: formatFullDate(recommendation.expiresOn, locale) })}
+          </p>
+        </div>
+      )}
       <div className="mt-4">
         <TagList tags={item.tags} limit={prominent ? 5 : 4} />
       </div>
@@ -493,13 +522,14 @@ function StoryCard({
 
 function DailyBrief({
   allItems,
-  editorialItems,
 }: {
   allItems: NewsItem[];
-  editorialItems: NewsItem[];
 }) {
   const t = useTranslations("news");
   const locale = useLocale();
+  // Static HTML never embeds a recommendation that could outlive its expiry.
+  const today = useSyncExternalStore(subscribeEditorialDay, getEditorialDay, getServerEditorialDay);
+  const recommendation = resolveEditorPick(allItems, newsEditorPick, digest.generatedAt, today);
   const latestItem = allItems[0];
   const recentItems = getItemsWithinDays(allItems, 7);
   const latestDays = daysSince(latestItem?.publishedAt || "");
@@ -508,7 +538,9 @@ function DailyBrief({
 
   const selectedKeys = new Set<string>();
   const latestSignal = pickDistinctItem([latestItem], selectedKeys) || latestItem;
-  const editorPick = pickDistinctItem([...editorialItems, ...allItems], selectedKeys);
+  const latestIsPick = recommendation?.item.url === latestSignal.url;
+  const editorPick = recommendation && !latestIsPick
+    ? pickDistinctItem([recommendation.item], selectedKeys) : undefined;
   const toolchainItem = pickDistinctItem(
     [
       ...allItems.filter((item) => matchesTopic(item, "eda") || matchesTopic(item, "verification")),
@@ -568,9 +600,11 @@ function DailyBrief({
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.35fr_1fr_1fr]">
-        <StoryCard item={latestSignal} label={t("latestSignal")} prominent />
-        {editorPick && <StoryCard item={editorPick} label={t("editorSignal")} />}
+      <div className={`grid grid-cols-1 gap-4 ${editorPick ? "lg:grid-cols-[1.35fr_1fr_1fr]" : "lg:grid-cols-2"}`}>
+        <StoryCard item={latestSignal}
+          label={latestIsPick ? `${t("editorSignal")} · ${t("latestSignal")}` : t("latestSignal")}
+          recommendation={latestIsPick ? recommendation ?? undefined : undefined} prominent />
+        {editorPick && <StoryCard item={editorPick} label={t("editorSignal")} recommendation={recommendation ?? undefined} />}
         {toolchainItem && <StoryCard item={toolchainItem} label={t("toolchainSignal")} />}
       </div>
     </section>
@@ -779,7 +813,6 @@ export function NewsContent() {
   const [activeTopic, setActiveTopic] = useState<TopicFilter>("all");
 
   const allItems = useMemo(() => sortByDateDesc(digest.items), []);
-  const editorialItems = useMemo(() => digest.items, []);
   const filteredItems = useMemo(
     () => allItems.filter((item) => matchesTopic(item, activeTopic)),
     [activeTopic, allItems],
@@ -793,7 +826,7 @@ export function NewsContent() {
     <div className="page-shell">
       <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
         <PageHeader latestItem={allItems.filter((item) => item.publishedAt).sort((a, b) => b.publishedAt.localeCompare(a.publishedAt))[0]} />
-        <DailyBrief allItems={allItems} editorialItems={editorialItems} />
+        <DailyBrief allItems={allItems} />
         <TopicBrowser activeTopic={activeTopic} onChange={setActiveTopic} items={allItems} />
         <NewsTimeline items={filteredItems} activeTopic={activeTopic} />
         <SourceCoverage />

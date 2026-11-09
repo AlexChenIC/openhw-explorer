@@ -1,5 +1,6 @@
 import ts from "typescript";
 import { resolveNewsReviewStatus } from "../../src/lib/news-review-status.mjs";
+import { editorPickSnapshot } from "../../src/lib/news-editor-pick.mjs";
 
 // Course packages retain operator URLs; the public player serves cached assets.
 export function courseAudioUrl(classroomId, sourceUrl) {
@@ -61,7 +62,7 @@ export function withLocaleStaticParams(source, filename) {
   );
 }
 
-export function assertNewsSnapshot(actual, digest, expectedCommit, reviewStatus) {
+export function assertNewsSnapshot(actual, digest, expectedCommit, reviewStatus, editorPickRecord) {
   if (
     actual.editorialUpdatedAt !== digest.generatedAt ||
     actual.itemCount !== digest.items.length
@@ -82,6 +83,12 @@ export function assertNewsSnapshot(actual, digest, expectedCommit, reviewStatus)
         actual.lastCheckOutcome !== (review?.outcome || null) ||
         actual.lastCheckAddedCount !== (review?.addedCount ?? null)) {
       throw new Error("Pages editorial review status differs");
+    }
+  }
+  if (editorPickRecord !== undefined) {
+    const expected = editorPickSnapshot(editorPickRecord, digest.items, digest.generatedAt);
+    if (Object.entries(expected).some(([key, value]) => actual[key] !== value)) {
+      throw new Error("Pages editor pick review differs");
     }
   }
 }

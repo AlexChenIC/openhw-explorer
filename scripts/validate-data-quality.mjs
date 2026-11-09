@@ -4,6 +4,7 @@ import { existsSync, readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
 import { resolveNewsReviewStatus, shanghaiDate } from "../src/lib/news-review-status.mjs";
+import { editorPickErrors, resolveEditorPick } from "../src/lib/news-editor-pick.mjs";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -235,6 +236,17 @@ function validateNewsDigest() {
   if (!Array.isArray(data.items)) {
     errors.push("news-digest.items must be an array");
     return { errors, warnings };
+  }
+
+  const editorPick = readJson(join(ROOT, "src/data/news-editor-pick.json"));
+  const pickErrors = editorPickErrors(editorPick, data.items, data.generatedAt);
+  errors.push(...pickErrors);
+  if (editorPick?.reviewedOn > shanghaiDate(new Date())) {
+    errors.push("editor pick review cannot be in the future");
+  }
+  if (!pickErrors.length && editorPick.pick &&
+      !resolveEditorPick(data.items, editorPick, data.generatedAt, shanghaiDate(new Date()))) {
+    warnings.push("editor pick is no longer active and will be hidden; complete a fresh editorial review");
   }
 
   const topicCoverage = buildNewsTopicCoverage(data.items);

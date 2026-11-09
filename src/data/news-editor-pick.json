@@ -1,0 +1,14 @@
+{
+  "version": 1,
+  "reviewedOn": "2026-11-09",
+  "digestUpdatedAt": "2026-11-08T14:39:33.983Z",
+  "pick": {
+    "url": "https://antmicro.com/blog/2026/11/riscv-dv-compatibility-in-verilator-for-faster-agentic-verification",
+    "selectedOn": "2026-11-09",
+    "expiresOn": "2026-11-16",
+    "reason": {
+      "en": "Connects RISCV-DV to an open-source simulation flow, with implementation details and upstream CI evidence useful to RISC-V verification engineers.",
+      "zh": "将 RISCV-DV 与开源仿真流程连接起来，提供实现细节和上游 CI 链接，对 RISC-V 内核验证具有直接工程参考价值。"
+    }
+  }
+}

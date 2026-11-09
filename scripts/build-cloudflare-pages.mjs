@@ -139,11 +139,13 @@ await writeFile(
 );
 const digest = JSON.parse(await readFile(join(root, "src/data/news-digest.json"), "utf8"));
 const reviewStatus = JSON.parse(await readFile(join(root, "src/data/news-review-status.json"), "utf8"));
+const editorPickRecord = JSON.parse(await readFile(join(root, "src/data/news-editor-pick.json"), "utf8"));
 assertNewsSnapshot(
   JSON.parse(await readFile(join(stagedOutput, "api/news-status"), "utf8")),
   digest,
   commit,
   reviewStatus,
+  editorPickRecord,
 );
 await rm(output, { recursive: true, force: true });
 await cp(stagedOutput, output, { recursive: true });
