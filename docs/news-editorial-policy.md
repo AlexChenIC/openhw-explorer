@@ -6,6 +6,32 @@ Do not delete old news or change its dates merely to rotate a homepage card.
 
 ## Daily Editorial Pass
 
+Run `npm run check:openhw-tv` in every daily OpenHW pass, independently of RSS
+collection. It uses the existing local yt-dlp executable to inspect the official
+channel's videos and streams tabs, capped at20 entries per tab, and writes
+`reports/openhw-tv-discovery.json`. It does not depend on YouTube RSS, download
+media, use browser cookies/configuration, or publish candidates. Missing tools,
+network errors and malformed listings fail visibly. An explicitly absent streams
+tab is recorded separately. Do not interpret a partial/failed check as no new TV.
+
+Flat playlists are discovery only: dates remain null; unarchived does not mean
+recent. Compare IDs to the archive and previous review receipts, then inspect
+materially new recordings' original dates, descriptions and slides/transcripts
+as needed before writing summaries. Never use check time or approximate playlist
+ages as original dates. Also read `https://openhwfoundation.org/events/` and the
+Eclipse OpenHW announcement feed. RSS404 remains disclosed in collection health
+even when channel discovery works. LinkedIn posts are leads, not sole factual
+evidence; disclose access gaps rather than claim exhaustive social coverage.
+
+Also perform a bounded public search for OpenHW Foundation and CORE-V/CVA6 talks
+in recent conference agendas and organizer reports. Social announcements can
+point to these first-party sources even when the Foundation site is unchanged.
+Verify visible article dates, not dates guessed from URL slugs. Event dates and
+article publication dates are separate. Do not infer recordings, releases or
+technical results from agenda titles. Broad Eclipse announcements are not
+automatically OpenHW news just because they appear in the OpenHW RSS feed;
+require substantive, explicit OpenHW relevance before assigning that lane.
+
 After the daily candidate/source review, independently review the recommendation
 against the full current archive, even when no new news qualifies. Consider:
 
@@ -104,3 +130,8 @@ editorial recommendation and does not extend the recommendation's 30-day cap.
 Toolchain watch requires toolchain/EDA tags; do not fill it with unrelated news.
 Missing lane content uses a neutral empty state. No dates are changed and no new
 publication, source review or daily editorial pass is implied by lane selection.
+
+The lead cards are compact previews: uniform headings, at most two lines of
+summary (editorial rationale instead of duplicate copy for a recommended item),
+three tags and compact review/expiry dates. Full summaries and their expansion
+controls belong in the archive, not in the highlight row.

@@ -21,9 +21,14 @@ describe("safe static recommendation rendering", () => {
       expect(html).not.toContain(record.pick.reason[locale]);
       const brief = html.split('<section class="mb-9">')[1].split("</section>")[0];
       expect(brief.match(/<article\b/g)).toHaveLength(3);
+      expect(brief).not.toContain("<button");
+      expect(brief).not.toContain("Full summary");
+      expect(brief).not.toContain("完整摘要");
+      expect(brief).toContain("line-clamp-2");
+      expect(html).toContain(locale === "zh" ? "完整摘要" : "Full summary");
       expect(brief).toContain(messages.news.openhwSignal);
       expect(brief).toContain(messages.news.toolchainSignal);
-      expect(brief).toContain("https://github.com/openhwfoundation/cv-hpdcache/releases/tag/v6.1.0");
+      expect(brief).toContain("https://www.ee.cityu.edu.hk/news/2026/10-22-2026");
     });
   }
 });

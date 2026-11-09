@@ -70,7 +70,7 @@ describe("September audit release gates", () => {
       expect(item.summary).not.toContain("HDR-DDR at 25 MHz");
     }
     expect(digest.items).toHaveLength(curated.items.length - 2);
-    expect(digest.items.filter((item) => "relatedSources" in item)).toHaveLength(2);
+    expect(digest.items.filter((item) => "relatedSources" in item)).toHaveLength(3);
   });
   it("keeps current supplier claims and headquarters evidence separate", () => {
     expect(industryCompanies.find((item) => item.id === "quintauris")?.segment).toBe("design-enablement");

@@ -1,16 +1,16 @@
 {
-  "weekOf": "2026-11-08",
-  "generatedAt": "2026-11-08T14:39:33.983Z",
+  "weekOf": "2026-11-09",
+  "generatedAt": "2026-11-09T14:19:05.829Z",
   "stats": {
-    "totalRelevant": 167,
-    "totalSources": 59,
+    "totalRelevant": 168,
+    "totalSources": 60,
     "topTags": [
       {
-        "tag": "EDA",
-        "count": 52
+        "tag": "RISC-V",
+        "count": 53
       },
       {
-        "tag": "RISC-V",
+        "tag": "EDA",
         "count": 52
       },
       {
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 56,
+      "count": 57,
       "items": [
         {
           "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
@@ -1111,6 +1111,36 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "OpenHW joins RISC-V Hong Kong Day and China Summit technical exchanges",
+      "url": "https://www.ee.cityu.edu.hk/news/2026/10-22-2026",
+      "source": "City University of Hong Kong / RISC-V Summit China",
+      "publishedAt": "2026-10-21",
+      "addedAt": "2026-11-09T14:19:05Z",
+      "summary": "CityUHK's RISC-V Hong Kong Day report lists Florian Wohlrab of OpenHW Foundation and Eclipse Foundation among the afternoon keynote speakers. The official China Summit agenda also lists OpenHW sessions on collaborative commercial-grade processor IP and CVA6 engineering evolution. These sources document community participation and talk topics, not a processor release or the availability of recordings.",
+      "relatedSources": [
+        {
+          "title": "RISC-V Summit China 2026 official agenda",
+          "url": "https://riscv-summit-china.org/en/agenda/",
+          "source": "RISC-V Summit China"
+        }
+      ],
+      "author": "",
+      "relevanceScore": 11,
+      "tags": [
+        "OpenHW",
+        "CVA6",
+        "RISC-V",
+        "Community",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "OpenHW 参与 RISC-V 香港日与中国峰会技术交流",
+      "summaryZh": "香港城市大学的 RISC-V 香港日报道将 OpenHW Foundation / Eclipse Foundation 的 Florian Wohlrab 列为下午的主题演讲嘉宾。中国峰会官方议程另列有 OpenHW 关于协作开发商用级处理器 IP 和 CVA6 工程演进的演讲，可据此了解团队近期的技术交流方向。"
     },
     {
       "title": "Antmicro documents RISCV-DV support in Verilator for open RISC-V verification",
@@ -4681,6 +4711,7 @@
     "CHIPS Alliance / Chisel (GitHub)",
     "CHIPS Alliance Blog",
     "Chipyard (GitHub)",
+    "City University of Hong Kong / RISC-V Summit China",
     "FOSSi Foundation",
     "FOSSi Foundation / Latch-Up 2026",
     "FOSSi Foundation Videos",
