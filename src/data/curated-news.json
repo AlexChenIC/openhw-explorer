@@ -3,6 +3,32 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "OpenHW joins RISC-V Hong Kong Day and China Summit technical exchanges",
+      "titleZh": "OpenHW 参与 RISC-V 香港日与中国峰会技术交流",
+      "url": "https://www.ee.cityu.edu.hk/news/2026/10-22-2026",
+      "source": "City University of Hong Kong / RISC-V Summit China",
+      "publishedAt": "2026-10-21",
+      "summary": "CityUHK's RISC-V Hong Kong Day report lists Florian Wohlrab of OpenHW Foundation and Eclipse Foundation among the afternoon keynote speakers. The official China Summit agenda also lists OpenHW sessions on collaborative commercial-grade processor IP and CVA6 engineering evolution. These sources document community participation and talk topics, not a processor release or the availability of recordings.",
+      "summaryZh": "香港城市大学的 RISC-V 香港日报道将 OpenHW Foundation / Eclipse Foundation 的 Florian Wohlrab 列为下午的主题演讲嘉宾。中国峰会官方议程另列有 OpenHW 关于协作开发商用级处理器 IP 和 CVA6 工程演进的演讲，可据此了解团队近期的技术交流方向。",
+      "tags": ["OpenHW", "CVA6", "RISC-V", "Community", "Talk"],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "addedAt": "2026-11-09T14:19:05Z",
+      "dateEvidence": {
+        "url": "https://www.ee.cityu.edu.hk/en/news/2026/10-22-2026",
+        "locator": "Visible article date 21 Oct 2026 (not the URL's 10-22 slug); full organizer report explicitly names Florian Wohlrab. Official summit agenda confirms October 20 OpenHW/CVA6 talk titles and October 21 Hong Kong Day. No recording or release inferred.",
+        "checkedAt": "2026-11-09"
+      },
+      "relatedSources": [
+        {
+          "title": "RISC-V Summit China 2026 official agenda",
+          "url": "https://riscv-summit-china.org/en/agenda/",
+          "source": "RISC-V Summit China"
+        }
+      ]
+    },
+    {
       "title": "Antmicro documents RISCV-DV support in Verilator for open RISC-V verification",
       "titleZh": "Antmicro 详解 Verilator 支持 RISCV-DV 的开源 RISC-V 验证流程",
       "url": "https://antmicro.com/blog/2026/11/riscv-dv-compatibility-in-verilator-for-faster-agentic-verification",

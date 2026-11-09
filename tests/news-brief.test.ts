@@ -80,14 +80,14 @@ describe("three distinct news lanes", () => {
     expect(recommendation).toBeNull();
     const result = selectNewsBrief(digest.items, recommendation, "2026-11-16");
     expect(result.lead).toBe(result.latest);
-    expect(result.openhw?.url).toContain("cv-hpdcache/releases/tag/v6.1.0");
+    expect(result.openhw?.url).toBe("https://www.ee.cityu.edu.hk/news/2026/10-22-2026");
   });
   it("ships distinct, dated OpenHW/toolchain lanes without mutating the archive", () => {
     const before = JSON.stringify(digest);
     const recommendation = resolveEditorPick(digest.items, pick, digest.generatedAt, pick.reviewedOn);
     const result = selectNewsBrief(digest.items, recommendation, pick.reviewedOn);
-    expect(result.openhw?.url).toContain("cv-hpdcache/releases/tag/v6.1.0");
-    expect(result.openhw?.publishedAt).toBe("2026-10-16");
+    expect(result.openhw?.url).toBe("https://www.ee.cityu.edu.hk/news/2026/10-22-2026");
+    expect(result.openhw?.publishedAt).toBe("2026-10-21");
     expect(new Set([result.lead?.url, result.openhw?.url, result.toolchain?.url]).size).toBe(3);
     expect(JSON.stringify(digest)).toBe(before);
   });

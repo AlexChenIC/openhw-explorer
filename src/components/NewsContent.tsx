@@ -441,12 +441,10 @@ function NewsSummary({ item }: { item: NewsItem }) {
 function StoryCard({
   item,
   label,
-  prominent = false,
   recommendation,
 }: {
   item: NewsItem;
   label?: string;
-  prominent?: boolean;
   recommendation?: NonNullable<ReturnType<typeof resolveEditorPick>>;
 }) {
   const t = useTranslations("news");
@@ -454,48 +452,42 @@ function StoryCard({
 
   return (
     <article
-      className={`min-w-0 h-full rounded-lg border border-[var(--border)] bg-[var(--bg-card)] p-4 transition-colors hover:border-[var(--text-tertiary)] ${
-        prominent ? "sm:p-5" : ""
-      }`}
+      className="min-w-0 h-full rounded-lg border border-[var(--border)] bg-[var(--bg-card)] p-4"
     >
       {label && (
-        <div className="mb-3 text-[10px] font-semibold uppercase tracking-wide text-[var(--news-accent)]">
+        <div className="mb-2 text-[10px] font-semibold uppercase tracking-wide text-[var(--news-accent)]">
           {label}
         </div>
       )}
       <MetaLine item={item} />
       <h3
-        className={`mt-3 font-semibold leading-snug text-[var(--text-primary)] ${
-          prominent ? "text-xl sm:text-2xl" : "text-base"
-        }`}
+        className="mt-2 text-base font-semibold leading-6 text-[var(--text-primary)]"
       >
         <a
           href={item.url}
           target="_blank"
           rel="noopener noreferrer"
-          className="inline-flex items-start gap-1.5 hover:text-[var(--primary)]"
+          title={getLocalizedTitle(item, locale)}
+          className="inline-flex items-start gap-1.5 hover:text-[var(--news-accent)]"
         >
-          <span>{getLocalizedTitle(item, locale)}</span>
+          <span className="line-clamp-3">{getLocalizedTitle(item, locale)}</span>
           <ExternalLink className="mt-1 h-3.5 w-3.5 shrink-0 opacity-60" />
         </a>
       </h3>
-      {getLocalizedSummary(item, locale) && (
-        <NewsSummary item={item} />
-      )}
+      <p className="mt-2 line-clamp-2 text-xs leading-6 text-[var(--text-secondary)]">
+        {recommendation
+          ? recommendation.reason[locale.startsWith("zh") ? "zh" : "en"]
+          : getLocalizedSummary(item, locale)}
+      </p>
       {recommendation && (
-        <div className="mt-3 border-l-2 border-[var(--news-accent)] pl-3">
-          <p className="text-xs leading-6 text-[var(--text-secondary)]">
-            {recommendation.reason[locale.startsWith("zh") ? "zh" : "en"]}
-          </p>
-          <p className="mt-1 text-[10px] leading-5 text-[var(--text-tertiary)]">
+          <p className="mt-2 text-[10px] leading-5 text-[var(--text-tertiary)]">
             {t("pickReviewedOn", { date: formatFullDate(recommendation.reviewedOn, locale) })}
             {" · "}
             {t("pickUntil", { date: formatFullDate(recommendation.expiresOn, locale) })}
           </p>
-        </div>
       )}
-      <div className="mt-4">
-        <TagList tags={item.tags} limit={prominent ? 5 : 4} />
+      <div className="mt-3">
+        <TagList tags={item.tags} limit={3} />
       </div>
     </article>
   );
@@ -589,9 +581,9 @@ function DailyBrief({
         </div>
       </div>
 
-      <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.15fr_1fr_1fr]">
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-3">
         {lead ? <StoryCard item={lead} label={leadLabel}
-          recommendation={leadIsPick ? recommendation ?? undefined : undefined} prominent />
+          recommendation={leadIsPick ? recommendation ?? undefined : undefined} />
           : <EmptyBriefCard label={t("latestSignal")} message={t("noOtherSignal")} />}
         {openhw ? <StoryCard item={openhw} label={openhwLabel}
           recommendation={openhwIsPick ? recommendation ?? undefined : undefined} />
