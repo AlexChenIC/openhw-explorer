@@ -87,5 +87,20 @@ the recommendation until a client clock is available: an old static build must
 never expose an expired item as an active recommendation. Without JavaScript,
 the latest-news and toolchain cards and the archive remain available.
 Expired/invalid/missing records leave the editorial slot empty; there is no
-fallback to historical ranks. If the chosen story is also the latest news, use
-one card bearing both labels and its rationale rather than duplicate the story.
+fallback to historical ranks. The lead area has three fixed lanes: editorial
+selection (or latest news), OpenHW updates, and toolchain watch. A valid editorial
+selection replaces the lead story rather than adding a fourth card. If it is
+also the latest news, combine those labels. If it is the newest OpenHW story,
+attach its editorial label/rationale to the OpenHW card and use another dated
+story in the lead lane; label that story "More news" unless it is the latest.
+Never duplicate a URL within the three lanes.
+
+OpenHW updates are selected by original publication date from reviewed,
+official/trusted archive items with a known non-future date and an explicit
+OpenHW source or project relationship. A generic RISC-V tag or incidental mention
+in a summary is not sufficient. The OpenHW lane may retain an older dated item
+as the last recorded update, labelled accordingly after 30 days. It is not an
+editorial recommendation and does not extend the recommendation's 30-day cap.
+Toolchain watch requires toolchain/EDA tags; do not fill it with unrelated news.
+Missing lane content uses a neutral empty state. No dates are changed and no new
+publication, source review or daily editorial pass is implied by lane selection.

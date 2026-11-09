@@ -19,6 +19,11 @@ describe("safe static recommendation rendering", () => {
       expect(html).toContain(record.pick.url);
       expect(html).not.toContain(messages.news.editorSignal);
       expect(html).not.toContain(record.pick.reason[locale]);
+      const brief = html.split('<section class="mb-9">')[1].split("</section>")[0];
+      expect(brief.match(/<article\b/g)).toHaveLength(3);
+      expect(brief).toContain(messages.news.openhwSignal);
+      expect(brief).toContain(messages.news.toolchainSignal);
+      expect(brief).toContain("https://github.com/openhwfoundation/cv-hpdcache/releases/tag/v6.1.0");
     });
   }
 });

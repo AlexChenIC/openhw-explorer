@@ -30,6 +30,7 @@ import newsTopicRules from "@/data/news-topic-rules.json";
 import { newsSortDate, newsDateLabel } from "@/lib/news-dates";
 import { resolveNewsReviewStatus, shanghaiDate } from "@/lib/news-review-status.mjs";
 import { resolveEditorPick } from "@/lib/news-editor-pick.mjs";
+import { isOlderNews, selectNewsBrief } from "@/lib/news-brief";
 
 function subscribeEditorialDay(onChange: () => void) {
   const timer = window.setInterval(onChange, 60000);
@@ -249,26 +250,6 @@ function getLocalizedSummary(item: Pick<NewsItem, "summary" | "summaryZh">, loca
   return locale.startsWith("zh") && item.summaryZh ? item.summaryZh : item.summary;
 }
 
-function getItemKey(item?: NewsItem) {
-  if (!item) return "";
-  return item.url || `${item.source}:${item.title}`;
-}
-
-function pickDistinctItem(
-  candidates: Array<NewsItem | undefined>,
-  selectedKeys: Set<string>,
-): NewsItem | undefined {
-  for (const item of candidates) {
-    const key = getItemKey(item);
-    if (item && key && !selectedKeys.has(key)) {
-      selectedKeys.add(key);
-      return item;
-    }
-  }
-
-  return undefined;
-}
-
 function getTopicSearchText(item: NewsItem) {
   return `${item.title} ${item.titleZh || ""} ${item.summary} ${item.summaryZh || ""} ${item.source} ${item.tags.join(" ")}`;
 }
@@ -435,7 +416,7 @@ function NewsSummary({ item }: { item: NewsItem }) {
       <p className={long && !expanded ? "line-clamp-3" : ""}>{summary}</p>
       {long && (
         <button type="button" aria-expanded={expanded} onClick={() => setExpanded(!expanded)}
-          className="mt-1 text-xs font-semibold text-[var(--primary)] hover:underline">
+          className="mt-1 text-xs font-semibold text-[var(--news-accent)] hover:underline">
           {locale.startsWith("zh") ? (expanded ? "收起" : "完整摘要") : (expanded ? "Show less" : "Full summary")}
         </button>
       )}
@@ -473,12 +454,12 @@ function StoryCard({
 
   return (
     <article
-      className={`h-full rounded-lg border border-[var(--border)] bg-[var(--bg-card)] p-4 transition-colors hover:border-[var(--text-tertiary)] ${
+      className={`min-w-0 h-full rounded-lg border border-[var(--border)] bg-[var(--bg-card)] p-4 transition-colors hover:border-[var(--text-tertiary)] ${
         prominent ? "sm:p-5" : ""
       }`}
     >
       {label && (
-        <div className="mb-3 text-[10px] font-semibold uppercase tracking-wide text-[var(--primary)]">
+        <div className="mb-3 text-[10px] font-semibold uppercase tracking-wide text-[var(--news-accent)]">
           {label}
         </div>
       )}
@@ -502,7 +483,7 @@ function StoryCard({
         <NewsSummary item={item} />
       )}
       {recommendation && (
-        <div className="mt-3 border-l-2 border-[var(--primary)] pl-3">
+        <div className="mt-3 border-l-2 border-[var(--news-accent)] pl-3">
           <p className="text-xs leading-6 text-[var(--text-secondary)]">
             {recommendation.reason[locale.startsWith("zh") ? "zh" : "en"]}
           </p>
@@ -516,6 +497,15 @@ function StoryCard({
       <div className="mt-4">
         <TagList tags={item.tags} limit={prominent ? 5 : 4} />
       </div>
+    </article>
+  );
+}
+
+function EmptyBriefCard({ label, message }: { label: string; message: string }) {
+  return (
+    <article className="min-w-0 rounded-lg border border-[var(--border)] bg-[var(--bg-card)] p-4">
+      <h3 className="mb-3 text-[10px] font-semibold uppercase tracking-wide text-[var(--news-accent)]">{label}</h3>
+      <p className="text-sm leading-relaxed text-[var(--text-secondary)]">{message}</p>
     </article>
   );
 }
@@ -536,18 +526,17 @@ function DailyBrief({
 
   if (!latestItem) return null;
 
-  const selectedKeys = new Set<string>();
-  const latestSignal = pickDistinctItem([latestItem], selectedKeys) || latestItem;
-  const latestIsPick = recommendation?.item.url === latestSignal.url;
-  const editorPick = recommendation && !latestIsPick
-    ? pickDistinctItem([recommendation.item], selectedKeys) : undefined;
-  const toolchainItem = pickDistinctItem(
-    [
-      ...allItems.filter((item) => matchesTopic(item, "eda") || matchesTopic(item, "verification")),
-      ...allItems,
-    ],
-    selectedKeys,
-  );
+  const asOf = today || shanghaiDate(new Date(digest.generatedAt));
+  const { lead, openhw, toolchain, latest } = selectNewsBrief(allItems, recommendation, asOf);
+  const leadIsPick = Boolean(lead && recommendation?.item.url === lead.url);
+  const leadIsLatest = Boolean(lead && latest?.url === lead.url);
+  const leadLabel = leadIsPick
+    ? `${t("editorSignal")}${leadIsLatest ? ` · ${t("latestSignal")}` : ""}`
+    : t(leadIsLatest ? "latestSignal" : "otherSignal");
+  const openhwIsPick = Boolean(openhw && recommendation?.item.url === openhw.url);
+  const openhwLabel = `${t("openhwSignal")}${openhwIsPick ? ` · ${t("editorSignal")}` : ""}${
+    openhw && isOlderNews(openhw, asOf) ? ` · ${t("lastKnownSignal")}` : ""
+  }`;
 
   return (
     <section className="mb-9">
@@ -600,12 +589,15 @@ function DailyBrief({
         </div>
       </div>
 
-      <div className={`grid grid-cols-1 gap-4 ${editorPick ? "lg:grid-cols-[1.35fr_1fr_1fr]" : "lg:grid-cols-2"}`}>
-        <StoryCard item={latestSignal}
-          label={latestIsPick ? `${t("editorSignal")} · ${t("latestSignal")}` : t("latestSignal")}
-          recommendation={latestIsPick ? recommendation ?? undefined : undefined} prominent />
-        {editorPick && <StoryCard item={editorPick} label={t("editorSignal")} recommendation={recommendation ?? undefined} />}
-        {toolchainItem && <StoryCard item={toolchainItem} label={t("toolchainSignal")} />}
+      <div className="grid grid-cols-1 gap-4 lg:grid-cols-[1.15fr_1fr_1fr]">
+        {lead ? <StoryCard item={lead} label={leadLabel}
+          recommendation={leadIsPick ? recommendation ?? undefined : undefined} prominent />
+          : <EmptyBriefCard label={t("latestSignal")} message={t("noOtherSignal")} />}
+        {openhw ? <StoryCard item={openhw} label={openhwLabel}
+          recommendation={openhwIsPick ? recommendation ?? undefined : undefined} />
+          : <EmptyBriefCard label={t("openhwSignal")} message={t("noOpenhwSignal")} />}
+        {toolchain ? <StoryCard item={toolchain} label={t("toolchainSignal")} />
+          : <EmptyBriefCard label={t("toolchainSignal")} message={t("noToolchainSignal")} />}
       </div>
     </section>
   );
