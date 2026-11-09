@@ -452,6 +452,8 @@
     "pulseGapHint": "days between signal and update",
     "latestSignal": "Latest news",
     "editorSignal": "Editor's read",
+    "pickReviewedOn": "Reviewed {date}",
+    "pickUntil": "Expires {date}",
     "toolchainSignal": "Toolchain watch",
     "monitoredLanes": "Monitored scope",
     "monitoredGroups": "{count} lanes",

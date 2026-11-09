@@ -15,6 +15,7 @@ const commit =
   execFileSync("git", ["rev-parse", "HEAD"], { cwd: root, encoding: "utf8" }).trim();
 const digest = JSON.parse(await readFile(join(root, "src/data/news-digest.json"), "utf8"));
 const reviewStatus = JSON.parse(await readFile(join(root, "src/data/news-review-status.json"), "utf8"));
+const editorPickRecord = JSON.parse(await readFile(join(root, "src/data/news-editor-pick.json"), "utf8"));
 const report = { checkedAt: new Date().toISOString(), base, commit, checks: [] };
 async function request(path, options = {}) {
   const url = new URL(path, base);
@@ -58,7 +59,7 @@ try {
     if (!response.ok) throw new Error(`Status endpoint returned ${response.status}`);
     live = await response.json();
     try {
-      assertNewsSnapshot(live, digest, commit, reviewStatus);
+      assertNewsSnapshot(live, digest, commit, reviewStatus, editorPickRecord);
       break;
     } catch (error) {
       if (attempt === 11) throw error;
