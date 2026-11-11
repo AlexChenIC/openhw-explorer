@@ -3,6 +3,52 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "Queen’s University Belfast joins OpenTitan with hardware-security research plans",
+      "titleZh": "贝尔法斯特女王大学加入 OpenTitan，计划参与硬件安全研究",
+      "url": "https://lowrisc.org/news/lowrisc-welcomes-queens-university-belfast-to-the-opentitan-open-source-silicon-project/",
+      "source": "lowRISC Newsroom",
+      "publishedAt": "2026-11-10",
+      "summary": "lowRISC announced that Queen’s University Belfast has joined the OpenTitan coalition. Its Centre for Secure Information Technologies plans to contribute expertise in post-quantum cryptography, side-channel analysis and hardware threat mitigation, collaborating on cryptographic accelerator evaluation and architectural resilience.",
+      "summaryZh": "lowRISC 宣布贝尔法斯特女王大学加入 OpenTitan 联盟。该校安全信息技术中心计划贡献后量子密码、侧信道分析及硬件威胁缓解方面的研究经验，与联盟伙伴合作评估密码加速器并增强架构抗攻击能力。",
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "Security",
+        "PQC"
+      ],
+      "addedAt": "2026-11-11T01:31:41.151402Z",
+      "sourceTier": "official",
+      "language": "en",
+      "dateEvidence": {
+        "url": "https://lowrisc.org/news/lowrisc-welcomes-queens-university-belfast-to-the-opentitan-open-source-silicon-project/",
+        "locator": "Original article publication metadata and visible date",
+        "checkedAt": "2026-11-11"
+      }
+    },
+    {
+      "title": "Caliptra firmware 2.1.5 strengthens key handling and manifest authentication",
+      "titleZh": "Caliptra 固件 2.1.5 加强密钥处理与清单认证",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/fw-2.1.5",
+      "source": "Caliptra (GitHub)",
+      "publishedAt": "2026-11-10",
+      "summary": "Caliptra firmware 2.1.5 adds encrypted key generation from internal entropy and subsystem-mode UDS/FE zeroization, and authenticates version, SVN and flags alongside owner keys in vendor+owner SoC manifests. Integration changes include 400-byte FW_INFO responses, re-signing affected manifests and a cold boot for corrected DPE identifiers.",
+      "summaryZh": "Caliptra 固件 2.1.5 新增利用内部熵生成加密密钥及子系统模式下的 UDS/FE 清零，并将版本、SVN 和标志与所有者密钥一并纳入供应商与所有者联合 SoC 清单认证。集成时需注意 FW_INFO 响应变为 400 字节、受影响清单须重新签名，以及修正 DPE 标识符后需冷启动。",
+      "tags": [
+        "Caliptra",
+        "Security",
+        "Firmware",
+        "Root of Trust"
+      ],
+      "addedAt": "2026-11-11T01:31:41.151402Z",
+      "sourceTier": "official",
+      "language": "en",
+      "dateEvidence": {
+        "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/fw-2.1.5",
+        "locator": "GitHub release published_at: 2026-11-10T16:55:21Z",
+        "checkedAt": "2026-11-11"
+      }
+    },
+    {
       "title": "OpenHW joins RISC-V Hong Kong Day and China Summit technical exchanges",
       "titleZh": "OpenHW 参与 RISC-V 香港日与中国峰会技术交流",
       "url": "https://www.ee.cityu.edu.hk/news/2026/10-22-2026",
@@ -10,7 +56,13 @@
       "publishedAt": "2026-10-21",
       "summary": "CityUHK's RISC-V Hong Kong Day report lists Florian Wohlrab of OpenHW Foundation and Eclipse Foundation among the afternoon keynote speakers. The official China Summit agenda also lists OpenHW sessions on collaborative commercial-grade processor IP and CVA6 engineering evolution. These sources document community participation and talk topics, not a processor release or the availability of recordings.",
       "summaryZh": "香港城市大学的 RISC-V 香港日报道将 OpenHW Foundation / Eclipse Foundation 的 Florian Wohlrab 列为下午的主题演讲嘉宾。中国峰会官方议程另列有 OpenHW 关于协作开发商用级处理器 IP 和 CVA6 工程演进的演讲，可据此了解团队近期的技术交流方向。",
-      "tags": ["OpenHW", "CVA6", "RISC-V", "Community", "Talk"],
+      "tags": [
+        "OpenHW",
+        "CVA6",
+        "RISC-V",
+        "Community",
+        "Talk"
+      ],
       "sourceTier": "official",
       "language": "en",
       "reviewStatus": "curated",
