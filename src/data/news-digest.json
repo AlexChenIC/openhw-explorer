@@ -1,9 +1,9 @@
 {
-  "weekOf": "2026-11-09",
-  "generatedAt": "2026-11-09T14:19:05.829Z",
+  "weekOf": "2026-11-11",
+  "generatedAt": "2026-11-11T01:31:41.295Z",
   "stats": {
-    "totalRelevant": 168,
-    "totalSources": 60,
+    "totalRelevant": 170,
+    "totalSources": 61,
     "topTags": [
       {
         "tag": "RISC-V",
@@ -19,7 +19,7 @@
       },
       {
         "tag": "Security",
-        "count": 43
+        "count": 45
       },
       {
         "tag": "Verification",
@@ -35,7 +35,7 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 47,
+      "count": 48,
       "items": [
         {
           "title": "Caliptra runtime/FMC 1.3.0 adds MLDSA post-quantum support",
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 57,
+      "count": 58,
       "items": [
         {
           "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
@@ -1111,6 +1111,50 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "Queen’s University Belfast joins OpenTitan with hardware-security research plans",
+      "url": "https://lowrisc.org/news/lowrisc-welcomes-queens-university-belfast-to-the-opentitan-open-source-silicon-project/",
+      "source": "lowRISC Newsroom",
+      "publishedAt": "2026-11-10",
+      "addedAt": "2026-11-11T01:31:41.151402Z",
+      "summary": "lowRISC announced that Queen’s University Belfast has joined the OpenTitan coalition. Its Centre for Secure Information Technologies plans to contribute expertise in post-quantum cryptography, side-channel analysis and hardware threat mitigation, collaborating on cryptographic accelerator evaluation and architectural resilience.",
+      "author": "",
+      "relevanceScore": 6,
+      "tags": [
+        "lowRISC",
+        "OpenTitan",
+        "Security",
+        "PQC"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "贝尔法斯特女王大学加入 OpenTitan，计划参与硬件安全研究",
+      "summaryZh": "lowRISC 宣布贝尔法斯特女王大学加入 OpenTitan 联盟。该校安全信息技术中心计划贡献后量子密码、侧信道分析及硬件威胁缓解方面的研究经验，与联盟伙伴合作评估密码加速器并增强架构抗攻击能力。"
+    },
+    {
+      "title": "Caliptra firmware 2.1.5 strengthens key handling and manifest authentication",
+      "url": "https://github.com/chipsalliance/caliptra-sw/releases/tag/fw-2.1.5",
+      "source": "Caliptra (GitHub)",
+      "publishedAt": "2026-11-10",
+      "addedAt": "2026-11-11T01:31:41.151402Z",
+      "summary": "Caliptra firmware 2.1.5 adds encrypted key generation from internal entropy and subsystem-mode UDS/FE zeroization, and authenticates version, SVN and flags alongside owner keys in vendor+owner SoC manifests. Integration changes include 400-byte FW_INFO responses, re-signing affected manifests and a cold boot for corrected DPE identifiers.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Caliptra",
+        "Security",
+        "Firmware",
+        "Root of Trust"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Caliptra 固件 2.1.5 加强密钥处理与清单认证",
+      "summaryZh": "Caliptra 固件 2.1.5 新增利用内部熵生成加密密钥及子系统模式下的 UDS/FE 清零，并将版本、SVN 和标志与所有者密钥一并纳入供应商与所有者联合 SoC 清单认证。集成时需注意 FW_INFO 响应变为 400 字节、受影响清单须重新签名，以及修正 DPE 标识符后需冷启动。"
     },
     {
       "title": "OpenHW joins RISC-V Hong Kong Day and China Summit technical exchanges",
@@ -4710,6 +4754,7 @@
     "CHIPS Alliance / Chisel",
     "CHIPS Alliance / Chisel (GitHub)",
     "CHIPS Alliance Blog",
+    "Caliptra (GitHub)",
     "Chipyard (GitHub)",
     "City University of Hong Kong / RISC-V Summit China",
     "FOSSi Foundation",
