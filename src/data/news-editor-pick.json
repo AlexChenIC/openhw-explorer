@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "reviewedOn": "2026-11-11",
+  "reviewedOn": "2026-11-12",
   "digestUpdatedAt": "2026-11-11T01:31:41.295Z",
   "pick": {
     "url": "https://antmicro.com/blog/2026/11/riscv-dv-compatibility-in-verilator-for-faster-agentic-verification",
