@@ -1,17 +1,17 @@
 {
-  "weekOf": "2026-11-11",
-  "generatedAt": "2026-11-11T01:31:41.295Z",
+  "weekOf": "2026-11-13",
+  "generatedAt": "2026-11-13T08:26:54.426Z",
   "stats": {
-    "totalRelevant": 170,
+    "totalRelevant": 171,
     "totalSources": 61,
     "topTags": [
       {
-        "tag": "RISC-V",
+        "tag": "EDA",
         "count": 53
       },
       {
-        "tag": "EDA",
-        "count": 52
+        "tag": "RISC-V",
+        "count": 53
       },
       {
         "tag": "Open Hardware",
@@ -35,7 +35,7 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 48,
+      "count": 49,
       "items": [
         {
           "title": "Caliptra runtime/FMC 1.3.0 adds MLDSA post-quantum support",
@@ -1111,6 +1111,27 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "Yosys 0.71 removes MCM size limit and flags plugin compatibility changes",
+      "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.71",
+      "source": "YosysHQ / Yosys (GitHub)",
+      "publishedAt": "2026-11-12",
+      "addedAt": "2026-11-13T08:26:54.329458+00:00",
+      "summary": "Yosys 0.71 switches multiple constant multiplication (MCM) to the HCUB algorithm, removing the 32-bit maximum size, and fixes out-of-memory crashes on large casez and priority case statements. Its prefix-deduplicated string implementation may require plugin changes; the release also adds deterministic design-object shuffling.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Yosys",
+        "EDA",
+        "Synthesis"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Yosys 0.71 移除 MCM 大小限制，并提示插件兼容性变化",
+      "summaryZh": "Yosys 0.71 将多常数乘法（MCM）处理改用 HCUB 算法，移除原有 32 位大小限制，并修复大型 casez 和 priority case 语句导致的内存耗尽崩溃。采用前缀去重的字符串新实现可能要求插件适配；本次还新增对设计对象进行确定性重排的功能。"
     },
     {
       "title": "Queen’s University Belfast joins OpenTitan with hardware-security research plans",

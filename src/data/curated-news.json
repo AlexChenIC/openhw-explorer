@@ -3,6 +3,28 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "Yosys 0.71 removes MCM size limit and flags plugin compatibility changes",
+      "titleZh": "Yosys 0.71 移除 MCM 大小限制，并提示插件兼容性变化",
+      "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.71",
+      "source": "YosysHQ / Yosys (GitHub)",
+      "publishedAt": "2026-11-12",
+      "summary": "Yosys 0.71 switches multiple constant multiplication (MCM) to the HCUB algorithm, removing the 32-bit maximum size, and fixes out-of-memory crashes on large casez and priority case statements. Its prefix-deduplicated string implementation may require plugin changes; the release also adds deterministic design-object shuffling.",
+      "summaryZh": "Yosys 0.71 将多常数乘法（MCM）处理改用 HCUB 算法，移除原有 32 位大小限制，并修复大型 casez 和 priority case 语句导致的内存耗尽崩溃。采用前缀去重的字符串新实现可能要求插件适配；本次还新增对设计对象进行确定性重排的功能。",
+      "tags": [
+        "Yosys",
+        "EDA",
+        "Synthesis"
+      ],
+      "addedAt": "2026-11-13T08:26:54.329458+00:00",
+      "sourceTier": "official",
+      "language": "en",
+      "dateEvidence": {
+        "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.71",
+        "locator": "GitHub release published_at: 2026-11-12T07:41:57Z; prerelease=false",
+        "checkedAt": "2026-11-13"
+      }
+    },
+    {
       "title": "Queen’s University Belfast joins OpenTitan with hardware-security research plans",
       "titleZh": "贝尔法斯特女王大学加入 OpenTitan，计划参与硬件安全研究",
       "url": "https://lowrisc.org/news/lowrisc-welcomes-queens-university-belfast-to-the-opentitan-open-source-silicon-project/",
