@@ -76,11 +76,20 @@ describe("three distinct news lanes", () => {
     expect(JSON.stringify(openhw)).toBe(before);
   });
   it("does not bring back an expired editorial recommendation", () => {
-    const recommendation = resolveEditorPick(digest.items, pick, digest.generatedAt, "2026-11-16");
+    const generatedAt = "2026-11-09T00:00:00.000Z";
+    const expiredPick = {
+      version: 1, reviewedOn: day, digestUpdatedAt: generatedAt,
+      pick: { url: tool.url, selectedOn: day, expiresOn: "2026-11-16",
+        reason: { en: "Verification tooling", zh: "验证工具" } },
+    };
+    const items = [article, openhw, tool];
+    expect(resolveEditorPick(items, expiredPick, generatedAt, "2026-11-15")?.item.url).toBe(tool.url);
+    const recommendation = resolveEditorPick(items, expiredPick, generatedAt, "2026-11-16");
     expect(recommendation).toBeNull();
-    const result = selectNewsBrief(digest.items, recommendation, "2026-11-16");
+    const result = selectNewsBrief(items, recommendation, "2026-11-16");
     expect(result.lead).toBe(result.latest);
-    expect(result.openhw?.url).toBe("https://www.ee.cityu.edu.hk/news/2026/10-22-2026");
+    expect(result.lead).toBe(article);
+    expect(result.openhw).toBe(openhw);
   });
   it("ships distinct, dated OpenHW/toolchain lanes without mutating the archive", () => {
     const before = JSON.stringify(digest);
