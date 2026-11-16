@@ -80,7 +80,7 @@ describe("three distinct news lanes", () => {
     const expiredPick = {
       version: 1, reviewedOn: day, digestUpdatedAt: generatedAt,
       pick: { url: tool.url, selectedOn: day, expiresOn: "2026-11-16",
-        reason: { en: "Verification tooling", zh: "验证工具" } },
+        reason: { en: "Verification tooling details", zh: "开源验证工具的实现细节与使用参考" } },
     };
     const items = [article, openhw, tool];
     expect(resolveEditorPick(items, expiredPick, generatedAt, "2026-11-15")?.item.url).toBe(tool.url);
