@@ -3,12 +3,12 @@
   "reviewedOn": "2026-11-16",
   "digestUpdatedAt": "2026-11-13T08:26:54.426Z",
   "pick": {
-    "url": "https://lowrisc.org/news/memory-safety-where-it-matters-most-cheri-for-opentitan/",
+    "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.71",
     "selectedOn": "2026-11-16",
-    "expiresOn": "2026-11-22",
+    "expiresOn": "2026-11-23",
     "reason": {
-      "en": "Explains the planned CHERIoT handoff for OpenTitan owner firmware, with boot-boundary details and scoped core-area estimates useful for RISC-V security architecture.",
-      "zh": "详解面向 OpenTitan 所有者固件的 CHERIoT 集成计划，提供启动边界设计和限定范围的处理器核面积估算，可供 RISC-V 安全架构设计参考。"
+      "en": "Removes the MCM size limit and fixes large-case synthesis crashes, with an explicit plugin compatibility notice that helps engineers plan upgrades.",
+      "zh": "移除 MCM 大小限制并修复大型 case 语句的综合崩溃，同时明确提示插件兼容性变化，便于工程团队评估升级。"
     }
   }
 }
