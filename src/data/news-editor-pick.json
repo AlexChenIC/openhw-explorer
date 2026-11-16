@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "reviewedOn": "2026-11-14",
+  "reviewedOn": "2026-11-16",
   "digestUpdatedAt": "2026-11-13T08:26:54.426Z",
   "pick": {
-    "url": "https://antmicro.com/blog/2026/11/riscv-dv-compatibility-in-verilator-for-faster-agentic-verification",
-    "selectedOn": "2026-11-09",
-    "expiresOn": "2026-11-16",
+    "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.71",
+    "selectedOn": "2026-11-16",
+    "expiresOn": "2026-11-23",
     "reason": {
-      "en": "Connects RISCV-DV to an open-source simulation flow, with implementation details and upstream CI evidence useful to RISC-V verification engineers.",
-      "zh": "将 RISCV-DV 与开源仿真流程连接起来，提供实现细节和上游 CI 链接，对 RISC-V 内核验证具有直接工程参考价值。"
+      "en": "Removes the MCM size limit and fixes large-case synthesis crashes, with an explicit plugin compatibility notice that helps engineers plan upgrades.",
+      "zh": "移除 MCM 大小限制并修复大型 case 语句的综合崩溃，同时明确提示插件兼容性变化，便于工程团队评估升级。"
     }
   }
 }
