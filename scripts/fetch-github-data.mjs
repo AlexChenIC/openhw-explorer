@@ -6,6 +6,7 @@
 import { writeFileSync, readFileSync } from "fs";
 import { join, dirname } from "path";
 import { fileURLToPath } from "url";
+import { spawn } from "child_process";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const ROOT = join(__dirname, "..");
@@ -87,7 +88,7 @@ async function fetchWithRetry(url, options = {}, attempts = 3) {
   let lastError;
   for (let attempt = 1; attempt <= attempts; attempt += 1) {
     try {
-      return await fetchWithTimeout(url, options);
+      return await fetchWithGhApi(url, options);
     } catch (error) {
       lastError = error;
       if (attempt < attempts) {
@@ -98,14 +99,59 @@ async function fetchWithRetry(url, options = {}, attempts = 3) {
   throw lastError;
 }
 
-async function fetchWithTimeout(url, options = {}) {
-  const controller = new AbortController();
-  const timeout = setTimeout(() => controller.abort(), REQUEST_TIMEOUT_MS);
-  try {
-    return await fetch(url, { ...options, signal: controller.signal });
-  } finally {
-    clearTimeout(timeout);
-  }
+function fetchWithGhApi(url) {
+  return new Promise((resolve, reject) => {
+    const endpoint = new URL(url);
+    const gh = spawn("gh", ["api", "--include", `${endpoint.pathname}${endpoint.search}`], {
+      stdio: ["ignore", "pipe", "pipe"],
+      env: { ...process.env, ...(GITHUB_TOKEN ? { GITHUB_TOKEN } : {}) },
+    });
+    const stdout = [];
+    const stderr = [];
+    const timeout = setTimeout(() => gh.kill(), REQUEST_TIMEOUT_MS);
+    gh.stdout.on("data", (chunk) => stdout.push(chunk));
+    gh.stderr.on("data", (chunk) => stderr.push(chunk));
+    gh.on("error", (error) => {
+      clearTimeout(timeout);
+      reject(error);
+    });
+    gh.on("close", (code) => {
+      clearTimeout(timeout);
+      if (code !== 0) {
+        reject(new Error(`gh api failed (${code}): ${Buffer.concat(stderr).toString().trim()}`));
+        return;
+      }
+
+      let remaining = Buffer.concat(stdout).toString();
+      let headerBlock = "";
+      while (remaining.startsWith("HTTP/")) {
+        const boundary = remaining.match(/\r?\n\r?\n/);
+        if (!boundary || boundary.index === undefined) break;
+        headerBlock = remaining.slice(0, boundary.index);
+        remaining = remaining.slice(boundary.index + boundary[0].length);
+      }
+      const [statusLine, ...headerLines] = headerBlock.split(/\r?\n/);
+      const status = Number(statusLine?.match(/^HTTP\/\S+\s+(\d+)/)?.[1]);
+      if (!Number.isInteger(status)) {
+        reject(new Error(`Could not parse gh api response headers for ${url}`));
+        return;
+      }
+      const headerMap = new Map();
+      for (const line of headerLines) {
+        const separator = line.indexOf(":");
+        if (separator > 0) {
+          headerMap.set(line.slice(0, separator).toLowerCase(), line.slice(separator + 1).trim());
+        }
+      }
+      resolve({
+        ok: status >= 200 && status < 300,
+        status,
+        headers: { get: (name) => headerMap.get(name.toLowerCase()) || null },
+        json: async () => JSON.parse(remaining),
+      });
+    });
+
+  });
 }
 
 async function fetchJSON(url) {
