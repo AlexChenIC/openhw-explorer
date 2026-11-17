@@ -3,6 +3,31 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "ThreadX RISC-V talk explains scalable ports and lessons from real hardware",
+      "titleZh": "ThreadX RISC-V 技术演讲详解可扩展移植与实板调试经验",
+      "url": "https://www.youtube.com/watch?v=ZV9wHRVASLM",
+      "source": "Eclipse Foundation / Open Community Experience / 10xEngineers",
+      "publishedAt": "2026-11-09",
+      "summary": "In this OCX recording, 10xEngineers’ Akif Ejaz explains how the Eclipse ThreadX RISC-V ports support 32-bit and 64-bit systems, and discusses bugs exposed when moving from QEMU to real hardware. The official session description covers SpacemiT K1 board support and planned hardware-in-the-loop testing. It offers practical porting and regression-testing guidance without establishing certification of a particular RISC-V system.",
+      "summaryZh": "在这段 OCX 录像中，10xEngineers 的 Akif Ejaz 介绍 Eclipse ThreadX 的 RISC-V 移植如何支持 32 位与 64 位系统，并讨论从 QEMU 转向实板后暴露的问题。官方演讲说明涵盖 SpacemiT K1 板级支持及计划中的硬件在环测试，为移植与回归测试提供实践参考；这些内容不代表某个具体 RISC-V 系统已取得安全认证。",
+      "tags": [
+        "RISC-V",
+        "ThreadX",
+        "RTOS",
+        "Verification",
+        "Talk"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "addedAt": "2026-11-17T06:57:14.624086+00:00",
+      "dateEvidence": {
+        "url": "https://www.youtube.com/watch?v=ZV9wHRVASLM",
+        "locator": "Official Open Community Experience channel UCNF1vKoqdVOI1q0_zYAPWaw; original upload_date=20261109, duration2819s. Official OCX webinar-week agenda dates session November4; recording publication November9. Original video description and chapters read; QEMU/real hardware26:15, K1/BSP33:00, planned HIL35:10. Caption fetch HTTP429; no full viewing/transcript review or certification claim. Corroborated by https://ocxconf.org/webinar-week/ .",
+        "checkedAt": "2026-11-17"
+      }
+    },
+    {
       "title": "Yosys 0.71 removes MCM size limit and flags plugin compatibility changes",
       "titleZh": "Yosys 0.71 移除 MCM 大小限制，并提示插件兼容性变化",
       "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.71",

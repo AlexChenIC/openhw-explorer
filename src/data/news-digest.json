@@ -1,16 +1,16 @@
 {
-  "weekOf": "2026-11-13",
-  "generatedAt": "2026-11-13T08:26:54.426Z",
+  "weekOf": "2026-11-17",
+  "generatedAt": "2026-11-17T06:57:29.898Z",
   "stats": {
-    "totalRelevant": 171,
-    "totalSources": 61,
+    "totalRelevant": 172,
+    "totalSources": 62,
     "topTags": [
       {
-        "tag": "EDA",
-        "count": 53
+        "tag": "RISC-V",
+        "count": 54
       },
       {
-        "tag": "RISC-V",
+        "tag": "EDA",
         "count": 53
       },
       {
@@ -23,7 +23,7 @@
       },
       {
         "tag": "Verification",
-        "count": 40
+        "count": 41
       }
     ]
   },
@@ -94,7 +94,7 @@
         "zh": "RISC-V 生态"
       },
       "icon": "cpu",
-      "count": 58,
+      "count": 59,
       "items": [
         {
           "title": "Antmicro and Nuvoton advance NPCR1 OpenTitan support in Renode",
@@ -1111,6 +1111,29 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "ThreadX RISC-V talk explains scalable ports and lessons from real hardware",
+      "url": "https://www.youtube.com/watch?v=ZV9wHRVASLM",
+      "source": "Eclipse Foundation / Open Community Experience / 10xEngineers",
+      "publishedAt": "2026-11-09",
+      "addedAt": "2026-11-17T06:57:14.624086+00:00",
+      "summary": "In this OCX recording, 10xEngineers’ Akif Ejaz explains how the Eclipse ThreadX RISC-V ports support 32-bit and 64-bit systems, and discusses bugs exposed when moving from QEMU to real hardware. The official session description covers SpacemiT K1 board support and planned hardware-in-the-loop testing. It offers practical porting and regression-testing guidance without establishing certification of a particular RISC-V system.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "RISC-V",
+        "ThreadX",
+        "RTOS",
+        "Verification",
+        "Talk"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "ThreadX RISC-V 技术演讲详解可扩展移植与实板调试经验",
+      "summaryZh": "在这段 OCX 录像中，10xEngineers 的 Akif Ejaz 介绍 Eclipse ThreadX 的 RISC-V 移植如何支持 32 位与 64 位系统，并讨论从 QEMU 转向实板后暴露的问题。官方演讲说明涵盖 SpacemiT K1 板级支持及计划中的硬件在环测试，为移植与回归测试提供实践参考；这些内容不代表某个具体 RISC-V 系统已取得安全认证。"
     },
     {
       "title": "Yosys 0.71 removes MCM size limit and flags plugin compatibility changes",
@@ -4778,6 +4801,7 @@
     "Caliptra (GitHub)",
     "Chipyard (GitHub)",
     "City University of Hong Kong / RISC-V Summit China",
+    "Eclipse Foundation / Open Community Experience / 10xEngineers",
     "FOSSi Foundation",
     "FOSSi Foundation / Latch-Up 2026",
     "FOSSi Foundation Videos",
