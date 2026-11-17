@@ -1,7 +1,7 @@
 {
   "version": 1,
-  "reviewedOn": "2026-11-16",
-  "digestUpdatedAt": "2026-11-13T08:26:54.426Z",
+  "reviewedOn": "2026-11-17",
+  "digestUpdatedAt": "2026-11-17T06:57:29.898Z",
   "pick": {
     "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.71",
     "selectedOn": "2026-11-16",
