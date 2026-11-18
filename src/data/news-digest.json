@@ -1,8 +1,8 @@
 {
-  "weekOf": "2026-11-17",
-  "generatedAt": "2026-11-17T06:57:29.898Z",
+  "weekOf": "2026-11-18",
+  "generatedAt": "2026-11-18T04:03:08.617Z",
   "stats": {
-    "totalRelevant": 172,
+    "totalRelevant": 173,
     "totalSources": 62,
     "topTags": [
       {
@@ -19,7 +19,7 @@
       },
       {
         "tag": "Security",
-        "count": 45
+        "count": 46
       },
       {
         "tag": "Verification",
@@ -35,7 +35,7 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 49,
+      "count": 50,
       "items": [
         {
           "title": "Caliptra runtime/FMC 1.3.0 adds MLDSA post-quantum support",
@@ -1111,6 +1111,29 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "Caliptra MCU 2.0 update strengthens SPDM liveness and device identity provisioning",
+      "url": "https://github.com/chipsalliance/caliptra-mcu-sw/releases/tag/rom-sdk-2.0.2",
+      "source": "CHIPS Alliance / Caliptra MCU SW (GitHub)",
+      "publishedAt": "2026-11-18",
+      "addedAt": "2026-11-18T04:03:08.470006+00:00",
+      "summary": "The combined MCU ROM 2.0.2 and runtime firmware 2.0.1 release adds SPDM HEARTBEAT/HEARTBEAT_ACK with a watchdog and ML-DSA-87 IDevID certificate installation into Caliptra. Its official changelog also records boot-time IDevID certificate provisioning, SPDM suites as CI gates, and end-to-end tests for offline manifest signing. These are updates to the maintained 2.0 firmware line, rather than a new silicon release.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "Firmware",
+        "SPDM"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Caliptra MCU 2.0 更新强化 SPDM 活性检测与设备身份配置",
+      "summaryZh": "MCU ROM 2.0.2 与运行时固件 2.0.1 的联合发布加入带看门狗的 SPDM HEARTBEAT/HEARTBEAT_ACK，并支持向 Caliptra 安装 ML-DSA-87 IDevID 证书。官方变更记录还列出启动时配置 IDevID 证书、以 SPDM 测试套件作为 CI 门禁，以及离线清单签名的端到端测试。这些是持续维护的 2.0 固件线更新，并非新芯片发布。"
     },
     {
       "title": "ThreadX RISC-V talk explains scalable ports and lessons from real hardware",
