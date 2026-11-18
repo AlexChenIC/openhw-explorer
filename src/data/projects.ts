@@ -1,4 +1,5 @@
 import Fuse from "fuse.js";
+import zhMessages from "../../messages/zh.json";
 import {
   CoreType,
   Project,
@@ -98,13 +99,13 @@ const verifiedClassification: Record<string, VerifiedClassification> = {
     verificationType: ["uvm-testbench", "formal-verification"],
   },
 
-  "core-v-mcu": { category: ["soc"] },
+  "core-v-mcu": { category: ["soc"], coreType: ["embedded-mcu"] },
   "core-v-mcu-devkit": { category: ["soc", "tools"] },
   "cva6-safe": { category: ["soc"], coreType: ["fault-tolerant"] },
   "core-v-polara-apu": { category: ["soc"] },
   "core-et": { category: ["ip", "soc"] },
   "cva6-platform": { category: ["soc"] },
-  "cva6-dcls": { category: ["soc"] },
+  "cva6-dcls": { category: ["soc"], coreType: ["fault-tolerant"] },
 
   cvfpu: { category: ["ip"] },
   "cv-hpdcache": { category: ["ip"] },
@@ -1031,25 +1032,36 @@ export function getGitHubStatsMeta() {
   return rawData._meta;
 }
 
-// Fuse.js instance for fuzzy search (lazy-initialized)
-let fuseInstance: Fuse<Project> | null = null;
+// A one-character edit in a short Chinese term can change its technical meaning.
+const searchIndexes: Partial<Record<"literal" | "fuzzy", Fuse<Project>>> = {};
 
-function getFuse(): Fuse<Project> {
-  if (!fuseInstance) {
-    fuseInstance = new Fuse(projects, {
+function getFuse(mode: "literal" | "fuzzy"): Fuse<Project> {
+  if (!searchIndexes[mode]) {
+    searchIndexes[mode] = new Fuse(projects, {
       keys: [
+        { name: "id", weight: 2.0 },
         { name: "name", weight: 2.0 },
         { name: "description", weight: 1.0 },
+        { name: "localizedDescription.zh", weight: 1.0 },
+        {
+          name: "zhFacets",
+          weight: 1.5,
+          getFn: (project) => [
+            ...project.category.map((id) => zhMessages.filters.categories[id]),
+            ...(project.coreType ?? []).map((id) => zhMessages.filters.coreTypes[id]),
+            ...(project.verificationType ?? []).map((id) => zhMessages.filters.verificationTypes[id]),
+          ],
+        },
         { name: "tags", weight: 1.5 },
         { name: "language", weight: 0.5 },
         { name: "category", weight: 0.8 },
       ],
-      threshold: 0.35,
+      threshold: mode === "literal" ? 0 : 0.35,
       ignoreLocation: true,
       includeScore: true,
     });
   }
-  return fuseInstance;
+  return searchIndexes[mode];
 }
 
 // Helper function to filter projects
@@ -1060,11 +1072,11 @@ export function filterProjects(filters: {
   role?: UserRole;
   search?: string;
 }): Project[] {
-  // If search is provided, use Fuse.js for fuzzy matching first
   let baseProjects = projects;
-  if (filters.search && filters.search.trim()) {
-    const fuse = getFuse();
-    baseProjects = fuse.search(filters.search.trim()).map((result) => result.item);
+  const query = filters.search?.trim();
+  if (query) {
+    const fuse = getFuse(/\p{Script=Han}/u.test(query) ? "literal" : "fuzzy");
+    baseProjects = fuse.search(query).map((result) => result.item);
   }
 
   return baseProjects.filter((project) => {
