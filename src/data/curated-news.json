@@ -3,6 +3,31 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "Caliptra MCU 2.0 update strengthens SPDM liveness and device identity provisioning",
+      "titleZh": "Caliptra MCU 2.0 更新强化 SPDM 活性检测与设备身份配置",
+      "url": "https://github.com/chipsalliance/caliptra-mcu-sw/releases/tag/rom-sdk-2.0.2",
+      "source": "CHIPS Alliance / Caliptra MCU SW (GitHub)",
+      "publishedAt": "2026-11-18",
+      "summary": "The combined MCU ROM 2.0.2 and runtime firmware 2.0.1 release adds SPDM HEARTBEAT/HEARTBEAT_ACK with a watchdog and ML-DSA-87 IDevID certificate installation into Caliptra. Its official changelog also records boot-time IDevID certificate provisioning, SPDM suites as CI gates, and end-to-end tests for offline manifest signing. These are updates to the maintained 2.0 firmware line, rather than a new silicon release.",
+      "summaryZh": "MCU ROM 2.0.2 与运行时固件 2.0.1 的联合发布加入带看门狗的 SPDM HEARTBEAT/HEARTBEAT_ACK，并支持向 Caliptra 安装 ML-DSA-87 IDevID 证书。官方变更记录还列出启动时配置 IDevID 证书、以 SPDM 测试套件作为 CI 门禁，以及离线清单签名的端到端测试。这些是持续维护的 2.0 固件线更新，并非新芯片发布。",
+      "tags": [
+        "Caliptra",
+        "Root of Trust",
+        "Security",
+        "Firmware",
+        "SPDM"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "addedAt": "2026-11-18T04:03:08.470006+00:00",
+      "dateEvidence": {
+        "url": "https://github.com/chipsalliance/caliptra-mcu-sw/releases/tag/rom-sdk-2.0.2",
+        "locator": "Official GitHub release published_at=2026-11-18T03:44:05Z; prerelease=false,draft=false. Full original release body read: PR1927 watchdog,1933 ML-DSA-87 IDevID,2046 boot provisioning,2013 CI suites,1984 offline signing integration tests. Release names MCU ROM2.0.2/runtime2.0.1.",
+        "checkedAt": "2026-11-18"
+      }
+    },
+    {
       "title": "ThreadX RISC-V talk explains scalable ports and lessons from real hardware",
       "titleZh": "ThreadX RISC-V 技术演讲详解可扩展移植与实板调试经验",
       "url": "https://www.youtube.com/watch?v=ZV9wHRVASLM",
