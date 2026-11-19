@@ -1,17 +1,17 @@
 {
-  "weekOf": "2026-11-18",
-  "generatedAt": "2026-11-18T04:03:08.617Z",
+  "weekOf": "2026-11-19",
+  "generatedAt": "2026-11-19T04:32:01.218Z",
   "stats": {
-    "totalRelevant": 173,
+    "totalRelevant": 174,
     "totalSources": 62,
     "topTags": [
       {
-        "tag": "RISC-V",
+        "tag": "EDA",
         "count": 54
       },
       {
-        "tag": "EDA",
-        "count": 53
+        "tag": "RISC-V",
+        "count": 54
       },
       {
         "tag": "Open Hardware",
@@ -35,7 +35,7 @@
         "zh": "项目发布"
       },
       "icon": "rocket",
-      "count": 50,
+      "count": 51,
       "items": [
         {
           "title": "Caliptra runtime/FMC 1.3.0 adds MLDSA post-quantum support",
@@ -1111,6 +1111,29 @@
       "highlightRank": 12,
       "titleZh": "Tenstorrent tt-metal v0.75.0 推进 Quasar、Blackhole、TT-NN 与模型流程",
       "summaryZh": "Tenstorrent 发布 tt-metal v0.75.0，这是其开放 AI accelerator stack 的最新正式版；更新覆盖 Quasar 与 Blackhole 的 LLK、Metalium、TT-NN 改动，SFPU accuracy 与 tiny-tile 支持、trace/fabric 改进、fused MoE 与 SDPA 修复，以及 Llama、Qwen、Kimi、Gemma、DeepSeek 等 workload 的 model bring-up。"
+    },
+    {
+      "title": "Chisel 7.17 adds carry-save addition and release-controlled round-robin arbitration",
+      "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.17.0",
+      "source": "CHIPS Alliance / Chisel (GitHub)",
+      "publishedAt": "2026-11-18",
+      "addedAt": "2026-11-19T04:30:41.721973+00:00",
+      "summary": "Chisel 7.17.0 adds a carry-save-adder function that reduces multiple UInt inputs to two sum-equivalent outputs, and a LockUntilReleaseRRArbiter that holds a producer until an external release signal permits another. These reusable circuit generators support multi-operand arithmetic and packet streams with variable transaction lengths. The release also fixes quadratic handling of Definitions and adds FST waveform emission support.",
+      "author": "",
+      "relevanceScore": 5,
+      "tags": [
+        "Chisel",
+        "EDA",
+        "RTL",
+        "SoC/IP",
+        "Toolchain"
+      ],
+      "language": "en",
+      "sourceTier": "official",
+      "reviewStatus": "curated",
+      "curated": true,
+      "titleZh": "Chisel 7.17 新增进位保留加法与信号释放式轮询仲裁",
+      "summaryZh": "Chisel 7.17.0 新增进位保留加法函数，将多个 UInt 输入归约为两个总和等价的输出；新增 LockUntilReleaseRRArbiter，由外部 release 信号控制何时释放当前生产者。这些可复用电路生成组件面向多操作数运算及事务长度可变的数据包流。本次还修复 Definitions 处理中的二次复杂度问题，并加入 FST 波形输出支持。"
     },
     {
       "title": "Caliptra MCU 2.0 update strengthens SPDM liveness and device identity provisioning",
