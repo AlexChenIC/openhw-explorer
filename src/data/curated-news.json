@@ -3,6 +3,31 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "Chisel 7.17 adds carry-save addition and release-controlled round-robin arbitration",
+      "titleZh": "Chisel 7.17 新增进位保留加法与信号释放式轮询仲裁",
+      "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.17.0",
+      "source": "CHIPS Alliance / Chisel (GitHub)",
+      "publishedAt": "2026-11-18",
+      "summary": "Chisel 7.17.0 adds a carry-save-adder function that reduces multiple UInt inputs to two sum-equivalent outputs, and a LockUntilReleaseRRArbiter that holds a producer until an external release signal permits another. These reusable circuit generators support multi-operand arithmetic and packet streams with variable transaction lengths. The release also fixes quadratic handling of Definitions and adds FST waveform emission support.",
+      "summaryZh": "Chisel 7.17.0 新增进位保留加法函数，将多个 UInt 输入归约为两个总和等价的输出；新增 LockUntilReleaseRRArbiter，由外部 release 信号控制何时释放当前生产者。这些可复用电路生成组件面向多操作数运算及事务长度可变的数据包流。本次还修复 Definitions 处理中的二次复杂度问题，并加入 FST 波形输出支持。",
+      "tags": [
+        "Chisel",
+        "EDA",
+        "RTL",
+        "SoC/IP",
+        "Toolchain"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "addedAt": "2026-11-19T04:30:41.721973+00:00",
+      "dateEvidence": {
+        "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.17.0",
+        "locator": "Official GitHub published_at=2026-11-18T21:27:10Z; prerelease=false,draft=false. Full release body and merged PR5409 (Csa),5525 (external release arbitration),5506 (Definitions complexity) read. FST emission listed in PR5547 release note. No quantitative performance or verification-coverage claim.",
+        "checkedAt": "2026-11-19"
+      }
+    },
+    {
       "title": "Caliptra MCU 2.0 update strengthens SPDM liveness and device identity provisioning",
       "titleZh": "Caliptra MCU 2.0 更新强化 SPDM 活性检测与设备身份配置",
       "url": "https://github.com/chipsalliance/caliptra-mcu-sw/releases/tag/rom-sdk-2.0.2",
