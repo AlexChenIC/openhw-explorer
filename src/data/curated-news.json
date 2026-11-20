@@ -3,6 +3,54 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "Antmicro demonstrates YAML-driven SoC interconnect generation with Omnibus",
+      "titleZh": "Antmicro 展示 Omnibus 的 YAML 驱动 SoC 互连生成流程",
+      "url": "https://antmicro.com/blog/2026/11/automated-interconnect-generation-with-omnibus",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-11-19",
+      "summary": "Antmicro describes Omnibus, an open-source generator that builds SoC interconnects from YAML specifications, inserts adapters including protocol converters and clock-domain crossings, and produces Topwrap projects and SystemVerilog wrappers using PULP components. The article explains Graphviz inspection and a verification flow using Pytest, cocotb and Verilator.",
+      "summaryZh": "Antmicro 介绍开源互连生成器 Omnibus：从 YAML 规格构建 SoC 互连，插入协议转换和时钟域跨越等适配组件，并基于 PULP 组件生成 Topwrap 工程与 SystemVerilog 包装代码。文章还说明 Graphviz 结构检查及使用 Pytest、cocotb 和 Verilator 的验证流程。",
+      "tags": [
+        "SoC/IP",
+        "EDA",
+        "RTL",
+        "Toolchain"
+      ],
+      "sourceTier": "trusted",
+      "language": "en",
+      "reviewStatus": "curated",
+      "addedAt": "2026-11-20T00:31:17.752712+00:00",
+      "dateEvidence": {
+        "url": "https://antmicro.com/blog/2026/11/automated-interconnect-generation-with-omnibus",
+        "locator": "Original visible time and JSON-LD datePublished both November19,2026; canonical link exact. Full original article read; public Omnibus README / Renode Coral external-control demo cross-checked. No measured speedup, silicon result or completeness claim.",
+        "checkedAt": "2026-11-20"
+      }
+    },
+    {
+      "title": "Renode expands external hardware interfaces and two-instance co-simulation",
+      "titleZh": "Renode 扩展外部硬件接口与双实例协同仿真",
+      "url": "https://antmicro.com/blog/2026/11/improvements-to-renode-external-control-api",
+      "source": "Antmicro Blog",
+      "publishedAt": "2026-11-19",
+      "summary": "Antmicro details Renode External Control API improvements for bus peripherals, signals, CAN and SPI, together with a uniform message header and support for concurrent and nested requests. A published demo connects two Renode instances, placing Linux on an i.MX 8M Plus platform in one instance and a Coral NPU with DMA in the other for memory-mapped interaction.",
+      "summaryZh": "Antmicro 详解 Renode External Control API 对总线外设、信号、CAN 和 SPI 的扩展，以及统一消息头和并发、嵌套请求支持。公开演示连接两个 Renode 实例：一个运行 i.MX 8M Plus 平台上的 Linux，另一个模拟 Coral NPU 与 DMA，通过内存映射访问交互。",
+      "tags": [
+        "Verification",
+        "Simulation",
+        "RISC-V",
+        "EDA"
+      ],
+      "sourceTier": "trusted",
+      "language": "en",
+      "reviewStatus": "curated",
+      "addedAt": "2026-11-20T00:31:17.752712+00:00",
+      "dateEvidence": {
+        "url": "https://antmicro.com/blog/2026/11/improvements-to-renode-external-control-api",
+        "locator": "Original visible time and JSON-LD datePublished both November19,2026; canonical link exact. Full original article read; public Omnibus README / Renode Coral external-control demo cross-checked. No measured speedup, silicon result or completeness claim.",
+        "checkedAt": "2026-11-20"
+      }
+    },
+    {
       "title": "Chisel 7.17 adds carry-save addition and release-controlled round-robin arbitration",
       "titleZh": "Chisel 7.17 新增进位保留加法与信号释放式轮询仲裁",
       "url": "https://github.com/chipsalliance/chisel/releases/tag/v7.17.0",
