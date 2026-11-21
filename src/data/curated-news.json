@@ -3,6 +3,31 @@
   "_usage": "每次更新添加 1-5 条真正值得关注的内容即可，不为数量凑条目。必填: title/url/source/addedAt/summary/tags。可选: titleZh/summaryZh/sourceTier/language(en|zh|other)。构建时会合并进 news-digest.json。",
   "items": [
     {
+      "title": "MemPool v0.7.0 adds DRAM co-simulation and L2 atomics",
+      "titleZh": "MemPool v0.7.0 新增 DRAM 协同仿真与 L2 原子操作",
+      "url": "https://github.com/pulp-platform/mempool/releases/tag/v0.7.0",
+      "source": "PULP Platform / MemPool (GitHub)",
+      "publishedAt": "2026-11-20",
+      "summary": "MemPool v0.7.0 adds DRAMsys 5.0 co-simulation, FENCE instruction support and atomics in L2. The release enables division and square root in the default configuration, adds TensorPool configurations and tests, and fixes DMA and Snitch decoder bugs. These changes extend the open manycore platform’s simulation and software-development capabilities.",
+      "summaryZh": "MemPool v0.7.0 新增 DRAMsys 5.0 协同仿真、FENCE 指令支持及 L2 原子操作。该版本在默认配置中启用除法和平方根单元，加入 TensorPool 配置与测试，并修复 DMA 和 Snitch 译码器问题，扩展开源众核平台的仿真与软件开发能力。",
+      "tags": [
+        "PULP",
+        "RISC-V",
+        "Manycore",
+        "Simulation",
+        "Verification"
+      ],
+      "sourceTier": "official",
+      "language": "en",
+      "reviewStatus": "curated",
+      "addedAt": "2026-11-21T10:22:37.137737+00:00",
+      "dateEvidence": {
+        "url": "https://github.com/pulp-platform/mempool/releases/tag/v0.7.0",
+        "locator": "GitHub published_at=2026-11-20T13:00:10Z, draft=false, prerelease=false. Full original release notes and v0.7.0 README read; no measured performance, silicon readiness or independent validation claim.",
+        "checkedAt": "2026-11-21"
+      }
+    },
+    {
       "title": "Antmicro demonstrates YAML-driven SoC interconnect generation with Omnibus",
       "titleZh": "Antmicro 展示 Omnibus 的 YAML 驱动 SoC 互连生成流程",
       "url": "https://antmicro.com/blog/2026/11/automated-interconnect-generation-with-omnibus",
