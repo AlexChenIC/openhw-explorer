@@ -1,14 +1,14 @@
 {
   "version": 1,
-  "reviewedOn": "2026-11-22",
+  "reviewedOn": "2026-11-23",
   "digestUpdatedAt": "2026-11-21T10:22:37.278Z",
   "pick": {
-    "url": "https://github.com/YosysHQ/yosys/releases/tag/v0.71",
-    "selectedOn": "2026-11-16",
-    "expiresOn": "2026-11-23",
+    "url": "https://antmicro.com/blog/2026/11/automated-interconnect-generation-with-omnibus",
+    "selectedOn": "2026-11-23",
+    "expiresOn": "2026-11-30",
     "reason": {
-      "en": "Removes the MCM size limit and fixes large-case synthesis crashes, with an explicit plugin compatibility notice that helps engineers plan upgrades.",
-      "zh": "移除 MCM 大小限制并修复大型 case 语句的综合崩溃，同时明确提示插件兼容性变化，便于工程团队评估升级。"
+      "en": "Connects YAML interconnect specifications to generated RTL and concrete Pytest, cocotb and Verilator checks, offering a practical path for repeatable SoC integration.",
+      "zh": "将 YAML 互连规格、RTL 生成与具体的 Pytest、cocotb 和 Verilator 检查串联起来，为可重复的 SoC 集成提供实用流程。"
     }
   }
 }
